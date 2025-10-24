@@ -1,0 +1,73 @@
+
+import { Market } from './types';
+
+export const INITIAL_MARKETS: Market[] = [
+  {
+    id: '1',
+    websiteName: 'Notion',
+    websiteUrl: 'https://notion.so',
+    faviconUrl: 'https://www.notion.so/images/favicon.ico',
+    description: 'Will Notion.so see a month-over-month traffic increase?',
+    historicalData: [
+      { month: 'Jan', traffic: 4500 },
+      { month: 'Feb', traffic: 4800 },
+      { month: 'Mar', traffic: 5200 },
+      { month: 'Apr', traffic: 5100 },
+      { month: 'May', traffic: 5500 },
+      { month: 'Jun', traffic: 5800 },
+    ],
+    sharesUp: 650,
+    sharesDown: 350,
+  },
+  {
+    id: '2',
+    websiteName: 'Figma',
+    websiteUrl: 'https://figma.com',
+    faviconUrl: 'https://static.figma.com/app/icon/1/favicon.ico',
+    description: 'Will Figma.com\'s user traffic grow next month?',
+    historicalData: [
+      { month: 'Jan', traffic: 7000 },
+      { month: 'Feb', traffic: 7200 },
+      { month: 'Mar', traffic: 6800 },
+      { month: 'Apr', traffic: 7500 },
+      { month: 'May', traffic: 7800 },
+      { month: 'Jun', traffic: 8200 },
+    ],
+    sharesUp: 720,
+    sharesDown: 280,
+  },
+  {
+    id: '3',
+    websiteName: 'Vercel',
+    websiteUrl: 'https://vercel.com',
+    faviconUrl: 'https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico',
+    description: 'Will Vercel.com experience a surge in developer traffic?',
+    historicalData: [
+      { month: 'Jan', traffic: 3000 },
+      { month: 'Feb', traffic: 3100 },
+      { month: 'Mar', traffic: 3500 },
+      { month: 'Apr', traffic: 4000 },
+      { month: 'May', traffic: 4200 },
+      { month: 'Jun', traffic: 4100 },
+    ],
+    sharesUp: 400,
+    sharesDown: 600,
+  },
+  {
+    id: '4',
+    websiteName: 'Linear',
+    websiteUrl: 'https://linear.app',
+    faviconUrl: 'https://linear.app/cdn-cgi/imagedelivery/fO02fVwohE3OBdwQIea2aA/c6a5133d-65d4-4610-8531-95b306b37900/favicon',
+    description: 'Will Linear.app\'s project management tool gain more traffic?',
+    historicalData: [
+      { month: 'Jan', traffic: 1200 },
+      { month: 'Feb', traffic: 1500 },
+      { month: 'Mar', traffic: 1800 },
+      { month: 'Apr', traffic: 2200 },
+      { month: 'May', traffic: 2500 },
+      { month: 'Jun', traffic: 2800 },
+    ],
+    sharesUp: 800,
+    sharesDown: 200,
+  },
+];
