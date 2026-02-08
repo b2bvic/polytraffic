@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cross-Device Attribution for Publishers: Track Visitors Across Mobile Desktop and Tablet | Polytraffic</title>
+    <meta name="description" content="Implement cross-device attribution using device graphs probabilistic matching and identity resolution to accurately track multi-device visitor journeys." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Cross-Device Attribution for Publishers: Track Visitors Across Mobile Desktop and Tablet | Polytraffic" />
+    <meta property="og:description" content="Implement cross-device attribution using device graphs probabilistic matching and identity resolution to accurately track multi-device visitor journeys." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/cross-device-attribution-publishers.html" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cross-Device Attribution for Publishers: Track Visitors Across Mobile Desktop and Tablet | Polytraffic" />
+    <meta name="twitter:description" content="Implement cross-device attribution using device graphs probabilistic matching and identity resolution to accurately track multi-device visitor journeys." />
+    <link rel="canonical" href="https://polytraffic.com/articles/cross-device-attribution-publishers.html" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://tattooremovalnear.com" />
+    <link rel="me" href="https://comicstripai.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="me" href="https://b2bvic.com" />
+    <link rel="me" href="https://seobyrole.com" />
+    <link rel="me" href="https://quickfixseo.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0c1222',
+              800: '#141c30',
+              700: '#1e2a42',
+              600: '#1e293b',
+            },
+            violet: {
+              500: '#8b5cf6',
+              400: '#a78bfa',
+            },
+            cyan: {
+              500: '#06b6d4',
+            },
+            cta: {
+              500: '#f97316',
+              400: '#fb923c',
+            },
+            slate: {
+              100: '#f1f5f9',
+              400: '#94a3b8',
+              500: '#64748b',
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+            mono: ['"Fira Code"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cross-Device Attribution for Publishers: Track Visitors Across Mobile Desktop and Tablet",
+    "description": "Implement cross-device attribution using device graphs probabilistic matching and identity resolution to accurately track multi-device visitor journeys.",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-02-08",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/cross-device-attribution-publishers.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/traffic-strategy.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Cross-Device Attribution for Publishers: Track Visitors Across Mobile Desktop and Tablet"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Build Your Portfolio &mdash; $997
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Build Your Portfolio &mdash; $997
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/traffic-strategy.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Cross-Device Attribution for Publishers: Track Visitors Across Mobile Desktop and Tablet</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <article class="pt-prose">
+        <h1>Cross-Device Attribution for Publishers: Track Visitors Across Mobile Desktop and Tablet</h1>
+<p>Visitors read articles on phones during commutes, research on desktop at work, then subscribe on tablets at home. Traditional cookie-based analytics treats these as three separate people—systematically undercounting returning visitors by 35-55% and fragmenting conversion attribution across devices. <strong>Cross-device attribution</strong> reconstructs visitor journeys spanning phones, desktops, and tablets, revealing true traffic patterns and which content influences multi-session conversions despite device switching.</p>
+<h2>Why Cross-Device Tracking Matters for Publishers</h2>
+<p>Device proliferation makes single-device measurement obsolete. 2025 data shows average internet users own 3.2 connected devices and switch devices 4-7× daily. Publishers measuring &quot;unique visitors&quot; without cross-device linking inflate counts by 40-60%—the same person appears 2-3× in reports.</p>
+<p>This distortion undermines three critical publisher capabilities:</p>
+<h3>Accurate Audience Size Measurement</h3>
+<p>A publisher reports 100,000 monthly unique visitors. Cross-device analysis reveals 68,000 actual people—32,000 counted multiple times due to device switching. This 47% overcount makes audience size, growth rates, and engagement metrics unreliable for stakeholder reporting and monetization negotiations.</p>
+<p>Advertisers increasingly demand deduplicated reach numbers. A CPM based on 100K visitors is 47% overpriced if real reach is 68K. Publishers unable to provide accurate cross-device counts face revenue pressure or risk fraud allegations.</p>
+<h3>Attribution Path Completeness</h3>
+<p>A visitor discovers content on mobile during lunch, researches competitors on desktop that afternoon, returns via direct desktop visit the next morning to subscribe. Cookie-based analytics sees:</p>
+<ul>
+<li>Mobile visit → No conversion (appears worthless)</li>
+<li>Desktop visit 1 → No conversion (appears worthless)</li>
+<li>Desktop visit 2 → Conversion (gets 100% credit)</li>
+</ul>
+<p>Cross-device attribution reveals all three touchpoints contributed to conversion. Mobile discovery initiated the journey and deserves attribution credit. Without cross-device linking, top-of-funnel mobile content appears ineffective, leading to underinvestment in discovery content despite its critical role.</p>
+<h3>Multi-Touch Campaign Effectiveness</h3>
+<p>Email campaigns sent Tuesday drive 2,000 mobile opens during commutes. Subscribers read on phones but wait until desktop to take action—clicking links, reading full articles, subscribing. Traditional measurement shows:</p>
+<ul>
+<li>Tuesday email: 2,000 opens, 140 mobile clicks, 3 conversions (0.15% conversion rate)</li>
+<li>Wednesday direct traffic: 96 conversions from &quot;unknown&quot; source</li>
+</ul>
+<p>Cross-device tracking links Tuesday mobile engagement to Wednesday desktop conversions:</p>
+<ul>
+<li>Tuesday email: 2,000 opens, 140 mobile clicks, 99 total conversions (4.95% conversion rate)</li>
+</ul>
+<p>The email campaign suddenly appears 33× more effective. This changes budget allocation, content strategy, and campaign optimization priorities. <a href="data-driven-attribution-ga4.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">data-driven-attribution-ga4.html</a> explores attribution modeling once cross-device data exists.</p>
+<h2>Three Cross-Device Attribution Approaches</h2>
+<p>Publishers choose between deterministic (identity-based), probabilistic (pattern-based), or hybrid methods depending on data availability and accuracy requirements:</p>
+<h3>Deterministic Attribution: Identity-Based Matching</h3>
+<p><strong>Deterministic attribution</strong> links devices when visitors provide identifying information—email address, account login, social authentication. When someone signs in on both phone and desktop, the system definitively knows both devices belong to the same person.</p>
+<p>Implementation requirements:</p>
+<ul>
+<li>Account system or authentication mechanism</li>
+<li>Visitor willingness to log in on multiple devices</li>
+<li>Backend database tracking user_id across devices</li>
+<li>Analytics integration passing user_id to reporting tools</li>
+</ul>
+<p>Workflow:</p>
+<ol>
+<li>Visitor reads article on phone (anonymous → assigned temp_id_12345)</li>
+<li>Clicks email signup CTA, provides email (temp_id_12345 linked to <a href="mailto:email@example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">email@example.com</a>)</li>
+<li>Later opens laptop, reads article (anonymous → assigned temp_id_67890)</li>
+<li>Clicks newsletter link requiring login (temp_id_67890 linked to <a href="mailto:email@example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">email@example.com</a>)</li>
+<li>Backend merges temp_id_12345 and temp_id_67890 → both linked to <a href="mailto:email@example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">email@example.com</a></li>
+<li>Analytics now shows 1 person, 2 devices, complete journey visible</li>
+</ol>
+<p>Accuracy: 95-99% when visitors authenticate. Perfect matches because identity is explicit, not inferred.</p>
+<p>Limitations: Only works for authenticated visitors. Publishers where 20-40% of traffic logs in achieve 20-40% cross-device coverage. Anonymous traffic remains fragmented.</p>
+<p>Tools: <strong>Segment</strong>, <strong>mParticle</strong>, and <strong>Treasure Data</strong> (CDPs) handle identity resolution and device graph management. Custom implementations use backend databases linking user_ids to session cookies across devices.</p>
+<h3>Probabilistic Attribution: Pattern Matching</h3>
+<p><strong>Probabilistic attribution</strong> infers device ownership through behavioral patterns, IP addresses, user agents, and browsing habits. When two devices exhibit correlated behavior, algorithms estimate likelihood they belong to same person.</p>
+<p>Matching signals:</p>
+<ul>
+<li><strong>IP address overlap</strong>: Same home/office network used by both devices</li>
+<li><strong>Temporal patterns</strong>: Devices active during complementary hours (phone during commute, desktop during work)</li>
+<li><strong>Content overlap</strong>: Both devices read same articles within 24-hour windows</li>
+<li><strong>Sequential patterns</strong>: Phone visit followed by desktop visit 30-90 minutes later</li>
+<li><strong>User agent fingerprinting</strong>: Browser characteristics, timezone, language settings</li>
+</ul>
+<p>Example: A phone from IP 192.168.1.100 reads Article A at 8:15am. A desktop from same IP reads Article A at 9:05am, then Article B. Probabilistic model assigns 72% confidence both devices belong to same person. Over weeks, additional overlapping behavior increases confidence to 89%.</p>
+<p>Accuracy: 60-80% correct matches for two devices, 40-65% for three+ devices. Better than treating devices as separate people but introduces 20-40% error rate.</p>
+<p>Limitations: Shared networks (offices, coffee shops) create false matches. VPNs break IP-based matching. Privacy-focused browsers block fingerprinting signals. Cookie deletion resets tracking.</p>
+<p>Tools: <strong>Google Analytics 4</strong> includes basic probabilistic matching. Enterprise platforms like <strong>Adobe Analytics</strong> and <strong>Salesforce</strong> offer advanced device graph services. Third-party providers <strong>Tapad</strong>, <strong>Drawbridge</strong>, and <strong>Neustar</strong> specialize in device graphs.</p>
+<h3>Hybrid Attribution: Combining Deterministic and Probabilistic</h3>
+<p>Publishers achieve best results combining both methods—using deterministic matching when available, falling back to probabilistic for anonymous traffic.</p>
+<p>Workflow:</p>
+<ol>
+<li>Collect deterministic matches (authenticated visitors)</li>
+<li>Build probabilistic models trained on authenticated visitor behavior patterns</li>
+<li>Apply models to anonymous traffic, flagging high-confidence matches</li>
+<li>Monitor match accuracy by comparing probabilistic predictions against later deterministic confirmations</li>
+</ol>
+<p>This achieves 65-85% coverage (deterministic 30% + probabilistic 35-55%) with 80-92% accuracy (deterministic perfect, probabilistic 60-80%).</p>
+<p>Example: 40% of visitors authenticate (deterministic tracking). Of remaining 60%, probabilistic matching identifies another 38% with 75% accuracy. Total coverage: 78% with blended 88% accuracy.</p>
+<p>Implementation requires sophisticated analytics infrastructure but dramatically improves measurement quality versus single-method approaches. <a href="cookie-deprecation-traffic-measurement.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">cookie-deprecation-traffic-measurement.html</a> explores hybrid attribution in cookieless environments.</p>
+<h2>Implementing Cross-Device Attribution Step-by-Step</h2>
+<p>Publishers without existing cross-device systems follow this 6-phase rollout:</p>
+<h3>Phase 1: Audit Current Device Data</h3>
+<p>Analyze existing analytics to quantify device fragmentation:</p>
+<p><strong>GA4 analysis</strong>:</p>
+<ul>
+<li>Navigate to Reports → Tech → Overview</li>
+<li>View sessions by device category (desktop, mobile, tablet)</li>
+<li>Calculate desktop % of total sessions</li>
+<li>Review User Explorer report showing individual visitor device patterns</li>
+</ul>
+<p>Calculate potential duplication:</p>
+<ul>
+<li>If 55% desktop, 40% mobile, 5% tablet</li>
+<li>Estimate 30-50% of visitors use 2+ devices</li>
+<li>Expected duplication: 15-25% of reported unique visitors</li>
+</ul>
+<p><strong>Behavior flow analysis</strong>:</p>
+<ul>
+<li>Identify common device-switching patterns</li>
+<li>Do visitors discover on mobile, convert on desktop?</li>
+<li>Do desktop readers return via mobile?</li>
+<li>Which content types drive cross-device engagement?</li>
+</ul>
+<p>Understanding current device usage patterns informs architecture decisions—high mobile-to-desktop conversion rates justify investment in mobile optimization and deterministic matching infrastructure.</p>
+<h3>Phase 2: Implement Deterministic Infrastructure</h3>
+<p>Build authentication systems enabling identity-based matching:</p>
+<p><strong>Account creation incentives</strong>:</p>
+<ul>
+<li>Offer exclusive content requiring free accounts</li>
+<li>Enable commenting, bookmarking, reading progress sync</li>
+<li>Provide personalized recommendations based on reading history</li>
+<li>&quot;Save for later&quot; features requiring login</li>
+</ul>
+<p>Goal: Convert 25-40% of visitors into authenticated users within 6 months.</p>
+<p><strong>Cross-device login prompts</strong>:</p>
+<ul>
+<li>Detect new devices accessing accounts, prompt re-authentication</li>
+<li>&quot;Continue reading on your phone&quot; CTAs linking to mobile app with automatic login</li>
+<li>Email magic links enabling one-click authentication from any device</li>
+</ul>
+<p><strong>Technical implementation</strong>:</p>
+<ul>
+<li>Generate persistent user_id on account creation</li>
+<li>Store user_id in server-side database</li>
+<li>Pass user_id to analytics via custom dimension/user property</li>
+<li>Configure GA4 User-ID feature for cross-device reporting</li>
+</ul>
+<p><strong>GA4 User-ID setup</strong>:</p>
+<ol>
+<li>Enable User-ID feature in GA4 property settings</li>
+<li>Implement code setting user_id when visitors authenticate:</li>
+</ol>
+<pre><code class="language-javascript">gtag(&#39;config&#39;, &#39;G-XXXXXXXXXX&#39;, {
+  &#39;user_id&#39;: &#39;{{USER_ID_FROM_DATABASE}}&#39;
+});
+</code></pre>
+<ol start="3">
+<li>Create User-ID reporting view showing deduplicated users</li>
+<li>Compare User-ID view against standard view to quantify duplication</li>
+</ol>
+<h3>Phase 3: Add Probabilistic Matching Layer</h3>
+<p>Extend coverage beyond authenticated visitors:</p>
+<p><strong>GA4&#39;s built-in probabilistic matching</strong>:</p>
+<ul>
+<li>Enabled by default in GA4 properties</li>
+<li>Uses Google&#39;s cross-device signals (logged-in Google users, Android devices, Chrome sync)</li>
+<li>Requires enabling &quot;Google signals&quot; in data settings</li>
+<li>Provides 30-50% additional coverage beyond deterministic matches</li>
+</ul>
+<p><strong>Third-party device graphs</strong>:
+For publishers needing higher accuracy or coverage:</p>
+<ul>
+<li><strong>Tapad Device Graph</strong>: 85% coverage, 90% accuracy ($500-2,000/month)</li>
+<li><strong>Neustar Identity Resolution</strong>: Enterprise-grade, integrates with CDPs ($2,000+/month)</li>
+<li><strong>LiveRamp Identity Graph</strong>: Links devices using hashed email data ($1,000+/month)</li>
+</ul>
+<p><strong>Custom probabilistic models</strong>:
+Publishers with data science resources can build proprietary models:</p>
+<ol>
+<li>Train on authenticated visitor behavior (deterministic ground truth)</li>
+<li>Extract features (IP overlap, temporal patterns, content overlap, user agent)</li>
+<li>Build classification model predicting device-pair match probability</li>
+<li>Apply to anonymous traffic, flag high-confidence matches (80%+ probability)</li>
+<li>Validate predictions against later deterministic confirmations</li>
+</ol>
+<p>Custom models require ML expertise but avoid third-party costs and provide differentiated competitive advantage.</p>
+<h3>Phase 4: Configure Attribution Reporting</h3>
+<p>Adjust analytics reporting to utilize cross-device data:</p>
+<p><strong>GA4 configuration</strong>:</p>
+<ul>
+<li>Enable &quot;Reporting identity&quot; using &quot;Blended&quot; mode (combines User-ID, Google signals, device-based)</li>
+<li>Review &quot;Cross-device conversions&quot; report showing attribution across devices</li>
+<li>Configure conversion paths to show device sequences</li>
+<li>Set up Exploration reports analyzing device switching patterns</li>
+</ul>
+<p><strong>Conversion path analysis</strong>:</p>
+<ul>
+<li>Create funnel visualizations showing device transitions</li>
+<li>Identify common sequences (mobile discovery → desktop conversion)</li>
+<li>Measure time lag between device interactions</li>
+<li>Calculate device-specific conversion rates</li>
+</ul>
+<p><strong>Attribution model adjustments</strong>:</p>
+<ul>
+<li>Shift from last-click to data-driven attribution (accounts for cross-device journeys)</li>
+<li>Ensure attribution windows extend 30-90 days (cross-device conversions take longer)</li>
+<li>Compare attribution models to quantify mobile&#39;s role in desktop conversions</li>
+</ul>
+<h3>Phase 5: Optimize for Cross-Device Experiences</h3>
+<p>Use cross-device data to improve visitor experiences:</p>
+<p><strong>Content continuity features</strong>:</p>
+<ul>
+<li>&quot;Continue reading&quot; prompts showing partially-read articles</li>
+<li>Email reminders with deep links to exact scroll position</li>
+<li>Reading lists synced across devices</li>
+<li>Bookmarking and saving tools accessible from any device</li>
+</ul>
+<p><strong>Device-specific CTAs</strong>:</p>
+<ul>
+<li>Show &quot;Read on desktop for full experience&quot; CTAs for complex interactive content on mobile</li>
+<li>Offer &quot;Save for later&quot; on mobile with desktop email links</li>
+<li>Optimize forms for mobile (simplified fields) vs. desktop (comprehensive data collection)</li>
+</ul>
+<p><strong>Progressive enhancement</strong>:</p>
+<ul>
+<li>Serve basic content to mobile (fast loading, essential information)</li>
+<li>Enhance desktop experience with multimedia, interactives, comprehensive resources</li>
+<li>Link between versions (&quot;View full version on desktop&quot;)</li>
+</ul>
+<p>Cross-device data reveals which content types drive device switching, informing optimization priorities.</p>
+<h3>Phase 6: Campaign Attribution Refinement</h3>
+<p>Apply cross-device insights to marketing measurement:</p>
+<p><strong>Email campaign attribution</strong>:</p>
+<ul>
+<li>Track mobile open rates, desktop conversion rates</li>
+<li>Attribute conversions occurring on different devices within 48 hours of email click</li>
+<li>Segment email performance by device engagement patterns</li>
+</ul>
+<p><strong>Social media attribution</strong>:</p>
+<ul>
+<li>Most social consumption happens on mobile</li>
+<li>Cross-device tracking reveals desktop conversions originating from mobile social discovery</li>
+<li>Prevents undervaluing social channels that drive awareness but not immediate conversions</li>
+</ul>
+<p><strong>Paid advertising optimization</strong>:</p>
+<ul>
+<li>Track mobile ad impressions driving desktop conversions</li>
+<li>Calculate cross-device ROI (don&#39;t penalize mobile ads for desktop conversions)</li>
+<li>Adjust bid strategies favoring mobile when cross-device data proves downstream impact</li>
+</ul>
+<p>Publishers implementing comprehensive cross-device attribution see 15-30% improvement in marketing efficiency through better channel valuation and resource allocation.</p>
+<h2>Cross-Device Metrics and Reporting</h2>
+<p>Traditional metrics require reinterpretation in cross-device context:</p>
+<h3>Deduplicated Unique Visitors</h3>
+<p>Report actual people, not device instances:</p>
+<ul>
+<li><strong>Device-based counting</strong>: 100,000 sessions = 65,000 unique cookies</li>
+<li><strong>Cross-device counting</strong>: 65,000 unique cookies = 48,000 unique people</li>
+<li><strong>Duplication rate</strong>: 26% of visitors use multiple devices</li>
+</ul>
+<p>Deduplicated counts change growth metrics—if monthly unique visitors grow from 50K to 65K device-based but 38K to 44K cross-device, true growth is 16% not 30%.</p>
+<h3>Device Preference and Switching Patterns</h3>
+<p>Classify visitors by device behavior:</p>
+<ul>
+<li><strong>Mobile-only users</strong> (42%): Never use desktop, require mobile-optimized experiences</li>
+<li><strong>Desktop-only users</strong> (31%): Work-focused or older demographics</li>
+<li><strong>Multi-device users</strong> (27%): Highest engagement, 3.2× more sessions than single-device users</li>
+</ul>
+<p>Multi-device users represent highest-value segment despite being minority. They exhibit:</p>
+<ul>
+<li>2.8× higher conversion rates</li>
+<li>4.1× longer lifetime value</li>
+<li>5.6× more content consumption</li>
+</ul>
+<p>Prioritize features and optimization for multi-device segment to maximize per-visitor value.</p>
+<h3>Cross-Device Conversion Paths</h3>
+<p>Map common device sequences:</p>
+<ul>
+<li><strong>Mobile → Desktop</strong> (38% of conversions): Discovery on mobile, consideration/conversion on desktop</li>
+<li><strong>Desktop → Mobile</strong> (12%): Research at work, review mobile during commute, convert on mobile</li>
+<li><strong>Mobile → Mobile → Desktop</strong> (18%): Extended consideration cycle spanning multiple mobile sessions before desktop conversion</li>
+<li><strong>Single device</strong> (32%): Complete journey on one device</li>
+</ul>
+<p>Understanding dominant paths informs content strategy:</p>
+<ul>
+<li>Mobile-to-desktop paths require strong mobile UX for discovery content</li>
+<li>Multi-session paths justify remarketing and email nurture campaigns</li>
+<li>Single-device paths benefit from immediate conversion optimization</li>
+</ul>
+<h3>Device-Specific Attribution Values</h3>
+<p>Allocate conversion credit across device touchpoints:</p>
+<p><strong>Linear attribution</strong> (simple but flawed): Equal credit per device</p>
+<ul>
+<li>Mobile discovery: 33%</li>
+<li>Desktop research: 33%</li>
+<li>Desktop conversion: 33%</li>
+</ul>
+<p><strong>Position-based attribution</strong> (acknowledges discovery and conversion importance):</p>
+<ul>
+<li>Mobile discovery: 40%</li>
+<li>Desktop research: 20%</li>
+<li>Desktop conversion: 40%</li>
+</ul>
+<p><strong>Data-driven attribution</strong> (ML-optimized based on actual conversion impact):</p>
+<ul>
+<li>Mobile discovery: 28%</li>
+<li>Desktop research: 31%</li>
+<li>Desktop conversion: 41%</li>
+</ul>
+<p>Data-driven models reveal mobile&#39;s true contribution despite not being final conversion device. Publishers using last-click attribution systematically undervalue mobile by 40-60%. <a href="content-roi-calculator.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">content-roi-calculator.html</a> integrates cross-device attribution into ROI calculations.</p>
+<h2>Privacy Compliance and Cross-Device Tracking</h2>
+<p>Cross-device attribution raises privacy concerns requiring careful implementation:</p>
+<h3>GDPR and CCPA Requirements</h3>
+<p><strong>Consent requirements</strong>:</p>
+<ul>
+<li>Deterministic matching (account-based) requires clear disclosure but generally falls under legitimate interest</li>
+<li>Probabilistic matching often requires explicit consent under GDPR (tracking without identity)</li>
+<li>Third-party device graphs definitely require consent (data sharing)</li>
+</ul>
+<p><strong>Implementation</strong>:</p>
+<ul>
+<li>Privacy policy must explain cross-device tracking methods and purposes</li>
+<li>Cookie banners should include cross-device tracking toggle</li>
+<li>Users must be able to opt out (disconnect devices from profile)</li>
+<li>Data deletion requests must remove all device associations</li>
+</ul>
+<h3>Privacy-Preserving Approaches</h3>
+<p>Balance measurement needs against privacy concerns:</p>
+<p><strong>On-device attribution</strong>:</p>
+<ul>
+<li>Process device matching locally in browser/app rather than server-side</li>
+<li>Never send device association data to external servers</li>
+<li>Aggregate insights transmitted, not individual device graphs</li>
+</ul>
+<p><strong>Differential privacy</strong>:</p>
+<ul>
+<li>Add noise to cross-device attribution data</li>
+<li>Prevents identifying specific individuals&#39; device patterns</li>
+<li>Maintains statistical validity for aggregate analysis</li>
+</ul>
+<p><strong>Federated learning</strong>:</p>
+<ul>
+<li>Train attribution models on distributed device data</li>
+<li>Never centralize raw cross-device information</li>
+<li>Model insights usable without compromising individual privacy</li>
+</ul>
+<p>Publishers prioritizing privacy compliance should focus on deterministic matching (explicit consent via account creation) over probabilistic tracking (inferred associations users didn&#39;t authorize).</p>
+<h2>Industry-Specific Cross-Device Patterns</h2>
+<p>Device behavior varies by publisher vertical:</p>
+<h3>B2B Publishers</h3>
+<p><strong>Typical patterns</strong>:</p>
+<ul>
+<li>70% desktop, 25% mobile, 5% tablet</li>
+<li>Work hours heavy on desktop (9am-5pm)</li>
+<li>Mobile engagement during commutes (7-9am, 5-7pm)</li>
+<li>Cross-device conversion rate 4.2× single-device</li>
+</ul>
+<p><strong>Optimization</strong>:</p>
+<ul>
+<li>Desktop-first content design (detailed, data-heavy)</li>
+<li>Mobile optimization for newsletters and short-form</li>
+<li>Email campaigns timed for morning mobile consumption → desktop follow-up</li>
+</ul>
+<h3>Consumer Media</h3>
+<p><strong>Typical patterns</strong>:</p>
+<ul>
+<li>55% mobile, 38% desktop, 7% tablet</li>
+<li>Evening engagement peak on mobile (7-10pm)</li>
+<li>Weekend desktop reading (longform consumption)</li>
+<li>Cross-device conversion rate 2.8× single-device</li>
+</ul>
+<p><strong>Optimization</strong>:</p>
+<ul>
+<li>Mobile-first content design (short paragraphs, frequent subheadings)</li>
+<li>&quot;Save for desktop&quot; features for long investigative pieces</li>
+<li>Push notifications driving mobile traffic, email driving desktop</li>
+</ul>
+<h3>E-Commerce Content</h3>
+<p><strong>Typical patterns</strong>:</p>
+<ul>
+<li>62% mobile, 33% desktop, 5% tablet</li>
+<li>Mobile browsing, desktop purchasing (trust/convenience)</li>
+<li>Cross-device conversion rate 5.1× single-device</li>
+<li>70% of desktop conversions have mobile touchpoint in prior 7 days</li>
+</ul>
+<p><strong>Optimization</strong>:</p>
+<ul>
+<li>Seamless cart/wishlist sync across devices</li>
+<li>SMS alerts when cart items price drops (mobile re-engagement)</li>
+<li>Desktop checkout optimization (mobile drives consideration, desktop closes sales)</li>
+</ul>
+<p>Understanding vertical-specific patterns prevents misoptimizing for edge cases. B2B publishers over-investing in mobile hurt desktop UX for majority. Consumer sites neglecting mobile alienate primary audience.</p>
+<h2>FAQ: Cross-Device Attribution for Publishers</h2>
+<p><strong>What percentage of traffic uses multiple devices?</strong></p>
+<p>Depends on vertical and audience. B2C publishers typically see 25-35% multi-device users. B2B publishers 35-50%. E-commerce 40-55%. Multi-device users disproportionately drive value—they&#39;re 3-5× more engaged than single-device visitors despite being minority of audience. Even 30% multi-device usage means 50%+ of conversions involve cross-device journeys.</p>
+<p><strong>Is Google Analytics 4 cross-device tracking accurate enough?</strong></p>
+<p>GA4&#39;s blended reporting (User-ID + Google Signals + probabilistic matching) achieves 65-80% coverage with 75-85% accuracy for most publishers. Sufficient for strategic decisions but not perfect. Publishers requiring 90%+ accuracy for monetization negotiations or fraud prevention need dedicated device graph solutions from Tapad, Neustar, or LiveRamp. For editorial and marketing optimization, GA4&#39;s cross-device tracking is adequate. <a href="direct-traffic-measurement-analytics.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">direct-traffic-measurement-analytics.html</a> covers GA4 measurement limitations.</p>
+<p><strong>Should I prioritize mobile or desktop optimization?</strong></p>
+<p>Optimize for cross-device journeys, not device-specific experiences. Most valuable visitors use both—optimizing one device at expense of the other breaks their experience. Prioritize mobile for discovery (lightweight, fast, engaging), desktop for conversion (detailed, trustworthy, comprehensive). Build &quot;continue on [other device]&quot; bridges between experiences rather than forcing complete journeys on single device.</p>
+<p><strong>Can I do cross-device attribution without account login?</strong></p>
+<p>Yes, using probabilistic matching, but accuracy suffers (60-75% vs. 95%+ for deterministic). Hybrid approach works best: encourage optional account creation for sync features (reading progress, bookmarks), use probabilistic matching for anonymous visitors. Don&#39;t force login—many visitors will leave rather than create accounts. Make authentication valuable enough visitors choose it voluntarily.</p>
+<p><strong>How long do cross-device conversion paths typically take?</strong></p>
+<p>Median time from first device interaction to conversion on different device: 3-7 days for consumer publishers, 7-21 days for B2B. 90th percentile extends to 30-60 days. This means attribution windows must span at least 30 days to capture majority of cross-device conversions. GA4&#39;s default 90-day window is appropriate. Shorter windows systematically undercount cross-device attribution, favoring single-session conversion channels.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3 class="font-display font-bold text-xl text-slate-100">Stop gambling on single traffic sources.</h3>
+            <p class="mt-2 text-slate-400 text-sm max-w-lg">Find gives you the complete framework for building, measuring, and defending a diversified traffic portfolio. Calculators, templates, and the full methodology.</p>
+          </div>
+          <a href="/setup.html" class="shrink-0 px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm">
+            Get Find &mdash; $997
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/attribution-tracking-for-small-business.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">tools</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build a functional multi-touch attribution system using Google Sheets, Airtable, and Google Tag Manager. Stop paying enterprise prices for attribution data your business actually needs.</p>
+          </a>
+
+          <a href="/articles/content-scheduling-tools-solo-publishers.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Content Scheduling Tools for Solo Publishers: Automate Distribution Without Teams</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Discover scheduling tools that let solo publishers maintain consistent multi-channel presence across social, email, and syndication without agencies.</p>
+          </a>
+
+          <a href="/articles/cookie-deprecation-traffic-measurement.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Cookie Deprecation Traffic Measurement: Track Visitors Without Third-Party Cookies</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Navigate cookie deprecation by implementing first-party tracking, server-side analytics, and consent-compliant measurement for accurate publisher traffic data.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Find &mdash; $997</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://tattooremovalnear.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">tattooremovalnear</a></li>
+          <li><a href="https://comicstripai.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">comicstripai</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          <li><a href="https://b2bvic.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">b2bvic</a></li>
+          <li><a href="https://seobyrole.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">seobyrole</a></li>
+          <li><a href="https://quickfixseo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">quickfixseo</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+          <a href="/setup.html" class="hover:text-slate-400 transition-colors">Find</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
