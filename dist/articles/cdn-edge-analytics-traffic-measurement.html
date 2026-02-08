@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CDN and Edge Analytics: Measuring Traffic Before JavaScript Loads | Polytraffic</title>
+    <meta name="description" content="JavaScript analytics miss 8-18% of traffic—bot blockers, privacy tools, slow connections prevent client-side tracking. CDN edge analytics capture server-side reality." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="CDN and Edge Analytics: Measuring Traffic Before JavaScript Loads | Polytraffic" />
+    <meta property="og:description" content="JavaScript analytics miss 8-18% of traffic—bot blockers, privacy tools, slow connections prevent client-side tracking. CDN edge analytics capture server-side reality." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/cdn-edge-analytics-traffic-measurement.html" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CDN and Edge Analytics: Measuring Traffic Before JavaScript Loads | Polytraffic" />
+    <meta name="twitter:description" content="JavaScript analytics miss 8-18% of traffic—bot blockers, privacy tools, slow connections prevent client-side tracking. CDN edge analytics capture server-side reality." />
+    <link rel="canonical" href="https://polytraffic.com/articles/cdn-edge-analytics-traffic-measurement.html" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://tattooremovalnear.com" />
+    <link rel="me" href="https://comicstripai.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="me" href="https://b2bvic.com" />
+    <link rel="me" href="https://seobyrole.com" />
+    <link rel="me" href="https://quickfixseo.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0c1222',
+              800: '#141c30',
+              700: '#1e2a42',
+              600: '#1e293b',
+            },
+            violet: {
+              500: '#8b5cf6',
+              400: '#a78bfa',
+            },
+            cyan: {
+              500: '#06b6d4',
+            },
+            cta: {
+              500: '#f97316',
+              400: '#fb923c',
+            },
+            slate: {
+              100: '#f1f5f9',
+              400: '#94a3b8',
+              500: '#64748b',
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+            mono: ['"Fira Code"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "CDN and Edge Analytics: Measuring Traffic Before JavaScript Loads",
+    "description": "JavaScript analytics miss 8-18% of traffic—bot blockers, privacy tools, slow connections prevent client-side tracking. CDN edge analytics capture server-side reality.",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-02-07",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/cdn-edge-analytics-traffic-measurement.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/analytics.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "CDN and Edge Analytics: Measuring Traffic Before JavaScript Loads"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Build Your Portfolio &mdash; $997
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Build Your Portfolio &mdash; $997
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/analytics.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">CDN and Edge Analytics: Measuring Traffic Before JavaScript Loads</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <article class="pt-prose">
+        <h1>CDN and Edge Analytics: Measuring Traffic Before JavaScript Loads</h1>
+<p>Client-side analytics are blind to 12-22% of traffic.</p>
+<p><strong>Google Analytics 4</strong>, <strong>Plausible</strong>, <strong>Fathom</strong>, and most analytics platforms rely on <strong>JavaScript</strong> that executes in user&#39;s browser. JavaScript loads → fires tracking beacon → data recorded.</p>
+<p><strong>The gap:</strong> Not all visitors allow JavaScript to execute.</p>
+<p><strong>Who&#39;s invisible:</strong></p>
+<ul>
+<li>Users with JavaScript disabled (1-3% of traffic, privacy-conscious or corporate networks)</li>
+<li>Bot blockers and ad blockers (8-15% of traffic, blocks analytics scripts)</li>
+<li>Slow connections where page loads but JavaScript times out (2-5%, mobile users in low-bandwidth areas)</li>
+<li>Privacy browser extensions that strip tracking pixels (3-8%, <strong>Brave</strong>, <strong>Firefox</strong> + privacy add-ons)</li>
+<li>Users who close tab before JavaScript loads (4-9%, high bounce rate pages)</li>
+</ul>
+<p><strong>Combined:</strong> 18-30% of actual HTTP requests never appear in client-side analytics.</p>
+<p><strong>The solution:</strong> Measure traffic at the edge—server-side, before content reaches browser. <strong>CDN</strong> (Content Delivery Network) logs capture every HTTP request, regardless of JavaScript execution. Edge analytics expose true traffic volume.</p>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Validate GA4 numbers (if GA4 shows 80k visits, edge logs show 95k → 16% undercounting)</li>
+<li>Measure bot traffic accurately (differentiate good bots vs malicious)</li>
+<li>Track performance before JavaScript loads (measure server response time independent of client rendering)</li>
+<li>Detect analytics blockers (compare edge requests to GA4 sessions, gap = blocked percentage)</li>
+</ul>
+<p><strong>CDN edge analytics</strong> = ground truth. Client-side analytics = sample of engaged users.</p>
+<p>Links: <a href="server-side-analytics-accurate-traffic.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">server-side-analytics-accurate-traffic</a>, <a href="direct-traffic-measurement-analytics.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">direct-traffic-measurement-analytics</a>, <a href="ga4-setup-multi-channel-tracking.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">ga4-setup-multi-channel-tracking</a></p>
+<hr>
+<h2>CDN Edge Logs vs Client-Side Analytics: Understanding the Gap</h2>
+<p>Two measurement layers capture different realities.</p>
+<h3>What CDN Edge Logs Capture</h3>
+<p><strong>Edge logs = server-side records of HTTP requests.</strong></p>
+<p><strong>CDN</strong> (Cloudflare, Fastly, AWS CloudFront, Akamai) sits between user and origin server. Every request passes through CDN edge nodes.</p>
+<p><strong>Edge logs record:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Example</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Request timestamp</td>
+<td>2026-02-07 14:32:18 UTC</td>
+<td>Traffic timing analysis</td>
+</tr>
+<tr>
+<td>Client IP</td>
+<td>192.0.2.146</td>
+<td>Geographic analysis, bot detection</td>
+</tr>
+<tr>
+<td>User agent</td>
+<td>Mozilla/5.0... Chrome/120.0</td>
+<td>Browser/device identification</td>
+</tr>
+<tr>
+<td>Request URL</td>
+<td>/blog/article-title</td>
+<td>Page-level traffic</td>
+</tr>
+<tr>
+<td>HTTP status</td>
+<td>200, 404, 500</td>
+<td>Success rate, error tracking</td>
+</tr>
+<tr>
+<td>Bytes transferred</td>
+<td>124,583 bytes</td>
+<td>Bandwidth consumption</td>
+</tr>
+<tr>
+<td>Referrer</td>
+<td>google.com, twitter.com</td>
+<td>Traffic source</td>
+</tr>
+<tr>
+<td>Cache status</td>
+<td>HIT, MISS</td>
+<td>Performance optimization</td>
+</tr>
+<tr>
+<td>TLS version</td>
+<td>TLS 1.3</td>
+<td>Security analysis</td>
+</tr>
+</tbody></table>
+<p><strong>Crucially:</strong> Edge logs capture <strong>every HTTP request</strong>, even if:</p>
+<ul>
+<li>Browser blocks JavaScript</li>
+<li>User closes tab before page loads</li>
+<li>Connection times out</li>
+<li>Bot makes request</li>
+</ul>
+<p><strong>This is raw traffic reality.</strong></p>
+<h3>What Client-Side Analytics Miss</h3>
+<p><strong>GA4</strong> and similar tools require JavaScript execution + network beacon success.</p>
+<p><strong>Failure points:</strong></p>
+<p><strong>1. JavaScript load failure</strong></p>
+<ul>
+<li>Slow connection → user closes page before <code>gtag.js</code> loads</li>
+<li>Edge log: Request recorded (200 status, content served)</li>
+<li>GA4: No session (JavaScript never executed)</li>
+</ul>
+<p><strong>2. Analytics blocker interference</strong></p>
+<ul>
+<li>User has <strong>uBlock Origin</strong>, <strong>Privacy Badger</strong>, <strong>AdGuard</strong></li>
+<li>Blocker prevents <code>google-analytics.com</code> beacon</li>
+<li>Edge log: Request recorded</li>
+<li>GA4: No session</li>
+</ul>
+<p><strong>3. Browser privacy settings</strong></p>
+<ul>
+<li><strong>Safari</strong> Intelligent Tracking Prevention (ITP) limits cookies</li>
+<li><strong>Firefox</strong> Enhanced Tracking Protection blocks GA4</li>
+<li><strong>Brave</strong> blocks all analytics by default</li>
+<li>Edge log: Request recorded</li>
+<li>GA4: No session or severely limited data</li>
+</ul>
+<p><strong>4. Corporate network filtering</strong></p>
+<ul>
+<li>Enterprise firewalls block analytics domains</li>
+<li>VPN configurations strip tracking</li>
+<li>Edge log: Request recorded</li>
+<li>GA4: No session</li>
+</ul>
+<p><strong>5. Bot traffic</strong></p>
+<ul>
+<li>Search engine crawlers (<strong>Googlebot</strong>, <strong>Bingbot</strong>)</li>
+<li>Monitoring bots (<strong>Pingdom</strong>, <strong>UptimeRobot</strong>)</li>
+<li>Malicious scrapers</li>
+<li>Edge log: All requests recorded</li>
+<li>GA4: Typically filters bots (but not always accurately)</li>
+</ul>
+<p><strong>Measurement comparison:</strong></p>
+<p><strong>Example site:</strong></p>
+<ul>
+<li>Edge logs: 127,000 requests/month</li>
+<li>GA4 sessions: 94,000/month</li>
+<li><strong>Gap: 26%</strong> (33,000 requests invisible to GA4)</li>
+</ul>
+<p><strong>Gap breakdown:</strong></p>
+<ul>
+<li>Analytics blockers: 12,000 requests (38% of gap)</li>
+<li>Bot traffic: 15,000 requests (45%)</li>
+<li>JavaScript load failures: 4,000 requests (12%)</li>
+<li>Other: 2,000 requests (5%)</li>
+</ul>
+<h3>Validating Client-Side Data with Edge Metrics</h3>
+<p>Cross-reference GA4 against edge logs to detect undercounting.</p>
+<p><strong>Method 1: Total request comparison</strong></p>
+<p><strong>Edge logs (Cloudflare Analytics):</strong></p>
+<ul>
+<li>Navigate to <strong>Analytics → Traffic</strong></li>
+<li>Filter: Status code 200 (successful requests)</li>
+<li>Exclude: <code>/admin</code>, <code>/wp-login</code> (non-content pages)</li>
+<li>Total: 127,000 requests</li>
+</ul>
+<p><strong>GA4:</strong></p>
+<ul>
+<li>Navigate to <strong>Reports → Engagement → Pages and screens</strong></li>
+<li>Total pageviews: 102,000</li>
+</ul>
+<p><strong>Discrepancy: 20%</strong> (edge captures 25,000 more requests)</p>
+<p><strong>Conclusion:</strong> GA4 undercounts by ~20%. Either analytics blockers prevalent in audience or bot traffic higher than expected.</p>
+<p><strong>Method 2: User-agent matching</strong></p>
+<p>Edge logs contain user-agent strings. Extract and compare to GA4 browser distribution.</p>
+<p><strong>Edge log browser breakdown:</strong></p>
+<ul>
+<li>Chrome: 68%</li>
+<li>Safari: 18%</li>
+<li>Firefox: 8%</li>
+<li>Edge: 4%</li>
+<li>Bots: 2%</li>
+</ul>
+<p><strong>GA4 browser breakdown:</strong></p>
+<ul>
+<li>Chrome: 72%</li>
+<li>Safari: 19%</li>
+<li>Firefox: 7%</li>
+<li>Edge: 2%</li>
+</ul>
+<p><strong>Discrepancy:</strong> Edge shows 4% Edge browser, GA4 shows 2%. Suggests Edge users have higher analytics blocking rate (50% blocked).</p>
+<p><strong>Action:</strong> If targeting Edge users (enterprise audience), GA4 severely undercounts this segment.</p>
+<p><strong>Method 3: Geographic validation</strong></p>
+<p>Edge logs include client IP → GeoIP lookup.</p>
+<p><strong>Edge geographic distribution:</strong></p>
+<ul>
+<li>US: 62%</li>
+<li>UK: 12%</li>
+<li>Canada: 8%</li>
+<li>Germany: 6%</li>
+<li>Other: 12%</li>
+</ul>
+<p><strong>GA4 geographic distribution:</strong></p>
+<ul>
+<li>US: 64%</li>
+<li>UK: 13%</li>
+<li>Canada: 8%</li>
+<li>Germany: 5%</li>
+<li>Other: 10%</li>
+</ul>
+<p><strong>Discrepancy:</strong> Germany underrepresented in GA4 (6% edge vs 5% GA4). Possible higher privacy-tool adoption in Germany (GDPR-aware users).</p>
+<hr>
+<h2>Implementing CDN Analytics Across Major Providers</h2>
+<p>Each CDN offers edge analytics. Setup varies.</p>
+<h3>Cloudflare Analytics Setup and Interpretation</h3>
+<p><strong>Cloudflare</strong> provides edge analytics natively (available on all plans, including Free).</p>
+<p><strong>Access:</strong></p>
+<ol>
+<li>Log in to Cloudflare dashboard</li>
+<li>Select domain</li>
+<li>Navigate to <strong>Analytics &amp; Logs</strong></li>
+</ol>
+<p><strong>Key metrics:</strong></p>
+<p><strong>Requests:</strong></p>
+<ul>
+<li>Total HTTP requests (includes cached + uncached)</li>
+<li>Breakdown: Cached vs uncached (cache HIT ratio)</li>
+</ul>
+<p><strong>Bandwidth:</strong></p>
+<ul>
+<li>Total bytes served</li>
+<li>Saved bandwidth (via caching)</li>
+</ul>
+<p><strong>Threats:</strong></p>
+<ul>
+<li>Blocked requests (firewall rules, rate limiting)</li>
+<li>Challenge served (CAPTCHAs)</li>
+</ul>
+<p><strong>Performance:</strong></p>
+<ul>
+<li>Origin response time</li>
+<li>Edge response time (CDN processing)</li>
+</ul>
+<p><strong>Traffic sources:</strong></p>
+<ul>
+<li>By country</li>
+<li>By referrer</li>
+<li>By user agent</li>
+</ul>
+<p><strong>Custom filtering:</strong></p>
+<p><strong>Cloudflare Logpush</strong> (Business+ plans):</p>
+<ul>
+<li>Push raw edge logs to external analytics (Google BigQuery, AWS S3, Splunk)</li>
+<li>Custom analysis (SQL queries against log data)</li>
+</ul>
+<p><strong>Example query (BigQuery):</strong></p>
+<pre><code class="language-sql">SELECT
+  ClientRequestURI,
+  COUNT(*) as requests,
+  SUM(EdgeResponseBytes) as total_bytes
+FROM edge_logs
+WHERE EdgeResponseStatus = 200
+  AND ClientRequestURI NOT LIKE &#39;%/admin%&#39;
+GROUP BY ClientRequestURI
+ORDER BY requests DESC
+LIMIT 100
+</code></pre>
+<p><strong>Result:</strong> Top 100 pages by edge request volume (true traffic, not GA4-filtered).</p>
+<p><strong>Bot detection:</strong></p>
+<p>Cloudflare classifies traffic:</p>
+<ul>
+<li><strong>Automated:</strong> Bots (verified crawlers, monitoring tools)</li>
+<li><strong>Human:</strong> Real users</li>
+</ul>
+<p><strong>Filter:</strong></p>
+<ul>
+<li>View &quot;Human traffic&quot; only for comparison to GA4</li>
+<li>Compare &quot;Human traffic&quot; from Cloudflare to GA4 sessions</li>
+<li>Remaining gap = analytics blockers + JavaScript failures</li>
+</ul>
+<p><strong>Validation workflow:</strong></p>
+<ol>
+<li>Cloudflare total requests: 127,000</li>
+<li>Filter out bot traffic: 112,000 (human requests)</li>
+<li>GA4 sessions: 94,000</li>
+<li><strong>Analytics blocking rate: 16%</strong> (18,000 / 112,000)</li>
+</ol>
+<h3>Fastly Real-Time Analytics Configuration</h3>
+<p><strong>Fastly</strong> offers real-time edge analytics with granular filtering.</p>
+<p><strong>Access:</strong></p>
+<ol>
+<li>Log in to Fastly dashboard</li>
+<li>Select service</li>
+<li>Navigate to <strong>Observability → Real-time analytics</strong></li>
+</ol>
+<p><strong>Real-time dashboard:</strong></p>
+<p><strong>Metrics updated every second:</strong></p>
+<ul>
+<li>Requests per second</li>
+<li>Bandwidth per second</li>
+<li>Cache hit ratio</li>
+<li>Error rate (4xx, 5xx)</li>
+<li>Origin latency</li>
+</ul>
+<p><strong>Custom dimensions:</strong></p>
+<p>Filter by:</p>
+<ul>
+<li>Geographic region (POP location)</li>
+<li>Device type (desktop, mobile, tablet)</li>
+<li>HTTP status code</li>
+<li>Content type (HTML, CSS, JS, images)</li>
+</ul>
+<p><strong>Historical analysis:</strong></p>
+<p>Navigate to <strong>Observability → Historical stats</strong>:</p>
+<ul>
+<li>Hourly aggregates for past 90 days</li>
+<li>Exportable to CSV</li>
+<li>Compare time periods (week-over-week, month-over-month)</li>
+</ul>
+<p><strong>Advanced logging (Fastly Log Streaming):</strong></p>
+<p>Send edge logs to:</p>
+<ul>
+<li><strong>Google Cloud Storage</strong></li>
+<li><strong>AWS S3</strong></li>
+<li><strong>Datadog</strong></li>
+<li><strong>Splunk</strong></li>
+<li><strong>Elasticsearch</strong></li>
+</ul>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Navigate to <strong>Configure → Logging</strong></li>
+<li>Select endpoint (e.g., S3)</li>
+<li>Configure log format (JSON, Apache, custom)</li>
+<li>Choose fields: <code>%{req.url}V %{resp.status}V %{client.geo.country_code}V</code></li>
+<li>Save, deploy</li>
+</ol>
+<p><strong>Logs stream in real-time.</strong></p>
+<p><strong>Comparing Fastly to GA4:</strong></p>
+<p><strong>Fastly edge requests (HTML only):</strong></p>
+<p>Filter: <code>Content-Type: text/html</code> (exclude CSS, JS, images)</p>
+<ul>
+<li>Total: 98,000 HTML requests</li>
+</ul>
+<p><strong>GA4 pageviews:</strong> 94,000</p>
+<p><strong>Gap: 4%</strong> (4,000 requests)</p>
+<p><strong>Interpretation:</strong> Low gap (4%) suggests minimal analytics blocking (audience less privacy-conscious or fewer bot requests).</p>
+<h3>AWS CloudFront Logs and CloudWatch Metrics</h3>
+<p><strong>AWS CloudFront</strong> separates real-time monitoring (CloudWatch) and detailed logs (access logs).</p>
+<p><strong>CloudWatch Metrics (real-time):</strong></p>
+<p><strong>Access:</strong></p>
+<ol>
+<li>AWS Console → <strong>CloudFront</strong> → Select distribution</li>
+<li>Navigate to <strong>Monitoring</strong> tab</li>
+</ol>
+<p><strong>Metrics:</strong></p>
+<ul>
+<li>Requests (total HTTP requests)</li>
+<li>Bytes downloaded</li>
+<li>Bytes uploaded</li>
+<li>4xx error rate</li>
+<li>5xx error rate</li>
+<li>Cache hit rate</li>
+</ul>
+<p><strong>Granularity:</strong> 1-minute intervals</p>
+<p><strong>Use case:</strong> Real-time traffic spikes, performance monitoring.</p>
+<p><strong>Access Logs (detailed historical):</strong></p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>CloudFront distribution settings</li>
+<li>Enable <strong>Standard Logging</strong></li>
+<li>Specify S3 bucket for log storage</li>
+<li>Logs delivered every ~1 hour</li>
+</ol>
+<p><strong>Log format:</strong> Tab-delimited text file</p>
+<p><strong>Fields include:</strong></p>
+<ul>
+<li>Date, time</li>
+<li>Edge location</li>
+<li>Bytes sent</li>
+<li>Client IP</li>
+<li>HTTP method, path</li>
+<li>Status code</li>
+<li>Referrer</li>
+<li>User agent</li>
+<li>Query string</li>
+</ul>
+<p><strong>Analysis:</strong></p>
+<p>Upload logs to <strong>AWS Athena</strong> (SQL query engine):</p>
+<p><strong>Athena table creation:</strong></p>
+<pre><code class="language-sql">CREATE EXTERNAL TABLE cloudfront_logs (
+  request_date DATE,
+  time STRING,
+  location STRING,
+  bytes BIGINT,
+  request_ip STRING,
+  method STRING,
+  host STRING,
+  uri STRING,
+  status INT,
+  referrer STRING,
+  user_agent STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY &#39;\t&#39;
+LOCATION &#39;s3://your-bucket/cloudfront-logs/&#39;
+</code></pre>
+<p><strong>Query example (top pages):</strong></p>
+<pre><code class="language-sql">SELECT
+  uri,
+  COUNT(*) as requests,
+  COUNT(DISTINCT request_ip) as unique_ips
+FROM cloudfront_logs
+WHERE status = 200
+  AND request_date &gt;= DATE &#39;2026-02-01&#39;
+GROUP BY uri
+ORDER BY requests DESC
+LIMIT 50
+</code></pre>
+<p><strong>Result:</strong> True request volume per page (edge-level, pre-JavaScript).</p>
+<p><strong>Comparing to GA4:</strong></p>
+<p>Export GA4 page data, join with Athena results:</p>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>CloudFront Requests</th>
+<th>GA4 Pageviews</th>
+<th>Gap %</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/homepage</td>
+<td>32,400</td>
+<td>28,200</td>
+<td>13%</td>
+</tr>
+<tr>
+<td>/article-1</td>
+<td>18,600</td>
+<td>16,100</td>
+<td>13%</td>
+</tr>
+<tr>
+<td>/article-2</td>
+<td>12,800</td>
+<td>9,400</td>
+<td>27%</td>
+</tr>
+</tbody></table>
+<p><strong>Insight:</strong> Article-2 has 27% gap (high analytics blocking). Possible causes:</p>
+<ul>
+<li>Shared on privacy-focused communities (<strong>Hacker News</strong>, <strong>Reddit</strong> privacy subs)</li>
+<li>Audience segment with high ad-blocker usage</li>
+</ul>
+<hr>
+<h2>Analyzing Edge Data for Bot Traffic and Anomaly Detection</h2>
+<p>Edge logs expose non-human traffic client-side analytics miss.</p>
+<h3>Distinguishing Good Bots from Malicious Scrapers</h3>
+<p><strong>Bot classification:</strong></p>
+<p><strong>Good bots (allow):</strong></p>
+<ul>
+<li><strong>Googlebot</strong> (search indexing)</li>
+<li><strong>Bingbot</strong> (Bing indexing)</li>
+<li><strong>Slackbot</strong> (link previews)</li>
+<li><strong>Facebot</strong> (Facebook link previews)</li>
+<li>Monitoring services (<strong>Pingdom</strong>, <strong>UptimeRobot</strong>)</li>
+</ul>
+<p><strong>Bad bots (block):</strong></p>
+<ul>
+<li>Content scrapers (steal articles)</li>
+<li>Credential stuffing bots</li>
+<li>Inventory hoarding bots (e-commerce)</li>
+<li>DDoS bots</li>
+</ul>
+<p><strong>Neutral bots (evaluate):</strong></p>
+<ul>
+<li><strong>SEMrush</strong> bot (competitor research)</li>
+<li><strong>Ahrefs</strong> bot (backlink checking)</li>
+<li>Academic crawlers (research)</li>
+</ul>
+<p><strong>Detection via user-agent:</strong></p>
+<p>Edge logs include <code>User-Agent</code> header.</p>
+<p><strong>Good bot user-agents:</strong></p>
+<pre><code>Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)
+</code></pre>
+<p><strong>Bad bot patterns:</strong></p>
+<ul>
+<li>Generic: <code>Mozilla/5.0</code> (no bot identifier, masquerading as browser)</li>
+<li>Outdated: <code>Mozilla/4.0</code> (ancient browser, likely bot)</li>
+<li>Suspicious: <code>python-requests</code>, <code>curl</code>, <code>wget</code> (scripting tools)</li>
+</ul>
+<p><strong>Detection via request patterns:</strong></p>
+<p><strong>Good bots:</strong></p>
+<ul>
+<li>Respect <code>robots.txt</code></li>
+<li>Request rate: 1-5 requests/second (polite crawling)</li>
+<li>Follow links logically (homepage → category → article)</li>
+</ul>
+<p><strong>Bad bots:</strong></p>
+<ul>
+<li>Ignore <code>robots.txt</code></li>
+<li>Request rate: 20-200 requests/second (aggressive)</li>
+<li>Random URL access (direct deep-link requests without referrer)</li>
+</ul>
+<p><strong>Cloudflare Bot Management:</strong></p>
+<p><strong>Enable:</strong></p>
+<ol>
+<li><strong>Security → Bots</strong></li>
+<li>Select bot protection level:<ul>
+<li><strong>Off:</strong> Allow all</li>
+<li><strong>Essentially off:</strong> Allow verified bots + humans</li>
+<li><strong>Low:</strong> Challenge suspicious bots</li>
+<li><strong>Medium:</strong> Challenge most bots (recommended)</li>
+<li><strong>High:</strong> Challenge all non-verified</li>
+</ul>
+</li>
+</ol>
+<p><strong>Bot Score:</strong></p>
+<p>Cloudflare assigns score 1-99:</p>
+<ul>
+<li><strong>1-29:</strong> Likely bot</li>
+<li><strong>30-55:</strong> Possible bot</li>
+<li><strong>56-99:</strong> Likely human</li>
+</ul>
+<p><strong>Filter edge analytics:</strong></p>
+<p>View traffic by Bot Score:</p>
+<ul>
+<li>Score 1-29: 8,200 requests (bots, consider blocking)</li>
+<li>Score 56-99: 104,000 requests (humans, compare to GA4)</li>
+</ul>
+<p><strong>If GA4 shows 94,000 sessions and edge shows 104,000 human requests:</strong></p>
+<ul>
+<li>Analytics blocking rate: 9.6% (10,000 / 104,000)</li>
+</ul>
+<h3>Detecting Analytics Blocker Prevalence</h3>
+<p><strong>Method: User-agent + edge log correlation</strong></p>
+<p><strong>Step 1: Export edge logs</strong></p>
+<p>Filter: Status 200, Content-Type <code>text/html</code>, Bot Score &gt;56 (humans)</p>
+<p><strong>Result:</strong> 104,000 requests (verified human traffic)</p>
+<p><strong>Step 2: Export GA4 user-agent data</strong></p>
+<p><strong>GA4 → Explore → Free form</strong>:</p>
+<ul>
+<li>Dimensions: Browser, Browser version</li>
+<li>Metrics: Sessions</li>
+<li>Export</li>
+</ul>
+<p><strong>Result:</strong> 94,000 sessions</p>
+<p><strong>Step 3: Match distributions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Edge Requests</th>
+<th>GA4 Sessions</th>
+<th>Blocking Rate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chrome</td>
+<td>70,720 (68%)</td>
+<td>67,680 (72%)</td>
+<td>4.3%</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>18,720 (18%)</td>
+<td>17,860 (19%)</td>
+<td>4.6%</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>8,320 (8%)</td>
+<td>6,580 (7%)</td>
+<td><strong>20.9%</strong></td>
+</tr>
+<tr>
+<td>Brave</td>
+<td>3,120 (3%)</td>
+<td>940 (1%)</td>
+<td><strong>69.9%</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Insight:</strong> <strong>Firefox</strong> users block analytics at 21% rate. <strong>Brave</strong> users (privacy browser) block at 70% rate.</p>
+<p><strong>Audience implication:</strong></p>
+<p>If targeting privacy-conscious users (developers, security professionals), expect 15-30% analytics undercounting.</p>
+<h3>Rate Limiting and DDoS Detection</h3>
+<p>Edge analytics surface traffic spikes invisible to GA4.</p>
+<p><strong>Anomaly: Request spike without session spike</strong></p>
+<p><strong>Edge logs:</strong></p>
+<ul>
+<li>Feb 7, 14:00-15:00: 45,000 requests (30x normal)</li>
+</ul>
+<p><strong>GA4:</strong></p>
+<ul>
+<li>Feb 7, 14:00-15:00: 3,200 sessions (normal)</li>
+</ul>
+<p><strong>Discrepancy:</strong> Edge spike not reflected in GA4 → automated traffic.</p>
+<p><strong>Investigation:</strong></p>
+<p>Filter edge logs for that hour:</p>
+<ul>
+<li>42,000 requests from IP range <code>185.220.x.x</code></li>
+<li>User-agent: <code>python-requests/2.28.1</code></li>
+<li>Requested URLs: Random articles (no logical pattern)</li>
+</ul>
+<p><strong>Diagnosis:</strong> Scraper bot, likely harvesting content.</p>
+<p><strong>Response:</strong></p>
+<p><strong>Cloudflare Firewall Rule:</strong></p>
+<ol>
+<li><strong>Security → WAF → Firewall rules</strong></li>
+<li>Create rule: <code>(ip.src eq 185.220.0.0/16) then Block</code></li>
+<li>Deploy</li>
+</ol>
+<p><strong>Result:</strong> Bot blocked at edge, doesn&#39;t reach origin server.</p>
+<p><strong>Legitimate spike detection:</strong></p>
+<p><strong>Edge logs:</strong></p>
+<ul>
+<li>Feb 10, 09:00-12:00: 18,000 requests (10x normal)</li>
+</ul>
+<p><strong>GA4:</strong></p>
+<ul>
+<li>Feb 10, 09:00-12:00: 16,400 sessions (9x normal)</li>
+</ul>
+<p><strong>Correlation:</strong> Both spike → legitimate viral traffic (article shared on <strong>Hacker News</strong>).</p>
+<p><strong>Referrer analysis (edge logs):</strong></p>
+<ul>
+<li>14,200 requests with referrer <code>news.ycombinator.com</code></li>
+</ul>
+<p><strong>Confirmation:</strong> Viral traffic, not attack.</p>
+<hr>
+<h2>Building Hybrid Analytics: Combining Edge and Client-Side Data</h2>
+<p>Neither edge nor client-side analytics alone tell full story. Combine for accuracy.</p>
+<h3>Creating Unified Dashboard with Edge + GA4 Metrics</h3>
+<p><strong>Goal:</strong> Single view showing edge reality + user engagement.</p>
+<p><strong>Architecture:</strong></p>
+<ol>
+<li><strong>Edge data source:</strong> Cloudflare, Fastly, or CloudFront logs</li>
+<li><strong>Client-side data:</strong> GA4</li>
+<li><strong>Data warehouse:</strong> Google BigQuery, AWS Redshift, or Snowflake</li>
+<li><strong>Visualization:</strong> Looker Studio, Tableau, or custom dashboard</li>
+</ol>
+<p><strong>ETL pipeline:</strong></p>
+<p><strong>Step 1: Export edge logs to BigQuery</strong></p>
+<p><strong>Cloudflare Logpush:</strong></p>
+<ul>
+<li>Destination: Google BigQuery</li>
+<li>Dataset: <code>cdn_logs</code></li>
+<li>Table: <code>edge_requests</code></li>
+</ul>
+<p><strong>Schema:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>timestamp</td>
+<td>TIMESTAMP</td>
+</tr>
+<tr>
+<td>client_ip</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>url</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>status</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>bytes</td>
+<td>INTEGER</td>
+</tr>
+<tr>
+<td>user_agent</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>referrer</td>
+<td>STRING</td>
+</tr>
+</tbody></table>
+<p><strong>Step 2: Export GA4 to BigQuery</strong></p>
+<p><strong>GA4 → Admin → BigQuery Links:</strong></p>
+<ul>
+<li>Enable daily export</li>
+<li>Dataset: <code>analytics_XXXXXX</code></li>
+<li>Table: <code>events_YYYYMMDD</code></li>
+</ul>
+<p><strong>Step 3: Join datasets</strong></p>
+<p><strong>BigQuery SQL:</strong></p>
+<pre><code class="language-sql">WITH edge_traffic AS (
+  SELECT
+    DATE(timestamp) as date,
+    url,
+    COUNT(*) as edge_requests
+  FROM `project.cdn_logs.edge_requests`
+  WHERE status = 200
+  GROUP BY date, url
+),
+ga4_traffic AS (
+  SELECT
+    event_date as date,
+    (SELECT value.string_value FROM UNNEST(event_params) WHERE key = &#39;page_location&#39;) as url,
+    COUNT(DISTINCT user_pseudo_id) as ga4_sessions
+  FROM `project.analytics_XXXXXX.events_*`
+  WHERE event_name = &#39;page_view&#39;
+  GROUP BY date, url
+)
+
+SELECT
+  e.date,
+  e.url,
+  e.edge_requests,
+  COALESCE(g.ga4_sessions, 0) as ga4_sessions,
+  e.edge_requests - COALESCE(g.ga4_sessions, 0) as gap,
+  SAFE_DIVIDE(e.edge_requests - COALESCE(g.ga4_sessions, 0), e.edge_requests) * 100 as gap_percentage
+FROM edge_traffic e
+LEFT JOIN ga4_traffic g
+  ON e.date = g.date AND e.url = g.url
+ORDER BY e.date DESC, e.edge_requests DESC
+</code></pre>
+<p><strong>Output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>URL</th>
+<th>Edge Requests</th>
+<th>GA4 Sessions</th>
+<th>Gap</th>
+<th>Gap %</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2026-02-07</td>
+<td>/homepage</td>
+<td>3,240</td>
+<td>2,890</td>
+<td>350</td>
+<td>10.8%</td>
+</tr>
+<tr>
+<td>2026-02-07</td>
+<td>/article-1</td>
+<td>1,820</td>
+<td>1,640</td>
+<td>180</td>
+<td>9.9%</td>
+</tr>
+<tr>
+<td>2026-02-07</td>
+<td>/privacy-guide</td>
+<td>980</td>
+<td>720</td>
+<td>260</td>
+<td><strong>26.5%</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Insight:</strong> Privacy-guide article has 26.5% gap → audience blocking analytics (self-selection bias: privacy-interested readers use privacy tools).</p>
+<p><strong>Dashboard visualization (Looker Studio):</strong></p>
+<p><strong>Chart 1: Total traffic comparison</strong></p>
+<ul>
+<li>Metric 1: Edge requests (line chart, blue)</li>
+<li>Metric 2: GA4 sessions (line chart, orange)</li>
+<li>Date range: Last 30 days</li>
+</ul>
+<p><strong>Chart 2: Analytics blocking rate</strong></p>
+<ul>
+<li>Metric: Gap % (line chart)</li>
+<li>Target line: 15% (acceptable threshold)</li>
+</ul>
+<p><strong>Chart 3: Top pages by gap</strong></p>
+<ul>
+<li>Table: URL, Edge requests, GA4 sessions, Gap %</li>
+<li>Sort: Gap % descending</li>
+</ul>
+<p><strong>Alert rules:</strong></p>
+<ul>
+<li>If gap % &gt;25% for 3 consecutive days → Email alert (&quot;Analytics blocking spike detected&quot;)</li>
+<li>If edge requests spike &gt;5x but GA4 flat → Alert (&quot;Possible bot attack&quot;)</li>
+</ul>
+<h3>Reconciling Discrepancies Between Data Sources</h3>
+<p>Edge and client-side data will never match perfectly. Understand acceptable variance.</p>
+<p><strong>Expected discrepancies:</strong></p>
+<p><strong>Analytics blockers: 8-18%</strong></p>
+<ul>
+<li>Lower for general audience (8-12%)</li>
+<li>Higher for tech/privacy audience (15-25%)</li>
+</ul>
+<p><strong>Bot traffic: 3-12%</strong></p>
+<ul>
+<li>Lower with good bot management (3-5%)</li>
+<li>Higher without filtering (10-20%)</li>
+</ul>
+<p><strong>JavaScript load failures: 2-5%</strong></p>
+<ul>
+<li>Lower for fast sites (2-3%)</li>
+<li>Higher for slow sites or mobile-heavy traffic (4-8%)</li>
+</ul>
+<p><strong>Total expected gap: 15-30%</strong></p>
+<p><strong>Acceptable:</strong> Edge requests 15-25% higher than GA4 sessions</p>
+<p><strong>Investigate if:</strong></p>
+<ul>
+<li>Gap &lt;10%: Possible undercounting in edge logs (incorrect filtering?)</li>
+<li>Gap &gt;35%: High bot traffic or analytics blocking epidemic</li>
+</ul>
+<p><strong>Reconciliation process:</strong></p>
+<p><strong>Step 1: Filter edge logs to human traffic only</strong></p>
+<p>Remove:</p>
+<ul>
+<li>Known bot user-agents (<strong>Googlebot</strong>, <strong>Bingbot</strong>, etc.)</li>
+<li>Status codes 4xx, 5xx (errors)</li>
+<li>Non-HTML requests (CSS, JS, images)</li>
+</ul>
+<p><strong>Filtered edge requests:</strong> 112,000 (from 127,000 total)</p>
+<p><strong>Step 2: Compare to GA4</strong></p>
+<p>GA4 sessions: 94,000</p>
+<p><strong>Gap:</strong> 16% (acceptable range)</p>
+<p><strong>Step 3: Segment gap by traffic source</strong></p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Edge Requests</th>
+<th>GA4 Sessions</th>
+<th>Gap %</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Organic search</td>
+<td>68,000</td>
+<td>62,000</td>
+<td>8.8%</td>
+</tr>
+<tr>
+<td>Direct</td>
+<td>22,000</td>
+<td>18,000</td>
+<td>18.2%</td>
+</tr>
+<tr>
+<td>Social</td>
+<td>15,000</td>
+<td>10,500</td>
+<td>30.0%</td>
+</tr>
+<tr>
+<td>Referral</td>
+<td>7,000</td>
+<td>3,500</td>
+<td>50.0%</td>
+</tr>
+</tbody></table>
+<p><strong>Insight:</strong> Social and referral traffic have high gaps → shared in communities with privacy tools (<strong>Reddit</strong>, <strong>Hacker News</strong>).</p>
+<hr>
+<h2>FAQ</h2>
+<h3>Do I need to pay for CDN analytics or are they included?</h3>
+<p><strong>Cloudflare:</strong> Basic analytics free on all plans (Free, Pro, Business, Enterprise). Advanced features (Logpush, custom retention) require Business+ ($200+/month). <strong>Fastly:</strong> Real-time analytics included in all plans. Historical stats and log streaming available. <strong>AWS CloudFront:</strong> CloudWatch metrics free (basic). Access logs free (stored in S3, pay S3 storage costs ~$0.023/GB/month). <strong>Vercel/Netlify:</strong> Analytics add-on costs $10-20/month. Most CDNs include basic analytics; advanced features may cost extra.</p>
+<h3>Can edge analytics completely replace GA4?</h3>
+<p>No. Edge analytics measure <strong>requests</strong> (server-side). GA4 measures <strong>engagement</strong> (client-side). Edge logs show page was requested but not if user read it, scrolled, clicked, or converted. Edge analytics validate <strong>volume</strong>. GA4 tracks <strong>behavior</strong>. Use both: Edge for accurate traffic counts + bot detection, GA4 for user journeys + conversions + attribution. Hybrid approach yields complete picture.</p>
+<h3>How accurate is bot detection in edge analytics?</h3>
+<p>Cloudflare Bot Management: 95%+ accuracy (proprietary ML model). <strong>AWS CloudFront:</strong> No built-in bot detection (requires manual user-agent filtering, 70-85% accuracy). <strong>Fastly:</strong> Good (uses device detection + patterns, 85-92% accuracy). DIY bot filtering via user-agent matching: 60-75% accuracy (bots can spoof user-agents). Best accuracy: Combine CDN bot scoring + behavioral analysis (request rate, patterns, JavaScript execution). No solution is perfect—sophisticated bots evade detection.</p>
+<h3>What&#39;s the performance impact of enabling detailed edge logging?</h3>
+<p>Negligible. Edge logs are generated server-side (CDN level) without affecting client page load. Logging adds &lt;1ms latency (imperceptible). Storage costs depend on traffic volume: 100k requests/day ≈ 500MB logs/day ≈ $0.35/month (S3 storage). Network transfer costs (if streaming logs to external analytics): ~$0.01-0.09 per GB. For most sites, edge logging costs &lt;$10/month. High-traffic sites (10M+ requests/day): $50-200/month for log storage + processing.</p>
+<h3>How do I handle GDPR/privacy compliance with edge analytics?</h3>
+<p>Edge logs contain <strong>IP addresses</strong> (personal data under GDPR). Compliance options: (1) <strong>Anonymize IPs</strong> before storage (hash or truncate last octet). (2) <strong>Set retention limits</strong> (delete logs after 30-90 days). (3) <strong>Exclude EU traffic</strong> from detailed logging (Cloudflare allows geo-based rules). (4) <strong>Use aggregated analytics</strong> only (don&#39;t store raw logs). <strong>GA4</strong> anonymizes IPs by default (compliant). Edge logs require manual privacy configuration. If serving EU users, consult legal counsel on log retention policies.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3 class="font-display font-bold text-xl text-slate-100">Stop gambling on single traffic sources.</h3>
+            <p class="mt-2 text-slate-400 text-sm max-w-lg">Find gives you the complete framework for building, measuring, and defending a diversified traffic portfolio. Calculators, templates, and the full methodology.</p>
+          </div>
+          <a href="/setup.html" class="shrink-0 px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm">
+            Get Find &mdash; $997
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/ahrefs-vs-semrush-vs-similarweb-traffic.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">analytics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Ahrefs vs SEMrush vs SimilarWeb for Traffic Portfolio Analysis</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compare Ahrefs, SEMrush, and SimilarWeb for competitive traffic analysis. Each tool reveals different dimensions—backlinks, keywords, referrals—with distinct blind spots and pricing.</p>
+          </a>
+
+          <a href="/articles/automate-traffic-reporting-zapier-sheets.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">analytics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Automate Traffic Reporting Across All Channels With Zapier and Sheets</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build automated traffic dashboards pulling data from Google Analytics, social platforms, and email tools into Google Sheets. Update daily without manual exports.</p>
+          </a>
+
+          <a href="/articles/brand-search-volume-traffic.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">analytics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Brand Search Volume as a Traffic Health Metric</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Track branded search volume to measure traffic durability. High brand searches = resilient audience less vulnerable to algorithm shifts and platform volatility.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Find &mdash; $997</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://tattooremovalnear.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">tattooremovalnear</a></li>
+          <li><a href="https://comicstripai.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">comicstripai</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          <li><a href="https://b2bvic.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">b2bvic</a></li>
+          <li><a href="https://seobyrole.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">seobyrole</a></li>
+          <li><a href="https://quickfixseo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">quickfixseo</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+          <a href="/setup.html" class="hover:text-slate-400 transition-colors">Find</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

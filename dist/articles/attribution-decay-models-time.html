@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribution Decay Models: How Time Between Touchpoints Changes Credit | Polytraffic</title>
+    <meta name="description" content="Time decay attribution assigns credit based on touchpoint proximity to conversion. 7-day, 14-day, and 30-day decay models produce different channel valuations and budget decisions." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Attribution Decay Models: How Time Between Touchpoints Changes Credit | Polytraffic" />
+    <meta property="og:description" content="Time decay attribution assigns credit based on touchpoint proximity to conversion. 7-day, 14-day, and 30-day decay models produce different channel valuations and budget decisions." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/attribution-decay-models-time.html" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Attribution Decay Models: How Time Between Touchpoints Changes Credit | Polytraffic" />
+    <meta name="twitter:description" content="Time decay attribution assigns credit based on touchpoint proximity to conversion. 7-day, 14-day, and 30-day decay models produce different channel valuations and budget decisions." />
+    <link rel="canonical" href="https://polytraffic.com/articles/attribution-decay-models-time.html" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://tattooremovalnear.com" />
+    <link rel="me" href="https://comicstripai.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="me" href="https://b2bvic.com" />
+    <link rel="me" href="https://seobyrole.com" />
+    <link rel="me" href="https://quickfixseo.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0c1222',
+              800: '#141c30',
+              700: '#1e2a42',
+              600: '#1e293b',
+            },
+            violet: {
+              500: '#8b5cf6',
+              400: '#a78bfa',
+            },
+            cyan: {
+              500: '#06b6d4',
+            },
+            cta: {
+              500: '#f97316',
+              400: '#fb923c',
+            },
+            slate: {
+              100: '#f1f5f9',
+              400: '#94a3b8',
+              500: '#64748b',
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+            mono: ['"Fira Code"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Attribution Decay Models: How Time Between Touchpoints Changes Credit",
+    "description": "Time decay attribution assigns credit based on touchpoint proximity to conversion. 7-day, 14-day, and 30-day decay models produce different channel valuations and budget decisions.",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-02-07",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/attribution-decay-models-time.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/analytics.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Attribution Decay Models: How Time Between Touchpoints Changes Credit"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Build Your Portfolio &mdash; $997
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Build Your Portfolio &mdash; $997
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/analytics.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Attribution Decay Models: How Time Between Touchpoints Changes Credit</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <article class="pt-prose">
+        <h1>Attribution Decay Models: How Time Between Touchpoints Changes Credit</h1>
+<p>Attribution credit isn&#39;t binary.</p>
+<p>A customer who sees your ad Monday, reads your blog Wednesday, gets an email Friday, and purchases Saturday didn&#39;t convert solely from the email. Each touchpoint contributed value. The question: how much credit does each touchpoint deserve?</p>
+<p><strong>Linear attribution</strong> assigns equal credit across all touchpoints (each gets 25% in the above example). <strong>Last-touch attribution</strong> assigns 100% credit to the final touchpoint before conversion (email gets 100%, everything else gets zero). <strong>Time decay attribution</strong> assigns credit proportionally based on temporal proximity to conversion—touchpoints closer to purchase get more credit than earlier touchpoints.</p>
+<p>Time decay models assume recency matters: the email sent Friday (1 day before purchase) influenced conversion more than the ad seen Monday (5 days before purchase). This reflects customer psychology—recent interactions are top-of-mind when buying decisions happen.</p>
+<p>The <strong>half-life</strong> parameter determines decay rate: how quickly credit diminishes over time. A 7-day half-life means a touchpoint 7 days before conversion gets 50% the credit of a touchpoint on conversion day. A 14-day half-life assigns 50% credit at 14 days. A 30-day half-life maintains credit longer.</p>
+<p><strong>Different decay models produce radically different channel valuations:</strong></p>
+<ul>
+<li><strong>7-day decay:</strong> Bottom-funnel channels (email, retargeting) get most credit, top-funnel channels (organic search, social discovery) get minimal credit</li>
+<li><strong>30-day decay:</strong> Top-funnel channels retain credit because they&#39;re still within decay window when conversions happen</li>
+<li><strong>90-day decay:</strong> Awareness channels (SEO, content marketing) receive meaningful credit for conversions happening months after initial discovery</li>
+</ul>
+<p><strong>The challenge:</strong> There is no objectively &quot;correct&quot; decay model. Customer journeys vary by industry, product price, buying cycle length. B2B SaaS with 90-day sales cycles requires different decay models than e-commerce with 3-day decision windows.</p>
+<p>Choosing the wrong decay model misallocates budget: over-investing in bottom-funnel channels that get conversion credit but don&#39;t drive awareness, or over-investing in top-funnel channels that assisted conversions that would have happened anyway.</p>
+<p>Links: <a href="first-touch-last-touch-multi-touch-attribution.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">first-touch-last-touch-multi-touch-attribution</a>, <a href="multi-touch-attribution-small-business.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">multi-touch-attribution-small-business</a>, <a href="data-driven-attribution-ga4.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">data-driven-attribution-ga4</a></p>
+<hr>
+<h2>Time Decay Attribution Mechanics and Half-Life Parameters</h2>
+<p>Time decay attribution applies exponential decay functions to reduce credit as time between touchpoint and conversion increases.</p>
+<h3>Exponential Decay Formula and Credit Calculation</h3>
+<p><strong>Standard time decay formula:</strong></p>
+<p>Credit = Base Credit × e^(-λt)</p>
+<p>Where:</p>
+<ul>
+<li><strong>Base Credit</strong> = starting credit value (100% for most recent touchpoint)</li>
+<li><strong>e</strong> = Euler&#39;s number (2.71828)</li>
+<li><strong>λ</strong> (lambda) = decay constant, derived from half-life</li>
+<li><strong>t</strong> = time elapsed between touchpoint and conversion (in days)</li>
+</ul>
+<p><strong>Decay constant calculation:</strong></p>
+<p>λ = ln(2) / half-life</p>
+<p>For 7-day half-life: λ = 0.693 / 7 = 0.099
+For 14-day half-life: λ = 0.693 / 14 = 0.0495
+For 30-day half-life: λ = 0.693 / 30 = 0.0231</p>
+<p><strong>Example calculation:</strong></p>
+<p>Customer journey:</p>
+<ul>
+<li>Day 1: Organic search visit</li>
+<li>Day 8: Social media click</li>
+<li>Day 14: Email click</li>
+<li>Day 15: Purchase</li>
+</ul>
+<p><strong>7-day half-life decay:</strong></p>
+<p>Touchpoint 1 (organic, 14 days before purchase):</p>
+<ul>
+<li>Credit = 1 × e^(-0.099 × 14) = 1 × e^(-1.386) = 1 × 0.25 = 0.25</li>
+</ul>
+<p>Touchpoint 2 (social, 7 days before purchase):</p>
+<ul>
+<li>Credit = 1 × e^(-0.099 × 7) = 1 × e^(-0.693) = 1 × 0.50 = 0.50</li>
+</ul>
+<p>Touchpoint 3 (email, 1 day before purchase):</p>
+<ul>
+<li>Credit = 1 × e^(-0.099 × 1) = 1 × e^(-0.099) = 1 × 0.906 = 0.906</li>
+</ul>
+<p><strong>Normalized credit (total = 100%):</strong></p>
+<ul>
+<li>Organic: 0.25 / (0.25 + 0.50 + 0.906) = 15.0%</li>
+<li>Social: 0.50 / 1.656 = 30.2%</li>
+<li>Email: 0.906 / 1.656 = 54.8%</li>
+</ul>
+<p><strong>30-day half-life decay:</strong></p>
+<p>Touchpoint 1 (organic, 14 days):</p>
+<ul>
+<li>Credit = e^(-0.0231 × 14) = e^(-0.323) = 0.724</li>
+</ul>
+<p>Touchpoint 2 (social, 7 days):</p>
+<ul>
+<li>Credit = e^(-0.0231 × 7) = e^(-0.162) = 0.850</li>
+</ul>
+<p>Touchpoint 3 (email, 1 day):</p>
+<ul>
+<li>Credit = e^(-0.0231 × 1) = e^(-0.023) = 0.977</li>
+</ul>
+<p><strong>Normalized:</strong></p>
+<ul>
+<li>Organic: 0.724 / 2.551 = 28.4%</li>
+<li>Social: 0.850 / 2.551 = 33.3%</li>
+<li>Email: 0.977 / 2.551 = 38.3%</li>
+</ul>
+<p><strong>Analysis:</strong></p>
+<p>Same journey, different decay models:</p>
+<ul>
+<li>7-day decay: Email gets 54.8% credit (favors recent touchpoints heavily)</li>
+<li>30-day decay: Email gets 38.3% credit (distributes credit more evenly)</li>
+<li>7-day organic credit: 15.0%</li>
+<li>30-day organic credit: 28.4% (+89% more credit)</li>
+</ul>
+<p><strong>Implication:</strong> Channel valuation changes dramatically based on decay parameter. SEO looks nearly 2x more valuable under 30-day decay vs 7-day decay.</p>
+<h3>Half-Life Selection Based on Purchase Cycle Length</h3>
+<p><strong>Principle:</strong> Match decay half-life to typical customer decision timeline.</p>
+<p><strong>Purchase cycle definitions:</strong></p>
+<p><strong>Short cycle (1-7 days):</strong></p>
+<ul>
+<li>Low-cost e-commerce ($20-100 products)</li>
+<li>Impulse purchases</li>
+<li>Replacement purchases (batteries, toiletries)</li>
+<li>Fast food, entertainment, casual services</li>
+</ul>
+<p><strong>Recommended half-life:</strong> 3-7 days
+<strong>Reasoning:</strong> Customers decide quickly. Touchpoints older than 1 week rarely influence final decision.</p>
+<p><strong>Medium cycle (7-30 days):</strong></p>
+<ul>
+<li>Mid-price e-commerce ($100-500)</li>
+<li>Considered purchases (electronics, furniture)</li>
+<li>Service subscriptions (software, gym memberships)</li>
+<li>Local services (contractors, dentists)</li>
+</ul>
+<p><strong>Recommended half-life:</strong> 14-21 days
+<strong>Reasoning:</strong> Research period spans 2-3 weeks. Early awareness touchpoints still influence final decision.</p>
+<p><strong>Long cycle (30-90+ days):</strong></p>
+<ul>
+<li>High-price e-commerce ($500+)</li>
+<li>B2B SaaS</li>
+<li>Enterprise software</li>
+<li>Real estate, vehicles, major services</li>
+</ul>
+<p><strong>Recommended half-life:</strong> 30-60 days
+<strong>Reasoning:</strong> Decision makers research for months. Early content (whitepapers, blog posts) influences eventual purchase even if conversion happens 60+ days later.</p>
+<p><strong>Example industry mappings:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Industry</th>
+<th>Typical Cycle</th>
+<th>Recommended Half-Life</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fashion e-commerce</td>
+<td>3-7 days</td>
+<td>5-7 days</td>
+</tr>
+<tr>
+<td>Consumer electronics</td>
+<td>14-21 days</td>
+<td>14 days</td>
+</tr>
+<tr>
+<td>B2C SaaS</td>
+<td>14-30 days</td>
+<td>21 days</td>
+</tr>
+<tr>
+<td>B2B SaaS (SMB)</td>
+<td>30-60 days</td>
+<td>30 days</td>
+</tr>
+<tr>
+<td>B2B SaaS (enterprise)</td>
+<td>90-180 days</td>
+<td>60-90 days</td>
+</tr>
+<tr>
+<td>Professional services</td>
+<td>30-90 days</td>
+<td>45 days</td>
+</tr>
+<tr>
+<td>E-learning courses</td>
+<td>7-21 days</td>
+<td>14 days</td>
+</tr>
+</tbody></table>
+<p><strong>Testing process:</strong></p>
+<p>Select half-life based on industry benchmark → run attribution for 90 days → analyze channel credit distribution → validate against known customer journey data → adjust half-life if needed.</p>
+<h3>Platform Default Decay Windows and Their Biases</h3>
+<p><strong>Google Analytics 4 default attribution:</strong></p>
+<ul>
+<li><strong>Model:</strong> Data-driven attribution (default for properties with sufficient conversion volume)</li>
+<li><strong>Fallback:</strong> Last-click attribution</li>
+<li><strong>Decay model:</strong> Not exposed to users (Google&#39;s black-box algorithm)</li>
+<li><strong>Lookback window:</strong> 90 days (can&#39;t be changed)</li>
+</ul>
+<p><strong>Bias:</strong> GA4&#39;s data-driven model tends to favor Google Ads because Google has complete visibility into ad touchpoints but limited visibility into off-platform touchpoints (social, email, offline). This creates attribution bias toward Google-owned channels.</p>
+<p><strong>Facebook Ads attribution:</strong></p>
+<ul>
+<li><strong>Model:</strong> Last-touch within attribution window</li>
+<li><strong>Default window:</strong> 7-day click, 1-day view</li>
+<li><strong>Options:</strong> 1-day click, 7-day click, 28-day click (can customize)</li>
+<li><strong>Decay:</strong> None (last-touch, not time-decay)</li>
+</ul>
+<p><strong>Bias:</strong> 7-day click window favors bottom-funnel retargeting campaigns over awareness campaigns. Awareness campaigns that drive clicks 10+ days before purchase get zero credit.</p>
+<p><strong>LinkedIn attribution:</strong></p>
+<ul>
+<li><strong>Model:</strong> Last-touch within 30 days (B2B default)</li>
+<li><strong>Decay:</strong> None (last-touch)</li>
+<li><strong>View-through tracking:</strong> 30-day view window</li>
+</ul>
+<p><strong>Bias:</strong> 30-day window is appropriate for B2B but still last-touch, so early funnel content (blog posts, whitepapers) gets zero credit if later touchpoint exists.</p>
+<p><strong>Third-party attribution tools:</strong></p>
+<p><strong>Segment (Twilio):</strong></p>
+<ul>
+<li>Configurable decay models (linear, time decay, position-based)</li>
+<li>Custom half-life parameters (7, 14, 30, 60, 90 days)</li>
+<li>Cross-platform tracking</li>
+</ul>
+<p><strong>Bias:</strong> Requires implementation across all platforms—gaps in tracking create attribution blind spots.</p>
+<p><strong>HubSpot:</strong></p>
+<ul>
+<li>Multiple models: first-touch, last-touch, linear, time decay</li>
+<li>Time decay uses 7-day default half-life (configurable)</li>
+<li>Full-funnel visibility for HubSpot-tracked channels</li>
+</ul>
+<p><strong>Bias:</strong> Non-HubSpot channels (organic social, offline) have limited tracking, receive less credit.</p>
+<p><strong>Ruler Analytics:</strong></p>
+<ul>
+<li>Focuses on phone call attribution</li>
+<li>Time decay models for call tracking</li>
+<li>Integrates with CRM for full-cycle attribution</li>
+</ul>
+<p><strong>Bias:</strong> Over-weights call conversions vs digital conversions.</p>
+<p><strong>Platform comparison:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Default Model</th>
+<th>Decay Half-Life</th>
+<th>Lookback Window</th>
+<th>Bias</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GA4</td>
+<td>Data-driven</td>
+<td>Hidden</td>
+<td>90 days</td>
+<td>Favors Google Ads</td>
+</tr>
+<tr>
+<td>Facebook Ads</td>
+<td>Last-touch</td>
+<td>N/A</td>
+<td>7 days</td>
+<td>Favors retargeting</td>
+</tr>
+<tr>
+<td>LinkedIn</td>
+<td>Last-touch</td>
+<td>N/A</td>
+<td>30 days</td>
+<td>B2B appropriate but last-touch</td>
+</tr>
+<tr>
+<td>HubSpot</td>
+<td>Configurable</td>
+<td>7 days (default)</td>
+<td>Unlimited</td>
+<td>Favors HubSpot channels</td>
+</tr>
+<tr>
+<td>Segment</td>
+<td>Configurable</td>
+<td>Custom</td>
+<td>Custom</td>
+<td>Neutral if implemented fully</td>
+</tr>
+</tbody></table>
+<p><strong>Implication:</strong> Every platform&#39;s default attribution is biased toward making that platform look more valuable. Use third-party attribution with custom decay models to get unbiased channel valuation.</p>
+<hr>
+<h2>Channel Valuation Differences Across Decay Models</h2>
+<p>Decay model selection changes which channels appear valuable.</p>
+<h3>SEO and Content Marketing Under Different Decay Curves</h3>
+<p><strong>SEO characteristics:</strong></p>
+<ul>
+<li>Top-funnel channel (awareness, discovery)</li>
+<li>Long time between touchpoint and conversion (typically 14-60 days)</li>
+<li>Customers often research via SEO, convert via other channels (email, direct)</li>
+</ul>
+<p><strong>Valuation under 7-day decay:</strong></p>
+<p>Customer discovers brand via SEO blog post → reads content → subscribes to email → receives nurture sequence → purchases 21 days later via email link</p>
+<p><strong>Credit distribution (7-day half-life):</strong></p>
+<ul>
+<li>SEO blog post (21 days before purchase): 12% credit</li>
+<li>Email touchpoints (3, 10, 17 days before): 88% credit combined</li>
+</ul>
+<p><strong>SEO appears low-value:</strong> Contributed awareness but receives minimal attribution credit.</p>
+<p><strong>Valuation under 30-day decay:</strong></p>
+<p>Same journey, 30-day half-life:</p>
+<ul>
+<li>SEO blog post (21 days): 34% credit</li>
+<li>Email touchpoints: 66% credit combined</li>
+</ul>
+<p><strong>SEO valuation nearly triples</strong> (12% → 34%) simply by changing decay parameter.</p>
+<p><strong>Valuation under 90-day decay:</strong></p>
+<p>Same journey, 90-day half-life:</p>
+<ul>
+<li>SEO blog post (21 days): 42% credit</li>
+<li>Email touchpoints: 58% credit</li>
+</ul>
+<p><strong>SEO gets nearly half the conversion credit</strong> despite being earliest touchpoint.</p>
+<p><strong>Budget implications:</strong></p>
+<p>Publisher using 7-day decay concludes SEO is low-ROI, shifts budget to email. But email only works because SEO drives initial awareness. Cutting SEO budget reduces email performance 6-9 months later when organic traffic declines and email list growth slows.</p>
+<p>Publisher using 30-day decay sees SEO&#39;s true contribution, maintains SEO investment, email list continues growing from organic traffic.</p>
+<p><strong>Correct approach for content-driven businesses:</strong></p>
+<p>Use 30-60 day decay to properly value awareness channels. Short decay models systematically under-value top-funnel channels that drive discovery.</p>
+<h3>Email Marketing Attribution Across Time Windows</h3>
+<p><strong>Email marketing characteristics:</strong></p>
+<ul>
+<li>Mid-to-bottom funnel (nurture, conversion)</li>
+<li>Subscribers already aware of brand</li>
+<li>Time to conversion varies: immediate (promotional email) to weeks (nurture sequence)</li>
+</ul>
+<p><strong>Promotional email example:</strong></p>
+<p>Email sent → customer clicks → purchases same day</p>
+<p><strong>Credit under any decay model:</strong> ~100% (only touchpoint within conversion window)</p>
+<p><strong>Nurture sequence example:</strong></p>
+<p>Welcome email (Day 1) → Educational email (Day 7) → Case study email (Day 14) → Promotional email (Day 21) → Purchase (Day 22)</p>
+<p><strong>7-day decay:</strong></p>
+<ul>
+<li>Welcome (21 days): 6% credit</li>
+<li>Educational (15 days): 13% credit</li>
+<li>Case study (8 days): 29% credit</li>
+<li>Promotional (1 day): 52% credit</li>
+</ul>
+<p><strong>Interpretation:</strong> Bottom-funnel promotional email gets most credit.</p>
+<p><strong>30-day decay:</strong></p>
+<ul>
+<li>Welcome (21 days): 18% credit</li>
+<li>Educational (15 days): 24% credit</li>
+<li>Case study (8 days): 29% credit</li>
+<li>Promotional (1 day): 29% credit</li>
+</ul>
+<p><strong>Interpretation:</strong> All emails contribute roughly equally.</p>
+<p><strong>Budget implications:</strong></p>
+<p>Under 7-day decay, promotional emails look highly valuable, educational emails look weak. Publisher might cut educational content, send more promotions.</p>
+<p><strong>Result:</strong> Unsubscribe rate increases, list engagement drops, promotional emails become less effective because relationship-building emails were eliminated.</p>
+<p>Under 30-day decay, publisher sees that educational emails contribute to eventual promotional email success. Maintains balanced nurture sequence. List engagement remains high.</p>
+<p><strong>Correct approach for email:</strong></p>
+<p>Use decay window matching typical nurture sequence length. If sequences run 30 days, use 30-day decay. If sequences run 60 days, use 60-day decay. Match attribution window to actual customer journey.</p>
+<h3>Paid Advertising and Retargeting Credit Shifts</h3>
+<p><strong>Paid advertising attribution complexity:</strong></p>
+<p>Customers often see ads multiple times across different stages:</p>
+<ul>
+<li>Awareness ad (cold traffic, brand introduction)</li>
+<li>Consideration ad (warm traffic, feature education)</li>
+<li>Conversion ad (hot traffic, discount/trial offer)</li>
+<li>Retargeting ad (cart abandonment, re-engagement)</li>
+</ul>
+<p><strong>Example customer journey:</strong></p>
+<p>Facebook awareness ad (Day 1) → Google search ad (Day 8) → Facebook retargeting ad (Day 14) → Purchase (Day 15)</p>
+<p><strong>7-day decay:</strong></p>
+<ul>
+<li>Facebook awareness (14 days): 8% credit</li>
+<li>Google search (7 days): 25% credit</li>
+<li>Facebook retargeting (1 day): 67% credit</li>
+</ul>
+<p><strong>Interpretation:</strong> Retargeting dominates attribution. Awareness ads look inefficient.</p>
+<p><strong>30-day decay:</strong></p>
+<ul>
+<li>Facebook awareness (14 days): 24% credit</li>
+<li>Google search (7 days): 31% credit</li>
+<li>Facebook retargeting (1 day): 45% credit</li>
+</ul>
+<p><strong>Interpretation:</strong> All ad touchpoints contribute meaningfully.</p>
+<p><strong>Budget implications:</strong></p>
+<p>Under 7-day decay, advertiser sees retargeting has 67% credit, awareness ads have 8%. Decision: Cut awareness budget, increase retargeting budget.</p>
+<p><strong>6 months later:</strong> Retargeting audience shrinks because awareness ads stopped feeding top of funnel. Retargeting performance collapses due to audience depletion. Total conversions drop 40%.</p>
+<p>Under 30-day decay, advertiser sees awareness ads contribute 24% of credit. Maintains awareness budget. Retargeting audience remains large. Performance stays stable.</p>
+<p><strong>Retargeting paradox:</strong></p>
+<p>Retargeting always appears highly valuable under short decay windows because it&#39;s last touchpoint before conversion. But retargeting only works if awareness/consideration channels feed it. Over-indexing on retargeting starves the funnel.</p>
+<p><strong>Correct approach for paid advertising:</strong></p>
+<p>Use 14-30 day decay for most B2C. Use 30-60 day decay for B2B. Avoid 7-day decay unless selling impulse products. Longer decay windows prevent over-investment in retargeting at expense of awareness.</p>
+<hr>
+<h2>Implementing Custom Decay Models in Analytics Platforms</h2>
+<p>Most platforms offer limited decay customization. Advanced attribution requires custom implementation.</p>
+<h3>Google Analytics 4 Time Decay Configuration</h3>
+<p><strong>GA4 limitations:</strong></p>
+<ul>
+<li>Data-driven attribution is default, can&#39;t customize decay parameters</li>
+<li>No exposed time-decay model with configurable half-life</li>
+<li>Comparison tool shows multiple models but doesn&#39;t let you customize them</li>
+</ul>
+<p><strong>Workaround: Exploration reports with custom segments</strong></p>
+<p><strong>Implementation:</strong></p>
+<ol>
+<li>Navigate to <strong>Explore</strong> → Create new exploration</li>
+<li>Select <strong>Funnel exploration</strong> or <strong>Path exploration</strong></li>
+<li>Create custom segments for touchpoint timing:<ul>
+<li>&quot;First interaction 0-7 days before conversion&quot;</li>
+<li>&quot;First interaction 8-14 days before conversion&quot;</li>
+<li>&quot;First interaction 15-30 days before conversion&quot;</li>
+<li>&quot;First interaction 31-60 days before conversion&quot;</li>
+</ul>
+</li>
+<li>Apply segments to conversions</li>
+<li>Export data to spreadsheet</li>
+<li>Apply custom decay formula in spreadsheet</li>
+</ol>
+<p><strong>Example spreadsheet calculation:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Touchpoint Timing</th>
+<th>Conversions</th>
+<th>Decay Weight (30-day half-life)</th>
+<th>Weighted Conversions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0-7 days</td>
+<td>450</td>
+<td>0.90</td>
+<td>405</td>
+</tr>
+<tr>
+<td>8-14 days</td>
+<td>280</td>
+<td>0.75</td>
+<td>210</td>
+</tr>
+<tr>
+<td>15-30 days</td>
+<td>190</td>
+<td>0.50</td>
+<td>95</td>
+</tr>
+<tr>
+<td>31-60 days</td>
+<td>80</td>
+<td>0.25</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<p><strong>Weighted total:</strong> 730 weighted conversions vs 1,000 raw conversions</p>
+<p><strong>Channel credit:</strong> Distribute weighted conversions by channel across timing buckets.</p>
+<p><strong>Limitation:</strong> Manual process, not real-time, requires spreadsheet work.</p>
+<h3>Building Time Decay Models in Spreadsheets</h3>
+<p><strong>Full custom implementation:</strong></p>
+<p><strong>Step 1: Export raw touchpoint data</strong></p>
+<p>Export from GA4, CRM, or data warehouse with columns:</p>
+<ul>
+<li>User ID</li>
+<li>Touchpoint timestamp</li>
+<li>Channel/source</li>
+<li>Conversion timestamp (if converted)</li>
+<li>Conversion value</li>
+</ul>
+<p><strong>Step 2: Calculate days between touchpoint and conversion</strong></p>
+<p>Formula (Google Sheets):</p>
+<pre><code>=IF(ISBLANK(D2), &quot;&quot;, C2-B2)
+</code></pre>
+<p>Where:</p>
+<ul>
+<li>B2 = Touchpoint timestamp</li>
+<li>C2 = Conversion timestamp</li>
+<li>D2 = Conversion value (to filter non-converters)</li>
+</ul>
+<p><strong>Step 3: Apply decay formula</strong></p>
+<p>Formula for 30-day half-life:</p>
+<pre><code>=EXP(-0.0231*E2)
+</code></pre>
+<p>Where E2 = days between touchpoint and conversion</p>
+<p><strong>Step 4: Calculate weighted credit</strong></p>
+<p>For each user, sum decay weights across all touchpoints, then calculate percentage:</p>
+<pre><code>=F2/SUMIFS($F$2:$F$1000, $A$2:$A$1000, A2)
+</code></pre>
+<p>Where:</p>
+<ul>
+<li>F2 = Decay weight for this touchpoint</li>
+<li>A2 = User ID (to group touchpoints by user)</li>
+</ul>
+<p><strong>Step 5: Aggregate by channel</strong></p>
+<p>Pivot table:</p>
+<ul>
+<li>Rows: Channel</li>
+<li>Values: Sum of weighted credit, Count of conversions</li>
+<li>Calculated field: Weighted conversions per channel</li>
+</ul>
+<p><strong>Output example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Raw Conversions</th>
+<th>Weighted Conversions</th>
+<th>Difference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Email</td>
+<td>420</td>
+<td>385</td>
+<td>-8.3%</td>
+</tr>
+<tr>
+<td>Paid Search</td>
+<td>310</td>
+<td>245</td>
+<td>-21.0%</td>
+</tr>
+<tr>
+<td>Organic</td>
+<td>180</td>
+<td>225</td>
+<td>+25.0%</td>
+</tr>
+<tr>
+<td>Social</td>
+<td>90</td>
+<td>95</td>
+<td>+5.6%</td>
+</tr>
+</tbody></table>
+<p><strong>Interpretation:</strong> Organic search gains +25% credit under time decay vs last-touch, paid search loses -21% credit. Organic is more valuable than last-touch suggests.</p>
+<h3>Third-Party Attribution Tool Configurations</h3>
+<p><strong>Segment time decay setup:</strong></p>
+<ol>
+<li>Navigate to <strong>Warehouse</strong> → <strong>SQL Editor</strong></li>
+<li>Query touchpoint data with timestamps</li>
+<li>Apply decay formula in SQL:</li>
+</ol>
+<pre><code class="language-sql">SELECT
+  user_id,
+  channel,
+  timestamp,
+  conversion_timestamp,
+  DATEDIFF(conversion_timestamp, timestamp) AS days_to_conversion,
+  EXP(-0.0231 * DATEDIFF(conversion_timestamp, timestamp)) AS decay_weight
+FROM touchpoints
+WHERE conversion_timestamp IS NOT NULL
+</code></pre>
+<ol start="4">
+<li>Create materialized view for decay-weighted attribution</li>
+<li>Build dashboard from materialized view</li>
+</ol>
+<p><strong>HubSpot time decay setup:</strong></p>
+<ol>
+<li>Navigate to <strong>Reports</strong> → <strong>Analytics Tools</strong> → <strong>Attribution Reports</strong></li>
+<li>Select <strong>Time Decay</strong> model</li>
+<li>Choose half-life parameter (HubSpot offers 7, 14, 30 days)</li>
+<li>Apply to revenue or conversion reports</li>
+<li>Compare against first-touch, last-touch, linear models</li>
+</ol>
+<p><strong>Ruler Analytics configuration:</strong></p>
+<ol>
+<li>Set up <strong>Call Tracking</strong> with matched sessions</li>
+<li>Navigate to <strong>Attribution</strong> → <strong>Models</strong></li>
+<li>Select <strong>Time Decay</strong></li>
+<li>Configure decay rate (Ruler uses percentage-based decay, not half-life)<ul>
+<li>Fast decay: 50% credit reduction every 7 days</li>
+<li>Medium decay: 50% reduction every 14 days</li>
+<li>Slow decay: 50% reduction every 30 days</li>
+</ul>
+</li>
+<li>Apply model to phone calls + digital conversions</li>
+</ol>
+<p><strong>Comparison output:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Ease of Setup</th>
+<th>Customization</th>
+<th>Cross-Platform</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GA4 Exploration</td>
+<td>Medium</td>
+<td>Low</td>
+<td>GA4 only</td>
+<td>Free</td>
+</tr>
+<tr>
+<td>Spreadsheet</td>
+<td>Hard</td>
+<td>Full</td>
+<td>Manual export</td>
+<td>Free</td>
+</tr>
+<tr>
+<td>Segment</td>
+<td>Hard</td>
+<td>Full</td>
+<td>Yes</td>
+<td>$120+/month</td>
+</tr>
+<tr>
+<td>HubSpot</td>
+<td>Easy</td>
+<td>Medium</td>
+<td>HubSpot channels</td>
+<td>$800+/month</td>
+</tr>
+<tr>
+<td>Ruler Analytics</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Yes</td>
+<td>$199+/month</td>
+</tr>
+</tbody></table>
+<p><strong>Recommendation:</strong></p>
+<p>Start with GA4 Exploration for basic time decay insights. Graduate to spreadsheet implementation for full customization. Invest in third-party tool (Segment, Ruler) only if managing $50k+/month ad spend where attribution precision justifies cost.</p>
+<hr>
+<h2>Common Decay Model Mistakes and Corrections</h2>
+<p>Time decay attribution introduces specific failure modes.</p>
+<h3>Over-Weighting Retargeting Due to Short Windows</h3>
+<p><strong>Mistake:</strong></p>
+<p>Using 7-day decay window for product with 30-day consideration cycle.</p>
+<p><strong>Example:</strong></p>
+<p>Furniture e-commerce (typical purchase cycle: 21-35 days):</p>
+<ul>
+<li>Customer discovers brand via Pinterest (Day 1)</li>
+<li>Reads blog posts via Google (Days 3, 8, 15)</li>
+<li>Sees Facebook retargeting ad (Day 22)</li>
+<li>Purchases (Day 23)</li>
+</ul>
+<p><strong>7-day decay attribution:</strong></p>
+<ul>
+<li>Pinterest (22 days): 4% credit</li>
+<li>Google visits (20, 15, 8 days): 16% combined credit</li>
+<li>Facebook retargeting (1 day): 80% credit</li>
+</ul>
+<p><strong>Advertiser conclusion:</strong> Facebook retargeting is primary driver, Pinterest and SEO are weak. Decision: Cut Pinterest and SEO budget, increase Facebook retargeting.</p>
+<p><strong>6 months later:</strong></p>
+<ul>
+<li>Pinterest traffic (which fed retargeting audience) dropped 70%</li>
+<li>SEO traffic dropped 40%</li>
+<li>Facebook retargeting audience shrunk 60%</li>
+<li>Retargeting performance collapsed (fewer people to retarget)</li>
+<li>Total revenue dropped 35%</li>
+</ul>
+<p><strong>Correction:</strong></p>
+<p>Use 30-day decay matching actual purchase cycle:</p>
+<ul>
+<li>Pinterest (22 days): 17% credit</li>
+<li>Google visits: 31% combined credit</li>
+<li>Facebook retargeting (1 day): 52% credit</li>
+</ul>
+<p><strong>Insight:</strong> Top-funnel channels contribute meaningfully. Maintain awareness budget to feed retargeting audience.</p>
+<p><strong>Rule:</strong> Decay window must equal or exceed typical purchase consideration period. Short windows systematically over-credit retargeting.</p>
+<h3>Ignoring Offline Touchpoints in Decay Calculations</h3>
+<p><strong>Mistake:</strong></p>
+<p>Applying time decay only to digital touchpoints while offline touchpoints exist in customer journey.</p>
+<p><strong>Example:</strong></p>
+<p>Local service business (HVAC repair):</p>
+<ul>
+<li>Customer sees Google Ad (Day 1)</li>
+<li>Visits website, doesn&#39;t convert</li>
+<li>Receives direct mail postcard (Day 8, not tracked digitally)</li>
+<li>Calls business from postcard (Day 10)</li>
+<li>Schedules appointment via phone (Day 10)</li>
+<li>Service completed, payment collected (Day 15)</li>
+</ul>
+<p><strong>Digital-only attribution (7-day decay):</strong></p>
+<ul>
+<li>Google Ad (14 days): 100% credit</li>
+<li>Direct mail: 0% credit (not tracked)</li>
+</ul>
+<p><strong>Advertiser conclusion:</strong> Google Ads driving all conversions. Increase Google budget, question direct mail ROI.</p>
+<p><strong>Reality:</strong> Direct mail actually drove conversion. Customer saw ad initially but didn&#39;t act until direct mail reminded them.</p>
+<p><strong>Correction:</strong></p>
+<p>Implement offline tracking:</p>
+<ul>
+<li>Unique phone numbers on direct mail (call tracking)</li>
+<li>Unique promo codes (&quot;Use code MAIL10 for 10% off&quot;)</li>
+<li>Survey customers: &quot;How did you hear about us?&quot;</li>
+</ul>
+<p><strong>Integrated attribution (30-day decay, including offline):</strong></p>
+<ul>
+<li>Google Ad (14 days): 35% credit</li>
+<li>Direct mail (5 days): 65% credit</li>
+</ul>
+<p><strong>Insight:</strong> Direct mail is primary conversion driver. Google Ad contributes awareness. Maintain both channels.</p>
+<p><strong>Rule:</strong> Time decay attribution fails if touchpoints are invisible. Track offline channels (direct mail, radio, TV, in-person events) or attribution systematically under-values them.</p>
+<h3>Applying Same Decay Rate Across Different Product Lines</h3>
+<p><strong>Mistake:</strong></p>
+<p>Using single decay model for business selling products with different purchase cycles.</p>
+<p><strong>Example:</strong></p>
+<p>E-commerce selling both low-ticket ($20-50) and high-ticket ($500-2,000) products:</p>
+<ul>
+<li>Low-ticket: 3-7 day purchase cycle (impulse)</li>
+<li>High-ticket: 21-45 day purchase cycle (research-heavy)</li>
+</ul>
+<p><strong>Company applies 14-day decay to both:</strong></p>
+<p><strong>Low-ticket results:</strong></p>
+<ul>
+<li>Decay window too long (customers decide in 3-7 days)</li>
+<li>Early touchpoints get excess credit for decisions that were actually made quickly</li>
+<li>Awareness channels look more valuable than they are</li>
+</ul>
+<p><strong>High-ticket results:</strong></p>
+<ul>
+<li>Decay window too short (customers research 21-45 days)</li>
+<li>Early research touchpoints get insufficient credit</li>
+<li>Top-funnel content looks weak despite driving discovery</li>
+</ul>
+<p><strong>Correction:</strong></p>
+<p>Segment attribution by product category:</p>
+<ul>
+<li>Low-ticket products: 7-day decay</li>
+<li>High-ticket products: 30-day decay</li>
+</ul>
+<p><strong>Run separate attribution reports:</strong></p>
+<p><strong>Low-ticket attribution (7-day decay):</strong></p>
+<ul>
+<li>Social ads: 45% credit (drive impulse)</li>
+<li>Retargeting: 40% credit (close quick buyers)</li>
+<li>SEO: 15% credit (some discovery)</li>
+</ul>
+<p><strong>High-ticket attribution (30-day decay):</strong></p>
+<ul>
+<li>SEO: 38% credit (primary discovery)</li>
+<li>Social ads: 22% credit (awareness)</li>
+<li>Email nurture: 25% credit (education)</li>
+<li>Retargeting: 15% credit (final push)</li>
+</ul>
+<p><strong>Budget allocation:</strong></p>
+<p>Low-ticket: Heavy social + retargeting (bottom-funnel focus)
+High-ticket: Heavy SEO + email nurture (top/mid-funnel focus)</p>
+<p><strong>Rule:</strong> One decay model doesn&#39;t fit all products. Segment by purchase cycle length and apply appropriate decay parameters.</p>
+<hr>
+<h2>Advanced: Position-Based Decay Hybrids</h2>
+<p>Sophisticated models combine time decay with position-based credit.</p>
+<h3>U-Shaped (Position-Based) Time Decay Models</h3>
+<p><strong>Standard position-based model:</strong></p>
+<ul>
+<li>First touch: 40% credit</li>
+<li>Last touch: 40% credit</li>
+<li>Middle touches: 20% divided equally</li>
+</ul>
+<p><strong>Problem:</strong> Ignores time between touchpoints.</p>
+<p><strong>U-shaped time decay hybrid:</strong></p>
+<ul>
+<li>First touch: 30% base credit + time decay</li>
+<li>Last touch: 30% base credit + time decay</li>
+<li>Middle touches: 40% credit distributed via time decay</li>
+</ul>
+<p><strong>Formula:</strong></p>
+<p>First-touch credit = 0.30 + (0.40 × decay_weight / total_decay_weight)
+Last-touch credit = 0.30 + (0.40 × decay_weight / total_decay_weight)
+Middle-touch credit = (0.40 × decay_weight / total_decay_weight)</p>
+<p><strong>Example journey:</strong></p>
+<p>Customer sees Facebook ad (Day 1) → Reads blog via SEO (Day 10) → Gets email (Day 20) → Clicks retargeting ad (Day 27) → Purchases (Day 28)</p>
+<p><strong>Standard U-shaped (no decay):</strong></p>
+<ul>
+<li>Facebook (first): 40%</li>
+<li>SEO: 10% (20% / 2 middle touches)</li>
+<li>Email: 10%</li>
+<li>Retargeting (last): 40%</li>
+</ul>
+<p><strong>U-shaped with 30-day time decay:</strong></p>
+<p>Calculate decay weights:</p>
+<ul>
+<li>Facebook (27 days): e^(-0.0231 × 27) = 0.51</li>
+<li>SEO (18 days): e^(-0.0231 × 18) = 0.66</li>
+<li>Email (8 days): e^(-0.0231 × 8) = 0.83</li>
+<li>Retargeting (1 day): e^(-0.0231 × 1) = 0.98</li>
+</ul>
+<p>Total decay weight: 2.98</p>
+<p><strong>First-touch (Facebook):</strong></p>
+<ul>
+<li>Base: 30%</li>
+<li>Decay bonus: 40% × (0.51 / 2.98) = 6.8%</li>
+<li>Total: 36.8%</li>
+</ul>
+<p><strong>Last-touch (Retargeting):</strong></p>
+<ul>
+<li>Base: 30%</li>
+<li>Decay bonus: 40% × (0.98 / 2.98) = 13.2%</li>
+<li>Total: 43.2%</li>
+</ul>
+<p><strong>Middle touches:</strong></p>
+<ul>
+<li>SEO: 40% × (0.66 / 2.98) = 8.9%</li>
+<li>Email: 40% × (0.83 / 2.98) = 11.1%</li>
+</ul>
+<p><strong>Comparison:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Standard U-Shaped</th>
+<th>U-Shaped + Time Decay</th>
+<th>Difference</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Facebook (first)</td>
+<td>40%</td>
+<td>36.8%</td>
+<td>-3.2%</td>
+</tr>
+<tr>
+<td>SEO (middle)</td>
+<td>10%</td>
+<td>8.9%</td>
+<td>-1.1%</td>
+</tr>
+<tr>
+<td>Email (middle)</td>
+<td>10%</td>
+<td>11.1%</td>
+<td>+1.1%</td>
+</tr>
+<tr>
+<td>Retargeting (last)</td>
+<td>40%</td>
+<td>43.2%</td>
+<td>+3.2%</td>
+</tr>
+</tbody></table>
+<p><strong>Insight:</strong> Hybrid model recognizes both position importance (first/last) and recency (time decay). More recent middle touches (email at 8 days) get more credit than older middle touches (SEO at 18 days).</p>
+<h3>Custom Decay Curves for Different Funnel Stages</h3>
+<p><strong>Problem:</strong> Linear decay assumes consistent influence deterioration. Reality: awareness touchpoints maintain influence longer, conversion touchpoints lose influence rapidly.</p>
+<p><strong>Custom decay by funnel stage:</strong></p>
+<p><strong>Awareness touchpoints (SEO, social discovery, PR):</strong></p>
+<ul>
+<li>Use 60-90 day half-life (slow decay)</li>
+<li>These create brand memory that persists for months</li>
+</ul>
+<p><strong>Consideration touchpoints (blog content, comparison pages, reviews):</strong></p>
+<ul>
+<li>Use 30-day half-life (medium decay)</li>
+<li>Influence lasts weeks but fades as customer researches competitors</li>
+</ul>
+<p><strong>Conversion touchpoints (product pages, pricing, demos):</strong></p>
+<ul>
+<li>Use 7-14 day half-life (fast decay)</li>
+<li>Relevant only when customer is actively evaluating, loses relevance quickly</li>
+</ul>
+<p><strong>Implementation:</strong></p>
+<p>Classify each channel by typical funnel stage:</p>
+<p><strong>Awareness:</strong></p>
+<ul>
+<li>Organic social</li>
+<li>PR/media mentions</li>
+<li>Top-funnel SEO (informational keywords)</li>
+<li>Display ads</li>
+</ul>
+<p><strong>Consideration:</strong></p>
+<ul>
+<li>Email nurture sequences</li>
+<li>Educational blog content</li>
+<li>Webinars/guides</li>
+<li>Comparison pages</li>
+</ul>
+<p><strong>Conversion:</strong></p>
+<ul>
+<li>Product pages</li>
+<li>Pricing pages</li>
+<li>Free trial signups</li>
+<li>Retargeting ads</li>
+</ul>
+<p><strong>Apply stage-appropriate decay:</strong></p>
+<p>Customer journey:</p>
+<ul>
+<li>Organic social post (Day 1, awareness)</li>
+<li>Blog post via SEO (Day 15, consideration)</li>
+<li>Pricing page (Day 28, conversion)</li>
+<li>Purchase (Day 30)</li>
+</ul>
+<p><strong>Awareness (60-day half-life):</strong></p>
+<ul>
+<li>Social (29 days): e^(-0.0116 × 29) = 0.71</li>
+</ul>
+<p><strong>Consideration (30-day half-life):</strong></p>
+<ul>
+<li>SEO (15 days): e^(-0.0231 × 15) = 0.69</li>
+</ul>
+<p><strong>Conversion (7-day half-life):</strong></p>
+<ul>
+<li>Pricing page (2 days): e^(-0.099 × 2) = 0.82</li>
+</ul>
+<p><strong>Normalized credit:</strong></p>
+<ul>
+<li>Social: 0.71 / 2.22 = 32.0%</li>
+<li>SEO: 0.69 / 2.22 = 31.1%</li>
+<li>Pricing: 0.82 / 2.22 = 36.9%</li>
+</ul>
+<p><strong>Comparison to single 30-day decay:</strong></p>
+<ul>
+<li>Social: 24% (vs 32% custom)</li>
+<li>SEO: 35% (vs 31% custom)</li>
+<li>Pricing: 41% (vs 37% custom)</li>
+</ul>
+<p><strong>Insight:</strong> Custom decay increases awareness channel credit (+8 points) because awareness influence persists longer. Conversion channel credit decreases (-4 points) because pricing page influence is temporary.</p>
+<p><strong>Result:</strong> More accurate valuation of awareness investments.</p>
+<hr>
+<h2>FAQ</h2>
+<h3>What decay half-life should I use if I don&#39;t know my average purchase cycle?</h3>
+<p>Start with 30-day half-life as universal default. This works reasonably well for most B2C products with mid-range consideration (electronics, services, courses). Run attribution for 90 days, then validate by surveying customers: &quot;How long did you research before buying?&quot; If average is &lt;14 days, switch to 14-day decay. If &gt;45 days, switch to 60-day. Refine iteratively based on actual customer behavior data.</p>
+<h3>Does time decay attribution work for subscription businesses where customers stay for months or years?</h3>
+<p>Time decay applies to initial conversion attribution, not lifetime value. Use decay models to assign credit for first subscription signup across acquisition channels. For retention/expansion attribution, use separate model tracking touchpoints between signup and renewal (support interactions, feature usage, email engagement). Renewal decisions have different influence patterns than acquisition decisions—track them separately.</p>
+<h3>How do I apply time decay when customers have multiple devices and cross-device tracking is incomplete?</h3>
+<p>Incomplete tracking biases decay models toward tracked devices (typically desktop/laptop). Mobile touchpoints get under-counted. Correction: Use device distribution data from industry benchmarks. If industry shows 60% mobile / 40% desktop but your tracking shows 40% mobile / 60% desktop, apply 1.5x weight to mobile touchpoints to compensate for tracking gaps. Better solution: Implement proper cross-device tracking (GA4 User ID, CRM matching).</p>
+<h3>Should I use shorter decay windows during promotional periods when purchase cycles compress?</h3>
+<p>Yes. Time decay should match actual customer behavior, which changes during promotions. During Black Friday or limited-time sales, purchase cycles compress from 30 days to 3-7 days. Apply shorter decay window (7-day) during promotional periods, revert to 30-day for steady-state periods. Run separate attribution reports for promotional vs non-promotional conversions to see channel effectiveness differences.</p>
+<h3>Can I use time decay attribution if most of my traffic is direct or unknown source?</h3>
+<p>Time decay requires visible touchpoints. If 60%+ traffic is direct/unknown, attribution models (including time decay) will be inaccurate. Fix tracking first: deploy UTM parameters on all external links, implement better referrer tracking, use first-party cookies to identify returning users. Once you can track 70%+ of touchpoints, decay models become useful. Attribution with invisible journeys produces garbage insights regardless of sophistication.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3 class="font-display font-bold text-xl text-slate-100">Stop gambling on single traffic sources.</h3>
+            <p class="mt-2 text-slate-400 text-sm max-w-lg">Find gives you the complete framework for building, measuring, and defending a diversified traffic portfolio. Calculators, templates, and the full methodology.</p>
+          </div>
+          <a href="/setup.html" class="shrink-0 px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm">
+            Get Find &mdash; $997
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/attribution-imperfection-practical-response.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">analytics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Why Attribution Will Never Be Perfect and What to Do About It</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Perfect attribution is impossible due to dark social, cross-device journeys, offline touchpoints, and platform walled gardens. Build decision frameworks that work despite measurement gaps.</p>
+          </a>
+
+          <a href="/articles/attribution-tracking-for-small-business.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">tools</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build a functional multi-touch attribution system using Google Sheets, Airtable, and Google Tag Manager. Stop paying enterprise prices for attribution data your business actually needs.</p>
+          </a>
+
+          <a href="/articles/ahrefs-vs-semrush-vs-similarweb-traffic.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">analytics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Ahrefs vs SEMrush vs SimilarWeb for Traffic Portfolio Analysis</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compare Ahrefs, SEMrush, and SimilarWeb for competitive traffic analysis. Each tool reveals different dimensions—backlinks, keywords, referrals—with distinct blind spots and pricing.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Find &mdash; $997</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://tattooremovalnear.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">tattooremovalnear</a></li>
+          <li><a href="https://comicstripai.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">comicstripai</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          <li><a href="https://b2bvic.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">b2bvic</a></li>
+          <li><a href="https://seobyrole.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">seobyrole</a></li>
+          <li><a href="https://quickfixseo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">quickfixseo</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+          <a href="/setup.html" class="hover:text-slate-400 transition-colors">Find</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
