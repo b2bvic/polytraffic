@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GA4 Attribution Settings for Content Publishers: Complete Configuration Guide | Polytraffic</title>
+    <meta name="description" content="Configure Google Analytics 4 attribution settings for accurate traffic analysis. Master attribution models, conversion windows, and reporting for multi-channel publisher strategies." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="GA4 Attribution Settings for Content Publishers: Complete Configuration Guide | Polytraffic" />
+    <meta property="og:description" content="Configure Google Analytics 4 attribution settings for accurate traffic analysis. Master attribution models, conversion windows, and reporting for multi-channel publisher strategies." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/ga4-attribution-settings-publishers.html" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GA4 Attribution Settings for Content Publishers: Complete Configuration Guide | Polytraffic" />
+    <meta name="twitter:description" content="Configure Google Analytics 4 attribution settings for accurate traffic analysis. Master attribution models, conversion windows, and reporting for multi-channel publisher strategies." />
+    <link rel="canonical" href="https://polytraffic.com/articles/ga4-attribution-settings-publishers.html" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://tattooremovalnear.com" />
+    <link rel="me" href="https://comicstripai.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="me" href="https://b2bvic.com" />
+    <link rel="me" href="https://seobyrole.com" />
+    <link rel="me" href="https://quickfixseo.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0c1222',
+              800: '#141c30',
+              700: '#1e2a42',
+              600: '#1e293b',
+            },
+            violet: {
+              500: '#8b5cf6',
+              400: '#a78bfa',
+            },
+            cyan: {
+              500: '#06b6d4',
+            },
+            cta: {
+              500: '#f97316',
+              400: '#fb923c',
+            },
+            slate: {
+              100: '#f1f5f9',
+              400: '#94a3b8',
+              500: '#64748b',
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+            mono: ['"Fira Code"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GA4 Attribution Settings for Content Publishers: Complete Configuration Guide",
+    "description": "Configure Google Analytics 4 attribution settings for accurate traffic analysis. Master attribution models, conversion windows, and reporting for multi-channel publisher strategies.",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-02-08",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/ga4-attribution-settings-publishers.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/traffic-strategy.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GA4 Attribution Settings for Content Publishers: Complete Configuration Guide"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Build Your Portfolio &mdash; $997
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Build Your Portfolio &mdash; $997
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/traffic-strategy.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">GA4 Attribution Settings for Content Publishers: Complete Configuration Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <article class="pt-prose">
+        <h1>GA4 Attribution Settings for Content Publishers: Complete Configuration Guide</h1>
+<p><strong>Google Analytics 4</strong> changed attribution fundamentally. Universal Analytics used simple last-click attribution with limited customization. GA4 offers multiple attribution models, data-driven allocation, and cross-device tracking.</p>
+<p>But default GA4 settings misrepresent traffic performance for most content publishers. Conversions get credited to wrong channels. Budget decisions follow bad data.</p>
+<p>This guide covers GA4 attribution configuration specifically for content publishers managing multi-channel traffic strategies.</p>
+<h2>Default GA4 Attribution Problems</h2>
+<p><strong>Data-driven attribution</strong> is GA4&#39;s default model. Sounds sophisticated. In practice, it fails for publishers with insufficient conversion volume.</p>
+<p><strong>Minimum data requirements:</strong> Data-driven attribution needs 400+ conversions per attribution event (newsletter signup, purchase, etc.) over 30 days to generate reliable models. Most content publishers don&#39;t hit this threshold.</p>
+<p><strong>When data is insufficient:</strong> GA4 falls back to last-click attribution without telling you. You think you&#39;re running data-driven attribution but actually seeing last-click results. This credits bottom-funnel channels excessively.</p>
+<p><strong>Cross-device complexity:</strong> GA4 attempts cross-device attribution using Google Signals (users logged into Google accounts). But only 20-40% of users enable this. Most cross-device journeys remain invisible.</p>
+<p><strong>Default conversion windows:</strong> GA4 uses 30-day click and 1-day view attribution windows. These work for some business models but not all. Publishers with longer consideration cycles need different windows.</p>
+<h2>Accessing Attribution Settings</h2>
+<p><strong>Navigation path:</strong> Admin → Data Display → Attribution Settings</p>
+<p><strong>What you&#39;ll find:</strong></p>
+<ul>
+<li>Attribution model selection</li>
+<li>Conversion window configuration</li>
+<li>Reporting identity settings</li>
+<li>Lookback window options</li>
+</ul>
+<p><strong>Critical note:</strong> Changes to attribution settings only affect future data. Historical data uses whatever settings were active when collected. Make configuration changes early, not after months of data collection.</p>
+<h2>Attribution Model Selection</h2>
+<p>GA4 offers seven attribution models. Choose based on your business model and customer journey patterns.</p>
+<h3>Data-Driven Attribution</h3>
+<p><strong>When to use:</strong> 500+ conversions per month, complex multi-channel strategy, sufficient data for machine learning.</p>
+<p><strong>How it works:</strong> Analyzes thousands of conversion paths. Identifies which touchpoints statistically increase conversion probability. Allocates credit accordingly.</p>
+<p><strong>Publisher fit:</strong> Works well for large multi-site portfolios with high traffic. Fails for single sites under 500K monthly visitors unless conversion rates are exceptional.</p>
+<p><strong>Setup requirement:</strong> No configuration needed beyond selecting &quot;Data-driven&quot; in attribution settings. GA4 handles modeling automatically once data volume sufficient.</p>
+<h3>Last Click Attribution</h3>
+<p><strong>When to use:</strong> Short customer journeys (1-3 touchpoints), direct-response campaigns, bottom-funnel optimization focus.</p>
+<p><strong>How it works:</strong> 100% credit to final touchpoint before conversion (excluding direct traffic).</p>
+<p><strong>Publisher fit:</strong> Suits publishers optimizing existing traffic for conversion rather than growing new audience. Also useful for ecommerce-focused content sites where purchase intent is immediate.</p>
+<p><strong>Limitations:</strong> Completely ignores awareness channels. Facebook ads, social media, and PR get zero credit even when they drive initial discovery.</p>
+<h3>First Click Attribution</h3>
+<p><strong>When to use:</strong> Audience growth campaigns, long consideration cycles (60+ days), awareness-focused strategy.</p>
+<p><strong>How it works:</strong> 100% credit to first touchpoint where user discovered your brand.</p>
+<p><strong>Publisher fit:</strong> Best for publishers in early growth phase prioritizing traffic acquisition over immediate conversion optimization.</p>
+<p><strong>Implementation:</strong> Requires custom setup. GA4 doesn&#39;t offer first-click as default option. Build custom exploration reports or use BigQuery export.</p>
+<h3>Linear Attribution</h3>
+<p><strong>When to use:</strong> Simple customer journeys (2-4 touchpoints), when you want to credit all channels equally.</p>
+<p><strong>How it works:</strong> Splits credit evenly across all touchpoints. Four touchpoints = 25% credit each.</p>
+<p><strong>Publisher fit:</strong> Works for publishers with relatively simple traffic paths where touchpoint importance doesn&#39;t vary dramatically.</p>
+<p><strong>Weakness:</strong> Treats all touchpoints identically even when early awareness and late conversion touches clearly matter more than middle interactions.</p>
+<h3>Time Decay Attribution</h3>
+<p><strong>When to use:</strong> Short sales cycles (7-14 days), when recent engagement signals purchase readiness.</p>
+<p><strong>How it works:</strong> Credit decays by 50% for each 7-day period backward from conversion. Recent touchpoints get exponentially more credit.</p>
+<p><strong>Publisher fit:</strong> Suits publishers with short consideration cycles and transactional conversion events (course purchases, tool signups, consulting bookings).</p>
+<p><strong>Risk:</strong> Systematically undervalues top-of-funnel channels even when they&#39;re essential for brand discovery.</p>
+<h3>Position-Based Attribution</h3>
+<p><strong>When to use:</strong> Most content publishers. Balanced acquisition and conversion focus.</p>
+<p><strong>How it works:</strong> First and last touchpoints receive 40% credit each. Middle touchpoints split remaining 20%.</p>
+<p><strong>Publisher fit:</strong> Ideal for multi-channel publishers balancing audience growth with conversion optimization. Recognizes importance of both discovery and closing moments.</p>
+<p><strong>Configuration:</strong> Select &quot;Position-based&quot; in attribution settings. No additional setup required.</p>
+<h2>Conversion Window Configuration</h2>
+<p><strong>Conversion windows</strong> determine how far back GA4 looks to credit touchpoints.</p>
+<h3>Click-Through Windows</h3>
+<p><strong>Options:</strong> 1, 7, 30, or 90 days</p>
+<p><strong>Recommendation by publisher type:</strong></p>
+<ul>
+<li>News/viral content: 7 days (short consideration, immediate consumption)</li>
+<li>Tutorial/how-to content: 30 days (users research, then implement)</li>
+<li>B2B/high-ticket: 90 days (long evaluation cycles)</li>
+</ul>
+<p><strong>What it means:</strong> 30-day click window credits any clicked touchpoint within 30 days of conversion. User clicks Facebook ad, converts 28 days later, Facebook gets credit. Converts 32 days later, Facebook gets zero credit.</p>
+<h3>View-Through Windows</h3>
+<p><strong>Options:</strong> 1 day (default), 7 days, 30 days</p>
+<p><strong>Recommendation:</strong> Keep at 1 day or disable entirely. View-through attribution credits impressions (user saw ad but didn&#39;t click, then converted later). This inflates apparent channel performance.</p>
+<p><strong>Why caution matters:</strong> User sees your Facebook ad while scrolling, doesn&#39;t click, later Googles your brand name and converts. With 30-day view-through window, Facebook gets partial credit despite user showing zero initial interest.</p>
+<p><strong>When to use longer windows:</strong> Display advertising campaigns specifically designed for awareness rather than direct response. You&#39;re explicitly paying for impressions, not clicks.</p>
+<h2>Reporting Identity Configuration</h2>
+<p><strong>Reporting identity</strong> determines how GA4 identifies unique users across sessions and devices.</p>
+<h3>Blended (Default)</h3>
+<p><strong>How it works:</strong> GA4 uses whatever identity information is available in this priority order: User ID &gt; Google Signals &gt; Device ID &gt; Modeling.</p>
+<p><strong>Pros:</strong> Maximum cross-device tracking capability. Best chance of connecting same user across devices.</p>
+<p><strong>Cons:</strong> Depends heavily on Google Signals, which only works for users logged into Google accounts who haven&#39;t disabled ad personalization. Typically captures 20-40% of users.</p>
+<p><strong>Publisher recommendation:</strong> Use Blended if you implement User ID (email-based tracking) for logged-in users. Otherwise, consider Observed.</p>
+<h3>Observed</h3>
+<p><strong>How it works:</strong> Uses only User ID and Device ID. Ignores Google Signals and doesn&#39;t use modeling to fill gaps.</p>
+<p><strong>Pros:</strong> More conservative user counting. What you see is what you have.</p>
+<p><strong>Cons:</strong> Undercounts cross-device users. Same person on mobile and desktop appears as two separate users.</p>
+<p><strong>Publisher recommendation:</strong> Use Observed if you prioritize data accuracy over completeness and don&#39;t have User ID implementation.</p>
+<h3>Device-Based</h3>
+<p><strong>How it works:</strong> Each device = unique user. No cross-device tracking at all.</p>
+<p><strong>Pros:</strong> Simple, transparent, matches how most publishers think about traffic.</p>
+<p><strong>Cons:</strong> Significantly overcounts users. Most people use 2-3 devices.</p>
+<p><strong>Publisher recommendation:</strong> Avoid unless you have specific reason to prioritize device-level reporting.</p>
+<h2>User ID Implementation</h2>
+<p><strong>User ID</strong> enables best attribution accuracy by using email addresses or account IDs as persistent identifiers.</p>
+<p><strong>Implementation steps:</strong></p>
+<ol>
+<li><strong>Capture user identifier:</strong> When user signs up for newsletter or creates account, store their email hash or user ID</li>
+<li><strong>Pass to GA4:</strong> Send user_id parameter with gtag events: <code>gtag(&#39;set&#39;, {&#39;user_id&#39;: &#39;USER_ID_HERE&#39;});</code></li>
+<li><strong>Configure in GA4:</strong> Admin → Data Streams → Web → Configure tag settings → Enable User-ID</li>
+<li><strong>Test:</strong> Use GA4 DebugView to verify user_id parameters appearing correctly</li>
+</ol>
+<p><strong>Privacy compliance:</strong> Hash email addresses before sending to GA4. Never send raw email addresses to analytics platforms.</p>
+<p><strong>Attribution benefit:</strong> User ID connects sessions across devices and browsers. User signs up on mobile, returns on desktop, converts on tablet. All three sessions link to single user journey.</p>
+<p><strong>Implementation complexity:</strong> Requires backend development. Not plug-and-play. Budget 20-40 hours for proper implementation.</p>
+<h2>Custom Channel Groupings</h2>
+<p><strong>Default channel groupings</strong> (Organic Search, Paid Search, Direct, Social, etc.) work for most publishers. But custom groupings reveal more nuanced insights.</p>
+<p><strong>Example custom groupings:</strong></p>
+<p><strong>Email segmentation:</strong></p>
+<ul>
+<li>Newsletter (weekly sends)</li>
+<li>Autoresponder (automated welcome series)</li>
+<li>Promotional (product launches, sales)</li>
+<li>Transactional (purchase confirmations, receipts)</li>
+</ul>
+<p><strong>Social segmentation:</strong></p>
+<ul>
+<li>Organic Social (unpaid posts)</li>
+<li>Paid Social (Facebook Ads, Instagram Ads)</li>
+<li>Social - Video (YouTube)</li>
+<li>Social - Professional (LinkedIn)</li>
+</ul>
+<p><strong>Configuration:</strong> Admin → Data Display → Channel Groups → Create new channel group</p>
+<p><strong>Why this matters:</strong> &quot;Email&quot; as single channel obscures performance differences between newsletter content and promotional blasts. Segmentation enables optimization.</p>
+<h2>Conversion Event Configuration</h2>
+<p><strong>Not all conversions carry equal value.</strong> GA4 attribution works best when you configure multiple conversion events with appropriate values.</p>
+<p><strong>Publisher conversion hierarchy:</strong></p>
+<p><strong>Primary conversions:</strong></p>
+<ul>
+<li>Newsletter signup ($5-15 value based on subscriber LTV)</li>
+<li>Product purchase (actual revenue)</li>
+<li>Consultation booking ($200-500 estimated value)</li>
+</ul>
+<p><strong>Secondary conversions:</strong></p>
+<ul>
+<li>Resource download ($2-5 value)</li>
+<li>Video watch &gt;80% complete ($0.50 value)</li>
+<li>3+ page sessions ($1 value)</li>
+</ul>
+<p><strong>Configuration:</strong> Admin → Events → Mark as conversion → Set value for conversion event</p>
+<p><strong>Attribution reporting:</strong> Use &quot;Conversion paths&quot; report to see how different channels contribute to high-value versus low-value conversions.</p>
+<h2>Attribution Path Exploration</h2>
+<p><strong>GA4 Explorations</strong> enable deep attribution analysis beyond standard reports.</p>
+<p><strong>Path exploration setup:</strong></p>
+<ol>
+<li>Navigate to Explore → Create new exploration</li>
+<li>Select &quot;Path exploration&quot; template</li>
+<li>Configure starting point: First user source/medium</li>
+<li>Configure ending point: Conversion event</li>
+<li>Add breakdown dimensions: Campaign, device category, geography</li>
+</ol>
+<p><strong>Insights revealed:</strong></p>
+<ul>
+<li>Most common paths from discovery to conversion</li>
+<li>Where users drop off in journey</li>
+<li>How many touchpoints typical before conversion</li>
+<li>Which channel combinations perform best</li>
+</ul>
+<p><strong>Use case:</strong> Identify that users discovering via organic search then engaging with email newsletter convert at 3x rate compared to users discovering via paid social. Optimize accordingly.</p>
+<h2>Cross-Domain Tracking</h2>
+<p><strong>Multi-site publishers</strong> need cross-domain tracking to attribute conversions correctly when users move between properties.</p>
+<p><strong>Scenario:</strong> User lands on Site A (your main content site), clicks link to Site B (your course platform), purchases. Without cross-domain tracking, purchase appears to come from &quot;referral traffic&quot; instead of original source.</p>
+<p><strong>Implementation:</strong></p>
+<ol>
+<li>Admin → Data Streams → Web → Configure tag settings → Configure your domains</li>
+<li>Add all domains in your network: <code>siteA.com, siteB.com, courseplatform.com</code></li>
+<li>Update gtag.js configuration: <code>gtag(&#39;config&#39;, &#39;G-XXXXXXXXXX&#39;, {&#39;linker&#39;: {&#39;domains&#39;: [&#39;siteA.com&#39;, &#39;siteB.com&#39;]}});</code></li>
+</ol>
+<p><strong>Validation:</strong> Use GA4 DebugView to verify _gl parameter appending to cross-domain links. This parameter carries session information between domains.</p>
+<h2>Attribution Reports and Analysis</h2>
+<p><strong>Key reports for publishers:</strong></p>
+<h3>Conversion Paths Report</h3>
+<p><strong>Location:</strong> Advertising → Attribution → Conversion paths</p>
+<p><strong>What it shows:</strong> Exact sequence of touchpoints leading to conversions. See which channels work together most effectively.</p>
+<p><strong>Use case:</strong> Discover that LinkedIn → Blog → Email → Direct is your highest-value path. Invest more in LinkedIn content distribution.</p>
+<h3>Model Comparison Report</h3>
+<p><strong>Location:</strong> Advertising → Attribution → Model comparison</p>
+<p><strong>What it shows:</strong> How different attribution models credit same conversions differently.</p>
+<p><strong>Use case:</strong> Last-click shows organic search drives 45% of conversions. Data-driven shows organic only drives 28% when considering full journey. This reveals over-reliance on bottom-funnel metrics.</p>
+<h3>Path Overlap Report</h3>
+<p><strong>Location:</strong> Advertising → Attribution → Path overlap</p>
+<p><strong>What it shows:</strong> Which channels appear together in conversion paths most frequently.</p>
+<p><strong>Use case:</strong> See that email and paid search work synergistically—users who interact with both convert at 4x rate versus users interacting with only one.</p>
+<h2>FAQ</h2>
+<p><strong>Should content publishers use data-driven or position-based attribution?</strong></p>
+<p>Position-based for most publishers. Data-driven requires 400+ monthly conversions to work properly. Publishers below this threshold should use position-based attribution, which balances acquisition and conversion credit without needing large data volumes.</p>
+<p><strong>How do attribution setting changes affect historical data?</strong></p>
+<p>They don&#39;t. Attribution settings only apply to new data collected after changes. Historical data remains under original settings. Make attribution decisions early in GA4 implementation, not six months later after collecting data you can&#39;t reanalyze.</p>
+<p><strong>Can publishers combine GA4 attribution with external attribution platforms?</strong></p>
+<p>Yes. Export GA4 data to BigQuery, then feed into attribution platforms like Rockerbox or Northbeam alongside data from ad platforms and email providers. This creates unified attribution view across all channels.</p>
+<p><strong>What conversion window should publishers with long sales cycles (90+ days) use?</strong></p>
+<p>GA4 maximum click window is 90 days. If your sales cycle exceeds 90 days, GA4 attribution will undercount early touchpoints. Consider supplementing GA4 with CRM-based attribution that tracks entire customer journey regardless of length.</p>
+<p><strong>How do publishers attribute traffic from dark social (WhatsApp, private messages)?</strong></p>
+<p>You can&#39;t directly. Dark social appears as direct traffic in GA4. Partial workarounds: use unique discount codes or URL shorteners for different channels, survey new subscribers about discovery source, analyze traffic spikes following social campaigns to infer dark social volume.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3 class="font-display font-bold text-xl text-slate-100">Stop gambling on single traffic sources.</h3>
+            <p class="mt-2 text-slate-400 text-sm max-w-lg">Find gives you the complete framework for building, measuring, and defending a diversified traffic portfolio. Calculators, templates, and the full methodology.</p>
+          </div>
+          <a href="/setup.html" class="shrink-0 px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm">
+            Get Find &mdash; $997
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/content-scheduling-tools-solo-publishers.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Content Scheduling Tools for Solo Publishers: Automate Distribution Without Teams</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Discover scheduling tools that let solo publishers maintain consistent multi-channel presence across social, email, and syndication without agencies.</p>
+          </a>
+
+          <a href="/articles/cross-device-attribution-publishers.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Cross-Device Attribution for Publishers: Track Visitors Across Mobile Desktop and Tablet</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement cross-device attribution using device graphs probabilistic matching and identity resolution to accurately track multi-device visitor journeys.</p>
+          </a>
+
+          <a href="/articles/facebook-ads-content-publishers.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Facebook Ads for Content Publishers: When Paid Traffic Economics Actually Work</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Analyze Facebook Ads economics for content publishers. Real data on CPC rates, conversion requirements, and when paid traffic investment makes sense versus organic alternatives.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Find &mdash; $997</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://tattooremovalnear.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">tattooremovalnear</a></li>
+          <li><a href="https://comicstripai.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">comicstripai</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          <li><a href="https://b2bvic.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">b2bvic</a></li>
+          <li><a href="https://seobyrole.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">seobyrole</a></li>
+          <li><a href="https://quickfixseo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">quickfixseo</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+          <a href="/setup.html" class="hover:text-slate-400 transition-colors">Find</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
