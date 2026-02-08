@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic Portfolio Risk Calculator: Quantify Your Exposure in 5 Minutes | Polytraffic</title>
+    <meta name="description" content="Mathematical framework to calculate traffic portfolio risk score. Input your data, get quantified risk assessment and specific remediation steps." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Traffic Portfolio Risk Calculator: Quantify Your Exposure in 5 Minutes | Polytraffic" />
+    <meta property="og:description" content="Mathematical framework to calculate traffic portfolio risk score. Input your data, get quantified risk assessment and specific remediation steps." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/traffic-portfolio-risk-calculator.html" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Traffic Portfolio Risk Calculator: Quantify Your Exposure in 5 Minutes | Polytraffic" />
+    <meta name="twitter:description" content="Mathematical framework to calculate traffic portfolio risk score. Input your data, get quantified risk assessment and specific remediation steps." />
+    <link rel="canonical" href="https://polytraffic.com/articles/traffic-portfolio-risk-calculator.html" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://tattooremovalnear.com" />
+    <link rel="me" href="https://comicstripai.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="me" href="https://b2bvic.com" />
+    <link rel="me" href="https://seobyrole.com" />
+    <link rel="me" href="https://quickfixseo.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0c1222',
+              800: '#141c30',
+              700: '#1e2a42',
+              600: '#1e293b',
+            },
+            violet: {
+              500: '#8b5cf6',
+              400: '#a78bfa',
+            },
+            cyan: {
+              500: '#06b6d4',
+            },
+            cta: {
+              500: '#f97316',
+              400: '#fb923c',
+            },
+            slate: {
+              100: '#f1f5f9',
+              400: '#94a3b8',
+              500: '#64748b',
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+            mono: ['"Fira Code"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Traffic Portfolio Risk Calculator: Quantify Your Exposure in 5 Minutes",
+    "description": "Mathematical framework to calculate traffic portfolio risk score. Input your data, get quantified risk assessment and specific remediation steps.",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-02-08",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/traffic-portfolio-risk-calculator.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Tools.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Traffic Portfolio Risk Calculator: Quantify Your Exposure in 5 Minutes"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Build Your Portfolio &mdash; $997
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Build Your Portfolio &mdash; $997
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Tools.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Traffic Portfolio Risk Calculator: Quantify Your Exposure in 5 Minutes</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <article class="pt-prose">
+        <h1>Traffic Portfolio Risk Calculator: Quantify Your Exposure in 5 Minutes</h1>
+<p><strong>&quot;Am I diversified enough?&quot; isn&#39;t a feeling—it&#39;s a calculation.</strong></p>
+<p>This risk calculator provides quantified risk assessment using four weighted metrics: concentration risk, correlation exposure, volatility score, and owned audience strength. Input your traffic data, get a numerical risk score (0-100), and specific remediation priorities.</p>
+<p>No spreadsheets required. Just follow the formulas, plug in your numbers, and interpret results using the benchmarks provided.</p>
+<h2>Calculator Input: Data You Need</h2>
+<p>Before starting, gather this data from Google Analytics (past 12 months):</p>
+<ol>
+<li><strong>Monthly traffic by source</strong> (Acquisition &gt; All Traffic &gt; Source/Medium, export 12 months)</li>
+<li><strong>Weekly traffic by source</strong> (same report, weekly view, export 52 weeks)</li>
+<li><strong>Email list metrics</strong> (subscribers, open rate, unsubscribe rate)</li>
+<li><strong>Revenue by source</strong> (if E-commerce tracking enabled)</li>
+</ol>
+<p><strong>Time to gather</strong>: 10-15 minutes</p>
+<h2>Metric 1: Concentration Risk Score (40% of total risk)</h2>
+<h3>Formula: Herfindahl-Hirschman Index (HHI)</h3>
+<pre><code>HHI = Σ(Traffic_Share_i)²
+</code></pre>
+<p>Where Traffic_Share_i = (Traffic from Source i / Total Traffic)</p>
+<h3>Step-by-Step Calculation</h3>
+<p><strong>Example data</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Monthly Traffic</th>
+<th>% Share</th>
+<th>(% Share)²</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Google</td>
+<td>45,000</td>
+<td>62.5%</td>
+<td>0.3906</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>12,000</td>
+<td>16.7%</td>
+<td>0.0279</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>8,000</td>
+<td>11.1%</td>
+<td>0.0123</td>
+</tr>
+<tr>
+<td>Pinterest</td>
+<td>7,000</td>
+<td>9.7%</td>
+<td>0.0094</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>72,000</strong></td>
+<td><strong>100%</strong></td>
+<td><strong>0.4402</strong></td>
+</tr>
+</tbody></table>
+<p><strong>HHI Calculation</strong>:</p>
+<pre><code>HHI = 0.3906 + 0.0279 + 0.0123 + 0.0094 = 0.4402
+</code></pre>
+<h3>Convert HHI to Risk Score (0-100 scale, lower is better)</h3>
+<table>
+<thead>
+<tr>
+<th>HHI Range</th>
+<th>Risk Score</th>
+<th>Risk Level</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0.00-0.20</td>
+<td>10</td>
+<td>Very Low</td>
+<td>Excellent diversification</td>
+</tr>
+<tr>
+<td>0.20-0.30</td>
+<td>25</td>
+<td>Low</td>
+<td>Good diversification</td>
+</tr>
+<tr>
+<td>0.30-0.40</td>
+<td>50</td>
+<td>Moderate</td>
+<td>Acceptable with caveats</td>
+</tr>
+<tr>
+<td>0.40-0.50</td>
+<td>70</td>
+<td>High</td>
+<td>Concentration risk present</td>
+</tr>
+<tr>
+<td>0.50-0.65</td>
+<td>85</td>
+<td>Very High</td>
+<td>Dangerous concentration</td>
+</tr>
+<tr>
+<td>&gt;0.65</td>
+<td>95</td>
+<td>Critical</td>
+<td>Mono-channel dependency</td>
+</tr>
+</tbody></table>
+<p><strong>This example</strong>: HHI 0.44 → <strong>Risk Score: 70</strong> (High concentration risk)</p>
+<p><strong>Weight</strong>: 40% of total risk score</p>
+<p><strong>Weighted contribution</strong>: 70 × 0.40 = <strong>28 points</strong></p>
+<h2>Metric 2: Correlation Risk Score (30% of total risk)</h2>
+<h3>Formula: Average Pairwise Correlation</h3>
+<pre><code>Avg_Correlation = Σ(Correlation_ij) / Number_of_Pairs
+</code></pre>
+<p>Where Correlation_ij = Pearson correlation between Channel i and Channel j</p>
+<h3>Step-by-Step Calculation</h3>
+<p><strong>Data needed</strong>: 52 weeks of traffic for each source (weekly data points)</p>
+<p><strong>Use Excel/Google Sheets formula</strong>: <code>=CORREL(Channel_1_Weekly, Channel_2_Weekly)</code></p>
+<p><strong>Example correlation matrix</strong>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Google</th>
+<th>Email</th>
+<th>YouTube</th>
+<th>Pinterest</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Google</td>
+<td>1.00</td>
+<td>0.12</td>
+<td>0.38</td>
+<td>0.24</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>0.12</td>
+<td>1.00</td>
+<td>0.09</td>
+<td>0.11</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td>0.38</td>
+<td>0.09</td>
+<td>1.00</td>
+<td>0.47</td>
+</tr>
+<tr>
+<td>Pinterest</td>
+<td>0.24</td>
+<td>0.11</td>
+<td>0.47</td>
+<td>1.00</td>
+</tr>
+</tbody></table>
+<p><strong>Count unique pairs</strong>: With 4 channels, there are (4 × 3) / 2 = <strong>6 pairs</strong></p>
+<p><strong>Sum correlations</strong> (excluding diagonal 1.00 values):</p>
+<pre><code>0.12 + 0.38 + 0.24 + 0.09 + 0.47 + 0.11 = 1.41
+</code></pre>
+<p><strong>Calculate average</strong>:</p>
+<pre><code>Avg_Correlation = 1.41 / 6 = 0.235
+</code></pre>
+<h3>Convert Correlation to Risk Score</h3>
+<table>
+<thead>
+<tr>
+<th>Avg Correlation</th>
+<th>Risk Score</th>
+<th>Risk Level</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0.00-0.15</td>
+<td>5</td>
+<td>Very Low</td>
+<td>Excellent independence</td>
+</tr>
+<tr>
+<td>0.15-0.25</td>
+<td>20</td>
+<td>Low</td>
+<td>Good independence</td>
+</tr>
+<tr>
+<td>0.25-0.35</td>
+<td>40</td>
+<td>Moderate</td>
+<td>Acceptable correlation</td>
+</tr>
+<tr>
+<td>0.35-0.45</td>
+<td>60</td>
+<td>High</td>
+<td>Clustered risk emerging</td>
+</tr>
+<tr>
+<td>0.45-0.60</td>
+<td>80</td>
+<td>Very High</td>
+<td>False diversification</td>
+</tr>
+<tr>
+<td>&gt;0.60</td>
+<td>95</td>
+<td>Critical</td>
+<td>Synchronized failure risk</td>
+</tr>
+</tbody></table>
+<p><strong>This example</strong>: Avg correlation 0.24 → <strong>Risk Score: 20</strong> (Low correlation risk)</p>
+<p><strong>Weight</strong>: 30% of total risk score</p>
+<p><strong>Weighted contribution</strong>: 20 × 0.30 = <strong>6 points</strong></p>
+<h2>Metric 3: Volatility Risk Score (15% of total risk)</h2>
+<h3>Formula: Coefficient of Variation</h3>
+<pre><code>CV = (StdDev of Monthly Traffic / Mean Monthly Traffic) × 100
+</code></pre>
+<h3>Step-by-Step Calculation</h3>
+<p><strong>Data</strong>: 12 months of total traffic (all sources combined)</p>
+<p><strong>Example</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Total Traffic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Jan</td>
+<td>68,000</td>
+</tr>
+<tr>
+<td>Feb</td>
+<td>72,000</td>
+</tr>
+<tr>
+<td>Mar</td>
+<td>71,000</td>
+</tr>
+<tr>
+<td>Apr</td>
+<td>64,000</td>
+</tr>
+<tr>
+<td>May</td>
+<td>70,000</td>
+</tr>
+<tr>
+<td>Jun</td>
+<td>73,000</td>
+</tr>
+<tr>
+<td>Jul</td>
+<td>69,000</td>
+</tr>
+<tr>
+<td>Aug</td>
+<td>75,000</td>
+</tr>
+<tr>
+<td>Sep</td>
+<td>67,000</td>
+</tr>
+<tr>
+<td>Oct</td>
+<td>71,000</td>
+</tr>
+<tr>
+<td>Nov</td>
+<td>72,000</td>
+</tr>
+<tr>
+<td>Dec</td>
+<td>70,000</td>
+</tr>
+</tbody></table>
+<p><strong>Mean</strong>: (68 + 72 + 71 + 64 + 70 + 73 + 69 + 75 + 67 + 71 + 72 + 70) / 12 = <strong>70,167</strong></p>
+<p><strong>Standard Deviation</strong> (use <code>=STDEV.S()</code> in spreadsheet): <strong>2,915</strong></p>
+<p><strong>Coefficient of Variation</strong>:</p>
+<pre><code>CV = (2,915 / 70,167) × 100 = 4.15%
+</code></pre>
+<h3>Convert CV to Risk Score</h3>
+<table>
+<thead>
+<tr>
+<th>CV Range</th>
+<th>Risk Score</th>
+<th>Risk Level</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;5%</td>
+<td>5</td>
+<td>Very Low</td>
+<td>Extremely stable</td>
+</tr>
+<tr>
+<td>5-10%</td>
+<td>15</td>
+<td>Low</td>
+<td>Stable</td>
+</tr>
+<tr>
+<td>10-15%</td>
+<td>30</td>
+<td>Moderate</td>
+<td>Acceptable volatility</td>
+</tr>
+<tr>
+<td>15-25%</td>
+<td>55</td>
+<td>High</td>
+<td>High volatility</td>
+</tr>
+<tr>
+<td>25-35%</td>
+<td>75</td>
+<td>Very High</td>
+<td>Dangerous volatility</td>
+</tr>
+<tr>
+<td>&gt;35%</td>
+<td>90</td>
+<td>Critical</td>
+<td>Extreme volatility</td>
+</tr>
+</tbody></table>
+<p><strong>This example</strong>: CV 4.15% → <strong>Risk Score: 5</strong> (Very low volatility)</p>
+<p><strong>Weight</strong>: 15% of total risk score</p>
+<p><strong>Weighted contribution</strong>: 5 × 0.15 = <strong>0.75 points</strong></p>
+<h2>Metric 4: Owned Audience Risk Score (15% of total risk)</h2>
+<h3>Formula: Owned Traffic Percentage</h3>
+<pre><code>Owned % = (Email + RSS + Direct + Community) / Total Traffic × 100
+</code></pre>
+<h3>Step-by-Step Calculation</h3>
+<p><strong>Example</strong>:</p>
+<ul>
+<li>Email traffic: 12,000</li>
+<li>Direct traffic: 8,000 (of which 4,000 are likely repeat visitors = owned)</li>
+<li>RSS traffic: 200</li>
+<li>Total owned: 16,200</li>
+<li>Total traffic: 72,000</li>
+</ul>
+<pre><code>Owned % = (16,200 / 72,000) × 100 = 22.5%
+</code></pre>
+<h3>Convert Owned % to Risk Score (inverse—higher owned % = lower risk)</h3>
+<table>
+<thead>
+<tr>
+<th>Owned %</th>
+<th>Risk Score</th>
+<th>Risk Level</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;40%</td>
+<td>5</td>
+<td>Very Low</td>
+<td>Platform-independent</td>
+</tr>
+<tr>
+<td>30-40%</td>
+<td>15</td>
+<td>Low</td>
+<td>Strong resilience</td>
+</tr>
+<tr>
+<td>20-30%</td>
+<td>30</td>
+<td>Moderate</td>
+<td>Acceptable insurance</td>
+</tr>
+<tr>
+<td>15-20%</td>
+<td>50</td>
+<td>High</td>
+<td>Weak insurance</td>
+</tr>
+<tr>
+<td>10-15%</td>
+<td>70</td>
+<td>Very High</td>
+<td>Minimal insurance</td>
+</tr>
+<tr>
+<td>&lt;10%</td>
+<td>90</td>
+<td>Critical</td>
+<td>No backup</td>
+</tr>
+</tbody></table>
+<p><strong>This example</strong>: 22.5% owned → <strong>Risk Score: 30</strong> (Moderate risk)</p>
+<p><strong>Weight</strong>: 15% of total risk score</p>
+<p><strong>Weighted contribution</strong>: 30 × 0.15 = <strong>4.5 points</strong></p>
+<h2>Total Portfolio Risk Score</h2>
+<p><strong>Sum weighted contributions</strong>:</p>
+<pre><code>Total Risk Score = 28 + 6 + 0.75 + 4.5 = 39.25
+</code></pre>
+<p><strong>Round</strong>: <strong>39 out of 100</strong></p>
+<h3>Risk Score Interpretation</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Grade</th>
+<th>Risk Level</th>
+<th>Action Required</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0-20</td>
+<td>A</td>
+<td>Very Low</td>
+<td>Maintain, optimize</td>
+</tr>
+<tr>
+<td>21-35</td>
+<td>B</td>
+<td>Low</td>
+<td>Good position, minor improvements</td>
+</tr>
+<tr>
+<td>36-50</td>
+<td>C</td>
+<td>Moderate</td>
+<td>Actionable improvements needed</td>
+</tr>
+<tr>
+<td>51-65</td>
+<td>D</td>
+<td>High</td>
+<td>Serious vulnerabilities, prioritize fixes</td>
+</tr>
+<tr>
+<td>66-80</td>
+<td>F</td>
+<td>Very High</td>
+<td>Critical risk, immediate action</td>
+</tr>
+<tr>
+<td>81-100</td>
+<td>F-</td>
+<td>Critical</td>
+<td>Business-threatening, emergency mode</td>
+</tr>
+</tbody></table>
+<p><strong>This example</strong>: Score 39 → <strong>Grade: C</strong> (Moderate risk with actionable improvements needed)</p>
+<h2>Risk Diagnosis and Remediation Plan</h2>
+<p>Based on individual metric scores, identify remediation priorities:</p>
+<h3>This Example&#39;s Diagnosis</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Score</th>
+<th>Risk Level</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Concentration (HHI)</td>
+<td>70</td>
+<td>High</td>
+<td><strong>HIGH</strong></td>
+</tr>
+<tr>
+<td>Correlation</td>
+<td>20</td>
+<td>Low</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Volatility</td>
+<td>5</td>
+<td>Very Low</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Owned Audience</td>
+<td>30</td>
+<td>Moderate</td>
+<td>Medium</td>
+</tr>
+</tbody></table>
+<p><strong>Primary issue</strong>: Google concentration (62.5% of traffic)</p>
+<p><strong>Secondary issue</strong>: Owned audience could be stronger (22.5% is acceptable but not excellent)</p>
+<p><strong>Strengths</strong>: Low correlation between channels, very stable traffic</p>
+<h3>Recommended Action Plan</h3>
+<p><strong>Priority 1 (Months 1-3)</strong>: Reduce Google dependency</p>
+<ul>
+<li><strong>Target</strong>: Bring Google down to 50% or lower</li>
+<li><strong>Method</strong>: Scale email list (grow from 12K to 18-20K visits/month) and YouTube (grow from 8K to 12-15K visits/month)</li>
+<li><strong>Expected HHI improvement</strong>: From 0.44 to 0.32 (Risk Score: 70 → 50)</li>
+</ul>
+<p><strong>Priority 2 (Months 4-6)</strong>: Strengthen owned audience</p>
+<ul>
+<li><strong>Target</strong>: Increase owned traffic from 22.5% to 28-30%</li>
+<li><strong>Method</strong>: Aggressive email list growth (optimize forms, better lead magnets, more consistent sending)</li>
+<li><strong>Expected improvement</strong>: Owned Audience Risk Score: 30 → 20</li>
+</ul>
+<p><strong>Priority 3 (Months 7-12)</strong>: Maintain gains</p>
+<ul>
+<li><strong>Target</strong>: Hold HHI below 0.35, owned audience above 28%</li>
+<li><strong>Method</strong>: Rebalancing (if Google grows back above 55%, reallocate effort)</li>
+</ul>
+<p><strong>Expected outcome after 12 months</strong>:</p>
+<ul>
+<li>HHI: 0.32 (Risk Score: 50, -20 points)</li>
+<li>Correlation: 0.24 (Risk Score: 20, no change)</li>
+<li>Volatility: 4% (Risk Score: 5, no change)</li>
+<li>Owned: 30% (Risk Score: 15, -15 points)</li>
+<li><strong>New Total Risk Score</strong>: 50 × 0.40 + 20 × 0.30 + 5 × 0.15 + 15 × 0.15 = <strong>29 points</strong></li>
+<li><strong>Improvement</strong>: From 39 (Grade C) to 29 (Grade B)</li>
+</ul>
+<h2>Advanced Calculation: Monte Carlo Risk Simulation</h2>
+<p>For publishers who want deeper analysis, simulate portfolio behavior under stress scenarios.</p>
+<h3>Scenario 1: Primary Channel Drops 50%</h3>
+<p><strong>Input</strong>: Google drops from 45K to 22.5K</p>
+<p><strong>Calculation</strong>:</p>
+<ul>
+<li>New Google traffic: 22,500</li>
+<li>Other channels unchanged: 27,000</li>
+<li>New total: 49,500</li>
+<li><strong>Traffic decline</strong>: (72K - 49.5K) / 72K = <strong>31.3% decline</strong></li>
+</ul>
+<h3>Scenario 2: Primary + Correlated Secondary Drop Together</h3>
+<p><strong>Input</strong>: Google drops 50%, YouTube drops 30% (correlation 0.38)</p>
+<p><strong>Calculation</strong>:</p>
+<ul>
+<li>New Google: 22,500</li>
+<li>New YouTube: 5,600 (8K × 0.70)</li>
+<li>Other channels unchanged: 19,000</li>
+<li>New total: 47,100</li>
+<li><strong>Traffic decline</strong>: (72K - 47.1K) / 72K = <strong>34.6% decline</strong></li>
+</ul>
+<h3>Scenario 3: All Algorithmic Channels Drop 40%</h3>
+<p><strong>Input</strong>: Google, YouTube, Pinterest all drop 40%</p>
+<p><strong>Calculation</strong>:</p>
+<ul>
+<li>New Google: 27,000</li>
+<li>New YouTube: 4,800</li>
+<li>New Pinterest: 4,200</li>
+<li>Email unchanged: 12,000</li>
+<li>New total: 48,000</li>
+<li><strong>Traffic decline</strong>: (72K - 48K) / 72K = <strong>33.3% decline</strong></li>
+</ul>
+<p><strong>Survivability assessment</strong>: If 33% traffic decline would kill business, risk is unacceptable. If business survives, risk is manageable.</p>
+<h2>Quick Risk Calculator (5-Minute Version)</h2>
+<p>Don&#39;t have time for full calculation? Use this simplified version:</p>
+<p><strong>Question 1</strong>: What % of traffic comes from your largest source?</p>
+<ul>
+<li>&lt;40% = 20 points</li>
+<li>40-50% = 35 points</li>
+<li>50-60% = 50 points</li>
+<li>60-70% = 70 points</li>
+<li><blockquote>
+<p>70% = 90 points</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Question 2</strong>: What % of traffic do you own (email + direct)?</p>
+<ul>
+<li><blockquote>
+<p>30% = 10 points</p>
+</blockquote>
+</li>
+<li>20-30% = 25 points</li>
+<li>10-20% = 45 points</li>
+<li>&lt;10% = 70 points</li>
+</ul>
+<p><strong>Question 3</strong>: If your top 2 sources dropped 40% tomorrow, would your business survive 6 months?</p>
+<ul>
+<li>Yes, easily = 10 points</li>
+<li>Yes, with cuts = 30 points</li>
+<li>Uncertain = 60 points</li>
+<li>No = 90 points</li>
+</ul>
+<p><strong>Total Risk Score</strong>: (Q1 + Q2 + Q3) / 3</p>
+<p><strong>Example</strong>: (50 + 25 + 30) / 3 = <strong>35 points</strong> (Grade B, low-moderate risk)</p>
+<h2>FAQ: Traffic Portfolio Risk Calculator</h2>
+<p><strong>How often should I recalculate risk score?</strong>
+Quarterly. Traffic distributions shift over time. Correlation coefficients change. Recalculate every 3 months to catch emerging risks.</p>
+<p><strong>My risk score is 65 (Grade D). How fast can I improve it?</strong>
+6-12 months to drop to Grade C (50-point range). 12-18 months to reach Grade B (35-point range). Risk reduction is gradual, not immediate.</p>
+<p><strong>Do I need advanced math skills?</strong>
+No. If you can use Excel/Google Sheets functions (SUM, AVERAGE, STDEV, CORREL), you can calculate this. Formulas provided.</p>
+<p><strong>What if I have incomplete data (e.g., no correlation data)?</strong>
+Use simplified 5-minute calculator. Full calculator requires 52 weeks of weekly traffic data. If &lt;12 months history, wait until you have it.</p>
+<p><strong>Can two sites with same traffic distribution have different risk scores?</strong>
+Yes. Correlation matters. Site A with 60% Google + 40% email has lower risk than Site B with 60% Google + 40% Bing (correlated).</p>
+<p><strong>Related guides</strong>: <a href="traffic-portfolio-audit-template.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Traffic Portfolio Audit Template</a> | <a href="traffic-diversification-strategy-framework.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Traffic Diversification Strategy Framework</a> | <a href="traffic-monitoring-alert-system.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Traffic Monitoring Alert System</a></p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3 class="font-display font-bold text-xl text-slate-100">Stop gambling on single traffic sources.</h3>
+            <p class="mt-2 text-slate-400 text-sm max-w-lg">Find gives you the complete framework for building, measuring, and defending a diversified traffic portfolio. Calculators, templates, and the full methodology.</p>
+          </div>
+          <a href="/setup.html" class="shrink-0 px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm">
+            Get Find &mdash; $997
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/traffic-monitoring-alert-system.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Tools</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Traffic Monitoring Alert System: Early Warning Indicators for Portfolio Risk</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build automated traffic monitoring with actionable alerts. Thresholds, metrics, and response protocols for channel failures.</p>
+          </a>
+
+          <a href="/articles/traffic-portfolio-management.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Traffic Portfolio Management: Apply Asset Allocation Principles to Website Acquisition Strategy</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Learn how to apply Modern Portfolio Theory to website traffic acquisition. Calculate channel concentration risk, identify correlated traffic sources, and build a diversified traffic portfolio that survives algorithm volatility.</p>
+          </a>
+
+          <a href="/articles/traffic-portfolio-modeling.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">economics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Traffic Portfolio Modeling: Apply Portfolio Theory to Traffic Diversification Metrics and Risk Scoring</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Apply Modern Portfolio Theory to traffic acquisition. Calculate diversification metrics, risk scores, and optimal channel allocation using financial modeling adapted for publishers.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Find &mdash; $997</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://tattooremovalnear.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">tattooremovalnear</a></li>
+          <li><a href="https://comicstripai.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">comicstripai</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          <li><a href="https://b2bvic.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">b2bvic</a></li>
+          <li><a href="https://seobyrole.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">seobyrole</a></li>
+          <li><a href="https://quickfixseo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">quickfixseo</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+          <a href="/setup.html" class="hover:text-slate-400 transition-colors">Find</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
