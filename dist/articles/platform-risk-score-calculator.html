@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform Risk Score Calculator: Quantifying Traffic Source Dependency and Vulnerability | Polytraffic</title>
+    <meta name="description" content="Mathematical framework for calculating platform dependency risk scores based on concentration, algorithm volatility, and business impact with mitigation strategies." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Platform Risk Score Calculator: Quantifying Traffic Source Dependency and Vulnerability | Polytraffic" />
+    <meta property="og:description" content="Mathematical framework for calculating platform dependency risk scores based on concentration, algorithm volatility, and business impact with mitigation strategies." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/platform-risk-score-calculator.html" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Platform Risk Score Calculator: Quantifying Traffic Source Dependency and Vulnerability | Polytraffic" />
+    <meta name="twitter:description" content="Mathematical framework for calculating platform dependency risk scores based on concentration, algorithm volatility, and business impact with mitigation strategies." />
+    <link rel="canonical" href="https://polytraffic.com/articles/platform-risk-score-calculator.html" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://tattooremovalnear.com" />
+    <link rel="me" href="https://comicstripai.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="me" href="https://b2bvic.com" />
+    <link rel="me" href="https://seobyrole.com" />
+    <link rel="me" href="https://quickfixseo.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#0c1222',
+              800: '#141c30',
+              700: '#1e2a42',
+              600: '#1e293b',
+            },
+            violet: {
+              500: '#8b5cf6',
+              400: '#a78bfa',
+            },
+            cyan: {
+              500: '#06b6d4',
+            },
+            cta: {
+              500: '#f97316',
+              400: '#fb923c',
+            },
+            slate: {
+              100: '#f1f5f9',
+              400: '#94a3b8',
+              500: '#64748b',
+            }
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['"Inter"', 'system-ui', 'sans-serif'],
+            mono: ['"Fira Code"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Platform Risk Score Calculator: Quantifying Traffic Source Dependency and Vulnerability",
+    "description": "Mathematical framework for calculating platform dependency risk scores based on concentration, algorithm volatility, and business impact with mitigation strategies.",
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-02-08",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/platform-risk-score-calculator.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/traffic-strategy.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Platform Risk Score Calculator: Quantifying Traffic Source Dependency and Vulnerability"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Build Your Portfolio &mdash; $997
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Build Your Portfolio &mdash; $997
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/traffic-strategy.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Platform Risk Score Calculator: Quantifying Traffic Source Dependency and Vulnerability</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <article class="pt-prose">
+        <h1>Platform Risk Score Calculator: Quantifying Traffic Source Dependency and Vulnerability</h1>
+<p>Publishers dependent on platform traffic face existential risk when algorithms change, policies shift, or accounts face suspension. The 2018 Facebook algorithm update reduced publisher traffic 50-80% overnight. Google&#39;s Helpful Content Update devastated SEO-dependent sites. Pinterest&#39;s spam crackdown eliminated traffic for thousands of publishers. Each platform disruption caught dependent publishers unprepared because they lacked systematic risk quantification.</p>
+<p>Platform risk scoring transforms vague concerns (&quot;we rely too much on Google&quot;) into precise measurements enabling data-driven diversification decisions. A publisher with 0.45 platform risk score understands they face unacceptable vulnerability requiring immediate mitigation. A publisher with 0.15 platform risk score can confidently optimize existing channels without urgent diversification.</p>
+<h2>The Core Risk Formula</h2>
+<p><strong>Platform Risk Score = (Concentration × Volatility × Business Impact) ÷ Recovery Capacity</strong></p>
+<p>Each component measures distinct risk dimensions:</p>
+<p><strong>Concentration</strong>: Traffic percentage from single largest source (0-1 scale)
+<strong>Volatility</strong>: Historical frequency and severity of platform changes (0-1 scale)
+<strong>Business Impact</strong>: Revenue sensitivity to traffic fluctuations (0-1 scale)
+<strong>Recovery Capacity</strong>: Ability to replace lost traffic within 90 days (0-1 scale)</p>
+<p>The formula produces risk scores between 0 (minimal risk) and 1 (extreme risk):</p>
+<ul>
+<li><strong>0.00-0.15</strong>: Low risk, optimization appropriate</li>
+<li><strong>0.15-0.30</strong>: Moderate risk, diversification recommended</li>
+<li><strong>0.30-0.50</strong>: High risk, diversification urgent</li>
+<li><strong>0.50-1.00</strong>: Critical risk, immediate action required</li>
+</ul>
+<h2>Concentration Scoring</h2>
+<p>Concentration measures traffic dependency on a single source. Higher concentration creates vulnerability to source-specific disruptions.</p>
+<p><strong>Concentration calculation:</strong></p>
+<p>Concentration = (Traffic from top source ÷ Total traffic)</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>15,000 of 20,000 visits from Google = 0.75 concentration</li>
+<li>8,000 of 40,000 visits from Facebook = 0.20 concentration</li>
+<li>25,000 of 50,000 visits from Pinterest = 0.50 concentration</li>
+</ul>
+<p><strong>Concentration risk bands:</strong></p>
+<ul>
+<li><strong>0-0.30</strong>: Healthy diversification</li>
+<li><strong>0.30-0.50</strong>: Moderate concentration</li>
+<li><strong>0.50-0.70</strong>: High concentration</li>
+<li><strong>0.70-1.00</strong>: Critical concentration</li>
+</ul>
+<p>Publishers should target concentration below 0.40 for resilience. Concentration exceeding 0.60 creates existential vulnerability.</p>
+<p><strong>Multi-platform concentration adjustment:</strong></p>
+<p>When two related platforms contribute significantly, adjust concentration for correlated risk:</p>
+<p>Adjusted Concentration = Primary source % + (Secondary source % × Correlation factor)</p>
+<p>Example: Google search (50%) + Bing search (15%) with 0.8 correlation factor:
+Adjusted Concentration = 0.50 + (0.15 × 0.8) = 0.62</p>
+<p>The adjustment recognizes that Google and Bing algorithm changes often correlate, providing less diversification than independent sources.</p>
+<h2>Volatility Scoring</h2>
+<p>Volatility quantifies how frequently and severely platforms change distribution algorithms or policies.</p>
+<p><strong>Volatility factors:</strong></p>
+<p><strong>Algorithm update frequency</strong>: How often distribution changes occur
+<strong>Impact severity</strong>: Average traffic impact when changes occur
+<strong>Predictability</strong>: Whether changes are announced or surprise implementations
+<strong>Recovery feasibility</strong>: Whether publishers can adapt to changes or face permanent loss</p>
+<p><strong>Platform volatility scores (2020-2025 data):</strong></p>
+<ul>
+<li><strong>Google Search</strong>: 0.45 (frequent updates, moderate impact, some recovery possible)</li>
+<li><strong>Facebook</strong>: 0.70 (frequent updates, severe impact, difficult recovery)</li>
+<li><strong>Pinterest</strong>: 0.55 (moderate frequency, high impact, slow recovery)</li>
+<li><strong>YouTube</strong>: 0.50 (moderate frequency, moderate impact, gradual recovery)</li>
+<li><strong>Email</strong>: 0.10 (low volatility, publisher-controlled)</li>
+<li><strong>LinkedIn</strong>: 0.35 (low-moderate frequency, moderate impact)</li>
+<li><strong>Twitter/X</strong>: 0.60 (policy volatility, sudden changes)</li>
+<li><strong>TikTok</strong>: 0.75 (high volatility, unpredictable algorithm)</li>
+</ul>
+<p><strong>Custom volatility calculation:</strong></p>
+<p>For platforms lacking historical data, estimate volatility:</p>
+<p>Volatility = (0.4 × Update frequency score) + (0.4 × Impact severity score) + (0.2 × Recovery difficulty score)</p>
+<p><strong>Update frequency score:</strong></p>
+<ul>
+<li>Quarterly or less: 0.2</li>
+<li>Monthly: 0.4</li>
+<li>Weekly: 0.6</li>
+<li>Daily/unpredictable: 0.8-1.0</li>
+</ul>
+<p><strong>Impact severity score:</strong></p>
+<ul>
+<li>&lt;10% traffic change: 0.2</li>
+<li>10-30% traffic change: 0.4</li>
+<li>30-60% traffic change: 0.6</li>
+<li><blockquote>
+<p>60% traffic change: 0.8-1.0</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>Recovery difficulty score:</strong></p>
+<ul>
+<li>Full recovery typical: 0.2</li>
+<li>Partial recovery possible: 0.5</li>
+<li>Recovery rare: 0.8-1.0</li>
+</ul>
+<h2>Business Impact Scoring</h2>
+<p>Business impact measures how traffic fluctuations affect revenue and operations. High-margin businesses tolerate traffic volatility better than low-margin businesses.</p>
+<p><strong>Business impact calculation:</strong></p>
+<p>Business Impact = (Revenue per visit × Margin %) ÷ Fixed cost coverage threshold</p>
+<p><strong>Example 1 - High-margin business:</strong></p>
+<ul>
+<li>Revenue per visit: $0.50</li>
+<li>Margin: 70%</li>
+<li>Monthly fixed costs: $3,000</li>
+<li>Current traffic: 30,000 visits</li>
+<li>Revenue: $15,000, Profit: $10,500</li>
+<li><strong>Impact score</strong>: 0.30 (traffic loss painful but survivable)</li>
+</ul>
+<p><strong>Example 2 - Low-margin business:</strong></p>
+<ul>
+<li>Revenue per visit: $0.08</li>
+<li>Margin: 40%</li>
+<li>Monthly fixed costs: $5,000</li>
+<li>Current traffic: 150,000 visits</li>
+<li>Revenue: $12,000, Profit: $4,800</li>
+<li><strong>Impact score</strong>: 0.75 (traffic loss threatens viability)</li>
+</ul>
+<p><strong>Simplified business impact scores:</strong></p>
+<ul>
+<li><strong>0.20-0.30</strong>: Healthy profit margins (50%+ net), substantial cash reserves (6+ months)</li>
+<li><strong>0.40-0.50</strong>: Moderate margins (30-50% net), adequate reserves (3-6 months)</li>
+<li><strong>0.60-0.75</strong>: Thin margins (15-30% net), limited reserves (1-3 months)</li>
+<li><strong>0.80-1.00</strong>: Negative or minimal margins, no reserves (&lt;1 month)</li>
+</ul>
+<p>Publishers operating with thin margins face higher business impact from traffic disruptions regardless of concentration or volatility.</p>
+<h2>Recovery Capacity Scoring</h2>
+<p>Recovery capacity measures how quickly publishers can replace lost traffic from alternative sources.</p>
+<p><strong>Recovery capacity factors:</strong></p>
+<p><strong>Email list size</strong>: Owned distribution reducing platform dependency
+<strong>Content library</strong>: Existing assets deployable to alternative platforms
+<strong>Multi-channel presence</strong>: Active audiences on multiple platforms
+<strong>Brand recognition</strong>: Direct traffic and search brand terms
+<strong>Financial resources</strong>: Capital available for paid traffic replacement</p>
+<p><strong>Recovery capacity calculation:</strong></p>
+<p>Recovery Capacity = (0.3 × Email capacity) + (0.3 × Content assets) + (0.2 × Multi-channel) + (0.1 × Brand strength) + (0.1 × Financial)</p>
+<p><strong>Scoring each component (0-1 scale):</strong></p>
+<p><strong>Email capacity:</strong></p>
+<ul>
+<li>0: No email list</li>
+<li>0.3: Email generates &lt;10% of lost traffic</li>
+<li>0.6: Email generates 20-40% of lost traffic</li>
+<li>1.0: Email generates 50%+ of lost traffic</li>
+</ul>
+<p><strong>Content assets:</strong></p>
+<ul>
+<li>0: &lt;50 content pieces</li>
+<li>0.3: 50-200 content pieces</li>
+<li>0.6: 200-500 content pieces</li>
+<li>1.0: 500+ content pieces</li>
+</ul>
+<p><strong>Multi-channel presence:</strong></p>
+<ul>
+<li>0: Single traffic source</li>
+<li>0.3: 2 traffic sources</li>
+<li>0.6: 3-4 traffic sources</li>
+<li>1.0: 5+ traffic sources</li>
+</ul>
+<p><strong>Brand strength:</strong></p>
+<ul>
+<li>0: No branded search traffic</li>
+<li>0.3: Branded search &lt;5% of total</li>
+<li>0.6: Branded search 10-20% of total</li>
+<li>1.0: Branded search &gt;25% of total</li>
+</ul>
+<p><strong>Financial resources:</strong></p>
+<ul>
+<li>0: No budget for paid replacement traffic</li>
+<li>0.3: Budget for 1-3 months replacement</li>
+<li>0.6: Budget for 3-6 months replacement</li>
+<li>1.0: Budget for 6+ months replacement</li>
+</ul>
+<h2>Worked Example: Complete Risk Assessment</h2>
+<p><strong>Publisher profile:</strong></p>
+<ul>
+<li>Total monthly traffic: 50,000 visits</li>
+<li>Google search: 32,000 visits (64%)</li>
+<li>Pinterest: 10,000 visits (20%)</li>
+<li>Direct: 5,000 visits (10%)</li>
+<li>Email: 3,000 visits (6%)</li>
+<li>Email list: 8,000 subscribers</li>
+<li>Content library: 300 articles</li>
+<li>Monthly revenue: $8,000</li>
+<li>Revenue per visit: $0.16</li>
+<li>Net margin: 45%</li>
+<li>Fixed costs: $3,000</li>
+</ul>
+<p><strong>Step 1 - Concentration:</strong></p>
+<p>Primary source: Google at 64% = <strong>0.64 concentration</strong></p>
+<p><strong>Step 2 - Volatility:</strong></p>
+<p>Google historical volatility = <strong>0.45 volatility</strong></p>
+<p><strong>Step 3 - Business Impact:</strong></p>
+<p>Margin: 45% (moderate)
+Cash reserves: 4 months (moderate)
+<strong>Business impact score: 0.40</strong></p>
+<p><strong>Step 4 - Recovery Capacity:</strong></p>
+<ul>
+<li>Email capacity: 0.4 (8k list generates ~3k visits = 9% of traffic)</li>
+<li>Content assets: 0.7 (300 articles)</li>
+<li>Multi-channel: 0.6 (4 channels active)</li>
+<li>Brand strength: 0.3 (direct traffic 10%)</li>
+<li>Financial: 0.5 (4 months reserves)</li>
+</ul>
+<p>Recovery Capacity = (0.3 × 0.4) + (0.3 × 0.7) + (0.2 × 0.6) + (0.1 × 0.3) + (0.1 × 0.5) = <strong>0.53</strong></p>
+<p><strong>Step 5 - Final Risk Score:</strong></p>
+<p>Risk Score = (0.64 × 0.45 × 0.40) ÷ 0.53 = <strong>0.218</strong></p>
+<p><strong>Interpretation:</strong> Moderate risk (0.15-0.30 range). Diversification recommended but not urgent. Publisher should begin reducing Google concentration toward 50% while building alternative channels, but current position is survivable.</p>
+<h2>Risk Mitigation Strategies by Score</h2>
+<p><strong>Low Risk (0.00-0.15):</strong></p>
+<ul>
+<li>Continue optimizing existing channels</li>
+<li>Maintain monitoring for emerging risks</li>
+<li>Allocate 10-15% of resources to experimentation</li>
+<li>Annual risk reassessment sufficient</li>
+</ul>
+<p><strong>Moderate Risk (0.15-0.30):</strong></p>
+<ul>
+<li>Begin diversification initiatives</li>
+<li>Reduce primary source concentration by 10-15%</li>
+<li>Build email list aggressively (target 20% of traffic from email within 12 months)</li>
+<li>Quarterly risk reassessment</li>
+<li>Allocate 20-30% of resources to new channels</li>
+</ul>
+<p><strong>High Risk (0.30-0.50):</strong></p>
+<ul>
+<li>Immediate diversification priority</li>
+<li>Reduce primary source concentration by 20-30% within 6 months</li>
+<li>Email list becomes top priority</li>
+<li>Monthly risk monitoring</li>
+<li>Allocate 40-50% of resources to diversification</li>
+<li>Consider paid traffic as temporary bridge during organic buildout</li>
+</ul>
+<p><strong>Critical Risk (0.50-1.00):</strong></p>
+<ul>
+<li>Emergency diversification required</li>
+<li>Pause optimization of risky channel</li>
+<li>60-70% of resources to diversification</li>
+<li>Weekly risk monitoring</li>
+<li>Consider paid traffic as primary strategy until owned channels mature</li>
+<li>Build 3-month cash reserves if possible</li>
+<li>Reduce fixed costs if feasible</li>
+</ul>
+<h2>Portfolio Rebalancing Targets</h2>
+<p>Publishers should use risk scores to set diversification targets:</p>
+<p><strong>Current state:</strong> 64% Google, 20% Pinterest, 10% Direct, 6% Email (Risk: 0.218)</p>
+<p><strong>Target state (12 months):</strong></p>
+<ul>
+<li>Google: 45-50% (reduced concentration)</li>
+<li>Pinterest: 15-18% (maintained)</li>
+<li>Email: 15-20% (grown significantly)</li>
+<li>YouTube/Social: 10-12% (new channel)</li>
+<li>Direct: 8-10% (natural growth)</li>
+</ul>
+<p><strong>New risk projection:</strong></p>
+<ul>
+<li>Concentration: 0.50 (down from 0.64)</li>
+<li>Recovery capacity: 0.65 (up from 0.53 due to email growth)</li>
+<li>New risk score: ~0.14 (down from 0.218)</li>
+</ul>
+<p>The target moves publisher from moderate to low risk category through diversification and owned channel development.</p>
+<h2>Automated Risk Monitoring</h2>
+<p>Publishers should build dashboards tracking risk scores monthly:</p>
+<p><strong>Monthly tracking metrics:</strong></p>
+<ul>
+<li>Traffic by source (concentration calculation)</li>
+<li>Revenue per visit by source (business impact)</li>
+<li>Email list size and engagement (recovery capacity)</li>
+<li>Cash reserves in months (business impact + recovery)</li>
+</ul>
+<p><strong>Automated alerts:</strong></p>
+<ul>
+<li>Risk score increases &gt;0.05 in single month → Investigation required</li>
+<li>Concentration exceeds 0.60 → Urgent diversification trigger</li>
+<li>Primary source traffic drops &gt;20% month-over-month → Emergency response</li>
+<li>Cash reserves below 3 months → Revenue enhancement priority</li>
+</ul>
+<p>The monitoring provides early warning enabling proactive mitigation before crises emerge.</p>
+<h2>FAQ</h2>
+<p><strong>Q: Should publishers use platform risk scores to decide whether to invest in a channel?</strong></p>
+<p>Risk scores assess current dependency vulnerability, not individual channel viability. A publisher with 0.40 risk score should diversify regardless of whether new channels seem &quot;good.&quot; The diversification itself reduces risk. However, publishers should prioritize high-ROI diversification channels when available rather than low-ROI channels pursued solely for diversification.</p>
+<p><strong>Q: How do publishers reduce platform risk without reducing traffic or revenue?</strong></p>
+<p>Focus on additive diversification (building new channels) rather than subtractive rebalancing (cutting successful channels). Growing email from 5% to 20% of traffic while maintaining absolute traffic from existing channels reduces concentration without sacrificing performance. Only in critical risk scenarios should publishers actively reduce investment in risky channels.</p>
+<p><strong>Q: What&#39;s the minimum acceptable risk score?</strong></p>
+<p>No universal minimum exists, but publishers should target scores below 0.20 for resilience. Publishers comfortable with higher risk (accepting potential business disruption) can operate at 0.25-0.30. Publishers requiring stability (supporting dependents, servicing debt) should target 0.15 or below.</p>
+<p><strong>Q: Do all publishers face platform risk regardless of size?</strong></p>
+<p>Yes, though large publishers with financial resources have higher recovery capacity reducing overall risk scores. A large publisher generating $500k monthly can fund paid traffic replacement for months. A small publisher generating $5k monthly can&#39;t. Size provides buffer but doesn&#39;t eliminate platform dependency risk.</p>
+<p><strong>Q: Should publishers calculate separate risk scores for traffic and revenue?</strong></p>
+<p>Yes, when traffic sources differ from revenue sources. A publisher deriving 70% of traffic from Pinterest but 80% of revenue from Google search faces different risk profile than raw traffic concentration suggests. Calculate both scores and use the higher score for decision-making since either dependency creates vulnerability.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3 class="font-display font-bold text-xl text-slate-100">Stop gambling on single traffic sources.</h3>
+            <p class="mt-2 text-slate-400 text-sm max-w-lg">Find gives you the complete framework for building, measuring, and defending a diversified traffic portfolio. Calculators, templates, and the full methodology.</p>
+          </div>
+          <a href="/setup.html" class="shrink-0 px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm">
+            Get Find &mdash; $997
+          </a>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/platform-risk-traffic.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Platform Risk in Traffic Acquisition: Score and Mitigate Single-Source Vulnerability</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Framework for scoring and mitigating platform risk in traffic acquisition through diversification, correlation analysis, and risk scoring models.</p>
+          </a>
+
+          <a href="/articles/platform-risk-scoring-methodology.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Platform Risk Scoring Methodology: Systematic Framework for Traffic Dependency Analysis</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Comprehensive methodology for assessing platform dependency risk across search, social, and emerging channels with historical case studies and mitigation frameworks.</p>
+          </a>
+
+          <a href="/articles/competitor-vulnerability-traffic-concentration.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Competitor Vulnerability from Traffic Concentration: Identifying and Exploiting Single-Channel Dependence</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Strategic framework for detecting competitor traffic concentration risks and positioning to capture displaced traffic when concentrated channels collapse or decline.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Find &mdash; $997</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://tattooremovalnear.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">tattooremovalnear</a></li>
+          <li><a href="https://comicstripai.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">comicstripai</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          <li><a href="https://b2bvic.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">b2bvic</a></li>
+          <li><a href="https://seobyrole.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">seobyrole</a></li>
+          <li><a href="https://quickfixseo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">quickfixseo</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+          <a href="/setup.html" class="hover:text-slate-400 transition-colors">Find</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
