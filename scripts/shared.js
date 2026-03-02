@@ -224,6 +224,11 @@ function megaNavHtml(activePath = '') {
             </div>
           </div>
 
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
           <!-- CTA -->
           <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
             Build Your Portfolio &mdash; $997
@@ -339,6 +344,8 @@ function footerHtml() {
         <div>
           <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
           <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
 ${entityLinksList}
           </ul>
         </div>
@@ -347,11 +354,12 @@ ${entityLinksList}
 
       <!-- Bottom bar -->
       <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <p>&copy; ${SITE.year} ${SITE.name}. All rights reserved.</p>
+        <p>&copy; ${SITE.year} ${SITE.name}. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
         <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
           <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
           <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
-          <a href="/setup.html" class="hover:text-slate-400 transition-colors">Find</a>
         </div>
       </div>
     </div>
