@@ -158,6 +158,7 @@ function buildArticleHTML(article, allArticles) {
 <html lang="en">
 <head>
 ${head}
+${typeof ENTITY_SCHEMAS_HTML !== "undefined" ? ENTITY_SCHEMAS_HTML : ""}
 </head>
 <body class="bg-navy-900 font-body antialiased">
 
