@@ -20,28 +20,6 @@ const SITE = {
 };
 
 const ENTITY_DOMAINS = [
-
-// ── Entity SEO (network-wide) ─────────────────────────────────
-const ENTITY_PERSON_SCHEMA = '{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}';
-const ENTITY_ORG_SCHEMA = '{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"},"logo":{"@type":"ImageObject","url":"https://scalewithsearch.com/og-image.png"}}';
-const ENTITY_WEBSITE_SCHEMA = '{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}';
-const ENTITY_SCHEMAS_HTML = `
-  <script type="application/ld+json">${ENTITY_PERSON_SCHEMA}</script>
-  <script type="application/ld+json">${ENTITY_ORG_SCHEMA}</script>
-  <script type="application/ld+json">${ENTITY_WEBSITE_SCHEMA}</script>
-  <link rel="author" href="https://victorvalentineromo.com">
-  <link rel="me" href="https://scalewithsearch.com">
-  <link rel="me" href="https://aifirstsearch.com">
-  <link rel="me" href="https://browserprompt.com">
-  <link rel="me" href="https://seobyrole.com">
-  <link rel="me" href="https://quickfixseo.com">
-  <link rel="me" href="https://tattooremovalnear.com">
-  <link rel="me" href="https://victorvalentineromo.com">
-  <link rel="me" href="https://linkedin.com/in/b2bvic">
-  <link rel="me" href="https://twitter.com/b2bvic">
-  <link rel="me" href="https://github.com/b2bvic">
-`;
-
   'scalewithsearch.com',
   'victorvalentineromo.com',
   'aifirstsearch.com',
@@ -161,7 +139,6 @@ const tailwindConfig = `
 
 // ── Head Includes ────────────────────────────────────────────────
 function headIncludes({ title, description, canonical, type = 'website', ogImage, jsonLd, noindex = false }) {
-  // Entity schemas injected by entity-seo-upgrade
   const entityLinks = ENTITY_DOMAINS.map(d => `    <link rel="me" href="https://${d}" />`).join('\n');
   const robotsMeta = noindex ? '\n    <meta name="robots" content="noindex" />' : '';
 
@@ -500,7 +477,24 @@ function slugify(str) {
 }
 
 // ── Exports ──────────────────────────────────────────────────────
+
+// ── Entity SEO (network-wide) ─────────────────────────────────
+const ENTITY_PERSON_SCHEMA = '{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}';
+const ENTITY_ORG_SCHEMA = '{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}';
+const ENTITY_WEBSITE_SCHEMA = '{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}';
+const ENTITY_SCHEMAS_HTML = `
+  <script type="application/ld+json">${ENTITY_PERSON_SCHEMA}</script>
+  <script type="application/ld+json">${ENTITY_ORG_SCHEMA}</script>
+  <script type="application/ld+json">${ENTITY_WEBSITE_SCHEMA}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+`;
+
+
 module.exports = {
+  ENTITY_SCHEMAS_HTML,
   SITE,
   ENTITY_DOMAINS,
   CATEGORIES,

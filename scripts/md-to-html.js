@@ -9,7 +9,7 @@ const { marked } = require('marked');
 const {
   SITE, headIncludes, megaNavHtml, megaNavScript, footerHtml,
   articleSchema, breadcrumbSchema, breadcrumbHtml, inferCategory,
-  escapeHtml, escapeAttr, CATEGORIES,
+  escapeHtml, escapeAttr, CATEGORIES, ENTITY_SCHEMAS_HTML,
 } = require('./shared');
 
 const SKIP_FILES = ['README.md', '_brief.md', '_content-stack.md'];
