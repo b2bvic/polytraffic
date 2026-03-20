@@ -13,6 +13,12 @@ internal_links:: Article 1 (Traffic Portfolio Management), Article 2 (Channel Ec
 
 # Traffic Source Correlation: Why SEO + Paid Search Isn't Real Diversification
 
+> **Quick Summary**
+> - **What this covers:** Traffic Source Correlation: Why SEO + Paid Search Isn't Real Diversification
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
+
 You run Google Ads alongside organic search. Two channels, two line items in your marketing budget, two dashboards to check. Diversification complete.
 
 Except it isn't.
@@ -236,3 +242,30 @@ This independence doesn't happen accidentally. It requires deliberate correlatio
 Your traffic portfolio's resilience depends not on how many channels you operate, but on how independently those channels behave when stress tests arrive. Correlation analysis provides the math to build portfolios that actually work when the dashboards turn red.
 
 [INTERNAL: Traffic Risk Assessment] includes a correlation matrix template. Complete the assessment to identify your highest-correlation channel pairs and receive recommendations for adding low-correlation alternatives.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.
+
+---
+
+## Frequently Asked Questions
+
+### How quickly can I implement this traffic strategy?
+
+Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.
+
+### Does this work for sites with less than 10K monthly visitors?
+
+Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down — start with simpler attribution before building complex models.
+
+### What tools do I need to execute this?
+
+Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required — the strategy is more important than the tooling.
+

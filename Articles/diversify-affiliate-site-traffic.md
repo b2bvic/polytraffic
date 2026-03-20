@@ -13,6 +13,12 @@ internal_links:: Article 1 (Traffic Portfolio Management), Article 2 (Channel Ec
 
 # Affiliate Site Traffic Diversification: Reduce Google Dependency Without Killing Margins
 
+> **Quick Summary**
+> - **What this covers:** Affiliate Site Traffic Diversification: Reduce Google Dependency Without Killing Margins
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
+
 Your analytics dashboard tells a familiar story. 83% Google organic. 9% direct. 5% Pinterest. 3% everything else.
 
 You've heard the diversification advice a hundred times. Build an email list. Try paid ads. Expand to YouTube. And every time you run the numbers, the same problem emerges: affiliate margins can't support the customer acquisition costs other business models tolerate.
@@ -311,3 +317,30 @@ The publishers who survive the next algorithm update will be those who started d
 Your traffic portfolio should look different twelve months from now. Start with email. Add Pinterest or YouTube based on niche fit. Maintain SEO production while channels scale. Measure progress quarterly. Adjust allocation based on performance data rather than generic advice.
 
 The goal isn't eliminating Google dependency. It's reducing it to a level where algorithmic decisions affect your growth rate rather than your survival.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.
+
+---
+
+## Frequently Asked Questions
+
+### How quickly can I implement this traffic strategy?
+
+Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.
+
+### Does this work for sites with less than 10K monthly visitors?
+
+Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down — start with simpler attribution before building complex models.
+
+### What tools do I need to execute this?
+
+Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required — the strategy is more important than the tooling.
+

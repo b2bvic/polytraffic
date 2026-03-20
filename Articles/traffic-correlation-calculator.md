@@ -4,10 +4,16 @@ description:: Calculate traffic correlations between channels to identify divers
 focus_keyword:: traffic correlation calculator
 category:: Analytics
 author:: Victor Valentine Romo
-date:: 2026.02.08
+date:: 2026.03.20
 ---
 
 # Traffic Correlation Calculator: Measuring Channel Co-Movement for Portfolio Risk Analysis
+
+> **Quick Summary**
+> - **What this covers:** Calculate traffic correlations between channels to identify diversification gaps, measure systematic risk, and optimize portfolio resilience.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 **Traffic correlation** measures how channels move together during disruptions—high correlation means channels fail simultaneously, while low correlation provides genuine diversification. Publishers assuming channel independence (treating 40% SEO + 40% paid search as 80% diversified traffic) discover high correlation during Google disruptions affecting both channels identically. Correlation analysis reveals whether portfolio achieves true diversification or merely fragmented concentration on correlated platforms.
 
@@ -196,3 +202,13 @@ Email shows 0.2-0.4 correlation (different traffic source, owned relationship), 
 ### Should publishers deliberately seek negative correlation?
 
 Negative correlation (channels moving opposite directions) provides powerful diversification but rarely occurs naturally in traffic channels. Theoretical example: defensive content (news, health, finance) potentially increasing during recessions while entertainment content declines—creating negative correlation across content categories. However, most channel pairs exhibit positive correlation (0.2-0.8 range). Better to seek zero correlation (0.0-0.2) through platform independence than chase rare negative correlations requiring forced, unnatural positioning.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.

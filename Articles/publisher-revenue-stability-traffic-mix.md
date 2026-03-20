@@ -4,10 +4,16 @@ description:: Revenue volatility stems from channel concentration. Diversified t
 focus_keyword:: publisher revenue stability
 category:: Traffic Strategy
 author:: Victor Valentine Romo
-date:: 2026.02.08
+date:: 2026.03.20
 ---
 
 # Publisher Revenue Stability Through Strategic Traffic Mix Management
+
+> **Quick Summary**
+> - **What this covers:** Revenue volatility stems from channel concentration. Diversified traffic portfolios stabilize income by distributing risk across uncorrelated sources.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Revenue stability matters more than peak earnings for sustainable publishing businesses. A site generating $50,000 monthly with 20% month-over-month variance builds more durable operations than one earning $80,000 with 60% swings, because predictable cash flow enables hiring, content investment, and strategic planning that volatile income prevents.
 
@@ -142,3 +148,13 @@ Expect measurable volatility reduction within 6-12 months of active rebalancing.
 ### What's the biggest mistake publishers make in traffic diversification?
 
 Adding similar channels disguised as diversification. Facebook, Instagram, Twitter, and TikTok feel like four channels but are highly correlated—they're all social platforms subject to similar algorithm dynamics and user behavior shifts. True diversification means combining fundamentally different sources: search, email, direct, referral, paid. Avoid the illusion of diversification through channel quantity without correlation awareness.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.

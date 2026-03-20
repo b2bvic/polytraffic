@@ -4,10 +4,16 @@ description:: A systematic decision tree for publishers choosing traffic channel
 focus_keyword:: publisher traffic decision tree
 category:: Traffic Strategy
 author:: Victor Valentine Romo
-date:: 2026.02.08
+date:: 2026.03.20
 ---
 
 # Publisher Traffic Decision Tree: Channel Selection Framework
+
+> **Quick Summary**
+> - **What this covers:** A systematic decision tree for publishers choosing traffic channels based on content type, resources, timeline, and risk tolerance.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Publishers face dozens of potential traffic channels, each demanding different resources, timelines, and expertise. Random channel selection leads to wasted effort on mismatched strategies—recipe bloggers investing in LinkedIn, B2B publishers building TikTok audiences, local news sites chasing international SEO.
 
@@ -152,3 +158,13 @@ Test the smallest viable commitment on each. If the tree suggests both Reddit an
 ### What if my audience is on a platform I ethically oppose?
 
 Skip it. Plenty of publishers thrive without Facebook, Instagram, or other platforms they find objectionable. Ethical constraints are legitimate strategic inputs. Acknowledge the traffic you're forgoing, then optimize harder on channels that align with your values. Audiences fragment across platforms; you don't need to be everywhere to succeed, just where your specific readers congregate and where you can operate with integrity.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.

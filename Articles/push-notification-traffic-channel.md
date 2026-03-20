@@ -4,10 +4,16 @@ description:: Browser and mobile push notifications re-engage visitors without e
 focus_keyword:: push notification traffic
 category:: Owned Channels
 author:: Victor Valentine Romo
-date:: 2026.02.08
+date:: 2026.03.20
 ---
 
 # Push Notifications as a Traffic Channel: Implementation and Economics
+
+> **Quick Summary**
+> - **What this covers:** Browser and mobile push notifications re-engage visitors without email addresses, creating an owned traffic channel resistant to platform algorithm changes.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Push notifications deliver messages directly to users' devices—browser tabs, mobile lock screens, desktop alerts—without requiring email addresses or app downloads. For publishers, they create an owned audience channel that bypasses email fatigue and social platform algorithms while generating repeat traffic from users who granted permission.
 
@@ -152,3 +158,13 @@ Send less frequently, target more precisely, and deliver genuine value. The most
 ### Should I use push notifications if I already have a strong email list?
 
 Yes. Push captures audience segments who won't provide email but will grant browser permission. It also provides redundancy—if email deliverability drops or ESP issues occur, push maintains audience connection. The implementation cost is low (2-8 hours setup, minimal ongoing management), and the channel compounds email's value rather than competing with it. Layer both for maximum owned audience coverage.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.

@@ -4,10 +4,16 @@ description:: Google Discover sends massive traffic spikes but zero predictabili
 focus_keyword:: google discover traffic
 category:: channels
 author:: Victor Valentine Romo
-date:: 2026.02.07
+date:: 2026.03.20
 ---
 
 # How Google Discover Traffic Works and Why You Can't Depend on It
+
+> **Quick Summary**
+> - **What this covers:** Google Discover sends massive traffic spikes but zero predictability. Learn how the feed algorithm works, why publishers can't rely on it, and how to treat Discover as a bonus channel.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Google Discover generates traffic spikes that dwarf organic search for many publishers, but no one can engineer consistent placement in the feed. The algorithm surfaces content based on user interest graphs rather than keyword queries, which means your control over visibility is functionally zero. Publishers who treat Discover as a reliable channel discover — usually within 90 days — that the spikes evaporate as unpredictably as they arrived.
 
@@ -143,6 +149,16 @@ Discover serves specific publisher profiles better than others:
 **Large-entity publishers** with established E-E-A-T signals receive more consistent Discover placement, reducing (but not eliminating) the variance that makes the channel unreliable for smaller publishers.
 
 If you don't match these profiles, Discover will contribute occasional spikes that feel exciting but don't compound. The excitement is the trap — it creates the illusion that Discover is a channel worth optimizing, when it's actually a weather pattern you can observe but not control.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.
 
 ---
 

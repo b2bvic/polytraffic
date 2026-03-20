@@ -4,10 +4,16 @@ description:: A systematic framework for reviewing traffic channel performance q
 focus_keyword:: quarterly traffic review
 category:: Traffic Strategy
 author:: Victor Valentine Romo
-date:: 2026.02.08
+date:: 2026.03.20
 ---
 
 # Quarterly Traffic Portfolio Review: Metrics, Diagnostics, and Rebalancing
+
+> **Quick Summary**
+> - **What this covers:** A systematic framework for reviewing traffic channel performance quarterly, identifying underperforming channels, and rebalancing effort toward optimal ROI.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Traffic channels drift. Search algorithms shift ranking criteria. Social platforms adjust feed algorithms. User behavior evolves. What worked last quarter might underperform this quarter—yet publishers often maintain static channel strategies for months or years, missing optimization opportunities and compounding declining channels.
 
@@ -160,3 +166,13 @@ Compare Q4 2025 to Q4 2024, not to Q3 2025, to eliminate seasonal effects. If ye
 ### What should I do if all channels declined?
 
 Investigate external factors: Did a major algorithm update affect search? Did a pandemic or economic shock reduce overall web traffic? Check competitive context—are others in your niche experiencing similar declines? If the market contracted, focus on maintaining share. If only your site declined, audit for technical issues, content quality drops, or user experience problems affecting all channels equally.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.

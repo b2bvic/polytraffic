@@ -4,10 +4,16 @@ description:: Step-by-step checklist for algorithm update response. Immediate ac
 focus_keyword:: algorithm update checklist
 category:: strategy
 author:: Victor Valentine Romo
-date:: 2026.02.07
+date:: 2026.03.20
 ---
 
 # Algorithm Update Response Checklist: What to Do in the First 72 Hours
+
+> **Quick Summary**
+> - **What this covers:** Step-by-step checklist for algorithm update response. Immediate actions to diagnose impact, triage affected pages, deploy countermeasures, and activate backup traffic channels within 72 hours.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Algorithm updates punish hesitation.
 
@@ -487,6 +493,16 @@ After 8 weeks, assess results:
 - What would you do differently next update?
 
 **Action:** Update this checklist with your findings. Next update, you execute faster and smarter.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.
 
 ---
 

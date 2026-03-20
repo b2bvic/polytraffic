@@ -4,10 +4,16 @@ description:: Google AI Overviews now appear on 30%+ of queries, reducing click-
 focus_keyword:: SGE zero click search traffic
 category:: channels
 author:: Victor Valentine Romo
-date:: 2026.02.07
+date:: 2026.03.20
 ---
 
 # SGE and AI Overviews: What Zero-Click Search Means for Your Traffic Portfolio
+
+> **Quick Summary**
+> - **What this covers:** Google AI Overviews now appear on 30%+ of queries, reducing click-through rates by 18-64%. Learn how zero-click search reshapes traffic portfolios and what publishers should do about it.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Google's **AI Overviews** (formerly Search Generative Experience / SGE) now appear on more than 30% of all search queries in the United States, according to **SEMrush** Sensor data through January 2026. When an AI Overview appears, organic click-through rates for the traditional blue links beneath it decline by 18-64%, depending on query type and Overview completeness.
 
@@ -180,6 +186,16 @@ GSC does not explicitly label AI Overview queries, but you can identify exposure
 **SEMrush**, **Ahrefs**, and **BrightEdge** have added AI Overview tracking features. These tools identify which of your ranking keywords trigger AI Overviews, whether your content appears as a citation, and how CTR compares for Overview vs. non-Overview queries.
 
 Implementing this monitoring surfaces the precise revenue at risk from AI Overview expansion and enables targeted response: strengthen content for high-exposure queries, shift investment from unsalvageable queries, and redirect effort toward click-resistant formats.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.
 
 ---
 

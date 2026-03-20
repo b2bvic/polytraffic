@@ -4,10 +4,16 @@ description:: Score platform dependency risk across Google, Meta, TikTok, YouTub
 focus_keyword:: platform risk assessment
 category:: resilience
 author:: Victor Valentine Romo
-date:: 2026.02.07
+date:: 2026.03.20
 ---
 
 # Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration
+
+> **Quick Summary**
+> - **What this covers:** Score platform dependency risk across Google, Meta, TikTok, YouTube, and 10 more channels using a quantitative framework. Build migration plans before you need them.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Every traffic platform you depend on carries measurable risk that can be scored, compared, and mitigated — and publishers who quantify platform risk before a disruption event make allocation decisions that prevent business crises, while publishers who assess risk after disruption spend 6-18 months in recovery mode that systematic risk management would have averted. This framework scores 14 major traffic platforms across algorithm volatility, policy stability, ownership concentration, and historical disruption frequency, then maps migration paths that activate when risk thresholds are breached.
 
@@ -271,7 +277,34 @@ Score the platform across the five dimensions using the rubrics provided. Resear
 
 ---
 
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.
+
+---
+
 **Related Resources:**
 - [Platform risk in traffic acquisition](/articles/platform-risk-traffic.html) — Detailed risk mechanics by platform category
 - [Traffic portfolio management](/articles/traffic-portfolio-management.html) — Allocation framework incorporating risk scores
 - [Traffic cliff prevention](/articles/traffic-cliff-prevention.html) — Early warning systems for platform disruptions
+
+---
+
+## Frequently Asked Questions
+
+### How quickly can I implement this traffic strategy?
+
+Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.
+
+### Does this work for sites with less than 10K monthly visitors?
+
+Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down — start with simpler attribution before building complex models.
+
+### What tools do I need to execute this?
+
+Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required — the strategy is more important than the tooling.
+

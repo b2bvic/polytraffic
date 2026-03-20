@@ -5,7 +5,7 @@ description:: Framework for scoring and mitigating platform risk in traffic acqu
 keywords:: platform risk traffic strategy, traffic diversification, algorithm dependency, platform vulnerability
 author:: Victor Valentine Romo
 domain:: polytraffic.com
-date:: 2026.01.19
+date:: 2026.03.20
 type:: pillar
 status:: draft
 focus_keyword:: platform risk traffic strategy
@@ -15,6 +15,12 @@ internal_links:: Traffic Portfolio Management, Traffic Source Correlation, Algor
 ---
 
 # Platform Risk in Traffic Acquisition: Score and Mitigate Single-Source Vulnerability
+
+> **Quick Summary**
+> - **What this covers:** Framework for scoring and mitigating platform risk in traffic acquisition through diversification, correlation analysis, and risk scoring models.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 A single platform owns your business and you signed no contract.
 
@@ -317,6 +323,16 @@ Dashboard review takes 15 minutes quarterly. The investment prevents the 15-mont
 
 ---
 
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.
+
+---
+
 Platform risk isn't uncertainty. It's measurable concentration creating predictable vulnerability to predictable events.
 
 **Google** will update its algorithm. **Meta** will reduce organic reach. **TikTok** will mature toward paid-first economics. **YouTube** will change monetization rules. These aren't possibilities to hedge against—they're certainties to architect around.
@@ -326,3 +342,20 @@ The publishers who survive platform volatility build before the volatility arriv
 Your next algorithm update is coming. The question is whether it's a portfolio event or a business crisis.
 
 [INTERNAL: Traffic Risk Assessment] provides the scoring template. Complete it before the next core update completes it for you.
+
+---
+
+## Frequently Asked Questions
+
+### How quickly can I implement this traffic strategy?
+
+Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.
+
+### Does this work for sites with less than 10K monthly visitors?
+
+Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down — start with simpler attribution before building complex models.
+
+### What tools do I need to execute this?
+
+Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required — the strategy is more important than the tooling.
+

@@ -4,10 +4,16 @@ description:: Resource pages on authority sites provide stable referral traffic 
 focus_keyword:: resource page link building
 category:: Referral Traffic
 author:: Victor Valentine Romo
-date:: 2026.02.08
+date:: 2026.03.20
 ---
 
 # Resource Page Link Building for Sustained Referral Traffic
+
+> **Quick Summary**
+> - **What this covers:** Resource pages on authority sites provide stable referral traffic and SEO equity. Strategic outreach and content positioning secure high-value placements.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Resource pages—curated lists of recommended tools, articles, guides, or services—exist across thousands of websites in every niche. A single placement on a high-traffic resource page generates 50-500 monthly visitors indefinitely, with zero ongoing effort once secured. Unlike guest posting (one-time traffic spike) or social promotion (constant refreshing required), resource page links persist for years, compounding traffic and SEO value as the hosting site's authority grows.
 
@@ -133,3 +139,13 @@ Yes, when from genuine curator-evaluated pages. Google has devalued spammy link 
 ### Should I offer to pay for resource page placement?
 
 Generally no. Paid placements can violate Google's link scheme guidelines if they pass PageRank (requiring rel="sponsored" or "nofollow" attributes, which reduce SEO value). More importantly, curators accepting payment often maintain low-quality pages filled with paid listings, reducing traffic value. Pursue earned placements on genuinely curated pages where inclusion reflects merit. Exception: industry directories or professional association listings with standard membership fees—these are acceptable.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.

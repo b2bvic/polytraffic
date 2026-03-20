@@ -4,10 +4,16 @@ description:: Comprehensive ROI evaluation system incorporating acquisition cost
 focus_keyword:: traffic channel roi framework
 category:: Strategy Framework
 author:: Victor Valentine Romo
-date:: 2026.02.08
+date:: 2026.03.20
 ---
 
 # Traffic Channel ROI Framework: Strategic Decision Architecture for Resource Allocation
+
+> **Quick Summary**
+> - **What this covers:** Comprehensive ROI evaluation system incorporating acquisition cost, visitor lifetime value, multi-touch attribution, and time-horizon analysis.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 **ROI frameworks** translate raw performance metrics into decision-making architecture, enabling systematic resource allocation across competing traffic channels. Publishers evaluating channels through isolated metrics—cost per acquisition, conversion rate, traffic volume—optimize locally while sub-optimizing globally, funding low-return activities while starving high-value opportunities. Strategic frameworks integrate multiple performance dimensions, temporal factors, and risk considerations into unified evaluation systems.
 
@@ -120,3 +126,13 @@ Yes, if composite scoring including strategic fit, risk reduction, or optionalit
 ### How frequently should publishers recalculate and rebalance channel allocation?
 
 Monthly monitoring identifies trends; quarterly rebalancing (5-10% allocation shifts) maintains discipline without excessive churn; annual audits reassess fundamental framework assumptions (attribution models, LTV calculations, risk parameters, strategic priorities). Quarterly rebalancing provides sufficient responsiveness while allowing channels time to demonstrate performance changes before resource shifts. Exception: emergency rebalancing (within 30 days) justified if channel collapses 70%+ from algorithm changes, policy violations, or competitive displacement requiring immediate resource preservation.
+
+---
+
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.

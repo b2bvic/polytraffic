@@ -4,10 +4,16 @@ description:: JavaScript analytics miss 8-18% of traffic—bot blockers, privacy
 focus_keyword:: CDN edge analytics traffic
 category:: analytics
 author:: Victor Valentine Romo
-date:: 2026.02.07
+date:: 2026.03.20
 ---
 
 # CDN and Edge Analytics: Measuring Traffic Before JavaScript Loads
+
+> **Quick Summary**
+> - **What this covers:** JavaScript analytics miss 8-18% of traffic—bot blockers, privacy tools, slow connections prevent client-side tracking. CDN edge analytics capture server-side reality.
+> - **Who it's for:** traffic strategists and growth operators
+> - **Key takeaway:** Read the first section for the core framework, then use the specific tactics that match your situation.
+
 
 Client-side analytics are blind to 12-22% of traffic.
 
@@ -757,6 +763,16 @@ GA4 sessions: 94,000
 
 ---
 
+## When This Analysis Doesn't Apply
+
+Skip this framework if:
+
+- **You're in the first 3 months of a new site.** Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.
+- **Your traffic is already diversified below 40% from any single source.** You've solved the concentration problem. Focus on channel efficiency and conversion optimization instead.
+- **You're running a time-limited campaign.** Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.
+
+---
+
 ## FAQ
 
 ### Do I need to pay for CDN analytics or are they included?
@@ -778,3 +794,20 @@ Negligible. Edge logs are generated server-side (CDN level) without affecting cl
 ### How do I handle GDPR/privacy compliance with edge analytics?
 
 Edge logs contain **IP addresses** (personal data under GDPR). Compliance options: (1) **Anonymize IPs** before storage (hash or truncate last octet). (2) **Set retention limits** (delete logs after 30-90 days). (3) **Exclude EU traffic** from detailed logging (Cloudflare allows geo-based rules). (4) **Use aggregated analytics** only (don't store raw logs). **GA4** anonymizes IPs by default (compliant). Edge logs require manual privacy configuration. If serving EU users, consult legal counsel on log retention policies.
+
+---
+
+## Frequently Asked Questions
+
+### How quickly can I implement this traffic strategy?
+
+Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.
+
+### Does this work for sites with less than 10K monthly visitors?
+
+Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down — start with simpler attribution before building complex models.
+
+### What tools do I need to execute this?
+
+Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required — the strategy is more important than the tooling.
+
