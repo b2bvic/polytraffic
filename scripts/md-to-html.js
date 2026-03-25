@@ -146,11 +146,14 @@ function buildArticleHTML(article, allArticles) {
     breadcrumbSchema(crumbs),
   ], null, 2);
 
+  const ogImage = `${SITE.url}/images/articles/${slug}.png`;
+
   const head = headIncludes({
     title: `${title} | ${SITE.name}`,
     description: description || '',
     canonical: `${SITE.url}/articles/${slug}.html`,
     type: 'article',
+    ogImage,
     jsonLd,
   });
 
@@ -171,6 +174,11 @@ ${megaNavHtml()}
 
       <!-- Category label -->
       <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">${escapeHtml(catLabel)}</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/${slug}.png" alt="${escapeAttr(title)}" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
 
       <article class="pt-prose">
         ${htmlBody}

@@ -156,10 +156,10 @@ function headIncludes({ title, description, canonical, type = 'website', ogImage
     <meta property="og:description" content="${escapeAttr(description)}" />
     <meta property="og:type" content="${type}" />
     <meta property="og:url" content="${canonical}" />
-    <meta property="og:site_name" content="${SITE.name}" />${ogImage ? `\n    <meta property="og:image" content="${ogImage}" />` : ''}
+    <meta property="og:site_name" content="${SITE.name}" />${ogImage ? `\n    <meta property="og:image" content="${ogImage}" />\n    <meta property="og:image:width" content="1200" />\n    <meta property="og:image:height" content="675" />` : ''}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeAttr(title)}" />
-    <meta name="twitter:description" content="${escapeAttr(description)}" />
+    <meta name="twitter:description" content="${escapeAttr(description)}" />${ogImage ? `\n    <meta name="twitter:image" content="${ogImage}" />` : ''}
     <link rel="canonical" href="${canonical}" />
 ${entityLinks}
     <link rel="stylesheet" href="/base.css" />
@@ -400,6 +400,12 @@ function articleSchema({ title, description, slug, date, category }) {
     "@type": "Article",
     "headline": title,
     "description": description,
+    "image": {
+      "@type": "ImageObject",
+      "url": `${SITE.url}/images/articles/${slug}.png`,
+      "width": 1200,
+      "height": 675,
+    },
     "author": {
       "@type": "Person",
       "name": SITE.author,
