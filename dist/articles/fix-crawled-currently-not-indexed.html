@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Fix "Crawled – Currently Not Indexed" in Google Search Console | Polytraffic</title>
+    <meta name="description" content="Google crawled your pages but refused to index them. Learn why Google excludes crawled content, how to diagnose quality signals, and systematic fixes to force indexing for valuable pages stranded in limbo." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Fix &quot;Crawled – Currently Not Indexed&quot; in Google Search Console | Polytraffic" />
+    <meta property="og:description" content="Google crawled your pages but refused to index them. Learn why Google excludes crawled content, how to diagnose quality signals, and systematic fixes to force indexing for valuable pages stranded in limbo." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-crawled-currently-not-indexed" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-crawled-currently-not-indexed.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Fix &quot;Crawled – Currently Not Indexed&quot; in Google Search Console | Polytraffic" />
+    <meta name="twitter:description" content="Google crawled your pages but refused to index them. Learn why Google excludes crawled content, how to diagnose quality signals, and systematic fixes to force indexing for valuable pages stranded in limbo." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-crawled-currently-not-indexed.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-crawled-currently-not-indexed" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Fix \"Crawled – Currently Not Indexed\" in Google Search Console",
+    "description": "Google crawled your pages but refused to index them. Learn why Google excludes crawled content, how to diagnose quality signals, and systematic fixes to force indexing for valuable pages stranded in limbo.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-crawled-currently-not-indexed.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-crawled-currently-not-indexed.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Fix \"Crawled – Currently Not Indexed\" in Google Search Console"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Fix &quot;Crawled – Currently Not Indexed&quot; in Google Search Console</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-crawled-currently-not-indexed.png" alt="How to Fix &quot;Crawled – Currently Not Indexed&quot; in Google Search Console" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-fix-crawled-currently-not-indexed-in-google-search-console">How to Fix "Crawled – Currently Not Indexed" in Google Search Console</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Google crawled your pages but refused to index them. Learn why Google excludes crawled content, how to diagnose quality signals, and systematic fixes to force indexing for valuable pages stranded in limbo.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#what-crawled-currently-not-indexed-means" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">What "Crawled – Currently Not Indexed" Means</a></li>
+<li><a href="#how-to-find-crawled-currently-not-indexed-pages-in-gsc" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Find "Crawled – Currently Not Indexed" Pages in GSC</a></li>
+<li><a href="#the-9-most-common-causes-and-how-to-diagnose" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">The 9 Most Common Causes (And How to Diagnose)</a></li>
+<li><a href="#step-by-step-fix-protocol" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step-by-Step Fix Protocol</a></li>
+<li><a href="#advanced-bulk-fixes-for-large-sites" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced: Bulk Fixes for Large Sites</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>&quot;Crawled – currently not indexed&quot;</strong> is Google&#39;s diplomatic way of saying &quot;We looked at your page and decided it&#39;s not worth indexing.&quot; Googlebot visited, parsed the content, evaluated its quality, and filed it under &quot;low priority&quot; or &quot;redundant.&quot; Your page sits in purgatory, crawled but invisible in search results.</p>
+<p>This status plagues sites with thin content, duplicate pages, or weak internal linking. But it also snags legitimately valuable pages on large sites where Google&#39;s crawl budget prioritization leaves mid-tier content stranded.</p>
+<p>The fix isn&#39;t a button click. It&#39;s forensic analysis: diagnose why Google devalued the page, strengthen its signals, and force a re-evaluation. This guide shows you how to audit &quot;Crawled – currently not indexed&quot; pages, eliminate the root causes, and systematically promote pages from limbo to the index.</p>
+<h2 id="what-crawled-currently-not-indexed-means">What "Crawled – Currently Not Indexed" Means</h2>
+<p>Google&#39;s indexing pipeline has three stages:</p>
+<ol>
+<li><strong>Discovery:</strong> Google finds the URL (via sitemap, internal link, external link)</li>
+<li><strong>Crawling:</strong> Googlebot fetches the page content</li>
+<li><strong>Indexing:</strong> Google evaluates quality and decides whether to include the page in search results</li>
+</ol>
+<p><strong>&quot;Crawled – currently not indexed&quot;</strong> means the page passed stages 1-2 but failed stage 3. Google crawled it, but the page didn&#39;t meet Google&#39;s quality threshold or demand signals to justify indexing.</p>
+<h3 id="why-google-excludes-crawled-pages">Why Google Excludes Crawled Pages</h3>
+<p>Google&#39;s internal quality algorithm evaluates:</p>
+<ol>
+<li><strong>Content uniqueness:</strong> Is this substantially different from other pages on your site or the web?</li>
+<li><strong>Content depth:</strong> Does this provide comprehensive coverage of the topic (800+ words for blogs, 500+ for products)?</li>
+<li><strong>User demand:</strong> Are people searching for this topic? Do other sites link to this content?</li>
+<li><strong>Site authority:</strong> Does your site have enough trust signals (backlinks, traffic, brand mentions) to warrant indexing every page?</li>
+<li><strong>Crawl budget allocation:</strong> For large sites (50,000+ pages), Google prioritizes high-value pages and defers low-signal pages indefinitely</li>
+</ol>
+<p><strong>&quot;Crawled – currently not indexed&quot; doesn&#39;t mean Google will NEVER index the page.</strong> It means Google deprioritized it. Your job: change the signals so Google re-evaluates.</p>
+<h2 id="how-to-find-crawled-currently-not-indexed-pages-in-gsc">How to Find "Crawled – Currently Not Indexed" Pages in GSC</h2>
+<h3 id="method-1-page-indexing-report">Method 1: Page Indexing Report</h3>
+<ol>
+<li><strong>Google Search Console → Pages</strong></li>
+<li>Scroll to <strong>Why pages aren&#39;t indexed</strong></li>
+<li>Click <strong>Crawled – currently not indexed</strong></li>
+</ol>
+<p>You&#39;ll see:</p>
+<ul>
+<li>Total count</li>
+<li>Example URLs (click &quot;View examples&quot; for full list)</li>
+<li>Trend graph (is the count increasing or decreasing?)</li>
+</ul>
+<p>Export the list: <strong>Export → Download → CSV</strong></p>
+<h3 id="method-2-url-inspection-tool-individual-diagnosis">Method 2: URL Inspection Tool (Individual Diagnosis)</h3>
+<p>For specific high-value pages:</p>
+<ol>
+<li><strong>GSC → URL Inspection</strong></li>
+<li>Enter the URL</li>
+<li>Check <strong>Coverage</strong> status</li>
+</ol>
+<p>If it shows &quot;Crawled – currently not indexed,&quot; expand the section to see:</p>
+<ul>
+<li><strong>Last crawl date</strong></li>
+<li><strong>Crawl user agent</strong> (Desktop or Mobile)</li>
+<li><strong>Referring page</strong> (how Google discovered the URL)</li>
+</ul>
+<p>This reveals whether Google crawled recently or 90 days ago (stale evaluation).</p>
+<h2 id="the-9-most-common-causes-and-how-to-diagnose">The 9 Most Common Causes (And How to Diagnose)</h2>
+<h3 id="cause-1-thin-content-word-count-too-low">Cause #1: Thin Content (Word Count Too Low)</h3>
+<p><strong>Threshold:</strong> Google generally favors 800+ words for informational content, 500+ for transactional pages (products, services).</p>
+<p><strong>How to diagnose:</strong></p>
+<p>Use <strong>Screaming Frog</strong> to audit word counts:</p>
+<ol>
+<li>Crawl your site: <strong>Screaming Frog → Enter domain → Start</strong></li>
+<li><strong>Bulk Export → Response Codes → HTML</strong></li>
+<li>Open export, check <strong>Word Count</strong> column</li>
+</ol>
+<p>Filter for pages with:</p>
+<ul>
+<li>&lt;300 words (critical, almost certainly too thin)</li>
+<li>300-500 words (borderline, likely needs expansion)</li>
+</ul>
+<p>Cross-reference with GSC&#39;s &quot;Crawled – currently not indexed&quot; list.</p>
+<p><strong>Example finding:</strong></p>
+<ul>
+<li><code>/product/blue-widget</code> = 180 words → Too thin</li>
+<li><code>/blog/seo-tips</code> = 320 words → Borderline</li>
+</ul>
+<p><strong>Fix:</strong></p>
+<p><strong>Expand content depth:</strong></p>
+<ul>
+<li>Add product specifications, usage instructions, comparison tables (products)</li>
+<li>Add subheadings, examples, case studies, FAQs (blogs)</li>
+<li>Embed multimedia (images, videos, infographics)</li>
+</ul>
+<p><strong>Before (180 words):</strong></p>
+<pre><code>Blue Widget - $29.99
+High-quality blue widget for everyday use.
+Made from durable materials.
+Buy now!
+</code></pre>
+<p><strong>After (650 words):</strong></p>
+<pre><code>Blue Widget - $29.99
+
+Product Overview:
+The Blue Widget is engineered for professionals who demand...
+[400 words of detailed specs, benefits, use cases]
+
+Technical Specifications:
+- Dimensions: 5&quot; x 3&quot; x 2&quot;
+- Weight: 8 oz
+- Material: Aerospace-grade aluminum
+[Table with 10+ specs]
+
+Customer Reviews:
+[3 testimonials with photos]
+
+FAQ:
+Q: Is this compatible with...?
+A: Yes, the Blue Widget integrates with...
+[5 Q&amp;As]
+</code></pre>
+<h3 id="cause-2-duplicate-or-near-duplicate-content">Cause #2: Duplicate or Near-Duplicate Content</h3>
+<p><strong>Problem:</strong> Google sees this page as redundant with another page (on your site or externally).</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Check internal duplicates:</strong></p>
+<p>Use <strong>Siteliner</strong> (free, online tool):</p>
+<ol>
+<li>Enter your domain: <code>https://siteliner.com</code></li>
+<li>Click <strong>Go</strong></li>
+<li>Review <strong>Duplicate Content</strong> report</li>
+</ol>
+<p>Siteliner shows:</p>
+<ul>
+<li>Pages with 85%+ similarity</li>
+<li>Overlapping text blocks</li>
+</ul>
+<p><strong>Check external duplicates:</strong></p>
+<p>Use <strong>Copyscape</strong> (paid, $0.05/search):</p>
+<ol>
+<li><code>https://copyscape.com</code></li>
+<li>Enter the URL</li>
+<li>Check for external matches</li>
+</ol>
+<p><strong>Common duplicate scenarios:</strong></p>
+<ul>
+<li>Product variations (e.g., <code>/product/blue-widget</code> and <code>/product/blue-widget-large</code> share 90% of the description)</li>
+<li>Blog posts with similar topics (<code>/seo-tips-2025</code> and <code>/seo-tips-2026</code> cover the same points)</li>
+<li>Scraped content (you republished an article from another site)</li>
+</ul>
+<p><strong>Fix:</strong></p>
+<p><strong>For internal duplicates:</strong></p>
+<p><strong>Option A:</strong> Consolidate pages, redirect one to the other:</p>
+<pre><code class="language-apache">Redirect 301 /product/blue-widget-large /product/blue-widget
+</code></pre>
+<p><strong>Option B:</strong> Differentiate content, rewrite each page to cover unique angles:</p>
+<ul>
+<li><code>/blue-widget</code> → &quot;Best for beginners&quot;</li>
+<li><code>/blue-widget-large</code> → &quot;Best for commercial use&quot;</li>
+</ul>
+<p><strong>Option C:</strong> Use canonical tags (if pages must co-exist):</p>
+<pre><code class="language-html">&lt;!-- On /product/blue-widget-large --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yourdomain.com/product/blue-widget&quot; /&gt;
+</code></pre>
+<p><strong>For external duplicates:</strong></p>
+<p>If you syndicated content (published your article on Medium, LinkedIn, etc.), ensure the external version has a <strong>canonical tag pointing to YOUR site</strong>:</p>
+<pre><code class="language-html">&lt;!-- External site should add this --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yourdomain.com/your-original-article&quot; /&gt;
+</code></pre>
+<p>If the external site won&#39;t add it, request they add a <code>noindex</code> tag or remove the content.</p>
+<h3 id="cause-3-low-internal-link-equity-orphaned-or-buried-pages">Cause #3: Low Internal Link Equity (Orphaned or Buried Pages)</h3>
+<p><strong>Problem:</strong> The page has zero or few internal links, signaling low importance to Google.</p>
+<p><strong>How to diagnose:</strong></p>
+<p>Use <strong>Screaming Frog</strong>:</p>
+<ol>
+<li>Crawl your site</li>
+<li><strong>Internal → All</strong> tab</li>
+<li>Click <strong>Inlinks</strong> tab (bottom panel)</li>
+<li>Sort by <strong>Inlinks</strong> count (ascending)</li>
+</ol>
+<p>Pages with 0-2 inlinks = orphaned or buried.</p>
+<p>Cross-reference with GSC &quot;Crawled – currently not indexed&quot; list.</p>
+<p><strong>Example finding:</strong></p>
+<ul>
+<li><code>/blog/advanced-seo-tactics</code> = 0 inlinks → Orphaned</li>
+<li><code>/product/niche-widget</code> = 1 inlink (only from sitemap) → Buried</li>
+</ul>
+<p><strong>Fix:</strong></p>
+<p><strong>Add internal links from high-authority pages:</strong></p>
+<p>Identify link sources:</p>
+<ol>
+<li><strong>Screaming Frog → Internal → All</strong> → Sort by <strong>Inlinks</strong> (descending)</li>
+<li>Top pages = homepage, pillar content, high-traffic blog posts</li>
+</ol>
+<p>Add 5-10 internal links to the orphaned page from these sources:</p>
+<pre><code class="language-html">&lt;!-- In high-authority blog post --&gt;
+&lt;p&gt;For advanced techniques, check our &lt;a href=&quot;/blog/advanced-seo-tactics&quot;&gt;comprehensive SEO tactics guide&lt;/a&gt;.&lt;/p&gt;
+</code></pre>
+<p><strong>Best practices:</strong></p>
+<ul>
+<li>Use descriptive anchor text (not &quot;click here&quot;)</li>
+<li>Link from contextually relevant content</li>
+<li>Spread links across multiple high-authority pages (not all from one page)</li>
+</ul>
+<h3 id="cause-4-low-external-demand-no-backlinks">Cause #4: Low External Demand (No Backlinks)</h3>
+<p><strong>Problem:</strong> Zero external backlinks signal to Google that no one values this content.</p>
+<p><strong>How to diagnose:</strong></p>
+<p>Check backlinks with <strong>Ahrefs</strong> or <strong>Semrush</strong>:</p>
+<ol>
+<li><strong>Ahrefs → Site Explorer → Enter domain</strong></li>
+<li><strong>Best by links → Pages</strong> (shows pages sorted by backlink count)</li>
+<li>Filter for &quot;Crawled – currently not indexed&quot; URLs</li>
+</ol>
+<p>If backlink count = 0, that&#39;s a red flag.</p>
+<p><strong>Fix:</strong></p>
+<p><strong>Build 2-5 external backlinks:</strong></p>
+<p><strong>Tactic 1: Guest posting</strong></p>
+<ul>
+<li>Write guest articles for sites in your niche</li>
+<li>Link back to the unindexed page from the guest post</li>
+</ul>
+<p><strong>Tactic 2: Resource link building</strong></p>
+<ul>
+<li>Find articles linking to competitors&#39; content on the same topic</li>
+<li>Reach out: &quot;I noticed you linked to [competitor]. We have an updated resource on [topic]: [your URL]. Would you consider adding it?&quot;</li>
+</ul>
+<p><strong>Tactic 3: Social shares</strong></p>
+<ul>
+<li>Share the page on LinkedIn, Twitter, Facebook</li>
+<li>Even no-follow social links contribute to demand signals</li>
+</ul>
+<p><strong>Tactic 4: Internal promotion</strong></p>
+<ul>
+<li>Link to the page from your newsletter</li>
+<li>Feature it on your homepage or &quot;Popular Posts&quot; widget</li>
+</ul>
+<h3 id="cause-5-slow-page-load-speed">Cause #5: Slow Page Load Speed</h3>
+<p><strong>Problem:</strong> Google deprioritizes pages that load slowly (&gt;3 seconds on mobile).</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Use Google PageSpeed Insights:</strong></p>
+<ol>
+<li><code>https://pagespeed.web.dev</code></li>
+<li>Enter the URL</li>
+<li>Check <strong>Performance</strong> score (mobile and desktop)</li>
+</ol>
+<p>Scores:</p>
+<ul>
+<li><strong>90-100:</strong> Good</li>
+<li><strong>50-89:</strong> Needs improvement</li>
+<li><strong>0-49:</strong> Poor (likely contributing to non-indexing)</li>
+</ul>
+<p><strong>Common issues:</strong></p>
+<ul>
+<li>Unoptimized images (3MB+ file sizes)</li>
+<li>No caching</li>
+<li>Render-blocking JavaScript/CSS</li>
+<li>Slow server response (TTFB &gt;600ms)</li>
+</ul>
+<p><strong>Fix:</strong></p>
+<p><strong>Optimize images:</strong></p>
+<pre><code class="language-bash"># Compress with ImageMagick
+mogrify -quality 80 -resize 1200x *.jpg
+</code></pre>
+<p>Or use <strong>TinyPNG</strong> (web-based, drag-drop compression).</p>
+<p><strong>Enable caching (WordPress):</strong></p>
+<ul>
+<li>Install <strong>WP Super Cache</strong> or <strong>W3 Total Cache</strong></li>
+<li>Configure to cache HTML, CSS, JS</li>
+</ul>
+<p><strong>Use a CDN:</strong></p>
+<ul>
+<li><strong>Cloudflare</strong> (free plan) → Distribute assets globally</li>
+<li><strong>StackPath</strong>, <strong>BunnyCDN</strong> (paid, faster)</li>
+</ul>
+<p><strong>Defer JavaScript:</strong></p>
+<pre><code class="language-html">&lt;script src=&quot;script.js&quot; defer&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="cause-6-mobile-usability-issues">Cause #6: Mobile Usability Issues</h3>
+<p><strong>Problem:</strong> Google uses mobile-first indexing. If your page is broken on mobile, it won&#39;t index.</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>GSC Mobile Usability Report:</strong></p>
+<ol>
+<li><strong>GSC → Experience → Mobile Usability</strong></li>
+<li>Check for errors on &quot;Crawled – currently not indexed&quot; URLs</li>
+</ol>
+<p>Common errors:</p>
+<ul>
+<li>Text too small to read</li>
+<li>Clickable elements too close together</li>
+<li>Content wider than screen</li>
+</ul>
+<p><strong>Test manually:</strong></p>
+<ol>
+<li>Open page on mobile device</li>
+<li>Or use <strong>Chrome DevTools → Device Toolbar</strong> (<code>Ctrl+Shift+M</code>)</li>
+</ol>
+<p><strong>Fix:</strong></p>
+<p><strong>Responsive design:</strong></p>
+<pre><code class="language-css">/* Mobile-first breakpoints */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Readable on mobile */
+  }
+  img {
+    max-width: 100%; /* Prevent horizontal scroll */
+  }
+}
+</code></pre>
+<p><strong>Fix touch targets:</strong></p>
+<pre><code class="language-css">a, button {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px;
+}
+</code></pre>
+<p><strong>Test fix:</strong>
+Re-run <strong>Mobile-Friendly Test</strong>: <code>https://search.google.com/test/mobile-friendly</code></p>
+<h3 id="cause-7-noindex-tags-accidental">Cause #7: Noindex Tags (Accidental)</h3>
+<p><strong>Problem:</strong> The page has a <code>noindex</code> meta tag, telling Google not to index it.</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Check page source:</strong></p>
+<pre><code class="language-bash">curl -s https://yourdomain.com/page | grep -i noindex
+</code></pre>
+<p>If output shows:</p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<p>That&#39;s the culprit.</p>
+<p><strong>WordPress check:</strong></p>
+<ol>
+<li>Edit the page in WordPress</li>
+<li><strong>Yoast SEO meta box → Advanced → Allow search engines to show this page?</strong></li>
+<li>If set to &quot;No,&quot; change to &quot;Yes&quot;</li>
+</ol>
+<p><strong>Fix:</strong></p>
+<p><strong>Remove noindex tag:</strong></p>
+<p><strong>In HTML:</strong></p>
+<pre><code class="language-html">&lt;!-- Remove this --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;
+</code></pre>
+<p><strong>In WordPress (Yoast):</strong></p>
+<ol>
+<li>Edit page</li>
+<li><strong>Yoast SEO → Advanced</strong> → Set &quot;Allow search engines&quot; to <strong>Yes</strong></li>
+</ol>
+<p><strong>In PHP (theme template):</strong></p>
+<pre><code class="language-php">// Remove or comment out
+// echo &#39;&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;&#39;;
+</code></pre>
+<h3 id="cause-8-javascript-rendering-issues-spas">Cause #8: JavaScript Rendering Issues (SPAs)</h3>
+<p><strong>Problem:</strong> Your site uses client-side rendering (React, Vue, Angular), and Googlebot can&#39;t execute JavaScript to see content.</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Test with GSC URL Inspection:</strong></p>
+<ol>
+<li><strong>GSC → URL Inspection → Enter URL</strong></li>
+<li>Click <strong>View crawled page → Screenshot</strong></li>
+</ol>
+<p>If the screenshot is blank or incomplete, Googlebot didn&#39;t render JavaScript.</p>
+<p><strong>Alternative test:</strong></p>
+<pre><code class="language-bash"># Fetch page as Googlebot sees it
+curl -A &quot;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&quot; https://yourdomain.com/page
+</code></pre>
+<p>If output is <code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code> (empty), content is JavaScript-only.</p>
+<p><strong>Fix:</strong></p>
+<p><strong>Implement server-side rendering (SSR):</strong></p>
+<p><strong>Next.js (React):</strong></p>
+<pre><code class="language-javascript">// pages/product.js
+export async function getServerSideProps() {
+  const data = await fetchData();
+  return { props: { data } };
+}
+</code></pre>
+<p><strong>Nuxt.js (Vue):</strong></p>
+<pre><code class="language-javascript">export default {
+  async asyncData() {
+    const data = await fetchData();
+    return { data };
+  }
+}
+</code></pre>
+<p><strong>Or use pre-rendering (static site generation):</strong></p>
+<p><strong>Next.js:</strong></p>
+<pre><code class="language-javascript">export async function getStaticProps() {
+  const data = await fetchData();
+  return { props: { data }, revalidate: 3600 };
+}
+</code></pre>
+<h3 id="cause-9-low-site-authority-new-or-untrusted-site">Cause #9: Low Site Authority (New or Untrusted Site)</h3>
+<p><strong>Problem:</strong> Google doesn&#39;t trust your domain yet. New sites or sites with few backlinks face higher indexing thresholds.</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Check domain authority:</strong></p>
+<ul>
+<li><strong>Ahrefs → Site Explorer → Domain Rating (DR)</strong></li>
+<li><strong>Moz → Domain Authority (DA)</strong></li>
+</ul>
+<p>Thresholds:</p>
+<ul>
+<li><strong>DR/DA &lt;10:</strong> New/low-authority site. Google will be selective</li>
+<li><strong>DR/DA 10-30:</strong> Moderate authority, most quality pages should index</li>
+<li><strong>DR/DA &gt;30:</strong> High authority, most pages index automatically</li>
+</ul>
+<p><strong>Fix:</strong></p>
+<p><strong>Build domain authority:</strong></p>
+<ol>
+<li><strong>Earn backlinks:</strong> Guest posting, digital PR, resource pages</li>
+<li><strong>Create linkable assets:</strong> Original research, tools, infographics</li>
+<li><strong>Get brand mentions:</strong> Press releases, podcasts, interviews</li>
+<li><strong>Social proof:</strong> Active social media, engaged audience</li>
+</ol>
+<p><strong>Short-term workaround:</strong>
+Focus on indexing your highest-value pages first. Request indexing via GSC for:</p>
+<ul>
+<li>Homepage</li>
+<li>Top 10 product/service pages</li>
+<li>Pillar content (2,000+ word guides)</li>
+</ul>
+<p>Let lower-priority pages index organically as domain authority grows.</p>
+<h2 id="step-by-step-fix-protocol">Step-by-Step Fix Protocol</h2>
+<h3 id="step-1-audit-and-prioritize">Step 1: Audit and Prioritize</h3>
+<ol>
+<li>Export &quot;Crawled – currently not indexed&quot; URLs from GSC</li>
+<li>Cross-reference with <strong>Google Analytics → Behavior → Site Content</strong> (check if any had traffic before deindexing)</li>
+<li>Prioritize:<ul>
+<li><strong>High value:</strong> Product pages, service pages, high-search-volume keywords</li>
+<li><strong>Medium value:</strong> Blog posts with backlinks, pages with historical traffic</li>
+<li><strong>Low value:</strong> Outdated content, thin pages with zero demand</li>
+</ul>
+</li>
+</ol>
+<h3 id="step-2-diagnose-root-cause-s">Step 2: Diagnose Root Cause(s)</h3>
+<p>For each high-value URL:</p>
+<ol>
+<li>Check word count (Screaming Frog)</li>
+<li>Check duplicate content (Siteliner, Copyscape)</li>
+<li>Check internal links (Screaming Frog Inlinks report)</li>
+<li>Check backlinks (Ahrefs)</li>
+<li>Check mobile usability (GSC Mobile Usability Report)</li>
+<li>Check page speed (PageSpeed Insights)</li>
+</ol>
+<p>Document findings in a spreadsheet:</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Word Count</th>
+<th>Duplicates</th>
+<th>Inlinks</th>
+<th>Backlinks</th>
+<th>Mobile Issues</th>
+<th>Speed Score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/page-a</td>
+<td>280</td>
+<td>Yes</td>
+<td>0</td>
+<td>0</td>
+<td>Text too small</td>
+<td>42</td>
+</tr>
+</tbody></table>
+<h3 id="step-3-apply-fixes">Step 3: Apply Fixes</h3>
+<p>Based on diagnosis:</p>
+<ul>
+<li><strong>Thin content:</strong> Expand to 800+ words</li>
+<li><strong>Duplicate:</strong> Consolidate or differentiate</li>
+<li><strong>Low inlinks:</strong> Add 5-10 internal links from high-authority pages</li>
+<li><strong>Zero backlinks:</strong> Build 2-5 external links</li>
+<li><strong>Mobile issues:</strong> Fix responsive design</li>
+<li><strong>Slow speed:</strong> Optimize images, enable caching, add CDN</li>
+</ul>
+<h3 id="step-4-request-re-indexing">Step 4: Request Re-Indexing</h3>
+<p>After fixes:</p>
+<ol>
+<li><strong>GSC → URL Inspection → Enter URL</strong></li>
+<li>Click <strong>Request Indexing</strong></li>
+</ol>
+<p>Google will re-crawl within 24-48 hours for most sites.</p>
+<h3 id="step-5-monitor-results">Step 5: Monitor Results</h3>
+<p>Check status after 14-30 days:</p>
+<ol>
+<li><strong>GSC → URL Inspection → Enter URL</strong></li>
+<li>Look for status change:<ul>
+<li><strong>&quot;URL is on Google&quot;</strong> = Success</li>
+<li><strong>Still &quot;Crawled – currently not indexed&quot;</strong> = Re-audit, strengthen signals further</li>
+</ul>
+</li>
+</ol>
+<p>Track aggregate trends:
+<strong>GSC → Pages → Crawled – currently not indexed</strong></p>
+<p>If count drops by 50%+ after 30 days, your fixes are working.</p>
+<h2 id="advanced-bulk-fixes-for-large-sites">Advanced: Bulk Fixes for Large Sites</h2>
+<p>For sites with 1,000+ &quot;Crawled – currently not indexed&quot; pages:</p>
+<h3 id="segment-by-page-type">Segment by Page Type</h3>
+<pre><code class="language-bash"># Extract page types from GSC export
+grep &quot;/blog/&quot; crawled-not-indexed.csv &gt; blog-issues.csv
+grep &quot;/products/&quot; crawled-not-indexed.csv &gt; product-issues.csv
+</code></pre>
+<p><strong>Apply template fixes:</strong></p>
+<ul>
+<li>All blog posts &lt;500 words → Expand using AI (Claude, ChatGPT) for bulk drafts, then edit</li>
+<li>All product pages with 0 inlinks → Programmatically add internal links from category pages</li>
+<li>All pages with slow speed → Bulk-optimize images, deploy CDN globally</li>
+</ul>
+<h3 id="automate-internal-link-injection-wordpress">Automate Internal Link Injection (WordPress)</h3>
+<pre><code class="language-php">// In functions.php
+add_filter(&#39;the_content&#39;, &#39;auto_add_internal_links&#39;);
+
+function auto_add_internal_links($content) {
+  $unindexed_urls = [
+    &#39;/page-a&#39; =&gt; &#39;Page A anchor text&#39;,
+    &#39;/page-b&#39; =&gt; &#39;Page B anchor text&#39;,
+  ];
+
+  foreach ($unindexed_urls as $url =&gt; $anchor) {
+    if (strpos($content, $url) === false) { // Don&#39;t duplicate links
+      $content .= &#39;&lt;p&gt;Related: &lt;a href=&quot;&#39; . $url . &#39;&quot;&gt;&#39; . $anchor . &#39;&lt;/a&gt;&lt;/p&gt;&#39;;
+    }
+  }
+  return $content;
+}
+</code></pre>
+<p>This automatically appends internal links to posts, boosting unindexed page visibility.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>What &quot;Crawled – Currently Not Indexed&quot; Means:</strong> Google&#39;s indexing pipeline has three stages:</li>
+<li><strong>The 9 Most Common Causes (And How to Diagnose):</strong> Use Screaming Frog to audit word counts:</li>
+</ul>
+<ol>
+<li>Crawl your site: Screaming Frog → Enter domain → Start</li>
+<li>Bulk Export → Response Codes → HTML</li>
+<li>Open export, check</li>
+</ol>
+<ul>
+<li><strong>Advanced: Bulk Fixes for Large Sites:</strong> For sites with 1,000+ &quot;Crawled – currently not indexed&quot; pages:</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>How long does it take for &quot;Crawled – currently not indexed&quot; to change after fixes?</strong></p>
+<p>7-14 days for small sites (&lt;5,000 pages). 4-8 weeks for large sites (&gt;50,000 pages). Use &quot;Request Indexing&quot; in GSC to expedite.</p>
+<p><strong>Will Google eventually index these pages without me doing anything?</strong></p>
+<p>Maybe. Google may re-evaluate during future crawls. But without signal improvements, they&#39;ll remain deprioritized indefinitely. Proactive fixes accelerate indexing.</p>
+<p><strong>Should I noindex pages that won&#39;t index anyway?</strong></p>
+<p>No. &quot;Crawled – currently not indexed&quot; means Google tried and deferred, there&#39;s still hope. <code>noindex</code> is permanent exclusion. Only noindex pages you genuinely don&#39;t want indexed (admin panels, thank-you pages).</p>
+<p><strong>Can I force indexing by submitting the URL multiple times?</strong></p>
+<p>No. Repeated submissions don&#39;t help. Google&#39;s decision is quality-based. Fix the underlying issues (content depth, links, speed) instead.</p>
+<p><strong>Does &quot;Crawled – currently not indexed&quot; hurt my rankings for other pages?</strong></p>
+<p>Indirectly. It signals site-wide quality issues. If 40% of your pages are excluded, Google may lower its trust in your domain, affecting indexing speed for all pages.</p>
+<p><strong>What if I fix everything and the page still won&#39;t index?</strong></p>
+<p><strong>Option 1:</strong> Wait longer (up to 90 days for low-authority sites).
+<strong>Option 2:</strong> Consolidate the page, redirect to a higher-authority page and merge content.
+<strong>Option 3:</strong> Accept that the page isn&#39;t valuable enough for Google&#39;s index and focus energy on higher-ROI content.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<p>&quot;Crawled – currently not indexed&quot; is Google&#39;s quality filter in action. Pages in this state lack the signals, depth, uniqueness, demand, authority, that justify indexing. Diagnose the gaps systematically, strengthen each signal, and request re-evaluation. Most pages can be promoted from limbo with targeted fixes. The rest should be consolidated or pruned.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-crawl-errors-google-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Crawl Errors in Google Search Console (Complete Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Crawl errors block Googlebot from indexing your pages, crater organic visibility, and signal poor site health. Learn how to diagnose 404s, server errors, redirect loops, and robots.txt blocks in Google Search Console and fix them systematically.</p>
+          </a>
+
+          <a href="/articles/fix-discovered-currently-not-indexed.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix &quot;Discovered – Currently Not Indexed&quot; in Search Console</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Google found your URLs but hasn't crawled them yet. Learn why pages get stuck in the discovery queue, how to diagnose crawl budget bottlenecks, and systematic methods to force Google to crawl and index high-priority pages.</p>
+          </a>
+
+          <a href="/articles/fix-indexing-issues-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Indexing Issues in Google Search Console (Complete Diagnostic Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Google Search Console shows pages excluded from indexing? Learn how to diagnose crawl errors, fix server issues, resolve canonical conflicts, and force Google to index your critical pages.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Redirects vs Server Redirects: SEO Impact Explained | Polytraffic</title>
+    <meta name="description" content="Compare JavaScript redirects to server-side 301/302 redirects. Learn when Googlebot follows JS redirects and which redirect method to use for SEO." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="JavaScript Redirects vs Server Redirects: SEO Impact Explained | Polytraffic" />
+    <meta property="og:description" content="Compare JavaScript redirects to server-side 301/302 redirects. Learn when Googlebot follows JS redirects and which redirect method to use for SEO." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/javascript-redirects-vs-server-redirects" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/javascript-redirects-vs-server-redirects.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JavaScript Redirects vs Server Redirects: SEO Impact Explained | Polytraffic" />
+    <meta name="twitter:description" content="Compare JavaScript redirects to server-side 301/302 redirects. Learn when Googlebot follows JS redirects and which redirect method to use for SEO." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/javascript-redirects-vs-server-redirects.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/javascript-redirects-vs-server-redirects" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "JavaScript Redirects vs Server Redirects: SEO Impact Explained",
+    "description": "Compare JavaScript redirects to server-side 301/302 redirects. Learn when Googlebot follows JS redirects and which redirect method to use for SEO.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/javascript-redirects-vs-server-redirects.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/javascript-redirects-vs-server-redirects.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "JavaScript Redirects vs Server Redirects: SEO Impact Explained"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">JavaScript Redirects vs Server Redirects: SEO Impact Explained</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/javascript-redirects-vs-server-redirects.png" alt="JavaScript Redirects vs Server Redirects: SEO Impact Explained" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="javascript-redirects-vs-server-redirects-seo-impact-explained">JavaScript Redirects vs Server Redirects: SEO Impact Explained</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Compare JavaScript redirects to server-side 301/302 redirects. Learn when Googlebot follows JS redirects and which redirect method to use for SEO.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#server-side-redirect-fundamentals" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Server-Side Redirect Fundamentals</a></li>
+<li><a href="#javascript-redirect-mechanics" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">JavaScript Redirect Mechanics</a></li>
+<li><a href="#seo-impact-comparison" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">SEO Impact Comparison</a></li>
+<li><a href="#when-javascript-redirects-are-necessary" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When JavaScript Redirects Are Necessary</a></li>
+<li><a href="#migration-redirect-strategy" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Migration Redirect Strategy</a></li>
+<li><a href="#implementation-methods" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementation Methods</a></li>
+<li><a href="#testing-and-validation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Testing and Validation</a></li>
+<li><a href="#redirect-loop-prevention" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Redirect Loop Prevention</a></li>
+<li><a href="#performance-optimization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Performance Optimization</a></li>
+<li><a href="#redirect-monitoring" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Redirect Monitoring</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Redirect implementation determines whether PageRank transfers, how quickly Google processes URL changes, and whether users experience redirect delays. Server-side 301 redirects execute before page load, passing authority instantly, while JavaScript redirects require HTML parsing and script execution, introducing delay and potential crawl budget waste.</p>
+<h2 id="server-side-redirect-fundamentals">Server-Side Redirect Fundamentals</h2>
+<p><strong>HTTP 301 redirects</strong> signal permanent URL moves, instructing browsers and search engines to replace the old URL with the new one. <strong>Google</strong> transfers 90-95% of PageRank through 301 redirects, making them the standard for site migrations, URL restructuring, and content consolidation.</p>
+<p><strong>HTTP 302 redirects</strong> indicate temporary moves, telling search engines to keep the original URL indexed. <strong>Google</strong> transfers minimal or no PageRank through 302s, appropriate for A/B testing, maintenance pages, or seasonal campaigns where the original URL will return.</p>
+<p><strong>Server processing</strong> happens before any HTML loads, the server receives the request, checks redirect rules, and returns a 301/302 status code with the new location. Browsers automatically go to the new URL without displaying the old page.</p>
+<p><strong>PageRank preservation</strong> works because <strong>Google</strong> interprets 301s as URL replacements. Links pointing to the old URL pass authority to the new URL as if they originally linked there. This enables site migrations without losing accumulated link equity.</p>
+<p><strong>Speed advantage</strong> over JavaScript redirects is significant. Server redirects add 0-50ms latency versus 200-2000ms for JavaScript execution. Users never see the old page, improving perceived performance and eliminating visual &quot;flash&quot; of wrong content.</p>
+<h2 id="javascript-redirect-mechanics">JavaScript Redirect Mechanics</h2>
+<p><strong>Client-side execution</strong> requires the browser to load HTML, parse JavaScript, execute the redirect code, then go to the new URL. This introduces 3-5 round trips versus 2 for server redirects, compounding latency especially on slow connections.</p>
+<p><strong>Googlebot JavaScript rendering</strong> improved dramatically since 2019, but challenges remain. <strong>Google</strong> now executes JavaScript and follows <code>window.location</code> redirects, but rendering happens in a secondary crawl wave, the initial crawl sees the old page, the render crawl follows the redirect.</p>
+<p><strong>Common JavaScript redirect patterns</strong> include:</p>
+<pre><code class="language-javascript">// Immediate redirect
+window.location.href = &#39;https://example.com/new-page&#39;;
+
+// Replace history (prevents back button)
+window.location.replace(&#39;https://example.com/new-page&#39;);
+
+// Delayed redirect
+setTimeout(() =&gt; {
+  window.location.href = &#39;https://example.com/new-page&#39;;
+}, 3000);
+</code></pre>
+<p><strong>Meta refresh tags</strong> (<code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=https://example.com/&quot;&gt;</code>) function similarly to JavaScript redirects, requiring HTML parse before executing. <strong>Google</strong> treats instant meta refreshes (0 seconds) like 301s but delays still introduce crawl inefficiency.</p>
+<p><strong>Single-page application (SPA) routing</strong> uses JavaScript to change URLs without page reloads. Frameworks like React Router modify browser history via <code>pushState</code> without actual redirects. <strong>Google</strong> handles these as discrete pages once rendered.</p>
+<h2 id="seo-impact-comparison">SEO Impact Comparison</h2>
+<p><strong>PageRank transfer</strong> through JavaScript redirects works when <strong>Google</strong> successfully renders the JavaScript, but relies on secondary rendering waves. Server 301s transfer authority immediately during the initial crawl, making them 2-4 weeks faster for PageRank consolidation.</p>
+<p><strong>Crawl budget consumption</strong> increases with JavaScript redirects. <strong>Googlebot</strong> must crawl the original URL, queue it for rendering, render JavaScript, discover the redirect target, then crawl the target, consuming crawl budget for two URLs. Server redirects consume budget only for the redirect itself.</p>
+<p><strong>Indexation timing</strong> lags with JavaScript redirects. The old URL may remain indexed for weeks while <strong>Google</strong> renders, follows the redirect, and updates indexes. Server 301s signal immediate replacement, often de-indexing the old URL within 3-7 days.</p>
+<p><strong>Mobile-first indexing</strong> complications arise because mobile <strong>Googlebot</strong> may render JavaScript differently than desktop. Testing JavaScript redirects requires verifying mobile rendering via <strong>Search Console&#39;s</strong> URL Inspection tool with mobile user agent selected.</p>
+<p><strong>Core Web Vitals</strong> suffer with JavaScript redirects. <strong>Largest Contentful Paint (LCP)</strong> includes the redirect execution time, a 500ms JavaScript redirect delays LCP by 500ms. Server redirects happen pre-render, excluding them from LCP measurement.</p>
+<p><strong>Error recovery</strong> differs significantly. Server redirect misconfigurations (redirect loops, 404 targets) immediately return error status codes. JavaScript redirect errors result in 200 status codes with non-functional pages, harder to detect in log analysis.</p>
+<h2 id="when-javascript-redirects-are-necessary">When JavaScript Redirects Are Necessary</h2>
+<p><strong>Client-side routing</strong> in SPAs requires JavaScript-based navigation. React, Vue, and Angular apps change views without server requests, necessitating JavaScript URL updates. These aren&#39;t traditional redirects but accomplish similar UX without SEO downsides if properly configured.</p>
+<p><strong>Conditional redirects</strong> based on user properties (logged-in state, cookies, localStorage) require JavaScript. Server-side lacks access to client-side storage, making JavaScript the only option for personalization-based routing.</p>
+<p><strong>Third-party hosted pages</strong> on platforms without server access force JavaScript redirects. Medium, Blogger, or other hosted platforms where you can&#39;t configure server rules require JavaScript workarounds.</p>
+<p><strong>A/B testing</strong> via client-side tools (Optimizely, VWO, Google Optimize) uses JavaScript to redirect users to test variants. While suboptimal for SEO, the testing benefit often outweighs redirect inefficiency during short test durations.</p>
+<p><strong>Geo-targeting without server config</strong> uses JavaScript to detect user location via IP API and redirect accordingly. Preferable to server-side implementation only when server-level geo-detection is unavailable.</p>
+<h2 id="migration-redirect-strategy">Migration Redirect Strategy</h2>
+<p><strong>Site migrations</strong> must use server-side 301 redirects exclusively. Map old URLs to new URLs at the server level via .htaccess, Nginx configs, or CDN redirect rules. JavaScript fallbacks add safety but shouldn&#39;t be the primary method.</p>
+<p><strong>Protocol changes</strong> (HTTP to HTTPS) require server 301s. Relying on JavaScript to redirect HTTP traffic to HTTPS leaks passwords and session tokens before redirect execution, a security vulnerability alongside the SEO inefficiency.</p>
+<p><strong>Domain changes</strong> (example-old.com to example-new.com) demand server 301s from the old domain&#39;s server config. Keep the old domain registered indefinitely, maintaining redirects for years to capture lingering backlinks and residual traffic.</p>
+<p><strong>URL cleanup</strong> consolidating www and non-www versions uses server 301s. Example: redirect <code>www.example.com</code> to <code>example.com</code> via server rules, not JavaScript. This prevents duplicate content and consolidates authority on the canonical version.</p>
+<p><strong>Redirect chains</strong> (URL A → B → C) waste crawl budget and dilute PageRank. Audit redirect chains via <strong>Screaming Frog</strong> and update rules to redirect directly to final destinations (A → C). JavaScript redirects often cause unintentional chains when layered with server redirects.</p>
+<h2 id="implementation-methods">Implementation Methods</h2>
+<p><strong>Apache .htaccess</strong> redirects suit shared hosting without access to main config files:</p>
+<pre><code class="language-apache"># 301 redirect single page
+Redirect 301 /old-page https://example.com/new-page
+
+# 301 redirect entire directory
+RedirectMatch 301 ^/old-directory/(.*)$ https://example.com/new-directory/$1
+
+# Redirect www to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.example\.com [NC]
+RewriteRule ^(.*)$ https://example.com/$1 [L,R=301]
+</code></pre>
+<p><strong>Nginx configuration</strong> handles redirects in server blocks:</p>
+<pre><code class="language-nginx"># Single page redirect
+location = /old-page {
+    return 301 https://example.com/new-page;
+}
+
+# Pattern-based redirect
+location ~ ^/old-directory/(.*)$ {
+    return 301 https://example.com/new-directory/$1;
+}
+
+# Entire site redirect
+server {
+    listen 80;
+    server_name old-example.com;
+    return 301 https://new-example.com$request_uri;
+}
+</code></pre>
+<p><strong>Cloudflare Page Rules</strong> redirect at the CDN level, executing before origin server requests:</p>
+<ol>
+<li>Go to Rules → Page Rules</li>
+<li>Create rule: <code>example.com/old-page</code></li>
+<li>Setting: Forwarding URL (301)</li>
+<li>Destination: <code>https://example.com/new-page</code></li>
+</ol>
+<p><strong>WordPress plugins</strong> like Redirection or Simple 301 Redirects add redirect management interfaces for non-technical users, though they process redirects at the application level (slower than server-level rules).</p>
+<p><strong>Next.js redirects</strong> configure in <code>next.config.js</code>:</p>
+<pre><code class="language-javascript">module.exports = {
+  async redirects() {
+    return [
+      {
+        source: &#39;/old-page&#39;,
+        destination: &#39;/new-page&#39;,
+        permanent: true
+      }
+    ]
+  }
+}
+</code></pre>
+<h2 id="testing-and-validation">Testing and Validation</h2>
+<p><strong>HTTP status code verification</strong> via curl confirms redirect execution:</p>
+<pre><code class="language-bash">curl -I https://example.com/old-page
+</code></pre>
+<p>Look for <code>HTTP/1.1 301 Moved Permanently</code> and <code>Location: https://example.com/new-page</code> header. If you see <code>200 OK</code>, the redirect isn&#39;t executing.</p>
+<p><strong>Chrome DevTools Network tab</strong> shows redirect chains. Load the old URL with DevTools open, filter by &quot;Doc&quot; type, and inspect the waterfall. Server redirects show 301/302 status before HTML loads; JavaScript redirects show 200 status with the old page followed by a new navigation.</p>
+<p><strong>Screaming Frog redirect chains</strong> report identifies multi-hop redirects. Crawl the site, go to Response Codes → Redirection (3xx) tab, then export &quot;Redirect Chains&quot; to find inefficient redirect paths.</p>
+<p><strong>Google Search Console</strong> URL Inspection tests how <strong>Googlebot</strong> handles URLs. Enter the old URL, click &quot;Test Live URL,&quot; review the &quot;Indexing Allowed?&quot; section. If <strong>Google</strong> sees a redirect, it displays &quot;Page is not indexed: Page with redirect.&quot;</p>
+<p><strong>Mobile rendering check</strong> via <strong>Search Console</strong> URL Inspection with mobile user agent selected validates that mobile <strong>Googlebot</strong> follows redirects identically to desktop. JavaScript redirects occasionally break on mobile rendering.</p>
+<h2 id="redirect-loop-prevention">Redirect Loop Prevention</h2>
+<p><strong>Circular redirects</strong> occur when URL A redirects to B, which redirects back to A. These return <code>ERR_TOO_MANY_REDIRECTS</code> errors and prevent page access. Test redirects by loading URLs in incognito mode (cookies often cause false positives).</p>
+<p><strong>Self-referencing redirects</strong> happen when a URL redirects to itself, either directly or through a chain. Example: <code>example.com/page</code> redirects to <code>example.com/page/</code> which redirects back to <code>example.com/page</code>. Audit redirect rules for conflicts.</p>
+<p><strong>Protocol loops</strong> emerge from conflicting HTTPS and canonical rules. If the site redirects HTTP to HTTPS but also redirects HTTPS to HTTP for specific URLs, loops occur. Establish clear precedence: HTTPS always wins.</p>
+<p><strong>Conditional redirect conflicts</strong> in JavaScript create loops when multiple scripts trigger based on overlapping conditions. If one script redirects mobile users to <code>/mobile/</code> and another redirects <code>/mobile/</code> users without mobile user agent back to <code>/</code>, loops result.</p>
+<p><strong>Prevention strategy</strong> documents all redirect rules in a central register. Before adding new redirects, check for conflicts with existing rules. Test in staging environments before deploying to production.</p>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<p><strong>Redirect minimization</strong> eliminates unnecessary hops. Use direct redirects to final destinations rather than chaining through intermediates. A three-hop redirect (A → B → C → D) wastes 200-300ms versus direct A → D.</p>
+<p><strong>CDN-level redirects</strong> via Cloudflare, Fastly, or AWS CloudFront execute at edge servers, reducing latency by 50-200ms compared to origin server redirects. This matters for high-traffic sites where milliseconds compound across millions of requests.</p>
+<p><strong>HSTS (HTTP Strict Transport Security)</strong> headers enable browser-level protocol upgrades. After the first HTTPS visit, browsers automatically upgrade HTTP requests to HTTPS without server round trips:</p>
+<pre><code>Strict-Transport-Security: max-age=31536000; includeSubDomains
+</code></pre>
+<p><strong>Link rel=canonical</strong> alternatives prevent redirect needs when different URLs intentionally serve identical content. Canonical tags consolidate PageRank without redirecting users, preserving user access to alternate URLs.</p>
+<p><strong>Client hints</strong> enable server-side device detection for conditional redirects without JavaScript. Send <code>Accept-CH: DPR, Width, Viewport-Width</code> headers, allowing server logic to redirect mobile users before HTML loads.</p>
+<h2 id="redirect-monitoring">Redirect Monitoring</h2>
+<p><strong>Server log analysis</strong> tracks redirect frequency and patterns. High 301 redirect counts indicate potential issues, internal links pointing to old URLs rather than updated destinations. Log analysis tools like GoAccess or Splunk identify redirect hotspots.</p>
+<p><strong>Broken redirect detection</strong> via <strong>Screaming Frog</strong> or <strong>Ahrefs Site Audit</strong> catches redirects to 404 pages. These waste link equity and harm user experience. Export redirect destination URLs, verify they return 200 status, and fix broken redirects.</p>
+<p><strong>Google Search Console</strong> Coverage report flags redirected URLs attempting indexation. &quot;Page with redirect&quot; status is correct for intentional redirects but signals errors when unexpected URLs show this status.</p>
+<p><strong>Uptime monitoring</strong> services (Pingdom, UptimeRobot) should test redirect chains. Configure monitors to follow redirects and alert if final destinations return non-200 status codes or excessive redirect hops occur.</p>
+<p><strong>A/B testing redirect impact</strong> before large migrations de-risks implementations. Redirect 10% of pages first, monitor for 2 weeks, verify expected behavior, then proceed with full migration.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="faq-javascript-vs-server-redirects">FAQ: JavaScript vs Server Redirects</h2>
+<h3 id="does-google-follow-javascript-redirects">Does Google follow JavaScript redirects?</h3>
+<p>Yes. <strong>Google</strong> executes JavaScript and follows <code>window.location</code> redirects since 2019 improvements to rendering infrastructure. However, JavaScript rendering happens in a secondary crawl wave after initial HTML crawl, delaying redirect discovery by days or weeks. Server redirects execute immediately during the initial request, making them 2-4 weeks faster for SEO purposes. Mobile <strong>Googlebot</strong> rendering occasionally differs from desktop, potentially missing JavaScript redirects that desktop follows. For critical SEO scenarios (migrations, URL consolidation), use server-side 301 redirects exclusively. JavaScript redirects work for user-experience purposes but introduce SEO risk and delay.</p>
+<h3 id="can-i-use-javascript-redirects-for-site-migrations">Can I use JavaScript redirects for site migrations?</h3>
+<p>Avoid JavaScript redirects for migrations, use server-side 301 redirects exclusively. JavaScript redirects delay PageRank transfer by weeks, complicate crawl budget management, and risk indexation issues if rendering fails. Server 301s immediately signal URL replacement to <strong>Google</strong>, transferring authority and triggering rapid index updates. JavaScript fallbacks provide safety for users if server redirects misconfigure, but the primary redirect mechanism must be server-side. Sites attempted JavaScript-based migrations universally experience 2-4 month longer recovery periods versus server redirect migrations.</p>
+<h3 id="do-javascript-redirects-transfer-pagerank">Do JavaScript redirects transfer PageRank?</h3>
+<p>Yes, when <strong>Google</strong> successfully renders the JavaScript, but less efficiently than server 301s. <strong>Google</strong> treats JavaScript <code>window.location</code> redirects similarly to 301s once rendered, transferring 90-95% of PageRank. The issue is timing, rendering delays PageRank transfer by days/weeks versus immediate transfer with server redirects. Additionally, rendering failures or mobile rendering discrepancies cause PageRank loss. For PageRank consolidation, always prefer server 301s. JavaScript redirects should only handle scenarios impossible at the server level (client-side storage conditions, third-party platforms without server access).</p>
+<h3 id="are-meta-refresh-redirects-better-than-javascript">Are meta refresh redirects better than JavaScript?</h3>
+<p><strong>Meta refresh</strong> tags execute slightly faster than JavaScript redirects because browsers parse them during HTML processing without waiting for JavaScript execution. However, <strong>Google</strong> treats instant meta refreshes (0 seconds) identically to JavaScript redirects, both require HTML load before executing. The SEO impact is equivalent. Server-side 301 redirects outperform both by executing pre-HTML load. Use meta refresh only when server config and JavaScript are both unavailable (rare scenarios like restricted hosting platforms). Set refresh to 0 seconds, delays introduce poor user experience without SEO benefit.</p>
+<h3 id="how-do-i-redirect-javascript-rendered-spas">How do I redirect JavaScript-rendered SPAs?</h3>
+<p><strong>Single-page applications</strong> handle routing via JavaScript frameworks (React Router, Vue Router), changing URLs without full page loads using <code>pushState</code>. This isn&#39;t traditional redirecting, it&#39;s client-side navigation. Implement <strong>dynamic rendering</strong> or <strong>pre-rendering</strong> to serve fully rendered HTML to <strong>Googlebot</strong> while maintaining JavaScript navigation for users. Use <code>&lt;link rel=&quot;canonical&quot;&gt;</code> on client-side route variations pointing to primary URLs. For SPA pages that permanently move, implement server-side 301 redirects mapping old routes to new routes, these execute before the SPA loads, taking precedence over client-side routing.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/server-side-rendering-seo-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Server-Side Rendering for SEO: Make JavaScript Sites Crawlable</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement server-side rendering (SSR) to ensure Google indexes JavaScript content. Technical guide covering Next.js, Nuxt.js, and Angular Universal.</p>
+          </a>
+
+          <a href="/articles/javascript-seo-rendering-issues.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">JavaScript SEO Rendering Issues: Detection and Solutions Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Diagnose JavaScript rendering problems affecting Googlebot. Fix client-side routing, lazy loading, and infinite scroll issues for proper indexation.</p>
+          </a>
+
+          <a href="/articles/sitemap-index-files-explained.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Sitemap Index Files Explained: When and How to Use Them</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Learn when to use sitemap index files versus single XML sitemaps. Master multi-sitemap architecture for large sites with 50,000+ URLs and complex content types.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

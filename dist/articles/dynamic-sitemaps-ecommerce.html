@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Sitemaps for E-Commerce: Auto-Generate Product XML Sitemaps | Polytraffic</title>
+    <meta name="description" content="Build dynamic XML sitemaps for e-commerce sites that auto-update when products change. Handle 100K+ SKUs with database-driven sitemap generation." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Dynamic Sitemaps for E-Commerce: Auto-Generate Product XML Sitemaps | Polytraffic" />
+    <meta property="og:description" content="Build dynamic XML sitemaps for e-commerce sites that auto-update when products change. Handle 100K+ SKUs with database-driven sitemap generation." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/dynamic-sitemaps-ecommerce" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/dynamic-sitemaps-ecommerce.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dynamic Sitemaps for E-Commerce: Auto-Generate Product XML Sitemaps | Polytraffic" />
+    <meta name="twitter:description" content="Build dynamic XML sitemaps for e-commerce sites that auto-update when products change. Handle 100K+ SKUs with database-driven sitemap generation." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/dynamic-sitemaps-ecommerce.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/dynamic-sitemaps-ecommerce" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Dynamic Sitemaps for E-Commerce: Auto-Generate Product XML Sitemaps",
+    "description": "Build dynamic XML sitemaps for e-commerce sites that auto-update when products change. Handle 100K+ SKUs with database-driven sitemap generation.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/dynamic-sitemaps-ecommerce.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/dynamic-sitemaps-ecommerce.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dynamic Sitemaps for E-Commerce: Auto-Generate Product XML Sitemaps"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Dynamic Sitemaps for E-Commerce: Auto-Generate Product XML Sitemaps</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/dynamic-sitemaps-ecommerce.png" alt="Dynamic Sitemaps for E-Commerce: Auto-Generate Product XML Sitemaps" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="dynamic-sitemaps-for-e-commerce-auto-generate-product-xml-sitemaps">Dynamic Sitemaps for E-Commerce: Auto-Generate Product XML Sitemaps</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Build dynamic XML sitemaps for e-commerce sites that auto-update when products change. Handle 100K+ SKUs with database-driven sitemap generation.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-e-commerce-sites-need-dynamic-sitemaps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why E-Commerce Sites Need Dynamic Sitemaps</a></li>
+<li><a href="#phase-1-design-database-driven-sitemap-architecture" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 1: Design Database-Driven Sitemap Architecture</a></li>
+<li><a href="#phase-2-implement-dynamic-sitemap-generation-php" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 2: Implement Dynamic Sitemap Generation (PHP)</a></li>
+<li><a href="#phase-3-implement-pagination-for-large-catalogs" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 3: Implement Pagination for Large Catalogs</a></li>
+<li><a href="#phase-4-optimize-with-caching" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 4: Optimize with Caching</a></li>
+<li><a href="#phase-5-woocommerce-dynamic-sitemaps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 5: WooCommerce Dynamic Sitemaps</a></li>
+<li><a href="#phase-6-include-product-images" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 6: Include Product Images</a></li>
+<li><a href="#phase-7-automate-sitemap-submission" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 7: Automate Sitemap Submission</a></li>
+<li><a href="#advanced-product-variants-and-skus" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced: Product Variants and SKUs</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Dynamic sitemaps</strong> query product databases on-demand to generate XML sitemaps, eliminating manual sitemap regeneration when inventory changes and ensuring accurate <code>lastmod</code> dates reflecting actual product updates. E-commerce sites with 10,000+ SKUs, daily price changes, and frequent stock updates face stale static sitemaps that list out-of-stock products with outdated modification dates, wasting <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget</a> while <strong>Googlebot</strong> misses new releases. Database-driven sitemap generation connects directly to product tables, filters by status (published/in-stock), and streams sitemap XML responses without writing files to disk, scaling to millions of products without memory exhaustion. Static sitemap approaches, manually exporting CSVs, cron jobs writing XML files hourly, or plugins generating sitemaps that don&#39;t reflect database timestamps, lag behind inventory reality and hit memory limits above 50,000 products. This guide implements real-time dynamic sitemaps with PHP/MySQL, WordPress WooCommerce, and automated submission to <strong>Google Search Console</strong>.</p>
+<h2 id="why-e-commerce-sites-need-dynamic-sitemaps">Why E-Commerce Sites Need Dynamic Sitemaps</h2>
+<p><strong>Product inventory changes constantly:</strong></p>
+<ul>
+<li>New products added daily</li>
+<li>Prices updated hourly</li>
+<li>Stock status changes (in-stock → out-of-stock)</li>
+<li>Product descriptions edited</li>
+<li>Products discontinued</li>
+</ul>
+<p><strong>Static sitemaps can&#39;t keep pace.</strong> Problems:</p>
+<ul>
+<li>Out-of-stock products listed (wasted crawl budget)</li>
+<li>New products missing (delayed indexing)</li>
+<li>Inaccurate <code>lastmod</code> dates (Google recrawls unchanged products)</li>
+</ul>
+<p><strong>Dynamic sitemaps solve this:</strong></p>
+<ul>
+<li>Query database in real-time</li>
+<li>Include only published, in-stock products</li>
+<li>Accurate <code>lastmod</code> from <code>updated_at</code> timestamps</li>
+<li>No manual regeneration</li>
+</ul>
+<h2 id="phase-1-design-database-driven-sitemap-architecture">Phase 1: Design Database-Driven Sitemap Architecture</h2>
+<p><strong>Connect sitemap generation directly to product database.</strong></p>
+<h3 id="database-schema-requirements">Database Schema Requirements</h3>
+<p><strong>Products table must include:</strong></p>
+<pre><code class="language-sql">CREATE TABLE products (
+  id INT PRIMARY KEY,
+  slug VARCHAR(255),
+  status ENUM(&#39;published&#39;, &#39;draft&#39;, &#39;discontinued&#39;),
+  created_at DATETIME,
+  updated_at DATETIME, -- Critical for lastmod
+  INDEX idx_status (status),
+  INDEX idx_updated (updated_at)
+);
+</code></pre>
+<p><strong>Index on <code>status</code> and <code>updated_at</code></strong> for fast sitemap queries.</p>
+<h3 id="sitemap-url-structure">Sitemap URL Structure</h3>
+<p><strong>Single sitemap (small sites &lt;50K products):</strong></p>
+<pre><code>/sitemap.xml
+</code></pre>
+<p><strong>Sitemap index (large sites &gt;50K products):</strong></p>
+<pre><code>/sitemap-index.xml
+  ├── /sitemap-products-1.xml (products 1-50,000)
+  ├── /sitemap-products-2.xml (products 50,001-100,000)
+  └── /sitemap-categories.xml (category pages)
+</code></pre>
+<p><strong>Pagination parameter:</strong></p>
+<pre><code>/sitemap-products.xml?page=1
+/sitemap-products.xml?page=2
+</code></pre>
+<p>See <a href="create-xml-sitemap-large-site.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">large site sitemap creation</a> for architecture strategies.</p>
+<h2 id="phase-2-implement-dynamic-sitemap-generation-php">Phase 2: Implement Dynamic Sitemap Generation (PHP)</h2>
+<p><strong>Serve sitemap directly from database query.</strong></p>
+<h3 id="basic-product-sitemap-php-mysql">Basic Product Sitemap (PHP + MySQL)</h3>
+<pre><code class="language-php">&lt;?php
+header(&#39;Content-Type: application/xml; charset=utf-8&#39;);
+
+// Database connection
+$pdo = new PDO(&#39;mysql:host=localhost;dbname=ecommerce&#39;, &#39;user&#39;, &#39;pass&#39;);
+
+// Query published products
+$stmt = $pdo-&gt;query(&#39;
+  SELECT slug, updated_at
+  FROM products
+  WHERE status = &quot;published&quot;
+  ORDER BY updated_at DESC
+  LIMIT 50000
+&#39;);
+
+echo &#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#39;;
+echo &#39;&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;&#39;;
+
+while ($row = $stmt-&gt;fetch()) {
+  $url = &#39;https://example.com/products/&#39; . htmlspecialchars($row[&#39;slug&#39;]);
+  $lastmod = date(&#39;c&#39;, strtotime($row[&#39;updated_at&#39;]));
+
+  echo &#39;&lt;url&gt;&#39;;
+  echo &#39;&lt;loc&gt;&#39; . $url . &#39;&lt;/loc&gt;&#39;;
+  echo &#39;&lt;lastmod&gt;&#39; . $lastmod . &#39;&lt;/lastmod&gt;&#39;;
+  echo &#39;&lt;changefreq&gt;weekly&lt;/changefreq&gt;&#39;;
+  echo &#39;&lt;priority&gt;0.8&lt;/priority&gt;&#39;;
+  echo &#39;&lt;/url&gt;&#39;;
+}
+
+echo &#39;&lt;/urlset&gt;&#39;;
+?&gt;
+</code></pre>
+<p><strong>Save as <code>/sitemap-products.php</code>.</strong></p>
+<p><strong>Access:</strong> <code>https://example.com/sitemap-products.php</code></p>
+<h3 id="add-url-rewriting">Add URL Rewriting</h3>
+<p><strong>Apache (.htaccess):</strong></p>
+<pre><code class="language-apache">RewriteEngine On
+RewriteRule ^sitemap-products\.xml$ /sitemap-products.php [L]
+</code></pre>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-nginx">location = /sitemap-products.xml {
+  rewrite ^(.*)$ /sitemap-products.php last;
+}
+</code></pre>
+<p><strong>Access:</strong> <code>https://example.com/sitemap-products.xml</code> (clean URL)</p>
+<h2 id="phase-3-implement-pagination-for-large-catalogs">Phase 3: Implement Pagination for Large Catalogs</h2>
+<p><strong>50,000 URL limit</strong> requires pagination.</p>
+<h3 id="paginated-sitemap-php">Paginated Sitemap (PHP)</h3>
+<pre><code class="language-php">&lt;?php
+header(&#39;Content-Type: application/xml; charset=utf-8&#39;);
+
+$pdo = new PDO(&#39;mysql:host=localhost;dbname=ecommerce&#39;, &#39;user&#39;, &#39;pass&#39;);
+
+// Get page number from query string
+$page = isset($_GET[&#39;page&#39;]) ? (int)$_GET[&#39;page&#39;] : 1;
+$perPage = 50000;
+$offset = ($page - 1) * $perPage;
+
+// Query products with pagination
+$stmt = $pdo-&gt;prepare(&#39;
+  SELECT slug, updated_at
+  FROM products
+  WHERE status = &quot;published&quot;
+  ORDER BY id ASC
+  LIMIT :limit OFFSET :offset
+&#39;);
+$stmt-&gt;bindValue(&#39;:limit&#39;, $perPage, PDO::PARAM_INT);
+$stmt-&gt;bindValue(&#39;:offset&#39;, $offset, PDO::PARAM_INT);
+$stmt-&gt;execute();
+
+echo &#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#39;;
+echo &#39;&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;&#39;;
+
+while ($row = $stmt-&gt;fetch()) {
+  $url = &#39;https://example.com/products/&#39; . htmlspecialchars($row[&#39;slug&#39;]);
+  $lastmod = date(&#39;c&#39;, strtotime($row[&#39;updated_at&#39;]));
+
+  echo &#39;&lt;url&gt;&#39;;
+  echo &#39;&lt;loc&gt;&#39; . $url . &#39;&lt;/loc&gt;&#39;;
+  echo &#39;&lt;lastmod&gt;&#39; . $lastmod . &#39;&lt;/lastmod&gt;&#39;;
+  echo &#39;&lt;/url&gt;&#39;;
+}
+
+echo &#39;&lt;/urlset&gt;&#39;;
+?&gt;
+</code></pre>
+<p><strong>Access pages:</strong></p>
+<ul>
+<li><code>sitemap-products.xml?page=1</code></li>
+<li><code>sitemap-products.xml?page=2</code></li>
+</ul>
+<h3 id="generate-dynamic-sitemap-index">Generate Dynamic Sitemap Index</h3>
+<p><strong>Sitemap index links to paginated sitemaps:</strong></p>
+<pre><code class="language-php">&lt;?php
+header(&#39;Content-Type: application/xml; charset=utf-8&#39;);
+
+$pdo = new PDO(&#39;mysql:host=localhost;dbname=ecommerce&#39;, &#39;user&#39;, &#39;pass&#39;);
+
+// Count total products
+$stmt = $pdo-&gt;query(&#39;SELECT COUNT(*) FROM products WHERE status = &quot;published&quot;&#39;);
+$total = $stmt-&gt;fetchColumn();
+$perPage = 50000;
+$pages = ceil($total / $perPage);
+
+echo &#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#39;;
+echo &#39;&lt;sitemapindex xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;&#39;;
+
+for ($i = 1; $i &lt;= $pages; $i++) {
+  echo &#39;&lt;sitemap&gt;&#39;;
+  echo &#39;&lt;loc&gt;https://example.com/sitemap-products.xml?page=&#39; . $i . &#39;&lt;/loc&gt;&#39;;
+  echo &#39;&lt;lastmod&gt;&#39; . date(&#39;c&#39;) . &#39;&lt;/lastmod&gt;&#39;;
+  echo &#39;&lt;/sitemap&gt;&#39;;
+}
+
+echo &#39;&lt;/sitemapindex&gt;&#39;;
+?&gt;
+</code></pre>
+<p><strong>Submit index to Search Console:</strong></p>
+<pre><code>https://example.com/sitemap-index.xml
+</code></pre>
+<h2 id="phase-4-optimize-with-caching">Phase 4: Optimize with Caching</h2>
+<p><strong>Database queries on every sitemap request</strong> slow response times.</p>
+<h3 id="implement-redis-caching">Implement Redis Caching</h3>
+<p><strong>Cache sitemap for 1 hour:</strong></p>
+<pre><code class="language-php">&lt;?php
+$redis = new Redis();
+$redis-&gt;connect(&#39;127.0.0.1&#39;, 6379);
+
+$page = isset($_GET[&#39;page&#39;]) ? (int)$_GET[&#39;page&#39;] : 1;
+$cacheKey = &#39;sitemap-products-page-&#39; . $page;
+
+// Check cache
+$cached = $redis-&gt;get($cacheKey);
+if ($cached) {
+  header(&#39;Content-Type: application/xml; charset=utf-8&#39;);
+  echo $cached;
+  exit;
+}
+
+// Generate sitemap (database query as above)
+ob_start();
+// ... sitemap XML generation code ...
+$sitemap = ob_get_clean();
+
+// Cache for 1 hour
+$redis-&gt;setex($cacheKey, 3600, $sitemap);
+
+header(&#39;Content-Type: application/xml; charset=utf-8&#39;);
+echo $sitemap;
+?&gt;
+</code></pre>
+<h3 id="invalidate-cache-on-product-updates">Invalidate Cache on Product Updates</h3>
+<p><strong>Clear cache when products change:</strong></p>
+<pre><code class="language-php">// After updating product in database
+$redis-&gt;del(&#39;sitemap-products-page-1&#39;);
+$redis-&gt;del(&#39;sitemap-products-page-2&#39;);
+// ... clear all pages
+</code></pre>
+<p><strong>Or use wildcard deletion:</strong></p>
+<pre><code class="language-php">$keys = $redis-&gt;keys(&#39;sitemap-products-page-*&#39;);
+foreach ($keys as $key) {
+  $redis-&gt;del($key);
+}
+</code></pre>
+<h2 id="phase-5-woocommerce-dynamic-sitemaps">Phase 5: WooCommerce Dynamic Sitemaps</h2>
+<p><strong>WooCommerce</strong> stores products in custom post types.</p>
+<h3 id="woocommerce-sitemap-with-wp-query">WooCommerce Sitemap with WP_Query</h3>
+<pre><code class="language-php">&lt;?php
+header(&#39;Content-Type: application/xml; charset=utf-8&#39;);
+
+$args = [
+  &#39;post_type&#39; =&gt; &#39;product&#39;,
+  &#39;post_status&#39; =&gt; &#39;publish&#39;,
+  &#39;posts_per_page&#39; =&gt; 50000,
+  &#39;meta_query&#39; =&gt; [
+    [
+      &#39;key&#39; =&gt; &#39;_stock_status&#39;,
+      &#39;value&#39; =&gt; &#39;instock&#39;, // Only in-stock products
+    ],
+  ],
+];
+
+$products = new WP_Query($args);
+
+echo &#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#39;;
+echo &#39;&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;&#39;;
+
+while ($products-&gt;have_posts()) {
+  $products-&gt;the_post();
+  $url = get_permalink();
+  $lastmod = get_the_modified_date(&#39;c&#39;);
+
+  echo &#39;&lt;url&gt;&#39;;
+  echo &#39;&lt;loc&gt;&#39; . esc_url($url) . &#39;&lt;/loc&gt;&#39;;
+  echo &#39;&lt;lastmod&gt;&#39; . $lastmod . &#39;&lt;/lastmod&gt;&#39;;
+  echo &#39;&lt;/url&gt;&#39;;
+}
+
+wp_reset_postdata();
+echo &#39;&lt;/urlset&gt;&#39;;
+?&gt;
+</code></pre>
+<p><strong>Save as theme file or plugin.</strong></p>
+<h3 id="exclude-out-of-stock-products">Exclude Out-of-Stock Products</h3>
+<p><strong>Modify meta_query to include only in-stock:</strong></p>
+<pre><code class="language-php">&#39;meta_query&#39; =&gt; [
+  [
+    &#39;key&#39; =&gt; &#39;_stock_status&#39;,
+    &#39;value&#39; =&gt; &#39;instock&#39;,
+  ],
+],
+</code></pre>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Google doesn&#39;t crawl out-of-stock products</li>
+<li>Saves <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget</a></li>
+<li>Better user experience (search results show available products)</li>
+</ul>
+<h2 id="phase-6-include-product-images">Phase 6: Include Product Images</h2>
+<p><strong>Image sitemaps</strong> help images rank in Google Images.</p>
+<h3 id="add-image-sitemap-extension">Add Image Sitemap Extension</h3>
+<pre><code class="language-php">echo &#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#39;;
+echo &#39;&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;
+             xmlns:image=&quot;http://www.google.com/schemas/sitemap-image/1.1&quot;&gt;&#39;;
+
+while ($row = $stmt-&gt;fetch()) {
+  $url = &#39;https://example.com/products/&#39; . htmlspecialchars($row[&#39;slug&#39;]);
+  $imageUrl = &#39;https://example.com/images/&#39; . htmlspecialchars($row[&#39;image&#39;]);
+
+  echo &#39;&lt;url&gt;&#39;;
+  echo &#39;&lt;loc&gt;&#39; . $url . &#39;&lt;/loc&gt;&#39;;
+  echo &#39;&lt;image:image&gt;&#39;;
+  echo &#39;&lt;image:loc&gt;&#39; . $imageUrl . &#39;&lt;/image:loc&gt;&#39;;
+  echo &#39;&lt;image:title&gt;&#39; . htmlspecialchars($row[&#39;name&#39;]) . &#39;&lt;/image:title&gt;&#39;;
+  echo &#39;&lt;/image:image&gt;&#39;;
+  echo &#39;&lt;/url&gt;&#39;;
+}
+
+echo &#39;&lt;/urlset&gt;&#39;;
+</code></pre>
+<p><strong>Note:</strong> Each URL can contain multiple <code>&lt;image:image&gt;</code> blocks for product galleries.</p>
+<h2 id="phase-7-automate-sitemap-submission">Phase 7: Automate Sitemap Submission</h2>
+<p><strong>Notify Google when sitemap updates.</strong></p>
+<h3 id="ping-google-after-product-updates">Ping Google After Product Updates</h3>
+<p><strong>PHP function:</strong></p>
+<pre><code class="language-php">function ping_google_sitemap() {
+  $sitemapUrl = &#39;https://example.com/sitemap.xml&#39;;
+  $pingUrl = &#39;https://www.google.com/ping?sitemap=&#39; . urlencode($sitemapUrl);
+
+  $ch = curl_init($pingUrl);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_exec($ch);
+  curl_close($ch);
+}
+
+// Call after bulk product update
+ping_google_sitemap();
+</code></pre>
+<h3 id="schedule-periodic-pings-cron">Schedule Periodic Pings (Cron)</h3>
+<p><strong>Even with dynamic sitemaps, ping Google periodically:</strong></p>
+<pre><code class="language-bash"># Cron job: ping Google every 6 hours
+0 */6 * * * curl &quot;https://www.google.com/ping?sitemap=https://example.com/sitemap.xml&quot;
+</code></pre>
+<h3 id="use-google-indexing-api-real-time">Use Google Indexing API (Real-Time)</h3>
+<p><strong>For urgent product launches:</strong></p>
+<pre><code class="language-python">from oauth2client.service_account import ServiceAccountCredentials
+import httplib2
+import json
+
+SCOPES = [&quot;https://www.googleapis.com/auth/indexing&quot;]
+credentials = ServiceAccountCredentials.from_json_keyfile_name(&#39;service-account.json&#39;, scopes=SCOPES)
+http = credentials.authorize(httplib2.Http())
+
+ENDPOINT = &quot;https://indexing.googleapis.com/v3/urlNotifications:publish&quot;
+content = {
+  &quot;url&quot;: &quot;https://example.com/products/new-product&quot;,
+  &quot;type&quot;: &quot;URL_UPDATED&quot;
+}
+
+response, content = http.request(ENDPOINT, method=&quot;POST&quot;, body=json.dumps(content))
+print(response, content)
+</code></pre>
+<p><strong>Limit:</strong> 200 URLs/day (request quota increase for high-volume stores).</p>
+<h2 id="advanced-product-variants-and-skus">Advanced: Product Variants and SKUs</h2>
+<p><strong>Products with variants</strong> (color/size options) create sitemap complexity.</p>
+<h3 id="strategy-1-parent-product-only">Strategy 1: Parent Product Only</h3>
+<p><strong>Include only parent product URL:</strong></p>
+<pre><code class="language-php">SELECT DISTINCT parent_id, slug, updated_at
+FROM products
+WHERE parent_id IS NULL AND status = &quot;published&quot;
+</code></pre>
+<p><strong>Variants accessible via parent page</strong> (users select color/size on product page).</p>
+<h3 id="strategy-2-each-variant-as-separate-url">Strategy 2: Each Variant as Separate URL</h3>
+<p><strong>E-commerce with unique URLs per variant:</strong></p>
+<pre><code>/products/tshirt-red-small
+/products/tshirt-red-medium
+/products/tshirt-blue-small
+</code></pre>
+<p><strong>Include all variants in sitemap:</strong></p>
+<pre><code class="language-php">SELECT slug, updated_at
+FROM products
+WHERE status = &quot;published&quot; -- includes parent and variants
+</code></pre>
+<p><strong>Use <a href="dynamic-canonical-tags-faceted-navigation.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">canonical tags</a></strong> to consolidate variants to parent if needed.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why E-Commerce Sites Need Dynamic Sitemaps:</strong> See large site sitemap creation for architecture strategies.</li>
+<li><strong>Phase 1: Design Database-Driven Sitemap Architecture:</strong> See large site sitemap creation for architecture strategies.</li>
+<li><strong>Phase 2: Implement Dynamic Sitemap Generation (PHP):</strong> // Database connection
+$pdo = new PDO(&#39;mysql:host=localhost;dbname=ecommerce&#39;, &#39;user&#39;, &#39;pass&#39;);</li>
+<li><strong>Phase 3: Implement Pagination for Large Catalogs:</strong> $pdo = new PDO(&#39;mysql:host=localhost;dbname=ecommerce&#39;, &#39;user&#39;, &#39;pass&#39;);</li>
+<li><strong>Phase 5: WooCommerce Dynamic Sitemaps:</strong> $args = [
+&#39;posttype&#39; =&gt; &#39;product&#39;,
+&#39;poststatus&#39; =&gt; &#39;publish&#39;,
+&#39;postsperpage&#39; =&gt; 50000,
+&#39;metaquery&#39; =&gt; [
+  [
+&#39;key&#39; =&gt; &#39;stockstatus&#39;,
+&#39;value</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-often-should-dynamic-sitemaps-update">How often should dynamic sitemaps update?</h3>
+<p><strong>Dynamic sitemaps query database on every request</strong>, always current. Use <strong>caching</strong> (1-6 hours) to balance freshness and performance. Invalidate cache after product updates. For real-time updates, skip caching but ensure database queries are fast (&lt;100ms). See <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget optimization</a>.</p>
+<h3 id="should-i-include-out-of-stock-products-in-sitemaps">Should I include out-of-stock products in sitemaps?</h3>
+<p><strong>No.</strong> Exclude out-of-stock products to prevent wasting <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget</a> on unavailable inventory. If product will restock soon (1-2 weeks), keep in sitemap. If discontinued permanently, remove and return 410 Gone status. See <a href="custom-404-page-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">404 page guide</a> for handling deleted products.</p>
+<h3 id="do-dynamic-sitemaps-slow-down-my-site">Do dynamic sitemaps slow down my site?</h3>
+<p><strong>Only if uncached.</strong> Database queries on every request add 100-500ms latency. <strong>Implement caching</strong> (Redis, Memcached) to serve sitemaps from memory. Google and bots don&#39;t request sitemaps frequently, typically once per day. Performance impact on user-facing pages is zero (users don&#39;t access sitemaps). See <a href="database-query-optimization-wordpress.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">database optimization</a>.</p>
+<h3 id="can-i-use-dynamic-sitemaps-with-static-site-generators">Can I use dynamic sitemaps with static site generators?</h3>
+<p><strong>Hybrid approach:</strong> Generate static sitemaps at build time (Gatsby, Next.js), then use serverless function for dynamic updates. Example: Netlify Function queries product API, returns XML. Best of both: fast static base + real-time updates for new products. Pure static sitemaps work if build/deploy happens after every product change.</p>
+<h3 id="should-i-split-sitemaps-by-product-category-or-update-frequency">Should I split sitemaps by product category or update frequency?</h3>
+<p><strong>Both strategies work.</strong> Split by category for easier management (electronics, apparel, home goods). Split by update frequency for crawl efficiency (new products daily, evergreen products monthly). See <a href="create-xml-sitemap-large-site.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">large site sitemap architecture</a>. For &gt;100K products, use hybrid: category sitemaps with pagination.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/dynamic-canonical-tags-faceted-navigation.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement dynamic canonical tags for faceted navigation filters. Prevent duplicate content from color, size, price filters without blocking crawl budget.</p>
+          </a>
+
+          <a href="/articles/dynamic-rendering-seo-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement dynamic rendering to serve pre-rendered HTML to Googlebot while keeping JavaScript for users. Fix indexing issues on React, Vue, Angular sites.</p>
+          </a>
+
+          <a href="/articles/ecommerce-site-search-seo-fix.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">E-Commerce Site Search SEO Fix: Prevent Search Results from Indexing</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Block site search results from Google indexing. Fix duplicate content from internal search queries, implement noindex on search pages, optimize search UX.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

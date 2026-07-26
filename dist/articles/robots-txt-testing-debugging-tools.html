@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>robots.txt Testing and Debugging Tools: Complete Validation Guide | Polytraffic</title>
+    <meta name="description" content="Validate robots.txt syntax, test crawler directives, and debug blocking issues with Google Search Console, command-line tools, and third-party validators." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="robots.txt Testing and Debugging Tools: Complete Validation Guide | Polytraffic" />
+    <meta property="og:description" content="Validate robots.txt syntax, test crawler directives, and debug blocking issues with Google Search Console, command-line tools, and third-party validators." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/robots-txt-testing-debugging-tools" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/robots-txt-testing-debugging-tools.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="robots.txt Testing and Debugging Tools: Complete Validation Guide | Polytraffic" />
+    <meta name="twitter:description" content="Validate robots.txt syntax, test crawler directives, and debug blocking issues with Google Search Console, command-line tools, and third-party validators." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/robots-txt-testing-debugging-tools.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/robots-txt-testing-debugging-tools" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "robots.txt Testing and Debugging Tools: Complete Validation Guide",
+    "description": "Validate robots.txt syntax, test crawler directives, and debug blocking issues with Google Search Console, command-line tools, and third-party validators.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/robots-txt-testing-debugging-tools.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/robots-txt-testing-debugging-tools.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "robots.txt Testing and Debugging Tools: Complete Validation Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">robots.txt Testing and Debugging Tools: Complete Validation Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/robots-txt-testing-debugging-tools.png" alt="robots.txt Testing and Debugging Tools: Complete Validation Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="robots-txt-testing-and-debugging-tools-complete-validation-guide">robots.txt Testing and Debugging Tools: Complete Validation Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Validate robots.txt syntax, test crawler directives, and debug blocking issues with Google Search Console, command-line tools, and third-party validators.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-robots-txt-testing-prevents-seo-disasters" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why robots.txt Testing Prevents SEO Disasters</a></li>
+<li><a href="#google-search-console-robots-txt-tester" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Google Search Console robots.txt Tester</a></li>
+<li><a href="#bing-webmaster-tools-robots-txt-tester" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Bing Webmaster Tools robots.txt Tester</a></li>
+<li><a href="#command-line-robots-txt-validation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Command-Line robots.txt Validation</a></li>
+<li><a href="#python-robots-txt-parser" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Python robots.txt Parser</a></li>
+<li><a href="#third-party-robots-txt-validators" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Third-Party robots.txt Validators</a></li>
+<li><a href="#debugging-common-robots-txt-issues" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Debugging Common robots.txt Issues</a></li>
+<li><a href="#monitoring-robots-txt-changes-over-time" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring robots.txt Changes Over Time</a></li>
+<li><a href="#testing-robots-txt-in-staging-environments" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Testing robots.txt in Staging Environments</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>A single character error in robots.txt, misplaced wildcard, incorrect path, or malformed directive, can block your entire site from search engines. Testing validates syntax before deployment, simulates crawler behavior across different user-agents, and identifies which URLs directives affect. <strong>Proactive testing prevents catastrophic indexing losses</strong>; reactive debugging after traffic drops reveals damage already done.</p>
+<p>Google Search Console&#39;s built-in robots.txt tester provides real-time validation against live files, simulating Googlebot&#39;s interpretation of directives. Third-party tools offer additional syntax checking, historical analysis, and multi-engine testing (Bing, Yandex, Baidu). Command-line utilities automate testing in CI/CD pipelines, catching errors before code reaches production.</p>
+<h2 id="why-robots-txt-testing-prevents-seo-disasters">Why robots.txt Testing Prevents SEO Disasters</h2>
+<p><strong>Real-world failures:</strong></p>
+<p><strong>Case 1: Homepage blocked by trailing slash error</strong></p>
+<pre><code>Disallow: /
+</code></pre>
+<p>Intent: Block nothing (empty path). Reality: Blocks entire site. Traffic drops 100% within 48 hours.</p>
+<p><strong>Case 2: Blog section blocked by wildcard mistake</strong></p>
+<pre><code>Disallow: /*blog/
+</code></pre>
+<p>Intent: Block /*/blog/ paths. Reality: Blocks /blog/ and /products-blog/, eliminating primary content from index.</p>
+<p><strong>Case 3: Assets blocked preventing rendering</strong></p>
+<pre><code>Disallow: /wp-content/
+</code></pre>
+<p>Result: Googlebot can&#39;t access CSS/JS, fails mobile-friendly test, loses mobile rankings.</p>
+<p><strong>Detection lag:</strong> Google recrawls robots.txt every 12-24 hours. Sites don&#39;t notice problems until Search Console reports coverage issues 2-7 days later, after significant ranking and traffic losses.</p>
+<p><strong>Testing prevents:</strong></p>
+<ul>
+<li>Syntax errors causing parse failures</li>
+<li>Overly broad wildcards blocking important content</li>
+<li>User-agent misconfigurations directing wrong rules to crawlers</li>
+<li>Conflicting directives creating undefined behavior</li>
+<li>Case sensitivity issues on Linux servers</li>
+</ul>
+<p><strong>Validation workflow:</strong> Test locally before deployment → Validate in staging environment → Monitor in production via Search Console → Set alerts for coverage anomalies.</p>
+<h2 id="google-search-console-robots-txt-tester">Google Search Console robots.txt Tester</h2>
+<p>The primary tool for validating robots.txt behavior as Googlebot interprets it.</p>
+<p><strong>Accessing the tool:</strong></p>
+<ol>
+<li>Open <a href="https://search.google.com/search-console" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Google Search Console</a></li>
+<li>Select property (domain or URL prefix)</li>
+<li>Go to <strong>Settings → Crawler → robots.txt</strong></li>
+<li>Click <strong>Open robots.txt tester</strong></li>
+</ol>
+<p><strong>Features:</strong></p>
+<p><strong>Live file display:</strong> Shows current robots.txt content from your server. Updates when you refresh.</p>
+<p><strong>URL testing:</strong> Enter any URL path to test if current directives allow or block it.</p>
+<p><strong>User-agent selection:</strong> Dropdown menu selects which Googlebot variant to simulate:</p>
+<ul>
+<li>Googlebot (desktop crawler)</li>
+<li>Googlebot-Smartphone (mobile crawler)</li>
+<li>Googlebot-Image (image search crawler)</li>
+<li>Googlebot-News (Google News crawler)</li>
+<li>Googlebot-Video (video search crawler)</li>
+<li>AdsBot-Google (AdWords landing page crawler)</li>
+</ul>
+<p><strong>Test button:</strong> Click <strong>Test</strong> to see Allow/Block result plus the specific directive causing the block.</p>
+<p><strong>Syntax highlighting:</strong> Colors directives for readability. Errors appear in red.</p>
+<p><strong>Editing capability:</strong> Modify robots.txt directly in the interface for testing scenarios before deploying to production.</p>
+<p><strong>Example workflow:</strong></p>
+<ol>
+<li>View live robots.txt</li>
+<li>Enter <code>/blog/seo-guide</code> in test field</li>
+<li>Select &quot;Googlebot-Smartphone&quot; user-agent</li>
+<li>Click Test</li>
+<li>Result shows &quot;Allowed&quot; or &quot;Blocked by line [X]: Disallow: /blog/&quot;</li>
+</ol>
+<p>If blocked unexpectedly, edit the directive, retest, then deploy corrected version to server.</p>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li>Only tests Googlebot variants (not Bing, Yandex, or other crawlers)</li>
+<li>Doesn&#39;t validate crawl-delay (Google ignores it)</li>
+<li>No batch URL testing (test one URL at a time)</li>
+<li>Requires Search Console property verification</li>
+</ul>
+<p><strong>Best for:</strong> Google-specific testing, pre-deployment validation, debugging indexing issues.</p>
+<h2 id="bing-webmaster-tools-robots-txt-tester">Bing Webmaster Tools robots.txt Tester</h2>
+<p>Microsoft&#39;s equivalent for testing Bingbot behavior.</p>
+<p><strong>Access:</strong> <a href="https://www.bing.com/webmasters" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Bing Webmaster Tools</a> → Select site → <strong>Diagnostics &amp; Tools → robots.txt tester</strong></p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Upload or view current robots.txt</li>
+<li>Test URLs against Bingbot user-agent</li>
+<li>Syntax validation with error messages</li>
+<li>Download validated robots.txt</li>
+</ul>
+<p><strong>Key differences from Google:</strong></p>
+<ul>
+<li>Tests Bingbot instead of Googlebot</li>
+<li>Supports crawl-delay directive (Bing respects it; Google doesn&#39;t)</li>
+<li>Different wildcard handling in edge cases</li>
+</ul>
+<p><strong>Use when:</strong> Optimizing for Bing search traffic, verifying crawl-delay behavior, or troubleshooting Bing-specific indexing issues.</p>
+<h2 id="command-line-robots-txt-validation">Command-Line robots.txt Validation</h2>
+<p><strong>curl verification:</strong></p>
+<p>Fetch robots.txt and verify HTTP response:</p>
+<pre><code class="language-bash">curl -I https://example.com/robots.txt
+</code></pre>
+<p>Expected output:</p>
+<pre><code>HTTP/2 200
+content-type: text/plain
+content-length: 342
+</code></pre>
+<p>HTTP 200 indicates file exists. Content-Type should be <code>text/plain</code>. 404 errors mean file is missing (crawlers assume full access).</p>
+<p><strong>Download and inspect:</strong></p>
+<pre><code class="language-bash">curl https://example.com/robots.txt -o robots.txt
+cat robots.txt
+</code></pre>
+<p><strong>Test from different IPs:</strong></p>
+<p>Some servers block international traffic or use geo-targeting. Test from various locations:</p>
+<pre><code class="language-bash">curl --proxy socks5://proxy-server:1080 https://example.com/robots.txt
+</code></pre>
+<p><strong>Validate HTTPS and HTTP versions:</strong></p>
+<pre><code class="language-bash">curl -I https://example.com/robots.txt
+curl -I http://example.com/robots.txt
+</code></pre>
+<p>Both should return 200 (if HTTP redirects to HTTPS, verify redirect chain doesn&#39;t break robots.txt access).</p>
+<p><strong>wget alternative:</strong></p>
+<pre><code class="language-bash">wget --server-response https://example.com/robots.txt
+</code></pre>
+<h2 id="python-robots-txt-parser">Python robots.txt Parser</h2>
+<p>Python&#39;s <code>urllib.robotparser</code> library programmatically tests URL paths against robots.txt rules.</p>
+<p><strong>Install (included in standard library):</strong></p>
+<pre><code class="language-python">from urllib import robotparser
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-python">from urllib import robotparser
+
+# Create parser instance
+rp = robotparser.RobotFileParser()
+rp.set_url(&quot;https://example.com/robots.txt&quot;)
+rp.read()
+
+# Test URLs
+urls_to_test = [
+    &quot;https://example.com/&quot;,
+    &quot;https://example.com/blog/&quot;,
+    &quot;https://example.com/admin/&quot;,
+    &quot;https://example.com/wp-content/themes/style.css&quot;
+]
+
+for url in urls_to_test:
+    allowed = rp.can_fetch(&quot;Googlebot&quot;, url)
+    status = &quot;ALLOWED&quot; if allowed else &quot;BLOCKED&quot;
+    print(f&quot;{status}: {url}&quot;)
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre><code>ALLOWED: https://example.com/
+ALLOWED: https://example.com/blog/
+BLOCKED: https://example.com/admin/
+ALLOWED: https://example.com/wp-content/themes/style.css
+</code></pre>
+<p><strong>Batch testing:</strong> Read URLs from sitemap or CSV, test all against robots.txt:</p>
+<pre><code class="language-python">import csv
+from urllib import robotparser
+
+rp = robotparser.RobotFileParser()
+rp.set_url(&quot;https://example.com/robots.txt&quot;)
+rp.read()
+
+with open(&#39;urls.csv&#39;, &#39;r&#39;) as file:
+    reader = csv.reader(file)
+    for row in reader:
+        url = row[0]
+        allowed = rp.can_fetch(&quot;Googlebot&quot;, url)
+        if not allowed:
+            print(f&quot;BLOCKED: {url}&quot;)
+</code></pre>
+<p><strong>CI/CD integration:</strong> Run as part of deployment pipeline to catch robots.txt errors before production:</p>
+<pre><code class="language-bash">python test_robots.py || exit 1
+</code></pre>
+<p>Fails build if critical URLs are blocked.</p>
+<h2 id="third-party-robots-txt-validators">Third-Party robots.txt Validators</h2>
+<p><strong>Merkle&#39;s Technical SEO Tools - robots.txt Validator:</strong></p>
+<p>URL: <a href="https://technicalseo.com/tools/robots-txt/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://technicalseo.com/tools/robots-txt/</a></p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Paste robots.txt content or enter URL</li>
+<li>Syntax validation with error highlighting</li>
+<li>Path testing against specific user-agents</li>
+<li>Wildcard interpretation explanation</li>
+<li>Sitemap URL extraction</li>
+</ul>
+<p><strong>Use case:</strong> Quick validation without Search Console access, learning wildcard syntax behavior.</p>
+<p><strong>Screaming Frog SEO Spider:</strong></p>
+<p>Desktop application that crawls sites and respects robots.txt directives.</p>
+<p><strong>Testing approach:</strong></p>
+<ol>
+<li>Configure Spider to respect robots.txt (<strong>Configuration → Spider → Robots.txt</strong>)</li>
+<li>Enter start URL and crawl</li>
+<li>Review <strong>Response Codes</strong> tab for blocked URLs (status: &quot;Blocked by robots.txt&quot;)</li>
+<li>Export blocked URL list for analysis</li>
+</ol>
+<p><strong>Benefits:</strong> Identifies which URLs robots.txt blocks during crawling. Catches overly broad wildcards blocking unintended pages.</p>
+<p><strong>Ryte (formerly OnPage.org):</strong></p>
+<p>Enterprise SEO platform with robots.txt testing module.</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Historical robots.txt monitoring (tracks changes over time)</li>
+<li>Alerts when critical pages become blocked</li>
+<li>Compares robots.txt against crawl data to identify discrepancies</li>
+<li>Multi-domain testing for large site portfolios</li>
+</ul>
+<p><strong>Use case:</strong> Agency-level monitoring across multiple client sites.</p>
+<p><strong>Sitebulb:</strong></p>
+<p>Desktop audit tool with robots.txt validation built into crawl reports.</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Flags robots.txt syntax errors in audit reports</li>
+<li>Lists blocked URLs encountered during crawl</li>
+<li>Compares robots.txt rules against sitemap URLs to identify conflicts</li>
+<li>Suggests optimizations (e.g., &quot;Allow CSS/JS for rendering&quot;)</li>
+</ul>
+<p><strong>Netpeak Spider:</strong></p>
+<p>Free desktop crawler with robots.txt compliance checking.</p>
+<p><strong>Testing workflow:</strong></p>
+<ol>
+<li>Start crawl with <strong>Respect robots.txt</strong> enabled</li>
+<li>Go to <strong>Internal → Blocked by robots.txt</strong> report</li>
+<li>Analyze blocked URLs by directive causing block</li>
+<li>Export data for remediation</li>
+</ol>
+<h2 id="debugging-common-robots-txt-issues">Debugging Common robots.txt Issues</h2>
+<p><strong>Issue: &quot;Page blocked by robots.txt&quot; in Search Console</strong></p>
+<p><strong>Symptoms:</strong> URL Inspection Tool shows &quot;Blocked by robots.txt&quot; status. Page doesn&#39;t appear in search results.</p>
+<p><strong>Diagnosis:</strong></p>
+<ol>
+<li>Copy blocked URL</li>
+<li>Open robots.txt Tester in Search Console</li>
+<li>Paste URL and test against relevant user-agent</li>
+<li>Identify blocking directive</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<p><strong>If directive is intentional:</strong> No action. Blocked pages shouldn&#39;t rank.</p>
+<p><strong>If directive blocks unintentionally:</strong> Remove or refine directive:</p>
+<pre><code># Too broad - blocks entire blog
+Disallow: /blog/
+
+# Refined - blocks only drafts subdirectory
+Disallow: /blog/drafts/
+</code></pre>
+<p>Deploy corrected robots.txt, then request reindexing via URL Inspection Tool.</p>
+<p><strong>Issue: robots.txt returns 404</strong></p>
+<p><strong>Symptoms:</strong> Crawlers assume full access. Search Console shows &quot;robots.txt not found&quot; warning.</p>
+<p><strong>Causes:</strong></p>
+<ul>
+<li>File not uploaded to root directory</li>
+<li>Server configuration blocks access</li>
+<li>File named incorrectly (robots.TXT, robot.txt)</li>
+</ul>
+<p><strong>Verification:</strong></p>
+<pre><code class="language-bash">curl -I https://example.com/robots.txt
+</code></pre>
+<p>If 404, create robots.txt:</p>
+<pre><code>User-agent: *
+Disallow:
+
+Sitemap: https://example.com/sitemap.xml
+</code></pre>
+<p>Upload to root directory (public_html/, www/, httpdocs/).</p>
+<p><strong>Issue: Robots.txt blocks CSS/JS, failing mobile-friendly test</strong></p>
+<p><strong>Symptoms:</strong> Mobile Usability Report shows &quot;Page is not mobile-friendly.&quot; URL Inspection displays &quot;Resources blocked by robots.txt.&quot;</p>
+<p><strong>Diagnosis:</strong></p>
+<p>Test asset URLs in robots.txt Tester:</p>
+<pre><code>https://example.com/wp-content/themes/theme/style.css
+https://example.com/assets/js/main.js
+</code></pre>
+<p>If blocked, robots.txt likely contains:</p>
+<pre><code>Disallow: /wp-content/
+Disallow: /assets/
+</code></pre>
+<p><strong>Fix:</strong> Allow rendering resources:</p>
+<pre><code>User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-content/themes/
+Allow: /wp-content/plugins/
+Allow: /assets/
+</code></pre>
+<p><strong>Issue: Wildcard blocking more URLs than intended</strong></p>
+<p><strong>Example:</strong></p>
+<pre><code>Disallow: /*?
+</code></pre>
+<p><strong>Intent:</strong> Block all URLs with query parameters.</p>
+<p><strong>Reality:</strong> Also blocks /faq, /faq-seo, /about/faq because <code>?</code> acts as literal character without wildcard.</p>
+<p><strong>Correct syntax:</strong></p>
+<pre><code>Disallow: /*?*
+</code></pre>
+<p>The <code>*</code> before <code>?</code> makes it a wildcard; <code>*</code> after <code>?</code> matches any parameters.</p>
+<p><strong>Test:</strong> Enter <code>/products?color=red</code> and <code>/faq</code> in robots.txt Tester. First should block; second should allow.</p>
+<p><strong>Issue: Case sensitivity causing blocks on Linux servers</strong></p>
+<p><strong>Scenario:</strong> robots.txt contains:</p>
+<pre><code>Disallow: /Admin/
+</code></pre>
+<p>URLs like /admin/ aren&#39;t blocked because Linux servers treat paths case-sensitively.</p>
+<p><strong>Fix:</strong> Block all case variations:</p>
+<pre><code>Disallow: /admin/
+Disallow: /Admin/
+Disallow: /ADMIN/
+</code></pre>
+<p>Or enforce lowercase URLs via server config (recommended):</p>
+<p><strong>Apache .htaccess:</strong></p>
+<pre><code class="language-apache">RewriteEngine On
+RewriteCond %{REQUEST_URI} [A-Z]
+RewriteRule ^(.*)$ ${lowercase:$1} [R=301,L]
+</code></pre>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-nginx">location ~ [A-Z] {
+    rewrite ^(.*)$ ${lowercase:$1} permanent;
+}
+</code></pre>
+<h2 id="monitoring-robots-txt-changes-over-time">Monitoring robots.txt Changes Over Time</h2>
+<p><strong>Manual snapshots:</strong> Save robots.txt versions before each major site change:</p>
+<pre><code class="language-bash">curl https://example.com/robots.txt &gt; robots-2026-02-08.txt
+</code></pre>
+<p><strong>Version control:</strong> Store robots.txt in Git repository alongside codebase:</p>
+<pre><code class="language-bash">git add robots.txt
+git commit -m &quot;Block /admin/ from crawlers&quot;
+git push origin main
+</code></pre>
+<p><strong>Automated monitoring services:</strong></p>
+<p><strong>Visualping:</strong> Free website change monitoring.</p>
+<ol>
+<li>Add <a href="https://example.com/robots.txt" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/robots.txt</a> to monitoring list</li>
+<li>Receive email alerts when content changes</li>
+<li>Compare before/after diffs</li>
+</ol>
+<p><strong>ChangeTower:</strong> Monitors robots.txt and alerts on modifications.</p>
+<p><strong>Ahrefs Site Audit:</strong> Tracks robots.txt changes during recurring audits. Historical comparison shows when blocking directives were added/removed.</p>
+<p><strong>Search Console alerts:</strong> Enable email notifications for crawl errors. Sudden spikes in &quot;Blocked by robots.txt&quot; pages indicate recent changes.</p>
+<p><strong>Custom monitoring script:</strong></p>
+<pre><code class="language-python">import requests
+import hashlib
+import smtplib
+from email.mime.text import MIMEText
+
+# Fetch current robots.txt
+response = requests.get(&#39;https://example.com/robots.txt&#39;)
+current_content = response.text
+current_hash = hashlib.md5(current_content.encode()).hexdigest()
+
+# Compare with stored hash
+with open(&#39;robots_hash.txt&#39;, &#39;r&#39;) as f:
+    stored_hash = f.read().strip()
+
+if current_hash != stored_hash:
+    # robots.txt changed - send alert
+    msg = MIMEText(f&quot;robots.txt changed:\n\n{current_content}&quot;)
+    msg[&#39;Subject&#39;] = &#39;robots.txt Changed&#39;
+    msg[&#39;From&#39;] = &#39;monitor@example.com&#39;
+    msg[&#39;To&#39;] = &#39;admin@example.com&#39;
+
+    s = smtplib.SMTP(&#39;localhost&#39;)
+    s.send_message(msg)
+    s.quit()
+
+    # Update stored hash
+    with open(&#39;robots_hash.txt&#39;, &#39;w&#39;) as f:
+        f.write(current_hash)
+</code></pre>
+<p>Run via cron job daily to detect unauthorized robots.txt modifications.</p>
+<h2 id="testing-robots-txt-in-staging-environments">Testing robots.txt in Staging Environments</h2>
+<p><strong>Staging domain setup:</strong> Use subdomain or separate domain for staging:</p>
+<ul>
+<li>staging.example.com</li>
+<li>example-staging.com</li>
+</ul>
+<p><strong>Block all crawlers on staging:</strong></p>
+<pre><code>User-agent: *
+Disallow: /
+</code></pre>
+<p>Prevents accidental indexing of development content.</p>
+<p><strong>HTTP authentication:</strong> Add password protection to staging:</p>
+<p><strong>Apache .htaccess:</strong></p>
+<pre><code class="language-apache">AuthType Basic
+AuthName &quot;Staging Area&quot;
+AuthUserFile /path/to/.htpasswd
+Require valid-user
+</code></pre>
+<p>Crawlers encountering 401 authentication prompts abort. robots.txt becomes irrelevant since they can&#39;t access any content.</p>
+<p><strong>Testing production robots.txt in staging:</strong></p>
+<ol>
+<li>Copy production robots.txt to staging</li>
+<li>Use robots.txt Tester with staging URLs</li>
+<li>Validate directives before deploying to production</li>
+</ol>
+<p><strong>Avoid testing production directives on production:</strong> Never test potentially destructive robots.txt rules (like <code>Disallow: /</code>) directly on live sites.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why robots.txt Testing Prevents SEO Disasters:</strong> The primary tool for validating robots.txt behavior as Googlebot interprets it.</li>
+<li><strong>Google Search Console robots.txt Tester:</strong> The primary tool for validating robots.txt behavior as Googlebot interprets it.</li>
+<li><strong>Bing Webmaster Tools robots.txt Tester:</strong> Microsoft&#39;s equivalent for testing Bingbot behavior.</li>
+<li><strong>Command-Line robots.txt Validation:</strong> Fetch robots.txt and verify HTTP response:</li>
+<li><strong>Python robots.txt Parser:</strong> Python&#39;s urllib.robotparser library programmatically tests URL paths against robots.txt rules.</li>
+<li><strong>Third-Party robots.txt Validators:</strong> URL: <a href="https://technicalseo.com/tools/robots-txt/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://technicalseo.com/tools/robots-txt/</a></li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>How often should I test robots.txt?</strong></p>
+<p>Before every deployment affecting site structure, after plugin/theme updates (WordPress), and quarterly as part of routine SEO audits. Set up automated monitoring to catch unauthorized changes.</p>
+<p><strong>Can I test robots.txt before deploying to production?</strong></p>
+<p>Yes. Use Search Console&#39;s robots.txt Tester editing feature to test modified directives against live URLs. Or deploy to staging environment first, test there, then push to production.</p>
+<p><strong>Why does Google ignore my robots.txt changes immediately?</strong></p>
+<p>Google caches robots.txt for up to 24 hours. Changes propagate within a day. Force immediate testing via Search Console&#39;s robots.txt Tester, but actual Googlebot crawls respect cached version until it expires.</p>
+<p><strong>Do I need to test for every crawler separately?</strong></p>
+<p>Focus on Google (largest traffic source) and Bing (second largest). Test other crawlers (Yandex, Baidu, DuckDuckGo) if they drive significant traffic. Most crawlers follow similar robots.txt interpretation.</p>
+<p><strong>Can robots.txt Tester predict indexing outcomes?</strong></p>
+<p>No. It only tests crawl access. A URL allowed by robots.txt may still not index if marked noindex via meta tags, blocked by authentication, or algorithmically excluded by Google.</p>
+<p><strong>What if robots.txt Tester shows &quot;Allowed&quot; but pages aren&#39;t indexing?</strong></p>
+<p>Other factors prevent indexing: noindex tags, canonical tags pointing elsewhere, low-quality content, duplicate content filters, manual penalties, or insufficient crawl priority. Use URL Inspection Tool to diagnose specific pages.</p>
+<p><strong>Should I test robots.txt after every CMS update?</strong></p>
+<p>Yes, if the update affects site structure, URL patterns, or installs plugins that modify robots.txt. WordPress plugins sometimes append directives automatically, test afterward to verify no critical pages were blocked.</p>
+<p><strong>How do I test robots.txt for subdomains?</strong></p>
+<p>Each subdomain has separate robots.txt. Test blog.example.com/robots.txt independently from shop.example.com/robots.txt. Search Console treats subdomains as separate properties requiring individual verification and testing.</p>
+<p><strong>Can I automate robots.txt testing in CI/CD pipelines?</strong></p>
+<p>Yes. Use Python&#39;s robotparser library or command-line tools (curl) in deployment scripts. Fail builds if critical URLs test as blocked:</p>
+<pre><code class="language-yaml"># GitHub Actions example
+- name: Test robots.txt
+  run: python test_robots.py
+</code></pre>
+<p><strong>Why do third-party tools show different results than Google&#39;s tester?</strong></p>
+<p>Google&#39;s tester reflects Googlebot&#39;s actual interpretation. Third-party tools may use different parsers with subtle differences in wildcard handling or user-agent matching. Trust Google&#39;s tester for Google SEO decisions.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/robots-txt-vs-meta-robots-vs-x-robots-tag.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">robots.txt vs meta robots vs X-Robots-Tag: When to Use Each</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Technical guide to robots.txt, meta robots tags, and X-Robots-Tag HTTP headers. Learn which method controls crawling vs indexing effectively.</p>
+          </a>
+
+          <a href="/articles/image-compression-tools-compared.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Image Compression Tools Compared: Complete Performance Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compare TinyPNG, ShortPixel, Imagify, and Squoosh for image compression. Real tests show file size reduction, quality retention, and speed metrics.</p>
+          </a>
+
+          <a href="/articles/structured-data-testing-tools-workflow.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Structured Data Testing Tools Workflow: Validate Schema Markup</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master the complete workflow for testing structured data with Google Rich Results Test, Schema Markup Validator, and debugging tools. Ensure schema passes validation.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Fix HTTP vs HTTPS Duplicate Content Issues (Complete SSL Migration Guide) | Polytraffic</title>
+    <meta name="description" content="HTTP and HTTPS versions of your site create duplicate content that dilutes rankings. Learn how to properly redirect, update canonical tags, and force HTTPS across your entire domain." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Fix HTTP vs HTTPS Duplicate Content Issues (Complete SSL Migration Guide) | Polytraffic" />
+    <meta property="og:description" content="HTTP and HTTPS versions of your site create duplicate content that dilutes rankings. Learn how to properly redirect, update canonical tags, and force HTTPS across your entire domain." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-http-vs-https-duplicate-content" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-http-vs-https-duplicate-content.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Fix HTTP vs HTTPS Duplicate Content Issues (Complete SSL Migration Guide) | Polytraffic" />
+    <meta name="twitter:description" content="HTTP and HTTPS versions of your site create duplicate content that dilutes rankings. Learn how to properly redirect, update canonical tags, and force HTTPS across your entire domain." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-http-vs-https-duplicate-content.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-http-vs-https-duplicate-content" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Fix HTTP vs HTTPS Duplicate Content Issues (Complete SSL Migration Guide)",
+    "description": "HTTP and HTTPS versions of your site create duplicate content that dilutes rankings. Learn how to properly redirect, update canonical tags, and force HTTPS across your entire domain.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-http-vs-https-duplicate-content.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-http-vs-https-duplicate-content.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Fix HTTP vs HTTPS Duplicate Content Issues (Complete SSL Migration Guide)"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Fix HTTP vs HTTPS Duplicate Content Issues (Complete SSL Migration Guide)</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-http-vs-https-duplicate-content.png" alt="How to Fix HTTP vs HTTPS Duplicate Content Issues (Complete SSL Migration Guide)" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-fix-http-vs-https-duplicate-content-issues-complete-ssl-migration-guide">How to Fix HTTP vs HTTPS Duplicate Content Issues (Complete SSL Migration Guide)</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> HTTP and HTTPS versions of your site create duplicate content that dilutes rankings. Learn how to properly redirect, update canonical tags, and force HTTPS across your entire domain.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#understanding-http-vs-https-duplicate-content" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding HTTP vs HTTPS Duplicate Content</a></li>
+<li><a href="#auditing-your-http-https-duplicate-content" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Auditing Your HTTP/HTTPS Duplicate Content</a></li>
+<li><a href="#installing-and-configuring-ssl-certificates" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Installing and Configuring SSL Certificates</a></li>
+<li><a href="#implementing-301-redirects-from-http-to-https" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementing 301 Redirects from HTTP to HTTPS</a></li>
+<li><a href="#updating-canonical-tags-to-https" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Updating Canonical Tags to HTTPS</a></li>
+<li><a href="#updating-internal-links-to-https" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Updating Internal Links to HTTPS</a></li>
+<li><a href="#updating-google-search-console-and-google-analytics" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Updating Google Search Console and Google Analytics</a></li>
+<li><a href="#forcing-https-with-hsts" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Forcing HTTPS with HSTS</a></li>
+<li><a href="#handling-mixed-content-warnings" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Handling Mixed Content Warnings</a></li>
+<li><a href="#monitoring-post-migration-performance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring Post-Migration Performance</a></li>
+<li><a href="#troubleshooting-common-migration-issues" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Troubleshooting Common Migration Issues</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>When your site serves both <strong>HTTP</strong> and <strong>HTTPS</strong> versions of the same pages, search engines see duplicate content. Two identical pages at <a href="http://example.com/page" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com/page</a> and <a href="https://example.com/page" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/page</a> compete for rankings, split authority, and confuse crawlers about which version to index.</p>
+<p>This guide covers HTTP to HTTPS migration protocols, redirect implementation, canonical tag configuration, and validation workflows. You&#39;ll learn how to consolidate duplicate content, force HTTPS site-wide, and update search engine signals for clean SSL transitions.</p>
+<h2 id="understanding-http-vs-https-duplicate-content">Understanding HTTP vs HTTPS Duplicate Content</h2>
+<p><strong>HTTP</strong> (Hypertext Transfer Protocol) transmits data unencrypted between browsers and servers. <strong>HTTPS</strong> (Hypertext Transfer Protocol Secure) encrypts this connection using SSL/TLS certificates. Google considers these different protocols as completely separate URLs.</p>
+<p>When <a href="http://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com</a> and <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a> both resolve successfully, search engines crawl and potentially index both versions. This creates several problems:</p>
+<p><strong>Link equity dilution</strong> occurs when backlinks point to both HTTP and HTTPS versions. If 50 sites link to <a href="http://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com</a> and 30 link to <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a>, neither version receives full authority, the signals split.</p>
+<p><strong>Ranking competition</strong> happens when both versions appear in Google&#39;s index. Search engines must choose which version ranks for queries. Sometimes HTTP ranks, sometimes HTTPS, creating unstable rankings.</p>
+<p><strong>Crawl budget waste</strong> forces search engines to crawl two identical versions of every page. For large sites, this doubles crawl requirements and delays fresh content discovery.</p>
+<p><strong>Security warnings</strong> appear when users visit HTTP versions. Modern browsers display &quot;Not Secure&quot; warnings in the address bar, reducing trust and increasing bounce rates.</p>
+<p><strong>Google&#39;s preference for HTTPS</strong> means HTTP versions rank lower when competing directly. Since 2014, Google uses HTTPS as a ranking signal. Sites on HTTP disadvantage themselves against HTTPS competitors.</p>
+<h2 id="auditing-your-http-https-duplicate-content">Auditing Your HTTP/HTTPS Duplicate Content</h2>
+<p>Before fixing duplicates, map the current state. Several tools reveal whether both protocols serve content.</p>
+<p><strong>Manual URL checks</strong> provide quick validation. Visit these URL variations in an incognito browser:</p>
+<ul>
+<li><a href="http://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com</a></li>
+<li><a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a></li>
+<li><a href="http://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://www.example.com</a></li>
+<li><a href="https://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://www.example.com</a></li>
+</ul>
+<p>If all four load successfully without redirecting, you have duplicate content across protocols and subdomains. Note which versions load and their status codes.</p>
+<p><strong>Google Search Console property verification</strong> shows which versions Google indexes. Add all four property variations:</p>
+<ol>
+<li>Go to Google Search Console</li>
+<li>Click &quot;Add Property&quot;</li>
+<li>Add <a href="http://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com</a></li>
+<li>Add <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a></li>
+<li>Add <a href="http://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://www.example.com</a></li>
+<li>Add <a href="https://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://www.example.com</a></li>
+</ol>
+<p>After verification, check each property&#39;s Page Indexing report. If multiple properties show indexed pages, Google sees duplicates.</p>
+<p><strong>Site: search operator</strong> reveals indexed versions. Search Google for:</p>
+<pre><code>site:http://example.com
+</code></pre>
+<p>Then search:</p>
+<pre><code>site:https://example.com
+</code></pre>
+<p>If both searches return results, Google indexes both protocols. Compare result counts, significantly different numbers suggest indexing confusion.</p>
+<p><strong>Screaming Frog SEO Spider</strong> provides comprehensive duplicate analysis:</p>
+<ol>
+<li>Crawl <a href="http://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com</a></li>
+<li>Export all URLs</li>
+<li>Crawl <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a></li>
+<li>Export all URLs</li>
+<li>Compare lists, identical page structures on different protocols indicate duplicates</li>
+</ol>
+<p><strong>Check canonical tags</strong> on HTTP versions. View source on <a href="http://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com</a> and search for <code>rel=&quot;canonical&quot;</code>. If canonical tags point to HTTP URLs instead of HTTPS, you&#39;re signaling HTTP as the preferred version, wrong if you want to migrate to HTTPS.</p>
+<p>For related duplicate content issues across different URL structures, see our guide on <a href="/articles/fix-long-ugly-urls-seo.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing long ugly URLs</a>.</p>
+<h2 id="installing-and-configuring-ssl-certificates">Installing and Configuring SSL Certificates</h2>
+<p>Before forcing HTTPS, ensure SSL certificates are properly installed and configured. Visitors reaching HTTPS versions without valid certificates encounter error pages.</p>
+<p><strong>Certificate acquisition</strong> requires purchasing or obtaining free SSL certificates. Sources include:</p>
+<p><strong>Let&#39;s Encrypt</strong> provides free SSL certificates valid for 90 days with automatic renewal. Most hosting providers support Let&#39;s Encrypt through one-click installation in cPanel, Plesk, or custom control panels.</p>
+<p><strong>Commercial SSL providers</strong> (DigiCert, GlobalSign, Sectigo) offer certificates with extended validation (EV) or organization validation (OV). These display company names in the address bar and provide higher trust signals, though Google doesn&#39;t rank them higher than domain validation (DV) certificates.</p>
+<p><strong>Install certificates through your hosting provider</strong>:</p>
+<ol>
+<li>Access hosting control panel (cPanel, Plesk, etc.)</li>
+<li>Go to SSL/TLS section</li>
+<li>Select &quot;Let&#39;s Encrypt&quot; or &quot;Install SSL Certificate&quot;</li>
+<li>Follow provider-specific installation prompts</li>
+</ol>
+<p><strong>Verify SSL installation</strong> using SSL checker tools:</p>
+<ol>
+<li>Visit <a href="https://www.ssllabs.com/ssltest/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">SSL Labs Server Test</a></li>
+<li>Enter your domain</li>
+<li>Run analysis</li>
+<li>Check for A or A+ rating</li>
+<li>Review any warnings or configuration issues</li>
+</ol>
+<p>Common SSL configuration errors include:</p>
+<p><strong>Mixed content</strong> occurs when HTTPS pages load HTTP resources (images, scripts, stylesheets). Browsers display warnings and may block insecure content. Fix by updating all resource URLs to HTTPS or protocol-relative URLs (//example.com/image.jpg).</p>
+<p><strong>Certificate chain issues</strong> happen when intermediate certificates aren&#39;t installed properly. SSL Labs identifies these as &quot;Chain issues&quot; errors. Contact your certificate provider for correct intermediate certificates.</p>
+<p><strong>Expired certificates</strong> break HTTPS entirely. Configure automatic renewal through Let&#39;s Encrypt or set calendar reminders for commercial certificate expiration dates.</p>
+<p><strong>Subdomain coverage</strong> requires wildcard certificates (*\.example.com) or multiple Subject Alternative Names (SANs). Standard certificates only cover the specific domain purchased, example.com or <a href="http://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">www.example.com</a>, not both. For complete coverage, use a wildcard certificate or a certificate that includes both domains.</p>
+<h2 id="implementing-301-redirects-from-http-to-https">Implementing 301 Redirects from HTTP to HTTPS</h2>
+<p>Once SSL is installed, redirect all HTTP traffic to HTTPS using <strong>301 permanent redirects</strong>. This tells search engines to transfer all signals from HTTP versions to HTTPS versions.</p>
+<p><strong>Apache servers</strong> use .htaccess files. Add this code to your site&#39;s root .htaccess file:</p>
+<pre><code class="language-apache">RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</code></pre>
+<p>This checks if HTTPS is off. If so, it redirects to the HTTPS version of the requested URL while preserving the full path.</p>
+<p><strong>Nginx servers</strong> configure redirects in the server block:</p>
+<pre><code class="language-nginx">server {
+    listen 80;
+    server_name example.com www.example.com;
+    return 301 https://$server_name$request_uri;
+}
+</code></pre>
+<p>This listens on port 80 (HTTP) and returns 301 redirects to the HTTPS version for all requests.</p>
+<p><strong>WordPress sites</strong> can use plugins for redirect management:</p>
+<p><strong>Really Simple SSL</strong> plugin automates HTTPS redirection:</p>
+<ol>
+<li>Install and activate Really Simple SSL</li>
+<li>Plugin detects SSL certificate</li>
+<li>Automatically configures redirects and updates mixed content</li>
+<li>Enable &quot;Enable 301 .htaccess redirect&quot; in settings</li>
+</ol>
+<p><strong>Cloudflare users</strong> configure HTTPS redirects in the dashboard:</p>
+<ol>
+<li>Log into Cloudflare</li>
+<li>Select your domain</li>
+<li>Go to SSL/TLS → Edge Certificates</li>
+<li>Enable &quot;Always Use HTTPS&quot;</li>
+</ol>
+<p>This forces all HTTP requests through Cloudflare to redirect to HTTPS before reaching your origin server.</p>
+<p><strong>Testing redirects</strong> confirms proper configuration:</p>
+<ol>
+<li>Visit <a href="http://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com</a> in a browser</li>
+<li>Verify immediate redirect to <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a></li>
+<li>Check URL bar shows HTTPS with padlock icon</li>
+<li>Test deep links: <a href="http://example.com/page/subpage" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com/page/subpage</a></li>
+<li>Confirm these redirect to <a href="https://example.com/page/subpage" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/page/subpage</a></li>
+</ol>
+<p>Use <strong>Redirect Checker tools</strong> (<a href="https://httpstatus.io/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://httpstatus.io/</a>) to verify 301 status codes:</p>
+<ol>
+<li>Enter HTTP URL</li>
+<li>Tool follows redirects</li>
+<li>Confirms 301 status code</li>
+<li>Shows final HTTPS destination</li>
+</ol>
+<p><strong>Mobile testing</strong> ensures redirects work on mobile devices:</p>
+<ol>
+<li>Clear mobile browser cache</li>
+<li>Visit HTTP version on mobile</li>
+<li>Verify redirect to HTTPS</li>
+<li>Check for mobile-specific redirect issues</li>
+</ol>
+<p>For complex redirect scenarios beyond HTTP to HTTPS, see our guide on <a href="/articles/fix-redirect-loops.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing redirect loops</a>.</p>
+<h2 id="updating-canonical-tags-to-https">Updating Canonical Tags to HTTPS</h2>
+<p><strong>Canonical tags</strong> tell search engines the preferred version of duplicate content. After migrating to HTTPS, all canonical tags must point to HTTPS URLs.</p>
+<p><strong>Audit existing canonical tags</strong>:</p>
+<ol>
+<li>Crawl site with Screaming Frog</li>
+<li>Go to URL → Canonical</li>
+<li>Filter for canonical URLs starting with &quot;http://&quot;</li>
+<li>Export list of pages with HTTP canonicals</li>
+</ol>
+<p><strong>Update canonical tags</strong> in your site&#39;s template or CMS:</p>
+<p><strong>WordPress</strong>: Check your theme&#39;s header.php file. Look for:</p>
+<pre><code class="language-php">&lt;link rel=&quot;canonical&quot; href=&quot;&lt;?php echo get_permalink(); ?&gt;&quot; /&gt;
+</code></pre>
+<p>Ensure get_permalink() returns HTTPS URLs. If your site uses Yoast SEO or Rank Math, these plugins automatically generate canonical tags. Update plugin settings to prefer HTTPS:</p>
+<ol>
+<li>Go to plugin settings</li>
+<li>Search for &quot;canonical&quot; settings</li>
+<li>Enable &quot;HTTPS preferred&quot; if available</li>
+</ol>
+<p><strong>Shopify</strong>: Edit theme templates:</p>
+<ol>
+<li>Go to Online Store → Themes → Edit Code</li>
+<li>Open theme.liquid</li>
+<li>Add this to the <code>&lt;head&gt;</code> section:</li>
+</ol>
+<pre><code class="language-liquid">&lt;link rel=&quot;canonical&quot; href=&quot;https://{{ shop.domain }}{{ canonical_url }}&quot; /&gt;
+</code></pre>
+<p><strong>Custom HTML sites</strong>: Update canonical tags in header templates:</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/current-page&quot; /&gt;
+</code></pre>
+<p>Replace all instances where the protocol is hardcoded to &quot;http://&quot; with &quot;https://&quot;.</p>
+<p><strong>Protocol-relative canonicals</strong> (//example.com/page) sometimes appear in older implementations. Replace these with absolute HTTPS URLs:</p>
+<pre><code class="language-html">&lt;!-- Old protocol-relative --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;//example.com/page&quot; /&gt;
+
+&lt;!-- New absolute HTTPS --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/page&quot; /&gt;
+</code></pre>
+<p><strong>Verify canonical tag updates</strong>:</p>
+<ol>
+<li>View source on updated pages</li>
+<li>Search for <code>rel=&quot;canonical&quot;</code></li>
+<li>Confirm all canonical URLs use https://</li>
+<li>Check 10-20 random pages across templates</li>
+</ol>
+<p><strong>Google Search Console canonical reporting</strong> shows which canonical URLs Google respects:</p>
+<ol>
+<li>Go to Page Indexing</li>
+<li>Click &quot;Why pages aren&#39;t indexed&quot;</li>
+<li>Check &quot;Duplicate, user declared canonical&quot; section</li>
+<li>Verify HTTPS URLs appear as declared canonicals</li>
+</ol>
+<p>For understanding how canonical tags interact with other SEO elements, see our guide on <a href="/articles/fix-hreflang-tag-errors.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing hreflang tag errors</a>.</p>
+<h2 id="updating-internal-links-to-https">Updating Internal Links to HTTPS</h2>
+<p>Even with redirects in place, internal links should point directly to HTTPS URLs. This eliminates redirect chains and reduces page load times.</p>
+<p><strong>Database search and replace</strong> for database-driven sites (WordPress, Drupal, Magento):</p>
+<p><strong>WordPress Database Search and Replace</strong>:</p>
+<pre><code class="language-sql">UPDATE wp_posts
+SET post_content = REPLACE(post_content, &#39;http://example.com&#39;, &#39;https://example.com&#39;);
+
+UPDATE wp_postmeta
+SET meta_value = REPLACE(meta_value, &#39;http://example.com&#39;, &#39;https://example.com&#39;);
+
+UPDATE wp_options
+SET option_value = REPLACE(option_value, &#39;http://example.com&#39;, &#39;https://example.com&#39;);
+</code></pre>
+<p><strong>Better WP CLI method</strong> for WordPress:</p>
+<pre><code class="language-bash">wp search-replace &#39;http://example.com&#39; &#39;https://example.com&#39; --all-tables --dry-run
+</code></pre>
+<p>The <code>--dry-run</code> flag previews changes without making them. Remove it to execute:</p>
+<pre><code class="language-bash">wp search-replace &#39;http://example.com&#39; &#39;https://example.com&#39; --all-tables
+</code></pre>
+<p><strong>Static site find and replace</strong>:</p>
+<pre><code class="language-bash">find /path/to/site -type f -name &quot;*.html&quot; -exec sed -i &#39;s|http://example.com|https://example.com|g&#39; {} +
+</code></pre>
+<p>This searches all HTML files and replaces HTTP URLs with HTTPS versions.</p>
+<p><strong>Manual priority areas</strong> requiring attention:</p>
+<p><strong>Navigation menus</strong>: Update all menu links in CMS menu managers to use HTTPS.</p>
+<p><strong>Header and footer templates</strong>: Check template files for hardcoded HTTP links.</p>
+<p><strong>Sitemaps</strong>: Regenerate XML sitemaps with HTTPS URLs. Most SEO plugins (Yoast, Rank Math) regenerate automatically after URL structure changes.</p>
+<p><strong>Internal search results</strong>: If your site has an internal search function, verify results link to HTTPS versions.</p>
+<p><strong>Verify internal link updates</strong>:</p>
+<ol>
+<li>Crawl site with Screaming Frog after updates</li>
+<li>Go to Internal tab</li>
+<li>Filter for links starting with &quot;http://&quot;</li>
+<li>Confirm no internal HTTP links remain</li>
+</ol>
+<p><strong>Update hardcoded resource URLs</strong>:</p>
+<p>Images, stylesheets, and scripts hardcoded with HTTP URLs create mixed content warnings. Update these in templates:</p>
+<pre><code class="language-html">&lt;!-- Old HTTP --&gt;
+&lt;img src=&quot;http://example.com/image.jpg&quot; alt=&quot;Description&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;http://example.com/style.css&quot; /&gt;
+
+&lt;!-- New HTTPS --&gt;
+&lt;img src=&quot;https://example.com/image.jpg&quot; alt=&quot;Description&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://example.com/style.css&quot; /&gt;
+</code></pre>
+<p>Or use protocol-relative URLs for CDN resources:</p>
+<pre><code class="language-html">&lt;script src=&quot;//cdn.example.com/library.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>This loads HTTPS when the page uses HTTPS, HTTP when the page uses HTTP (though with full HTTPS migration, this becomes unnecessary).</p>
+<h2 id="updating-google-search-console-and-google-analytics">Updating Google Search Console and Google Analytics</h2>
+<p>After migrating to HTTPS, update search and analytics properties to track the new protocol.</p>
+<p><strong>Google Search Console property migration</strong>:</p>
+<ol>
+<li>Add <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a> as a new property (if not already added)</li>
+<li>Verify ownership using same method as HTTP property</li>
+<li>Submit HTTPS sitemap to new property</li>
+<li>Go to Settings → Change of Address</li>
+<li>Select HTTP property as the old address</li>
+<li>Select HTTPS property as the new address</li>
+<li>Confirm the change</li>
+</ol>
+<p>This tells Google to transfer all search data and signals from the HTTP property to the HTTPS property.</p>
+<p><strong>Update sitemaps</strong> in the new HTTPS property:</p>
+<ol>
+<li>Go to Sitemaps in HTTPS property</li>
+<li>Remove any HTTP sitemap URLs</li>
+<li>Submit HTTPS sitemap URL (<a href="https://example.com/sitemap.xml" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/sitemap.xml</a>)</li>
+</ol>
+<p><strong>Google Analytics 4 property updates</strong>:</p>
+<ol>
+<li>Go to Admin → Data Streams</li>
+<li>Select your web data stream</li>
+<li>Click &quot;Configure tag settings&quot;</li>
+<li>Under &quot;Settings,&quot; ensure the stream URL uses https://</li>
+</ol>
+<p>GA4 tracks HTTPS automatically once redirects are in place, but verify the property configuration reflects HTTPS.</p>
+<p><strong>Google Analytics Universal Analytics</strong> (if still in use):</p>
+<ol>
+<li>Go to Admin → Property Settings</li>
+<li>Update &quot;Default URL&quot; from http:// to https://</li>
+<li>Go to Admin → View Settings</li>
+<li>Update &quot;Website&#39;s URL&quot; from http:// to https://</li>
+</ol>
+<p><strong>Update tag manager containers</strong> if using Google Tag Manager:</p>
+<ol>
+<li>Open your GTM container</li>
+<li>Check all variables referencing your domain</li>
+<li>Update any hardcoded HTTP URLs to HTTPS</li>
+<li>Test in Preview mode before publishing</li>
+</ol>
+<p><strong>Verify tracking</strong> after updates:</p>
+<ol>
+<li>Visit HTTPS version of your site</li>
+<li>Open browser dev tools → Network tab</li>
+<li>Filter for &quot;analytics&quot; or &quot;gtag&quot;</li>
+<li>Confirm tracking requests fire to Google Analytics</li>
+<li>Check Real-Time reports in GA showing active users</li>
+</ol>
+<h2 id="forcing-https-with-hsts">Forcing HTTPS with HSTS</h2>
+<p><strong>HTTP Strict Transport Security (HSTS)</strong> tells browsers to only load your site over HTTPS. Once a browser receives the HSTS header, it automatically converts all HTTP requests to HTTPS without hitting your server for redirects.</p>
+<p><strong>Implement HSTS headers</strong> after confirming all HTTP to HTTPS redirects work properly:</p>
+<p><strong>Apache .htaccess</strong>:</p>
+<pre><code class="language-apache">Header always set Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; preload&quot;
+</code></pre>
+<p><strong>Nginx server block</strong>:</p>
+<pre><code class="language-nginx">add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; preload&quot; always;
+</code></pre>
+<p><strong>HSTS parameters explained</strong>:</p>
+<ul>
+<li><strong>max-age=31536000</strong>: Instructs browsers to remember HTTPS preference for 1 year (31,536,000 seconds)</li>
+<li><strong>includeSubDomains</strong>: Applies HSTS to all subdomains (blog.example.com, shop.example.com, etc.)</li>
+<li><strong>preload</strong>: Allows submission to HSTS preload list for browser-level enforcement</li>
+</ul>
+<p><strong>HSTS preload submission</strong> permanently enforces HTTPS:</p>
+<ol>
+<li>Visit <a href="https://hstspreload.org/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">hstspreload.org</a></li>
+<li>Enter your domain</li>
+<li>Confirm all requirements met:<ul>
+<li>Valid HTTPS certificate</li>
+<li>Redirects all HTTP traffic to HTTPS</li>
+<li>Serves HSTS header on base domain</li>
+<li>max-age is at least 31536000 seconds (1 year)</li>
+<li>includeSubDomains directive present</li>
+<li>preload directive present</li>
+</ul>
+</li>
+<li>Submit domain to preload list</li>
+</ol>
+<p><strong>Warning</strong>: HSTS preload is semi-permanent. Removal from the list takes months. Only implement after thoroughly testing HTTPS across all subdomains and pages. If any subdomain requires HTTP, don&#39;t include <code>includeSubDomains</code>.</p>
+<p><strong>Verify HSTS implementation</strong>:</p>
+<ol>
+<li>Visit <a href="https://securityheaders.com/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">securityheaders.com</a></li>
+<li>Enter your HTTPS URL</li>
+<li>Confirm &quot;Strict-Transport-Security&quot; header appears in results</li>
+<li>Check header value matches your configuration</li>
+</ol>
+<p>For understanding other security headers and their impact on crawling, reference our guide on <a href="/articles/fix-robots-txt-blocking-pages.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing robots.txt blocking pages</a>.</p>
+<h2 id="handling-mixed-content-warnings">Handling Mixed Content Warnings</h2>
+<p><strong>Mixed content</strong> occurs when HTTPS pages load HTTP resources. Browsers block or warn about insecure content on secure pages, breaking functionality and displaying security warnings.</p>
+<p>Two types exist:</p>
+<p><strong>Active mixed content</strong> includes scripts, stylesheets, and iframes loaded over HTTP. Browsers block these entirely to prevent security risks. Symptoms include broken layouts, non-functional JavaScript features, and missing iframe content.</p>
+<p><strong>Passive mixed content</strong> includes images, audio, and video loaded over HTTP. Browsers typically allow these but display &quot;Not Secure&quot; warnings in the address bar.</p>
+<p><strong>Detect mixed content</strong>:</p>
+<ol>
+<li>Visit HTTPS version of your site</li>
+<li>Open browser console (F12 → Console tab)</li>
+<li>Look for warnings: &quot;Mixed Content: The page at &#39;<a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a>&#39; was loaded over HTTPS, but requested an insecure...&quot;</li>
+<li>Note all HTTP resource URLs listed</li>
+</ol>
+<p><strong>Screaming Frog mixed content detection</strong>:</p>
+<ol>
+<li>Crawl HTTPS version of site</li>
+<li>Go to Reports → HTTPS → HTTPS</li>
+<li>Select &quot;Non-Secure Resources&quot; tab</li>
+<li>Export list of pages with mixed content and specific insecure resources</li>
+</ol>
+<p><strong>Fix mixed content systematically</strong>:</p>
+<p><strong>Update resource URLs to HTTPS</strong>: Change all HTTP resource URLs to HTTPS in templates, stylesheets, and scripts:</p>
+<pre><code class="language-html">&lt;!-- Before --&gt;
+&lt;img src=&quot;http://example.com/image.jpg&quot; /&gt;
+&lt;script src=&quot;http://example.com/script.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- After --&gt;
+&lt;img src=&quot;https://example.com/image.jpg&quot; /&gt;
+&lt;script src=&quot;https://example.com/script.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Use protocol-relative URLs</strong> for third-party CDN resources that support both HTTP and HTTPS:</p>
+<pre><code class="language-html">&lt;script src=&quot;//cdn.thirdparty.com/library.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Content Security Policy (CSP) upgrade-insecure-requests</strong> automatically upgrades HTTP resources to HTTPS:</p>
+<p>Add this to HTTP headers:</p>
+<pre><code class="language-apache">Header set Content-Security-Policy &quot;upgrade-insecure-requests&quot;
+</code></pre>
+<p>Or add to HTML head:</p>
+<pre><code class="language-html">&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot;&gt;
+</code></pre>
+<p>This instructs browsers to automatically request HTTPS versions of all resources, even if specified as HTTP in markup.</p>
+<p><strong>Database content updates</strong> for WordPress and similar platforms:</p>
+<pre><code class="language-sql">UPDATE wp_posts
+SET post_content = REPLACE(post_content, &#39;src=&quot;http://&#39;, &#39;src=&quot;https://&#39;);
+
+UPDATE wp_posts
+SET post_content = REPLACE(post_content, &quot;src=&#39;http://&quot;, &quot;src=&#39;https://&quot;);
+</code></pre>
+<p><strong>Third-party embeds</strong>: Some third-party services only provide HTTP embed codes. Contact providers for HTTPS versions or replace with HTTPS-compatible alternatives.</p>
+<p><strong>Verify mixed content resolution</strong>:</p>
+<ol>
+<li>Revisit site in browser console</li>
+<li>Confirm no mixed content warnings appear</li>
+<li>Check padlock icon displays properly without warnings</li>
+<li>Test across multiple pages and templates</li>
+</ol>
+<h2 id="monitoring-post-migration-performance">Monitoring Post-Migration Performance</h2>
+<p>After completing HTTP to HTTPS migration, monitor rankings, traffic, and indexing to confirm successful transition.</p>
+<p><strong>Google Search Console monitoring</strong>:</p>
+<ol>
+<li>Compare HTTP property data to HTTPS property data weekly</li>
+<li>Check Page Indexing report. HTTPS indexed pages should increase while HTTP decreases</li>
+<li>Monitor Performance report for HTTPS property, impressions and clicks should stabilize within 2-4 weeks</li>
+<li>Check Coverage report for crawl errors or indexing issues specific to HTTPS</li>
+</ol>
+<p><strong>Ranking tracking</strong> confirms no significant ranking losses:</p>
+<ol>
+<li>Track 20-30 primary keywords pre-migration</li>
+<li>Monitor daily for 2 weeks post-migration</li>
+<li>Expect minor fluctuations (1-3 positions) as Google reprocesses</li>
+<li>Significant drops (5+ positions) suggest migration errors</li>
+</ol>
+<p><strong>Traffic analysis in Google Analytics</strong>:</p>
+<ol>
+<li>Compare organic traffic 2 weeks pre-migration vs. 2 weeks post-migration</li>
+<li>Minor traffic dips (5-10%) are normal during transition</li>
+<li>Major drops (20%+) indicate issues, check redirects, canonical tags, and indexing</li>
+</ol>
+<p><strong>Backlink monitoring</strong> verifies link equity transfer:</p>
+<ol>
+<li>Use Ahrefs or Moz to track referring domains</li>
+<li>Monitor for drops in linking root domains</li>
+<li>Significant losses suggest redirect issues, some backlinks may not transfer if redirects aren&#39;t followed</li>
+</ol>
+<p><strong>Page load speed</strong> sometimes improves with HTTPS due to HTTP/2 protocol:</p>
+<ol>
+<li>Test key pages with <a href="https://pagespeed.web.dev/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">PageSpeed Insights</a></li>
+<li>Compare pre- and post-migration scores</li>
+<li>HTTPS + HTTP/2 often delivers faster load times than HTTP</li>
+</ol>
+<p><strong>Browser console checks</strong> on high-traffic pages:</p>
+<ol>
+<li>Visit top 10 landing pages</li>
+<li>Open browser console</li>
+<li>Check for errors, mixed content, redirect chains, certificate warnings</li>
+<li>Fix any remaining issues immediately</li>
+</ol>
+<p>For additional page speed optimization after migration, see our guides on <a href="/articles/fix-oversized-images-slowing-site.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing oversized images</a> and <a href="/articles/fix-long-tasks-blocking-main-thread.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing long tasks blocking the main thread</a>.</p>
+<h2 id="troubleshooting-common-migration-issues">Troubleshooting Common Migration Issues</h2>
+<p>Several issues frequently emerge during HTTP to HTTPS migrations.</p>
+<p><strong>Redirect chains</strong> occur when HTTP → HTTPS redirects add to existing redirect structures:</p>
+<pre><code>http://example.com/page
+  → http://www.example.com/page
+    → https://www.example.com/page
+</code></pre>
+<p>This three-hop redirect slows page loads and wastes crawl budget. Fix by redirecting directly from source to final destination:</p>
+<pre><code>http://example.com/page → https://www.example.com/page
+http://www.example.com/page → https://www.example.com/page
+</code></pre>
+<p>Test with redirect checker tools to ensure single-hop redirects.</p>
+<p><strong>Partial HTTPS implementation</strong> happens when some pages remain on HTTP:</p>
+<ol>
+<li>Crawl site with Screaming Frog</li>
+<li>Check Protocol column</li>
+<li>Filter for HTTP pages</li>
+<li>Investigate why these pages aren&#39;t redirecting</li>
+<li>Ensure redirect rules apply site-wide, not to specific directories</li>
+</ol>
+<p><strong>Certificate errors</strong> prevent HTTPS from loading:</p>
+<ul>
+<li><strong>Expired certificate</strong>: Renew immediately through hosting provider or certificate authority</li>
+<li><strong>Domain mismatch</strong>: Certificate issued for different domain than the one being accessed, verify certificate covers both www and non-www</li>
+<li><strong>Untrusted certificate</strong>: Using self-signed certificate instead of one from recognized authority</li>
+</ul>
+<p><strong>Indexing delays</strong>: Google can take 2-4 weeks to fully reindex HTTPS versions:</p>
+<ol>
+<li>Submit HTTPS sitemap in Search Console</li>
+<li>Use URL Inspection tool to request indexing for high-priority pages</li>
+<li>Monitor indexing progress in Page Indexing report</li>
+</ol>
+<p><strong>Mobile-specific issues</strong>: Some mobile browsers cache HTTP versions aggressively:</p>
+<ol>
+<li>Test mobile redirects on actual devices, not desktop simulators</li>
+<li>Verify mobile crawlers (Googlebot-Mobile) receive proper redirects</li>
+<li>Check Google Search Console&#39;s Mobile Usability report for HTTPS-specific issues</li>
+</ol>
+<p><strong>Cached HTTP versions</strong> persist in CDNs and browser caches:</p>
+<ol>
+<li>Purge CDN cache (Cloudflare, Fastly, etc.) after migration</li>
+<li>Update cache headers to shorter TTLs during migration period</li>
+<li>Test in incognito/private browsing to bypass local cache</li>
+</ol>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Understanding HTTP vs HTTPS Duplicate Content:</strong> When <a href="http://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com</a> and <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a> both resolve successfully, search engines crawl and potentially index both versions.</li>
+<li><strong>Auditing Your HTTP/HTTPS Duplicate Content:</strong> Before fixing duplicates, map the current state.</li>
+<li><strong>Installing and Configuring SSL Certificates:</strong> Before forcing HTTPS, ensure SSL certificates are properly installed and configured.</li>
+<li><strong>Implementing 301 Redirects from HTTP to HTTPS:</strong> Once SSL is installed, redirect all HTTP traffic to HTTPS using 301 permanent redirects.</li>
+<li><strong>Updating Internal Links to HTTPS:</strong> Even with redirects in place, internal links should point directly to HTTPS URLs.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>How long does HTTP to HTTPS migration take?</strong></p>
+<p>Technical implementation, installing SSL, configuring redirects, updating canonical tags, takes 2-4 hours for small sites, 1-2 days for large sites. Google typically reindexes and transfers rankings within 2-4 weeks. Monitor closely during this transition period.</p>
+<p><strong>Will migrating to HTTPS improve my rankings?</strong></p>
+<p>HTTPS is a minor ranking signal. You might see slight improvements (1-2 positions) on competitive queries, but don&#39;t expect dramatic ranking boosts. The primary benefits are security, user trust, and avoiding the ranking penalty HTTP sites face against HTTPS competitors.</p>
+<p><strong>Do I need to update my sitemap after migrating to HTTPS?</strong></p>
+<p>Yes. Regenerate your XML sitemap with all HTTPS URLs and submit the new sitemap to Google Search Console. Most CMS plugins (Yoast, Rank Math) regenerate sitemaps automatically when URLs change.</p>
+<p><strong>Can I migrate only part of my site to HTTPS?</strong></p>
+<p>No. Partial HTTPS creates security vulnerabilities and mixed content issues. Migrate your entire domain to HTTPS simultaneously. Modern best practices require full-site HTTPS implementation.</p>
+<p><strong>Will I lose my Google rankings during migration?</strong></p>
+<p>Properly implemented HTTP to HTTPS migrations rarely cause ranking losses. Expect minor fluctuations (1-3 positions) as Google reprocesses pages. Significant drops suggest implementation errors, missing redirects, incorrect canonical tags, or indexing issues.</p>
+<p><strong>How do I handle third-party content that only works over HTTP?</strong></p>
+<p>Contact providers for HTTPS versions. Most reputable services support HTTPS. If providers don&#39;t offer HTTPS, replace with HTTPS-compatible alternatives. Never compromise site-wide HTTPS for a single third-party embed.</p>
+<p><strong>Should I use 301 or 302 redirects from HTTP to HTTPS?</strong></p>
+<p>Always use 301 (permanent) redirects. 302 (temporary) redirects don&#39;t transfer full link equity and signal to Google that you might revert to HTTP, preventing complete signal transfer.</p>
+<p><strong>What&#39;s the difference between SSL and TLS?</strong></p>
+<p>TLS (Transport Layer Security) is the successor to SSL (Secure Sockets Layer). Modern &quot;SSL certificates&quot; use TLS protocol, but the term &quot;SSL&quot; persists colloquially. Both provide encryption, use whichever term your provider uses, but know they refer to the same security mechanism.</p>
+<p><strong>Do I need to migrate HTTP to HTTPS if I don&#39;t collect sensitive data?</strong></p>
+<p>Yes. Google Chrome and other browsers display &quot;Not Secure&quot; warnings on all HTTP sites, not those collecting passwords or credit cards. Users increasingly distrust HTTP sites, and Google&#39;s ranking preference for HTTPS applies universally.</p>
+<p><strong>Can I switch back to HTTP after migrating to HTTPS?</strong></p>
+<p>Technically yes, but practically inadvisable. Once you&#39;ve implemented HTTPS and especially if you&#39;ve submitted to HSTS preload, reverting causes massive ranking drops, broken links, and user trust issues. Treat HTTPS migration as permanent.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-duplicate-content-fast.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Duplicate Content Fast (Step-by-Step SEO Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Duplicate content fragments PageRank across multiple URLs, confuses Google about which version to index, and tanks your rankings. Learn how to audit duplicates with Screaming Frog, diagnose root causes, and fix them using canonicals, redirects, and noindex strategies.</p>
+          </a>
+
+          <a href="/articles/fix-duplicate-content-url-parameters.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Duplicate Content from URL Parameters (Ultimate Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">URL parameters from filters, sorting, tracking codes, and session IDs create infinite duplicate content variations that hemorrhage crawl budget and fragment PageRank. Learn how to diagnose parameter duplicates and fix them using canonicals, redirects, and robots.txt.</p>
+          </a>
+
+          <a href="/articles/fix-pagination-seo-issues.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Pagination SEO Issues: Complete Guide to Multi-Page Content Optimization</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Resolve pagination problems causing duplicate content, crawl waste, and ranking dilution. Learn rel=next/prev, canonicalization, and View All strategies.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

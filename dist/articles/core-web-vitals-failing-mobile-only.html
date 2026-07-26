@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes | Polytraffic</title>
+    <meta name="description" content="Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes | Polytraffic" />
+    <meta property="og:description" content="Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/core-web-vitals-failing-mobile-only" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/core-web-vitals-failing-mobile-only.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes | Polytraffic" />
+    <meta name="twitter:description" content="Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/core-web-vitals-failing-mobile-only.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/core-web-vitals-failing-mobile-only" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes",
+    "description": "Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/core-web-vitals-failing-mobile-only.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/core-web-vitals-failing-mobile-only.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/core-web-vitals-failing-mobile-only.png" alt="Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="core-web-vitals-failing-on-mobile-only-diagnosis-and-fixes">Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-mobile-fails-while-desktop-passes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Mobile Fails While Desktop Passes</a></li>
+<li><a href="#phase-1-reproduce-mobile-failures-in-lab-tests" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 1: Reproduce Mobile Failures in Lab Tests</a></li>
+<li><a href="#phase-2-diagnose-mobile-specific-lcp-failures" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 2: Diagnose Mobile-Specific LCP Failures</a></li>
+<li><a href="#phase-3-diagnose-mobile-specific-fid-inp-failures" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 3: Diagnose Mobile-Specific FID/INP Failures</a></li>
+<li><a href="#phase-4-diagnose-mobile-specific-cls-failures" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 4: Diagnose Mobile-Specific CLS Failures</a></li>
+<li><a href="#phase-5-test-on-real-mobile-devices" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 5: Test on Real Mobile Devices</a></li>
+<li><a href="#phase-6-monitor-mobile-field-data" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 6: Monitor Mobile Field Data</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Core Web Vitals</strong> often pass on desktop but catastrophically fail on mobile. <strong>LCP</strong> balloons from 2.1s to 6.8s, <strong>CLS</strong> jumps from 0.05 to 0.34, and <strong>FID</strong> spikes during JavaScript execution on slower CPUs. Mobile-specific failures stem from smaller viewports triggering different CSS rules, slower network connections amplifying latency, and underpowered processors choking on JavaScript that desktop chips handle effortlessly. This guide isolates mobile-only problems using <strong>Chrome DevTools</strong> throttling, field data from <strong>Chrome User Experience Report</strong>, and device-specific optimization strategies.</p>
+<h2 id="why-mobile-fails-while-desktop-passes">Why Mobile Fails While Desktop Passes</h2>
+<p><strong>Three failure vectors</strong> create the mobile-desktop performance gap:</p>
+<ol>
+<li><p><strong>Network constraints</strong>: 4G networks average 25 Mbps download with 100-300ms latency. Desktop broadband averages 100+ Mbps with &lt;20ms latency. Large resources that load quickly on desktop crawl on mobile.</p>
+</li>
+<li><p><strong>CPU limitations</strong>: A <strong>Snapdragon 8 Gen 2</strong> (high-end Android, 2023) benchmarks at ~30% the single-core speed of an <strong>M4 Pro</strong> (Mac). JavaScript parse and execution time triples on mobile. <strong>WebP</strong> decoding takes 4x longer.</p>
+</li>
+<li><p><strong>Viewport differences</strong>: Mobile CSS serves larger hero images relative to viewport, triggers different JavaScript interactions, and loads mobile-specific third-party scripts (app install banners, mobile ads).</p>
+</li>
+</ol>
+<h2 id="phase-1-reproduce-mobile-failures-in-lab-tests">Phase 1: Reproduce Mobile Failures in Lab Tests</h2>
+<p><strong>Google Search Console</strong> shows mobile failures, but diagnosing requires simulating mobile conditions.</p>
+<h3 id="throttle-network-and-cpu-in-chrome-devtools">Throttle Network and CPU in Chrome DevTools</h3>
+<ol>
+<li>Open <strong>Chrome DevTools</strong> → Performance tab</li>
+<li>Click the gear icon → set <strong>Network: Slow 4G</strong> and <strong>CPU: 4x slowdown</strong></li>
+<li>Record a page load</li>
+<li>Examine <strong>LCP</strong>, <strong>FID</strong>, and <strong>CLS</strong> markers</li>
+</ol>
+<p><strong>Slow 4G profile</strong>: 4 Mbps download, 3 Mbps upload, 400ms RTT latency
+<strong>4x CPU slowdown</strong>: Simulates mid-range Android devices (Snapdragon 6-series)</p>
+<h3 id="test-with-mobile-user-agent">Test with Mobile User-Agent</h3>
+<p>Desktop and mobile often serve different resources (responsive images, lazy loading thresholds).</p>
+<p><strong>Force mobile rendering:</strong></p>
+<ol>
+<li>DevTools → Network conditions → User agent → Select &quot;Chrome - Android&quot;</li>
+<li>DevTools → Device toolbar (Cmd+Shift+M) → Select &quot;Moto G Power&quot;</li>
+</ol>
+<p>Reload and compare resource loading. Check if mobile serves larger images or more aggressive lazy loading.</p>
+<h3 id="use-pagespeed-insights-mobile-vs-desktop-reports">Use PageSpeed Insights Mobile vs. Desktop Reports</h3>
+<p><strong>PageSpeed Insights</strong> runs separate <strong>Lighthouse</strong> tests for mobile and desktop, plus shows <strong>CrUX</strong> field data split by form factor.</p>
+<p><strong>Workflow:</strong></p>
+<ol>
+<li>Test URL in PageSpeed Insights</li>
+<li>Check &quot;Mobile&quot; report for failed metrics</li>
+<li>Switch to &quot;Desktop&quot; report and confirm metrics pass</li>
+<li>Compare &quot;Opportunities&quot; section for mobile-specific issues (image sizing, JavaScript execution)</li>
+</ol>
+<h2 id="phase-2-diagnose-mobile-specific-lcp-failures">Phase 2: Diagnose Mobile-Specific LCP Failures</h2>
+<p><strong>LCP</strong> failures on mobile stem from oversized hero images, slow server response on cellular networks, or render-blocking CSS that affects mobile layouts differently.</p>
+<h3 id="audit-mobile-hero-image-size">Audit Mobile Hero Image Size</h3>
+<p>Mobile viewports (375-414px wide) often load hero images sized for desktop (1920px+). <strong>Responsive images</strong> should serve smaller variants.</p>
+<p><strong>Check actual vs. rendered size:</strong></p>
+<pre><code class="language-bash"># Chrome DevTools → Elements → select hero image → check &quot;Rendered Size&quot; vs &quot;Intrinsic Size&quot;
+</code></pre>
+<p>If intrinsic size is 1920x1080 but rendered size is 375x211, you&#39;re wasting bandwidth.</p>
+<p><strong>Fix with responsive images:</strong></p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source media=&quot;(max-width: 480px)&quot; srcset=&quot;hero-mobile.webp 480w&quot;&gt;
+  &lt;source media=&quot;(max-width: 768px)&quot; srcset=&quot;hero-tablet.webp 768w&quot;&gt;
+  &lt;source srcset=&quot;hero-desktop.webp 1920w&quot;&gt;
+  &lt;img src=&quot;hero-desktop.jpg&quot; alt=&quot;Hero&quot; width=&quot;1920&quot; height=&quot;1080&quot; fetchpriority=&quot;high&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<p><strong>Mobile-specific optimization</strong>: Serve <strong>AVIF</strong> (50% smaller than WebP) for mobile only:</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source media=&quot;(max-width: 480px)&quot; srcset=&quot;hero-mobile.avif&quot; type=&quot;image/avif&quot;&gt;
+  &lt;source media=&quot;(max-width: 480px)&quot; srcset=&quot;hero-mobile.webp&quot; type=&quot;image/webp&quot;&gt;
+  &lt;img src=&quot;hero-mobile.jpg&quot; alt=&quot;Hero&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<h3 id="fix-ttfb-amplified-by-high-latency">Fix TTFB Amplified by High Latency</h3>
+<p><strong>Time to First Byte</strong> under 200ms on desktop can exceed 1.5s on mobile when latency adds 400ms per round trip.</p>
+<p><strong>Diagnose mobile TTFB:</strong></p>
+<pre><code class="language-bash"># Simulate 4G latency with curl
+curl -w &quot;TTFB: %{time_starttransfer}s\n&quot; -o /dev/null -s \
+  --limit-rate 500K \
+  https://yoursite.com
+</code></pre>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Deploy edge CDN with <strong>Cloudflare</strong> or <strong>Fastly</strong> (reduces latency to &lt;50ms globally)</li>
+<li>Enable <strong>Early Hints</strong> (103 status code) to preload critical resources while server generates HTML</li>
+<li>Implement <strong>edge-side includes (ESI)</strong> to cache static page shells at the CDN (see <a href="edge-caching-vs-origin-caching.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">edge caching guide</a>)</li>
+<li>Use <strong>HTTP/3</strong> (QUIC protocol), reduces connection overhead on high-latency networks</li>
+</ul>
+<p><strong>Enable Early Hints</strong> (Cloudflare example):</p>
+<pre><code class="language-php">// Send 103 Early Hints before full response
+header(&#39;Link: &lt;/style.css&gt;; rel=preload; as=style&#39;, false, 103);
+header(&#39;Link: &lt;/hero.webp&gt;; rel=preload; as=image&#39;, false, 103);
+</code></pre>
+<h3 id="fix-mobile-css-render-blocking">Fix Mobile CSS Render Blocking</h3>
+<p>Mobile CSS files often include unused rules for larger viewports, bloating parse time.</p>
+<p><strong>Audit CSS coverage:</strong></p>
+<pre><code class="language-bash"># Chrome DevTools → Coverage tab → reload page → filter by CSS → check mobile unused bytes
+</code></pre>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Split CSS by media query:</li>
+</ul>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;base.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;desktop.css&quot; media=&quot;(min-width: 768px)&quot;&gt;
+</code></pre>
+<ul>
+<li>Inline critical above-the-fold CSS for mobile viewport only</li>
+<li>Remove unused CSS with <strong>PurgeCSS</strong> targeting mobile breakpoints</li>
+</ul>
+<h2 id="phase-3-diagnose-mobile-specific-fid-inp-failures">Phase 3: Diagnose Mobile-Specific FID/INP Failures</h2>
+<p><strong>FID</strong> and <strong>INP</strong> fail on mobile when JavaScript execution monopolizes the slower CPU, blocking user interactions.</p>
+<h3 id="measure-javascript-execution-time-on-slow-cpus">Measure JavaScript Execution Time on Slow CPUs</h3>
+<p>Desktop CPUs parse and execute JavaScript 3-4x faster than mobile.</p>
+<p><strong>Simulate mobile CPU:</strong></p>
+<ol>
+<li>DevTools → Performance → CPU: 6x slowdown (low-end mobile)</li>
+<li>Record page load</li>
+<li>Check &quot;Scripting&quot; time in summary (should be &lt;20% of total time)</li>
+</ol>
+<p>If scripting exceeds 30%, JavaScript is too heavy for mobile.</p>
+<h3 id="identify-mobile-specific-scripts">Identify Mobile-Specific Scripts</h3>
+<p>Mobile sites often load unique scripts: app install banners, mobile ad networks, touch event polyfills.</p>
+<p><strong>Audit mobile-only scripts:</strong></p>
+<pre><code class="language-javascript">// Check if scripts load only on mobile user-agent
+if (/Mobile|Android/i.test(navigator.userAgent)) {
+  // Mobile-specific script loading
+}
+</code></pre>
+<p><strong>Common mobile script bloat:</strong></p>
+<ul>
+<li><strong>Google App Install Banner</strong> (150KB+ JavaScript)</li>
+<li><strong>Mobile ad networks</strong> (Criteo, AdMob). 200-400KB</li>
+<li><strong>Touch gesture libraries</strong> (Hammer.js), defer until first touch</li>
+</ul>
+<p><strong>Fix:</strong> Defer mobile scripts until after page load:</p>
+<pre><code class="language-html">&lt;script&gt;
+  window.addEventListener(&#39;load&#39;, () =&gt; {
+    if (/Mobile/i.test(navigator.userAgent)) {
+      const script = document.createElement(&#39;script&#39;);
+      script.src = &#39;mobile-only.js&#39;;
+      document.body.appendChild(script);
+    }
+  });
+&lt;/script&gt;
+</code></pre>
+<h3 id="optimize-touch-event-handlers">Optimize Touch Event Handlers</h3>
+<p><strong>Touch event listeners</strong> (<code>touchstart</code>, <code>touchmove</code>) on every element tank mobile interactivity.</p>
+<p><strong>Bad pattern:</strong></p>
+<pre><code class="language-javascript">// Attaching 50+ listeners
+document.querySelectorAll(&#39;.product&#39;).forEach(el =&gt; {
+  el.addEventListener(&#39;touchstart&#39;, handleTouch);
+});
+</code></pre>
+<p><strong>Fix with event delegation:</strong></p>
+<pre><code class="language-javascript">// Single listener on parent
+document.querySelector(&#39;.product-grid&#39;).addEventListener(&#39;touchstart&#39;, e =&gt; {
+  if (e.target.closest(&#39;.product&#39;)) {
+    handleTouch(e);
+  }
+});
+</code></pre>
+<h3 id="reduce-main-thread-work-during-scrolling">Reduce Main Thread Work During Scrolling</h3>
+<p><strong>Infinite scroll</strong>, <strong>parallax effects</strong>, and <strong>scroll animations</strong> cause jank on mobile.</p>
+<p><strong>Diagnose scroll performance:</strong></p>
+<ol>
+<li>DevTools → Performance → record while scrolling</li>
+<li>Check for long tasks (&gt;50ms) during scroll</li>
+</ol>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Use <strong>Intersection Observer</strong> instead of scroll listeners:</li>
+</ul>
+<pre><code class="language-javascript">const observer = new IntersectionObserver(entries =&gt; {
+  entries.forEach(entry =&gt; {
+    if (entry.isIntersecting) {
+      loadMoreContent();
+    }
+  });
+});
+observer.observe(document.querySelector(&#39;.scroll-trigger&#39;));
+</code></pre>
+<ul>
+<li>Offload animations to CSS <code>transform</code> and <code>opacity</code> (GPU-accelerated):</li>
+</ul>
+<pre><code class="language-css">.parallax {
+  will-change: transform;
+  transform: translateZ(0); /* force GPU layer */
+}
+</code></pre>
+<h2 id="phase-4-diagnose-mobile-specific-cls-failures">Phase 4: Diagnose Mobile-Specific CLS Failures</h2>
+<p><strong>CLS</strong> on mobile often stems from font swaps affecting smaller text, ads pushing content on narrow viewports, or images loading without mobile-optimized dimensions.</p>
+<h3 id="fix-font-swaps-on-mobile">Fix Font Swaps on Mobile</h3>
+<p>Mobile networks delay font loading, causing <strong>FOUT (Flash of Unstyled Text)</strong> longer than desktop.</p>
+<p><strong>Measure font loading:</strong></p>
+<pre><code class="language-javascript">document.fonts.ready.then(() =&gt; {
+  console.log(&#39;Fonts loaded:&#39;, performance.now());
+});
+</code></pre>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Preload mobile-critical fonts:</li>
+</ul>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;mobile-font.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+</code></pre>
+<ul>
+<li>Use <code>font-display: optional</code> on mobile (hides custom font if it doesn&#39;t load fast enough):</li>
+</ul>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;CustomFont&#39;;
+  src: url(&#39;font.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: optional; /* mobile-first strategy */
+}
+
+@media (min-width: 768px) {
+  @font-face {
+    font-family: &#39;CustomFont&#39;;
+    font-display: swap; /* desktop can afford swap delay */
+  }
+}
+</code></pre>
+<h3 id="fix-mobile-ad-layout-shifts">Fix Mobile Ad Layout Shifts</h3>
+<p><strong>Google AdSense</strong> and mobile ad networks inject variable-height ads without reserved space.</p>
+<p><strong>Fix:</strong> Reserve space with mobile-specific min-height:</p>
+<pre><code class="language-css">.ad-container {
+  min-height: 250px; /* common mobile banner size */
+}
+
+@media (min-width: 768px) {
+  .ad-container {
+    min-height: 90px; /* desktop leaderboard */
+  }
+}
+</code></pre>
+<p><strong>Better:</strong> Use <strong>aspect-ratio</strong> for responsive ad slots:</p>
+<pre><code class="language-css">.ad-container {
+  aspect-ratio: 320 / 50; /* mobile banner ratio */
+  width: 100%;
+}
+</code></pre>
+<h3 id="fix-image-dimensions-on-mobile">Fix Image Dimensions on Mobile</h3>
+<p>Responsive images without explicit <code>width</code> and <code>height</code> cause shifts when dimensions change between breakpoints.</p>
+<p><strong>Incorrect approach:</strong></p>
+<pre><code class="language-html">&lt;img src=&quot;photo.jpg&quot; alt=&quot;Photo&quot;&gt; &lt;!-- no dimensions --&gt;
+</code></pre>
+<p><strong>Correct approach:</strong></p>
+<pre><code class="language-html">&lt;img src=&quot;photo.jpg&quot; width=&quot;800&quot; height=&quot;600&quot; alt=&quot;Photo&quot;&gt;
+&lt;style&gt;
+  img {
+    width: 100%;
+    height: auto; /* maintains aspect ratio */
+  }
+&lt;/style&gt;
+</code></pre>
+<p>Modern browsers calculate aspect ratio from <code>width</code> and <code>height</code>, then apply CSS responsively without layout shifts.</p>
+<h2 id="phase-5-test-on-real-mobile-devices">Phase 5: Test on Real Mobile Devices</h2>
+<p><strong>Lab tests</strong> with throttling approximate mobile performance but miss device-specific quirks (Safari on iOS behaves differently than Chrome on Android).</p>
+<h3 id="test-on-low-end-android-devices">Test on Low-End Android Devices</h3>
+<p><strong>Google Search Console</strong> field data skews toward mid-range and low-end devices, which dominate global traffic.</p>
+<p><strong>Target test devices:</strong></p>
+<ul>
+<li><strong>Moto G Power</strong> (Snapdragon 662, 2021), common US budget device</li>
+<li><strong>Samsung Galaxy A series</strong> (Snapdragon 4/6-series), global volume leader</li>
+<li><strong>Xiaomi Redmi</strong> (MediaTek Helio), emerging markets</li>
+</ul>
+<p><strong>Remote testing tools:</strong></p>
+<ul>
+<li><strong>BrowserStack</strong> (real device cloud, $39/month)</li>
+<li><strong>Sauce Labs</strong> (automated mobile testing)</li>
+<li><strong>Google Firebase Test Lab</strong> (Android-only, free tier available)</li>
+</ul>
+<h3 id="test-on-ios-safari">Test on iOS Safari</h3>
+<p><strong>Safari</strong> handles responsive images, font rendering, and JavaScript differently than Chrome.</p>
+<p><strong>Key differences:</strong></p>
+<ul>
+<li><strong>Safari</strong> doesn&#39;t support AVIF (use WebP fallback)</li>
+<li><strong>Safari</strong> throttles background tabs aggressively (defer analytics)</li>
+<li><strong>Safari</strong> has stricter third-party cookie policies (affects ad scripts)</li>
+</ul>
+<p><strong>Test on iPhone SE</strong> (small viewport, A15 chip) and <strong>iPhone 15 Pro</strong> (large viewport, A17 chip).</p>
+<h2 id="phase-6-monitor-mobile-field-data">Phase 6: Monitor Mobile Field Data</h2>
+<p><strong>Lab tests</strong> provide diagnostics, but <strong>field data</strong> from real users determines <strong>Google Search Console</strong> scoring.</p>
+<h3 id="split-crux-data-by-form-factor">Split CrUX Data by Form Factor</h3>
+<p><strong>Chrome User Experience Report API</strong> shows mobile vs. desktop performance separately.</p>
+<p><strong>Query mobile field data:</strong></p>
+<pre><code class="language-bash">curl &quot;https://chromeuxreport.googleapis.com/v1/records:queryRecord?key=YOUR_API_KEY&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{
+    &quot;url&quot;: &quot;https://yoursite.com&quot;,
+    &quot;formFactor&quot;: &quot;PHONE&quot;
+  }&#39;
+</code></pre>
+<p>Response includes LCP, FID, CLS histograms for mobile traffic.</p>
+<h3 id="deploy-mobile-specific-rum">Deploy Mobile-Specific RUM</h3>
+<p><strong>Real User Monitoring</strong> captures device type, network speed, and metric breakdown.</p>
+<p><strong>Cloudflare Web Analytics</strong> example:</p>
+<pre><code class="language-javascript">// Track Core Web Vitals split by connection type
+import {getLCP, getFID, getCLS} from &#39;web-vitals&#39;;
+
+function sendToAnalytics(metric) {
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const effectiveType = connection?.effectiveType || &#39;unknown&#39;;
+
+  gtag(&#39;event&#39;, metric.name, {
+    value: Math.round(metric.value),
+    dimension1: effectiveType, // &#39;4g&#39;, &#39;3g&#39;, &#39;slow-2g&#39;
+  });
+}
+
+getLCP(sendToAnalytics);
+getFID(sendToAnalytics);
+getCLS(sendToAnalytics);
+</code></pre>
+<p>Filter reports by <code>effectiveType: &#39;4g&#39;</code> to isolate mobile network performance.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Phase 2: Diagnose Mobile-Specific LCP Failures:</strong> Mobile viewports (375-414px wide) often load hero images sized for desktop (1920px+).</li>
+<li><strong>Phase 3: Diagnose Mobile-Specific FID/INP Failures:</strong> Desktop CPUs parse and execute JavaScript 3-4x faster than mobile.</li>
+<li><strong>Phase 4: Diagnose Mobile-Specific CLS Failures:</strong> Mobile networks delay font loading, causing FOUT (Flash of Unstyled Text) longer than desktop.</li>
+<li><strong>Phase 5: Test on Real Mobile Devices:</strong> Response includes LCP, FID, CLS histograms for mobile traffic.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="why-do-mobile-core-web-vitals-fail-in-search-console-but-pass-in-pagespeed-insights-mobile-test">Why do mobile Core Web Vitals fail in Search Console but pass in PageSpeed Insights mobile test?</h3>
+<p><strong>PageSpeed Insights</strong> runs <strong>Lighthouse</strong> on a simulated <strong>Moto G Power</strong> with throttled 4G network. <strong>Search Console</strong> aggregates field data from all real mobile users, including low-end devices on 3G networks in regions with poor connectivity. Field data reflects worst-case scenarios. Test with 6x CPU slowdown and Slow 3G network in DevTools to match field conditions.</p>
+<h3 id="should-i-use-a-separate-mobile-subdomain-m-example-com-to-optimize-differently">Should I use a separate mobile subdomain (m.example.com) to optimize differently?</h3>
+<p>No. <strong>Separate mobile sites</strong> create duplicate content issues and split ranking signals. Use <strong>responsive design</strong> with mobile-first CSS and conditional resource loading. Serve optimized assets based on viewport size and <code>User-Agent</code>, but keep URLs unified. Use <a href="dynamic-rendering-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">dynamic rendering</a> if JavaScript frameworks cause mobile performance issues.</p>
+<h3 id="how-much-does-amp-improve-mobile-core-web-vitals">How much does AMP improve mobile Core Web Vitals?</h3>
+<p><strong>AMP (Accelerated Mobile Pages)</strong> can improve LCP by 30-50% through strict performance budgets and aggressive caching. However, <strong>AMP</strong> restricts JavaScript, requires separate URLs, and limits design flexibility. Modern mobile optimization (responsive images, edge CDN, code splitting) achieves similar results without AMP constraints. <strong>Google</strong> no longer prioritizes AMP in search results.</p>
+<h3 id="do-mobile-specific-wordpress-plugins-hurt-core-web-vitals">Do mobile-specific WordPress plugins hurt Core Web Vitals?</h3>
+<p>Yes. <strong>Mobile-only plugins</strong> (app banners, mobile redirects, separate mobile themes) typically inject additional JavaScript and CSS. Audit plugins with <strong>Query Monitor</strong> or <strong>P3 Plugin Profiler</strong>. Remove mobile-specific plugins and handle responsiveness through theme CSS. See <a href="database-query-optimization-wordpress.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WordPress database optimization</a> for performance tuning.</p>
+<h3 id="can-i-fix-mobile-core-web-vitals-without-affecting-desktop-performance">Can I fix mobile Core Web Vitals without affecting desktop performance?</h3>
+<p>Yes. Use <strong>media queries</strong> to load mobile-specific optimizations:</p>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;mobile-optimized.css&quot; media=&quot;(max-width: 768px)&quot;&gt;
+&lt;script&gt;
+  if (window.innerWidth &lt;= 768) {
+    // Mobile-specific JavaScript
+  }
+&lt;/script&gt;
+</code></pre>
+<p>Also use <a href="create-xml-sitemap-large-site.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">responsive sitemaps</a> and <a href="dynamic-canonical-tags-faceted-navigation.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">faceted navigation canonicals</a> to avoid desktop resource bloat on mobile.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/field-data-vs-lab-data-core-web-vitals.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank?</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Decode field vs lab CWV data. Learn why PageSpeed Insights and Search Console disagree, which metrics Google uses for rankings, and how to fix both.</p>
+          </a>
+
+          <a href="/articles/core-algorithm-update-recovery.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Core Algorithm Update Recovery: Diagnose and Fix Traffic Loss</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Systematic framework to diagnose core update penalties, identify impacted pages, fix quality issues, and recover rankings within 60-90 days.</p>
+          </a>
+
+          <a href="/articles/edge-seo-cdn-level-fixes.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement SEO fixes at CDN edge layer. Add redirects, headers, canonical tags, and structured data via Cloudflare Workers without modifying origin code.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

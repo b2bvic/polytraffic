@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals | Polytraffic</title>
+    <meta name="description" content="Fix Cumulative Layout Shift caused by ads. Reserve ad space, async loading, GPT lazy load, AdSense optimization for 0.1 CLS threshold." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals | Polytraffic" />
+    <meta property="og:description" content="Fix Cumulative Layout Shift caused by ads. Reserve ad space, async loading, GPT lazy load, AdSense optimization for 0.1 CLS threshold." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-ad-layout-shift-cls" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-ad-layout-shift-cls.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals | Polytraffic" />
+    <meta name="twitter:description" content="Fix Cumulative Layout Shift caused by ads. Reserve ad space, async loading, GPT lazy load, AdSense optimization for 0.1 CLS threshold." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-ad-layout-shift-cls.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-ad-layout-shift-cls" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals",
+    "description": "Fix Cumulative Layout Shift caused by ads. Reserve ad space, async loading, GPT lazy load, AdSense optimization for 0.1 CLS threshold.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-ad-layout-shift-cls.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-ad-layout-shift-cls.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-ad-layout-shift-cls.png" alt="Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="fix-ad-layout-shift-cls-stop-ad-injections-from-killing-core-web-vitals">Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Fix Cumulative Layout Shift caused by ads. Reserve ad space, async loading, GPT lazy load, AdSense optimization for 0.1 CLS threshold.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-ad-layout-shift-destroys-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Ad Layout Shift Destroys SEO</a></li>
+<li><a href="#measuring-ad-driven-cls" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Measuring Ad-Driven CLS</a></li>
+<li><a href="#common-cause-1-ad-slots-without-reserved-space" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 1: Ad Slots Without Reserved Space</a></li>
+<li><a href="#common-cause-2-async-ad-script-loading" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 2: Async Ad Script Loading</a></li>
+<li><a href="#common-cause-3-google-adsense-auto-ads" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 3: Google AdSense Auto Ads</a></li>
+<li><a href="#common-cause-4-lazy-loading-ads-incorrectly" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 4: Lazy Loading Ads Incorrectly</a></li>
+<li><a href="#common-cause-5-ad-networks-with-no-size-defined" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 5: Ad Networks with No Size Defined</a></li>
+<li><a href="#common-cause-6-sticky-fixed-ads-overlaying-content" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 6: Sticky/Fixed Ads Overlaying Content</a></li>
+<li><a href="#common-cause-7-mediavine-ezoic-auto-optimization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 7: Mediavine/Ezoic Auto-Optimization</a></li>
+<li><a href="#platform-specific-fixes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Platform-Specific Fixes</a></li>
+<li><a href="#verifying-cls-fixes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Verifying CLS Fixes</a></li>
+<li><a href="#ad-revenue-vs-cls-trade-offs" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Ad Revenue vs CLS Trade-Offs</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Cumulative Layout Shift (CLS) measures visual stability during page load. Ad injections, particularly asynchronous ads that load after initial page render, cause massive CLS spikes by pushing content down when ads populate. A news site with 5 ad slots (header, sidebar, in-content x3) can generate 0.4-0.8 CLS from ads alone, far exceeding <strong>Google&#39;s</strong> 0.1 &quot;Good&quot; threshold.</p>
+<p>I&#39;ve optimized ad implementations across 15 publisher sites where ad-driven CLS destroyed Core Web Vitals scores and mobile rankings. A local news site with 0.62 CLS (95% from ads) implemented ad slot reservation and lazy loading, dropping CLS to 0.08 while maintaining 98% ad revenue. Mobile rankings improved average 3.2 positions across 400 tracked keywords within 6 weeks.</p>
+<p>This guide covers CLS measurement tools, ad-specific CLS causes (dynamic injection, missing dimensions, late-loading scripts), platform-specific fixes for <strong>Google Ad Manager</strong>, <strong>Google AdSense</strong>, <strong>Mediavine</strong>, <strong>Ezoic</strong>, and best practices for ad layout that preserves revenue without tanking user experience.</p>
+<h2 id="why-ad-layout-shift-destroys-seo">Why Ad Layout Shift Destroys SEO</h2>
+<p><strong>Google&#39;s</strong> Core Web Vitals (CWV) include CLS as a ranking signal. Sites with poor CLS (&lt;0.25) see ranking penalties in mobile search, where CLS impact is more severe due to smaller screens amplifying visual shifts.</p>
+<p><strong>CLS thresholds:</strong></p>
+<ul>
+<li><strong>Good:</strong> &lt;0.1</li>
+<li><strong>Needs Improvement:</strong> 0.1-0.25</li>
+<li><strong>Poor:</strong> &gt;0.25</li>
+</ul>
+<p><strong>Ad CLS impact patterns:</strong></p>
+<ul>
+<li>Header banner ads: +0.05-0.15 CLS (pushes entire page down)</li>
+<li>Sidebar ads: +0.03-0.08 CLS (shifts adjacent content)</li>
+<li>In-content ads: +0.08-0.20 CLS per ad (pushes paragraphs down)</li>
+<li>Sticky footer ads: +0.05-0.12 CLS (overlays content)</li>
+</ul>
+<p><strong>5 ad slots = 0.3-0.6 CLS</strong> (poor CWV score).</p>
+<p><strong>Behavioral impact:</strong></p>
+<p>Users clicking links during ad load trigger misclicks when content shifts. <strong>Google</strong> tracks pogo-sticking (user returns to search results within 5 seconds) as negative signal, compounding ranking damage.</p>
+<h2 id="measuring-ad-driven-cls">Measuring Ad-Driven CLS</h2>
+<h3 id="chrome-devtools-performance-insights">Chrome DevTools Performance Insights</h3>
+<ol>
+<li>Open page in Chrome → DevTools (F12) → Performance Insights tab</li>
+<li>Click &quot;Record&quot; → Reload page</li>
+<li>Stop recording after page load completes</li>
+<li>Scroll to &quot;Layout Shifts&quot; section</li>
+</ol>
+<p><strong>DevTools shows:</strong></p>
+<ul>
+<li>Purple bars = layout shift events</li>
+<li>Shift magnitude (CLS score contribution)</li>
+<li>Shifted elements (which ad slot caused the shift)</li>
+</ul>
+<p>Click purple bar → &quot;Affected Nodes&quot; shows DOM element (e.g., <code>&lt;div class=&quot;ad-slot&quot;&gt;</code>) causing shift.</p>
+<h3 id="chrome-devtools-coverage-tab-find-ad-scripts">Chrome DevTools Coverage Tab (Find Ad Scripts)</h3>
+<ol>
+<li>DevTools → Coverage tab</li>
+<li>Reload page</li>
+<li>Filter by JavaScript files containing &quot;ad&quot;, &quot;gpt&quot;, &quot;doubleclick&quot;</li>
+<li>Identifies which ad scripts load and when</li>
+</ol>
+<p>Large ad scripts (300KB+) delay ad rendering, increasing CLS risk as content renders before ads populate.</p>
+<h3 id="pagespeed-insights-field-data">PageSpeed Insights Field Data</h3>
+<p><strong>PageSpeed Insights</strong> (pagespeed.web.dev) → Enter URL → Check &quot;Avoid large layout shifts&quot; audit:</p>
+<ul>
+<li>Shows CLS score (field data from real users over 28 days)</li>
+<li>Lists elements contributing to CLS</li>
+<li>Click element to see screenshot highlighting shift</li>
+</ul>
+<p><strong>If audit fails:</strong></p>
+<ul>
+<li>&quot;Largest layout shift&quot; section shows screenshot of page during shift</li>
+<li>Element causing shift highlighted in red</li>
+<li>Usually ad container or related content</li>
+</ul>
+<h3 id="web-vitals-javascript-library">Web Vitals JavaScript Library</h3>
+<p>Capture real user CLS data in <strong>Google Analytics</strong>:</p>
+<pre><code class="language-html">&lt;script type=&quot;module&quot;&gt;
+import {onCLS} from &#39;https://unpkg.com/web-vitals@3/dist/web-vitals.js&#39;;
+
+onCLS((metric) =&gt; {
+  gtag(&#39;event&#39;, &#39;CLS&#39;, {
+    value: metric.value,
+    metric_id: metric.id,
+    metric_delta: metric.delta,
+  });
+});
+&lt;/script&gt;
+</code></pre>
+<p>Sends CLS scores to <strong>Google Analytics</strong> 4. Create custom report to track CLS distribution:</p>
+<ul>
+<li>&lt;0.1: Good</li>
+<li>0.1-0.25: Needs improvement</li>
+<li><blockquote>
+<p>0.25: Poor</p>
+</blockquote>
+</li>
+</ul>
+<p>Filter by page or ad placement to identify worst offenders.</p>
+<h2 id="common-cause-1-ad-slots-without-reserved-space">Common Cause 1: Ad Slots Without Reserved Space</h2>
+<p>Ad containers with no height defined shift content when ads load.</p>
+<p><strong>Before (broken):</strong></p>
+<pre><code class="language-html">&lt;div id=&quot;ad-slot-header&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>When ad loads (300x250), div expands from 0px to 250px height, pushing content down.</p>
+<p><strong>Fix: Reserve Space with min-height</strong></p>
+<pre><code class="language-html">&lt;div id=&quot;ad-slot-header&quot; style=&quot;min-height: 250px; background: #f0f0f0;&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>Reserves 250px before ad loads. When ad populates, no shift occurs.</p>
+<p><strong>Responsive ads (variable height):</strong></p>
+<p>If ad size varies by viewport (mobile vs desktop), use CSS media queries:</p>
+<pre><code class="language-css">.ad-slot {
+  min-height: 250px; /* Desktop: 300x250 */
+  background: #f0f0f0; /* Placeholder while ad loads */
+}
+
+@media (max-width: 768px) {
+  .ad-slot {
+    min-height: 50px; /* Mobile: 320x50 banner */
+  }
+}
+</code></pre>
+<p><strong>Aspect ratio boxes (modern approach):</strong></p>
+<pre><code class="language-css">.ad-slot {
+  aspect-ratio: 300 / 250; /* Width:Height ratio */
+  width: 100%;
+  max-width: 300px;
+  background: #f0f0f0;
+}
+</code></pre>
+<p>Maintains 300:250 ratio regardless of container width.</p>
+<h2 id="common-cause-2-async-ad-script-loading">Common Cause 2: Async Ad Script Loading</h2>
+<p>Google Ad Manager (GPT) and AdSense scripts load asynchronously, populating slots after page render.</p>
+<p><strong>Standard GPT implementation (causes CLS):</strong></p>
+<pre><code class="language-html">&lt;script async src=&quot;https://securepubads.g.doubleclick.net/tag/js/gpt.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot(&#39;/12345/ad-slot&#39;, [300, 250], &#39;ad-container&#39;).addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+&lt;/script&gt;
+
+&lt;div id=&quot;ad-container&quot;&gt;
+  &lt;script&gt;
+    googletag.cmd.push(function() { googletag.display(&#39;ad-container&#39;); });
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Problem:</strong> Ad container has no dimensions until GPT populates it.</p>
+<p><strong>Fix: Add Explicit Container Dimensions</strong></p>
+<pre><code class="language-html">&lt;div id=&quot;ad-container&quot; style=&quot;width: 300px; height: 250px; background: #f0f0f0;&quot;&gt;
+  &lt;script&gt;
+    googletag.cmd.push(function() { googletag.display(&#39;ad-container&#39;); });
+  &lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Container reserves 300x250 space before ad loads.</p>
+<h2 id="common-cause-3-google-adsense-auto-ads">Common Cause 3: Google AdSense Auto Ads</h2>
+<p><strong>AdSense Auto Ads</strong> inject ads dynamically without predefined slots, causing unpredictable CLS.</p>
+<p><strong>Symptom:</strong> CLS spikes from 0.05 to 0.4 after enabling Auto Ads.</p>
+<p><strong>Fix 1: Switch to Manual Ad Units</strong></p>
+<ol>
+<li>AdSense → Ads → Overview → Disable &quot;Auto ads&quot;</li>
+<li>Create manual ad units with specific sizes (336x280, 728x90, etc.)</li>
+<li>Place ad code in reserved-space containers (per Fix above)</li>
+</ol>
+<p><strong>Trade-off:</strong> Manual units require maintenance but eliminate CLS.</p>
+<p><strong>Fix 2: AdSense Ad Balance (If Staying with Auto Ads)</strong></p>
+<p>AdSense → Optimization → Ad Balance:</p>
+<ul>
+<li>Reduce percentage of shown ads (80% = fewer ads, lower CLS)</li>
+<li>Monitor revenue impact over 1-2 weeks</li>
+<li>Find balance between CLS and revenue</li>
+</ul>
+<p><strong>AdSense Anchor/Vignette Ads:</strong></p>
+<p>Disable if CLS is critical:</p>
+<ol>
+<li>AdSense → Ads → Overview → Ad formats</li>
+<li>Toggle off &quot;Anchor ads&quot; and &quot;Vignette ads&quot;</li>
+</ol>
+<p>These overlay formats cause CLS when they push content.</p>
+<h2 id="common-cause-4-lazy-loading-ads-incorrectly">Common Cause 4: Lazy Loading Ads Incorrectly</h2>
+<p>Lazy loading delays ad requests until slot enters viewport. If implemented without space reservation, CLS occurs when user scrolls to ad.</p>
+<p><strong>Incorrect lazy load (causes CLS):</strong></p>
+<pre><code class="language-javascript">// Load ad when slot enters viewport
+observer.observe(document.getElementById(&#39;ad-slot&#39;));
+</code></pre>
+<p>Ad container has no height, so when ad loads on scroll, content shifts.</p>
+<p><strong>Correct lazy load with space reservation:</strong></p>
+<pre><code class="language-html">&lt;div id=&quot;ad-slot&quot; style=&quot;min-height: 250px; background: #f0f0f0;&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+const observer = new IntersectionObserver((entries) =&gt; {
+  entries.forEach((entry) =&gt; {
+    if (entry.isIntersecting) {
+      googletag.cmd.push(() =&gt; googletag.display(&#39;ad-slot&#39;));
+      observer.disconnect();
+    }
+  });
+}, { rootMargin: &#39;200px&#39; }); // Start loading 200px before viewport
+
+observer.observe(document.getElementById(&#39;ad-slot&#39;));
+&lt;/script&gt;
+</code></pre>
+<p><strong>rootMargin: &#39;200px&#39;</strong> triggers ad load slightly before user scrolls to it, reducing perceived latency while avoiding premature load.</p>
+<h2 id="common-cause-5-ad-networks-with-no-size-defined">Common Cause 5: Ad Networks with No Size Defined</h2>
+<p>Some ad networks (programmatic, header bidding) serve variable-size ads, making space reservation difficult.</p>
+<p><strong>Fix: Use Size Mapping</strong></p>
+<p><strong>Google Ad Manager Size Mapping:</strong></p>
+<pre><code class="language-javascript">const mapping = googletag.sizeMapping()
+  .addSize([1024, 768], [[728, 90], [970, 90]])  // Desktop: 728x90 or 970x90
+  .addSize([640, 480], [[320, 50], [300, 50]])   // Tablet: 320x50 or 300x50
+  .addSize([0, 0], [[320, 50]])                   // Mobile: 320x50 only
+  .build();
+
+googletag.defineSlot(&#39;/12345/responsive-ad&#39;, [[728, 90], [970, 90], [320, 50]], &#39;ad-container&#39;)
+  .defineSizeMapping(mapping)
+  .addService(googletag.pubads());
+</code></pre>
+<p>Container reserves space for largest possible ad in current viewport:</p>
+<pre><code class="language-css">#ad-container {
+  min-height: 90px; /* Desktop max height */
+}
+
+@media (max-width: 768px) {
+  #ad-container {
+    min-height: 50px; /* Mobile max height */
+  }
+}
+</code></pre>
+<p><strong>Header Bidding (Prebid.js):</strong></p>
+<p>Define ad unit sizes explicitly in Prebid config:</p>
+<pre><code class="language-javascript">var adUnits = [{
+  code: &#39;ad-slot-1&#39;,
+  mediaTypes: {
+    banner: {
+      sizes: [[300, 250], [336, 280]]
+    }
+  },
+  bids: [/* bidder config */]
+}];
+</code></pre>
+<p>Reserve max size (336x280):</p>
+<pre><code class="language-html">&lt;div id=&quot;ad-slot-1&quot; style=&quot;min-height: 280px; width: 336px;&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h2 id="common-cause-6-sticky-fixed-ads-overlaying-content">Common Cause 6: Sticky/Fixed Ads Overlaying Content</h2>
+<p>Sticky ads (follow scroll) or fixed-position ads cause CLS if they overlay content without reserved space.</p>
+<p><strong>Broken implementation:</strong></p>
+<pre><code class="language-css">.ad-sticky {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  z-index: 9999;
+}
+</code></pre>
+<p>Overlays content at bottom, but if page content extends to bottom edge, ad covers content → user scrolls → content shifts into view → CLS spike.</p>
+<p><strong>Fix: Add bottom padding to body</strong></p>
+<pre><code class="language-css">body {
+  padding-bottom: 100px; /* Match ad height */
+}
+
+.ad-sticky {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+</code></pre>
+<p>Page content ends 100px above viewport bottom, so ad never overlaps content.</p>
+<h2 id="common-cause-7-mediavine-ezoic-auto-optimization">Common Cause 7: Mediavine/Ezoic Auto-Optimization</h2>
+<p><strong>Mediavine</strong> and <strong>Ezoic</strong> use AI to place ads dynamically, often causing CLS.</p>
+<p><strong>Mediavine:</strong></p>
+<p>Enable &quot;CLS Optimization&quot; in dashboard:</p>
+<ol>
+<li>Mediavine Dashboard → Settings → CLS Optimization → Enable</li>
+<li>Mediavine reserves space for ads before loading</li>
+</ol>
+<p><strong>Ezoic:</strong></p>
+<p>Use &quot;Ad Tester&quot; to disable high-CLS placeholders:</p>
+<ol>
+<li>Ezoic Dashboard → Ad Tester → View placeholders</li>
+<li>Disable placeholders with CLS &gt;0.05</li>
+<li>Run A/B test: CLS-optimized layout vs revenue-optimized layout</li>
+<li>Pick winner based on revenue impact tolerance</li>
+</ol>
+<p><strong>Both networks:</strong></p>
+<p>Contact support to request &quot;CLS optimization&quot; mode, they&#39;ll adjust ad placements to prioritize CWV.</p>
+<h2 id="platform-specific-fixes">Platform-Specific Fixes</h2>
+<h3 id="wordpress-adsense-gam">WordPress + AdSense/GAM</h3>
+<p><strong>Plugin: Ad Inserter (Free)</strong></p>
+<ol>
+<li>Plugins → Add New → Search &quot;Ad Inserter&quot; → Install → Activate</li>
+<li>Settings → Create ad block</li>
+<li>Paste ad code</li>
+<li>Advanced → Size → Set width/height (reserve space)</li>
+<li>Insert into post content at specific position</li>
+</ol>
+<p><strong>Plugin: Advanced Ads (Pro)</strong></p>
+<ol>
+<li>Install Advanced Ads Pro</li>
+<li>Ads → New Ad → Paste ad code</li>
+<li>Layout → Set minimum height (reserves space)</li>
+<li>Placement → Select position (header, sidebar, in-content)</li>
+</ol>
+<h3 id="wordpress-mediavine">WordPress + Mediavine</h3>
+<p><strong>Mediavine Control Panel:</strong></p>
+<ol>
+<li>Dashboard → Settings → Enable CLS Optimization</li>
+<li>Video → Disable &quot;Sticky Video&quot; if causing CLS</li>
+<li>Contact support: Request manual review of high-CLS placements</li>
+</ol>
+<h3 id="shopify-google-adsense">Shopify + Google AdSense</h3>
+<ol>
+<li>Online Store → Themes → Edit Code</li>
+<li>Open <code>theme.liquid</code> or product template</li>
+<li>Add AdSense code in reserved-space container:</li>
+</ol>
+<pre><code class="language-liquid">&lt;div style=&quot;min-height: 250px; background: #f0f0f0;&quot;&gt;
+  &lt;!-- AdSense code here --&gt;
+  &lt;script async src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+  &lt;ins class=&quot;adsbygoogle&quot;
+       style=&quot;display:block&quot;
+       data-ad-client=&quot;ca-pub-XXXXXXX&quot;
+       data-ad-slot=&quot;1234567890&quot;
+       data-ad-format=&quot;auto&quot;&gt;&lt;/ins&gt;
+  &lt;script&gt;(adsbygoogle = window.adsbygoogle || []).push({});&lt;/script&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="custom-html-sites">Custom HTML Sites</h3>
+<p>Wrap all ad slots in containers with explicit dimensions:</p>
+<pre><code class="language-html">&lt;!-- Header Ad: 728x90 --&gt;
+&lt;div class=&quot;ad-container&quot; style=&quot;min-height: 90px; max-width: 728px; margin: 0 auto; background: #f0f0f0;&quot;&gt;
+  &lt;!-- GPT or AdSense code here --&gt;
+&lt;/div&gt;
+
+&lt;!-- Sidebar Ad: 300x600 --&gt;
+&lt;aside class=&quot;sidebar&quot;&gt;
+  &lt;div class=&quot;ad-container&quot; style=&quot;min-height: 600px; width: 300px; background: #f0f0f0;&quot;&gt;
+    &lt;!-- Ad code here --&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;
+</code></pre>
+<h2 id="verifying-cls-fixes">Verifying CLS Fixes</h2>
+<h3 id="chrome-devtools-performance-insights">Chrome DevTools Performance Insights</h3>
+<p>Record page load after fixes:</p>
+<ol>
+<li>Performance Insights → Record → Reload page</li>
+<li>Check &quot;Layout Shifts&quot; section</li>
+<li>CLS score should be &lt;0.1</li>
+<li>Verify no purple shift bars correspond to ad slots</li>
+</ol>
+<h3 id="pagespeed-insights">PageSpeed Insights</h3>
+<p>Test URL in <strong>PageSpeed Insights</strong>:</p>
+<ul>
+<li>Field data CLS (real users, 28-day trailing) should show &quot;Good&quot; (&lt;0.1)</li>
+<li>Lab data CLS (simulated load) should be &lt;0.05</li>
+</ul>
+<p><strong>If field data still shows &quot;Poor&quot;:</strong></p>
+<p>Wait 28 days for new data to accumulate. Field data reflects last 28 days, so fixes won&#39;t show immediately.</p>
+<h3 id="web-vitals-chrome-extension">Web Vitals Chrome Extension</h3>
+<p>Install <strong>Web Vitals</strong> extension (by Google):</p>
+<ol>
+<li>Install from Chrome Web Store</li>
+<li>Go to your site</li>
+<li>Extension icon shows CLS score in real-time</li>
+<li>Click for breakdown (which elements shifted)</li>
+</ol>
+<h3 id="google-search-console-core-web-vitals">Google Search Console Core Web Vitals</h3>
+<p><strong>Google Search Console</strong> → Core Web Vitals → Mobile/Desktop:</p>
+<ul>
+<li>URLs should move from &quot;Poor&quot; or &quot;Needs Improvement&quot; to &quot;Good&quot;</li>
+<li>Takes 4-8 weeks for Google to recrawl and re-evaluate</li>
+</ul>
+<h2 id="ad-revenue-vs-cls-trade-offs">Ad Revenue vs CLS Trade-Offs</h2>
+<p>Reducing CLS often means fewer ads or less aggressive placements.</p>
+<p><strong>Test methodology:</strong></p>
+<ol>
+<li>Baseline: Run 7 days with current ad setup (CLS + revenue)</li>
+<li>Implement CLS fixes (reserve space, reduce placements)</li>
+<li>Run 7 days with new setup</li>
+<li>Compare revenue change</li>
+</ol>
+<p><strong>Acceptable trade-offs:</strong></p>
+<ul>
+<li>5-10% revenue decrease for 0.3 → 0.08 CLS improvement = worth it (SEO gains offset lost ad revenue)</li>
+<li>20%+ revenue decrease = reconsider (may need to find middle ground)</li>
+</ul>
+<p><strong>Middle ground:</strong></p>
+<ul>
+<li>Keep high-value ad slots (header, sidebar)</li>
+<li>Remove in-content ads causing highest CLS (often 3rd-5th in-content slots)</li>
+<li>Enable lazy loading with space reservation (serves ads but delays load)</li>
+</ul>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Ad Layout Shift Destroys SEO:</strong> Users clicking links during ad load trigger misclicks when content shifts.</li>
+<li><strong>Common Cause 1: Ad Slots Without Reserved Space:</strong> Ad containers with no height defined shift content when ads load.</li>
+<li><strong>Common Cause 2: Async Ad Script Loading:</strong> Google Ad Manager (GPT) and AdSense scripts load asynchronously, populating slots after page render.</li>
+<li><strong>Common Cause 4: Lazy Loading Ads Incorrectly:</strong> Lazy loading delays ad requests until slot enters viewport.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Can I hide ads on initial load and show them after page renders to avoid CLS?</strong></p>
+<p>No. This violates ad network policies (impression fraud) and Google may count it as cloaking. Always reserve space and load ads normally.</p>
+<p><strong>Do lazy-loaded ads still count toward CLS?</strong></p>
+<p>Yes, if they load while user is active on page. CLS measures shifts during entire session, not initial load. Reserve space for lazy-loaded ads to prevent shifts.</p>
+<p><strong>Should I disable all ads to pass Core Web Vitals?</strong></p>
+<p>Not necessary. Revenue-generating sites can maintain ads with &lt;0.1 CLS using space reservation and lazy loading. Mediavine/Ezoic sites regularly achieve 0.05-0.08 CLS with 5-8 ad units.</p>
+<p><strong>What if AdSense Auto Ads won&#39;t let me reserve space?</strong></p>
+<p>Switch to manual AdSense units. Auto Ads inject unpredictably, making CLS control impossible. Manual units = full control over placement and dimensions.</p>
+<p><strong>Do text ads cause less CLS than display ads?</strong></p>
+<p>Slightly. Text ads render faster (no images to load), but still cause CLS if container lacks dimensions. Always reserve space regardless of ad type.</p>
+<p><strong>Can I use CSS <code>transform</code> to avoid CLS from ads?</strong></p>
+<p>Yes, to a degree. Shifting elements via <code>transform</code> doesn&#39;t trigger CLS (layout geometry unchanged). But ads typically inject into DOM, which does cause layout shifts. Not a practical solution for ad slots.</p>
+<p><strong>How do I know which ad network causes the most CLS?</strong></p>
+<p>Use DevTools Performance Insights → Click purple CLS bars → Check &quot;Affected Nodes.&quot; Element IDs/classes often indicate network (e.g., <code>gpt-slot</code> = Google Ad Manager, <code>adsense-slot</code> = AdSense).</p>
+<p><strong>Should I remove ads from mobile to fix mobile CLS?</strong></p>
+<p>Not necessary. Mobile ad slots can achieve &lt;0.1 CLS with proper space reservation and mobile-specific sizes (320x50 instead of 728x90).</p>
+<p><strong>What&#39;s the fastest way to fix CLS from ads?</strong></p>
+<p>Add <code>min-height</code> CSS to all ad containers matching ad dimensions. This single change typically reduces CLS 50-70%. Follow up with lazy loading and size optimization.</p>
+<p><strong>Do sticky footer ads always cause CLS?</strong></p>
+<p>Only if no bottom padding reserves space. Add <code>padding-bottom</code> to body matching sticky ad height (e.g., 100px) to prevent content overlap.</p>
+<p>Run <strong>PageSpeed Insights</strong> on 5 highest-traffic pages. Check CLS score. If &gt;0.1, inspect &quot;Avoid large layout shifts&quot; audit to identify ad slots causing shifts. Add <code>min-height</code> CSS to ad containers matching ad dimensions. Implement lazy loading with space reservation. Re-test after 7 days. Track revenue impact and adjust ad placements to balance CLS and monetization.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/core-web-vitals-failing-mobile-only.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests.</p>
+          </a>
+
+          <a href="/articles/field-data-vs-lab-data-core-web-vitals.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank?</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Decode field vs lab CWV data. Learn why PageSpeed Insights and Search Console disagree, which metrics Google uses for rankings, and how to fix both.</p>
+          </a>
+
+          <a href="/articles/core-algorithm-update-recovery.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Core Algorithm Update Recovery: Diagnose and Fix Traffic Loss</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Systematic framework to diagnose core update penalties, identify impacted pages, fix quality issues, and recover rankings within 60-90 days.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

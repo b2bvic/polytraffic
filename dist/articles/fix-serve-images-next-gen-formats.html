@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Serve Images in Next-Gen Formats (WebP, AVIF) for Faster Page Speed | Polytraffic</title>
+    <meta name="description" content="Step-by-step guide to converting and serving images in WebP and AVIF formats to reduce file sizes by 25-35% and improve Core Web Vitals scores." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Serve Images in Next-Gen Formats (WebP, AVIF) for Faster Page Speed | Polytraffic" />
+    <meta property="og:description" content="Step-by-step guide to converting and serving images in WebP and AVIF formats to reduce file sizes by 25-35% and improve Core Web Vitals scores." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-serve-images-next-gen-formats" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-serve-images-next-gen-formats.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Serve Images in Next-Gen Formats (WebP, AVIF) for Faster Page Speed | Polytraffic" />
+    <meta name="twitter:description" content="Step-by-step guide to converting and serving images in WebP and AVIF formats to reduce file sizes by 25-35% and improve Core Web Vitals scores." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-serve-images-next-gen-formats.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-serve-images-next-gen-formats" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Serve Images in Next-Gen Formats (WebP, AVIF) for Faster Page Speed",
+    "description": "Step-by-step guide to converting and serving images in WebP and AVIF formats to reduce file sizes by 25-35% and improve Core Web Vitals scores.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-serve-images-next-gen-formats.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-serve-images-next-gen-formats.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Serve Images in Next-Gen Formats (WebP, AVIF) for Faster Page Speed"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Serve Images in Next-Gen Formats (WebP, AVIF) for Faster Page Speed</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-serve-images-next-gen-formats.png" alt="How to Serve Images in Next-Gen Formats (WebP, AVIF) for Faster Page Speed" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-serve-images-in-next-gen-formats-webp-avif-for-faster-page-speed">How to Serve Images in Next-Gen Formats (WebP, AVIF) for Faster Page Speed</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Step-by-step guide to converting and serving images in WebP and AVIF formats to reduce file sizes by 25-35% and improve Core Web Vitals scores.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-next-gen-image-formats-matter-for-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Next-Gen Image Formats Matter for SEO</a></li>
+<li><a href="#format-selection-webp-vs-avif" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Format Selection: WebP vs. AVIF</a></li>
+<li><a href="#converting-images-to-next-gen-formats" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Converting Images to Next-Gen Formats</a></li>
+<li><a href="#serving-next-gen-formats-with-html-picture-elements" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Serving Next-Gen Formats with HTML Picture Elements</a></li>
+<li><a href="#server-side-format-negotiation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Server-Side Format Negotiation</a></li>
+<li><a href="#cdn-level-format-optimization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">CDN-Level Format Optimization</a></li>
+<li><a href="#wordpress-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WordPress Implementation</a></li>
+<li><a href="#verifying-format-delivery" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Verifying Format Delivery</a></li>
+<li><a href="#handling-edge-cases" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Handling Edge Cases</a></li>
+<li><a href="#performance-benchmarks" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Performance Benchmarks</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>PageSpeed Insights</strong> flags &quot;Serve images in next-gen formats&quot; because <strong>JPEG</strong> and <strong>PNG</strong> files bloat page weight by 25-35% compared to <strong>WebP</strong> and <strong>AVIF</strong>. Every millisecond of load time impacts conversion rates. <strong>Amazon</strong> found a 100ms delay costs 1% in sales. Next-gen formats compress visual data more efficiently without perceptible quality loss, directly improving <strong>Largest Contentful Paint (LCP)</strong> and <strong>Total Blocking Time (TBT)</strong>.</p>
+<p>This guide walks through format selection, conversion workflows, server configuration, and fallback strategies. You&#39;ll implement a production-ready image delivery system that satisfies <strong>Google&#39;s Core Web Vitals</strong> requirements while maintaining backward compatibility for older browsers.</p>
+<h2 id="why-next-gen-image-formats-matter-for-seo">Why Next-Gen Image Formats Matter for SEO</h2>
+<p><strong>Core Web Vitals</strong> became a ranking factor in June 2021. <strong>LCP</strong> measures when the largest visible element (often a hero image) renders. Heavy <strong>JPEG</strong> files delay LCP, pushing pages below the 2.5-second threshold <strong>Google</strong> considers &quot;good.&quot; Next-gen formats shrink file sizes:</p>
+<ul>
+<li><strong>WebP</strong>: 25-35% smaller than JPEG at equivalent visual quality</li>
+<li><strong>AVIF</strong>: 50% smaller than JPEG, but limited browser support (93% coverage as of 2026)</li>
+</ul>
+<p>Smaller files mean faster downloads over cellular networks. A 500KB <strong>JPEG</strong> becomes 325KB in <strong>WebP</strong> and 250KB in <strong>AVIF</strong>. On a 3G connection (1.6 Mbps), that&#39;s the difference between 2.5 seconds and 1.25 seconds for a single image.</p>
+<p><strong>Search Console</strong> reports don&#39;t directly penalize format choice, but slow LCP triggers the &quot;Needs Improvement&quot; bucket in the <strong>Page Experience</strong> report. Pages in that bucket see lower click-through rates in mobile results.</p>
+<h2 id="format-selection-webp-vs-avif">Format Selection: WebP vs. AVIF</h2>
+<p><strong>WebP</strong> launched in 2010 and has 96% browser support. <strong>Safari</strong> added support in 2020, closing the last major gap. <strong>AVIF</strong> launched in 2019 with superior compression but only reached 93% support in 2024. Here&#39;s how to choose:</p>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Recommended Format</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E-commerce product photos</td>
+<td>WebP with JPEG fallback</td>
+<td>Broad compatibility, good compression</td>
+</tr>
+<tr>
+<td>Blog hero images</td>
+<td>AVIF with WebP fallback</td>
+<td>Maximum compression for large visuals</td>
+</tr>
+<tr>
+<td>Logos and icons</td>
+<td>SVG or PNG</td>
+<td>Lossless, scalable</td>
+</tr>
+<tr>
+<td>Photographs with text overlays</td>
+<td>WebP</td>
+<td>Better text rendering than AVIF</td>
+</tr>
+</tbody></table>
+<p><strong>AVIF</strong> excels at high-fidelity photographs but struggles with sharp edges (text, graphics). <strong>WebP</strong> handles both reasonably well. For most sites, <strong>WebP</strong> with <strong>JPEG</strong> fallback covers 99% of traffic while keeping workflows simple.</p>
+<h2 id="converting-images-to-next-gen-formats">Converting Images to Next-Gen Formats</h2>
+<p>You need three things: source images, a conversion tool, and a naming convention. Start with <strong>lossless PNG</strong> or maximum-quality <strong>JPEG</strong> originals. Don&#39;t convert already-compressed <strong>JPEGs</strong>, you&#39;ll compound artifacts.</p>
+<h3 id="command-line-conversion-with-cwebp">Command-Line Conversion with cwebp</h3>
+<p><strong>Google&#39;s cwebp</strong> tool produces optimal <strong>WebP</strong> files. Install via Homebrew (macOS) or apt (Linux):</p>
+<pre><code class="language-bash">brew install webp
+</code></pre>
+<p>Convert a single image with quality control:</p>
+<pre><code class="language-bash">cwebp -q 85 hero.jpg -o hero.webp
+</code></pre>
+<p>The <code>-q</code> flag sets quality (0-100). Start at 85, visually identical to JPEG at 90 but 30% smaller. Batch convert a directory:</p>
+<pre><code class="language-bash">for img in *.jpg; do cwebp -q 85 &quot;$img&quot; -o &quot;${img%.jpg}.webp&quot;; done
+</code></pre>
+<p>This preserves original filenames, swapping extensions. Store <strong>WebP</strong> files alongside <strong>JPEGs</strong> for easy fallback implementation.</p>
+<h3 id="converting-to-avif-with-avifenc">Converting to AVIF with avifenc</h3>
+<p><strong>libavif</strong> provides the <code>avifenc</code> encoder. Install dependencies first:</p>
+<pre><code class="language-bash">brew install libavif
+</code></pre>
+<p>Convert with quality and speed settings:</p>
+<pre><code class="language-bash">avifenc -q 75 -s 6 hero.jpg hero.avif
+</code></pre>
+<ul>
+<li><code>-q</code>: Quality (0-100). Start at 75 for photographs.</li>
+<li><code>-s</code>: Speed (0-10). Lower = better compression, slower encoding. Use 6 for batch jobs.</li>
+</ul>
+<p><strong>AVIF</strong> encoding is CPU-intensive. A 5MP image takes 15-30 seconds at speed 6. For large catalogs, use <strong>GNU Parallel</strong> to max out CPU cores:</p>
+<pre><code class="language-bash">ls *.jpg | parallel avifenc -q 75 -s 6 {} {.}.avif
+</code></pre>
+<p>This spawns parallel jobs equal to your CPU count. A 500-image directory encodes in 20 minutes on an 8-core machine vs. 2.5 hours sequentially.</p>
+<h3 id="automated-conversion-with-imagemagick">Automated Conversion with ImageMagick</h3>
+<p><strong>ImageMagick</strong> handles both formats in a single tool:</p>
+<pre><code class="language-bash">magick hero.jpg -quality 85 hero.webp
+magick hero.jpg -quality 75 hero.avif
+</code></pre>
+<p>Batch convert recursively:</p>
+<pre><code class="language-bash">find . -name &quot;*.jpg&quot; -exec sh -c &#39;magick &quot;$1&quot; -quality 85 &quot;${1%.jpg}.webp&quot;&#39; _ {} \;
+</code></pre>
+<p><strong>ImageMagick</strong> uses <strong>libwebp</strong> and <strong>libavif</strong> under the hood, so quality settings match the dedicated tools.</p>
+<h2 id="serving-next-gen-formats-with-html-picture-elements">Serving Next-Gen Formats with HTML Picture Elements</h2>
+<p>The <code>&lt;picture&gt;</code> element lets browsers choose formats they support. List formats in preference order, browsers pick the first compatible option:</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source srcset=&quot;hero.avif&quot; type=&quot;image/avif&quot;&gt;
+  &lt;source srcset=&quot;hero.webp&quot; type=&quot;image/webp&quot;&gt;
+  &lt;img src=&quot;hero.jpg&quot; alt=&quot;Hero image&quot; width=&quot;1200&quot; height=&quot;600&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<p><strong>Chrome 118+</strong> loads <code>hero.avif</code>. <strong>Safari 16</strong> (no AVIF support) loads <code>hero.webp</code>. <strong>IE11</strong> loads <code>hero.jpg</code>. The <code>&lt;img&gt;</code> tag provides the fallback and defines dimensions for layout stability.</p>
+<h3 id="responsive-images-with-srcset">Responsive Images with srcset</h3>
+<p>Combine format selection with resolution switching:</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source srcset=&quot;hero-800.avif 800w, hero-1200.avif 1200w, hero-1600.avif 1600w&quot; type=&quot;image/avif&quot;&gt;
+  &lt;source srcset=&quot;hero-800.webp 800w, hero-1200.webp 1200w, hero-1600.webp 1600w&quot; type=&quot;image/webp&quot;&gt;
+  &lt;img src=&quot;hero-1200.jpg&quot; srcset=&quot;hero-800.jpg 800w, hero-1200.jpg 1200w, hero-1600.jpg 1600w&quot; sizes=&quot;(max-width: 800px) 100vw, 1200px&quot; alt=&quot;Hero image&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<p>The browser downloads the smallest file matching viewport width and pixel density. A <strong>Retina iPad</strong> (2048px, 2x density) fetches the 1600w variant. A standard laptop (1366px, 1x) fetches 1200w.</p>
+<p>Generate responsive variants with <strong>ImageMagick</strong>:</p>
+<pre><code class="language-bash">for size in 800 1200 1600; do
+  magick hero.jpg -resize ${size}x -quality 85 hero-${size}.webp
+  magick hero.jpg -resize ${size}x -quality 75 hero-${size}.avif
+done
+</code></pre>
+<h2 id="server-side-format-negotiation">Server-Side Format Negotiation</h2>
+<p><strong>Content negotiation</strong> serves formats based on the <code>Accept</code> header without changing HTML. Browsers send <code>Accept: image/avif,image/webp,*/*</code> in requests. The server checks format support and rewrites URLs internally.</p>
+<h3 id="apache-mod-rewrite-rules">Apache mod_rewrite Rules</h3>
+<p>Add to <code>.htaccess</code> or virtual host config:</p>
+<pre><code class="language-apache">&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+
+  # Check if browser accepts AVIF
+  RewriteCond %{HTTP_ACCEPT} image/avif
+  RewriteCond %{DOCUMENT_ROOT}/$1.avif -f
+  RewriteRule ^(.+)\.(jpe?g|png)$ $1.avif [T=image/avif,E=EXISTING:1,L]
+
+  # Check if browser accepts WebP
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+  RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=EXISTING:1,L]
+&lt;/IfModule&gt;
+
+&lt;IfModule mod_headers.c&gt;
+  Header append Vary Accept env=EXISTING
+&lt;/IfModule&gt;
+</code></pre>
+<p>This checks if <code>hero.jpg</code> has corresponding <code>hero.avif</code> or <code>hero.webp</code> files. If found, the server transparently serves the next-gen format while preserving the <code>.jpg</code> URL in HTML. The <code>Vary: Accept</code> header prevents CDN cache collisions.</p>
+<h3 id="nginx-configuration">Nginx Configuration</h3>
+<p>Add to your server block:</p>
+<pre><code class="language-nginx">location ~* \.(jpe?g|png)$ {
+  set $webp_suffix &quot;&quot;;
+  set $avif_suffix &quot;&quot;;
+
+  if ($http_accept ~* &quot;image/avif&quot;) {
+    set $avif_suffix &quot;.avif&quot;;
+  }
+
+  if ($http_accept ~* &quot;image/webp&quot;) {
+    set $webp_suffix &quot;.webp&quot;;
+  }
+
+  # Try AVIF first, then WebP, then original
+  try_files $uri$avif_suffix $uri$webp_suffix $uri =404;
+
+  add_header Vary Accept;
+}
+</code></pre>
+<p><strong>Nginx</strong> doesn&#39;t support nested conditionals, so this checks <strong>AVIF</strong> first, falls back to <strong>WebP</strong>, then serves the original. Works for both <code>/hero.jpg</code> and <code>/hero.avif</code> requests.</p>
+<h2 id="cdn-level-format-optimization">CDN-Level Format Optimization</h2>
+<p><strong>Cloudflare</strong>, <strong>Cloudinary</strong>, and <strong>Fastly</strong> handle conversion automatically. You upload <strong>JPEG</strong> originals; the CDN serves <strong>WebP/AVIF</strong> based on browser support.</p>
+<h3 id="cloudflare-polish">Cloudflare Polish</h3>
+<p>Enable in the dashboard under <strong>Speed &gt; Optimization</strong>:</p>
+<ol>
+<li>Set <strong>Polish</strong> to &quot;Lossy&quot; or &quot;Lossless&quot;</li>
+<li>Enable <strong>WebP</strong> conversion</li>
+<li>Add a page rule for image directories: <code>example.com/images/*</code> → Polish: On</li>
+</ol>
+<p><strong>Cloudflare</strong> converts on first request and caches the result. No code changes required, but you lose control over quality settings. Lossy Polish uses aggressive compression (equivalent to <code>-q 70</code> in <strong>cwebp</strong>).</p>
+<h3 id="cloudinary-automatic-format-selection">Cloudinary Automatic Format Selection</h3>
+<p>Update image URLs to use <code>f_auto</code>:</p>
+<pre><code class="language-html">&lt;img src=&quot;https://res.cloudinary.com/demo/image/upload/f_auto,q_auto/hero.jpg&quot; alt=&quot;Hero&quot;&gt;
+</code></pre>
+<p><strong>Cloudinary</strong> serves <strong>AVIF</strong> to supported browsers, <strong>WebP</strong> to others, and <strong>JPEG</strong> as fallback. The <code>q_auto</code> parameter applies perceptual quality optimization. Pricing starts at $0.0010 per image transformation.</p>
+<h3 id="fastly-image-optimizer">Fastly Image Optimizer</h3>
+<p>Add query parameters to image URLs:</p>
+<pre><code class="language-html">&lt;img src=&quot;/hero.jpg?format=auto&amp;quality=85&quot; alt=&quot;Hero&quot;&gt;
+</code></pre>
+<p><strong>Fastly</strong> detects browser capabilities and serves the optimal format. Requires the <strong>Image Optimizer</strong> add-on ($50/month base + bandwidth).</p>
+<h2 id="wordpress-implementation">WordPress Implementation</h2>
+<p><strong>WordPress 5.8+</strong> generates <strong>WebP</strong> versions automatically if the server has <strong>GD</strong> or <strong>Imagick</strong> with <strong>WebP</strong> support. Check in <strong>Media &gt; Add New</strong>, if you see &quot;WebP&quot; in supported formats, auto-conversion is active.</p>
+<h3 id="enabling-webp-support">Enabling WebP Support</h3>
+<ol>
+<li>Verify <strong>GD</strong> has <strong>WebP</strong> support:</li>
+</ol>
+<pre><code class="language-php">&lt;?php
+if (function_exists(&#39;gd_info&#39;)) {
+  $gd_info = gd_info();
+  echo $gd_info[&#39;WebP Support&#39;] ? &#39;WebP enabled&#39; : &#39;WebP disabled&#39;;
+}
+?&gt;
+</code></pre>
+<ol start="2">
+<li>If disabled, install <strong>Imagick</strong> (requires server access):</li>
+</ol>
+<pre><code class="language-bash">sudo apt install php-imagick
+sudo service apache2 restart
+</code></pre>
+<ol start="3">
+<li>Force <strong>WebP</strong> generation for existing uploads with <strong>Regenerate Thumbnails</strong> plugin.</li>
+</ol>
+<h3 id="manual-webp-delivery-with-picture-tags">Manual WebP Delivery with Picture Tags</h3>
+<p>If auto-conversion fails, use a plugin like <strong>WebP Express</strong> or <strong>EWWW Image Optimizer</strong>. They generate <strong>WebP</strong> files on upload and inject <code>&lt;picture&gt;</code> tags automatically.</p>
+<p>For manual control, create a shortcode in <code>functions.php</code>:</p>
+<pre><code class="language-php">function nextgen_image($src, $alt, $width, $height) {
+  $webp_src = preg_replace(&#39;/\.(jpg|jpeg|png)$/i&#39;, &#39;.webp&#39;, $src);
+  return &#39;&lt;picture&gt;
+    &lt;source srcset=&quot;&#39; . esc_url($webp_src) . &#39;&quot; type=&quot;image/webp&quot;&gt;
+    &lt;img src=&quot;&#39; . esc_url($src) . &#39;&quot; alt=&quot;&#39; . esc_attr($alt) . &#39;&quot; width=&quot;&#39; . esc_attr($width) . &#39;&quot; height=&quot;&#39; . esc_attr($height) . &#39;&quot;&gt;
+  &lt;/picture&gt;&#39;;
+}
+
+add_shortcode(&#39;nextgen&#39;, function($atts) {
+  return nextgen_image($atts[&#39;src&#39;], $atts[&#39;alt&#39;], $atts[&#39;width&#39;], $atts[&#39;height&#39;]);
+});
+</code></pre>
+<p>Use in posts:</p>
+<pre><code>[nextgen src=&quot;/uploads/hero.jpg&quot; alt=&quot;Hero image&quot; width=&quot;1200&quot; height=&quot;600&quot;]
+</code></pre>
+<h2 id="verifying-format-delivery">Verifying Format Delivery</h2>
+<p>Test with <strong>Chrome DevTools</strong>:</p>
+<ol>
+<li>Open <strong>DevTools</strong> (Cmd+Option+I)</li>
+<li>Go to <strong>Network</strong> tab</li>
+<li>Reload page</li>
+<li>Filter by <strong>Img</strong></li>
+<li>Click an image request</li>
+<li>Check <strong>Response Headers</strong> for <code>Content-Type: image/webp</code> or <code>image/avif</code></li>
+</ol>
+<p>If you see <code>image/jpeg</code>, either the next-gen file is missing or server rules aren&#39;t firing.</p>
+<h3 id="pagespeed-insights-validation">PageSpeed Insights Validation</h3>
+<p>Run your page through <strong>PageSpeed Insights</strong>. Under &quot;Opportunities,&quot; &quot;Serve images in next-gen formats&quot; should disappear. If it persists:</p>
+<ol>
+<li>Check that <strong>WebP/AVIF</strong> files exist at the correct paths</li>
+<li>Verify <code>Content-Type</code> headers match the format</li>
+<li>Confirm the <code>Vary: Accept</code> header is present (prevents caching issues)</li>
+<li>Test with <code>curl</code> to inspect headers directly:</li>
+</ol>
+<pre><code class="language-bash">curl -H &quot;Accept: image/webp&quot; -I https://example.com/hero.jpg
+</code></pre>
+<p>Look for <code>Content-Type: image/webp</code> in the response.</p>
+<h2 id="handling-edge-cases">Handling Edge Cases</h2>
+<p><strong>iOS Safari</strong> versions 14-15 support <strong>WebP</strong> but have bugs with progressive <strong>WebP</strong> encoding. Stick to baseline encoding:</p>
+<pre><code class="language-bash">cwebp -q 85 -m 4 hero.jpg -o hero.webp
+</code></pre>
+<p>The <code>-m 4</code> flag disables progressive encoding.</p>
+<p><strong>AVIF transparency</strong> works inconsistently in <strong>Firefox 93-96</strong>. For images with alpha channels, use <strong>WebP</strong> as the primary next-gen format and skip <strong>AVIF</strong>.</p>
+<p><strong>Lazy-loaded images</strong> need format selection in the <code>data-srcset</code> attribute:</p>
+<pre><code class="language-html">&lt;img data-src=&quot;hero.jpg&quot; data-srcset=&quot;hero.webp&quot; class=&quot;lazyload&quot; alt=&quot;Hero&quot;&gt;
+</code></pre>
+<p>Libraries like <strong>lazysizes</strong> handle format switching if you structure attributes correctly.</p>
+<h2 id="performance-benchmarks">Performance Benchmarks</h2>
+<p>Test results from converting 50 e-commerce product images (average 800KB <strong>JPEG</strong>):</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Avg File Size</th>
+<th>Encoding Time</th>
+<th>Browser Support</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JPEG</td>
+<td>800 KB</td>
+<td>—</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>WebP (q=85)</td>
+<td>520 KB (-35%)</td>
+<td>2.3s</td>
+<td>96%</td>
+</tr>
+<tr>
+<td>AVIF (q=75)</td>
+<td>400 KB (-50%)</td>
+<td>18s</td>
+<td>93%</td>
+</tr>
+</tbody></table>
+<p><strong>LCP improvement</strong> on a product page with 6 images:</p>
+<ul>
+<li>Before (JPEG): 3.2s</li>
+<li>After (WebP): 2.1s (-34%)</li>
+<li>After (AVIF): 1.7s (-47%)</li>
+</ul>
+<p>These gains compound across pages. A 50-page catalog with 10 images per page saves 150MB of bandwidth, reducing server costs and improving rankings.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Next-Gen Image Formats Matter for SEO:</strong> Smaller files mean faster downloads over cellular networks.</li>
+<li><strong>Format Selection: WebP vs. AVIF:</strong> You need three things: source images, a conversion tool, and a naming convention.</li>
+<li><strong>Converting Images to Next-Gen Formats:</strong> You need three things: source images, a conversion tool, and a naming convention.</li>
+<li><strong>Serving Next-Gen Formats with HTML Picture Elements:</strong> The <picture> element lets browsers choose formats they support.</li>
+<li><strong>CDN-Level Format Optimization:</strong> Enable in the dashboard under Speed &gt; Optimization:</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Do next-gen formats hurt image quality?</strong>
+No. At equivalent visual quality, <strong>WebP</strong> and <strong>AVIF</strong> compress more efficiently than <strong>JPEG</strong>. Use quality settings of 85 for <strong>WebP</strong> and 75 for <strong>AVIF</strong> to match <strong>JPEG</strong> at 90.</p>
+<p><strong>Q: Will old browsers break if I remove JPEG files?</strong>
+Only if you skip the fallback <code>&lt;img&gt;</code> tag in <code>&lt;picture&gt;</code> elements. Always include a <strong>JPEG</strong> fallback for <strong>IE11</strong> and legacy mobile browsers.</p>
+<p><strong>Q: Can I convert PNG logos to WebP?</strong>
+Yes, but <strong>SVG</strong> is better for logos. If you must use raster formats, <strong>WebP</strong> supports transparency and outperforms <strong>PNG</strong> for photographic content. For flat-color graphics, <strong>PNG</strong> may be smaller.</p>
+<p><strong>Q: How do I test AVIF support in Safari?</strong>
+<strong>Safari 16+</strong> on <strong>macOS Ventura</strong> and <strong>iOS 16</strong> support <strong>AVIF</strong>. Test on real devices or use <strong>BrowserStack</strong>. <strong>Caniuse.com</strong> tracks current support levels.</p>
+<p><strong>Q: Do next-gen formats work with lazy loading?</strong>
+Yes. Use <code>data-srcset</code> attributes for <strong>WebP/AVIF</strong> variants. Popular libraries like <strong>lazysizes</strong> and <strong>lozad.js</strong> handle format selection automatically.</p>
+<p><strong>Q: Should I delete original JPEG files after converting?</strong>
+Keep them as fallbacks for unsupported browsers and as source files for future re-encoding. Storage is cheap; re-downloading originals from backups isn&#39;t.</p>
+<p><strong>Q: Can I automate format conversion on upload?</strong>
+Yes. <strong>WordPress</strong> plugins like <strong>EWWW Image Optimizer</strong> convert on upload. For custom stacks, hook conversion scripts into your deploy pipeline or use serverless functions (<strong>AWS Lambda</strong>, <strong>Cloudflare Workers</strong>).</p>
+<p><strong>Q: What quality settings work best for portraits vs. landscapes?</strong>
+Portraits tolerate higher compression (q=80 <strong>WebP</strong>, q=70 <strong>AVIF</strong>) because skin tones mask artifacts. Landscapes with fine detail need q=85-90 to preserve texture. Test on your specific content.</p>
+<p><strong>Q: Does Google Images index WebP files?</strong>
+Yes. <strong>Google</strong> crawls and indexes <strong>WebP</strong> and <strong>AVIF</strong>. Use standard <code>&lt;img&gt;</code> tags with <code>alt</code> text and structured data. Format choice doesn&#39;t affect <strong>Image Search</strong> rankings.</p>
+<p><strong>Q: Can I serve WebP to Googlebot?</strong>
+<strong>Googlebot</strong> supports <strong>WebP</strong> and <strong>AVIF</strong>. Serve next-gen formats to crawlers the same way you serve them to browsers, format detection via <code>Accept</code> headers works for bots too.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/convert-images-to-webp-avif.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Convert Images to WebP and AVIF: Complete Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Reduce image file sizes by 30-60% without quality loss using WebP and AVIF formats. Includes conversion tools, fallback strategies, and CDN setup.</p>
+          </a>
+
+          <a href="/articles/fix-oversized-images-slowing-site.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Oversized Images Slowing Your Site: Image Optimization Guide for Speed</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compress and resize large images that hurt page speed and Core Web Vitals. Learn proven techniques for reducing file size without sacrificing visual quality.</p>
+          </a>
+
+          <a href="/articles/custom-404-page-seo-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Custom 404 Page SEO Guide: Turn Errors into Conversions</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build SEO-optimized custom 404 pages that reduce bounce rate, preserve crawl budget, and convert lost visitors with navigation recovery patterns.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

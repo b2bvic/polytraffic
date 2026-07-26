@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Fix Font Display FOUT with font-display: swap for Better Performance | Polytraffic</title>
+    <meta name="description" content="Eliminate flash of unstyled text and improve Core Web Vitals by implementing font-display swap, preloading web fonts, and optimizing font loading strategies." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Fix Font Display FOUT with font-display: swap for Better Performance | Polytraffic" />
+    <meta property="og:description" content="Eliminate flash of unstyled text and improve Core Web Vitals by implementing font-display swap, preloading web fonts, and optimizing font loading strategies." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/font-display-swap-fout-fix" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/font-display-swap-fout-fix.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Fix Font Display FOUT with font-display: swap for Better Performance | Polytraffic" />
+    <meta name="twitter:description" content="Eliminate flash of unstyled text and improve Core Web Vitals by implementing font-display swap, preloading web fonts, and optimizing font loading strategies." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/font-display-swap-fout-fix.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/font-display-swap-fout-fix" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Fix Font Display FOUT with font-display: swap for Better Performance",
+    "description": "Eliminate flash of unstyled text and improve Core Web Vitals by implementing font-display swap, preloading web fonts, and optimizing font loading strategies.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/font-display-swap-fout-fix.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/font-display-swap-fout-fix.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Fix Font Display FOUT with font-display: swap for Better Performance"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Fix Font Display FOUT with font-display: swap for Better Performance</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/font-display-swap-fout-fix.png" alt="How to Fix Font Display FOUT with font-display: swap for Better Performance" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-fix-font-display-fout-with-font-display-swap-for-better-performance">How to Fix Font Display FOUT with font-display: swap for Better Performance</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Eliminate flash of unstyled text and improve Core Web Vitals by implementing font-display swap, preloading web fonts, and optimizing font loading strategies.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-font-loading-impacts-core-web-vitals" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Font Loading Impacts Core Web Vitals</a></li>
+<li><a href="#understanding-font-display-values" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding font-display Values</a></li>
+<li><a href="#implementing-font-display-swap-with-google-fonts" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementing font-display: swap with Google Fonts</a></li>
+<li><a href="#implementing-font-display-with-custom-fonts" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementing font-display with Custom Fonts</a></li>
+<li><a href="#reducing-layout-shift-from-font-swapping" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Reducing Layout Shift from Font Swapping</a></li>
+<li><a href="#wordpress-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WordPress Implementation</a></li>
+<li><a href="#measuring-impact-on-core-web-vitals" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Measuring Impact on Core Web Vitals</a></li>
+<li><a href="#advanced-optimization-font-subsetting" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced Optimization: Font Subsetting</a></li>
+<li><a href="#fallback-strategies-for-edge-cases" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fallback Strategies for Edge Cases</a></li>
+<li><a href="#common-pitfalls" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Pitfalls</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Flash of Unstyled Text (FOUT)</strong> occurs when custom web fonts load slowly, causing text to initially render in fallback system fonts before swapping to the intended typeface. <strong>PageSpeed Insights</strong> flags &quot;Ensure text remains visible during webfont load&quot; when fonts block rendering for more than 100ms. This delays <strong>First Contentful Paint (FCP)</strong> and <strong>Largest Contentful Paint (LCP)</strong>, critical <strong>Core Web Vitals</strong> metrics that directly impact rankings.</p>
+<p>The <code>font-display: swap</code> CSS property tells browsers to show text immediately in fallback fonts, then swap to custom fonts when loaded. This eliminates render-blocking behavior and improves perceived performance. Combined with font preloading and subsetting, <code>font-display: swap</code> can reduce FCP by 500-1000ms on slow connections. This guide covers implementation, alternatives, and optimization strategies.</p>
+<h2 id="why-font-loading-impacts-core-web-vitals">Why Font Loading Impacts Core Web Vitals</h2>
+<p><strong>Browsers</strong> block text rendering while custom fonts download (FOIT - Flash of Invisible Text). Users see blank space for 1-3 seconds on 3G connections while <strong>Google Fonts</strong> or <strong>Adobe Fonts</strong> load. This delays <strong>FCP</strong> (when any text renders) and <strong>LCP</strong> (when the largest text block renders).</p>
+<p><strong>PageSpeed Insights</strong> penalizes render-blocking resources. Each font file over 100KB adds 500ms+ to load time on mobile. Sites using 4-5 font weights (Regular, Medium, Bold, etc.) download 400-500KB of font data before displaying text.</p>
+<p><strong>Search Console&#39;s Core Web Vitals report</strong> groups URLs by performance. Pages with slow FCP/LCP land in &quot;Needs Improvement&quot; or &quot;Poor&quot; buckets. These buckets correlate with 15-20% lower click-through rates in mobile search results. <strong>Google</strong> confirmed Core Web Vitals as ranking factors in the Page Experience update (June 2021).</p>
+<h2 id="understanding-font-display-values">Understanding font-display Values</h2>
+<p>The <code>font-display</code> descriptor controls font loading behavior.</p>
+<h3 id="font-display-block">font-display: block</h3>
+<p><strong>Default behavior</strong> for most browsers:</p>
+<ol>
+<li>Browser requests font file</li>
+<li>Text remains <strong>invisible</strong> for up to 3 seconds (block period)</li>
+<li>After 3 seconds, fallback font displays if custom font hasn&#39;t loaded</li>
+<li>Custom font swaps in when ready (infinite swap period)</li>
+</ol>
+<p><strong>Problem</strong>: 3 seconds of invisible text kills FCP and frustrates users.</p>
+<h3 id="font-display-swap">font-display: swap</h3>
+<p><strong>Recommended for most sites</strong>:</p>
+<ol>
+<li>Browser requests font file</li>
+<li>Text <strong>immediately displays</strong> in fallback font (no block period)</li>
+<li>Custom font swaps in when ready (100ms swap period)</li>
+</ol>
+<p><strong>Benefit</strong>: Zero render blocking. Text is readable instantly.</p>
+<p><strong>Trade-off</strong>: Layout shift when font swaps (if fallback and custom fonts have different metrics).</p>
+<h3 id="font-display-fallback">font-display: fallback</h3>
+<p><strong>Middle ground</strong>:</p>
+<ol>
+<li>Text invisible for 100ms (short block period)</li>
+<li>Fallback font displays if custom font hasn&#39;t loaded</li>
+<li>Custom font can swap in for 3 seconds (swap period)</li>
+<li>After 3 seconds, fallback becomes permanent</li>
+</ol>
+<p><strong>Use case</strong>: When avoiding layout shift matters more than instant text.</p>
+<h3 id="font-display-optional">font-display: optional</h3>
+<p><strong>Performance-first</strong>:</p>
+<ol>
+<li>Text invisible for 100ms</li>
+<li>Browser decides if font loads fast enough (usually &lt;100ms)</li>
+<li>If not, fallback becomes permanent (no swap)</li>
+</ol>
+<p><strong>Use case</strong>: Sites prioritizing CLS (Cumulative Layout Shift) over brand consistency.</p>
+<h3 id="font-display-auto">font-display: auto</h3>
+<p><strong>Browser default</strong> (usually same as <code>block</code>). Avoid, no control.</p>
+<h2 id="implementing-font-display-swap-with-google-fonts">Implementing font-display: swap with Google Fonts</h2>
+<p><strong>Google Fonts</strong> is the easiest implementation.</p>
+<h3 id="add-display-swap-to-embed-code">Add display=swap to Embed Code</h3>
+<p><strong>Old embed</strong> (blocks rendering):</p>
+<pre><code class="language-html">&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+<p><strong>New embed</strong> (with swap):</p>
+<pre><code class="language-html">&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+<p>Notice the <code>&amp;display=swap</code> parameter. <strong>Google Fonts</strong> returns CSS with <code>font-display: swap</code> applied to all <code>@font-face</code> rules.</p>
+<h3 id="preload-google-fonts-for-faster-delivery">Preload Google Fonts for Faster Delivery</h3>
+<p>Add <code>&lt;link rel=&quot;preload&quot;&gt;</code> before the stylesheet link:</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap&quot; as=&quot;style&quot;&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+<p>This tells the browser to prioritize font CSS in the download queue.</p>
+<h3 id="self-host-google-fonts-for-maximum-control">Self-Host Google Fonts for Maximum Control</h3>
+<p>Download fonts locally to eliminate external requests:</p>
+<ol>
+<li>Use <strong>google-webfonts-helper</strong> (google-webfonts-helper.herokuapp.com)</li>
+<li>Select your font and weights</li>
+<li>Choose <strong>Modern Browsers</strong> (WOFF2 only)</li>
+<li>Download the ZIP and extract to <code>/fonts/</code> directory</li>
+</ol>
+<p>Add to CSS:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;Open Sans&#39;;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(&#39;/fonts/open-sans-v34-latin-regular.woff2&#39;) format(&#39;woff2&#39;);
+}
+
+@font-face {
+  font-family: &#39;Open Sans&#39;;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(&#39;/fonts/open-sans-v34-latin-700.woff2&#39;) format(&#39;woff2&#39;);
+}
+
+body {
+  font-family: &#39;Open Sans&#39;, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif;
+}
+</code></pre>
+<p><strong>Benefits</strong>: No third-party requests, full caching control, GDPR-friendly (no Google data collection).</p>
+<h2 id="implementing-font-display-with-custom-fonts">Implementing font-display with Custom Fonts</h2>
+<p>For <strong>Adobe Fonts</strong>, <strong>Typekit</strong>, or licensed fonts.</p>
+<h3 id="add-font-display-to-font-face-rules">Add font-display to @font-face Rules</h3>
+<p>In your CSS:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;CustomFont&#39;;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap; /* Add this line */
+  src: url(&#39;/fonts/customfont-regular.woff2&#39;) format(&#39;woff2&#39;),
+       url(&#39;/fonts/customfont-regular.woff&#39;) format(&#39;woff&#39;);
+}
+</code></pre>
+<p>Repeat for all weights and styles.</p>
+<h3 id="adobe-fonts-font-display-configuration">Adobe Fonts font-display Configuration</h3>
+<p><strong>Adobe Fonts</strong> (formerly Typekit) doesn&#39;t allow <code>font-display</code> via embed code. <strong>Workaround</strong>: Override with CSS:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;adobe-font-name&#39;;
+  font-display: swap; /* Override */
+}
+</code></pre>
+<p>Place this <strong>after</strong> the Adobe Fonts <code>&lt;link&gt;</code> tag. This adds <code>font-display</code> to Adobe&#39;s auto-generated <code>@font-face</code> rules.</p>
+<h3 id="preload-custom-fonts">Preload Custom Fonts</h3>
+<p>Add to <code>&lt;head&gt;</code>:</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;/fonts/customfont-regular.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/fonts/customfont-bold.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+</code></pre>
+<p><strong>Important</strong>: Include <code>crossorigin</code> even for same-origin fonts (CORS requirement for font preloading).</p>
+<h2 id="reducing-layout-shift-from-font-swapping">Reducing Layout Shift from Font Swapping</h2>
+<p><strong>Cumulative Layout Shift (CLS)</strong> penalties occur when fallback and custom fonts have different dimensions.</p>
+<h3 id="match-fallback-font-metrics">Match Fallback Font Metrics</h3>
+<p>Use <strong>Font Style Matcher</strong> (meowni.ca/font-style-matcher) to visually match fallback to custom font:</p>
+<ol>
+<li>Load your custom font in the tool</li>
+<li>Adjust fallback font size, line height, letter spacing</li>
+<li>Copy the adjusted CSS</li>
+</ol>
+<p>Example output:</p>
+<pre><code class="language-css">body {
+  font-family: &#39;Open Sans&#39;, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* Fallback adjustments */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16.2px; /* Slightly larger to match Open Sans */
+  letter-spacing: -0.005em; /* Tighter spacing */
+}
+</code></pre>
+<p>This reduces layout shift to &lt;0.01 (well under the 0.1 &quot;Good&quot; threshold).</p>
+<h3 id="use-size-adjust-property-experimental">Use size-adjust Property (Experimental)</h3>
+<p><strong>CSS Fonts Level 4</strong> introduces <code>size-adjust</code>:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;Open Sans&#39;;
+  font-display: swap;
+  src: url(&#39;/fonts/open-sans-regular.woff2&#39;) format(&#39;woff2&#39;);
+}
+
+@font-face {
+  font-family: &#39;Arial Fallback&#39;;
+  size-adjust: 106%; /* Scale Arial to match Open Sans */
+  src: local(&#39;Arial&#39;);
+}
+
+body {
+  font-family: &#39;Open Sans&#39;, &#39;Arial Fallback&#39;, sans-serif;
+}
+</code></pre>
+<p>Browser support: <strong>Chrome 92+</strong>, <strong>Edge 92+</strong>, <strong>Safari 16+</strong>. Firefox doesn&#39;t support it yet (as of 2026). Use as progressive enhancement.</p>
+<h3 id="load-critical-fonts-only-above-the-fold">Load Critical Fonts Only Above the Fold</h3>
+<p>Split font loading by priority:</p>
+<p><strong>Critical</strong> (above-fold content):</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;/fonts/heading-bold.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+</code></pre>
+<p><strong>Non-critical</strong> (below-fold):</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;/fonts/body-italic.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin media=&quot;print&quot; onload=&quot;this.media=&#39;all&#39;&quot;&gt;
+</code></pre>
+<p>This delays non-critical fonts until after the initial render.</p>
+<h2 id="wordpress-implementation">WordPress Implementation</h2>
+<p><strong>WordPress</strong> themes often load fonts inefficiently.</p>
+<h3 id="disable-theme-s-default-font-loading">Disable Theme's Default Font Loading</h3>
+<p>Many themes load <strong>Google Fonts</strong> without <code>font-display</code>. Dequeue them in <code>functions.php</code>:</p>
+<pre><code class="language-php">function remove_google_fonts() {
+  wp_dequeue_style(&#39;theme-google-fonts&#39;);
+  wp_deregister_style(&#39;theme-google-fonts&#39;);
+}
+add_action(&#39;wp_enqueue_scripts&#39;, &#39;remove_google_fonts&#39;, 100);
+</code></pre>
+<p>Replace <code>&#39;theme-google-fonts&#39;</code> with your theme&#39;s handle (view source to find it).</p>
+<h3 id="enqueue-fonts-with-font-display">Enqueue Fonts with font-display</h3>
+<p>Add your own optimized font loading:</p>
+<pre><code class="language-php">function load_optimized_fonts() {
+  wp_enqueue_style(&#39;google-fonts&#39;, &#39;https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap&#39;, array(), null);
+}
+add_action(&#39;wp_enqueue_scripts&#39;, &#39;load_optimized_fonts&#39;);
+</code></pre>
+<p>Or self-host:</p>
+<pre><code class="language-php">function load_selfhosted_fonts() {
+  wp_enqueue_style(&#39;custom-fonts&#39;, get_template_directory_uri() . &#39;/fonts/fonts.css&#39;, array(), &#39;1.0&#39;);
+}
+add_action(&#39;wp_enqueue_scripts&#39;, &#39;load_selfhosted_fonts&#39;);
+</code></pre>
+<p>In <code>/fonts/fonts.css</code>:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;Open Sans&#39;;
+  font-display: swap;
+  src: url(&#39;open-sans-regular.woff2&#39;) format(&#39;woff2&#39;);
+  font-weight: 400;
+  font-style: normal;
+}
+</code></pre>
+<h3 id="use-omgf-plugin-for-automatic-self-hosting">Use OMGF Plugin for Automatic Self-Hosting</h3>
+<p><strong>OMGF (Optimize My Google Fonts)</strong> auto-downloads and self-hosts <strong>Google Fonts</strong>:</p>
+<ol>
+<li>Install <strong>OMGF</strong></li>
+<li>Go to <strong>Settings &gt; Optimize Google Fonts</strong></li>
+<li>Click <strong>Start Optimization</strong></li>
+<li>Plugin downloads fonts, adds <code>font-display: swap</code>, and rewrites URLs</li>
+</ol>
+<p><strong>OMGF</strong> handles updates automatically, recheck for font updates monthly.</p>
+<h2 id="measuring-impact-on-core-web-vitals">Measuring Impact on Core Web Vitals</h2>
+<p>Track improvements after implementing <code>font-display: swap</code>.</p>
+<h3 id="pagespeed-insights-before-after">PageSpeed Insights Before/After</h3>
+<p>Run <strong>PageSpeed Insights</strong> (pagespeed.web.dev):</p>
+<p><strong>Before</strong>:</p>
+<ul>
+<li><strong>FCP</strong>: 2.4s</li>
+<li><strong>LCP</strong>: 3.1s</li>
+<li>Opportunity: &quot;Ensure text remains visible during webfont load&quot; (save 800ms)</li>
+</ul>
+<p><strong>After</strong>:</p>
+<ul>
+<li><strong>FCP</strong>: 1.6s (-800ms)</li>
+<li><strong>LCP</strong>: 2.3s (-800ms)</li>
+<li>Opportunity cleared</li>
+</ul>
+<h3 id="chrome-devtools-performance-tab">Chrome DevTools Performance Tab</h3>
+<p>Record a page load:</p>
+<ol>
+<li>Open <strong>DevTools</strong> &gt; <strong>Performance</strong></li>
+<li>Click <strong>Record</strong> and reload the page</li>
+<li>Stop recording</li>
+<li>Check <strong>FCP</strong> and <strong>LCP</strong> markers in the timeline</li>
+</ol>
+<p><strong>Before</strong>: Long white gap before text renders.
+<strong>After</strong>: Text appears immediately (FCP advances).</p>
+<h3 id="search-console-core-web-vitals-report">Search Console Core Web Vitals Report</h3>
+<p><strong>Search Console &gt; Experience &gt; Core Web Vitals</strong>:</p>
+<p>Monitor the &quot;Good URLs&quot; count over 28 days. After implementing <code>font-display: swap</code>, &quot;Poor&quot; and &quot;Needs Improvement&quot; URLs should migrate to &quot;Good.&quot;</p>
+<p><strong>Note</strong>: Field data updates slowly, allow 28 days for statistically significant changes.</p>
+<h2 id="advanced-optimization-font-subsetting">Advanced Optimization: Font Subsetting</h2>
+<p>Reduce font file sizes by removing unused characters.</p>
+<h3 id="subset-google-fonts">Subset Google Fonts</h3>
+<p>Add <code>&amp;text=</code> parameter to load only specific characters:</p>
+<pre><code class="language-html">&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Open+Sans&amp;text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+<p>This creates a tiny font file with only English alphanumerics. Use for logos or headings with predictable text.</p>
+<p>For full subsetting, use <strong>glyphhanger</strong>:</p>
+<pre><code class="language-bash">npm install -g glyphhanger
+glyphhanger https://example.com --subset=fonts/OpenSans-Regular.ttf --formats=woff2
+</code></pre>
+<p>This analyzes your site, determines used characters, and generates a subset WOFF2 file.</p>
+<h3 id="subset-with-fonttools-python">Subset with Fonttools (Python)</h3>
+<pre><code class="language-bash">pip install fonttools brotli
+pyftsubset font.ttf --output-file=font-subset.woff2 --flavor=woff2 --unicodes=U+0020-007F
+</code></pre>
+<p><code>U+0020-007F</code> is basic Latin (English). Expand for other languages.</p>
+<h2 id="fallback-strategies-for-edge-cases">Fallback Strategies for Edge Cases</h2>
+<h3 id="detect-slow-connections-and-skip-fonts">Detect Slow Connections and Skip Fonts</h3>
+<p>Use <strong>Network Information API</strong>:</p>
+<pre><code class="language-javascript">if (&#39;connection&#39; in navigator &amp;&amp; navigator.connection.effectiveType === &#39;2g&#39;) {
+  // Don&#39;t load custom fonts on 2G
+  document.body.style.fontFamily = &#39;Arial, sans-serif&#39;;
+} else {
+  // Load fonts normally
+  const link = document.createElement(&#39;link&#39;);
+  link.href = &#39;https://fonts.googleapis.com/css2?family=Open+Sans&amp;display=swap&#39;;
+  link.rel = &#39;stylesheet&#39;;
+  document.head.appendChild(link);
+}
+</code></pre>
+<h3 id="use-font-loading-api-for-fine-control">Use Font Loading API for Fine Control</h3>
+<pre><code class="language-javascript">const font = new FontFace(&#39;Open Sans&#39;, &#39;url(/fonts/open-sans.woff2)&#39;);
+
+font.load().then(function(loadedFont) {
+  document.fonts.add(loadedFont);
+  document.body.style.fontFamily = &#39;Open Sans, sans-serif&#39;;
+}).catch(function(error) {
+  console.log(&#39;Font failed to load:&#39;, error);
+  // Fallback to system font
+});
+</code></pre>
+<p>This gives programmatic control over font loading timing.</p>
+<h2 id="common-pitfalls">Common Pitfalls</h2>
+<h3 id="overriding-font-display-with-important">Overriding font-display with !important</h3>
+<p>Don&#39;t use <code>!important</code> on <code>font-display</code>:</p>
+<pre><code class="language-css">/* Bad */
+@font-face {
+  font-display: swap !important;
+}
+</code></pre>
+<p><code>!important</code> doesn&#39;t work in <code>@font-face</code> rules. use <code>font-display: swap</code> directly.</p>
+<h3 id="loading-too-many-font-weights">Loading Too Many Font Weights</h3>
+<p>Each weight is a separate file. Sites loading 6+ weights download 600-800KB:</p>
+<ul>
+<li>Regular (400)</li>
+<li>Medium (500)</li>
+<li>Semi-Bold (600)</li>
+<li>Bold (700)</li>
+<li>Extra-Bold (800)</li>
+<li>Black (900)</li>
+</ul>
+<p><strong>Fix</strong>: Use only Regular (400) and Bold (700). Use CSS <code>font-weight: 600</code> on Regular, browsers simulate Medium weight.</p>
+<h3 id="forgetting-italic-variants">Forgetting Italic Variants</h3>
+<p>If you use italics, load italic variants explicitly:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;Open Sans&#39;;
+  font-display: swap;
+  font-style: italic; /* Important */
+  font-weight: 400;
+  src: url(&#39;/fonts/open-sans-italic.woff2&#39;) format(&#39;woff2&#39;);
+}
+</code></pre>
+<p>Without this, browsers synthesize italics (fake slant), which looks poor.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Font Loading Impacts Core Web Vitals:</strong> The font-display descriptor controls font loading behavior.</li>
+<li><strong>Understanding font-display Values:</strong> The font-display descriptor controls font loading behavior.</li>
+<li><strong>Implementing font-display with Custom Fonts:</strong> For Adobe Fonts, Typekit, or licensed fonts.</li>
+<li><strong>Reducing Layout Shift from Font Swapping:</strong> Use Font Style Matcher (meowni.ca/font-style-matcher) to visually match fallback to custom font:</li>
+<li><strong>WordPress Implementation:</strong> Many themes load Google Fonts without font-display.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Does font-display: swap hurt CLS?</strong>
+Yes, slightly. The font swap causes layout shift. Use metric-matched fallbacks to minimize CLS impact.</p>
+<p><strong>Q: Should I use swap for all fonts?</strong>
+For body text, yes. For logos or critical brand elements, consider <code>fallback</code> or <code>optional</code> to avoid jarring swaps.</p>
+<p><strong>Q: Can I use font-display with icon fonts?</strong>
+Yes, but consider switching to SVG icons, they&#39;re more flexible and don&#39;t block rendering.</p>
+<p><strong>Q: Does font-display work in all browsers?</strong>
+<strong>Chrome, Firefox, Safari, Edge</strong> all support it (96%+ coverage as of 2026). Older browsers ignore it and fall back to default behavior.</p>
+<p><strong>Q: How do I test FOUT locally?</strong>
+Use <strong>Chrome DevTools &gt; Network</strong> tab, throttle to <strong>Slow 3G</strong>, and reload. You&#39;ll see fallback text swap to custom font.</p>
+<p><strong>Q: Can I animate font swaps to reduce jarring effect?</strong>
+Yes, with CSS:</p>
+<pre><code class="language-css">body {
+  font-family: &#39;Open Sans&#39;, Arial, sans-serif;
+  transition: font-family 0.3s ease;
+}
+</code></pre>
+<p>This smooths the swap slightly.</p>
+<p><strong>Q: Should I preload all font weights?</strong>
+No. Only preload critical fonts (Regular, Bold for body text). Defer decorative weights.</p>
+<p><strong>Q: Does font-display affect PDF rendering?</strong>
+No. PDF fonts are embedded in the file. Web font loading doesn&#39;t apply.</p>
+<p><strong>Q: Can I use font-display with variable fonts?</strong>
+Yes. Variable fonts support <code>font-display</code> like regular fonts but load as a single file covering all weights.</p>
+<p><strong>Q: How do I prevent layout shift completely?</strong>
+Use <code>font-display: optional</code> (no swap) or perfectly match fallback metrics with <code>size-adjust</code>.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/country-vs-language-targeting-hreflang.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Country vs Language Targeting with Hreflang: Complete Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master hreflang country and language targeting. Fix duplicate content across regions with proper ISO 639-1 and ISO 3166-1 implementation.</p>
+          </a>
+
+          <a href="/articles/fix-500-internal-server-errors-seo.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix 500 Internal Server Errors for SEO: Stop Killing Rankings with Server Crashes</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Debug 500 errors killing crawlability. Server log analysis, common causes (PHP memory, database timeouts, plugin conflicts), platform-specific fixes.</p>
+          </a>
+
+          <a href="/articles/fix-long-tasks-blocking-main-thread.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Long Tasks Blocking the Main Thread (Complete Performance Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Lighthouse warns about long tasks blocking your main thread? Learn how to identify JavaScript bottlenecks, code-split heavy bundles, and implement web workers for smooth, responsive page performance.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

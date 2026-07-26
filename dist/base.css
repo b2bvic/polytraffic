@@ -1,0 +1,472 @@
+/* ========================================================================
+   Polytraffic — Signal Grid Design System
+   Base CSS (supplements Tailwind CDN)
+   ======================================================================== */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* --- Root Variables --- */
+:root {
+  --pt-base: #ffffff;
+  --pt-surface: #fbfaf7;
+  --pt-overlay: #f4f2ec;
+  --pt-accent: #b3430e;
+  --pt-accent-light: #8f3104;
+  --pt-secondary: #0e7490;
+  --pt-cta: #c2410c;
+  --pt-cta-hover: #9a3412;
+  --pt-text: #0e0f12;
+  --pt-text-secondary: #3f4654;
+  --pt-text-muted: #6b7280;
+  --pt-border: #d8d3c4;
+}
+
+/* --- Base Resets --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background-color: var(--pt-base);
+  color: var(--pt-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* --- Typography Overrides --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Archivo', system-ui, sans-serif;
+  color: var(--pt-text);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+code, pre, .font-mono {
+  font-family: 'IBM Plex Mono', 'Consolas', monospace;
+}
+
+/* --- Article Prose --- */
+.pt-prose {
+  color: var(--pt-text-secondary);
+  line-height: 1.8;
+}
+
+.pt-prose h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.pt-prose h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--pt-border);
+  color: var(--pt-text);
+}
+
+.pt-prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--pt-accent-light);
+}
+
+.pt-prose p {
+  margin-bottom: 1.25rem;
+}
+
+.pt-prose a {
+  color: var(--pt-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.pt-prose a:hover {
+  color: var(--pt-accent-light);
+  border-bottom-color: var(--pt-accent-light);
+}
+
+.pt-prose strong {
+  color: var(--pt-text);
+  font-weight: 600;
+}
+
+.pt-prose blockquote {
+  border-left: 3px solid var(--pt-accent);
+  background: var(--pt-surface);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: var(--pt-text-secondary);
+}
+
+.pt-prose ul, .pt-prose ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.pt-prose li {
+  margin-bottom: 0.5rem;
+}
+
+.pt-prose li::marker {
+  color: var(--pt-accent);
+}
+
+.pt-prose code {
+  background: var(--pt-surface);
+  border: 1px solid var(--pt-border);
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  font-size: 0.875em;
+  color: var(--pt-secondary);
+}
+
+.pt-prose pre {
+  background: var(--pt-surface);
+  border: 1px solid var(--pt-border);
+  border-radius: 2px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.pt-prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  color: var(--pt-text-secondary);
+}
+
+.pt-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.pt-prose thead th {
+  background: var(--pt-surface);
+  color: var(--pt-text);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--pt-accent);
+}
+
+.pt-prose tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--pt-border);
+}
+
+.pt-prose tbody tr:nth-child(even) {
+  background: rgba(241, 238, 230, 0.5);
+}
+
+.pt-prose hr {
+  border: none;
+  border-top: 1px solid var(--pt-border);
+  margin: 2.5rem 0;
+}
+
+.pt-prose img {
+  border-radius: 2px;
+  max-width: 100%;
+}
+
+/* --- Component: Article Card --- */
+.pt-card {
+  background: var(--pt-surface);
+  border: 1px solid var(--pt-border);
+  border-top: 3px solid var(--pt-text);
+  border-left: 1px solid var(--pt-border);
+  border-radius: 2px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.pt-card:hover {
+  border-color: var(--pt-overlay);
+  border-left-color: var(--pt-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(24, 26, 31, 0.08);
+}
+
+/* --- Component: Stat Card --- */
+.pt-stat {
+  background: var(--pt-surface);
+  border: 1px solid var(--pt-border);
+  border-radius: 2px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.pt-stat-value {
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pt-stat-label {
+  font-size: 0.8125rem;
+  color: var(--pt-text-muted);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- Component: CTA Box --- */
+.pt-cta-box {
+  background: linear-gradient(135deg, var(--pt-surface) 0%, rgba(179, 67, 14, 0.05) 100%);
+  border: 1px solid var(--pt-accent);
+  border-radius: 2px;
+  padding: 2.5rem;
+}
+
+/* --- Component: Bar Chart (CSS-only) --- */
+.pt-bar {
+  height: 2rem;
+  border-radius: 2px;
+  transition: width 0.8s ease;
+  position: relative;
+}
+
+.pt-bar-track {
+  background: var(--pt-surface);
+  border-radius: 2px;
+  height: 2rem;
+  overflow: hidden;
+  border: 1px solid var(--pt-border);
+}
+
+/* --- Component: FAQ Accordion --- */
+.pt-faq details {
+  border: 1px solid var(--pt-border);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.pt-faq summary {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-weight: 500;
+  color: var(--pt-text);
+  background: var(--pt-surface);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.pt-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.pt-faq summary::after {
+  content: '+';
+  font-size: 1.25rem;
+  color: var(--pt-accent);
+  transition: transform 0.2s;
+}
+
+.pt-faq details[open] summary::after {
+  content: '\2212';
+}
+
+.pt-faq details[open] summary {
+  background: var(--pt-overlay);
+  border-bottom: 1px solid var(--pt-border);
+}
+
+.pt-faq .pt-faq-body {
+  padding: 1rem 1.25rem;
+  color: var(--pt-text-secondary);
+  line-height: 1.7;
+}
+
+/* --- Component: Breadcrumbs --- */
+.pt-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--pt-text-muted);
+}
+
+.pt-breadcrumbs a {
+  color: var(--pt-text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pt-breadcrumbs a:hover {
+  color: var(--pt-accent);
+}
+
+.pt-breadcrumbs .pt-chevron {
+  color: var(--pt-text-muted);
+  opacity: 0.5;
+}
+
+/* --- Component: Comparison Table --- */
+.pt-comparison {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pt-comparison thead th {
+  background: var(--pt-surface);
+  color: var(--pt-text);
+  font-family: 'Archivo', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.875rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--pt-accent);
+}
+
+.pt-comparison tbody td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--pt-border);
+  font-size: 0.9375rem;
+}
+
+.pt-comparison tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.pt-comparison tbody tr:hover {
+  background: var(--pt-overlay);
+}
+
+/* --- Mega Nav --- */
+.pt-meganav {
+  position: relative;
+}
+
+.pt-meganav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: var(--pt-surface);
+  border: 1px solid var(--pt-border);
+  border-radius: 2px;
+  padding: 0.5rem 0;
+  z-index: 100;
+  box-shadow: 0 12px 32px rgba(24, 26, 31, 0.10);
+}
+
+.pt-meganav-item:hover .pt-meganav-dropdown,
+.pt-meganav-item:focus-within .pt-meganav-dropdown {
+  display: block;
+}
+
+.pt-meganav-dropdown a {
+  display: block;
+  padding: 0.625rem 1.25rem;
+  color: var(--pt-text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.15s;
+}
+
+.pt-meganav-dropdown a:hover {
+  background: var(--pt-overlay);
+  color: var(--pt-accent-light);
+  padding-left: 1.5rem;
+}
+
+/* --- Utility: Glow --- */
+.pt-glow {
+  box-shadow: 0 0 20px rgba(179, 67, 14, 0.12);
+}
+
+.pt-glow-secondary {
+  box-shadow: 0 0 20px rgba(14, 116, 144, 0.12);
+}
+
+/* --- Utility: Gradient text --- */
+.pt-gradient-text {
+  background: linear-gradient(135deg, var(--pt-accent), var(--pt-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Animations --- */
+@keyframes pt-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes pt-slide-up {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pt-animate-in {
+  animation: pt-slide-up 0.5s ease forwards;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pt-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pt-overlay);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pt-text-muted);
+}
+
+/* --- Selection --- */
+::selection {
+  background: rgba(179, 67, 14, 0.25);
+  color: var(--pt-text);
+}
+
+/* --- Mobile Overrides --- */
+@media (max-width: 768px) {
+  .pt-prose h1 { font-size: 1.75rem; }
+  .pt-prose h2 { font-size: 1.375rem; }
+  .pt-stat-value { font-size: 2rem; }
+
+  .pt-meganav-dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid var(--pt-border);
+    border-radius: 0;
+  }
+}

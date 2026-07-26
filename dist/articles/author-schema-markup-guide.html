@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Author Schema and Bylines: Quick EEAT Implementation | Polytraffic</title>
+    <meta name="description" content="Author schema signals expertise and authority. Add Person schema with credentials, social profiles, and bylines to strengthen EEAT signals for content." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Author Schema and Bylines: Quick EEAT Implementation | Polytraffic" />
+    <meta property="og:description" content="Author schema signals expertise and authority. Add Person schema with credentials, social profiles, and bylines to strengthen EEAT signals for content." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/author-schema-markup-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/author-schema-markup-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Author Schema and Bylines: Quick EEAT Implementation | Polytraffic" />
+    <meta name="twitter:description" content="Author schema signals expertise and authority. Add Person schema with credentials, social profiles, and bylines to strengthen EEAT signals for content." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/author-schema-markup-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/author-schema-markup-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Author Schema and Bylines: Quick EEAT Implementation",
+    "description": "Author schema signals expertise and authority. Add Person schema with credentials, social profiles, and bylines to strengthen EEAT signals for content.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/author-schema-markup-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/author-schema-markup-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Author Schema and Bylines: Quick EEAT Implementation"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Author Schema and Bylines: Quick EEAT Implementation</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/author-schema-markup-guide.png" alt="Author Schema and Bylines: Quick EEAT Implementation" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="author-schema-and-bylines-quick-eeat-implementation">Author Schema and Bylines: Quick EEAT Implementation</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Author schema signals expertise and authority. Add Person schema with credentials, social profiles, and bylines to strengthen EEAT signals for content.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#what-author-schema-does" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">What Author Schema Does</a></li>
+<li><a href="#author-schema-structure" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Author Schema Structure</a></li>
+<li><a href="#author-page-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Author Page Implementation</a></li>
+<li><a href="#visible-bylines-on-page-author-attribution" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Visible Bylines (On-Page Author Attribution)</a></li>
+<li><a href="#author-schema-for-different-cms-platforms" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Author Schema for Different CMS Platforms</a></li>
+<li><a href="#author-eeat-signals-beyond-schema" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Author EEAT Signals Beyond Schema</a></li>
+<li><a href="#author-schema-validation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Author Schema Validation</a></li>
+<li><a href="#common-author-schema-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Author Schema Mistakes</a></li>
+<li><a href="#author-schema-and-google-discover" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Author Schema and Google Discover</a></li>
+<li><a href="#next-steps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Next Steps</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Google&#39;s <strong>E-E-A-T</strong> framework (Experience, Expertise, Authoritativeness, Trustworthiness) evaluates content quality based on who created it. Author schema tells Google who wrote your content, their credentials, and why they&#39;re qualified to write on the topic. Combined with visible bylines, author schema strengthens E-E-A-T signals and improves rankings for competitive topics.</p>
+<p>Without author schema, Google must infer authorship from HTML alone. With schema, you explicitly declare author identity, qualifications, and social proof. This guide shows how to implement author schema using <code>Person</code> type structured data and how to build effective author bylines.</p>
+<h2 id="what-author-schema-does">What Author Schema Does</h2>
+<p>Author schema (<code>Person</code> type) describes the person who created the content. It includes:</p>
+<ul>
+<li><strong>Name</strong>. The author&#39;s full name</li>
+<li><strong>URL</strong>. Link to the author&#39;s profile or bio page</li>
+<li><strong>Social profiles</strong>. Links to LinkedIn, Twitter, professional sites</li>
+<li><strong>Job title and affiliation</strong>. Role and organization</li>
+<li><strong>Credentials</strong>. Degrees, certifications, professional experience</li>
+<li><strong>Image</strong>. Author headshot</li>
+</ul>
+<h3 id="how-author-schema-affects-rankings">How Author Schema Affects Rankings</h3>
+<p>Google uses author signals to evaluate content quality. For <strong>YMYL (Your Money or Your Life)</strong> topics, health, finance, legal, author credentials significantly affect rankings. A medical article by a doctor ranks higher than the same article by an anonymous blogger.</p>
+<p>Author schema doesn&#39;t directly boost rankings, but it strengthens E-E-A-T signals, which Google explicitly states affects ranking.</p>
+<h2 id="author-schema-structure">Author Schema Structure</h2>
+<p>Author schema is part of the <code>Article</code>, <code>BlogPosting</code>, or <code>NewsArticle</code> schema. It uses the <code>Person</code> type.</p>
+<h3 id="basic-author-schema">Basic Author Schema</h3>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Article&quot;,
+  &quot;headline&quot;: &quot;How to Fix Redirect Chains&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Victor Valentine Romo&quot;,
+    &quot;url&quot;: &quot;https://yoursite.com/author/victor-romo&quot;
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<p>This tells Google who wrote the article and links to their author page.</p>
+<h3 id="extended-author-schema-with-credentials">Extended Author Schema with Credentials</h3>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Article&quot;,
+  &quot;headline&quot;: &quot;How to Fix Redirect Chains&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Victor Valentine Romo&quot;,
+    &quot;url&quot;: &quot;https://yoursite.com/author/victor-romo&quot;,
+    &quot;image&quot;: &quot;https://yoursite.com/images/victor-romo.jpg&quot;,
+    &quot;jobTitle&quot;: &quot;SEO Consultant&quot;,
+    &quot;worksFor&quot;: {
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;name&quot;: &quot;PolyTraffic&quot;
+    },
+    &quot;sameAs&quot;: [
+      &quot;https://www.linkedin.com/in/victorromo&quot;,
+      &quot;https://twitter.com/victorromo&quot;
+    ]
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<p>This adds:</p>
+<ul>
+<li>Author headshot (<code>image</code>)</li>
+<li>Job title and organization (<code>jobTitle</code>, <code>worksFor</code>)</li>
+<li>Social proof (<code>sameAs</code> links to LinkedIn and Twitter)</li>
+</ul>
+<h3 id="multiple-authors">Multiple Authors</h3>
+<p>If multiple people co-authored the content, use an array:</p>
+<pre><code class="language-html">&quot;author&quot;: [
+  {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Author One&quot;,
+    &quot;url&quot;: &quot;https://yoursite.com/author/author-one&quot;
+  },
+  {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Author Two&quot;,
+    &quot;url&quot;: &quot;https://yoursite.com/author/author-two&quot;
+  }
+]
+</code></pre>
+<h2 id="author-page-implementation">Author Page Implementation</h2>
+<p>Every author should have a dedicated bio page with:</p>
+<ul>
+<li>Full name</li>
+<li>Professional headshot</li>
+<li>Bio (200-300 words)</li>
+<li>Credentials (degrees, certifications, work history)</li>
+<li>Social profile links</li>
+<li>Archive of authored articles</li>
+</ul>
+<h3 id="author-page-schema">Author Page Schema</h3>
+<p>Mark up the author page itself with <code>ProfilePage</code> and <code>Person</code> schema:</p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;ProfilePage&quot;,
+  &quot;mainEntity&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Victor Valentine Romo&quot;,
+    &quot;image&quot;: &quot;https://yoursite.com/images/victor-romo.jpg&quot;,
+    &quot;jobTitle&quot;: &quot;SEO Consultant&quot;,
+    &quot;worksFor&quot;: {
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;name&quot;: &quot;PolyTraffic&quot;
+    },
+    &quot;alumniOf&quot;: {
+      &quot;@type&quot;: &quot;EducationalOrganization&quot;,
+      &quot;name&quot;: &quot;University of North Carolina&quot;
+    },
+    &quot;sameAs&quot;: [
+      &quot;https://www.linkedin.com/in/victorromo&quot;,
+      &quot;https://twitter.com/victorromo&quot;
+    ],
+    &quot;description&quot;: &quot;Victor is an SEO consultant specializing in technical SEO and site migrations. He has 10+ years of experience optimizing enterprise websites.&quot;
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<p>This creates a structured author entity Google can recognize across all articles.</p>
+<h2 id="visible-bylines-on-page-author-attribution">Visible Bylines (On-Page Author Attribution)</h2>
+<p>Schema alone isn&#39;t enough. Google also looks for <strong>visible bylines</strong>, on-page text that identifies the author.</p>
+<h3 id="byline-best-practices">Byline Best Practices</h3>
+<p><strong>Include author name above or below the article title:</strong></p>
+<pre><code class="language-html">&lt;article&gt;
+  &lt;h1&gt;How to Fix Redirect Chains&lt;/h1&gt;
+  &lt;p class=&quot;byline&quot;&gt;By &lt;a href=&quot;/author/victor-romo&quot;&gt;Victor Valentine Romo&lt;/a&gt;&lt;/p&gt;
+  &lt;time datetime=&quot;2026-02-07&quot;&gt;February 7, 2026&lt;/time&gt;
+  ...
+&lt;/article&gt;
+</code></pre>
+<p><strong>Add author credentials if relevant:</strong></p>
+<blockquote>
+<p>By <strong>Victor Valentine Romo</strong>, SEO Consultant with 10+ years of experience in technical SEO</p>
+</blockquote>
+<p><strong>Link the byline to the author bio page:</strong></p>
+<pre><code class="language-html">&lt;a href=&quot;/author/victor-romo&quot; rel=&quot;author&quot;&gt;Victor Valentine Romo&lt;/a&gt;
+</code></pre>
+<p>The <code>rel=&quot;author&quot;</code> attribute helps Google identify the link as an author attribution.</p>
+<h3 id="byline-placement">Byline Placement</h3>
+<p>Place the byline:</p>
+<ul>
+<li><strong>Above the article</strong> (immediately after the title)</li>
+<li><strong>Below the article</strong> (in the footer or author box)</li>
+<li><strong>Both</strong> (short byline at top, full bio box at bottom)</li>
+</ul>
+<p><strong>Example author box (bottom of article):</strong></p>
+<pre><code class="language-html">&lt;div class=&quot;author-box&quot;&gt;
+  &lt;img src=&quot;/images/victor-romo.jpg&quot; alt=&quot;Victor Valentine Romo&quot;&gt;
+  &lt;h3&gt;About Victor Valentine Romo&lt;/h3&gt;
+  &lt;p&gt;Victor is an SEO consultant specializing in technical SEO and site migrations. He has 10+ years of experience and has worked with Fortune 500 companies.&lt;/p&gt;
+  &lt;a href=&quot;/author/victor-romo&quot;&gt;View all articles by Victor&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="author-schema-for-different-cms-platforms">Author Schema for Different CMS Platforms</h2>
+<h3 id="wordpress-yoast-seo">WordPress (Yoast SEO)</h3>
+<p>Yoast automatically adds author schema to posts. To verify:</p>
+<ol>
+<li>View a blog post&#39;s source code</li>
+<li>Search for <code>&quot;author&quot;</code> in the JSON-LD schema</li>
+<li>Confirm it includes the author&#39;s name and URL</li>
+</ol>
+<p><strong>To enhance author schema:</strong></p>
+<ol>
+<li><strong>Users &gt; Your Profile</strong> (or edit author profile)</li>
+<li>Fill in bio, social profiles (Facebook, Twitter, LinkedIn)</li>
+<li>Yoast pulls this data into the schema</li>
+</ol>
+<h3 id="wordpress-rank-math">WordPress (Rank Math)</h3>
+<p>Rank Math also auto-generates author schema. To customize:</p>
+<ol>
+<li><strong>Rank Math &gt; Titles &amp; Meta &gt; Posts &gt; Schema</strong></li>
+<li>Ensure <strong>Author</strong> is enabled</li>
+<li>Edit author profiles to add social links and bios</li>
+</ol>
+<h3 id="manual-implementation-html">Manual Implementation (HTML)</h3>
+<p>Add author schema to your article template:</p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Article&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;{{ author.name }}&quot;,
+    &quot;url&quot;: &quot;{{ site.url }}/author/{{ author.slug }}&quot;,
+    &quot;image&quot;: &quot;{{ author.avatar }}&quot;,
+    &quot;jobTitle&quot;: &quot;{{ author.title }}&quot;,
+    &quot;sameAs&quot;: [
+      &quot;{{ author.linkedin }}&quot;,
+      &quot;{{ author.twitter }}&quot;
+    ]
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<p>Replace <code>{{ variables }}</code> with your templating syntax.</p>
+<h3 id="shopify-blog-posts">Shopify (Blog Posts)</h3>
+<p>Shopify auto-generates author schema for blog posts. Customize by editing the theme:</p>
+<ol>
+<li><strong>Online Store &gt; Themes &gt; Edit code</strong></li>
+<li>Open <code>article-template.liquid</code></li>
+<li>Add custom author schema in a <code>&lt;script type=&quot;application/ld+json&quot;&gt;</code> block</li>
+</ol>
+<h2 id="author-eeat-signals-beyond-schema">Author EEAT Signals Beyond Schema</h2>
+<p>Schema is one signal. Strengthen author E-E-A-T with:</p>
+<h3 id="1-author-bio-pages-with-credentials">1. Author Bio Pages with Credentials</h3>
+<p>Include:</p>
+<ul>
+<li>Professional experience</li>
+<li>Degrees, certifications, licenses</li>
+<li>Published works</li>
+<li>Speaking engagements</li>
+<li>Awards or recognition</li>
+</ul>
+<p><strong>Example:</strong></p>
+<blockquote>
+<p>Victor Valentine Romo is a certified Google Analytics and Google Ads professional with 10+ years of SEO experience. He has worked with over 100 clients ranging from startups to Fortune 500 companies. Victor holds a degree in Computer Science from UNC Chapel Hill and has been featured in Search Engine Journal and Moz.</p>
+</blockquote>
+<h3 id="2-external-validation">2. External Validation</h3>
+<p>Link to:</p>
+<ul>
+<li>LinkedIn profile (with endorsements)</li>
+<li>Professional certifications (Google, HubSpot, SEMrush)</li>
+<li>Guest posts on authoritative sites</li>
+<li>Speaking engagements at conferences</li>
+</ul>
+<h3 id="3-consistent-authorship-across-the-web">3. Consistent Authorship Across the Web</h3>
+<p>Use the same author name format everywhere:</p>
+<ul>
+<li>On your site</li>
+<li>On LinkedIn</li>
+<li>In guest posts</li>
+<li>In conference bios</li>
+</ul>
+<p>Google uses entity resolution to match &quot;Victor Romo&quot; on your site with &quot;Victor Valentine Romo&quot; on LinkedIn. Consistency helps.</p>
+<h3 id="4-social-proof-in-bylines">4. Social Proof in Bylines</h3>
+<p>For YMYL topics, include credentials directly in the byline:</p>
+<blockquote>
+<p>By <strong>Dr. Jane Smith, MD</strong>, Board-Certified Cardiologist</p>
+</blockquote>
+<p>This immediately signals expertise to both users and Google.</p>
+<h2 id="author-schema-validation">Author Schema Validation</h2>
+<h3 id="google-rich-results-test">Google Rich Results Test</h3>
+<ol>
+<li>Go to <a href="https://search.google.com/test/rich-results" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://search.google.com/test/rich-results</a></li>
+<li>Enter article URL</li>
+<li>Expand <strong>Article</strong> schema</li>
+<li>Verify <strong>author</strong> field is populated</li>
+</ol>
+<h3 id="schema-markup-validator">Schema Markup Validator</h3>
+<ol>
+<li>Go to <a href="https://validator.schema.org/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://validator.schema.org/</a></li>
+<li>Paste JSON-LD or enter URL</li>
+<li>Check for validation errors</li>
+</ol>
+<h3 id="google-search-console">Google Search Console</h3>
+<p>Monitor <strong>Search Console &gt; Enhancements &gt; Unparsable Structured Data</strong> for author schema errors.</p>
+<h2 id="common-author-schema-mistakes">Common Author Schema Mistakes</h2>
+<h3 id="mistake-1-no-author-bio-page">Mistake 1: No Author Bio Page</h3>
+<p>Author schema should link to a dedicated bio page. Don&#39;t link to the homepage or a 404.</p>
+<p><strong>Wrong:</strong></p>
+<pre><code class="language-json">&quot;url&quot;: &quot;https://yoursite.com&quot;
+</code></pre>
+<p><strong>Right:</strong></p>
+<pre><code class="language-json">&quot;url&quot;: &quot;https://yoursite.com/author/victor-romo&quot;
+</code></pre>
+<h3 id="mistake-2-generic-or-missing-author-image">Mistake 2: Generic or Missing Author Image</h3>
+<p>Don&#39;t use placeholder images or skip the image field. Use a real professional headshot.</p>
+<p><strong>Wrong:</strong></p>
+<pre><code class="language-json">&quot;image&quot;: &quot;https://yoursite.com/default-avatar.png&quot;
+</code></pre>
+<p><strong>Right:</strong></p>
+<pre><code class="language-json">&quot;image&quot;: &quot;https://yoursite.com/images/victor-romo.jpg&quot;
+</code></pre>
+<h3 id="mistake-3-inconsistent-author-names">Mistake 3: Inconsistent Author Names</h3>
+<p>If you use &quot;Victor Romo&quot; on one article and &quot;Victor Valentine Romo&quot; on another, Google sees two different authors.</p>
+<p><strong>Fix:</strong> Use a consistent format sitewide.</p>
+<h3 id="mistake-4-missing-credentials-for-ymyl-content">Mistake 4: Missing Credentials for YMYL Content</h3>
+<p>If your content covers health, finance, or legal topics, author credentials are critical. Don&#39;t skip job title, education, or certifications.</p>
+<h3 id="mistake-5-author-schema-on-non-editorial-pages">Mistake 5: Author Schema on Non-Editorial Pages</h3>
+<p>Don&#39;t add author schema to product pages, category pages, or service pages. Reserve it for editorial content (blog posts, articles, guides).</p>
+<h2 id="author-schema-and-google-discover">Author Schema and Google Discover</h2>
+<p>Google Discover heavily weights E-E-A-T signals. Articles with strong author attribution are more likely to appear in Discover feeds.</p>
+<p><strong>To maximize Discover eligibility:</strong></p>
+<ul>
+<li>Implement full author schema (name, URL, image, credentials)</li>
+<li>Add visible bylines with credentials</li>
+<li>Link to a comprehensive author bio page</li>
+<li>Include high-quality author headshots (minimum 1200 x 1200 pixels)</li>
+</ul>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>What Author Schema Does:</strong> Author schema (Person type) describes the person who created the content.</li>
+<li><strong>Author Schema Structure:</strong> Author schema is part of the Article, BlogPosting, or NewsArticle schema.</li>
+<li><strong>Author Page Implementation:</strong> Every author should have a dedicated bio page with:</li>
+<li><strong>Author Schema for Different CMS Platforms:</strong> Yoast automatically adds author schema to posts.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="do-i-need-author-schema-for-every-blog-post">Do I need author schema for every blog post?</h3>
+<p>Yes. Every piece of editorial content should have author attribution, both in schema and as a visible byline.</p>
+<h3 id="can-i-use-the-organization-as-the-author-instead-of-a-person">Can I use the organization as the author instead of a person?</h3>
+<p>Yes, if the content is produced by the organization rather than an individual (e.g., corporate announcements, press releases). Use <code>@type: &quot;Organization&quot;</code> instead of <code>Person</code>. But for most blogs and articles, individual authorship is stronger for E-E-A-T.</p>
+<h3 id="should-i-add-author-schema-to-old-posts">Should I add author schema to old posts?</h3>
+<p>Yes. Update old posts with author schema to strengthen E-E-A-T signals sitewide. Use a plugin or script to batch-add schema to existing posts.</p>
+<h3 id="does-author-schema-help-with-rankings">Does author schema help with rankings?</h3>
+<p>Indirectly. Author schema strengthens E-E-A-T signals, which Google explicitly states affects ranking, especially for YMYL topics. It won&#39;t single-handedly boost rankings, but it&#39;s part of a comprehensive quality signal strategy.</p>
+<h3 id="can-i-have-multiple-authors-on-a-single-article">Can I have multiple authors on a single article?</h3>
+<p>Yes. Use an array of <code>Person</code> objects in the <code>author</code> field. Both authors should have bio pages and credentials.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Implement author schema on your blog posts using your CMS&#39;s built-in tools (Yoast, Rank Math) or manually via JSON-LD. Create author bio pages for all contributors with credentials, social links, and professional headshots. Add visible bylines to every article. Validate using <strong>Google Rich Results Test</strong>. For related E-E-A-T guidance, see <a href="/articles/eeat-signals-quick-wins.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">EEAT Signals Quick Wins</a>, <a href="/articles/schema-markup-seo-implementation-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Schema Markup SEO Implementation Guide</a>, and <a href="/articles/organization-schema-brand-entity.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Organization Schema for Brand Entity</a>.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/breadcrumb-schema-markup-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Breadcrumb Schema Markup: Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Breadcrumb schema shows your site hierarchy in search results. Add BreadcrumbList structured data to improve navigation and click-through rates.</p>
+          </a>
+
+          <a href="/articles/article-schema-markup-blog-news.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Article Schema Markup for Blog Posts and News</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Article schema tells Google your content type, author, publish date, and publisher. Implement it correctly and unlock rich results in search and Discover.</p>
+          </a>
+
+          <a href="/articles/301-vs-302-redirects-seo.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">301 vs 302 Redirects for SEO: When to Use Each</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">301 redirects pass link equity. 302 redirects don't signal permanence. Choose wrong and you leak rankings. This guide shows when to use each redirect type.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

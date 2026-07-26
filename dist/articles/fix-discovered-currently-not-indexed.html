@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Fix "Discovered – Currently Not Indexed" in Search Console | Polytraffic</title>
+    <meta name="description" content="Google found your URLs but hasn't crawled them yet. Learn why pages get stuck in the discovery queue, how to diagnose crawl budget bottlenecks, and systematic methods to force Google to crawl and index high-priority pages." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Fix &quot;Discovered – Currently Not Indexed&quot; in Search Console | Polytraffic" />
+    <meta property="og:description" content="Google found your URLs but hasn't crawled them yet. Learn why pages get stuck in the discovery queue, how to diagnose crawl budget bottlenecks, and systematic methods to force Google to crawl and index high-priority pages." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-discovered-currently-not-indexed" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-discovered-currently-not-indexed.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Fix &quot;Discovered – Currently Not Indexed&quot; in Search Console | Polytraffic" />
+    <meta name="twitter:description" content="Google found your URLs but hasn't crawled them yet. Learn why pages get stuck in the discovery queue, how to diagnose crawl budget bottlenecks, and systematic methods to force Google to crawl and index high-priority pages." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-discovered-currently-not-indexed.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-discovered-currently-not-indexed" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Fix \"Discovered – Currently Not Indexed\" in Search Console",
+    "description": "Google found your URLs but hasn't crawled them yet. Learn why pages get stuck in the discovery queue, how to diagnose crawl budget bottlenecks, and systematic methods to force Google to crawl and index high-priority pages.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-discovered-currently-not-indexed.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-discovered-currently-not-indexed.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Fix \"Discovered – Currently Not Indexed\" in Search Console"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Fix &quot;Discovered – Currently Not Indexed&quot; in Search Console</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-discovered-currently-not-indexed.png" alt="How to Fix &quot;Discovered – Currently Not Indexed&quot; in Search Console" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-fix-discovered-currently-not-indexed-in-search-console">How to Fix "Discovered – Currently Not Indexed" in Search Console</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Google found your URLs but hasn&#39;t crawled them yet. Learn why pages get stuck in the discovery queue, how to diagnose crawl budget bottlenecks, and systematic methods to force Google to crawl and index high-priority pages.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#what-discovered-currently-not-indexed-means" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">What "Discovered – Currently Not Indexed" Means</a></li>
+<li><a href="#how-to-find-discovered-currently-not-indexed-pages-in-gsc" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Find "Discovered – Currently Not Indexed" Pages in GSC</a></li>
+<li><a href="#the-7-most-common-causes-and-how-to-fix" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">The 7 Most Common Causes (And How to Fix)</a></li>
+<li><a href="#step-by-step-fix-protocol" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step-by-Step Fix Protocol</a></li>
+<li><a href="#advanced-accelerating-crawl-for-large-batches" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced: Accelerating Crawl for Large Batches</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>&quot;Discovered – currently not indexed&quot;</strong> means Google found your URL, through your sitemap, an internal link, or an external backlink, but hasn&#39;t bothered to crawl it yet. Your page sits in Google&#39;s discovery queue, waiting for Googlebot to allocate crawl budget to fetch and evaluate it.</p>
+<p>For small sites (&lt;1,000 pages), this status is temporary, most pages crawl within 48-72 hours. For large sites (&gt;50,000 pages), pages can languish in &quot;Discovered – currently not indexed&quot; for weeks or months, especially if they&#39;re buried deep in your site architecture or lack strong demand signals.</p>
+<p>This isn&#39;t a quality judgment (Google hasn&#39;t seen the content yet). It&#39;s a <strong>crawl prioritization</strong> problem. Google has limited crawl budget and allocates it to pages it deems most valuable based on internal linking, external demand, and site authority.</p>
+<p>This guide shows you how to diagnose why pages are stuck, manipulate crawl priority signals, and systematically force Google to crawl your backlog.</p>
+<h2 id="what-discovered-currently-not-indexed-means">What "Discovered – Currently Not Indexed" Means</h2>
+<p>Google&#39;s indexing pipeline:</p>
+<ol>
+<li><strong>Discovery:</strong> Google finds the URL (sitemap, link, or external mention)</li>
+<li><strong>Crawl Queue:</strong> URL enters Google&#39;s queue, prioritized by signals</li>
+<li><strong>Crawling:</strong> Googlebot fetches the page</li>
+<li><strong>Indexing:</strong> Google evaluates and (if quality passes) adds to index</li>
+</ol>
+<p><strong>&quot;Discovered – currently not indexed&quot;</strong> means the URL is stuck at stage 2. Google knows it exists but hasn&#39;t prioritized crawling it.</p>
+<h3 id="why-google-delays-crawling">Why Google Delays Crawling</h3>
+<p><strong>Crawl budget</strong> is finite. For large sites, Google might crawl 10,000 pages/day but have 100,000 URLs in the queue. Google prioritizes based on:</p>
+<ol>
+<li><strong>Internal link equity:</strong> Pages linked from the homepage or high-authority content crawl first</li>
+<li><strong>External demand:</strong> Pages with backlinks signal value</li>
+<li><strong>Historical data:</strong> Pages with traffic history or frequent updates get priority</li>
+<li><strong>Sitemap priority:</strong> XMLsitemap <code>&lt;priority&gt;</code> tags (weak signal, but still considered)</li>
+<li><strong>Page freshness:</strong> New content or recently updated pages rank higher in queue</li>
+<li><strong>Site authority:</strong> High-DR sites get more crawl budget than low-DR sites</li>
+</ol>
+<p>If your page scores low on all these dimensions, it waits indefinitely.</p>
+<h2 id="how-to-find-discovered-currently-not-indexed-pages-in-gsc">How to Find "Discovered – Currently Not Indexed" Pages in GSC</h2>
+<h3 id="method-1-page-indexing-report">Method 1: Page Indexing Report</h3>
+<ol>
+<li><strong>Google Search Console → Pages</strong></li>
+<li>Scroll to <strong>Why pages aren&#39;t indexed</strong></li>
+<li>Click <strong>Discovered – currently not indexed</strong></li>
+</ol>
+<p>You&#39;ll see:</p>
+<ul>
+<li><strong>Count:</strong> Total URLs in this status</li>
+<li><strong>Trend graph:</strong> Is it growing or shrinking?</li>
+<li><strong>Example URLs:</strong> Click to see full list</li>
+</ul>
+<p>Export: <strong>Export → Download → CSV</strong></p>
+<h3 id="method-2-url-inspection-tool">Method 2: URL Inspection Tool</h3>
+<p>For individual pages:</p>
+<ol>
+<li><strong>GSC → URL Inspection</strong></li>
+<li>Enter the URL</li>
+<li>Check <strong>Coverage</strong> status</li>
+</ol>
+<p>If &quot;Discovered – currently not indexed,&quot; expand to see:</p>
+<ul>
+<li><strong>Discovery date:</strong> When Google first found the URL</li>
+<li><strong>Referring page:</strong> How Google discovered it (sitemap, internal link, external link)</li>
+<li><strong>Sitemaps:</strong> Which sitemap(s) list this URL</li>
+</ul>
+<p><strong>Key insight:</strong> If discovery date is &gt;30 days ago, Google has intentionally deprioritized the page.</p>
+<h2 id="the-7-most-common-causes-and-how-to-fix">The 7 Most Common Causes (And How to Fix)</h2>
+<h3 id="cause-1-low-internal-link-equity-orphaned-pages">Cause #1: Low Internal Link Equity (Orphaned Pages)</h3>
+<p><strong>Problem:</strong> The page has zero or minimal internal links, signaling low importance.</p>
+<p><strong>How to diagnose:</strong></p>
+<p>Use <strong>Screaming Frog</strong> to count inlinks:</p>
+<ol>
+<li>Crawl your site: <strong>Enter domain → Start</strong></li>
+<li><strong>Internal → All</strong> tab</li>
+<li>Click <strong>Inlinks</strong> tab (bottom panel)</li>
+<li>Sort by <strong>Inlinks</strong> (ascending)</li>
+</ol>
+<p>Pages with <strong>0-1 inlinks</strong> are orphans or near-orphans.</p>
+<p>Cross-reference with GSC &quot;Discovered – currently not indexed&quot; export.</p>
+<p><strong>Example finding:</strong></p>
+<ul>
+<li><code>/product/niche-widget</code> = 0 inlinks (only in sitemap)</li>
+<li><code>/blog/advanced-guide</code> = 1 inlink (only from author archive page)</li>
+</ul>
+<p><strong>Fix:</strong></p>
+<p><strong>Add 5-10 internal links from high-authority pages:</strong></p>
+<p>Identify high-authority pages (homepage, pillar content, top blog posts):</p>
+<pre><code class="language-bash"># In Screaming Frog: Internal → All → Sort by Inlinks (descending)
+</code></pre>
+<p>Top pages = those with 20+ inlinks.</p>
+<p><strong>Manually add contextual links:</strong></p>
+<pre><code class="language-html">&lt;!-- In high-traffic blog post --&gt;
+&lt;p&gt;For advanced techniques, see our &lt;a href=&quot;/blog/advanced-guide&quot;&gt;complete SEO guide&lt;/a&gt;.&lt;/p&gt;
+</code></pre>
+<p><strong>Or programmatically (WordPress example):</strong></p>
+<pre><code class="language-php">// In functions.php - auto-add links to orphaned posts
+add_filter(&#39;the_content&#39;, &#39;boost_orphaned_posts&#39;);
+
+function boost_orphaned_posts($content) {
+  $orphaned_posts = [
+    &#39;/blog/advanced-guide&#39; =&gt; &#39;our advanced SEO guide&#39;,
+    &#39;/product/niche-widget&#39; =&gt; &#39;this specialized widget&#39;,
+  ];
+
+  foreach ($orphaned_posts as $url =&gt; $anchor) {
+    if (strpos($content, $url) === false) {
+      $content .= &#39;&lt;p&gt;Related: &lt;a href=&quot;&#39; . $url . &#39;&quot;&gt;&#39; . $anchor . &#39;&lt;/a&gt;&lt;/p&gt;&#39;;
+    }
+  }
+  return $content;
+}
+</code></pre>
+<p><strong>Best practice:</strong> Spread links across 5-10 different high-authority pages (not all from one page).</p>
+<h3 id="cause-2-pages-buried-deep-in-site-architecture">Cause #2: Pages Buried Deep in Site Architecture</h3>
+<p><strong>Problem:</strong> The page requires 4+ clicks from the homepage to reach.</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Screaming Frog:</strong></p>
+<ol>
+<li>After crawling, go to <strong>Internal → All</strong></li>
+<li>Right-click column header → <strong>Columns → Crawl Depth</strong></li>
+<li>Sort by <strong>Crawl Depth</strong></li>
+</ol>
+<p><strong>Google&#39;s rule of thumb:</strong> Pages &gt;3 clicks deep get lower crawl priority.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Homepage (depth 0)</li>
+<li>Category page (depth 1)</li>
+<li>Subcategory page (depth 2)</li>
+<li>Product page (depth 3) ✓</li>
+<li>Product variant page (depth 4) ❌ (too deep)</li>
+</ul>
+<p><strong>Fix:</strong></p>
+<p><strong>Flatten site architecture:</strong></p>
+<p><strong>Option 1:</strong> Add links from shallower pages:</p>
+<ul>
+<li>Link products directly from homepage (featured products section)</li>
+<li>Link deep content from sidebar widgets (Recent Posts, Popular Pages)</li>
+</ul>
+<p><strong>Option 2:</strong> Restructure navigation:</p>
+<ul>
+<li>Reduce subcategory layers</li>
+<li>Use mega-menus to surface deep pages in navigation</li>
+</ul>
+<p><strong>Option 3:</strong> Create hub pages:</p>
+<ul>
+<li>Create a &quot;/products/&quot; index page that links to all products (depth 1 → 2 instead of 1 → 2 → 3 → 4)</li>
+</ul>
+<h3 id="cause-3-low-or-zero-external-backlinks">Cause #3: Low or Zero External Backlinks</h3>
+<p><strong>Problem:</strong> No external sites link to the page, signaling zero external demand.</p>
+<p><strong>How to diagnose:</strong></p>
+<p>Check backlinks with <strong>Ahrefs</strong> or <strong>Semrush</strong>:</p>
+<ol>
+<li><strong>Ahrefs → Site Explorer → Enter domain</strong></li>
+<li><strong>Pages → Best by links</strong></li>
+<li>Filter for &quot;Discovered – currently not indexed&quot; URLs</li>
+</ol>
+<p>If <strong>Referring domains = 0</strong>, that&#39;s a red flag.</p>
+<p><strong>Fix:</strong></p>
+<p><strong>Build 2-5 external backlinks:</strong></p>
+<p><strong>Tactic 1: Outreach to relevant sites</strong></p>
+<p>Find sites linking to competitors&#39; similar content:</p>
+<ol>
+<li><strong>Ahrefs → Content Explorer → Enter topic keyword</strong></li>
+<li>Filter: <strong>One article per domain</strong></li>
+<li>Export list</li>
+<li>Email pitch:<blockquote>
+<p>&quot;Hi [Name], I noticed you linked to [competitor article] in your post on [topic]. We just published an updated guide: [your URL]. Would you consider adding it as a reference?&quot;</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>Tactic 2: Resource page link building</strong></p>
+<p>Find resource pages in your niche:</p>
+<ol>
+<li>Google: <code>[your topic] + &quot;resources&quot; + &quot;links&quot;</code></li>
+<li>Example: &quot;SEO tools resources links&quot;</li>
+<li>Reach out to page owners, suggest your page as addition</li>
+</ol>
+<p><strong>Tactic 3: Guest posting</strong></p>
+<p>Write guest articles for sites in your niche, link back to the undiscovered page.</p>
+<p><strong>Tactic 4: Social shares</strong></p>
+<p>Share on LinkedIn, Twitter, Reddit (subreddit relevant to topic). Even no-follow links contribute to demand signals.</p>
+<h3 id="cause-4-new-site-with-low-domain-authority">Cause #4: New Site with Low Domain Authority</h3>
+<p><strong>Problem:</strong> Google doesn&#39;t allocate much crawl budget to new or low-authority sites.</p>
+<p><strong>How to diagnose:</strong></p>
+<p>Check <strong>Domain Rating (DR)</strong> or <strong>Domain Authority (DA)</strong>:</p>
+<ul>
+<li><strong>Ahrefs:</strong> Site Explorer → Enter domain → DR score</li>
+<li><strong>Moz:</strong> Link Explorer → Enter domain → DA score</li>
+</ul>
+<p><strong>Thresholds:</strong></p>
+<ul>
+<li><strong>DR/DA &lt;10:</strong> low authority. Google crawls 100-500 pages/day</li>
+<li><strong>DR/DA 10-30:</strong> Moderate authority. Google crawls 1,000-5,000 pages/day</li>
+<li><strong>DR/DA &gt;30:</strong> High authority. Google crawls 10,000+ pages/day</li>
+</ul>
+<p>If your site has 10,000 pages but DR 8, &quot;Discovered – currently not indexed&quot; is expected. Google can&#39;t crawl everything.</p>
+<p><strong>Fix:</strong></p>
+<p><strong>Short-term: Prioritize high-value pages</strong></p>
+<p>Use <strong>Request Indexing</strong> in GSC for:</p>
+<ul>
+<li>Homepage</li>
+<li>Top 10 product/service pages</li>
+<li>High-search-volume blog posts</li>
+</ul>
+<p><strong>Long-term: Build domain authority</strong></p>
+<ol>
+<li><strong>Earn backlinks:</strong> Guest posts, digital PR, resource page placements</li>
+<li><strong>Create linkable assets:</strong> Original research, tools, calculators, infographics</li>
+<li><strong>Brand building:</strong> Get mentioned in industry publications, podcasts, interviews</li>
+</ol>
+<p><strong>Expected timeline:</strong> 6-12 months to move DR from &lt;10 to 20+.</p>
+<h3 id="cause-5-pages-added-in-bulk-without-sitemap-priority-signals">Cause #5: Pages Added in Bulk Without Sitemap Priority Signals</h3>
+<p><strong>Problem:</strong> You added 5,000 new products to your site and submitted them all in a sitemap with equal priority.</p>
+<p><strong>How to diagnose:</strong></p>
+<p>Check your sitemap:</p>
+<pre><code class="language-xml">&lt;url&gt;
+  &lt;loc&gt;https://yourdomain.com/product-1&lt;/loc&gt;
+  &lt;priority&gt;0.5&lt;/priority&gt;
+&lt;/url&gt;
+&lt;url&gt;
+  &lt;loc&gt;https://yourdomain.com/product-2&lt;/loc&gt;
+  &lt;priority&gt;0.5&lt;/priority&gt;
+&lt;/url&gt;
+</code></pre>
+<p>If all URLs have the same <code>&lt;priority&gt;</code> (or no priority set), Google has no signal for which to crawl first.</p>
+<p><strong>Fix:</strong></p>
+<p><strong>Set sitemap priorities based on importance:</strong></p>
+<pre><code class="language-xml">&lt;!-- High-priority pages --&gt;
+&lt;url&gt;
+  &lt;loc&gt;https://yourdomain.com/&lt;/loc&gt;
+  &lt;priority&gt;1.0&lt;/priority&gt;
+  &lt;changefreq&gt;daily&lt;/changefreq&gt;
+&lt;/url&gt;
+
+&lt;!-- Medium-priority --&gt;
+&lt;url&gt;
+  &lt;loc&gt;https://yourdomain.com/product/best-seller&lt;/loc&gt;
+  &lt;priority&gt;0.8&lt;/priority&gt;
+  &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+&lt;/url&gt;
+
+&lt;!-- Low-priority --&gt;
+&lt;url&gt;
+  &lt;loc&gt;https://yourdomain.com/blog/old-post&lt;/loc&gt;
+  &lt;priority&gt;0.3&lt;/priority&gt;
+  &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+&lt;/url&gt;
+</code></pre>
+<p><strong>WordPress (Yoast SEO):</strong></p>
+<p>Yoast auto-assigns priorities:</p>
+<ul>
+<li>Homepage: 1.0</li>
+<li>Posts/pages: 0.6</li>
+<li>Archives: 0.3</li>
+</ul>
+<p>To customize:</p>
+<pre><code class="language-php">// In functions.php
+add_filter(&#39;wpseo_xml_sitemap_post_url&#39;, &#39;custom_sitemap_priority&#39;, 10, 2);
+
+function custom_sitemap_priority($url, $post) {
+  if (get_post_meta($post-&gt;ID, &#39;high_priority&#39;, true)) {
+    $url[&#39;pri&#39;] = 0.9; // Boost priority for tagged posts
+  }
+  return $url;
+}
+</code></pre>
+<p><strong>Submit updated sitemap to GSC:</strong></p>
+<ol>
+<li><strong>GSC → Sitemaps → Add new sitemap</strong></li>
+<li>Enter: <code>sitemap.xml</code></li>
+<li>Click <strong>Submit</strong></li>
+</ol>
+<h3 id="cause-6-server-crawl-rate-limits">Cause #6: Server Crawl Rate Limits</h3>
+<p><strong>Problem:</strong> Your server is rate-limiting Googlebot to prevent overload, slowing crawl velocity.</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Check server logs</strong> for Googlebot 503 (Service Unavailable) or 429 (Too Many Requests) responses:</p>
+<pre><code class="language-bash">grep &quot;Googlebot&quot; access.log | grep &quot; 503 &quot; | wc -l
+</code></pre>
+<p>If count &gt; 5% of total Googlebot requests, you have rate-limiting issues.</p>
+<p><strong>Or check GSC Crawl Stats:</strong></p>
+<ol>
+<li><strong>GSC → Settings → Open report</strong> (under &quot;Crawl stats&quot;)</li>
+<li>Check <strong>Crawl requests by response</strong> graph</li>
+<li>If you see spikes in 5xx or 4xx errors, your server is throttling</li>
+</ol>
+<p><strong>Fix:</strong></p>
+<p><strong>Option 1: Whitelist Googlebot in server config</strong></p>
+<p><strong>Apache (.htaccess):</strong></p>
+<pre><code class="language-apache">&lt;If &quot;%{HTTP_USER_AGENT} =~ /Googlebot/&quot;&gt;
+  Require all granted
+  # No rate limits for Googlebot
+&lt;/If&gt;
+</code></pre>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-nginx">if ($http_user_agent ~* &quot;Googlebot&quot;) {
+  set $limit_rate 0; # Unlimited for Googlebot
+}
+</code></pre>
+<p><strong>Option 2: Upgrade server resources</strong></p>
+<p>More CPU, RAM, or switch to a CDN (Cloudflare, Fastly) to handle burst traffic.</p>
+<p><strong>Option 3: Request slower crawl rate</strong> (if server can&#39;t handle current rate):</p>
+<p>File request via <strong>GSC → Help → Contact Support</strong> asking Google to reduce crawl rate.</p>
+<h3 id="cause-7-robots-txt-crawl-delay-directive-non-standard">Cause #7: Robots.txt Crawl-Delay Directive (Non-Standard)</h3>
+<p><strong>Problem:</strong> Your <code>robots.txt</code> has a <code>Crawl-delay</code> directive, slowing Googlebot.</p>
+<p><strong>Check robots.txt:</strong></p>
+<pre><code>https://yourdomain.com/robots.txt
+</code></pre>
+<p>If you see:</p>
+<pre><code>User-agent: *
+Crawl-delay: 10
+</code></pre>
+<p>This tells bots to wait 10 seconds between requests. <strong>Google doesn&#39;t officially support this</strong>, but some crawlers respect it and slow down.</p>
+<p><strong>Fix:</strong></p>
+<p>Remove or adjust:</p>
+<pre><code># Remove Crawl-delay entirely for Googlebot
+User-agent: Googlebot
+# No Crawl-delay
+
+User-agent: *
+Crawl-delay: 10  # Keep for aggressive bots
+</code></pre>
+<h2 id="step-by-step-fix-protocol">Step-by-Step Fix Protocol</h2>
+<h3 id="step-1-export-and-prioritize">Step 1: Export and Prioritize</h3>
+<ol>
+<li>Export &quot;Discovered – currently not indexed&quot; URLs from GSC</li>
+<li>Categorize by page type (products, blog posts, category pages)</li>
+<li>Prioritize:<ul>
+<li><strong>High:</strong> Money pages (products, services, high-search-volume keywords)</li>
+<li><strong>Medium:</strong> Supporting content (blog posts, guides)</li>
+<li><strong>Low:</strong> Old content, archives, low-demand pages</li>
+</ul>
+</li>
+</ol>
+<h3 id="step-2-diagnose-root-cause">Step 2: Diagnose Root Cause</h3>
+<p>For each high-priority URL:</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Tool</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Internal links</td>
+<td>Screaming Frog Inlinks</td>
+<td>5+ inlinks</td>
+</tr>
+<tr>
+<td>Crawl depth</td>
+<td>Screaming Frog Crawl Depth</td>
+<td>≤3 clicks</td>
+</tr>
+<tr>
+<td>External backlinks</td>
+<td>Ahrefs</td>
+<td>2+ referring domains</td>
+</tr>
+<tr>
+<td>Sitemap priority</td>
+<td>View sitemap XML</td>
+<td>0.7+ priority</td>
+</tr>
+</tbody></table>
+<p>Document findings:</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Inlinks</th>
+<th>Depth</th>
+<th>Backlinks</th>
+<th>Priority</th>
+<th>Issue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/product-a</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>0.5</td>
+<td>Orphaned + buried</td>
+</tr>
+</tbody></table>
+<h3 id="step-3-apply-fixes">Step 3: Apply Fixes</h3>
+<p>Based on diagnosis:</p>
+<ul>
+<li><strong>Orphaned:</strong> Add 5-10 internal links from high-authority pages</li>
+<li><strong>Buried:</strong> Flatten architecture or add shortcut links from homepage</li>
+<li><strong>Zero backlinks:</strong> Build 2-5 external links</li>
+<li><strong>Low sitemap priority:</strong> Increase to 0.8-1.0</li>
+<li><strong>Rate-limited:</strong> Whitelist Googlebot or upgrade server</li>
+</ul>
+<h3 id="step-4-request-indexing">Step 4: Request Indexing</h3>
+<p>After fixes:</p>
+<ol>
+<li><strong>GSC → URL Inspection → Enter URL</strong></li>
+<li><strong>Test live URL</strong> (verifies Googlebot can access)</li>
+<li><strong>Request Indexing</strong></li>
+</ol>
+<p>Google will crawl within 24-48 hours for most sites.</p>
+<h3 id="step-5-monitor-progress">Step 5: Monitor Progress</h3>
+<p>Check status after 7-14 days:</p>
+<p><strong>Individual URLs:</strong></p>
+<ul>
+<li><strong>GSC → URL Inspection → Enter URL</strong></li>
+<li>Look for status change: &quot;URL is on Google&quot;</li>
+</ul>
+<p><strong>Aggregate trends:</strong></p>
+<ul>
+<li><strong>GSC → Pages → Discovered – currently not indexed</strong></li>
+<li>Count should drop by 30-50% after 30 days if fixes worked</li>
+</ul>
+<h2 id="advanced-accelerating-crawl-for-large-batches">Advanced: Accelerating Crawl for Large Batches</h2>
+<p>For sites with 10,000+ &quot;Discovered – currently not indexed&quot; URLs:</p>
+<h3 id="strategy-1-staged-sitemap-submission">Strategy 1: Staged Sitemap Submission</h3>
+<p>Instead of one massive sitemap (50,000 URLs), break into priority tiers:</p>
+<p><strong>sitemap-high-priority.xml</strong> (1,000 URLs, priority 0.9-1.0)
+<strong>sitemap-medium-priority.xml</strong> (5,000 URLs, priority 0.6-0.8)
+<strong>sitemap-low-priority.xml</strong> (44,000 URLs, priority 0.3-0.5)</p>
+<p>Submit high-priority first:</p>
+<ol>
+<li><strong>GSC → Sitemaps → Add sitemap:</strong> <code>sitemap-high-priority.xml</code></li>
+<li>Wait 7 days for Google to crawl</li>
+<li>Then submit medium-priority</li>
+<li>Then low-priority</li>
+</ol>
+<h3 id="strategy-2-programmatic-internal-link-injection">Strategy 2: Programmatic Internal Link Injection</h3>
+<p>Auto-add internal links to orphaned pages:</p>
+<p><strong>WordPress example:</strong></p>
+<pre><code class="language-php">// In functions.php
+add_filter(&#39;the_content&#39;, &#39;inject_orphan_links&#39;);
+
+function inject_orphan_links($content) {
+  global $post;
+
+  // Get orphaned URLs from database
+  $orphans = get_option(&#39;orphaned_urls&#39;); // Array of URLs
+
+  if (!empty($orphans)) {
+    $random_orphan = $orphans[array_rand($orphans)];
+    $content .= &#39;&lt;p&gt;&lt;strong&gt;Related:&lt;/strong&gt; &lt;a href=&quot;&#39; . $random_orphan . &#39;&quot;&gt;Explore this topic&lt;/a&gt;&lt;/p&gt;&#39;;
+  }
+
+  return $content;
+}
+</code></pre>
+<p>This appends a random orphaned URL to every post, distributing internal link equity.</p>
+<h3 id="strategy-3-rss-feed-submission">Strategy 3: RSS Feed Submission</h3>
+<p>If you have an RSS feed, submit to aggregators:</p>
+<ul>
+<li><strong>Google News</strong> (if news site)</li>
+<li><strong>Bing Webmaster Tools → Submit URLs</strong></li>
+<li><strong>Feedly</strong>, <strong>Inoreader</strong> (content aggregators)</li>
+</ul>
+<p>These services crawl RSS feeds frequently, which can trigger Google&#39;s discovery.</p>
+<h3 id="strategy-4-indexnow-protocol">Strategy 4: IndexNow Protocol</h3>
+<p><strong>IndexNow</strong> instantly notifies search engines (Bing, Yandex) of new URLs:</p>
+<pre><code class="language-bash"># Ping IndexNow API
+curl &quot;https://api.indexnow.org/indexnow?url=https://yourdomain.com/new-page&amp;key=YOUR_API_KEY&quot;
+</code></pre>
+<p><strong>Note:</strong> Google doesn&#39;t officially support IndexNow yet (as of 2026), but Bing does.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>How long does it take for &quot;Discovered – currently not indexed&quot; to resolve?</strong></p>
+<p><strong>Small sites (&lt;1,000 pages):** 48-72 hours after requesting indexing.
+**Medium sites (1,000-10,000 pages):** 7-14 days.
+**Large sites (&gt;50,000 pages):</strong> 4-8 weeks for bulk changes.</p>
+<p><strong>Can I force Google to crawl faster?</strong></p>
+<p>Not directly. But you can manipulate priority signals (internal links, backlinks, sitemap priority) to move pages higher in the crawl queue.</p>
+<p><strong>Should I remove pages from the sitemap if they&#39;re not being crawled?</strong></p>
+<p>No. Sitemap removal makes discovery HARDER. Instead, boost the page&#39;s signals (links, priority) to increase crawl likelihood.</p>
+<p><strong>Does &quot;Discovered – currently not indexed&quot; hurt my rankings?</strong></p>
+<p>No direct penalty. But if high-value pages are stuck, you&#39;re missing ranking opportunities. Indirectly, a large backlog signals to Google that your site is low-priority.</p>
+<p><strong>What if I fix everything and the page still isn&#39;t crawled after 30 days?</strong></p>
+<p><strong>Option 1:</strong> Manually request indexing again via GSC.
+<strong>Option 2:</strong> Build more external backlinks (strongest signal).
+<strong>Option 3:</strong> Accept that Google has deprioritized the page, focus energy on higher-ROI content.</p>
+<p><strong>Can too many &quot;Discovered – currently not indexed&quot; pages harm my site?</strong></p>
+<p>Yes, indirectly. If 60% of your sitemap is &quot;Discovered – not indexed,&quot; Google may lower your site&#39;s crawl budget allocation, slowing indexing for all pages. Prune low-value URLs from your sitemap.</p>
+<p><strong>Does removing old content help with crawl budget?</strong></p>
+<p>Yes. If you have 20,000 old blog posts that get zero traffic, consider:</p>
+<ul>
+<li><strong>Consolidating</strong> (merge 10 thin posts into 1 comprehensive guide)</li>
+<li><strong>Noindexing</strong> low-value pages</li>
+<li><strong>Deleting</strong> and 410-ing truly obsolete content</li>
+</ul>
+<p>This frees crawl budget for high-value pages.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<p>&quot;Discovered – currently not indexed&quot; is a crawl queue problem, not a quality problem. Google found your pages but hasn&#39;t allocated resources to fetch them. Boost internal link equity, flatten site architecture, build external demand, and manipulate sitemap priorities to jump the queue. Most pages will crawl within 14-30 days once signals strengthen.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-crawled-currently-not-indexed.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix &quot;Crawled – Currently Not Indexed&quot; in Google Search Console</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Google crawled your pages but refused to index them. Learn why Google excludes crawled content, how to diagnose quality signals, and systematic fixes to force indexing for valuable pages stranded in limbo.</p>
+          </a>
+
+          <a href="/articles/fix-crawl-errors-google-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Crawl Errors in Google Search Console (Complete Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Crawl errors block Googlebot from indexing your pages, crater organic visibility, and signal poor site health. Learn how to diagnose 404s, server errors, redirect loops, and robots.txt blocks in Google Search Console and fix them systematically.</p>
+          </a>
+
+          <a href="/articles/fix-indexing-issues-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Indexing Issues in Google Search Console (Complete Diagnostic Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Google Search Console shows pages excluded from indexing? Learn how to diagnose crawl errors, fix server issues, resolve canonical conflicts, and force Google to index your critical pages.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

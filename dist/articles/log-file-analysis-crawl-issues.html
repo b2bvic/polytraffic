@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log File Analysis for SEO: Diagnose Crawl Issues and Wasted Budget | Polytraffic</title>
+    <meta name="description" content="Analyze server logs to find Googlebot crawl issues, wasted crawl budget, and indexation problems. Tools and methods for comprehensive log analysis." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Log File Analysis for SEO: Diagnose Crawl Issues and Wasted Budget | Polytraffic" />
+    <meta property="og:description" content="Analyze server logs to find Googlebot crawl issues, wasted crawl budget, and indexation problems. Tools and methods for comprehensive log analysis." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/log-file-analysis-crawl-issues" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/log-file-analysis-crawl-issues.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Log File Analysis for SEO: Diagnose Crawl Issues and Wasted Budget | Polytraffic" />
+    <meta name="twitter:description" content="Analyze server logs to find Googlebot crawl issues, wasted crawl budget, and indexation problems. Tools and methods for comprehensive log analysis." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/log-file-analysis-crawl-issues.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/log-file-analysis-crawl-issues" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Log File Analysis for SEO: Diagnose Crawl Issues and Wasted Budget",
+    "description": "Analyze server logs to find Googlebot crawl issues, wasted crawl budget, and indexation problems. Tools and methods for comprehensive log analysis.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/log-file-analysis-crawl-issues.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/log-file-analysis-crawl-issues.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Log File Analysis for SEO: Diagnose Crawl Issues and Wasted Budget"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Log File Analysis for SEO: Diagnose Crawl Issues and Wasted Budget</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/log-file-analysis-crawl-issues.png" alt="Log File Analysis for SEO: Diagnose Crawl Issues and Wasted Budget" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="log-file-analysis-for-seo-diagnose-crawl-issues-and-wasted-budget">Log File Analysis for SEO: Diagnose Crawl Issues and Wasted Budget</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Analyze server logs to find Googlebot crawl issues, wasted crawl budget, and indexation problems. Tools and methods for comprehensive log analysis.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-log-file-analysis-matters" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Log File Analysis Matters</a></li>
+<li><a href="#log-file-basics" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Log File Basics</a></li>
+<li><a href="#accessing-and-preparing-logs" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Accessing and Preparing Logs</a></li>
+<li><a href="#filtering-for-googlebot-traffic" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Filtering for Googlebot Traffic</a></li>
+<li><a href="#log-analysis-tools" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Log Analysis Tools</a></li>
+<li><a href="#crawl-budget-analysis" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Crawl Budget Analysis</a></li>
+<li><a href="#detecting-crawl-issues" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Detecting Crawl Issues</a></li>
+<li><a href="#javascript-rendering-verification" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">JavaScript Rendering Verification</a></li>
+<li><a href="#bot-traffic-differentiation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Bot Traffic Differentiation</a></li>
+<li><a href="#indexation-troubleshooting" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Indexation Troubleshooting</a></li>
+<li><a href="#regular-monitoring-setup" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Regular Monitoring Setup</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Server log analysis reveals Googlebot&#39;s actual crawling behavior, which pages get crawled, how frequently, what status codes return, exposing crawl budget waste, orphaned content, and JavaScript rendering failures invisible in Search Console. Systematic log review identifies patterns Google&#39;s tools don&#39;t surface, enabling targeted fixes that improve crawl efficiency and indexation rates.</p>
+<h2 id="why-log-file-analysis-matters">Why Log File Analysis Matters</h2>
+<p><strong>Google Search Console</strong> shows sampled data and delayed reporting. Log files provide complete, real-time records of every Googlebot request, capturing failed crawls, timeout issues, and redirect chains Search Console misses or delays reporting by days.</p>
+<p><strong>Crawl budget optimization</strong> requires understanding how Googlebot allocates resources. Large sites (10,000+ pages) face crawl budget constraints. Google won&#39;t crawl everything daily. Log analysis reveals which pages consume budget without providing value (404s, duplicates, low-quality pages).</p>
+<p><strong>JavaScript rendering verification</strong> shows whether Googlebot&#39;s two-phase crawl succeeds. Logs indicate initial HTML fetch, then secondary rendering requests. Missing secondary requests signal rendering failures blocking content discovery.</p>
+<p><strong>Bot traffic identification</strong> separates legitimate Googlebot from fake bots spoofing user agents. Malicious scrapers and spam bots waste server resources while pretending to be Google, log analysis exposes them through IP verification and behavioral patterns.</p>
+<p><strong>Redirect chain discovery</strong> catches multi-hop redirects wasting crawl budget. Search Console shows final destinations; logs reveal the full chain, quantifying efficiency losses from 3-4 hop redirects.</p>
+<h2 id="log-file-basics">Log File Basics</h2>
+<p><strong>Access logs</strong> (Apache, Nginx) record every server request:</p>
+<pre><code>185.45.67.23 - - [08/Feb/2026:10:23:45 +0000] &quot;GET /page.html HTTP/1.1&quot; 200 5234 &quot;-&quot; &quot;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&quot;
+</code></pre>
+<p>Components:</p>
+<ul>
+<li><strong>IP</strong>: 185.45.67.23 (Googlebot IP)</li>
+<li><strong>Timestamp</strong>: 08/Feb/2026:10:23:45</li>
+<li><strong>Request</strong>: GET /page.html HTTP/1.1</li>
+<li><strong>Status</strong>: 200 (OK)</li>
+<li><strong>Bytes</strong>: 5234 transferred</li>
+<li><strong>User agent</strong>: Googlebot/2.1</li>
+</ul>
+<p><strong>Log file locations</strong>:</p>
+<ul>
+<li><strong>Apache</strong>: <code>/var/log/apache2/access.log</code> or <code>/var/log/httpd/access_log</code></li>
+<li><strong>Nginx</strong>: <code>/var/log/nginx/access.log</code></li>
+<li><strong>IIS</strong>: <code>C:\inetpub\logs\LogFiles\</code></li>
+</ul>
+<p><strong>File rotation</strong>: Servers rotate logs daily/weekly to prevent massive files. Archive old logs before analysis, deleted logs erase crawl history.</p>
+<p><strong>Log formats</strong>: Common Log Format (CLF) or Combined Log Format include user agents, referrers, and status codes. Configure servers to log detailed information for comprehensive analysis.</p>
+<h2 id="accessing-and-preparing-logs">Accessing and Preparing Logs</h2>
+<p><strong>Server access via SSH</strong>:</p>
+<pre><code class="language-bash">ssh user@yourserver.com
+cd /var/log/nginx/
+ls -lh access.log*
+</code></pre>
+<p><strong>Download logs</strong> for local analysis:</p>
+<pre><code class="language-bash">scp user@yourserver.com:/var/log/nginx/access.log.1 ~/logs/
+</code></pre>
+<p><strong>Compression handling</strong>: Logs often compress to <code>.gz</code> format. Decompress before analysis:</p>
+<pre><code class="language-bash">gunzip access.log.1.gz
+</code></pre>
+<p><strong>Hosting provider exports</strong>: cPanel, Plesk, and managed hosts offer log download via control panels. Go to Metrics → Raw Access Logs, download for target date range.</p>
+<p><strong>CDN logs</strong>: Cloudflare, CloudFront, and Fastly provide separate logs showing requests hitting CDN edge servers. Analyze both origin and CDN logs for complete picture.</p>
+<p><strong>Date range selection</strong>: 30 days of logs balance detail and manageability. 7 days suffices for quick diagnostics; 90 days reveals trends but creates 10GB+ files requiring specialized tools.</p>
+<h2 id="filtering-for-googlebot-traffic">Filtering for Googlebot Traffic</h2>
+<p><strong>User agent matching</strong> isolates legitimate Googlebot requests:</p>
+<pre><code class="language-bash">grep &quot;Googlebot&quot; access.log &gt; googlebot.log
+</code></pre>
+<p><strong>IP verification</strong> confirms legitimacy. Fake bots spoof user agents but can&#39;t fake Google&#39;s IP ranges. Verify via reverse DNS:</p>
+<pre><code class="language-bash">host 66.249.66.1
+# Should return: crawl-66-249-66-1.googlebot.com
+</code></pre>
+<p><strong>Google&#39;s IP ranges</strong> (partial list, check Google&#39;s documentation for complete ranges):</p>
+<ul>
+<li>66.249.64.0/19</li>
+<li>66.102.0.0/20</li>
+<li>64.233.160.0/19</li>
+</ul>
+<p><strong>Filtering by bot type</strong>:</p>
+<ul>
+<li><strong>Googlebot Desktop</strong>: &quot;Mozilla/5.0 (compatible; Googlebot/2.1&quot;</li>
+<li><strong>Googlebot Mobile</strong>: &quot;Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/W.X.Y.Z Mobile Safari/537.36 (compatible; Googlebot/2.1&quot;</li>
+<li><strong>Googlebot Image</strong>: &quot;Googlebot-Image/1.0&quot;</li>
+</ul>
+<p><strong>Status code extraction</strong> from Googlebot requests:</p>
+<pre><code class="language-bash">awk &#39;$9 ~ /^[45]/ {print $7, $9}&#39; googlebot.log | sort | uniq -c | sort -rn
+</code></pre>
+<p>This shows URLs returning 4xx/5xx errors to Googlebot, sorted by frequency.</p>
+<h2 id="log-analysis-tools">Log Analysis Tools</h2>
+<p><strong>Screaming Frog Log File Analyser</strong> (free, 1GB file limit):</p>
+<ol>
+<li>Download from screamingfrog.co.uk/log-file-analyser/</li>
+<li>Load log file</li>
+<li>Filter by Googlebot user agent</li>
+<li>View crawled URLs, status codes, bandwidth consumption</li>
+<li>Export reports for deeper analysis</li>
+</ol>
+<p><strong>Logz.io</strong> (cloud-based, from $89/month):</p>
+<ul>
+<li>Real-time log aggregation</li>
+<li>Pre-built Googlebot dashboards</li>
+<li>Alerts for crawl anomalies (spike in 404s, bandwidth surges)</li>
+<li>Elasticsearch-powered search</li>
+</ul>
+<p><strong>Splunk</strong> (enterprise, complex pricing):</p>
+<ul>
+<li>Massive log processing (TB+ files)</li>
+<li>Custom queries and visualizations</li>
+<li>Bot detection and security analysis</li>
+<li>Requires significant setup/expertise</li>
+</ul>
+<p><strong>Awk/Grep command-line</strong>:</p>
+<p>Free but requires Unix knowledge. Process multi-GB files quickly:</p>
+<pre><code class="language-bash"># Count Googlebot requests per status code
+awk &#39;$12 ~ /Googlebot/ {print $9}&#39; access.log | sort | uniq -c
+
+# Top crawled URLs
+awk &#39;$12 ~ /Googlebot/ {print $7}&#39; access.log | sort | uniq -c | sort -rn | head -20
+
+# Crawl bandwidth by URL
+awk &#39;$12 ~ /Googlebot/ {urls[$7]+=$10} END {for (url in urls) print urls[url], url}&#39; access.log | sort -rn
+</code></pre>
+<p><strong>OnCrawl</strong> (from €69/month):</p>
+<ul>
+<li>SEO-focused log analysis</li>
+<li>Crawl budget optimization recommendations</li>
+<li>Integration with Google Search Console</li>
+<li>Historical trend analysis</li>
+</ul>
+<p><strong>Botify</strong> (enterprise, custom pricing):</p>
+<ul>
+<li>Advanced segmentation (category, template, traffic)</li>
+<li>Machine learning anomaly detection</li>
+<li>Crawl frequency predictions</li>
+<li>Multi-site management for large organizations</li>
+</ul>
+<h2 id="crawl-budget-analysis">Crawl Budget Analysis</h2>
+<p><strong>Crawl rate calculation</strong> shows daily Googlebot activity:</p>
+<pre><code class="language-bash"># Requests per day
+awk &#39;$12 ~ /Googlebot/&#39; access.log | cut -d: -f1 | sort | uniq -c
+</code></pre>
+<p>Expected rates:</p>
+<ul>
+<li>Small sites (100-1,000 pages): 50-200 daily requests</li>
+<li>Medium sites (1,000-10,000 pages): 200-1,000 daily requests</li>
+<li>Large sites (10,000+ pages): 1,000-10,000+ daily requests</li>
+</ul>
+<p><strong>Pages per request ratio</strong>: Divide total pages by daily Googlebot requests to estimate full-site crawl frequency. If 10,000 pages and 500 daily requests, full crawl takes 20 days, problematic if publishing new content daily.</p>
+<p><strong>Bandwidth consumption</strong> by URL:</p>
+<pre><code class="language-bash">awk &#39;$12 ~ /Googlebot/ {urls[$7]+=$10} END {for (url in urls) print urls[url]/1024/1024 &quot; MB&quot;, url}&#39; access.log | sort -rn | head -20
+</code></pre>
+<p>Identify pages consuming disproportionate bandwidth (large images, videos, PDFs). Consider lazy-loading or aggressive caching for high-bandwidth, low-value pages.</p>
+<p><strong>404 error crawl waste</strong>:</p>
+<pre><code class="language-bash">awk &#39;$12 ~ /Googlebot/ &amp;&amp; $9 == &quot;404&quot; {print $7}&#39; access.log | sort | uniq -c | sort -rn
+</code></pre>
+<p>URLs returning 404 repeatedly waste crawl budget. Implement 301 redirects or update internal links pointing to dead pages.</p>
+<p><strong>Low-value page identification</strong>: URLs crawled frequently but generating zero traffic (per Analytics) waste budget. Consider noindexing or removing:</p>
+<ul>
+<li>Tag archives with thin content</li>
+<li>Paginated pages beyond page 3-4</li>
+<li>Filtered product views creating infinite URL variations</li>
+<li>Empty category pages</li>
+</ul>
+<h2 id="detecting-crawl-issues">Detecting Crawl Issues</h2>
+<p><strong>Redirect chains</strong>:</p>
+<pre><code class="language-bash">awk &#39;$12 ~ /Googlebot/ &amp;&amp; $9 ~ /^30[1278]/ {print $7, $9}&#39; access.log
+</code></pre>
+<p>Shows redirected URLs. Cross-reference with final destinations. 3+ hop chains waste budget. Update links to point directly to final URLs.</p>
+<p><strong>Slow pages</strong> (response time &gt;2 seconds):</p>
+<p>Some log formats include response time. Parse to find slow pages:</p>
+<pre><code class="language-bash">awk &#39;$12 ~ /Googlebot/ &amp;&amp; $13 &gt; 2000000 {print $7, $13/1000 &quot; ms&quot;}&#39; access.log
+</code></pre>
+<p>Slow pages may cause Googlebot timeouts, preventing full crawls.</p>
+<p><strong>Robot.txt blocks</strong> show in logs as 403 responses when Googlebot respects blocks:</p>
+<pre><code class="language-bash">awk &#39;$12 ~ /Googlebot/ &amp;&amp; $9 == &quot;403&quot; {print $7}&#39; access.log | sort | uniq
+</code></pre>
+<p>Verify these are intentional blocks. Accidental robots.txt rules blocking valuable content show here.</p>
+<p><strong>Orphan pages</strong> never appearing in logs despite being indexed (per Search Console) indicate crawl accessibility problems. Export indexed URLs from Search Console, compare to crawled URLs in logs, discrepancies reveal orphans.</p>
+<p><strong>5xx server errors</strong>:</p>
+<pre><code class="language-bash">awk &#39;$12 ~ /Googlebot/ &amp;&amp; $9 ~ /^5/ {print $7, $9}&#39; access.log | sort | uniq -c
+</code></pre>
+<p>URLs returning 500-503 errors prevent indexation. Investigate server resource limits, database connection issues, or application errors.</p>
+<h2 id="javascript-rendering-verification">JavaScript Rendering Verification</h2>
+<p><strong>Two-phase crawl detection</strong>: Googlebot fetches HTML first, then renders JavaScript in a second wave hours/days later.</p>
+<p><strong>Initial request</strong> appears standard:</p>
+<pre><code>66.249.66.1 [08/Feb/2026:10:15:32] &quot;GET /page.html&quot; 200 &quot;Googlebot/2.1&quot;
+</code></pre>
+<p><strong>Rendering requests</strong> follow, fetching assets:</p>
+<pre><code>66.249.66.1 [08/Feb/2026:14:23:15] &quot;GET /script.js&quot; 200 &quot;Chrome/W.X.Y.Z Googlebot/2.1&quot;
+66.249.66.1 [08/Feb/2026:14:23:16] &quot;GET /api/data&quot; 200 &quot;Chrome/W.X.Y.Z Googlebot/2.1&quot;
+</code></pre>
+<p><strong>Missing rendering requests</strong> signal rendering failures. If initial HTML fetch occurs but no secondary asset requests follow, JavaScript rendering likely failed or timed out.</p>
+<p><strong>Compare initial vs. rendered user agents</strong>:</p>
+<ul>
+<li>Initial: <code>Googlebot/2.1</code></li>
+<li>Rendered: <code>Chrome/W.X.Y.Z ... Googlebot/2.1</code></li>
+</ul>
+<p>Logs showing only the first pattern lack rendering verification.</p>
+<p><strong>Rendering latency</strong>: Calculate time between initial fetch and rendering fetch. Delays exceeding 24-48 hours indicate rendering queue backlog, common on lower-priority pages.</p>
+<h2 id="bot-traffic-differentiation">Bot Traffic Differentiation</h2>
+<p><strong>Legitimate bots</strong>:</p>
+<ul>
+<li>Googlebot: Verifiable via reverse DNS + IP ranges</li>
+<li>Bingbot: msnbot user agent + Microsoft IPs</li>
+<li>Yandex: YandexBot user agent + Yandex IPs</li>
+</ul>
+<p><strong>Malicious bots</strong> spoof user agents without matching IPs:</p>
+<pre><code class="language-bash"># Find &quot;Googlebot&quot; user agents from non-Google IPs
+awk &#39;$12 ~ /Googlebot/&#39; access.log | grep -v -E &quot;66\.249\.|64\.233\.|66\.102\.&quot; | head -20
+</code></pre>
+<p>These are fake Googlebots, consider blocking via firewall rules or rate limiting.</p>
+<p><strong>Scraper identification</strong> via abnormal crawl patterns:</p>
+<ul>
+<li>100+ requests per minute from single IP</li>
+<li>Sequential URL patterns (/page1, /page2, /page3...)</li>
+<li>Missing typical user behaviors (image requests, CSS requests)</li>
+</ul>
+<p><strong>Blocking strategies</strong>:</p>
+<ul>
+<li><code>.htaccess</code> (Apache):</li>
+</ul>
+<pre><code class="language-apache">SetEnvIfNoCase User-Agent &quot;BadBot&quot; bad_bot
+Deny from env=bad_bot
+</code></pre>
+<ul>
+<li><code>nginx.conf</code>:</li>
+</ul>
+<pre><code class="language-nginx">if ($http_user_agent ~* (BadBot|Scraper) ) {
+    return 403;
+}
+</code></pre>
+<p><strong>Cloudflare</strong> offers automatic bot detection and rate limiting superior to manual configuration for most sites.</p>
+<h2 id="indexation-troubleshooting">Indexation Troubleshooting</h2>
+<p><strong>Compare crawled vs. indexed</strong>:</p>
+<ol>
+<li>Export indexed URLs from Search Console (Coverage → Valid)</li>
+<li>Extract crawled URLs from logs (<code>awk &#39;$12 ~ /Googlebot/ &amp;&amp; $9 == &quot;200&quot; {print $7}&#39;</code>)</li>
+<li>Identify indexed URLs never crawled (potential canonicalization or redirect issues)</li>
+<li>Identify frequently crawled URLs not indexed (content quality, noindex, or duplicate issues)</li>
+</ol>
+<p><strong>Crawl frequency correlation</strong>: Pages crawled daily typically index faster than pages crawled monthly. Infrequent crawling of important pages signals low priority, investigate why (internal link structure, content freshness, authority).</p>
+<p><strong>Status code verification</strong>: URLs returning 200 in logs but showing &quot;Crawled - currently not indexed&quot; in Search Console face quality issues, not technical access problems. Focus on content improvement rather than technical fixes.</p>
+<p><strong>Redirect verification</strong>: 301/302 responses in logs should match Search Console redirect tracking. Discrepancies (logs showing 200, Console showing redirect) indicate caching or CDN issues.</p>
+<h2 id="regular-monitoring-setup">Regular Monitoring Setup</h2>
+<p><strong>Weekly log exports</strong>: Automate log downloads via cron:</p>
+<pre><code class="language-bash"># Cron job running every Monday at 2 AM
+0 2 * * 1 scp user@server:/var/log/nginx/access.log.1 /local/logs/$(date +\%Y-\%m-\%d).log
+</code></pre>
+<p><strong>Alert thresholds</strong> via Logz.io or custom scripts:</p>
+<ul>
+<li>404 rate exceeds 10% of Googlebot requests</li>
+<li>5xx errors spike above baseline</li>
+<li>Crawl rate drops below 50% of average</li>
+<li>Bandwidth consumption doubles week-over-week</li>
+</ul>
+<p><strong>Monthly trend analysis</strong>:</p>
+<ul>
+<li>Average daily crawl rate</li>
+<li>Top 20 most crawled URLs</li>
+<li>Status code distribution (200 vs. errors)</li>
+<li>Bandwidth consumption trends</li>
+</ul>
+<p><strong>Quarterly deep dives</strong>:</p>
+<ul>
+<li>Full crawl budget utilization analysis</li>
+<li>JavaScript rendering success rates</li>
+<li>Bot traffic evolution (legitimate vs. malicious)</li>
+<li>Comparison to Search Console data for discrepancies</li>
+</ul>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Log File Analysis Matters:</strong> Components:</li>
+</ul>
+<ul>
+<li>IP: 185.45.67.23 (Googlebot IP)</li>
+<li>Timestamp: 08/Feb/2026:10:23:45</li>
+<li>Request: GET /page.html HTTP/1.1</li>
+<li>Status: 200 (OK)</li>
+<li>Bytes: 5234 transferred</li>
+</ul>
+<ul>
+<li><strong>Log File Basics:</strong> Components:</li>
+</ul>
+<ul>
+<li>IP: 185.45.67.23 (Googlebot IP)</li>
+<li>Timestamp: 08/Feb/2026:10:23:45</li>
+<li>Request: GET /page.html HTTP/1.1</li>
+<li>Status: 200 (OK)</li>
+<li>Bytes: 5234 transferred</li>
+</ul>
+<ul>
+<li><strong>Accessing and Preparing Logs:</strong> This shows URLs returning 4xx/5xx errors to Googlebot, sorted by frequency.</li>
+<li><strong>Filtering for Googlebot Traffic:</strong> This shows URLs returning 4xx/5xx errors to Googlebot, sorted by frequency.</li>
+</ul>
+<h2 id="faq-log-file-analysis-for-seo">FAQ: Log File Analysis for SEO</h2>
+<h3 id="do-i-need-log-analysis-if-i-use-google-search-console">Do I need log analysis if I use Google Search Console?</h3>
+<p><strong>Yes, logs provide data Search Console doesn&#39;t.</strong> Search Console samples crawl data (showing subset of requests), delays reporting by 1-3 days, and lacks detail on failed crawls, redirect chains, and bot differentiation. Logs capture 100% of Googlebot activity in real-time, including requests Search Console never reports (404s, redirects, resource files). For small sites (under 1,000 pages), Search Console suffices for basic monitoring. For sites with 5,000+ pages, crawl budget concerns, or JavaScript-heavy architectures, log analysis reveals critical optimization opportunities Search Console misses. Treat logs as diagnostic tools for deep investigations, not daily monitoring replacements.</p>
+<h3 id="how-large-should-log-files-be-for-meaningful-analysis">How large should log files be for meaningful analysis?</h3>
+<p><strong>30 days minimum</strong> for trend analysis; <strong>7 days</strong> for quick issue diagnosis. File size varies wildly by traffic, high-traffic sites generate 1GB+ daily; small sites create 10-50MB. Prioritize date range over file size: 30 days shows crawl frequency patterns, seasonal variations, and gradual issues developing. Single-day logs miss patterns only visible across weeks. For initial analysis, start with 7-14 days (manageable file sizes, faster processing), then expand to 30-90 days for comprehensive audits. Sites with 100,000+ pages benefit from 90-day analysis revealing how often deep content gets crawled.</p>
+<h3 id="can-i-analyze-logs-without-technical-skills">Can I analyze logs without technical skills?</h3>
+<p><strong>Screaming Frog Log File Analyser</strong> makes analysis accessible to non-technical users via GUI. Load logs, filter by Googlebot, view reports, no command line required. Export reports to Excel for additional analysis. However, <strong>interpreting results</strong> requires SEO knowledge. Seeing &quot;10,000 404s from Googlebot&quot; means nothing without understanding why it matters or how to fix it. For truly non-technical users, consider <strong>hiring SEO consultant</strong> for initial analysis ($500-2,000), then use Screaming Frog for ongoing monitoring. Learning basic command-line skills (awk, grep) unlocks powerful custom analysis but isn&#39;t mandatory with GUI tools available.</p>
+<h3 id="should-i-analyze-every-bot-or-googlebot">Should I analyze every bot or Googlebot?</h3>
+<p><strong>Focus on Googlebot</strong> (95% of SEO value), then <strong>Bingbot</strong> if targeting Bing-heavy demographics (10-15% market share in certain verticals). Other bots (Yandex, Baidu, DuckDuckBot) matter only if targeting those specific markets (Russia, China, privacy-focused users). Analyzing all bots simultaneously creates noise, most bot traffic is spam, scrapers, or irrelevant. Filter logs by legitimate search engine bots using verified IP ranges. For security purposes, analyze malicious bot traffic separately to inform blocking strategies, but keep SEO log analysis focused on legitimate search crawlers to avoid diluting insights.</p>
+<h3 id="how-often-should-i-analyze-log-files">How often should I analyze log files?</h3>
+<p><strong>Weekly quick checks</strong> (30 minutes) for large, frequently updated sites, look for error rate spikes, crawl rate changes, or new 404s. <strong>Monthly deeper analysis</strong> (2-3 hours) for most sites, export 30 days of logs, run full crawl budget analysis, identify optimization opportunities. <strong>Quarterly comprehensive audits</strong> (4-8 hours) correlate logs with Search Console, Analytics, and ranking data for strategic insights. <strong>After major changes</strong> (site migrations, redesigns, platform changes), analyze daily for first week, then weekly for month, catching issues before they accumulate. Small, static sites can analyze quarterly, little changes without active content publishing or technical modifications.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/googlebot-crawl-rate-monitor-control.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration.</p>
+          </a>
+
+          <a href="/articles/pagination-duplicate-content-fix.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Pagination SEO: How to Fix Duplicate Content and Crawl Budget Issues</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate pagination duplicate content with rel=next/prev alternatives, canonical tags, and noindex strategies. Preserve crawl budget effectively.</p>
+          </a>
+
+          <a href="/articles/javascript-seo-rendering-issues.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">JavaScript SEO Rendering Issues: Detection and Solutions Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Diagnose JavaScript rendering problems affecting Googlebot. Fix client-side routing, lazy loading, and infinite scroll issues for proper indexation.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

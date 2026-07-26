@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Purge Cache Without Breaking Your Site (CDN and Browser Cache) | Polytraffic</title>
+    <meta name="description" content="Safely clear CDN, page cache, and object cache without downtime. Selective purging strategies and cache warming for seamless deployments." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Purge Cache Without Breaking Your Site (CDN and Browser Cache) | Polytraffic" />
+    <meta property="og:description" content="Safely clear CDN, page cache, and object cache without downtime. Selective purging strategies and cache warming for seamless deployments." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/purge-cache-without-breaking-site" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/purge-cache-without-breaking-site.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Purge Cache Without Breaking Your Site (CDN and Browser Cache) | Polytraffic" />
+    <meta name="twitter:description" content="Safely clear CDN, page cache, and object cache without downtime. Selective purging strategies and cache warming for seamless deployments." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/purge-cache-without-breaking-site.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/purge-cache-without-breaking-site" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Purge Cache Without Breaking Your Site (CDN and Browser Cache)",
+    "description": "Safely clear CDN, page cache, and object cache without downtime. Selective purging strategies and cache warming for seamless deployments.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/purge-cache-without-breaking-site.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/purge-cache-without-breaking-site.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Performance Optimization.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Purge Cache Without Breaking Your Site (CDN and Browser Cache)"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Performance Optimization.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Purge Cache Without Breaking Your Site (CDN and Browser Cache)</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/purge-cache-without-breaking-site.png" alt="How to Purge Cache Without Breaking Your Site (CDN and Browser Cache)" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-purge-cache-without-breaking-your-site-cdn-and-browser-cache">How to Purge Cache Without Breaking Your Site (CDN and Browser Cache)</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Safely clear CDN, page cache, and object cache without downtime. Selective purging strategies and cache warming for seamless deployments.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#understanding-cache-layers" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding Cache Layers</a></li>
+<li><a href="#selective-purge-strategies" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Selective Purge Strategies</a></li>
+<li><a href="#cache-warming-techniques" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cache Warming Techniques</a></li>
+<li><a href="#browser-cache-busting" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Browser Cache Busting</a></li>
+<li><a href="#wordpress-specific-purging" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WordPress-Specific Purging</a></li>
+<li><a href="#preventing-purge-related-downtime" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Preventing Purge-Related Downtime</a></li>
+<li><a href="#deployment-integrated-purging" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Deployment-Integrated Purging</a></li>
+<li><a href="#emergency-cache-clear-procedures" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Emergency Cache Clear Procedures</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Cache purging</strong> removes stored copies of website files, forcing browsers and CDNs to fetch fresh versions. Sites deploy code updates, then purge cache to make changes visible to users. Aggressive purging without strategy causes performance catastrophes, a cold cache site loading in 8 seconds versus cached 1.2-second load times. Traffic spikes hitting uncached origins overwhelm servers, triggering downtime. Selective purging combined with cache warming maintains performance through deployments.</p>
+<p>E-commerce sites purging entire caches during peak traffic experience 40-60% load time increases and 15-25% bounce rate spikes. Strategic purging targets only changed URLs, updating product pricing purges affected product pages, leaving unchanged category pages cached. This approach maintains 90% cache hit rates through deployments versus 0% from full cache clears.</p>
+<h2 id="understanding-cache-layers">Understanding Cache Layers</h2>
+<p><strong>Browser cache</strong> stores files on user devices. Browsers cache CSS, JavaScript, images, and sometimes HTML for minutes to months. Cache-Control headers dictate duration. Purging browser caches requires file URL changes (cache busting), server-side purging can&#39;t force browser updates.</p>
+<p><strong>CDN edge cache</strong> stores files at Points of Presence (POPs) globally. Cloudflare, Fastly, and Akamai cache site assets at 200+ locations. Origin servers serve files once; CDN edges serve cached copies to subsequent users. Typical edge cache duration: 1 hour to 30 days depending on headers.</p>
+<p><strong>Reverse proxy cache</strong> (Varnish, Nginx) caches dynamic content between origin and CDN. API responses, user-specific content, and personalized pages cache here. Duration: 1 second to 5 minutes. Purging refreshes without hitting application servers.</p>
+<p><strong>Application cache</strong> (WordPress object cache, Drupal cache) stores database query results and rendered page fragments. Redis and Memcached provide storage. Duration: 1 minute to 24 hours. Purging regenerates from database, increasing DB load temporarily.</p>
+<p><strong>Database query cache</strong> stores MySQL query results. Rarely requires manual purging, invalidates automatically when underlying data changes. Duration: Until table modification.</p>
+<h3 id="cache-dependency-chains">Cache Dependency Chains</h3>
+<p><strong>Purge propagation</strong> flows through layers:</p>
+<pre><code>1. Application cache purge
+   ↓
+2. Reverse proxy recognizes stale cache
+   ↓
+3. CDN edge cache expires naturally or purges
+   ↓
+4. Browser cache expires based on headers
+</code></pre>
+<p>Purging application cache doesn&#39;t immediately update browser caches. Users see old versions until browser cache expires or they force-refresh (Ctrl+F5).</p>
+<h2 id="selective-purge-strategies">Selective Purge Strategies</h2>
+<p><strong>URL-based purging</strong> targets specific changed pages:</p>
+<pre><code class="language-bash"># Cloudflare API purge specific URLs
+curl -X POST &quot;https://api.cloudflare.com/client/v4/zones/ZONE_ID/purge_cache&quot; \
+  --oauth2-bearer &quot;$CF_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  --data &#39;{&quot;files&quot;:[&quot;https://example.com/product-page&quot;,&quot;https://example.com/about&quot;]}&#39;
+</code></pre>
+<p>Changed 2 pages? Purge 2 URLs. Unchanged pages remain cached, maintaining performance.</p>
+<p><strong>Tag-based purging</strong> for related content groups:</p>
+<pre><code class="language-html">&lt;!-- Tag cached content --&gt;
+Cache-Tag: product-123, category-electronics, homepage
+</code></pre>
+<p>Purge all product-123 pages simultaneously:</p>
+<pre><code class="language-bash"># Fastly tag purge
+curl -X POST &quot;https://api.fastly.com/service/SERVICE_ID/purge/product-123&quot; \
+  -H &quot;Fastly-Key: API_KEY&quot;
+</code></pre>
+<p>Updating product 123&#39;s price purges all pages displaying that product (product page, category page, search results) without affecting unrelated cached pages.</p>
+<p><strong>Wildcard purging</strong> for path patterns:</p>
+<pre><code class="language-bash"># Purge all blog URLs
+/blog/*
+
+# Purge all product images
+/images/products/*
+</code></pre>
+<p>Use cautiously, wildcards can inadvertently purge more than intended.</p>
+<h3 id="purge-scoping">Purge Scoping</h3>
+<p><strong>Staged purging</strong> prevents thundering herd problems:</p>
+<pre><code class="language-bash"># 1. Purge application cache first
+wp cache flush
+
+# 2. Wait for cache warming (2-5 minutes)
+sleep 300
+
+# 3. Purge CDN edge cache
+cloudflare purge --urls https://example.com/homepage
+
+# 4. Monitor origin load during purge propagation
+</code></pre>
+<p>Phased purging prevents simultaneous cache misses overwhelming origin servers.</p>
+<p><strong>Geographic purging</strong> targets specific CDN POPs:</p>
+<pre><code class="language-bash"># Purge only US east coast POPs
+# (provider-specific feature, not universally available)
+</code></pre>
+<p>Helpful for region-specific content updates (regional pricing, geo-targeted promotions). Avoids global cache purge for localized changes.</p>
+<h2 id="cache-warming-techniques">Cache Warming Techniques</h2>
+<p><strong>Automated crawling</strong> post-purge preloads cache:</p>
+<pre><code class="language-bash"># Crawl top 100 URLs to warm cache
+curl -s https://example.com/sitemap.xml | \
+  grep -oP &#39;(?&lt;=&lt;loc&gt;).*?(?=&lt;/loc&gt;)&#39; | \
+  head -100 | \
+  xargs -P 10 -I {} curl -s {} &gt; /dev/null
+</code></pre>
+<p>Crawling popular pages before users request them prevents cold cache performance hits. Run after application cache purge, before CDN purge.</p>
+<p><strong>Priority URL warming</strong> focuses on high-traffic pages:</p>
+<pre><code>Priority 1: Homepage, top 5 product pages, main categories
+Priority 2: Secondary categories, popular blog posts
+Priority 3: Long-tail content, older archive pages
+</code></pre>
+<p>Warm Priority 1 immediately post-purge. Priorities 2-3 warm lazily as users request them.</p>
+<p><strong>Headless browser warming</strong> executes JavaScript:</p>
+<pre><code class="language-javascript">const puppeteer = require(&#39;puppeteer&#39;);
+
+async function warmCache(urls) {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  for (const url of urls) {
+    await page.goto(url, {waitUntil: &#39;networkidle2&#39;});
+    console.log(`Warmed: ${url}`);
+  }
+
+  await browser.close();
+}
+
+warmCache([
+  &#39;https://example.com/&#39;,
+  &#39;https://example.com/products/&#39;,
+  &#39;https://example.com/about/&#39;
+]);
+</code></pre>
+<p>Standard curl requests don&#39;t execute JavaScript, single-page apps require browser-based warming.</p>
+<h3 id="cdn-cache-warming-apis">CDN Cache Warming APIs</h3>
+<p><strong>Cloudflare Cache Reserve</strong> pre-populates edge caches:</p>
+<pre><code class="language-bash"># Prefetch URLs to Cloudflare edges
+curl -X POST &quot;https://api.cloudflare.com/client/v4/zones/ZONE_ID/cache/prefetch&quot; \
+  --oauth2-bearer &quot;$CF_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  --data &#39;{&quot;files&quot;:[&quot;https://example.com/critical-page&quot;]}&#39;
+</code></pre>
+<p><strong>Fastly Instant Purge + Prefetch</strong> combination:</p>
+<pre><code class="language-bash"># Purge URL
+curl -X PURGE &quot;https://example.com/product-page&quot;
+
+# Immediately refetch to warm cache
+curl https://example.com/product-page
+</code></pre>
+<p>Some CDNs charge for prefetch API usage. Verify pricing before implementing aggressive warming strategies.</p>
+<h2 id="browser-cache-busting">Browser Cache Busting</h2>
+<p><strong>Query string versioning</strong> forces browser refetch:</p>
+<pre><code class="language-html">&lt;!-- Old version --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles.css&quot;&gt;
+
+&lt;!-- New version (different URL) --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles.css?v=2.1.0&quot;&gt;
+</code></pre>
+<p>Browsers treat versioned URLs as new resources. Changing version parameter bypasses cache.</p>
+<p><strong>Content hashing</strong> provides automatic versioning:</p>
+<pre><code class="language-html">&lt;!-- Webpack content hash --&gt;
+&lt;script src=&quot;/app.f8a3b2c1.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/styles.a4e9f2d3.css&quot;&gt;
+</code></pre>
+<p>File contents change → hash changes → URL changes → cache bypassed. Build tools (Webpack, Vite, Rollup) generate content hashes automatically.</p>
+<p><strong>Immutable caching</strong> for hashed assets:</p>
+<pre><code>Cache-Control: public, max-age=31536000, immutable
+</code></pre>
+<p>Browser never revalidates immutable assets. Content hashes guarantee uniqueness, changed content gets new URL, unchanged content caches permanently.</p>
+<h3 id="html-cache-headers">HTML Cache Headers</h3>
+<p><strong>Short HTML caching</strong> enables frequent updates:</p>
+<pre><code>Cache-Control: public, max-age=300, must-revalidate
+</code></pre>
+<p>5-minute HTML caching balances freshness and performance. Users see updates within 5 minutes without manual refresh.</p>
+<p><strong>No-cache for logged-in users</strong>:</p>
+<pre><code class="language-php">// Disable caching for authenticated users
+if (is_user_logged_in()) {
+    header(&#39;Cache-Control: no-cache, must-revalidate, max-age=0&#39;);
+} else {
+    header(&#39;Cache-Control: public, max-age=300&#39;);
+}
+</code></pre>
+<p>Prevents users seeing cached personalized content (shopping carts, user dashboards) after updates.</p>
+<h2 id="wordpress-specific-purging">WordPress-Specific Purging</h2>
+<p><strong>Plugin-based cache management</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>Purge Command</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WP Rocket</td>
+<td><code>wp rocket clean</code></td>
+<td>Page + Browser cache</td>
+</tr>
+<tr>
+<td>W3 Total Cache</td>
+<td><code>wp w3-total-cache flush all</code></td>
+<td>All caches</td>
+</tr>
+<tr>
+<td>WP Super Cache</td>
+<td><code>wp cache flush</code></td>
+<td>Page cache only</td>
+</tr>
+<tr>
+<td>Redis Object Cache</td>
+<td><code>wp cache flush</code></td>
+<td>Object cache</td>
+</tr>
+</tbody></table>
+<p><strong>Selective WordPress purging</strong>:</p>
+<pre><code class="language-php">// Purge single post cache
+clean_post_cache($post_id);
+
+// Purge category archive
+clean_term_cache($term_id, &#39;category&#39;);
+
+// Purge homepage
+clean_home_url();
+</code></pre>
+<p><strong>Post-save automatic purging</strong>:</p>
+<pre><code class="language-php">// Automatically purge related caches on post update
+add_action(&#39;save_post&#39;, function($post_id) {
+    // Purge post itself
+    clean_post_cache($post_id);
+
+    // Purge post&#39;s category archives
+    $categories = get_the_category($post_id);
+    foreach ($categories as $category) {
+        clean_term_cache($category-&gt;term_id, &#39;category&#39;);
+    }
+
+    // Purge homepage
+    clean_home_url();
+});
+</code></pre>
+<p>Configuring automatic purging prevents manual purges after routine updates.</p>
+<h3 id="cloudflare-wordpress-integration">Cloudflare + WordPress Integration</h3>
+<p><strong>Cloudflare WordPress plugin</strong> auto-purges:</p>
+<ol>
+<li>Install Cloudflare plugin</li>
+<li>Add API token</li>
+<li>Enable &quot;Automatic Cache Purge&quot;</li>
+<li>Select purge triggers (post updates, comments, settings changes)</li>
+</ol>
+<p>Plugin purges CF edge cache when WordPress content updates, no manual intervention required.</p>
+<p><strong>Manual CF purge</strong>:</p>
+<pre><code class="language-php">// Purge Cloudflare cache for URL
+function purge_cloudflare_cache($url) {
+    $zone_id = &#39;YOUR_ZONE_ID&#39;;
+    $api_token = &#39;YOUR_API_TOKEN&#39;;
+
+    $data = json_encode([&#39;files&#39; =&gt; [$url]]);
+
+    $ch = curl_init(&quot;https://api.cloudflare.com/client/v4/zones/$zone_id/purge_cache&quot;);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, &#39;POST&#39;);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        &#39;Authorization: Bearer &#39; . $api_token,
+        &#39;Content-Type: application/json&#39;
+    ]);
+
+    curl_exec($ch);
+    curl_close($ch);
+}
+</code></pre>
+<h2 id="preventing-purge-related-downtime">Preventing Purge-Related Downtime</h2>
+<p><strong>Rate limiting purge operations</strong>:</p>
+<pre><code class="language-bash"># Purge 10 URLs per second max
+for url in &quot;${urls[@]}&quot;; do
+    curl -X PURGE &quot;$url&quot;
+    sleep 0.1
+done
+</code></pre>
+<p>Rapid-fire purging overwhelms CDN APIs. Rate limiting prevents API throttling and ensures stable purge propagation.</p>
+<p><strong>Origin server scaling</strong> during purge windows:</p>
+<pre><code class="language-bash"># Increase application server capacity before purge
+aws autoscaling set-desired-capacity \
+  --auto-scaling-group-name web-servers \
+  --desired-capacity 10
+
+# Execute purge
+./purge-cache.sh
+
+# Scale back down after cache warming (30 minutes)
+sleep 1800
+aws autoscaling set-desired-capacity \
+  --auto-scaling-group-name web-servers \
+  --desired-capacity 3
+</code></pre>
+<p>Temporary capacity increase absorbs cache miss traffic spike post-purge.</p>
+<p><strong>Stale-while-revalidate</strong> maintains performance during cache misses:</p>
+<pre><code>Cache-Control: max-age=300, stale-while-revalidate=3600
+</code></pre>
+<p>CDN serves stale content while fetching fresh version in background. Users experience fast loads even during cache refresh periods.</p>
+<h3 id="monitoring-during-purges">Monitoring During Purges</h3>
+<p><strong>Real-time metrics</strong> track purge impact:</p>
+<pre><code class="language-bash"># Monitor origin server load
+watch -n 1 &#39;uptime | grep load&#39;
+
+# Monitor CDN cache hit rate
+# (provider dashboard or API)
+
+# Monitor site response times
+while true; do
+    curl -o /dev/null -s -w &quot;%{time_total}\n&quot; https://example.com/
+    sleep 1
+done
+</code></pre>
+<p>Spikes in origin requests or response times indicate purge overwhelming cache warmup.</p>
+<h2 id="deployment-integrated-purging">Deployment-Integrated Purging</h2>
+<p><strong>CI/CD pipeline purge steps</strong>:</p>
+<pre><code class="language-yaml"># GitHub Actions example
+deploy:
+  steps:
+    - name: Deploy code
+      run: ./deploy.sh
+
+    - name: Warm application cache
+      run: |
+        sleep 60
+        curl https://example.com/  # Warm homepage
+
+    - name: Purge CDN cache
+      run: |
+        curl -X POST &quot;https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache&quot; \
+          -H &quot;Authorization: Bearer $CF_TOKEN&quot; \
+          -H &quot;Content-Type: application/json&quot; \
+          --data &#39;{&quot;purge_everything&quot;:true}&#39;
+
+    - name: Warm critical pages
+      run: |
+        for url in $(cat critical-urls.txt); do
+          curl -s &quot;$url&quot; &gt; /dev/null
+        done
+</code></pre>
+<p>Automated purging ensures cache invalidation happens consistently without manual intervention.</p>
+<p><strong>Blue-green deployment caching</strong>:</p>
+<pre><code>1. Deploy to green environment (new version)
+2. Warm green cache completely
+3. Switch traffic from blue to green
+4. Blue environment (old version) remains cached during cutover
+5. Purge blue cache after successful green deployment
+</code></pre>
+<p>Zero-downtime deployments through parallel environment caching.</p>
+<h2 id="emergency-cache-clear-procedures">Emergency Cache Clear Procedures</h2>
+<p><strong>Full purge as last resort</strong>:</p>
+<pre><code class="language-bash"># Cloudflare purge everything
+curl -X POST &quot;https://api.cloudflare.com/client/v4/zones/ZONE_ID/purge_cache&quot; \
+  --oauth2-bearer &quot;$CF_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  --data &#39;{&quot;purge_everything&quot;:true}&#39;
+
+# WordPress flush all caches
+wp cache flush
+wp transient delete --all
+</code></pre>
+<p>Full purges should occur only during critical incidents (broken cache serving incorrect data, security patches). Normal deployments use selective purging.</p>
+<p><strong>Post-full-purge recovery</strong>:</p>
+<pre><code class="language-bash"># 1. Immediately warm critical paths
+./warm-critical-urls.sh
+
+# 2. Monitor origin server load
+# 3. Gradually warm secondary content
+# 4. Verify cache hit rates recover to baseline (80%+)
+</code></pre>
+<p>Recovery from full purge takes 15-30 minutes depending on site size and traffic.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Understanding Cache Layers:</strong> Purging application cache doesn&#39;t immediately update browser caches.</li>
+<li><strong>Cache Warming Techniques:</strong> Crawling popular pages before users request them prevents cold cache performance hits.</li>
+<li><strong>Browser Cache Busting:</strong> <!-- New version (different URL) --></li>
+</ul>
+<link rel="stylesheet" href="/styles.css?v=2.1.0">
+* **WordPress-Specific Purging:** // Purge category archive
+cleantermcache($termid, 'category');
+
+<h2 id="faq">FAQ</h2>
+<h3 id="how-do-i-know-if-purging-cache-will-break-my-site">How do I know if purging cache will break my site?</h3>
+<p>Test purging in staging environments first. Purge staging cache, verify functionality, check performance metrics. Load test post-purge to identify capacity issues. If staging handles purge gracefully, production likely will too. Always have rollback plan, keep CDN provider&#39;s &quot;undo purge&quot; feature accessible if available.</p>
+<h3 id="what-s-the-difference-between-purging-and-clearing-cache">What's the difference between purging and clearing cache?</h3>
+<p>Purging removes cache entries, forcing re-fetch from origin. Clearing cache completely deletes all cached data. Purging is surgical (specific URLs). Clearing is wholesale (everything). Prefer purging for deployments, clearing creates unnecessary origin load for unchanged content.</p>
+<h3 id="can-i-purge-cache-during-high-traffic-periods">Can I purge cache during high-traffic periods?</h3>
+<p>Avoid if possible. Purging during traffic peaks compounds load, simultaneous cache misses plus normal traffic overwhelms origins. Schedule purges during low-traffic windows (3-6am local time). For emergency updates during peaks, use selective URL purging plus aggressive cache warming before enabling changes.</p>
+<h3 id="how-long-does-cdn-cache-purge-take-to-propagate-globally">How long does CDN cache purge take to propagate globally?</h3>
+<p>Most CDN purges propagate within 30 seconds to 2 minutes across all edge POPs. However, some edge nodes might retain stale content up to 5 minutes due to replication lag. Allow 5-minute buffer after purge before validating changes globally. Use CDN-specific tools to verify purge completion before assuming propagation.</p>
+<h3 id="should-i-disable-caching-entirely-during-development">Should I disable caching entirely during development?</h3>
+<p>Yes for local development environments. No for staging/production. Development benefits from immediate feedback, caching delays visibility of changes. Staging should mirror production caching to catch cache-related bugs before production. Use Cache-Control: no-cache headers in development, normal caching elsewhere. Many frameworks provide development modes automatically disabling caches.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/defer-javascript-without-breaking-site.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Defer JavaScript Without Breaking Your Site: Safe Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Defer JavaScript to improve page load speed without breaking functionality. Identify critical scripts, test defer/async attributes, and fix dependency issues.</p>
+          </a>
+
+          <a href="/articles/preload-fonts-without-layout-shift.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Preload Fonts Without Causing Layout Shift (font-display Strategy)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate font-loading FOIT/FOUT with preload, font-display, and subsetting. Maintain CLS under 0.1 while delivering custom typography.</p>
+          </a>
+
+          <a href="/articles/pagespeed-insights-score-meaning.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">What Your PageSpeed Insights Score Actually Means (Lab vs. Field Data)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Decode PageSpeed Insights metrics, understand lab vs. field data discrepancies, and focus optimization efforts on metrics that affect rankings.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

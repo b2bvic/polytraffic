@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Monitor 404 Errors in Real-Time and Prevent Traffic Loss | Polytraffic</title>
+    <meta name="description" content="Set up automated 404 monitoring with Google Search Console API, server logs, and alerting systems. Catch broken links before rankings drop." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Monitor 404 Errors in Real-Time and Prevent Traffic Loss | Polytraffic" />
+    <meta property="og:description" content="Set up automated 404 monitoring with Google Search Console API, server logs, and alerting systems. Catch broken links before rankings drop." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/monitor-404-errors-real-time" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/monitor-404-errors-real-time.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Monitor 404 Errors in Real-Time and Prevent Traffic Loss | Polytraffic" />
+    <meta name="twitter:description" content="Set up automated 404 monitoring with Google Search Console API, server logs, and alerting systems. Catch broken links before rankings drop." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/monitor-404-errors-real-time.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/monitor-404-errors-real-time" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Monitor 404 Errors in Real-Time and Prevent Traffic Loss",
+    "description": "Set up automated 404 monitoring with Google Search Console API, server logs, and alerting systems. Catch broken links before rankings drop.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/monitor-404-errors-real-time.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/monitor-404-errors-real-time.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Monitor 404 Errors in Real-Time and Prevent Traffic Loss"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Monitor 404 Errors in Real-Time and Prevent Traffic Loss</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/monitor-404-errors-real-time.png" alt="How to Monitor 404 Errors in Real-Time and Prevent Traffic Loss" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-monitor-404-errors-in-real-time-and-prevent-traffic-loss">How to Monitor 404 Errors in Real-Time and Prevent Traffic Loss</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Set up automated 404 monitoring with Google Search Console API, server logs, and alerting systems. Catch broken links before rankings drop.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#understanding-404-error-impact-on-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding 404 Error Impact on SEO</a></li>
+<li><a href="#server-log-analysis-for-real-time-detection" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Server Log Analysis for Real-Time Detection</a></li>
+<li><a href="#google-search-console-api-integration" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Google Search Console API Integration</a></li>
+<li><a href="#uptime-monitoring-for-critical-pages" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Uptime Monitoring for Critical Pages</a></li>
+<li><a href="#automated-301-redirect-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Automated 301 Redirect Implementation</a></li>
+<li><a href="#custom-404-page-optimization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Custom 404 Page Optimization</a></li>
+<li><a href="#alerting-and-escalation-workflows" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Alerting and Escalation Workflows</a></li>
+<li><a href="#proactive-404-prevention-strategies" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Proactive 404 Prevention Strategies</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>404 errors</strong> sever the connection between search results and content. Users clicking SERP listings that return 404s bounce immediately. Google interprets this as relevance failure. A single 404 on a URL ranking position 3 can drop it to position 15 within 48 hours as bounce rate signals accumulate. Sites detecting and fixing 404s within minutes preserve rankings; those discovering errors weeks later after Search Console refreshes data suffer permanent traffic losses.</p>
+<p>Real-time monitoring intercepts 404s as they occur rather than discovering them through batch reports. Server logs capture every 404 the instant it happens. Alerting systems notify teams within seconds of threshold breaches. Automated systems distinguish temporary errors from systemic failures, escalating critical issues while suppressing noise.</p>
+<h2 id="understanding-404-error-impact-on-seo">Understanding 404 Error Impact on SEO</h2>
+<p><strong>Crawl budget waste</strong> occurs when Googlebot requests URLs returning 404s. Large sites with 100,000+ pages face crawl budget constraints. Google crawls only a fraction of pages per day. 404s consume crawl slots without contributing to indexing. Sites with 15% 404 rates effectively waste 15% of crawl budget that could discover new or updated content.</p>
+<p><strong>Internal link equity loss</strong> happens when pages link to 404 destinations. A homepage linking to 5 category pages passing PageRank encounters a 404 on one category. The link equity intended for that category dissipates rather than flowing to ranking pages. Across hundreds of internal links, 404s erode authority distribution networks.</p>
+<p><strong>External backlink value</strong> evaporates when inbound links point to 404s. A high-authority site linking to your product page confers ranking benefit. If that product URL returns 404, the backlink becomes worthless. Google doesn&#39;t transfer link equity from 404s to other pages automatically. 301 redirects are required to preserve value.</p>
+<p><strong>User experience degradation</strong> manifests through bounce rate increases. Users encountering 404s develop negative brand perceptions. Sites with 404 rates above 2% of traffic experience measurably higher bounce rates (8-12% increases) and lower conversion rates (5-9% drops) compared to sites maintaining sub-0.5% 404 rates.</p>
+<h2 id="server-log-analysis-for-real-time-detection">Server Log Analysis for Real-Time Detection</h2>
+<p><strong>Access logs</strong> record every HTTP request with timestamps, URLs, status codes, and user agents. Parsing logs in real-time identifies 404 patterns as they develop. A single 404 might indicate a mistyped URL. Ten 404s for the same URL within 5 minutes signals a broken internal link or expired SERP listing.</p>
+<p><strong>Log aggregation tools</strong> like <strong>Splunk</strong>, <strong>ELK Stack (Elasticsearch, Logstash, Kibana)</strong>, or <strong>Datadog</strong> centralize multi-server logs. They parse log formats, extract status codes, and enable real-time querying. Configuring alerts based on 404 spike thresholds (&gt;50 in 5 minutes) triggers notifications to operations teams.</p>
+<pre><code class="language-bash"># Nginx access log format
+log_format main &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+                &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+                &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+
+# Real-time 404 monitoring with tail and grep
+tail -f /var/log/nginx/access.log | grep &#39; 404 &#39; | awk &#39;{print $7}&#39; | sort | uniq -c | sort -rn
+</code></pre>
+<p>This command stream monitors access logs, filters 404 responses, extracts URLs, counts occurrences, and displays most frequent 404s in real-time. Running continuously surfaces breaking changes immediately.</p>
+<h3 id="distinguishing-error-types">Distinguishing Error Types</h3>
+<p><strong>Legitimate 404s</strong> occur when users mistype URLs or reference outdated bookmarks. These produce scattered, non-repeating patterns, different URLs each generating 1-3 errors. No action required beyond ensuring custom 404 pages provide navigation back to working content.</p>
+<p><strong>Broken link 404s</strong> show concentrated patterns, identical URLs generating dozens or hundreds of errors. These indicate internal links pointing to moved/deleted pages, SERP listings directing to removed content, or external sites linking to expired URLs. These require immediate investigation and resolution.</p>
+<p><strong>Bot-generated 404s</strong> stem from crawlers probing for common CMS vulnerabilities (/wp-admin, /admin, /phpmyadmin). Filter these by checking user-agent strings and referrer headers. They consume log space but don&#39;t affect SEO. Blocking abusive bots via robots.txt or firewall rules reduces noise.</p>
+<h2 id="google-search-console-api-integration">Google Search Console API Integration</h2>
+<p><strong>Search Console API</strong> provides programmatic access to error data, enabling automated monitoring beyond the web interface&#39;s manual checking. The Coverage API endpoint returns page-level indexing status including 404 errors Google encountered during crawling.</p>
+<pre><code class="language-python">from google.oauth2 import service_account
+from googleapiclient.discovery import build
+
+credentials = service_account.Credentials.from_service_account_file(
+    &#39;service-account-key.json&#39;,
+    scopes=[&#39;https://www.googleapis.com/auth/webmasters.readonly&#39;]
+)
+
+service = build(&#39;searchconsole&#39;, &#39;v1&#39;, credentials=credentials)
+
+request = service.urlInspection().index().inspect(
+    body={
+        &#39;inspectionUrl&#39;: &#39;https://example.com/product-page&#39;,
+        &#39;siteUrl&#39;: &#39;https://example.com&#39;
+    }
+)
+
+response = request.execute()
+indexing_state = response[&#39;inspectionResult&#39;][&#39;indexStatusResult&#39;][&#39;verdict&#39;]
+</code></pre>
+<p><strong>Scheduled polling</strong> every 6-12 hours retrieves new error reports. Search Console updates data with 24-72 hour delays, making it supplementary to real-time log monitoring rather than replacement. API access enables automating responses, creating redirect tasks, alerting webmasters, or generating fix priority lists.</p>
+<p><strong>Bulk URL inspection</strong> processes lists of suspected 404s through batch API calls. After server logs identify potential issues, validating through Search Console confirms Google&#39;s perspective. Discrepancies between server logs (showing 200 OK) and Search Console (reporting 404) indicate caching issues or user-agent-specific serving problems.</p>
+<h3 id="coverage-report-automation">Coverage Report Automation</h3>
+<p><strong>Coverage API</strong> returns aggregate statistics on indexed, excluded, and error pages. Tracking these metrics over time reveals trends, increasing 404 counts suggest systemic issues like broken internal link patterns from recent site updates.</p>
+<pre><code class="language-python">coverage_request = service.searchAnalytics().query(
+    siteUrl=&#39;https://example.com&#39;,
+    body={
+        &#39;startDate&#39;: &#39;2026-02-01&#39;,
+        &#39;endDate&#39;: &#39;2026-02-08&#39;,
+        &#39;dimensions&#39;: [&#39;page&#39;],
+        &#39;rowLimit&#39;: 25000
+    }
+)
+
+coverage_data = coverage_request.execute()
+</code></pre>
+<p>Comparing 404 counts week-over-week detects anomalies. A site averaging 50 404s weekly that suddenly reports 250 indicates recent changes broke multiple URLs. Alerting thresholds (&gt;2x weekly average) trigger investigations.</p>
+<h2 id="uptime-monitoring-for-critical-pages">Uptime Monitoring for Critical Pages</h2>
+<p><strong>Synthetic monitoring</strong> checks critical URLs every 1-5 minutes from multiple geographic locations. Services like <strong>Pingdom</strong>, <strong>UptimeRobot</strong>, or <strong>StatusCake</strong> request URLs and verify response codes. Alerts fire when pages return 404 instead of expected 200 OK responses.</p>
+<p><strong>Multi-location testing</strong> ensures CDN or geographic routing issues don&#39;t cause regional 404s. A page accessible from US locations but returning 404 in Europe indicates CDN configuration problems. Testing from 5+ locations globally catches geographically isolated failures.</p>
+<pre><code class="language-yaml"># Example uptime monitor configuration
+monitors:
+  - name: &quot;Homepage&quot;
+    url: &quot;https://example.com/&quot;
+    interval: 60  # seconds
+    expected_status: 200
+    alert_threshold: 2  # consecutive failures
+
+  - name: &quot;Top Product Page&quot;
+    url: &quot;https://example.com/products/best-seller&quot;
+    interval: 300
+    expected_status: 200
+    alert_threshold: 1
+</code></pre>
+<p><strong>Critical page inventories</strong> identify URLs requiring monitoring. Homepages, top 20 organic landing pages, and conversion paths (product pages, checkout flows) warrant per-minute checks. Monitoring thousands of URLs becomes expensive; prioritize pages driving 80% of organic traffic.</p>
+<h3 id="status-code-validation">Status Code Validation</h3>
+<p><strong>Expected status codes</strong> vary by page type. Product pages should return 200. Deleted pages should return 410 (Gone) or 301 (Permanent Redirect). Temporary maintenance pages use 503. Monitors configured to expect only 200 responses flag intentional 301s as errors. Configuring expected codes per URL type prevents false alerts.</p>
+<p><strong>Response time monitoring</strong> supplements status code checks. A page returning 200 OK but taking 15 seconds to load indicates performance degradation. Users abandoning slow pages produces similar SEO impacts as 404s. Tracking response time alongside status codes provides complete availability picture.</p>
+<h2 id="automated-301-redirect-implementation">Automated 301 Redirect Implementation</h2>
+<p><strong>Redirect mapping</strong> preserves link equity when URLs change. Deleted product pages redirect to category pages. Merged content redirects old URLs to updated equivalents. Automated systems detect 404s and suggest redirect targets based on URL similarity or content analysis.</p>
+<pre><code class="language-nginx"># Nginx redirect configuration
+location = /old-product-url {
+    return 301 https://example.com/new-product-url;
+}
+
+# Pattern-based redirects
+location ~ ^/blog/(\d{4})/(\d{2})/(.+)$ {
+    return 301 https://example.com/blog/$3;
+}
+</code></pre>
+<p><strong>Redirect chain prevention</strong> ensures 301s point directly to final destinations. Chaining redirects (/old → /intermediate → /final) wastes crawl budget and dilutes link equity. Google follows redirect chains but each hop loses 10-15% of passed authority. Monitoring tools detect chains by following redirects and flagging multi-hop paths.</p>
+<p><strong>Redirect testing</strong> validates that 301s return correct status codes and target URLs. Automated tests request old URLs, verify 301 responses, and confirm final destinations return 200 OK. This prevents misconfigured redirects that create redirect loops (A→B→A) or point to additional 404s.</p>
+<h3 id="dynamic-redirect-generation">Dynamic Redirect Generation</h3>
+<p><strong>Machine learning models</strong> suggest redirect targets by analyzing URL patterns and content similarity. A deleted URL <code>/products/blue-widget-2023</code> might redirect to <code>/products/blue-widget-2024</code> based on pattern matching. Content embeddings identify semantically similar pages as redirect destinations when URL patterns fail.</p>
+<p><strong>User behavior tracking</strong> identifies which pages users go to after encountering 404s. If 70% of users hitting a 404 then visit the homepage, that suggests the homepage as appropriate redirect target. If users search for specific products, that product page becomes better destination.</p>
+<h2 id="custom-404-page-optimization">Custom 404 Page Optimization</h2>
+<p><strong>Search functionality</strong> on 404 pages helps users find intended content. Implementing site search with query suggestions based on the broken URL path increases recovery rate. A user visiting <code>/products/bleu-widget</code> (misspelled) sees search results for &quot;blue widget&quot; automatically.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Page Not Found&lt;/title&gt;
+  &lt;script&gt;
+    // Extract likely search terms from URL
+    const path = window.location.pathname;
+    const terms = path.split(&#39;/&#39;).filter(s =&gt; s &amp;&amp; s !== &#39;products&#39;).join(&#39; &#39;);
+    document.getElementById(&#39;search-input&#39;).value = terms;
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Page Not Found&lt;/h1&gt;
+  &lt;p&gt;The page you&#39;re looking for doesn&#39;t exist. Try searching:&lt;/p&gt;
+  &lt;input id=&quot;search-input&quot; type=&quot;search&quot; placeholder=&quot;Search our site&quot;&gt;
+  &lt;nav&gt;
+    &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
+    &lt;a href=&quot;/products&quot;&gt;Products&lt;/a&gt;
+    &lt;a href=&quot;/support&quot;&gt;Support&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>Recommended content</strong> based on URL patterns provides navigation alternatives. A 404 on <code>/blog/seo-tips</code> shows links to other SEO blog posts. Product 404s display related product categories. Analyzing referrer headers identifies traffic sources, enabling context-specific recommendations.</p>
+<p><strong>404 tracking in analytics</strong> quantifies error impact. Google Analytics 4 tracks 404 pages as events, enabling analysis of traffic volume, user paths leading to errors, and post-404 behavior. High-traffic 404s warrant immediate attention. Low-traffic 404s from old bookmarks require lower priority.</p>
+<h2 id="alerting-and-escalation-workflows">Alerting and Escalation Workflows</h2>
+<p><strong>Alert thresholds</strong> balance sensitivity against alert fatigue. Alerting on every 404 creates noise. Threshold-based alerts (&gt;20 404s in 10 minutes for single URL) signal genuine issues. Escalation tiers route low-severity alerts to monitoring dashboards while critical issues page on-call engineers.</p>
+<pre><code class="language-yaml">alert_rules:
+  - name: &quot;High 404 Rate&quot;
+    condition: &quot;404_count &gt; 100 per 5min&quot;
+    severity: &quot;critical&quot;
+    notification: [&quot;pagerduty&quot;, &quot;slack&quot;]
+
+  - name: &quot;Critical Page 404&quot;
+    condition: &quot;homepage OR top_products returns 404&quot;
+    severity: &quot;emergency&quot;
+    notification: [&quot;pagerduty&quot;, &quot;sms&quot;]
+
+  - name: &quot;404 Spike&quot;
+    condition: &quot;404_count &gt; 2x baseline&quot;
+    severity: &quot;warning&quot;
+    notification: [&quot;slack&quot;]
+</code></pre>
+<p><strong>Alert enrichment</strong> includes context for rapid diagnosis. Notifications containing affected URLs, traffic volume, referrer sources, and suggested fix priorities enable immediate action. Raw &quot;404 detected&quot; alerts require manual investigation before action.</p>
+<p><strong>Runbooks</strong> document response procedures for common scenarios. 404 from site redesign requires redirect audit. 404 from CDN purge requires cache regeneration. 404 from DNS propagation delay requires monitoring until resolution. Codifying these as runbooks accelerates incident response.</p>
+<h3 id="incident-response-coordination">Incident Response Coordination</h3>
+<p><strong>On-call rotations</strong> ensure 24/7 coverage for critical sites. E-commerce sites losing $500/hour during outages justify weekend and overnight monitoring. Smaller sites accept delayed responses during off-hours. Balancing monitoring costs against downtime costs determines appropriate coverage.</p>
+<p><strong>Post-incident reviews</strong> analyze 404 incident root causes. Recurring patterns like &quot;every deployment breaks 3-5 URLs&quot; indicate insufficient testing. Implementing automated redirect validation in CI/CD pipelines prevents repeats. Post-mortems converted to preventive measures reduce future incidents.</p>
+<h2 id="proactive-404-prevention-strategies">Proactive 404 Prevention Strategies</h2>
+<p><strong>Pre-deployment link validation</strong> crawls staging sites before production deployment. Tools like <strong>Screaming Frog</strong> or <strong>Sitebulb</strong> identify broken internal links in staging. Fixing before deployment prevents 404s from reaching production. Automated crawls integrated into CI/CD pipelines block deployments containing broken links.</p>
+<p><strong>Redirect preservation during migrations</strong> maps old URLs to new equivalents before launching redesigns. Comprehensive URL inventories from current site guide redirect creation. Testing redirects in staging confirms functionality before production cutover.</p>
+<p><strong>URL structure stability</strong> reduces 404 risk over time. Frequently changing URLs between redesigns increases broken link likelihood. Maintaining consistent patterns (/products/category/item) across iterations preserves backlinks and internal link structures.</p>
+<h3 id="content-archival-strategies">Content Archival Strategies</h3>
+<p><strong>Soft deletion</strong> marks content as deleted in databases while preserving URLs. Pages return 404 to users but remain accessible via direct URL for reference. This prevents external backlinks from breaking while removing content from navigation. After monitoring confirms no traffic to soft-deleted pages, permanent deletion proceeds safely.</p>
+<p><strong>301 redirects to archives</strong> preserve access for historical content. Blog posts from 2015 might have little traffic but external links. Redirecting to archive sections maintains backlink value while signaling content age. Users understanding context (archived content) accept outdated information.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Understanding 404 Error Impact on SEO:</strong> This command stream monitors access logs, filters 404 responses, extracts URLs, counts occurrences, and displays most frequent 404s in real-time.</li>
+<li><strong>Server Log Analysis for Real-Time Detection:</strong> This command stream monitors access logs, filters 404 responses, extracts URLs, counts occurrences, and displays most frequent 404s in real-time.</li>
+<li><strong>Google Search Console API Integration:</strong> credentials = serviceaccount.Credentials.fromserviceaccountfile(
+  &#39;service-account-key.json&#39;,
+  scopes=[&#39;<a href="https://www.googleapis.com/auth/webmasters.readonl" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://www.googleapis.com/auth/webmasters.readonl</a></li>
+<li><strong>Uptime Monitoring for Critical Pages:</strong> Frameworks only pay off when they run against your numbers.</li>
+<li><strong>Automated 301 Redirect Implementation:</strong> Frameworks only pay off when they run against your numbers.</li>
+<li><strong>Custom 404 Page Optimization:</strong> Frameworks only pay off when they run against your numbers.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<h3 id="how-quickly-do-404-errors-impact-search-rankings">How quickly do 404 errors impact search rankings?</h3>
+<p>High-traffic pages dropping to 404 lose rankings within 24-48 hours as user signals (bounce rate) accumulate. Low-traffic pages might take 1-2 weeks as Google&#39;s crawler discovers the 404 and user signals remain sparse. Pages with strong backlinks decline more gradually as link equity provides temporary ranking support. However, within 30 days most 404s result in complete deindexing regardless of previous authority.</p>
+<h3 id="should-i-use-410-gone-instead-of-404-not-found">Should I use 410 Gone instead of 404 Not Found?</h3>
+<p>410 (Gone) signals permanent removal, telling Google not to re-crawl. Use 410 for intentionally deleted content never returning. 404 indicates temporary absence. Google recrawls periodically hoping content returns. For permanently removed pages with no redirect target, 410 prevents wasted crawl budget. For potentially restored content or accidental deletions, 404 maintains discovery attempts. Practically, Google treats both similarly for ranking purposes after 30 days.</p>
+<h3 id="can-too-many-404s-get-my-site-penalized">Can too many 404s get my site penalized?</h3>
+<p>No direct penalty exists for 404s, they&#39;re expected in normal site operation. However, high 404 rates indicate poor user experience, indirectly harming rankings through behavioral signals. Sites where 15%+ of crawled URLs return 404 waste crawl budget, slowing discovery of new content. Focus on 404 rates for pages receiving traffic rather than total 404 count across entire site.</p>
+<h3 id="how-do-i-handle-404s-on-pages-that-have-backlinks">How do I handle 404s on pages that have backlinks?</h3>
+<p>Implement 301 redirects to relevant alternative content. For deleted product pages, redirect to category or similar products. For removed blog posts, redirect to updated articles on the same topic. If no relevant destination exists, redirect to homepage or main category page, preserving partial link equity beats allowing 404s. Monitor redirected page rankings to confirm Google transfers value appropriately.</p>
+<h3 id="what-s-the-difference-between-soft-404s-and-hard-404s">What's the difference between soft 404s and hard 404s?</h3>
+<p>Hard 404s return explicit 404 status codes. Soft 404s return 200 OK status but contain minimal content. Google&#39;s algorithms detect pages lack substantive content despite successful HTTP responses. Soft 404s occur when CMSs serve &quot;no results found&quot; or &quot;coming soon&quot; pages without proper status codes. Both harm SEO, but soft 404s confuse crawlers by signaling success while delivering failure. Always return proper status codes matching page states.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/ssl-certificate-errors-seo-fix.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">SSL Certificate Errors SEO Fix: Resolve HTTPS Issues Fast</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Fix SSL certificate errors preventing Google from crawling your site. Diagnose mixed content warnings, certificate mismatches, and expired certificates that hurt rankings.</p>
+          </a>
+
+          <a href="/articles/googlebot-crawl-rate-monitor-control.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration.</p>
+          </a>
+
+          <a href="/articles/https-migration-seo-checklist.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">HTTPS Migration SEO Checklist: Secure Protocol Implementation Without Ranking Loss</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Execute HTTPS migration without SEO penalties using this comprehensive checklist covering SSL certificates, 301 redirects, mixed content fixes, and validation protocols.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

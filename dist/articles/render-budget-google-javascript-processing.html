@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Render Budget and Google JavaScript Processing: Indexing Optimization | Polytraffic</title>
+    <meta name="description" content="Understand Google's JavaScript rendering constraints and optimize for efficient crawling. Navigate render budget limits and ensure critical content visibility." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Render Budget and Google JavaScript Processing: Indexing Optimization | Polytraffic" />
+    <meta property="og:description" content="Understand Google's JavaScript rendering constraints and optimize for efficient crawling. Navigate render budget limits and ensure critical content visibility." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/render-budget-google-javascript-processing" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/render-budget-google-javascript-processing.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Render Budget and Google JavaScript Processing: Indexing Optimization | Polytraffic" />
+    <meta name="twitter:description" content="Understand Google's JavaScript rendering constraints and optimize for efficient crawling. Navigate render budget limits and ensure critical content visibility." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/render-budget-google-javascript-processing.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/render-budget-google-javascript-processing" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Render Budget and Google JavaScript Processing: Indexing Optimization",
+    "description": "Understand Google's JavaScript rendering constraints and optimize for efficient crawling. Navigate render budget limits and ensure critical content visibility.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/render-budget-google-javascript-processing.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/render-budget-google-javascript-processing.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/JavaScript SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Render Budget and Google JavaScript Processing: Indexing Optimization"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/JavaScript SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Render Budget and Google JavaScript Processing: Indexing Optimization</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/render-budget-google-javascript-processing.png" alt="Render Budget and Google JavaScript Processing: Indexing Optimization" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="render-budget-and-google-javascript-processing-indexing-optimization">Render Budget and Google JavaScript Processing: Indexing Optimization</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Understand Google&#39;s JavaScript rendering constraints and optimize for efficient crawling. Navigate render budget limits and ensure critical content visibility.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#google-s-two-wave-indexing-architecture" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Google's Two-Wave Indexing Architecture</a></li>
+<li><a href="#render-budget-constraints-and-limits" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Render Budget Constraints and Limits</a></li>
+<li><a href="#detecting-javascript-rendering-failures" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Detecting JavaScript Rendering Failures</a></li>
+<li><a href="#optimizing-for-render-budget-efficiency" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Optimizing for Render Budget Efficiency</a></li>
+<li><a href="#dynamic-rendering-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Dynamic Rendering Implementation</a></li>
+<li><a href="#monitoring-render-budget-health" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring Render Budget Health</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Google&#39;s JavaScript rendering operates under resource constraints that limit how much computational capacity Googlebot allocates to executing JavaScript per page, sites exceeding render budget thresholds risk incomplete indexing where critical content remains invisible despite successful page crawling.</strong> While Googlebot&#39;s rendering engine has evolved substantially since the early days when JavaScript-heavy sites faced near-total indexing exclusion, fundamental limits persist: rendering queues introduce indexing delays, execution timeouts truncate long-running scripts, and resource-intensive pages receive deprioritized rendering allocation. Sites loading 2MB+ of JavaScript or requiring 5+ seconds execution time on desktop-class CPUs routinely experience partial rendering in Google&#39;s index.</p>
+<p>This guide dissects Google&#39;s rendering architecture, render budget allocation dynamics, detection methods for rendering failures, optimization strategies to operate within budget constraints, and monitoring protocols to ensure critical content consistently surfaces in rendered snapshots that feed Google&#39;s indexing pipeline.</p>
+<h2 id="google-s-two-wave-indexing-architecture">Google's Two-Wave Indexing Architecture</h2>
+<p>Google employs a bifurcated crawling and indexing model separating HTML crawling from JavaScript rendering. Understanding this separation is fundamental to diagnosing JavaScript SEO issues.</p>
+<p><strong>Wave 1: HTML Crawling</strong> occurs when Googlebot initially requests your page. The crawler:</p>
+<ul>
+<li>Fetches HTML content via HTTP GET request</li>
+<li>Parses raw HTML source</li>
+<li>Extracts links from <code>&lt;a href&gt;</code> attributes and canonical tags</li>
+<li>Indexes static content visible in pre-rendered HTML</li>
+<li>Adds discovered links to crawl queue</li>
+<li>Moves to next URL in queue</li>
+</ul>
+<p>This first wave completes in seconds. Googlebot treats your page as if JavaScript doesn&#39;t exist, only raw HTML source matters. Any content exclusively delivered via JavaScript (React rendering, AJAX-loaded content, dynamically inserted elements) remains invisible during Wave 1.</p>
+<p><strong>Wave 2: JavaScript Rendering</strong> occurs minutes, hours, or days later when resources become available. The renderer:</p>
+<ul>
+<li>Retrieves the page HTML again from cache or fresh fetch</li>
+<li>Executes all JavaScript found in <code>&lt;script&gt;</code> tags and external files</li>
+<li>Waits for page load and network idle</li>
+<li>Takes snapshot of rendered DOM</li>
+<li>Extracts content from rendered snapshot</li>
+<li>Updates index with rendered content</li>
+<li>Compares rendered content against initial HTML snapshot</li>
+</ul>
+<p>The rendering queue operates as a resource-constrained system. Google doesn&#39;t render every URL immediately; priorities determine rendering timing and allocation.</p>
+<p><strong>Indexing signal conflicts</strong> emerge when Wave 1 HTML differs from Wave 2 rendered content. If your HTML source contains placeholder text but JavaScript replaces it with actual content, Google initially indexes the placeholder, then updates with rendered content after rendering completes. This two-phase indexing creates:</p>
+<ul>
+<li><strong>Indexing delays</strong>: New content isn&#39;t searchable until rendering completes</li>
+<li><strong>Ranking volatility</strong>: Initial rankings based on placeholder content, then shift after rendering</li>
+<li><strong>Content cloaking risk</strong>: If rendered content dramatically differs from HTML, Google may flag potential cloaking</li>
+</ul>
+<p><strong>Debugging the two-wave model</strong>: Use Google Search Console URL Inspection tool to observe both waves:</p>
+<ol>
+<li>Submit URL for indexing</li>
+<li>Click &quot;Test Live URL&quot;</li>
+<li>Compare &quot;Crawled page&quot; HTML (Wave 1) with &quot;Screenshot&quot; (Wave 2 rendered output)</li>
+</ol>
+<p>Discrepancies between crawled HTML and screenshot reveal JavaScript-delivered content that experiences indexing delays.</p>
+<h2 id="render-budget-constraints-and-limits">Render Budget Constraints and Limits</h2>
+<p>Render budget doesn&#39;t function like traditional crawl budget with publicized daily allowances. Google hasn&#39;t disclosed specific numeric thresholds, but empirical observation and official statements surface operational limits.</p>
+<p><strong>Execution time limits</strong>: Googlebot&#39;s rendering engine times out after approximately <strong>5 seconds</strong> of JavaScript execution on Google&#39;s infrastructure. Pages requiring longer execution receive truncated rendering. JavaScript executing beyond the timeout doesn&#39;t complete, leaving dynamically generated content unrendered.</p>
+<p>Google&#39;s rendering infrastructure simulates mid-tier desktop CPU performance (roughly equivalent to Intel Core i5 from ~2015). Scripts executing in 2 seconds on a 2023 MacBook Pro may consume 4-5 seconds on Google&#39;s renderer, approaching timeout thresholds.</p>
+<p><strong>Memory constraints</strong>: Rendering operates under memory limits preventing resource-exhaustive pages from monopolizing infrastructure. Pages generating excessive DOM nodes (10,000+ elements), maintaining large JavaScript object graphs, or loading massive datasets into memory risk rendering failures or incomplete execution.</p>
+<p><strong>Network request limits</strong>: While rendering, Googlebot follows network requests for JavaScript files, AJAX calls, and API endpoints. Excessive network activity, hundreds of sequential API calls, deeply nested AJAX dependencies, may hit undisclosed request count limits, causing rendering to terminate prematurely.</p>
+<p><strong>Rendering queue prioritization</strong> allocates resources based on:</p>
+<ul>
+<li><strong>Page authority</strong>: High-authority pages receive faster, more generous rendering</li>
+<li><strong>Update frequency</strong>: Frequently updated content receives more regular re-rendering</li>
+<li><strong>Crawl demand</strong>: Pages receiving significant organic traffic get prioritized</li>
+<li><strong>Resource intensity</strong>: Lightweight pages render faster and more frequently than heavy pages</li>
+</ul>
+<p>Low-authority sites publishing JavaScript-heavy pages experience the harshest render budget constraints. Google allocates minimal rendering resources, extending indexing delays from hours to days or weeks.</p>
+<p><strong>Observable symptoms of render budget exhaustion</strong>:</p>
+<ul>
+<li><strong>Indexing delays</strong>: Content taking 7-14+ days to appear in search results after publication</li>
+<li><strong>Partial rendering</strong>: Some page sections index while others don&#39;t</li>
+<li><strong>Inconsistent indexing</strong>: Content appears indexed, then disappears, then reappears erratically</li>
+<li><strong>Missing structured data</strong>: JSON-LD inserted via JavaScript fails to surface in rich results</li>
+<li><strong>Blank mobile snapshots</strong>: Search Console mobile screenshot shows minimal content despite desktop rendering successfully</li>
+</ul>
+<p><strong>John Mueller&#39;s guidance</strong> (Google Search Advocate) emphasizes: &quot;If content is critical for indexing, make it available in HTML. JavaScript rendering happens later and isn&#39;t guaranteed.&quot; This underscores the fundamental principle, render budget is not infinite, nor reliable for all pages.</p>
+<h2 id="detecting-javascript-rendering-failures">Detecting JavaScript Rendering Failures</h2>
+<p>Systematic detection identifies pages where Google&#39;s renderer fails to execute JavaScript fully, revealing content invisible to the index despite successful crawling.</p>
+<p><strong>URL Inspection Tool methodology</strong>:</p>
+<ol>
+<li>Google Search Console → URL Inspection</li>
+<li>Enter target URL</li>
+<li>Click &quot;Test Live URL&quot; (not &quot;View Crawled Page&quot; this shows the last successful render)</li>
+<li>Wait for processing (30-60 seconds)</li>
+<li>Review &quot;Screenshot&quot; tab</li>
+</ol>
+<p>The screenshot displays Googlebot&#39;s rendered view. Compare screenshot content against what logged-in users see in browsers:</p>
+<ul>
+<li><strong>Missing sections</strong>: Content visible in browser but absent from screenshot</li>
+<li><strong>Placeholder content</strong>: Generic loading text or spinners frozen in screenshot</li>
+<li><strong>API errors</strong>: JavaScript errors preventing content fetch visible in screenshot</li>
+<li><strong>Truncated rendering</strong>: Page header and initial content appear, but lower sections don&#39;t</li>
+</ul>
+<p>Click &quot;More Info&quot; → &quot;JavaScript console messages&quot; to view rendering errors. Console errors indicating timeout, network failure, or JavaScript exceptions reveal why rendering failed.</p>
+<p><strong>HTML vs Rendered HTML comparison</strong>:</p>
+<ol>
+<li>URL Inspection Tool → &quot;View Crawled Page&quot;</li>
+<li>Select &quot;HTML&quot; tab (raw source code)</li>
+<li>Open new tab, select &quot;More Info&quot; → &quot;Rendered HTML&quot;</li>
+<li>Diff the two HTML outputs using text comparison tools</li>
+</ol>
+<p>Significant discrepancies, entire content sections present in rendered HTML but absent from raw HTML, indicate JavaScript-dependent content experiencing indexing delays.</p>
+<p><strong>Fetch as Google legacy functionality</strong> (deprecated but conceptually relevant): Manually trigger Googlebot rendering requests to accelerate indexing of JavaScript-heavy pages. While the &quot;Fetch as Google&quot; button no longer exists, the &quot;Request Indexing&quot; feature in URL Inspection Tool serves similar purpose, triggering priority crawl and render.</p>
+<p><strong>Third-party rendering validators</strong>:</p>
+<ul>
+<li><strong>Google Mobile-Friendly Test</strong>: Renders pages and displays screenshot. Compare with live site to identify rendering disparities.</li>
+<li><strong>Rich Results Test</strong>: Validates structured data, including JavaScript-injected JSON-LD. Failures indicate rendering issues preventing structured data detection.</li>
+</ul>
+<p><strong>Puppeteer-based rendering simulation</strong> replicates Googlebot&#39;s rendering environment locally:</p>
+<pre><code class="language-javascript">const puppeteer = require(&#39;puppeteer&#39;);
+
+(async () =&gt; {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  // Set user agent to Googlebot
+  await page.setUserAgent(&#39;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&#39;);
+
+  // Navigate to page with 5-second timeout (matching Google&#39;s limit)
+  try {
+    await page.goto(&#39;https://example.com&#39;, { waitUntil: &#39;networkidle0&#39;, timeout: 5000 });
+  } catch (error) {
+    console.log(&#39;Timeout or error:&#39;, error.message);
+  }
+
+  // Extract rendered HTML
+  const content = await page.content();
+  console.log(content);
+
+  // Take screenshot
+  await page.screenshot({ path: &#39;googlebot-render.png&#39; });
+
+  await browser.close();
+})();
+</code></pre>
+<p>This script mimics Googlebot&#39;s 5-second execution limit, surfacing timeouts that affect Google&#39;s rendering but not standard browser visits.</p>
+<p><strong>Log file analysis</strong> identifies rendering patterns:</p>
+<pre><code class="language-bash">grep &#39;Googlebot&#39; access.log | grep &#39;200&#39; | wc -l  # Successful crawls
+grep &#39;Googlebot-Render&#39; access.log | wc -l        # Rendering requests
+</code></pre>
+<p>Compare crawl request count against rendering request count. If rendering requests are 10-20% of crawl requests, Google is selectively rendering rather than rendering every crawled page, evidence of render budget constraints.</p>
+<h2 id="optimizing-for-render-budget-efficiency">Optimizing for Render Budget Efficiency</h2>
+<p>Render budget optimization reduces JavaScript execution time, network overhead, and memory consumption, enabling Google&#39;s renderer to complete full page processing within timeout constraints.</p>
+<p><strong>Server-side rendering (SSR)</strong> eliminates rendering delays by pre-rendering content server-side before delivery to Googlebot:</p>
+<pre><code class="language-javascript">// Next.js SSR example
+export async function getServerSideProps(context) {
+  const data = await fetchData();
+
+  return {
+    props: { data }  // Pre-rendered on server
+  };
+}
+
+export default function Page({ data }) {
+  return &lt;div&gt;{data.content}&lt;/div&gt;;  // HTML delivered immediately
+}
+</code></pre>
+<p>Next.js, Nuxt, SvelteKit, and similar frameworks render pages server-side, delivering complete HTML to Googlebot during Wave 1 crawling, eliminating Wave 2 rendering dependency entirely.</p>
+<p><strong>Static site generation (SSG)</strong> pre-renders pages at build time:</p>
+<pre><code class="language-javascript">// Next.js SSG
+export async function getStaticProps() {
+  const data = await fetchData();
+
+  return {
+    props: { data },
+    revalidate: 3600  // Regenerate hourly
+  };
+}
+</code></pre>
+<p>Build processes generate static HTML files deployed to hosting. Googlebot receives full HTML without executing JavaScript or waiting for API calls.</p>
+<p><strong>Critical content in HTML source</strong> ensures immediate indexing:</p>
+<pre><code class="language-html">&lt;!-- Bad: Content only in JavaScript --&gt;
+&lt;div id=&quot;content-root&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const content = fetchContent();
+  document.getElementById(&#39;content-root&#39;).innerHTML = content;
+&lt;/script&gt;
+
+&lt;!-- Good: Content in HTML, JavaScript enhances --&gt;
+&lt;div id=&quot;content-root&quot;&gt;
+  &lt;h1&gt;Page Title&lt;/h1&gt;
+  &lt;p&gt;Critical content visible in HTML source.&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  enhanceWithInteractiveFeatures();
+&lt;/script&gt;
+</code></pre>
+<p>The &quot;Good&quot; pattern delivers content in Wave 1 HTML, using JavaScript only for interactivity enhancements (dropdowns, modals, animations) rather than content delivery.</p>
+<p><strong>Reducing JavaScript payload</strong>:</p>
+<pre><code class="language-javascript">// Before: Large bundle (500KB)
+import _ from &#39;lodash&#39;;
+import moment from &#39;moment&#39;;
+
+// After: Tree-shaken imports (50KB)
+import debounce from &#39;lodash/debounce&#39;;
+import dayjs from &#39;dayjs&#39;;  // Lighter alternative to Moment
+</code></pre>
+<p>Smaller bundles download and parse faster, executing within tighter time budgets. Target total JavaScript under 300KB for optimal rendering reliability.</p>
+<p><strong>Lazy loading non-critical sections</strong>:</p>
+<pre><code class="language-javascript">// Critical: Render immediately
+&lt;ProductDetails product={data} /&gt;
+
+// Non-critical: Lazy load
+const Reviews = lazy(() =&gt; import(&#39;./Reviews&#39;));
+
+&lt;Suspense fallback={&lt;div&gt;Loading reviews...&lt;/div&gt;}&gt;
+  &lt;Reviews productId={id} /&gt;
+&lt;/Suspense&gt;
+</code></pre>
+<p>Critical product details render immediately for indexing. Reviews, loaded later via lazy import, don&#39;t block initial render snapshot.</p>
+<p><strong>Prerendering for Googlebot</strong>:</p>
+<pre><code class="language-nginx"># Nginx configuration
+location / {
+  set $prerender 0;
+
+  if ($http_user_agent ~* &quot;googlebot|bingbot|yandex|baiduspider&quot;) {
+    set $prerender 1;
+  }
+
+  if ($prerender = 1) {
+    proxy_pass https://prerender-service.com/https://$host$request_uri;
+  }
+
+  try_files $uri $uri/ /index.html;
+}
+</code></pre>
+<p>This configuration detects bot user agents, proxying requests to a prerendering service (Prerender.io, Rendertron) that executes JavaScript and returns rendered HTML. Regular users receive the client-side JavaScript app; bots receive pre-rendered HTML.</p>
+<p><strong>Reducing API call latency</strong>:</p>
+<pre><code class="language-javascript">// Sequential API calls (slow)
+const user = await fetch(&#39;/api/user&#39;);
+const products = await fetch(&#39;/api/products&#39;);
+const reviews = await fetch(&#39;/api/reviews&#39;);
+
+// Parallel API calls (fast)
+const [user, products, reviews] = await Promise.all([
+  fetch(&#39;/api/user&#39;),
+  fetch(&#39;/api/products&#39;),
+  fetch(&#39;/api/reviews&#39;)
+]);
+</code></pre>
+<p>Parallel requests reduce total network time, helping execution complete within render budget timeouts.</p>
+<p><strong>Code splitting to defer heavy features</strong>:</p>
+<pre><code class="language-javascript">// Load heavy charting library only when needed
+button.addEventListener(&#39;click&#39;, async () =&gt; {
+  const { Chart } = await import(&#39;./chart.js&#39;);
+  new Chart(data);
+});
+</code></pre>
+<p>Chart library doesn&#39;t load during initial rendering, reducing execution time for Googlebot&#39;s snapshot.</p>
+<h2 id="dynamic-rendering-implementation">Dynamic Rendering Implementation</h2>
+<p>Dynamic rendering serves different content to search bots versus users, pre-rendered static HTML for bots, JavaScript-heavy interactive app for users. Google officially endorses this approach when other solutions (SSR, SSG) are impractical.</p>
+<p><strong>Rendertron</strong> (Google&#39;s open-source renderer):</p>
+<pre><code class="language-bash"># Install Rendertron
+docker run -p 3000:3000 rendertron/rendertron
+
+# Configure web server to proxy bot traffic
+</code></pre>
+<p>Nginx configuration:</p>
+<pre><code class="language-nginx">map $http_user_agent $is_bot {
+  default 0;
+  ~*(googlebot|bingbot|baiduspider) 1;
+}
+
+server {
+  location / {
+    if ($is_bot) {
+      proxy_pass http://localhost:3000/render/https://$host$request_uri;
+    }
+
+    try_files $uri /index.html;
+  }
+}
+</code></pre>
+<p>Rendertron receives bot requests, renders the JavaScript app using headless Chrome, and returns rendered HTML. Users receive standard JavaScript app.</p>
+<p><strong>Prerender.io</strong> (commercial service):</p>
+<ol>
+<li>Sign up at prerender.io</li>
+<li>Install middleware (Express, Nginx, Apache)</li>
+<li>Configure bot detection and proxy rules</li>
+<li>Prerender.io handles rendering infrastructure</li>
+</ol>
+<p>Express middleware example:</p>
+<pre><code class="language-javascript">const prerender = require(&#39;prerender-node&#39;);
+app.use(prerender.set(&#39;prerenderToken&#39;, &#39;YOUR_TOKEN&#39;));
+</code></pre>
+<p>This middleware detects bot user agents, proxying requests to Prerender.io&#39;s rendering service.</p>
+<p><strong>Dynamic rendering detection by Google</strong>: Google can detect dynamic rendering through user agent testing and render comparison. To remain compliant:</p>
+<ul>
+<li><strong>Serve equivalent content</strong>: Pre-rendered HTML must match JavaScript-rendered output for users</li>
+<li><strong>Avoid cloaking</strong>: Don&#39;t serve SEO-optimized content to bots while hiding it from users</li>
+<li><strong>Maintain consistency</strong>: Update pre-rendered cache when content changes</li>
+</ul>
+<p>Google permits dynamic rendering as a workaround for technical constraints, not as a mechanism for serving different content.</p>
+<p><strong>Cache management for dynamic rendering</strong>:</p>
+<pre><code class="language-javascript">// Rendertron with caching
+proxy_cache_path /var/cache/rendertron levels=1:2 keys_zone=rendertron:10m max_size=1g;
+
+location / {
+  if ($is_bot) {
+    proxy_cache rendertron;
+    proxy_cache_valid 200 1h;
+    proxy_pass http://localhost:3000/render/https://$host$request_uri;
+  }
+}
+</code></pre>
+<p>Caching pre-rendered HTML for 1 hour reduces rendering service load and accelerates bot response times.</p>
+<h2 id="monitoring-render-budget-health">Monitoring Render Budget Health</h2>
+<p><strong>Search Console monitoring</strong> surfaces rendering issues affecting indexing:</p>
+<ol>
+<li>Coverage report → Excluded tab</li>
+<li>Look for &quot;Crawled - currently not indexed&quot; status on JavaScript-heavy pages</li>
+<li>Inspect sample URLs using URL Inspection Tool</li>
+<li>Compare HTML source against rendered screenshot</li>
+</ol>
+<p>If screenshots show incomplete content while HTML source is sparse, rendering issues are impeding indexing.</p>
+<p><strong>Index coverage trends</strong>: Track indexed page count over time. If JavaScript migration or framework update correlates with indexed page count drops, rendering failures may be preventing indexing of newly JavaScript-dependent content.</p>
+<p><strong>Core Web Vitals segmentation</strong>: Compare CWV metrics between Googlebot (Search Console) and user traffic (CrUX). If Googlebot&#39;s metrics are significantly worse (FCP &gt; 3 seconds, TBT &gt; 1 second), the page is taxing Google&#39;s rendering resources, risking budget exhaustion.</p>
+<p><strong>JavaScript error monitoring in Search Console</strong>:</p>
+<ol>
+<li>URL Inspection → More Info → JavaScript console messages</li>
+<li>Audit for errors recurring across multiple pages</li>
+<li>Common errors:<ul>
+<li>Network timeout errors</li>
+<li>CORS failures blocking API calls</li>
+<li>Undefined reference errors from missing dependencies</li>
+</ul>
+</li>
+</ol>
+<p>Fix errors surfacing in Search Console console messages, these errors prevent successful rendering.</p>
+<p><strong>Log file analysis for render requests</strong>:</p>
+<pre><code class="language-bash"># Count Googlebot rendering requests
+grep &#39;Chrome.*Googlebot&#39; access.log | wc -l
+
+# Compare against total Googlebot requests
+grep &#39;Googlebot&#39; access.log | wc -l
+</code></pre>
+<p>If render requests are &lt;10% of total Googlebot requests, Google is selectively rendering. Investigate which pages aren&#39;t getting rendered:</p>
+<pre><code class="language-bash">grep &#39;Googlebot&#39; access.log | awk &#39;{print $7}&#39; | sort | uniq -c | sort -rn &gt; crawled-urls.txt
+grep &#39;Chrome.*Googlebot&#39; access.log | awk &#39;{print $7}&#39; | sort | uniq -c | sort -rn &gt; rendered-urls.txt
+# Diff the two files to identify crawled-but-not-rendered URLs
+</code></pre>
+<p><strong>Lighthouse rendering audit</strong>: Run Lighthouse with Googlebot user agent:</p>
+<pre><code class="language-bash">lighthouse https://example.com --emulated-user-agent=&quot;Googlebot&quot; --output html --output-path report.html
+</code></pre>
+<p>This tests page performance and rendering under Googlebot conditions, surfacing timeout risks and resource intensity.</p>
+<p><strong>Third-party monitoring services</strong>:</p>
+<ul>
+<li><strong>OnCrawl</strong>: JavaScript rendering analysis showing which pages fail rendering</li>
+<li><strong>DeepCrawl</strong>: Render budget monitoring with alerts for rendering failures</li>
+<li><strong>Botify</strong>: Render queue insights and rendering success rates</li>
+</ul>
+<p>These services crawl sites with and without JavaScript, comparing outputs to identify rendering-dependent content at scale.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Google&#39;s Two-Wave Indexing Architecture:</strong> Google employs a bifurcated crawling and indexing model separating HTML crawling from JavaScript rendering.</li>
+<li><strong>Render Budget Constraints and Limits:</strong> Render budget doesn&#39;t function like traditional crawl budget with publicized daily allowances.</li>
+<li><strong>Detecting JavaScript Rendering Failures:</strong> Systematic detection identifies pages where Google&#39;s renderer fails to execute JavaScript fully, revealing content invisible to the index despite successful crawling.</li>
+<li><strong>Optimizing for Render Budget Efficiency:</strong> Render budget optimization reduces JavaScript execution time, network overhead, and memory consumption, enabling Google&#39;s renderer to complete full page processing within timeout constraints.</li>
+<li><strong>Dynamic Rendering Implementation:</strong> Dynamic rendering serves different content to search bots versus users, pre-rendered static HTML for bots, JavaScript-heavy interactive app for users.</li>
+</ul>
+<h2 id="faq-google-render-budget-and-javascript">FAQ: Google Render Budget and JavaScript</h2>
+<p><strong>Does Google render all pages it crawls?</strong>
+No. Google selectively renders based on resource availability, page authority, and perceived need. Low-authority pages or pages rarely updated may wait days or weeks for rendering, if rendered at all.</p>
+<p><strong>How long does Google take to render JavaScript after crawling?</strong>
+Typically hours to days, depending on site authority and render queue load. High-authority news sites may render within hours; small blogs may wait days or weeks. Request indexing via Search Console to potentially accelerate rendering.</p>
+<p><strong>Can I force Google to render my page immediately?</strong>
+No direct mechanism exists. &quot;Request Indexing&quot; in URL Inspection Tool submits a priority crawl/render request but doesn&#39;t guarantee immediate processing. The request enters Google&#39;s queue at elevated priority, potentially reducing wait time from days to hours.</p>
+<p><strong>Does Google execute all JavaScript, or does it timeout?</strong>
+Google&#39;s renderer enforces approximately 5-second execution timeout. Scripts exceeding this limit terminate prematurely, leaving content unrendered. Optimize for sub-5-second execution on mid-tier CPU performance.</p>
+<p><strong>Will SSR/SSG eliminate all rendering concerns?</strong>
+Mostly. SSR/SSG delivers complete HTML during initial crawl, bypassing Wave 2 rendering dependency. However, client-side hydration errors or hydration mismatches can still cause indexing issues if server-rendered HTML differs from client-rendered output.</p>
+<p><strong>Does dynamic rendering constitute cloaking?</strong>
+No, if content served to bots matches content served to users. Google permits dynamic rendering explicitly for resolving JavaScript indexing challenges. Serving genuinely different content to bots (hiding elements, showing different text) does constitute cloaking and risks penalties.</p>
+<p><strong>How do I know if my render budget is causing indexing problems?</strong>
+Signs include: (1) &quot;Crawled - currently not indexed&quot; status on JavaScript-heavy pages, (2) screenshot in URL Inspection showing incomplete content, (3) JavaScript console errors in Search Console, (4) low render request percentage in log files, (5) long delays between publish date and index appearance.</p>
+<p><strong>Should I abandon client-side JavaScript for SEO?</strong>
+No. Modern JavaScript frameworks are viable with proper optimization. Ensure critical content exists in HTML source, optimize JavaScript payload size, reduce execution time, and consider SSR/SSG or dynamic rendering for complex applications. The issue isn&#39;t JavaScript itself, it&#39;s unoptimized, render-budget-exhausting implementations.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/single-page-application-seo-fix.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">JavaScript SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Technical solutions for rendering JavaScript-based SPAs so search engines can crawl, index, and rank React, Vue, and Angular applications effectively.</p>
+          </a>
+
+          <a href="/articles/request-indexing-google-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Indexing Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Request Indexing in Google: Priority Crawl and Indexing Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Submit URLs for priority indexing via Search Console. Understand indexing request limits, best practices, and alternatives for accelerating Google discovery.</p>
+          </a>
+
+          <a href="/articles/crawl-budget-optimization-large-sites.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Crawl Budget Optimization for Large Sites: Technical Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Maximize Googlebot crawl efficiency on large sites. Fix crawl waste, prioritize high-value pages, and optimize server response for 1M+ page sites.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

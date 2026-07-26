@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Indexing in Google: Priority Crawl and Indexing Guide | Polytraffic</title>
+    <meta name="description" content="Submit URLs for priority indexing via Search Console. Understand indexing request limits, best practices, and alternatives for accelerating Google discovery." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Request Indexing in Google: Priority Crawl and Indexing Guide | Polytraffic" />
+    <meta property="og:description" content="Submit URLs for priority indexing via Search Console. Understand indexing request limits, best practices, and alternatives for accelerating Google discovery." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/request-indexing-google-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/request-indexing-google-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Request Indexing in Google: Priority Crawl and Indexing Guide | Polytraffic" />
+    <meta name="twitter:description" content="Submit URLs for priority indexing via Search Console. Understand indexing request limits, best practices, and alternatives for accelerating Google discovery." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/request-indexing-google-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/request-indexing-google-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Request Indexing in Google: Priority Crawl and Indexing Guide",
+    "description": "Submit URLs for priority indexing via Search Console. Understand indexing request limits, best practices, and alternatives for accelerating Google discovery.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/request-indexing-google-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/request-indexing-google-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Indexing Optimization.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Request Indexing in Google: Priority Crawl and Indexing Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Indexing Optimization.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Request Indexing in Google: Priority Crawl and Indexing Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/request-indexing-google-guide.png" alt="Request Indexing in Google: Priority Crawl and Indexing Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="request-indexing-in-google-priority-crawl-and-indexing-guide">Request Indexing in Google: Priority Crawl and Indexing Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Submit URLs for priority indexing via Search Console. Understand indexing request limits, best practices, and alternatives for accelerating Google discovery.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#understanding-google-s-indexing-request-system" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding Google's Indexing Request System</a></li>
+<li><a href="#strategic-url-prioritization-framework" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Strategic URL Prioritization Framework</a></li>
+<li><a href="#troubleshooting-failed-indexing-requests" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Troubleshooting Failed Indexing Requests</a></li>
+<li><a href="#alternative-indexing-acceleration-techniques" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Alternative Indexing Acceleration Techniques</a></li>
+<li><a href="#monitoring-indexing-success-and-velocity" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring Indexing Success and Velocity</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Manual indexing requests through Google Search Console elevate URL priority in Google&#39;s crawl queue, potentially accelerating discovery from weeks to hours, but strict daily limits and per-property quotas constrain usage to high-value pages.</strong> While Googlebot eventually discovers most pages through sitemaps and internal links, time-sensitive content (breaking news, product launches, critical updates) benefits from manual indexing requests that bypass standard crawl scheduling. Sites with limited crawl budgets or authority constraints see the greatest impact, converting multi-day indexing delays into same-day index appearances for strategically submitted URLs.</p>
+<p>This guide dissects the indexing request mechanism, per-account quotas and limits, strategic prioritization frameworks for determining which URLs warrant manual submission, troubleshooting for failed requests, and supplementary indexing acceleration techniques when quotas are exhausted.</p>
+<h2 id="understanding-google-s-indexing-request-system">Understanding Google's Indexing Request System</h2>
+<p>Google Search Console&#39;s URL Inspection tool includes &quot;Request Indexing&quot; functionality that submits URLs for priority processing. This feature evolved from the deprecated &quot;Fetch as Google&quot; tool, streamlining the submission interface while introducing more restrictive quotas.</p>
+<p><strong>The indexing request workflow</strong>:</p>
+<ol>
+<li>Go to Google Search Console property</li>
+<li>URL Inspection tool → Enter target URL</li>
+<li>Click &quot;Test Live URL&quot; (validates URL accessibility)</li>
+<li>After validation completes, click &quot;Request Indexing&quot; button</li>
+<li>Google adds URL to priority crawl queue</li>
+<li>Confirmation message appears: &quot;Indexing requested&quot;</li>
+</ol>
+<p>The request doesn&#39;t trigger immediate indexing. Instead, it elevates the URL&#39;s priority within Google&#39;s existing crawl infrastructure. Actual indexing timing depends on crawl queue load, site authority, and technical factors (server response time, rendering requirements for JavaScript-heavy pages).</p>
+<p><strong>Request quotas vary by account type</strong>:</p>
+<ul>
+<li><strong>Individual quota</strong>: Approximately 10-12 indexing requests per day per Google account</li>
+<li><strong>Property quota</strong>: Quota applies across all properties the account has access to (not per property)</li>
+<li><strong>Team accounts</strong>: Each team member has individual quota; multiple team members can submit requests</li>
+</ul>
+<p>The daily quota resets at an undefined time (Google hasn&#39;t disclosed the exact reset schedule, but empirical observation suggests UTC midnight or close proximity). Exceed the quota and Search Console displays: &quot;Quota exceeded. Try again tomorrow.&quot;</p>
+<p><strong>What happens after submission</strong>: Google&#39;s crawler:</p>
+<ol>
+<li>Schedules a priority fetch of the URL (typically within hours, occasionally same day)</li>
+<li>Downloads HTML content</li>
+<li>Processes content through rendering pipeline if JavaScript-heavy</li>
+<li>Extracts indexable content, links, structured data</li>
+<li>Updates or creates index entry</li>
+<li>Processes are linked via internal links discovered on the page</li>
+</ol>
+<p>Priority processing doesn&#39;t guarantee indexing success. If the page returns 404, contains noindex directives, is blocked by robots.txt, or fails quality thresholds, the indexing request fails despite successful submission.</p>
+<p><strong>Indexing request vs sitemap submission</strong>: Sitemaps inform Google of URL existence and update frequency, but don&#39;t guarantee crawl priority or timing. Indexing requests provide explicit crawl instructions with elevated priority. Use sitemaps for broad coverage; use indexing requests for time-sensitive critical pages.</p>
+<p><strong>Historical context</strong>: The legacy &quot;Fetch as Google&quot; tool (deprecated 2020) allowed immediate crawling with real-time feedback showing rendered HTML and identified issues. The current &quot;Request Indexing&quot; feature operates asynchronously without immediate feedback, requiring users to check back later via URL Inspection to verify indexing success.</p>
+<h2 id="strategic-url-prioritization-framework">Strategic URL Prioritization Framework</h2>
+<p>Daily quota constraints demand strategic selection of which URLs warrant manual indexing requests. Submitting every new blog post exhausts quotas on low-value content while missing time-sensitive opportunities.</p>
+<p><strong>Priority tier 1 (always submit)</strong>:</p>
+<ul>
+<li><strong>Breaking news</strong>. Timeliness determines ranking; every hour of indexing delay surrenders traffic to faster-indexed competitors</li>
+<li><strong>Product launches</strong>. New products benefit from immediate discovery, capturing launch-day search traffic</li>
+<li><strong>Critical fixes</strong>. Pages previously returning errors (404, 500) now repaired, requiring Google to recrawl and update status</li>
+<li><strong>Major content updates</strong>. Substantial rewrites or content additions that shift ranking potential</li>
+</ul>
+<p>Estimate impact: If a URL could generate $100+ value per day once indexed, it justifies quota expenditure.</p>
+<p><strong>Priority tier 2 (submit if quota available)</strong>:</p>
+<ul>
+<li><strong>New high-value content</strong>. In-depth guides, cornerstone content, commercial pages</li>
+<li><strong>Updated evergreen pages</strong>. Content refreshes on pages with existing traffic</li>
+<li><strong>Seasonal content</strong>. Holiday guides, event-based content with narrow relevance windows</li>
+<li><strong>Converted 404s</strong>. Deleted pages now restored or redirected to new equivalents</li>
+</ul>
+<p>These URLs benefit from accelerated indexing but won&#39;t catastrophically suffer from standard crawl discovery delays.</p>
+<p><strong>Priority tier 3 (rely on standard discovery)</strong>:</p>
+<ul>
+<li><strong>Minor blog posts</strong>. Standard articles without time sensitivity</li>
+<li><strong>Archive pages</strong>. Category, tag, pagination pages</li>
+<li><strong>Supporting pages</strong>. About, contact, legal pages</li>
+<li><strong>Test pages</strong>. Staging content, internal documentation</li>
+</ul>
+<p>Let sitemaps and internal linking handle these URLs. Manual requests provide minimal incremental benefit.</p>
+<p><strong>Decision matrix</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Points</th>
+<th>Multiplier</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Time sensitivity (hours critical)</td>
+<td>10</td>
+<td>3×</td>
+</tr>
+<tr>
+<td>Time sensitivity (days matter)</td>
+<td>5</td>
+<td>2×</td>
+</tr>
+<tr>
+<td>Revenue potential ($100+/day)</td>
+<td>8</td>
+<td>2.5×</td>
+</tr>
+<tr>
+<td>Revenue potential ($10-99/day)</td>
+<td>4</td>
+<td>1.5×</td>
+</tr>
+<tr>
+<td>Traffic potential (1,000+/day)</td>
+<td>6</td>
+<td>2×</td>
+</tr>
+<tr>
+<td>Traffic potential (100-999/day)</td>
+<td>3</td>
+<td>1.5×</td>
+</tr>
+<tr>
+<td>Fixed content (completed, not draft)</td>
+<td>2</td>
+<td>1×</td>
+</tr>
+<tr>
+<td>Low competition keyword</td>
+<td>4</td>
+<td>1.5×</td>
+</tr>
+</tbody></table>
+<p>Calculate score: Sum points × lowest multiplier. URLs scoring 15+ justify indexing requests.</p>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><strong>Breaking news on competitive topic</strong>: 10 (time) × 3× + 6 (traffic) × 2× = 42 points → Submit</li>
+<li><strong>Updated evergreen guide</strong>: 5 (days matter) × 2× + 4 (revenue) × 1.5× = 16 points → Submit if quota available</li>
+<li><strong>Minor blog post</strong>: 2 (fixed) × 1× + 3 (traffic) × 1.5× = 6.5 points → Skip, use sitemap</li>
+</ul>
+<p><strong>Quota allocation strategy</strong>: For typical 10-request daily quota:</p>
+<ul>
+<li>Reserve 3 requests for emergency critical fixes</li>
+<li>Allocate 5 requests to tier 1 priority URLs</li>
+<li>Use remaining 2 requests for tier 2 if no tier 1 candidates exist</li>
+<li>Never submit tier 3; quota opportunity cost exceeds benefit</li>
+</ul>
+<p><strong>Team coordination</strong>: If multiple team members have Search Console access, coordinate submissions to prevent quota waste on duplicate or low-priority URLs. Implement approval workflow or shared spreadsheet tracking submissions and remaining daily quota.</p>
+<h2 id="troubleshooting-failed-indexing-requests">Troubleshooting Failed Indexing Requests</h2>
+<p>Submitted URLs may fail to index despite successful request submission. Diagnosing failure causes prevents repeated quota waste on problematic pages.</p>
+<p><strong>URL Inspection status indicators</strong>:</p>
+<ul>
+<li><strong>&quot;URL is on Google&quot;</strong>. Successfully indexed</li>
+<li><strong>&quot;URL is on Google but has issues&quot;</strong>. Partially indexed with warnings</li>
+<li><strong>&quot;URL is not on Google&quot;</strong>. Not indexed (even after request)</li>
+</ul>
+<p>If status remains &quot;not on Google&quot; 48-72 hours post-request, investigate blocking factors.</p>
+<p><strong>Common failure causes</strong>:</p>
+<ol>
+<li><strong>Noindex directive</strong>. <code>&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;</code> or <code>X-Robots-Tag: noindex</code> explicitly excludes page</li>
+<li><strong>Robots.txt block</strong> <code>Disallow:</code> rule prevents Googlebot access</li>
+<li><strong>404/5xx errors</strong>. Page returns error status codes</li>
+<li><strong>Redirect chains</strong>. URL redirects to another location; Google may index the destination instead</li>
+<li><strong>Duplicate content</strong>. Google selects a different URL as canonical</li>
+<li><strong>Low-quality content</strong>. Page fails quality thresholds (thin content, spam patterns)</li>
+<li><strong>Rendering failures</strong>. JavaScript errors prevent content extraction</li>
+<li><strong>Slow server response</strong>. Timeouts during crawl attempts</li>
+</ol>
+<p><strong>Diagnostic protocol</strong>:</p>
+<p><strong>Step 1</strong>: URL Inspection → &quot;Test Live URL&quot; → Review coverage status and errors. Error messages indicate specific failures:</p>
+<ul>
+<li>&quot;Blocked by robots.txt&quot; → Update robots.txt to allow access</li>
+<li>&quot;Noindex tag detected&quot; → Remove noindex directive from HTML or HTTP headers</li>
+<li>&quot;Redirect error&quot; → Fix redirect chains or canonical to the correct destination</li>
+<li>&quot;Server error (5xx)&quot; → Resolve server instability</li>
+<li>&quot;Soft 404&quot; → Add substantial content to meet indexing thresholds</li>
+</ul>
+<p><strong>Step 2</strong>: Review &quot;Page indexing&quot; section for warnings:</p>
+<ul>
+<li>Structured data errors</li>
+<li>Mobile usability issues</li>
+<li>AMP errors</li>
+</ul>
+<p>While these don&#39;t prevent indexing, fixing them improves indexing quality.</p>
+<p><strong>Step 3</strong>: Compare &quot;Crawled page&quot; HTML against &quot;Rendered HTML&quot;:</p>
+<ul>
+<li>If rendered HTML is empty or incomplete, JavaScript rendering failed</li>
+<li>If crawled HTML contains noindex but rendered doesn&#39;t, noindex executes before rendering</li>
+<li>If URLs differ significantly, canonical tag issues exist</li>
+</ul>
+<p><strong>Step 4</strong>: Check Coverage report → Excluded tab for the URL:</p>
+<ul>
+<li>&quot;Duplicate without user-selected canonical&quot; → Google chose a different URL</li>
+<li>&quot;Crawled - currently not indexed&quot; → Page crawled but didn&#39;t meet indexing thresholds</li>
+<li>&quot;Discovered - currently not indexed&quot; → Google knows the URL exists but hasn&#39;t crawled it yet</li>
+</ul>
+<p><strong>Solutions by failure type</strong>:</p>
+<p><strong>Noindex removal</strong>:</p>
+<pre><code class="language-html">&lt;!-- Before (blocks indexing) --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+
+&lt;!-- After (allows indexing) --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;
+</code></pre>
+<p>Or remove the tag entirely if default indexing is desired.</p>
+<p><strong>Robots.txt correction</strong>:</p>
+<pre><code># Before (blocks Googlebot)
+User-agent: Googlebot
+Disallow: /products/
+
+# After (allows Googlebot)
+User-agent: Googlebot
+Allow: /products/
+</code></pre>
+<p>After fixing, resubmit indexing request.</p>
+<p><strong>Canonical consolidation</strong>: If Google indexes an alternative URL:</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/canonical-version/&quot;&gt;
+</code></pre>
+<p>Ensure canonical points to the preferred version consistently across all variations.</p>
+<p><strong>Quality improvement</strong>: If &quot;Crawled - currently not indexed&quot; persists:</p>
+<ul>
+<li>Add substantial unique content (target 800+ words minimum)</li>
+<li>Remove boilerplate text dominating the page</li>
+<li>Add multimedia (images, videos) to enhance value</li>
+<li>Improve internal linking to the page from high-authority pages</li>
+</ul>
+<p><strong>Server performance</strong>: If timeouts or 5xx errors occur:</p>
+<ul>
+<li>Optimize database queries reducing page generation time</li>
+<li>Enable caching to serve cached HTML to Googlebot</li>
+<li>Upgrade hosting if server resources are insufficient</li>
+</ul>
+<p><strong>JavaScript rendering fixes</strong>: If rendered HTML is incomplete:</p>
+<ul>
+<li>Reduce JavaScript execution time to under 5 seconds</li>
+<li>Ensure critical content exists in HTML source before JavaScript</li>
+<li>Consider server-side rendering or dynamic rendering for bots</li>
+</ul>
+<h2 id="alternative-indexing-acceleration-techniques">Alternative Indexing Acceleration Techniques</h2>
+<p>When indexing request quotas are exhausted or unavailable (no Search Console access), alternative techniques accelerate discovery without manual submission.</p>
+<p><strong>XML sitemap optimization</strong>:</p>
+<pre><code class="language-xml">&lt;url&gt;
+  &lt;loc&gt;https://example.com/new-page&lt;/loc&gt;
+  &lt;lastmod&gt;2026-02-08T14:30:00+00:00&lt;/lastmod&gt;
+  &lt;changefreq&gt;daily&lt;/changefreq&gt;
+  &lt;priority&gt;1.0&lt;/priority&gt;
+&lt;/url&gt;
+</code></pre>
+<p>Set <code>&lt;lastmod&gt;</code> to current timestamp and <code>&lt;priority&gt;</code> to 1.0 for new critical pages. Google uses these signals to prioritize crawling within sitemap URLs.</p>
+<p><strong>Submit sitemap immediately after page publication</strong>:</p>
+<pre><code class="language-bash">curl &quot;http://www.google.com/ping?sitemap=https://example.com/sitemap.xml&quot;
+</code></pre>
+<p>This pings Google&#39;s sitemap notification service, potentially accelerating discovery.</p>
+<p><strong>Internal linking from high-authority pages</strong>: Link new content from homepage, category pages, or top-ranking articles. Googlebot discovers URLs faster when linked from frequently crawled pages:</p>
+<pre><code class="language-html">&lt;a href=&quot;/new-critical-page&quot;&gt;New: Important Update&lt;/a&gt;
+</code></pre>
+<p>Place prominent links in page headers, navigation, or featured content sections where Googlebot reliably finds them.</p>
+<p><strong>Social media sharing</strong>: Publicly sharing URLs on Twitter, Facebook, LinkedIn can accelerate discovery:</p>
+<ul>
+<li>Post URL with descriptive text</li>
+<li>Encourage engagement (likes, shares, comments)</li>
+<li>Google may discover URLs via social signals or social media crawling</li>
+</ul>
+<p>While Google claims social signals aren&#39;t direct ranking factors, URLs shared widely surface faster in search results empirically.</p>
+<p><strong>External backlinks</strong>: If you have relationships with external sites, request links to new content:</p>
+<ul>
+<li>Guest post mentioning the new page</li>
+<li>Press release with link</li>
+<li>Directory submissions</li>
+<li>Industry forum discussions</li>
+</ul>
+<p>External links provide discovery paths independent of your site&#39;s internal crawl cadence.</p>
+<p><strong>RSS feed submission</strong>: Submit RSS feeds to Google:</p>
+<ol>
+<li>Add RSS feed to Google Search Console as a sitemap</li>
+<li>Include only recent content in the feed (last 10-20 articles)</li>
+<li>Update feed immediately when publishing new content</li>
+</ol>
+<p>Google crawls RSS feeds frequently, discovering new URLs quickly.</p>
+<p><strong>Increase crawl budget allocation</strong>: Improve site-wide crawling efficiency, encouraging Google to allocate more crawl resources:</p>
+<ul>
+<li>Fix crawl errors (reduce 404s, 5xx errors)</li>
+<li>Improve server response times (target &lt;200ms)</li>
+<li>Eliminate redirect chains</li>
+<li>Use HTTP/2 for faster resource loading</li>
+<li>Implement structured data for enhanced understanding</li>
+</ul>
+<p>Higher crawl budget means faster discovery of new URLs without manual intervention.</p>
+<p><strong>IndexNow protocol</strong> (Microsoft/Yandex initiative, Google considering support):</p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.indexnow.org/indexnow&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{
+    &quot;host&quot;: &quot;example.com&quot;,
+    &quot;key&quot;: &quot;your-api-key&quot;,
+    &quot;urlList&quot;: [
+      &quot;https://example.com/new-page&quot;,
+      &quot;https://example.com/updated-page&quot;
+    ]
+  }&#39;
+</code></pre>
+<p>IndexNow notifies participating search engines of new/updated content instantly. While Google hasn&#39;t officially adopted IndexNow, monitoring developments may surface future opportunities.</p>
+<h2 id="monitoring-indexing-success-and-velocity">Monitoring Indexing Success and Velocity</h2>
+<p><strong>Coverage report tracking</strong>: Monitor indexed page count over time:</p>
+<ol>
+<li>Search Console → Coverage</li>
+<li>Note &quot;Valid&quot; count (successfully indexed URLs)</li>
+<li>Track daily/weekly trends</li>
+</ol>
+<p>Declining indexed page count indicates indexing problems; increasing count confirms successful discovery and indexing.</p>
+<p><strong>Performance report for new URLs</strong>: Filter by page and date range:</p>
+<ol>
+<li>Performance → Search results</li>
+<li>Add filter: Page → contains → {new URL}</li>
+<li>Set date range from publication date forward</li>
+<li>Monitor impressions appearance</li>
+</ol>
+<p>First impressions indicate indexing success; delay from publication to first impression quantifies indexing velocity.</p>
+<p><strong>Index status checker automation</strong>:</p>
+<pre><code class="language-python">import requests
+
+def check_google_index(url):
+    search_url = f&quot;https://www.google.com/search?q=site:{url}&quot;
+    response = requests.get(search_url, headers={&#39;User-Agent&#39;: &#39;Mozilla/5.0&#39;})
+
+    if url in response.text:
+        return &quot;Indexed&quot;
+    else:
+        return &quot;Not indexed&quot;
+
+new_urls = [
+    &quot;https://example.com/page-1&quot;,
+    &quot;https://example.com/page-2&quot;
+]
+
+for url in new_urls:
+    print(f&quot;{url}: {check_google_index(url)}&quot;)
+</code></pre>
+<p>This script performs <code>site:</code> operator searches, detecting index status programmatically.</p>
+<p><strong>Structured data monitoring</strong>: For pages with structured data:</p>
+<ol>
+<li>Rich Results report in Search Console</li>
+<li>Monitor for errors or warnings on newly submitted pages</li>
+<li>Successful structured data parsing indicates successful rendering and indexing</li>
+</ol>
+<p><strong>Crawl stats analysis</strong>:</p>
+<ol>
+<li>Search Console → Settings → Crawl stats</li>
+<li>Monitor &quot;Total crawl requests&quot; trend</li>
+<li>Spikes after indexing requests confirm Google responded with priority crawling</li>
+<li>Track &quot;Average response time&quot; to ensure server handles increased crawl volume</li>
+</ol>
+<p><strong>Third-party monitoring</strong>: Services like OnCrawl, DeepCrawl, or Botify provide:</p>
+<ul>
+<li>Automated index status checks</li>
+<li>Crawl frequency tracking</li>
+<li>Indexing velocity benchmarks</li>
+<li>Alerting for deindexing events</li>
+</ul>
+<p>These tools scale monitoring beyond manual Search Console checks, critical for large sites with frequent publishing.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Understanding Google&#39;s Indexing Request System:</strong> Google Search Console&#39;s URL Inspection tool includes &quot;Request Indexing&quot; functionality that submits URLs for priority processing.</li>
+<li><strong>Strategic URL Prioritization Framework:</strong> Daily quota constraints demand strategic selection of which URLs warrant manual indexing requests.</li>
+<li><strong>Troubleshooting Failed Indexing Requests:</strong> Submitted URLs may fail to index despite successful request submission.</li>
+<li><strong>Alternative Indexing Acceleration Techniques:</strong> When indexing request quotas are exhausted or unavailable (no Search Console access), alternative techniques accelerate discovery without manual submission.</li>
+</ul>
+<h2 id="faq-google-indexing-requests">FAQ: Google Indexing Requests</h2>
+<p><strong>How long does indexing take after requesting?</strong>
+Typically 1-7 days, depending on site authority, crawl budget, and page complexity. High-authority sites may see indexing within hours; new or low-authority sites may wait several days. JavaScript-heavy pages take longer due to rendering queue delays.</p>
+<p><strong>Can I request indexing for someone else&#39;s site?</strong>
+No. Indexing requests require verified ownership in Google Search Console. Only property owners or delegated users with access can submit requests for that property&#39;s URLs.</p>
+<p><strong>Do indexing requests improve rankings?</strong>
+No. Requests only accelerate discovery and indexing timing. Rankings depend on content quality, relevance, authority, and algorithmic factors unaffected by manual indexing requests.</p>
+<p><strong>What happens if I request indexing for a noindex page?</strong>
+The request fails. Google crawls the URL, detects the noindex directive, and respects it by not indexing the page. No error message appears in Search Console, but URL Inspection continues showing &quot;not indexed&quot; status.</p>
+<p><strong>Can I request indexing for deleted pages?</strong>
+No practical benefit exists. If the page returns 404, Google removes it from the index. Request indexing only for live, accessible pages intended for indexing.</p>
+<p><strong>Does requesting indexing consume crawl budget?</strong>
+Yes, slightly. The priority crawl triggered by the request counts toward your site&#39;s crawl allocation. However, the single request&#39;s impact is negligible compared to regular crawling patterns.</p>
+<p><strong>Should I request indexing for every new page?</strong>
+No. Quota limits prevent this strategy&#39;s viability. Prioritize time-sensitive, high-value pages. Let sitemaps and internal linking handle routine content discovery.</p>
+<p><strong>Will Google penalize excessive indexing requests?</strong>
+No explicit penalty exists, but Google throttles requests via daily quotas. Exhausting quotas prevents further submissions until reset. There&#39;s no evidence Google penalizes sites for reaching quota limits regularly.</p>
+<p><strong>How do I check remaining quota?</strong>
+Google doesn&#39;t display remaining quota. You discover quota exhaustion by submitting requests until the &quot;Quota exceeded&quot; message appears. Track submissions manually if monitoring quota is important.</p>
+<p><strong>Can I request indexing via API?</strong>
+Google Search Console API includes Indexing API (distinct from URL Inspection&#39;s manual requests). However, Indexing API is restricted to specific use cases (job postings, livestream videos, limited broadcasters). General content doesn&#39;t qualify for API-based indexing requests.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-crawl-errors-google-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Crawl Errors in Google Search Console (Complete Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Crawl errors block Googlebot from indexing your pages, crater organic visibility, and signal poor site health. Learn how to diagnose 404s, server errors, redirect loops, and robots.txt blocks in Google Search Console and fix them systematically.</p>
+          </a>
+
+          <a href="/articles/fix-indexing-issues-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Indexing Issues in Google Search Console (Complete Diagnostic Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Google Search Console shows pages excluded from indexing? Learn how to diagnose crawl errors, fix server issues, resolve canonical conflicts, and force Google to index your critical pages.</p>
+          </a>
+
+          <a href="/articles/googlebot-crawl-rate-monitor-control.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot | Polytraffic</title>
+    <meta name="description" content="Implement dynamic rendering to serve pre-rendered HTML to Googlebot while keeping JavaScript for users. Fix indexing issues on React, Vue, Angular sites." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot | Polytraffic" />
+    <meta property="og:description" content="Implement dynamic rendering to serve pre-rendered HTML to Googlebot while keeping JavaScript for users. Fix indexing issues on React, Vue, Angular sites." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/dynamic-rendering-seo-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/dynamic-rendering-seo-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot | Polytraffic" />
+    <meta name="twitter:description" content="Implement dynamic rendering to serve pre-rendered HTML to Googlebot while keeping JavaScript for users. Fix indexing issues on React, Vue, Angular sites." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/dynamic-rendering-seo-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/dynamic-rendering-seo-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot",
+    "description": "Implement dynamic rendering to serve pre-rendered HTML to Googlebot while keeping JavaScript for users. Fix indexing issues on React, Vue, Angular sites.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/dynamic-rendering-seo-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/dynamic-rendering-seo-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/dynamic-rendering-seo-guide.png" alt="Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="dynamic-rendering-seo-guide-serve-javascript-sites-to-googlebot">Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Implement dynamic rendering to serve pre-rendered HTML to Googlebot while keeping JavaScript for users. Fix indexing issues on React, Vue, Angular sites.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#when-dynamic-rendering-is-necessary" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When Dynamic Rendering Is Necessary</a></li>
+<li><a href="#phase-1-diagnose-javascript-indexing-issues" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 1: Diagnose JavaScript Indexing Issues</a></li>
+<li><a href="#phase-2-choose-dynamic-rendering-solution" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 2: Choose Dynamic Rendering Solution</a></li>
+<li><a href="#phase-3-implement-rendertron-self-hosted" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 3: Implement Rendertron (Self-Hosted)</a></li>
+<li><a href="#phase-4-implement-prerender-io-saas" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 4: Implement Prerender.io (SaaS)</a></li>
+<li><a href="#phase-5-avoid-cloaking-violations" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 5: Avoid Cloaking Violations</a></li>
+<li><a href="#phase-6-monitor-dynamic-rendering-performance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 6: Monitor Dynamic Rendering Performance</a></li>
+<li><a href="#phase-7-transition-to-ssr-long-term-solution" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 7: Transition to SSR (Long-Term Solution)</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Dynamic rendering</strong> serves pre-rendered static HTML to <strong>Googlebot</strong> while delivering JavaScript-heavy single-page applications (SPAs) to users, solving indexing failures on <strong>React</strong>, <strong>Vue</strong>, and <strong>Angular</strong> sites where content renders client-side after initial page load. Google&#39;s JavaScript crawler executes scripts but adds latency (2-5 seconds per page), exhausts <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget</a> on render-intensive pages, and sometimes fails to execute complex frameworks that rely on newer JavaScript features. Dynamic rendering eliminates JavaScript execution delays for bots by detecting user-agent strings and serving fully-rendered HTML from <strong>headless Chrome</strong> snapshot or pre-built static exports, while maintaining interactive SPA experience for human visitors. Incorrect implementations, serving different content to users vs. bots (cloaking violations), failing to update pre-rendered snapshots when content changes, or blocking dynamic rendering URLs in robots.txt, trigger manual actions or leave bots indexing stale content. This guide implements dynamic rendering with Rendertron, Prerender.io, and Next.js/Nuxt.js frameworks without violating Google&#39;s cloaking policies.</p>
+<h2 id="when-dynamic-rendering-is-necessary">When Dynamic Rendering Is Necessary</h2>
+<p><strong>Google recommends server-side rendering (SSR) or static site generation (SSG) over dynamic rendering.</strong> Use dynamic rendering only when SSR/SSG aren&#39;t feasible.</p>
+<h3 id="use-dynamic-rendering-when">Use Dynamic Rendering When:</h3>
+<p><strong>1. Legacy SPA with poor SSR support</strong>
+Older React/Vue/Angular apps built without SSR. Refactoring to SSR requires rewriting architecture.</p>
+<p><strong>2. Complex client-side dependencies</strong>
+Third-party widgets, maps, real-time data fetches that don&#39;t server-render.</p>
+<p><strong>3. Resource constraints</strong>
+SSR requires Node.js server infrastructure. Dynamic rendering works with static hosting + proxy.</p>
+<p><strong>4. JavaScript-heavy sites with indexing issues</strong>
+Search Console shows &quot;Discovered - currently not indexed&quot; for pages with client-side content.</p>
+<h3 id="don-t-use-dynamic-rendering-when">Don't Use Dynamic Rendering When:</h3>
+<p><strong>1. SSR is possible</strong>
+Modern frameworks (Next.js, Nuxt.js, SvelteKit) handle SSR natively. Use SSR instead.</p>
+<p><strong>2. Content is static</strong>
+Static site generators (Gatsby, Hugo, Astro) pre-build HTML at deploy time. No dynamic rendering needed.</p>
+<p><strong>3. Google already indexes content correctly</strong>
+Test with URL Inspection Tool. If content appears, JavaScript rendering works, don&#39;t add complexity.</p>
+<h2 id="phase-1-diagnose-javascript-indexing-issues">Phase 1: Diagnose JavaScript Indexing Issues</h2>
+<p><strong>Verify Google indexes JavaScript-rendered content</strong> before implementing dynamic rendering.</p>
+<h3 id="test-with-google-search-console-url-inspection">Test with Google Search Console URL Inspection</h3>
+<ol>
+<li>Search Console → URL Inspection</li>
+<li>Enter page URL</li>
+<li>Click &quot;Test live URL&quot;</li>
+<li>View &quot;Crawled page&quot; → &quot;Screenshot&quot;</li>
+</ol>
+<p><strong>Compare:</strong></p>
+<ul>
+<li><strong>HTML source</strong> (View Page Source in browser)</li>
+<li><strong>Rendered content</strong> (what Search Console screenshot shows)</li>
+</ul>
+<p><strong>Problem indicators:</strong></p>
+<ul>
+<li>Screenshot shows blank page or loading spinner</li>
+<li>Key content (headings, products, articles) missing from screenshot</li>
+<li>Source HTML contains <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code> with no content</li>
+</ul>
+<h3 id="check-indexed-content">Check Indexed Content</h3>
+<pre><code>site:example.com &quot;unique text from JavaScript-rendered content&quot;
+</code></pre>
+<p><strong>If no results:</strong> Google isn&#39;t indexing JavaScript-rendered content.</p>
+<h3 id="validate-with-javascript-disabled">Validate with JavaScript Disabled</h3>
+<p><strong>Chrome DevTools:</strong></p>
+<ol>
+<li>Settings → Debugger → Disable JavaScript</li>
+<li>Reload page</li>
+<li>Check if content appears</li>
+</ol>
+<p><strong>If page is blank with JS disabled:</strong> Googlebot may struggle to index content, even though Google executes JavaScript.</p>
+<h2 id="phase-2-choose-dynamic-rendering-solution">Phase 2: Choose Dynamic Rendering Solution</h2>
+<p><strong>Three approaches</strong> with different complexity and cost.</p>
+<h3 id="option-1-rendertron-google-s-open-source-solution">Option 1: Rendertron (Google's Open-Source Solution)</h3>
+<p><strong>Self-hosted headless Chrome renderer.</strong></p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Free, open-source</li>
+<li>Official Google recommendation</li>
+<li>Full control over infrastructure</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Requires server setup and maintenance</li>
+<li>Manage caching logic yourself</li>
+<li>Monitor uptime</li>
+</ul>
+<p><strong>Best for:</strong> Developers comfortable managing infrastructure.</p>
+<h3 id="option-2-prerender-io-saas-solution">Option 2: Prerender.io (SaaS Solution)</h3>
+<p><strong>Commercial service, $25-$200+/month.</strong></p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>No infrastructure management</li>
+<li>Built-in caching</li>
+<li>Recache webhooks for content updates</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Monthly cost</li>
+<li>Vendor dependency</li>
+</ul>
+<p><strong>Best for:</strong> Teams wanting turnkey solution.</p>
+<h3 id="option-3-framework-native-ssr-next-js-nuxt-js">Option 3: Framework-Native SSR (Next.js, Nuxt.js)</h3>
+<p><strong>Not technically &quot;dynamic rendering&quot; but achieves same goal.</strong></p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Best performance (SSR faster than pre-rendering)</li>
+<li>No user-agent detection needed</li>
+<li>SEO-optimized by default</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Requires refactoring existing SPA</li>
+<li>Node.js server required</li>
+</ul>
+<p><strong>Best for:</strong> New projects or sites willing to refactor.</p>
+<h2 id="phase-3-implement-rendertron-self-hosted">Phase 3: Implement Rendertron (Self-Hosted)</h2>
+<p><strong>Rendertron</strong> runs headless Chrome, renders pages, returns HTML.</p>
+<h3 id="install-rendertron">Install Rendertron</h3>
+<p><strong>Docker (easiest):</strong></p>
+<pre><code class="language-bash">docker pull rendertron/rendertron
+docker run -p 3000:3000 rendertron/rendertron
+</code></pre>
+<p><strong>Or Node.js:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/GoogleChrome/rendertron.git
+cd rendertron
+npm install
+npm run build
+npm start
+</code></pre>
+<p><strong>Rendertron runs on <a href="http://localhost:3000" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://localhost:3000</a></strong></p>
+<h3 id="configure-web-server-to-proxy-bot-requests">Configure Web Server to Proxy Bot Requests</h3>
+<p><strong>Nginx configuration:</strong></p>
+<pre><code class="language-nginx">server {
+  server_name example.com;
+
+  location / {
+    # Detect bot user-agents
+    if ($http_user_agent ~* &quot;googlebot|bingbot|yandex|baiduspider&quot;) {
+      proxy_pass http://localhost:3000/render/https://example.com$request_uri;
+      break;
+    }
+
+    # Serve normal SPA for users
+    try_files $uri $uri/ /index.html;
+  }
+}
+</code></pre>
+<p><strong>Apache (.htaccess):</strong></p>
+<pre><code class="language-apache">RewriteEngine On
+
+# Detect bots
+RewriteCond %{HTTP_USER_AGENT} googlebot|bingbot|yandex|baiduspider [NC]
+RewriteRule ^(.*)$ http://localhost:3000/render/https://example.com/$1 [P,L]
+</code></pre>
+<h3 id="test-rendertron">Test Rendertron</h3>
+<p><strong>Render a page:</strong></p>
+<pre><code class="language-bash">curl http://localhost:3000/render/https://example.com
+</code></pre>
+<p><strong>Should return fully-rendered HTML with JavaScript-generated content.</strong></p>
+<h3 id="cache-rendered-pages">Cache Rendered Pages</h3>
+<p><strong>Rendertron doesn&#39;t cache by default.</strong> Add caching layer:</p>
+<p><strong>Nginx caching:</strong></p>
+<pre><code class="language-nginx">proxy_cache_path /var/cache/nginx/rendertron levels=1:2 keys_zone=rendertron_cache:10m max_size=1g inactive=60m;
+
+location / {
+  if ($http_user_agent ~* &quot;googlebot|bingbot&quot;) {
+    proxy_cache rendertron_cache;
+    proxy_cache_valid 200 24h;
+    proxy_pass http://localhost:3000/render/https://example.com$request_uri;
+    break;
+  }
+}
+</code></pre>
+<h2 id="phase-4-implement-prerender-io-saas">Phase 4: Implement Prerender.io (SaaS)</h2>
+<p><strong>Commercial alternative</strong> to self-hosting.</p>
+<h3 id="sign-up-and-configure">Sign Up and Configure</h3>
+<ol>
+<li>Create account at <a href="https://prerender.io" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">prerender.io</a></li>
+<li>Get API token</li>
+<li>Add domain</li>
+</ol>
+<h3 id="configure-web-server">Configure Web Server</h3>
+<p><strong>Nginx middleware:</strong></p>
+<pre><code class="language-bash"># Install prerender middleware
+git clone https://github.com/prerender/prerender-nginx.git
+</code></pre>
+<p><strong>nginx.conf:</strong></p>
+<pre><code class="language-nginx">server {
+  location / {
+    set $prerender 0;
+
+    if ($http_user_agent ~* &quot;googlebot|bingbot|yandex|baiduspider&quot;) {
+      set $prerender 1;
+    }
+
+    if ($prerender = 1) {
+      proxy_pass https://service.prerender.io;
+      proxy_set_header X-Prerender-Token YOUR_TOKEN;
+      proxy_set_header X-Prerender-Host $host;
+      break;
+    }
+
+    try_files $uri $uri/ /index.html;
+  }
+}
+</code></pre>
+<h3 id="recache-pages-when-content-updates">Recache Pages When Content Updates</h3>
+<p><strong>Webhook to Prerender.io after publishing new content:</strong></p>
+<pre><code class="language-bash">curl -X POST https://api.prerender.io/recache \
+  --header @prerender-auth-header.txt \
+  -d &#39;{&quot;url&quot;: &quot;https://example.com/updated-page&quot;}&#39;
+</code></pre>
+<p><strong>Integrate with CMS:</strong> Trigger recache on save/publish.</p>
+<h2 id="phase-5-avoid-cloaking-violations">Phase 5: Avoid Cloaking Violations</h2>
+<p><strong>Cloaking</strong> = showing different content to bots vs. users. Google penalizes cloaking.</p>
+<h3 id="ensure-content-equivalence">Ensure Content Equivalence</h3>
+<p><strong>Rendered HTML for bots must match JavaScript-rendered content for users.</strong></p>
+<p><strong>Allowed differences:</strong></p>
+<ul>
+<li>Removing ads for bots (performance optimization)</li>
+<li>Simplifying animations (bots don&#39;t interact)</li>
+</ul>
+<p><strong>Not allowed:</strong></p>
+<ul>
+<li>Adding/removing products from page</li>
+<li>Changing prices or descriptions</li>
+<li>Hiding/showing entire sections</li>
+</ul>
+<h3 id="test-both-versions">Test Both Versions</h3>
+<p><strong>User version:</strong></p>
+<pre><code class="language-bash">curl https://example.com
+</code></pre>
+<p><strong>Bot version (with User-Agent):</strong></p>
+<pre><code class="language-bash">curl -A &quot;Googlebot&quot; https://example.com
+</code></pre>
+<p><strong>Compare content:</strong> Key text, headings, links should match.</p>
+<h3 id="use-google-s-mobile-friendly-test">Use Google's Mobile-Friendly Test</h3>
+<p><a href="https://search.google.com/test/mobile-friendly" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://search.google.com/test/mobile-friendly</a></p>
+<p><strong>Shows rendered page as Googlebot sees it.</strong> Compare to user-facing version.</p>
+<h2 id="phase-6-monitor-dynamic-rendering-performance">Phase 6: Monitor Dynamic Rendering Performance</h2>
+<p><strong>Pre-rendering adds latency for bots.</strong> Monitor to ensure fast responses.</p>
+<h3 id="track-bot-response-times">Track Bot Response Times</h3>
+<p><strong>Server logs show Rendertron response times:</strong></p>
+<pre><code class="language-bash">grep &quot;Googlebot&quot; /var/log/nginx/access.log | awk &#39;{print $NF}&#39; | sort -n
+</code></pre>
+<p><strong>Target:</strong> &lt;2 seconds per page</p>
+<p><strong>If slower:</strong></p>
+<ul>
+<li>Increase Rendertron instances (horizontal scaling)</li>
+<li>Optimize JavaScript bundle size</li>
+<li>Cache rendered HTML longer</li>
+</ul>
+<h3 id="monitor-cache-hit-rates">Monitor Cache Hit Rates</h3>
+<p><strong>Nginx cache stats:</strong></p>
+<pre><code class="language-bash">grep &quot;HIT&quot; /var/log/nginx/access.log | wc -l
+grep &quot;MISS&quot; /var/log/nginx/access.log | wc -l
+</code></pre>
+<p><strong>Target:</strong> &gt;80% hit rate</p>
+<p><strong>Low hit rate = wasted <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget</a></strong> (every bot request re-renders).</p>
+<h2 id="phase-7-transition-to-ssr-long-term-solution">Phase 7: Transition to SSR (Long-Term Solution)</h2>
+<p><strong>Dynamic rendering is a workaround.</strong> SSR is superior.</p>
+<h3 id="migrate-react-spa-to-next-js">Migrate React SPA to Next.js</h3>
+<p><strong>Next.js</strong> adds SSR to React with minimal refactoring.</p>
+<p><strong>Install:</strong></p>
+<pre><code class="language-bash">npx create-next-app@latest
+</code></pre>
+<p><strong>Convert pages:</strong></p>
+<pre><code class="language-javascript">// pages/products/[id].js (Next.js)
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  const product = await fetch(`https://api.example.com/products/${id}`).then(r =&gt; r.json());
+
+  return { props: { product } };
+}
+
+export default function Product({ product }) {
+  return &lt;div&gt;{product.name}&lt;/div&gt;;
+}
+</code></pre>
+<p><strong>SSR benefits:</strong></p>
+<ul>
+<li>No user-agent detection</li>
+<li>Faster first contentful paint</li>
+<li>Better <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals</a></li>
+</ul>
+<h3 id="migrate-vue-spa-to-nuxt-js">Migrate Vue SPA to Nuxt.js</h3>
+<p><strong>Nuxt.js = Next.js for Vue.</strong></p>
+<p><strong>Install:</strong></p>
+<pre><code class="language-bash">npx nuxi@latest init my-app
+</code></pre>
+<p><strong>SSR by default.</strong> Existing Vue components work with minimal changes.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="does-dynamic-rendering-violate-google-s-cloaking-policy">Does dynamic rendering violate Google's cloaking policy?</h3>
+<p><strong>No</strong>, if content is equivalent. Google&#39;s official guidance allows dynamic rendering for JavaScript-heavy sites. Key requirement: rendered HTML shown to bots must match JavaScript-rendered content shown to users. Removing ads or simplifying styles for bots is acceptable. Changing product info, prices, or content is cloaking.</p>
+<h3 id="is-dynamic-rendering-slower-than-ssr">Is dynamic rendering slower than SSR?</h3>
+<p><strong>Yes.</strong> Dynamic rendering requires headless Chrome to render each page, adding 1-3 seconds. <strong>SSR</strong> renders on server at request time (faster, 100-300ms). <strong>SSG</strong> (static site generation) pre-renders at build time (fastest, &lt;10ms). Use dynamic rendering only when SSR/SSG aren&#39;t viable.</p>
+<h3 id="how-do-i-update-pre-rendered-content-when-my-database-changes">How do I update pre-rendered content when my database changes?</h3>
+<p><strong>Invalidate cache</strong> after content updates. With <strong>Prerender.io</strong>, use recache API. With <strong>Rendertron + Nginx</strong>, purge cache:</p>
+<pre><code class="language-bash">rm -rf /var/cache/nginx/rendertron/*
+</code></pre>
+<p>Or programmatic purge:</p>
+<pre><code class="language-bash">curl -X PURGE https://example.com/updated-page
+</code></pre>
+<p>Automate with webhooks from CMS on publish/update events.</p>
+<h3 id="can-i-use-dynamic-rendering-for-mobile-only-or-desktop-only">Can I use dynamic rendering for mobile-only or desktop-only?</h3>
+<p><strong>Yes</strong>, but not recommended. Detect device type along with user-agent:</p>
+<pre><code class="language-nginx">if ($http_user_agent ~* &quot;mobile.*googlebot&quot;) {
+  # Render mobile version
+}
+if ($http_user_agent ~* &quot;googlebot&quot; and $http_user_agent !~* &quot;mobile&quot;) {
+  # Render desktop version
+}
+</code></pre>
+<p><strong>Better approach:</strong> Responsive design (single HTML works on all devices). Dynamic rendering adds complexity. See <a href="core-web-vitals-failing-mobile-only.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals mobile optimization</a>.</p>
+<h3 id="should-i-use-dynamic-rendering-for-my-react-next-js-app">Should I use dynamic rendering for my React/Next.js app?</h3>
+<p><strong>No.</strong> If using <strong>Next.js</strong>, you already have SSR or SSG, no dynamic rendering needed. Dynamic rendering is for legacy SPAs without SSR capability. Next.js, Nuxt.js, SvelteKit handle server rendering natively. Only use dynamic rendering if refactoring to SSR framework isn&#39;t feasible.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-javascript-seo-crawling-issues.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">JavaScript-heavy sites confuse search engine crawlers when content loads client-side. Learn how to diagnose rendering problems, implement server-side rendering, and ensure Google indexes your dynamic content.</p>
+          </a>
+
+          <a href="/articles/crawl-budget-optimization-large-sites.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Crawl Budget Optimization for Large Sites: Technical Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Maximize Googlebot crawl efficiency on large sites. Fix crawl waste, prioritize high-value pages, and optimize server response for 1M+ page sites.</p>
+          </a>
+
+          <a href="/articles/defer-javascript-without-breaking-site.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Defer JavaScript Without Breaking Your Site: Safe Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Defer JavaScript to improve page load speed without breaking functionality. Identify critical scripts, test defer/async attributes, and fix dependency issues.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

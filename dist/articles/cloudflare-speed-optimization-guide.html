@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloudflare Speed Optimization: Complete Setup Guide | Polytraffic</title>
+    <meta name="description" content="Cloudflare's free tier cuts load times by 40-60% with global caching, Brotli compression, and HTTP/3. But default settings leave speed on the table." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Cloudflare Speed Optimization: Complete Setup Guide | Polytraffic" />
+    <meta property="og:description" content="Cloudflare's free tier cuts load times by 40-60% with global caching, Brotli compression, and HTTP/3. But default settings leave speed on the table." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/cloudflare-speed-optimization-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/cloudflare-speed-optimization-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cloudflare Speed Optimization: Complete Setup Guide | Polytraffic" />
+    <meta name="twitter:description" content="Cloudflare's free tier cuts load times by 40-60% with global caching, Brotli compression, and HTTP/3. But default settings leave speed on the table." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/cloudflare-speed-optimization-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/cloudflare-speed-optimization-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cloudflare Speed Optimization: Complete Setup Guide",
+    "description": "Cloudflare's free tier cuts load times by 40-60% with global caching, Brotli compression, and HTTP/3. But default settings leave speed on the table.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/cloudflare-speed-optimization-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/cloudflare-speed-optimization-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/speed.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Cloudflare Speed Optimization: Complete Setup Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/speed.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Cloudflare Speed Optimization: Complete Setup Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/cloudflare-speed-optimization-guide.png" alt="Cloudflare Speed Optimization: Complete Setup Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="cloudflare-speed-optimization-complete-setup-guide">Cloudflare Speed Optimization: Complete Setup Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Cloudflare&#39;s free tier cuts load times by 40-60% with global caching, Brotli compression, and HTTP/3. But default settings leave speed on the table.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-cloudflare-improves-speed" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Cloudflare Improves Speed</a></li>
+<li><a href="#step-1-set-up-cloudflare-dns-proxy-method" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 1: Set Up Cloudflare (DNS Proxy Method)</a></li>
+<li><a href="#step-2-configure-caching-rules" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 2: Configure Caching Rules</a></li>
+<li><a href="#step-3-enable-auto-minify" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 3: Enable Auto Minify</a></li>
+<li><a href="#step-4-enable-brotli-compression" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 4: Enable Brotli Compression</a></li>
+<li><a href="#step-5-enable-rocket-loader-javascript-optimization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 5: Enable Rocket Loader (JavaScript Optimization)</a></li>
+<li><a href="#step-6-enable-early-hints-http-103" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 6: Enable Early Hints (HTTP/103)</a></li>
+<li><a href="#step-7-enable-argo-smart-routing-paid" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 7: Enable Argo Smart Routing (Paid)</a></li>
+<li><a href="#step-8-enable-tiered-caching-argo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 8: Enable Tiered Caching (Argo)</a></li>
+<li><a href="#step-9-enable-http-3-quic" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 9: Enable HTTP/3 (QUIC)</a></li>
+<li><a href="#step-10-configure-firewall-for-speed" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 10: Configure Firewall for Speed</a></li>
+<li><a href="#step-11-optimize-images-polish-paid" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 11: Optimize Images (Polish - Paid)</a></li>
+<li><a href="#step-12-enable-mobile-redirect-if-needed" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 12: Enable Mobile Redirect (If Needed)</a></li>
+<li><a href="#step-13-monitor-performance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 13: Monitor Performance</a></li>
+<li><a href="#step-14-purge-cache-after-updates" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 14: Purge Cache After Updates</a></li>
+<li><a href="#common-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Mistakes</a></li>
+<li><a href="#next-steps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Next Steps</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Cloudflare</strong> is a CDN, firewall, and DNS service that routes traffic through its global network of edge servers. The free tier includes caching, DDoS protection, and SSL, enough to cut load times by 40-60% for most sites.</p>
+<p>But Cloudflare&#39;s default settings are conservative. Auto Minify is disabled. Image optimization costs extra. Caching rules don&#39;t cover HTML. If you enable Cloudflare and stop there, you&#39;re extracting 30% of its speed potential.</p>
+<p>This guide walks through every Cloudflare setting that affects speed, from DNS configuration to edge caching to compression, so you get maximum performance without upgrading to paid tiers.</p>
+<h2 id="why-cloudflare-improves-speed">Why Cloudflare Improves Speed</h2>
+<h3 id="global-edge-network">Global Edge Network</h3>
+<p>Cloudflare operates <strong>330+ data centers</strong> in 120+ countries. When a user in Sydney requests your site hosted in Virginia, Cloudflare serves cached content from a Sydney edge server. Latency drops from 300ms to 20ms.</p>
+<h3 id="ddos-protection-without-performance-tax">DDoS Protection Without Performance Tax</h3>
+<p>Most DDoS mitigation services add latency by routing traffic through scrubbing centers. Cloudflare inspects traffic at the edge with zero added latency.</p>
+<h3 id="http-2-and-http-3-support">HTTP/2 and HTTP/3 Support</h3>
+<p>Cloudflare enables <strong>HTTP/2</strong> (multiplexing, header compression) and <strong>HTTP/3</strong> (QUIC protocol, faster handshakes) automatically. If your origin server doesn&#39;t support them, Cloudflare upgrades the connection between user and edge.</p>
+<h3 id="brotli-compression">Brotli Compression</h3>
+<p>Brotli compresses assets 15-25% better than Gzip. Cloudflare applies it automatically to text-based assets (HTML, CSS, JavaScript).</p>
+<h2 id="step-1-set-up-cloudflare-dns-proxy-method">Step 1: Set Up Cloudflare (DNS Proxy Method)</h2>
+<h3 id="sign-up-and-add-your-site">Sign Up and Add Your Site</h3>
+<ol>
+<li><strong>Sign up at cloudflare.com</strong> → Enter your domain</li>
+<li><strong>Cloudflare scans DNS records</strong> → Imports A, CNAME, MX records</li>
+<li><strong>Review imported records</strong> → Verify they&#39;re correct (especially MX for email)</li>
+</ol>
+<h3 id="change-nameservers">Change Nameservers</h3>
+<p>Cloudflare provides two nameservers (e.g., <code>dana.ns.cloudflare.com</code>, <code>walt.ns.cloudflare.com</code>). Go to your domain registrar (GoDaddy, Namecheap, etc.):</p>
+<ol>
+<li><strong>Find DNS/Nameserver settings</strong></li>
+<li><strong>Replace existing nameservers with Cloudflare&#39;s</strong></li>
+<li><strong>Save changes</strong></li>
+</ol>
+<p><strong>Propagation time:</strong> 1-24 hours. Check status in Cloudflare dashboard.</p>
+<h3 id="enable-proxy-orange-cloud">Enable Proxy (Orange Cloud)</h3>
+<p>In <strong>DNS settings</strong>, ensure records have <strong>orange cloud icon</strong> (proxied) next to them:</p>
+<ul>
+<li><strong>Proxied (orange):</strong> Traffic routes through Cloudflare (caching, firewall enabled)</li>
+<li><strong>DNS-only (grey):</strong> Traffic bypasses Cloudflare (no caching, no firewall)</li>
+</ul>
+<p><strong>Rule:</strong> Proxy A and CNAME records for web traffic. Leave MX records DNS-only (email servers don&#39;t need proxying).</p>
+<h2 id="step-2-configure-caching-rules">Step 2: Configure Caching Rules</h2>
+<h3 id="default-caching-behavior">Default Caching Behavior</h3>
+<p>Cloudflare caches <strong>static assets</strong> automatically:</p>
+<ul>
+<li>Images (JPG, PNG, GIF, WebP, SVG)</li>
+<li>CSS, JavaScript</li>
+<li>Fonts (WOFF, WOFF2, TTF)</li>
+<li>Videos (MP4, WEBM)</li>
+</ul>
+<p>Cloudflare <strong>doesn&#39;t cache HTML by default</strong> (because HTML is often dynamic). You can override this with Page Rules.</p>
+<h3 id="cache-everything-html-pages">Cache Everything (HTML Pages)</h3>
+<p><strong>Speed &gt; Caching &gt; Page Rules:</strong></p>
+<ol>
+<li><strong>Create Page Rule</strong> → URL: <code>*yoursite.com/*</code></li>
+<li><strong>Cache Level: Cache Everything</strong></li>
+<li><strong>Edge Cache TTL: 2 hours</strong> (or 1 day for static sites)</li>
+</ol>
+<p><strong>When to use:</strong> Static sites, blogs, landing pages (content doesn&#39;t change per user).
+<strong>Don&#39;t use for:</strong> E-commerce, dashboards, user accounts (dynamic content).</p>
+<h3 id="bypass-cache-for-dynamic-pages">Bypass Cache for Dynamic Pages</h3>
+<p><strong>Page Rule:</strong></p>
+<pre><code>URL: *yoursite.com/account/*
+Cache Level: Bypass
+</code></pre>
+<p><strong>Also bypass:</strong></p>
+<ul>
+<li><code>/cart/*</code></li>
+<li><code>/checkout/*</code></li>
+<li><code>/admin/*</code></li>
+</ul>
+<h3 id="browser-cache-ttl">Browser Cache TTL</h3>
+<p><strong>Caching &gt; Browser Cache TTL:</strong></p>
+<p>Set how long browsers cache assets before re-checking with Cloudflare.</p>
+<p><strong>Recommended:</strong> 4 hours (balances speed with freshness).</p>
+<h2 id="step-3-enable-auto-minify">Step 3: Enable Auto Minify</h2>
+<p><strong>Speed &gt; Optimization &gt; Auto Minify:</strong></p>
+<p>Enable:</p>
+<ul>
+<li>✅ JavaScript</li>
+<li>✅ CSS</li>
+<li>✅ HTML</li>
+</ul>
+<p><strong>What it does:</strong> Removes whitespace, comments, and unnecessary characters. Reduces file size by 10-30%.</p>
+<p><strong>Warning:</strong> Auto Minify can break poorly-written JavaScript or CSS. If your site breaks after enabling, disable JavaScript minification and minify manually with build tools (Webpack, Gulp).</p>
+<h2 id="step-4-enable-brotli-compression">Step 4: Enable Brotli Compression</h2>
+<p><strong>Speed &gt; Optimization &gt; Brotli:</strong></p>
+<p>Enable Brotli. Cloudflare compresses text-based assets (HTML, CSS, JS, JSON) using Brotli when the browser supports it.</p>
+<p><strong>Savings:</strong> 15-25% smaller file sizes vs Gzip.</p>
+<p><strong>Verify Brotli is active:</strong></p>
+<ol>
+<li><strong>Open Chrome DevTools → Network tab</strong></li>
+<li><strong>Reload page</strong></li>
+<li><strong>Click a CSS or JS file → Headers</strong></li>
+<li><strong>Look for:</strong> <code>content-encoding: br</code></li>
+</ol>
+<p>If you see <code>gzip</code>, your browser doesn&#39;t support Brotli (unlikely) or Cloudflare didn&#39;t compress it (check file type).</p>
+<h2 id="step-5-enable-rocket-loader-javascript-optimization">Step 5: Enable Rocket Loader (JavaScript Optimization)</h2>
+<p><strong>Speed &gt; Optimization &gt; Rocket Loader:</strong></p>
+<p><strong>What it does:</strong> Defers JavaScript execution until page render completes. Improves Largest Contentful Paint (LCP) and Time to Interactive (TTI).</p>
+<p><strong>Trade-off:</strong> Can break JavaScript that depends on immediate execution (analytics, ads, some themes).</p>
+<p><strong>How to test:</strong></p>
+<ol>
+<li>Enable Rocket Loader</li>
+<li>Test your site thoroughly (forms, sliders, analytics)</li>
+<li>If anything breaks, disable it and use manual JavaScript deferral</li>
+</ol>
+<h2 id="step-6-enable-early-hints-http-103">Step 6: Enable Early Hints (HTTP/103)</h2>
+<p><strong>Speed &gt; Optimization &gt; Early Hints:</strong></p>
+<p><strong>What it does:</strong> Sends preload instructions to the browser while the origin server processes the request. Browser starts fetching critical assets (CSS, fonts) before HTML arrives.</p>
+<p><strong>Speed gain:</strong> 10-30% faster LCP on slow origin servers.</p>
+<p><strong>Enable:</strong> Free on all plans. No downside.</p>
+<h2 id="step-7-enable-argo-smart-routing-paid">Step 7: Enable Argo Smart Routing (Paid)</h2>
+<p><strong>Speed &gt; Argo:</strong></p>
+<p><strong>What it does:</strong> Routes traffic through Cloudflare&#39;s fastest paths instead of public internet routes. Reduces latency by 30-50% for distant users.</p>
+<p><strong>Cost:</strong> $5/month + $0.10 per GB.</p>
+<p><strong>When worth it:</strong> High-traffic sites, global audience, or origin server is slow.</p>
+<h2 id="step-8-enable-tiered-caching-argo">Step 8: Enable Tiered Caching (Argo)</h2>
+<p><strong>Caching &gt; Tiered Caching:</strong></p>
+<p><strong>What it does:</strong> Adds a middle-tier cache between edge servers and origin. On cache miss, edge servers request assets from tier cache (not origin). Reduces origin requests by 90%.</p>
+<p><strong>Cost:</strong> Included with Argo ($5/month).</p>
+<p><strong>Benefit:</strong> Lowers hosting costs, improves uptime during traffic spikes.</p>
+<h2 id="step-9-enable-http-3-quic">Step 9: Enable HTTP/3 (QUIC)</h2>
+<p><strong>Network &gt; HTTP/3:</strong></p>
+<p>Enable HTTP/3. Uses <strong>QUIC protocol</strong>, faster handshakes, better performance on unstable connections (mobile).</p>
+<p><strong>Speed gain:</strong> 5-15% faster page loads on mobile.</p>
+<h2 id="step-10-configure-firewall-for-speed">Step 10: Configure Firewall for Speed</h2>
+<h3 id="challenge-bots-not-ban">Challenge Bots (Not Ban)</h3>
+<p><strong>Security &gt; Firewall Rules:</strong></p>
+<p>Instead of blocking bots (returns 403), challenge them (returns CAPTCHA). This prevents false positives that block Googlebot or legitimate crawlers.</p>
+<p><strong>Rule:</strong></p>
+<pre><code>If User Agent contains &quot;bot&quot; AND NOT &quot;Googlebot&quot;
+Then: Challenge
+</code></pre>
+<h3 id="block-countries-you-don-t-serve">Block Countries You Don't Serve</h3>
+<p>If your business only operates in the US, block traffic from countries with high bot activity (reduces server load).</p>
+<p><strong>Security &gt; Firewall Rules:</strong></p>
+<pre><code>If Country NOT IN [&quot;US&quot;, &quot;CA&quot;, &quot;GB&quot;]
+Then: Block
+</code></pre>
+<p><strong>Warning:</strong> Only do this if you genuinely don&#39;t serve those countries. Blocking legitimate users hurts traffic.</p>
+<h2 id="step-11-optimize-images-polish-paid">Step 11: Optimize Images (Polish - Paid)</h2>
+<p><strong>Speed &gt; Optimization &gt; Polish:</strong></p>
+<p><strong>What it does:</strong> Compresses and converts images to WebP/AVIF automatically.</p>
+<p><strong>Cost:</strong> $20/month (Pro plan minimum).</p>
+<p><strong>Free alternative:</strong> Use <strong>Cloudflare Images</strong> or convert images manually before uploading (e.g., with <strong>ImageOptim</strong>, <strong>Squoosh</strong>, or <strong>cwebp</strong>).</p>
+<h2 id="step-12-enable-mobile-redirect-if-needed">Step 12: Enable Mobile Redirect (If Needed)</h2>
+<p><strong>Speed &gt; Optimization &gt; Mobile Redirect:</strong></p>
+<p>Redirects mobile users to a separate mobile subdomain (e.g., <code>m.yoursite.com</code>).</p>
+<p><strong>When to use:</strong> You have a separate mobile site (rare in 2026, responsive design is standard).</p>
+<p><strong>When NOT to use:</strong> You have a responsive site (redirects add latency and complicate SEO).</p>
+<h2 id="step-13-monitor-performance">Step 13: Monitor Performance</h2>
+<h3 id="cloudflare-analytics">Cloudflare Analytics</h3>
+<p><strong>Analytics &gt; Web Traffic:</strong></p>
+<p>Track:</p>
+<ul>
+<li><strong>Bandwidth saved</strong>. Percentage of traffic served from cache (target: 80-95%)</li>
+<li><strong>Requests by country</strong>. Verify edge servers serve users locally</li>
+<li><strong>Cache hit ratio</strong>. Percentage of requests served from cache (target: 80%+)</li>
+</ul>
+<p><strong>Low cache hit ratio?</strong> → TTL too short, cache rules too strict, or assets not cacheable.</p>
+<h3 id="core-web-vitals">Core Web Vitals</h3>
+<p><strong>Speed &gt; Page Speed:</strong></p>
+<p>Cloudflare shows Core Web Vitals for your site:</p>
+<ul>
+<li><strong>Largest Contentful Paint (LCP)</strong>. Target: &lt;2.5s</li>
+<li><strong>First Input Delay (FID)</strong>. Target: &lt;100ms</li>
+<li><strong>Cumulative Layout Shift (CLS)</strong>. Target: &lt;0.1</li>
+</ul>
+<p><strong>If LCP is high:</strong> Enable Rocket Loader, Early Hints, or Argo.</p>
+<h2 id="step-14-purge-cache-after-updates">Step 14: Purge Cache After Updates</h2>
+<p>When you update CSS, JavaScript, or images, Cloudflare serves the cached version until TTL expires. Purge cache manually:</p>
+<p><strong>Caching &gt; Purge Cache:</strong></p>
+<ul>
+<li><strong>Purge Everything:</strong> Clears all cached files (forces users to refetch from origin, use sparingly)</li>
+<li><strong>Custom Purge:</strong> Specify URLs to purge (e.g., <code>/style.css</code>)</li>
+</ul>
+<p><strong>Automate purge (WordPress):</strong></p>
+<ul>
+<li>Install <strong>Cloudflare plugin</strong></li>
+<li>Enable &quot;Auto Purge Cache on Update&quot;</li>
+</ul>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<h3 id="mistake-1-dns-only-mode-grey-cloud">Mistake 1: DNS-Only Mode (Grey Cloud)</h3>
+<p>DNS records are set to <strong>DNS-only</strong> instead of <strong>Proxied</strong>. Traffic bypasses Cloudflare.</p>
+<p><strong>Fix:</strong> Click DNS record → Toggle to <strong>Proxied (orange cloud)</strong>.</p>
+<h3 id="mistake-2-caching-dynamic-pages">Mistake 2: Caching Dynamic Pages</h3>
+<p>E-commerce cart or user dashboard cached. Users see each other&#39;s data.</p>
+<p><strong>Fix:</strong> Bypass cache for <code>/cart/*</code>, <code>/account/*</code>, <code>/checkout/*</code>.</p>
+<h3 id="mistake-3-over-purging-cache">Mistake 3: Over-Purging Cache</h3>
+<p>You purge cache after every tiny change. Users constantly fetch from origin. Speed gains disappear.</p>
+<p><strong>Fix:</strong> Version assets with query strings (<code>style.css?v=2</code>) instead of purging.</p>
+<h3 id="mistake-4-enabling-rocket-loader-without-testing">Mistake 4: Enabling Rocket Loader Without Testing</h3>
+<p>Rocket Loader breaks JavaScript-dependent features (forms, analytics, sliders).</p>
+<p><strong>Fix:</strong> Test thoroughly. If anything breaks, disable Rocket Loader and defer JavaScript manually.</p>
+<h3 id="mistake-5-not-setting-cache-ttl">Mistake 5: Not Setting Cache TTL</h3>
+<p>Default cache TTL is 2 hours. Static assets (images, fonts) should cache for 1 year.</p>
+<p><strong>Fix:</strong> Create Page Rule for static assets with <strong>Edge Cache TTL: 1 year</strong>.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="is-cloudflare-s-free-plan-enough-for-speed">Is Cloudflare's free plan enough for speed?</h3>
+<p>Yes for most sites. Free tier includes caching, Brotli, HTTP/3, and DDoS protection. Paid plans add image optimization, Argo routing, and faster support, not essential unless you have high traffic or need advanced features.</p>
+<h3 id="does-cloudflare-improve-core-web-vitals">Does Cloudflare improve Core Web Vitals?</h3>
+<p>Yes. Cloudflare reduces <strong>TTFB</strong> (Time to First Byte), which improves <strong>Largest Contentful Paint (LCP)</strong>. Enable Early Hints and Rocket Loader for maximum LCP improvement.</p>
+<h3 id="can-cloudflare-break-my-site">Can Cloudflare break my site?</h3>
+<p>Yes, if misconfigured. Common causes: Rocket Loader breaks JavaScript, Auto Minify breaks CSS, or caching rules cache dynamic pages. Test after enabling each feature.</p>
+<h3 id="does-cloudflare-work-with-wordpress">Does Cloudflare work with WordPress?</h3>
+<p>Yes. Install the <strong>Cloudflare plugin</strong> for WordPress to manage cache purging, automatic optimization, and settings directly from your dashboard.</p>
+<h3 id="what-s-the-difference-between-cloudflare-and-a-traditional-cdn">What's the difference between Cloudflare and a traditional CDN?</h3>
+<p>Traditional CDNs (KeyCDN, Bunny) only cache and deliver content. Cloudflare is a <strong>CDN + firewall + DNS + SSL provider</strong>. It&#39;s an all-in-one platform.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Enable Cloudflare proxy (orange cloud) for all web traffic. Configure Page Rules to cache HTML (if static). Enable Auto Minify, Brotli, and Early Hints. Test load times with <strong>WebPageTest</strong> or <strong>GTmetrix</strong> from multiple locations. Monitor cache hit ratio in Analytics, aim for 80%+. For related guidance, see <a href="/articles/cdn-setup-guide-speed-optimization.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">CDN Setup Guide</a>, <a href="/articles/fix-slow-server-response-time-ttfb.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fix Slow Server Response Time</a>, and <a href="/articles/how-to-fix-slow-website.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Fix Slow Website</a>.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/cdn-setup-guide-speed-optimization.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">speed</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Set Up a CDN for Speed Optimization</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">CDNs cache your site globally and cut load times by 40-60%. But misconfigure one and you'll break caching, serve stale content, or leak origin server IPs.</p>
+          </a>
+
+          <a href="/articles/best-wordpress-caching-plugins-compared.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">speed</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Best WordPress Caching Plugins Compared (Speed Test Data)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">WP Rocket, W3 Total Cache, and LiteSpeed Cache tested on identical sites. Real speed data shows which plugin delivers the fastest load times.</p>
+          </a>
+
+          <a href="/articles/browser-caching-setup-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">speed</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Set Up Browser Caching for Speed and SEO</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Browser caching stores static files locally so repeat visitors load pages instantly. Configure cache headers to reduce server load and improve Core Web Vitals.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

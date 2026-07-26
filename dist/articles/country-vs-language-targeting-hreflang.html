@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country vs Language Targeting with Hreflang: Complete Implementation Guide | Polytraffic</title>
+    <meta name="description" content="Master hreflang country and language targeting. Fix duplicate content across regions with proper ISO 639-1 and ISO 3166-1 implementation." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Country vs Language Targeting with Hreflang: Complete Implementation Guide | Polytraffic" />
+    <meta property="og:description" content="Master hreflang country and language targeting. Fix duplicate content across regions with proper ISO 639-1 and ISO 3166-1 implementation." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/country-vs-language-targeting-hreflang" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/country-vs-language-targeting-hreflang.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Country vs Language Targeting with Hreflang: Complete Implementation Guide | Polytraffic" />
+    <meta name="twitter:description" content="Master hreflang country and language targeting. Fix duplicate content across regions with proper ISO 639-1 and ISO 3166-1 implementation." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/country-vs-language-targeting-hreflang.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/country-vs-language-targeting-hreflang" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Country vs Language Targeting with Hreflang: Complete Implementation Guide",
+    "description": "Master hreflang country and language targeting. Fix duplicate content across regions with proper ISO 639-1 and ISO 3166-1 implementation.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/country-vs-language-targeting-hreflang.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/country-vs-language-targeting-hreflang.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Country vs Language Targeting with Hreflang: Complete Implementation Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Country vs Language Targeting with Hreflang: Complete Implementation Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/country-vs-language-targeting-hreflang.png" alt="Country vs Language Targeting with Hreflang: Complete Implementation Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="country-vs-language-targeting-with-hreflang-complete-implementation-guide">Country vs Language Targeting with Hreflang: Complete Implementation Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Master hreflang country and language targeting. Fix duplicate content across regions with proper ISO 639-1 and ISO 3166-1 implementation.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#hreflang-syntax-language-vs-language-country" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Hreflang Syntax: Language vs. Language-Country</a></li>
+<li><a href="#when-to-use-language-only-vs-country-specific-hreflang" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When to Use Language-Only vs. Country-Specific Hreflang</a></li>
+<li><a href="#hreflang-implementation-methods" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Hreflang Implementation Methods</a></li>
+<li><a href="#common-hreflang-mistakes-that-break-country-targeting" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Hreflang Mistakes That Break Country Targeting</a></li>
+<li><a href="#validate-hreflang-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Validate Hreflang Implementation</a></li>
+<li><a href="#advanced-hreflang-for-subdirectories-subdomains-and-cctlds" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced: Hreflang for Subdirectories, Subdomains, and ccTLDs</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Hreflang tags</strong> tell <strong>Google</strong> which language and regional variant of a page to serve users based on their location and browser language settings. Sites serving Spanish speakers in Mexico (es-MX), Spain (es-ES), and Argentina (es-AR) need distinct hreflang annotations despite sharing a language, regional dialects, currency, and local intent differ dramatically. Confusing <strong>language-only targeting</strong> (<code>es</code>) with <strong>country-specific targeting</strong> (<code>es-MX</code>) causes Google to serve wrong variants, suppress regional pages in local search, and flag duplicate content errors in <strong>Google Search Console</strong>. This guide clarifies when to use language-only codes, country-specific codes, and hybrid approaches for global SEO architecture.</p>
+<h2 id="hreflang-syntax-language-vs-language-country">Hreflang Syntax: Language vs. Language-Country</h2>
+<p><strong>ISO 639-1</strong> defines two-letter language codes (en, es, fr). <strong>ISO 3166-1 Alpha-2</strong> defines two-letter country codes (US, MX, ES). Hreflang combines both in specific patterns.</p>
+<h3 id="language-only-hreflang">Language-Only Hreflang</h3>
+<p>Use when content is <strong>language-specific but not region-specific</strong>, same Spanish content serves all Spanish speakers globally.</p>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;es&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+</code></pre>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Single Spanish version for all Spanish-speaking countries</li>
+<li>Generic English content without regional localization</li>
+<li>Small sites without resources for per-country variants</li>
+</ul>
+<h3 id="language-country-hreflang">Language-Country Hreflang</h3>
+<p>Use when content is <strong>localized for specific countries</strong>. Mexican Spanish differs from Spanish Spanish in terminology, currency, spelling.</p>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-AR&quot; href=&quot;https://example.com/ar/product/&quot; /&gt;
+</code></pre>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>E-commerce with country-specific pricing (USD in US, CAD in Canada)</li>
+<li>Content referencing local laws, events, or culture</li>
+<li>Multi-country sites with separate fulfillment regions</li>
+</ul>
+<h3 id="x-default-hreflang">X-Default Hreflang</h3>
+<p><strong>x-default</strong> specifies the fallback page when no hreflang matches the user&#39;s language/country.</p>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/product/&quot; /&gt;
+</code></pre>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Global homepage serving language selector</li>
+<li>Default English page for undefined regions</li>
+<li>Catch-all for users outside your targeted countries</li>
+</ul>
+<h2 id="when-to-use-language-only-vs-country-specific-hreflang">When to Use Language-Only vs. Country-Specific Hreflang</h2>
+<h3 id="scenario-1-single-language-multiple-countries-english-for-us-uk-au">Scenario 1: Single Language, Multiple Countries (English for US, UK, AU)</h3>
+<p>English speakers in the US, UK, and Australia encounter different spelling (color/colour), terminology (truck/lorry), and local intent (local search prioritizes regional results).</p>
+<p><strong>Use country-specific hreflang:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://example.com/us/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-GB&quot; href=&quot;https://example.com/uk/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-AU&quot; href=&quot;https://example.com/au/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/product/&quot; /&gt;
+</code></pre>
+<p><strong>Why country-specific?</strong> Google prioritizes local results. A user searching &quot;solicitor services&quot; in the UK should see en-GB content, not en-US content using &quot;lawyer.&quot;</p>
+<h3 id="scenario-2-single-language-no-regional-differences-generic-spanish-content">Scenario 2: Single Language, No Regional Differences (Generic Spanish Content)</h3>
+<p>A blog publishing SEO guides in Spanish without country-specific localization serves the same content to users in Mexico, Spain, and Argentina.</p>
+<p><strong>Use language-only hreflang:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;es&quot; href=&quot;https://example.com/es/seo-guide/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://example.com/en/seo-guide/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/seo-guide/&quot; /&gt;
+</code></pre>
+<p><strong>Why language-only?</strong> No regional differences justify separate pages. Language-only targeting tells Google to serve this page to all Spanish speakers.</p>
+<h3 id="scenario-3-multiple-languages-multiple-countries-french-for-france-and-canada">Scenario 3: Multiple Languages, Multiple Countries (French for France and Canada)</h3>
+<p>French in France differs from Canadian French (Québécois) in vocabulary, formality, and cultural references.</p>
+<p><strong>Use country-specific hreflang:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;fr-FR&quot; href=&quot;https://example.com/fr/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;fr-CA&quot; href=&quot;https://example.com/ca-fr/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-CA&quot; href=&quot;https://example.com/ca-en/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/product/&quot; /&gt;
+</code></pre>
+<p><strong>Why country-specific?</strong> A Canadian user with French browser settings should see fr-CA content, not fr-FR content written for European French speakers.</p>
+<h3 id="scenario-4-fallback-language-for-undefined-countries">Scenario 4: Fallback Language for Undefined Countries</h3>
+<p>A site targets Spanish speakers in Mexico (es-MX) and Spain (es-ES) but also wants to serve Spanish users in countries without dedicated pages (Colombia, Chile, Peru).</p>
+<p><strong>Combine country-specific + language-only:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/product/&quot; /&gt;
+</code></pre>
+<p><strong>How Google interprets this:</strong></p>
+<ul>
+<li>Users in Mexico → es-MX page</li>
+<li>Users in Spain → es-ES page</li>
+<li>Users in Colombia, Chile, Peru → es page (fallback)</li>
+<li>Users in non-Spanish countries → x-default (English)</li>
+</ul>
+<h2 id="hreflang-implementation-methods">Hreflang Implementation Methods</h2>
+<h3 id="method-1-html-link-tags-most-common">Method 1: HTML Link Tags (Most Common)</h3>
+<p>Place hreflang tags in the <code>&lt;head&gt;</code> of every page variant.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es-MX&quot;&gt;
+&lt;head&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/product/&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://example.com/us/product/&quot; /&gt;
+  &lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/product/&quot; /&gt;
+&lt;/head&gt;
+</code></pre>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>Every page must include hreflang tags pointing to all language/country variants (including itself)</li>
+<li>Tags must be <strong>bidirectional</strong> (if page A links to page B, page B must link to page A)</li>
+<li>All URLs must be absolute (not relative)</li>
+</ul>
+<h3 id="method-2-xml-sitemap-best-for-large-sites">Method 2: XML Sitemap (Best for Large Sites)</h3>
+<p>For sites with thousands of pages and dozens of language variants, HTML tags create bloat. <strong>XML sitemaps</strong> centralize hreflang annotations.</p>
+<p><strong>Example sitemap:</strong></p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;
+        xmlns:xhtml=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://example.com/mx/product/&lt;/loc&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/product/&quot; /&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://example.com/us/product/&quot; /&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/product/&quot; /&gt;
+  &lt;/url&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://example.com/es/product/&lt;/loc&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/product/&quot; /&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://example.com/us/product/&quot; /&gt;
+    &lt;xhtml:link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/product/&quot; /&gt;
+  &lt;/url&gt;
+&lt;/urlset&gt;
+</code></pre>
+<p><strong>Submit to Google Search Console:</strong></p>
+<pre><code>https://example.com/sitemap-hreflang.xml
+</code></pre>
+<p>See <a href="dynamic-sitemaps-ecommerce.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">dynamic sitemap generation</a> for automated hreflang sitemap creation.</p>
+<h3 id="method-3-http-headers-for-non-html-resources">Method 3: HTTP Headers (For Non-HTML Resources)</h3>
+<p><strong>PDFs, images, and videos</strong> can&#39;t contain HTML tags. Use <strong>HTTP headers</strong> for hreflang.</p>
+<p><strong>Example header:</strong></p>
+<pre><code>Link: &lt;https://example.com/mx/document.pdf&gt;; rel=&quot;alternate&quot;; hreflang=&quot;es-MX&quot;,
+      &lt;https://example.com/es/document.pdf&gt;; rel=&quot;alternate&quot;; hreflang=&quot;es-ES&quot;,
+      &lt;https://example.com/en/document.pdf&gt;; rel=&quot;alternate&quot;; hreflang=&quot;x-default&quot;
+</code></pre>
+<p><strong>Implementation (Nginx):</strong></p>
+<pre><code class="language-nginx">location ~* \.pdf$ {
+  add_header Link &#39;&lt;https://example.com/mx/$uri&gt;; rel=&quot;alternate&quot;; hreflang=&quot;es-MX&quot;&#39;;
+  add_header Link &#39;&lt;https://example.com/es/$uri&gt;; rel=&quot;alternate&quot;; hreflang=&quot;es-ES&quot;&#39;;
+}
+</code></pre>
+<h2 id="common-hreflang-mistakes-that-break-country-targeting">Common Hreflang Mistakes That Break Country Targeting</h2>
+<h3 id="mistake-1-missing-self-referencing-tag">Mistake 1: Missing Self-Referencing Tag</h3>
+<p>Each page must include hreflang pointing to itself.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">&lt;!-- On https://example.com/mx/product/ --&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://example.com/us/product/&quot; /&gt;
+&lt;!-- Missing es-MX self-reference! --&gt;
+</code></pre>
+<p><strong>Correct:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://example.com/us/product/&quot; /&gt;
+</code></pre>
+<h3 id="mistake-2-non-bidirectional-links">Mistake 2: Non-Bidirectional Links</h3>
+<p>If page A links to page B with hreflang, page B must link back to page A.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">&lt;!-- On https://example.com/mx/ --&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/&quot; /&gt;
+
+&lt;!-- On https://example.com/es/ --&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/&quot; /&gt;
+&lt;!-- Missing es-MX link! Non-bidirectional = Google ignores both --&gt;
+</code></pre>
+<p><strong>Google Search Console</strong> reports &quot;No return tags&quot; errors for non-bidirectional hreflang.</p>
+<h3 id="mistake-3-using-language-only-when-country-specific-is-needed">Mistake 3: Using Language-Only When Country-Specific Is Needed</h3>
+<p>Serving English content to UK users from US pages with <code>hreflang=&quot;en&quot;</code> (language-only) causes Google to randomly pick US or UK version, or suppress both.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://example.com/product/&quot; /&gt;
+&lt;!-- Ambiguous: serves UK and US users the same page --&gt;
+</code></pre>
+<p><strong>Correct:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://example.com/us/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-GB&quot; href=&quot;https://example.com/uk/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://example.com/en/product/&quot; /&gt;
+</code></pre>
+<h3 id="mistake-4-using-country-code-without-language-code">Mistake 4: Using Country Code Without Language Code</h3>
+<p><code>hreflang=&quot;MX&quot;</code> (country only) is invalid. <strong>Google</strong> requires language code; country is optional.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;MX&quot; href=&quot;https://example.com/mx/&quot; /&gt;
+</code></pre>
+<p><strong>Correct:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/&quot; /&gt;
+</code></pre>
+<h3 id="mistake-5-mixing-hreflang-methods">Mistake 5: Mixing Hreflang Methods</h3>
+<p>Using HTML tags on some pages and XML sitemap on others confuses Google.</p>
+<p><strong>Pick one method:</strong></p>
+<ul>
+<li>HTML tags for small sites (&lt;1000 pages)</li>
+<li>XML sitemap for large sites or complex architectures (see <a href="create-xml-sitemap-large-site.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">large site sitemaps</a>)</li>
+</ul>
+<h2 id="validate-hreflang-implementation">Validate Hreflang Implementation</h2>
+<h3 id="google-search-console-validation">Google Search Console Validation</h3>
+<p><strong>Google Search Console</strong> → International Targeting → Language shows hreflang errors.</p>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li><strong>No return tags</strong>: Page A links to page B, but B doesn&#39;t link back</li>
+<li><strong>Invalid language/country codes</strong>: Using non-ISO codes (e.g., &quot;eng&quot; instead of &quot;en&quot;)</li>
+<li><strong>URL mismatch</strong>: Hreflang points to non-canonical URL (use <a href="cross-domain-canonical-tags-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">canonical tag guide</a>)</li>
+</ul>
+<h3 id="hreflang-testing-tools">Hreflang Testing Tools</h3>
+<p><strong>Merkle Hreflang Checker</strong> (free tool):</p>
+<ol>
+<li>Enter URL</li>
+<li>Tool crawls page, extracts hreflang tags</li>
+<li>Shows bidirectional validation, missing tags, invalid codes</li>
+</ol>
+<p><strong>Screaming Frog SEO Spider</strong> (desktop crawler):</p>
+<ol>
+<li>Crawl site</li>
+<li>Configuration → Spider → Rendering: JavaScript</li>
+<li>International → Hreflang tab shows all tags, errors highlighted</li>
+</ol>
+<h3 id="manual-validation">Manual Validation</h3>
+<p>Check raw HTML for hreflang tags:</p>
+<pre><code class="language-bash">curl -s https://example.com/mx/product/ | grep -i hreflang
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-html">&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.com/mx/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.com/es/product/&quot; /&gt;
+</code></pre>
+<h2 id="advanced-hreflang-for-subdirectories-subdomains-and-cctlds">Advanced: Hreflang for Subdirectories, Subdomains, and ccTLDs</h2>
+<p><strong>URL structure</strong> affects hreflang implementation complexity.</p>
+<h3 id="subdirectories-example-com-es-example-com-mx">Subdirectories (example.com/es/, example.com/mx/)</h3>
+<p><strong>Simplest approach</strong> for managing hreflang, all variants on same domain.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Consolidates domain authority</li>
+<li>Easy to manage with single CMS</li>
+<li>No cross-domain canonical issues</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Harder to geo-target in Search Console (can&#39;t target /es/ to Spain and /mx/ to Mexico separately)</li>
+</ul>
+<h3 id="subdomains-es-example-com-mx-example-com">Subdomains (es.example.com, mx.example.com)</h3>
+<p><strong>Medium complexity</strong>, allows per-region Search Console targeting.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Can set country target per subdomain in Search Console</li>
+<li>Isolates regional technical issues</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Splits domain authority across subdomains</li>
+<li>Requires hreflang across subdomains (still works, more URLs to manage)</li>
+</ul>
+<h3 id="cctlds-example-es-example-mx">ccTLDs (example.es, example.mx)</h3>
+<p><strong>Strongest country signal</strong> to Google..mx domain inherently targets Mexico.</p>
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Google automatically geo-targets ccTLD domains</li>
+<li>Users trust local domains (.co.uk in UK)</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Expensive (register separate domain per country)</li>
+<li>Splits domain authority</li>
+<li>Complex <a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migration</a> if consolidating later</li>
+</ul>
+<p><strong>Hreflang still required</strong> even with ccTLDs:</p>
+<pre><code class="language-html">&lt;!-- On example.mx --&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-MX&quot; href=&quot;https://example.mx/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;es-ES&quot; href=&quot;https://example.es/product/&quot; /&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en-US&quot; href=&quot;https://example.com/product/&quot; /&gt;
+</code></pre>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Hreflang Syntax: Language vs. Language-Country:</strong> Use when content is language-specific but not region-specific, same Spanish content serves all Spanish speakers globally.</li>
+<li><strong>When to Use Language-Only vs. Country-Specific Hreflang:</strong> English speakers in the US, UK, and Australia encounter different spelling (color/colour), terminology (truck/lorry), and local intent (local search prioritizes regional results).</li>
+<li><strong>Hreflang Implementation Methods:</strong> Place hreflang tags in the <head> of every page variant.</li>
+<li><strong>Common Hreflang Mistakes That Break Country Targeting:</strong> Each page must include hreflang pointing to itself.</li>
+<li><strong>Validate Hreflang Implementation:</strong> Check raw HTML for hreflang tags:
+bash
+curl -s <a href="https://example.com/mx/product/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/mx/product/</a> | grep -i hreflang</li>
+<li><strong>Advanced: Hreflang for Subdirectories, Subdomains, and ccTLDs:</strong> Frameworks only pay off when they run against your numbers.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="should-i-use-hreflang-en-or-hreflang-en-us-for-us-english-content">Should I use hreflang="en" or hreflang="en-US" for US English content?</h3>
+<p>Use <strong>en-US</strong> if you have other English variants (en-GB, en-AU). Use <strong>en</strong> (language-only) if you serve the same English content globally without regional differences. If unsure, use <strong>en-US</strong> plus <strong>x-default</strong> pointing to the same page, this ensures US users see the right content while serving it as fallback for undefined regions.</p>
+<h3 id="can-i-use-hreflang-to-target-regions-not-countries-e-g-latin-america">Can I use hreflang to target regions, not countries (e.g., Latin America)?</h3>
+<p>No. <strong>Hreflang</strong> only supports ISO 3166-1 country codes. You can&#39;t use <code>hreflang=&quot;es-LATAM&quot;</code>. Instead, use <strong>language-only</strong> (<code>es</code>) as a fallback for users in countries without dedicated pages, or implement country-specific pages for major markets (es-MX, es-AR, es-CO) and let <code>es</code> catch the rest.</p>
+<h3 id="do-i-need-x-default-if-i-already-have-language-fallbacks">Do I need x-default if I already have language fallbacks?</h3>
+<p>Yes. <strong>x-default</strong> handles users whose language/country combination doesn&#39;t match any hreflang. Example: A user in Japan with Japanese browser settings visits your site. Without <code>x-default</code>, Google might randomly serve them es-MX or en-GB. With <code>x-default</code>, they get your designated fallback (usually English homepage).</p>
+<h3 id="does-hreflang-pass-pagerank-between-language-variants">Does hreflang pass PageRank between language variants?</h3>
+<p>No. <strong>Hreflang</strong> is not a ranking signal and doesn&#39;t pass authority. Use <strong>canonical tags</strong> to consolidate duplicate content (see <a href="cross-domain-canonical-tags-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">canonical tag guide</a>). Hreflang only controls which variant Google shows users. For ranking, each regional page competes independently unless canonicalized to a master version.</p>
+<h3 id="how-do-i-handle-hreflang-for-pages-that-exist-in-some-languages-but-not-others">How do I handle hreflang for pages that exist in some languages but not others?</h3>
+<p>Only include hreflang tags for pages that exist. If your Spanish site has 50 pages but English site has 100 pages, the 50 Spanish pages include hreflang to English equivalents. The other 50 English pages have no hreflang (or link to x-default only). Google handles this gracefully, non-linked pages don&#39;t inherit hreflang associations.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-hreflang-tag-errors.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Hreflang Tag Errors (Complete Implementation Guide for Multi-Language Sites)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Hreflang tag errors confuse search engines and send users to wrong language versions. Learn how to audit, fix, and validate hreflang implementation for international SEO success.</p>
+          </a>
+
+          <a href="/articles/convert-images-to-webp-avif.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Convert Images to WebP and AVIF: Complete Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Reduce image file sizes by 30-60% without quality loss using WebP and AVIF formats. Includes conversion tools, fallback strategies, and CDN setup.</p>
+          </a>
+
+          <a href="/articles/fix-orphan-pages-no-internal-links.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Orphan Pages With No Internal Links: Complete Linking Strategy Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate orphan pages through strategic internal linking, contextual cross-references, and automated link discovery to restore PageRank flow and rankings.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

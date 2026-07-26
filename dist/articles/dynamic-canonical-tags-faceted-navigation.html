@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content | Polytraffic</title>
+    <meta name="description" content="Implement dynamic canonical tags for faceted navigation filters. Prevent duplicate content from color, size, price filters without blocking crawl budget." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content | Polytraffic" />
+    <meta property="og:description" content="Implement dynamic canonical tags for faceted navigation filters. Prevent duplicate content from color, size, price filters without blocking crawl budget." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/dynamic-canonical-tags-faceted-navigation" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/dynamic-canonical-tags-faceted-navigation.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content | Polytraffic" />
+    <meta name="twitter:description" content="Implement dynamic canonical tags for faceted navigation filters. Prevent duplicate content from color, size, price filters without blocking crawl budget." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/dynamic-canonical-tags-faceted-navigation.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/dynamic-canonical-tags-faceted-navigation" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content",
+    "description": "Implement dynamic canonical tags for faceted navigation filters. Prevent duplicate content from color, size, price filters without blocking crawl budget.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/dynamic-canonical-tags-faceted-navigation.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/dynamic-canonical-tags-faceted-navigation.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/dynamic-canonical-tags-faceted-navigation.png" alt="Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="dynamic-canonical-tags-for-faceted-navigation-stop-duplicate-content">Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Implement dynamic canonical tags for faceted navigation filters. Prevent duplicate content from color, size, price filters without blocking crawl budget.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-faceted-navigation-creates-duplicate-content" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Faceted Navigation Creates Duplicate Content</a></li>
+<li><a href="#phase-1-choose-canonical-strategy" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 1: Choose Canonical Strategy</a></li>
+<li><a href="#phase-2-implement-dynamic-canonicals-server-side" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 2: Implement Dynamic Canonicals Server-Side</a></li>
+<li><a href="#phase-3-handle-pagination-with-canonicals" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 3: Handle Pagination with Canonicals</a></li>
+<li><a href="#phase-4-block-low-value-filter-combinations-in-robots-txt" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 4: Block Low-Value Filter Combinations in Robots.txt</a></li>
+<li><a href="#phase-5-identify-seo-worthy-filter-combinations" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 5: Identify SEO-Worthy Filter Combinations</a></li>
+<li><a href="#phase-6-monitor-indexed-urls" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 6: Monitor Indexed URLs</a></li>
+<li><a href="#advanced-self-referencing-canonicals-for-all-valid-filters" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced: Self-Referencing Canonicals for All Valid Filters</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Faceted navigation</strong>, filters for color, size, price, brand on e-commerce category pages, generates thousands of URL variations (<code>/products?color=red</code>, <code>/products?size=large</code>, <code>/products?color=red&amp;size=large&amp;brand=nike</code>) serving near-identical content that fragments link equity and wastes <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget</a> on low-value parameter combinations. <strong>Dynamic canonical tags</strong> consolidate ranking signals to base category URLs while allowing users and <strong>Googlebot</strong> to access filtered views, preventing duplicate content penalties without sacrificing UX or internal linking structure. Static canonical implementations, hardcoding one canonical URL for all filter combinations, pointing canonicals to first-page-only URLs that miss pagination variants, or omitting canonicals on parameter URLs entirely, leave combinatorial URL explosions unresolved or over-consolidate useful filtering options that should rank independently. This guide architects canonical strategies for simple filters (1-2 parameters), complex faceted navigation (5+ parameters with pagination), and SEO-worthy filter combinations that deserve independent indexing.</p>
+<h2 id="why-faceted-navigation-creates-duplicate-content">Why Faceted Navigation Creates Duplicate Content</h2>
+<p><strong>Faceted filters</strong> create URL permutations:</p>
+<p><strong>Base category:</strong></p>
+<pre><code>/products
+</code></pre>
+<p><strong>Single-filter URLs (10 colors × 5 sizes = 50 URLs):</strong></p>
+<pre><code>/products?color=red
+/products?size=large
+/products?color=red&amp;size=large
+</code></pre>
+<p><strong>Multi-filter URLs (10 colors × 5 sizes × 3 brands = 150 URLs):</strong></p>
+<pre><code>/products?color=red&amp;size=large&amp;brand=nike
+</code></pre>
+<p><strong>With pagination (150 URLs × 10 pages = 1500 URLs):</strong></p>
+<pre><code>/products?color=red&amp;size=large&amp;page=2
+</code></pre>
+<p><strong>Problem:</strong> All URLs show similar products with minor filtering. Google sees duplicate content.</p>
+<h2 id="phase-1-choose-canonical-strategy">Phase 1: Choose Canonical Strategy</h2>
+<p><strong>Three approaches</strong> balance crawlability, UX, and SEO value.</p>
+<h3 id="strategy-1-canonicalize-all-filters-to-base-url-simplest">Strategy 1: Canonicalize All Filters to Base URL (Simplest)</h3>
+<p><strong>Canonical implementation:</strong></p>
+<pre><code class="language-html">&lt;!-- On /products?color=red&amp;size=large --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products&quot; /&gt;
+</code></pre>
+<p><strong>Effect:</strong></p>
+<ul>
+<li>Only <code>/products</code> ranks in search results</li>
+<li>Filtered URLs accessible but not indexed</li>
+<li>Google consolidates all link equity to base URL</li>
+</ul>
+<p><strong>Use when:</strong></p>
+<ul>
+<li>Filtered results have minimal unique value</li>
+<li>Primary SEO target is base category page</li>
+<li>Site has &lt;10,000 products (filters don&#39;t create thousands of URLs)</li>
+</ul>
+<h3 id="strategy-2-canonicalize-multi-parameter-to-single-parameter">Strategy 2: Canonicalize Multi-Parameter to Single-Parameter</h3>
+<p><strong>Allow single filters to rank, consolidate complex combinations.</strong></p>
+<p><strong>Canonical implementation:</strong></p>
+<pre><code class="language-html">&lt;!-- On /products?color=red (no canonical, can rank) --&gt;
+
+&lt;!-- On /products?color=red&amp;size=large --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products?color=red&quot; /&gt;
+
+&lt;!-- On /products?color=red&amp;size=large&amp;brand=nike --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products?color=red&quot; /&gt;
+</code></pre>
+<p><strong>Effect:</strong></p>
+<ul>
+<li>Single-parameter URLs rank (e.g., &quot;red shoes&quot;)</li>
+<li>Multi-parameter combinations consolidate to most relevant single parameter</li>
+<li>Reduces indexed URL count by 80%</li>
+</ul>
+<p><strong>Use when:</strong></p>
+<ul>
+<li>Single filters have SEO value (users search &quot;red dresses,&quot; &quot;size 10 shoes&quot;)</li>
+<li>Multi-filter combinations rarely searched</li>
+<li>Medium site (10,000-100,000 products)</li>
+</ul>
+<h3 id="strategy-3-index-seo-valuable-filters-canonicalize-rest">Strategy 3: Index SEO-Valuable Filters, Canonicalize Rest</h3>
+<p><strong>Strategic indexing</strong> allows high-value combinations to rank.</p>
+<p><strong>Canonical implementation:</strong></p>
+<pre><code class="language-html">&lt;!-- On /products?color=red (no canonical, ranks) --&gt;
+
+&lt;!-- On /products?size=large (no canonical, ranks) --&gt;
+
+&lt;!-- On /products?color=red&amp;size=large (low search volume, canonicalize) --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products?color=red&quot; /&gt;
+
+&lt;!-- On /products?brand=nike (high search volume, no canonical, ranks) --&gt;
+</code></pre>
+<p><strong>Use when:</strong></p>
+<ul>
+<li>Large site (100,000+ products)</li>
+<li>Multiple filter dimensions have independent search demand</li>
+<li>Can dedicate <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget</a> to strategic URLs</li>
+</ul>
+<h2 id="phase-2-implement-dynamic-canonicals-server-side">Phase 2: Implement Dynamic Canonicals Server-Side</h2>
+<p><strong>Server-side logic</strong> generates canonicals based on URL parameters.</p>
+<h3 id="php-implementation-simple-canonicalization">PHP Implementation (Simple Canonicalization)</h3>
+<p><strong>Canonicalize all filtered URLs to base:</strong></p>
+<pre><code class="language-php">&lt;?php
+$baseUrl = &#39;https://example.com/products&#39;;
+$params = $_GET;
+
+// If any filter parameters exist, canonicalize to base
+if (!empty($params)) {
+  $canonical = $baseUrl;
+} else {
+  $canonical = $baseUrl; // Self-referencing canonical for base
+}
+
+echo &#39;&lt;link rel=&quot;canonical&quot; href=&quot;&#39; . htmlspecialchars($canonical) . &#39;&quot; /&gt;&#39;;
+?&gt;
+</code></pre>
+<h3 id="php-implementation-single-parameter-strategy">PHP Implementation (Single-Parameter Strategy)</h3>
+<p><strong>Allow single parameters, canonicalize combinations:</strong></p>
+<pre><code class="language-php">&lt;?php
+$baseUrl = &#39;https://example.com/products&#39;;
+$params = $_GET;
+
+// Remove pagination from canonical consideration
+unset($params[&#39;page&#39;]);
+
+// If 0 or 1 parameter, use current URL as canonical
+if (count($params) &lt;= 1) {
+  $canonical = $baseUrl;
+  if (!empty($params)) {
+    $canonical .= &#39;?&#39; . http_build_query($params);
+  }
+} else {
+  // Multiple parameters: canonicalize to first parameter
+  $firstParam = array_slice($params, 0, 1, true);
+  $canonical = $baseUrl . &#39;?&#39; . http_build_query($firstParam);
+}
+
+echo &#39;&lt;link rel=&quot;canonical&quot; href=&quot;&#39; . htmlspecialchars($canonical) . &#39;&quot; /&gt;&#39;;
+?&gt;
+</code></pre>
+<h3 id="python-django-implementation">Python (Django) Implementation</h3>
+<pre><code class="language-python">from django.http import QueryDict
+
+def get_canonical_url(request):
+    base_url = &#39;https://example.com/products&#39;
+    params = request.GET.copy()
+
+    # Remove pagination
+    params.pop(&#39;page&#39;, None)
+
+    # Strategy: Canonicalize if &gt;1 parameter
+    if len(params) &gt; 1:
+        # Keep only first parameter
+        first_key = list(params.keys())[0]
+        canonical_params = {first_key: params[first_key]}
+        return f&quot;{base_url}?{QueryDict(canonical_params).urlencode()}&quot;
+    elif len(params) == 1:
+        return f&quot;{base_url}?{params.urlencode()}&quot;
+    else:
+        return base_url
+</code></pre>
+<p><strong>Template usage:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;{{ canonical_url }}&quot; /&gt;
+</code></pre>
+<h3 id="javascript-client-side-not-recommended">JavaScript (Client-Side, Not Recommended)</h3>
+<p><strong>Avoid client-side canonicals</strong>. Google may not execute JavaScript before reading canonicals.</p>
+<p><strong>If unavoidable:</strong></p>
+<pre><code class="language-html">&lt;script&gt;
+  const params = new URLSearchParams(window.location.search);
+  params.delete(&#39;page&#39;);
+
+  const canonical = params.size &gt; 1
+    ? &#39;https://example.com/products&#39;
+    : window.location.origin + window.location.pathname + &#39;?&#39; + params.toString();
+
+  const link = document.createElement(&#39;link&#39;);
+  link.rel = &#39;canonical&#39;;
+  link.href = canonical;
+  document.head.appendChild(link);
+&lt;/script&gt;
+</code></pre>
+<p><strong>Better:</strong> Use server-side rendering or <a href="dynamic-rendering-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">dynamic rendering</a>.</p>
+<h2 id="phase-3-handle-pagination-with-canonicals">Phase 3: Handle Pagination with Canonicals</h2>
+<p><strong>Paginated filtered results</strong> create additional URL variations.</p>
+<h3 id="canonical-strategy-for-pagination">Canonical Strategy for Pagination</h3>
+<p><strong>Option 1: Canonicalize all paginated pages to page 1</strong></p>
+<pre><code class="language-html">&lt;!-- On /products?color=red&amp;page=2 --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products?color=red&quot; /&gt;
+</code></pre>
+<p><strong>Effect:</strong> Only page 1 of each filter ranks</p>
+<p><strong>Option 2: Self-referencing canonicals for each page</strong></p>
+<pre><code class="language-html">&lt;!-- On /products?color=red&amp;page=2 --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products?color=red&amp;page=2&quot; /&gt;
+</code></pre>
+<p><strong>Effect:</strong> Each paginated page can rank independently</p>
+<p><strong>Recommendation:</strong> Use Option 1 (canonicalize to page 1) unless paginated pages have unique SEO value (rare).</p>
+<h3 id="implement-pagination-canonicals">Implement Pagination Canonicals</h3>
+<p><strong>PHP example:</strong></p>
+<pre><code class="language-php">&lt;?php
+$baseUrl = &#39;https://example.com/products&#39;;
+$params = $_GET;
+
+// Remove page parameter from canonical
+$canonicalParams = $params;
+unset($canonicalParams[&#39;page&#39;]);
+
+if (count($canonicalParams) &lt;= 1) {
+  $canonical = $baseUrl;
+  if (!empty($canonicalParams)) {
+    $canonical .= &#39;?&#39; . http_build_query($canonicalParams);
+  }
+} else {
+  // Multiple filters: canonicalize to first parameter (page removed)
+  $firstParam = array_slice($canonicalParams, 0, 1, true);
+  $canonical = $baseUrl . &#39;?&#39; . http_build_query($firstParam);
+}
+
+echo &#39;&lt;link rel=&quot;canonical&quot; href=&quot;&#39; . htmlspecialchars($canonical) . &#39;&quot; /&gt;&#39;;
+?&gt;
+</code></pre>
+<h3 id="use-rel-prev-next-for-pagination-optional">Use Rel=Prev/Next for Pagination (Optional)</h3>
+<p><strong>Google deprecated rel=prev/next</strong> but still uses as hint.</p>
+<pre><code class="language-html">&lt;!-- On /products?color=red&amp;page=2 --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products?color=red&quot; /&gt;
+&lt;link rel=&quot;prev&quot; href=&quot;https://example.com/products?color=red&amp;page=1&quot; /&gt;
+&lt;link rel=&quot;next&quot; href=&quot;https://example.com/products?color=red&amp;page=3&quot; /&gt;
+</code></pre>
+<p><strong>Effect:</strong> Helps Google understand pagination structure.</p>
+<h2 id="phase-4-block-low-value-filter-combinations-in-robots-txt">Phase 4: Block Low-Value Filter Combinations in Robots.txt</h2>
+<p><strong>Canonical tags</strong> alone may not prevent crawling. Use <strong>robots.txt</strong> to block parameter combinations with no SEO value.</p>
+<h3 id="block-parameter-combinations">Block Parameter Combinations</h3>
+<pre><code># robots.txt
+User-agent: *
+
+# Block multi-parameter combinations (&gt;2 params)
+Disallow: /*?*&amp;*&amp;
+
+# Block specific low-value filters
+Disallow: /*?sort=
+Disallow: /*?view=grid
+Disallow: /*?sessionid=
+</code></pre>
+<p><strong>Caution:</strong> Blocking in robots.txt prevents Google from seeing canonical tags on those URLs. Use sparingly.</p>
+<h3 id="alternative-use-parameter-handling-in-search-console">Alternative: Use Parameter Handling in Search Console</h3>
+<p><strong>Search Console</strong> → Crawl → URL Parameters (legacy feature)</p>
+<p><strong>Configure parameters:</strong></p>
+<ul>
+<li><code>color</code> → Let Googlebot decide</li>
+<li><code>size</code> → Let Googlebot decide</li>
+<li><code>sort</code> → Representative URL (don&#39;t crawl all)</li>
+<li><code>sessionid</code> → No URLs (never crawl)</li>
+</ul>
+<p><strong>Deprecation note:</strong> Google is phasing out URL Parameters tool. Rely on canonicals + robots.txt moving forward.</p>
+<h2 id="phase-5-identify-seo-worthy-filter-combinations">Phase 5: Identify SEO-Worthy Filter Combinations</h2>
+<p><strong>Not all filters should canonicalize.</strong> Some have independent search demand.</p>
+<h3 id="research-keyword-volume-for-filters">Research Keyword Volume for Filters</h3>
+<p><strong>Google Keyword Planner / Ahrefs:</strong></p>
+<ul>
+<li>&quot;red shoes&quot; → 10,000 searches/month (index separately)</li>
+<li>&quot;size 10 shoes&quot; → 5,000 searches/month (index separately)</li>
+<li>&quot;red size 10 shoes&quot; → 50 searches/month (canonicalize to &quot;red shoes&quot;)</li>
+</ul>
+<p><strong>Decision matrix:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Filter Combination</th>
+<th>Monthly Searches</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/products?color=red</code></td>
+<td>10,000+</td>
+<td>Index (no canonical)</td>
+</tr>
+<tr>
+<td><code>/products?size=10</code></td>
+<td>5,000+</td>
+<td>Index (no canonical)</td>
+</tr>
+<tr>
+<td><code>/products?brand=nike</code></td>
+<td>20,000+</td>
+<td>Index (no canonical)</td>
+</tr>
+<tr>
+<td><code>/products?color=red&amp;size=10</code></td>
+<td>&lt;100</td>
+<td>Canonicalize to <code>/products?color=red</code></td>
+</tr>
+</tbody></table>
+<h3 id="implement-conditional-canonicalization">Implement Conditional Canonicalization</h3>
+<p><strong>Allow high-value combinations to rank:</strong></p>
+<pre><code class="language-php">&lt;?php
+$baseUrl = &#39;https://example.com/products&#39;;
+$params = $_GET;
+unset($params[&#39;page&#39;]);
+
+// High-value single parameters (no canonical)
+$highValueParams = [&#39;color&#39;, &#39;size&#39;, &#39;brand&#39;];
+
+// Check if URL has only high-value single parameter
+if (count($params) == 1 &amp;&amp; in_array(key($params), $highValueParams)) {
+  // Self-referencing canonical (allow indexing)
+  $canonical = $baseUrl . &#39;?&#39; . http_build_query($params);
+} elseif (count($params) &gt; 1) {
+  // Multiple params: canonicalize to first high-value param
+  foreach ($highValueParams as $hvParam) {
+    if (isset($params[$hvParam])) {
+      $canonical = $baseUrl . &#39;?&#39; . $hvParam . &#39;=&#39; . $params[$hvParam];
+      break;
+    }
+  }
+  if (!isset($canonical)) {
+    $canonical = $baseUrl; // Fallback to base
+  }
+} else {
+  // No params or low-value params: base URL
+  $canonical = $baseUrl;
+}
+
+echo &#39;&lt;link rel=&quot;canonical&quot; href=&quot;&#39; . htmlspecialchars($canonical) . &#39;&quot; /&gt;&#39;;
+?&gt;
+</code></pre>
+<h2 id="phase-6-monitor-indexed-urls">Phase 6: Monitor Indexed URLs</h2>
+<p><strong>Validate canonicalization</strong> working as intended.</p>
+<h3 id="check-indexed-filter-urls">Check Indexed Filter URLs</h3>
+<p><strong>Google Search Console</strong> → Coverage → Valid → Indexed URLs</p>
+<p><strong>Filter by parameter:</strong></p>
+<pre><code>site:example.com/products?color=
+</code></pre>
+<p><strong>Expected behavior:</strong></p>
+<ul>
+<li>High-value single-parameter URLs indexed</li>
+<li>Multi-parameter URLs excluded (canonicalized)</li>
+</ul>
+<h3 id="use-site-operator">Use Site: Operator</h3>
+<pre><code>site:example.com/products?
+</code></pre>
+<p><strong>Check results:</strong></p>
+<ul>
+<li>Should see primary filter URLs (color, size, brand single-params)</li>
+<li>Shouldn&#39;t see complex combinations (color+size+brand+page)</li>
+</ul>
+<h3 id="monitor-crawl-budget">Monitor Crawl Budget</h3>
+<p><strong>Search Console</strong> → Crawl Stats</p>
+<p><strong>Check:</strong></p>
+<ul>
+<li>Googlebot not wasting requests on infinite filter combinations</li>
+<li>Crawl rate stable (not exploding from parameter URLs)</li>
+</ul>
+<h2 id="advanced-self-referencing-canonicals-for-all-valid-filters">Advanced: Self-Referencing Canonicals for All Valid Filters</h2>
+<p><strong>Mature SEO strategy:</strong> Every valid filter URL has self-referencing canonical, invalid combinations canonicalize.</p>
+<p><strong>Implementation:</strong></p>
+<pre><code class="language-php">&lt;?php
+$baseUrl = &#39;https://example.com/products&#39;;
+$params = $_GET;
+unset($params[&#39;page&#39;]); // Always remove page from canonical
+
+$validFilterCombinations = [
+  [&#39;color&#39;],
+  [&#39;size&#39;],
+  [&#39;brand&#39;],
+  [&#39;color&#39;, &#39;brand&#39;], // Allow specific 2-param combos with SEO value
+];
+
+$currentParams = array_keys($params);
+sort($currentParams);
+
+// Check if current param combination is valid
+$isValid = false;
+foreach ($validFilterCombinations as $validCombo) {
+  sort($validCombo);
+  if ($currentParams === $validCombo) {
+    $isValid = true;
+    break;
+  }
+}
+
+if ($isValid) {
+  // Self-referencing canonical (allow indexing)
+  $canonical = $baseUrl;
+  if (!empty($params)) {
+    ksort($params); // Consistent parameter order
+    $canonical .= &#39;?&#39; . http_build_query($params);
+  }
+} else {
+  // Invalid combination: canonicalize to base or nearest valid
+  $canonical = $baseUrl; // Fallback
+}
+
+echo &#39;&lt;link rel=&quot;canonical&quot; href=&quot;&#39; . htmlspecialchars($canonical) . &#39;&quot; /&gt;&#39;;
+?&gt;
+</code></pre>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Faceted Navigation Creates Duplicate Content:</strong> <!-- On /products?color=red&size=large --></li>
+</ul>
+<link rel="canonical" href="https://example.com/products?color=red" />
+* **Phase 1: Choose Canonical Strategy:** <!-- On /products?color=red&size=large -->
+<link rel="canonical" href="https://example.com/products?color=red" />
+* **Phase 2: Implement Dynamic Canonicals Server-Side:** // If any filter parameters exist, canonicalize to base
+if (!empty($params)) {
+  $canonical = $baseUrl;
+} else {
+  $canonical = $baseUrl; // Self-referencing ca
+* **Phase 3: Handle Pagination with Canonicals:** // Remove page parameter from canonical
+$canonicalParams = $params;
+unset($canonicalParams['page']);
+* **Phase 4: Block Low-Value Filter Combinations in Robots.txt:** // High-value single parameters (no canonical)
+$highValueParams = ['color', 'size', 'brand'];
+* **Phase 5: Identify SEO-Worthy Filter Combinations:** // High-value single parameters (no canonical)
+$highValueParams = ['color', 'size', 'brand'];
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="should-i-noindex-faceted-navigation-urls-or-use-canonical-tags">Should I noindex faceted navigation URLs or use canonical tags?</h3>
+<p>Use <strong>canonical tags</strong>. <strong>Noindex</strong> blocks indexing but allows crawling. Google still wastes <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget</a> discovering noindexed URLs. <strong>Canonical tags</strong> consolidate ranking signals without blocking crawl entirely, and Google learns to deprioritize canonicalized URLs over time. Use noindex only when paired with robots.txt disallow (but then Google can&#39;t see canonicals, creating catch-22). Canonical is the correct approach.</p>
+<h3 id="can-i-use-canonical-tags-and-parameter-blocking-in-robots-txt">Can I use canonical tags AND parameter blocking in robots.txt?</h3>
+<p><strong>Don&#39;t block URLs with canonical tags in robots.txt.</strong> If robots.txt blocks a URL, Google can&#39;t crawl it to see the canonical tag, so canonicalization fails. Choose one: (1) Canonical tags (recommended), or (2) robots.txt disallow. Never both on same URLs. See <a href="crawl-budget-optimization-large-sites.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">crawl budget optimization</a> for coordination strategies.</p>
+<h3 id="do-i-need-separate-sitemaps-for-faceted-navigation-urls">Do I need separate sitemaps for faceted navigation URLs?</h3>
+<p><strong>No.</strong> Only include base category URLs and strategic high-value filter URLs in <a href="create-xml-sitemap-large-site.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">sitemaps</a>. Don&#39;t include every parameter combination, wastes sitemap space and signals low-value URLs to Google. Sitemap should contain only URLs you want indexed (matching your canonical strategy).</p>
+<h3 id="will-canonical-tags-hurt-ux-by-hiding-filter-pages-from-users">Will canonical tags hurt UX by hiding filter pages from users?</h3>
+<p><strong>No.</strong> Canonical tags only affect search engine indexing. Filtered URLs remain accessible to users through site navigation. Users clicking &quot;red shoes&quot; filter see <code>/products?color=red</code> in their browser, they&#39;re not redirected to base URL. Canonical tags are invisible to users, only affect Google&#39;s index. UX unaffected.</p>
+<h3 id="how-do-i-handle-sort-parameters-price-low-to-high-newest-first">How do I handle sort parameters (price low-to-high, newest first)?</h3>
+<p><strong>Always canonicalize sort parameters.</strong> Sorting doesn&#39;t change product set, only order, pure duplicate content with no SEO value. Canonical implementation:</p>
+<pre><code class="language-html">&lt;!-- On /products?sort=price-asc --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products&quot; /&gt;
+
+&lt;!-- On /products?color=red&amp;sort=price-desc --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/products?color=red&quot; /&gt;
+</code></pre>
+<p>Remove <code>sort</code> parameter from canonical URL generation. Also consider robots.txt: <code>Disallow: /*?sort=</code> to prevent crawling. See <a href="cross-domain-canonical-tags-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">cross-domain canonicals</a> for related consolidation strategies.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/faceted-navigation-seo-crawl-bloat.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Faceted Navigation SEO: Stop Crawl Budget Waste &amp; Duplicate Content</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Fix faceted navigation SEO — 7 strategies to eliminate duplicate URLs, preserve crawl budget, and surface priority pages to Google without losing filter UX.</p>
+          </a>
+
+          <a href="/articles/cross-domain-canonical-tags-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement cross-domain canonical tags to consolidate ranking signals across domains. Fix syndicated content, domain migrations, and multi-site SEO issues.</p>
+          </a>
+
+          <a href="/articles/fix-duplicate-content-fast.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Duplicate Content Fast (Step-by-Step SEO Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Duplicate content fragments PageRank across multiple URLs, confuses Google about which version to index, and tanks your rankings. Learn how to audit duplicates with Screaming Frog, diagnose root causes, and fix them using canonicals, redirects, and noindex strategies.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers | Polytraffic</title>
+    <meta name="description" content="Implement SEO fixes at CDN edge layer. Add redirects, headers, canonical tags, and structured data via Cloudflare Workers without modifying origin code." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers | Polytraffic" />
+    <meta property="og:description" content="Implement SEO fixes at CDN edge layer. Add redirects, headers, canonical tags, and structured data via Cloudflare Workers without modifying origin code." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/edge-seo-cdn-level-fixes" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/edge-seo-cdn-level-fixes.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers | Polytraffic" />
+    <meta name="twitter:description" content="Implement SEO fixes at CDN edge layer. Add redirects, headers, canonical tags, and structured data via Cloudflare Workers without modifying origin code." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/edge-seo-cdn-level-fixes.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/edge-seo-cdn-level-fixes" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers",
+    "description": "Implement SEO fixes at CDN edge layer. Add redirects, headers, canonical tags, and structured data via Cloudflare Workers without modifying origin code.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/edge-seo-cdn-level-fixes.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/edge-seo-cdn-level-fixes.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/edge-seo-cdn-level-fixes.png" alt="Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="edge-seo-cdn-level-technical-fixes-without-touching-origin-servers">Edge SEO: CDN-Level Technical Fixes Without Touching Origin Servers</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Implement SEO fixes at CDN edge layer. Add redirects, headers, canonical tags, and structured data via Cloudflare Workers without modifying origin code.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#what-is-edge-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">What Is Edge SEO</a></li>
+<li><a href="#phase-1-set-up-cloudflare-workers" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 1: Set Up Cloudflare Workers</a></li>
+<li><a href="#phase-2-implement-301-redirects-at-edge" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 2: Implement 301 Redirects at Edge</a></li>
+<li><a href="#phase-3-inject-canonical-tags-at-edge" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 3: Inject Canonical Tags at Edge</a></li>
+<li><a href="#phase-4-add-security-headers-at-edge" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 4: Add Security Headers at Edge</a></li>
+<li><a href="#phase-5-inject-structured-data-at-edge" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 5: Inject Structured Data at Edge</a></li>
+<li><a href="#phase-6-a-b-testing-seo-changes-at-edge" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 6: A/B Testing SEO Changes at Edge</a></li>
+<li><a href="#phase-7-performance-optimization-at-edge" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 7: Performance Optimization at Edge</a></li>
+<li><a href="#common-edge-seo-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Edge SEO Mistakes</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Edge SEO</strong> deploys technical optimizations at the <strong>CDN</strong> layer. 301 redirects, canonical tag injection, header modifications, HTML transformations, without touching origin server code, enabling rapid SEO fixes on legacy platforms where backend access is restricted (Shopify, WordPress.com, proprietary CMSs) or deployment cycles span weeks. <strong>Cloudflare Workers</strong>, <strong>Fastly VCL</strong>, and <strong>Lambda@Edge</strong> execute JavaScript at edge nodes worldwide, intercepting requests/responses to inject missing structured data, consolidate www/non-www variants, strip tracking parameters, or transform HTML before serving to <strong>Googlebot</strong>. Organizations with complex approval processes, technical debt, or vendor-locked platforms use edge SEO to implement <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals</a> optimizations, <a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migrations</a>, and emergency fixes in minutes instead of months. Incorrect edge implementations, caching user-specific modifications, breaking JavaScript with HTML transformations, or creating infinite redirect loops, cause site-wide outages that affect all traffic routed through the CDN. This guide implements common edge SEO patterns with Cloudflare Workers, validates before production deployment, and monitors edge modifications for performance impact.</p>
+<h2 id="what-is-edge-seo">What Is Edge SEO</h2>
+<p><strong>Edge SEO</strong> runs code at CDN edge locations, modifying content before it reaches users or search engines.</p>
+<h3 id="how-edge-seo-works">How Edge SEO Works</h3>
+<p><strong>Normal request flow:</strong></p>
+<pre><code>User/Googlebot → CDN → Origin Server → CDN → User/Googlebot
+</code></pre>
+<p><strong>Edge SEO request flow:</strong></p>
+<pre><code>User/Googlebot → CDN → Edge Function (modify) → Origin Server → Edge Function (transform) → User/Googlebot
+</code></pre>
+<p><strong>Edge functions intercept:</strong></p>
+<ul>
+<li><strong>Requests:</strong> Modify before reaching origin (redirects, rewrites)</li>
+<li><strong>Responses:</strong> Transform HTML/headers before serving (inject tags, compress)</li>
+</ul>
+<h3 id="edge-computing-platforms">Edge Computing Platforms</h3>
+<p><strong>Cloudflare Workers:</strong></p>
+<ul>
+<li>JavaScript/TypeScript</li>
+<li>Free tier: 100,000 requests/day</li>
+<li>Global deployment (300+ locations)</li>
+<li>Easiest implementation</li>
+</ul>
+<p><strong>Fastly VCL (Varnish Configuration Language):</strong></p>
+<ul>
+<li>Custom caching language</li>
+<li>$50+/month</li>
+<li>Instant global purge</li>
+<li>Enterprise-focused</li>
+</ul>
+<p><strong>AWS Lambda@Edge:</strong></p>
+<ul>
+<li>Node.js, Python</li>
+<li>Pay-per-request ($0.0000002/request)</li>
+<li>CloudFront integration</li>
+<li>AWS ecosystem depth</li>
+</ul>
+<p><strong>Akamai EdgeWorkers:</strong></p>
+<ul>
+<li>JavaScript</li>
+<li>Enterprise pricing</li>
+<li>4000+ edge locations</li>
+<li>Industry leader scale</li>
+</ul>
+<h2 id="phase-1-set-up-cloudflare-workers">Phase 1: Set Up Cloudflare Workers</h2>
+<p><strong>Cloudflare Workers</strong> is the most accessible edge SEO platform.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p><strong>1. Domain on Cloudflare:</strong></p>
+<ul>
+<li>DNS managed by Cloudflare</li>
+<li>Free or paid plan</li>
+</ul>
+<p><strong>2. Cloudflare Workers enabled:</strong></p>
+<ul>
+<li>Dashboard → Workers → Enable</li>
+</ul>
+<h3 id="create-first-worker">Create First Worker</h3>
+<p><strong>Cloudflare Dashboard:</strong></p>
+<ol>
+<li>Workers → Create a Worker</li>
+<li>Name: <code>seo-redirects</code></li>
+<li>Edit code in browser IDE</li>
+</ol>
+<p><strong>Basic Worker skeleton:</strong></p>
+<pre><code class="language-javascript">addEventListener(&#39;fetch&#39;, event =&gt; {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  // Get original response from origin
+  const response = await fetch(request)
+
+  // Modify response
+  const modifiedResponse = new Response(response.body, response)
+
+  // Return modified response
+  return modifiedResponse
+}
+</code></pre>
+<h3 id="deploy-worker">Deploy Worker</h3>
+<p><strong>Click &quot;Save and Deploy&quot;</strong></p>
+<p><strong>Assign route:</strong></p>
+<ol>
+<li>Workers → select worker → Triggers → Add route</li>
+<li>Route: <code>*example.com/*</code> (all URLs)</li>
+<li>Zone: Select your domain</li>
+</ol>
+<p><strong>Worker now intercepts all requests.</strong></p>
+<h2 id="phase-2-implement-301-redirects-at-edge">Phase 2: Implement 301 Redirects at Edge</h2>
+<p><strong>Handle redirects without touching origin server.</strong></p>
+<h3 id="basic-301-redirect">Basic 301 Redirect</h3>
+<p><strong>Redirect old URL to new:</strong></p>
+<pre><code class="language-javascript">addEventListener(&#39;fetch&#39;, event =&gt; {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  const url = new URL(request.url)
+
+  // Redirect old-page to new-page
+  if (url.pathname === &#39;/old-page&#39;) {
+    return Response.redirect(&#39;https://example.com/new-page&#39;, 301)
+  }
+
+  // Pass through all other requests
+  return fetch(request)
+}
+</code></pre>
+<h3 id="www-to-non-www-redirect">WWW to Non-WWW Redirect</h3>
+<pre><code class="language-javascript">async function handleRequest(request) {
+  const url = new URL(request.url)
+
+  // Redirect www to non-www
+  if (url.hostname === &#39;www.example.com&#39;) {
+    url.hostname = &#39;example.com&#39;
+    return Response.redirect(url.toString(), 301)
+  }
+
+  return fetch(request)
+}
+</code></pre>
+<h3 id="http-to-https-redirect">HTTP to HTTPS Redirect</h3>
+<pre><code class="language-javascript">async function handleRequest(request) {
+  const url = new URL(request.url)
+
+  // Force HTTPS
+  if (url.protocol === &#39;http:&#39;) {
+    url.protocol = &#39;https:&#39;
+    return Response.redirect(url.toString(), 301)
+  }
+
+  return fetch(request)
+}
+</code></pre>
+<h3 id="bulk-redirects-pattern-matching">Bulk Redirects (Pattern Matching)</h3>
+<pre><code class="language-javascript">const redirects = {
+  &#39;/old-category/&#39;: &#39;/new-category/&#39;,
+  &#39;/blog/2020/&#39;: &#39;/blog/archive/&#39;,
+  &#39;/products/discontinued/&#39;: &#39;/products/&#39;
+}
+
+async function handleRequest(request) {
+  const url = new URL(request.url)
+
+  // Check redirect map
+  for (const [oldPath, newPath] of Object.entries(redirects)) {
+    if (url.pathname.startsWith(oldPath)) {
+      const newUrl = url.pathname.replace(oldPath, newPath)
+      return Response.redirect(`https://example.com${newUrl}`, 301)
+    }
+  }
+
+  return fetch(request)
+}
+</code></pre>
+<h2 id="phase-3-inject-canonical-tags-at-edge">Phase 3: Inject Canonical Tags at Edge</h2>
+<p><strong>Add missing canonical tags without modifying templates.</strong></p>
+<h3 id="html-rewriting-api">HTML Rewriting API</h3>
+<p><strong>Cloudflare Workers HTML Rewriter:</strong></p>
+<pre><code class="language-javascript">class CanonicalInjector {
+  element(element) {
+    // Check if canonical already exists
+    if (element.getAttribute(&#39;rel&#39;) === &#39;canonical&#39;) {
+      return // Don&#39;t inject duplicate
+    }
+  }
+}
+
+class HeadInjector {
+  element(element) {
+    const canonical = `&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com${new URL(request.url).pathname}&quot; /&gt;`
+    element.append(canonical, { html: true })
+  }
+}
+
+addEventListener(&#39;fetch&#39;, event =&gt; {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  const response = await fetch(request)
+
+  // Only modify HTML responses
+  const contentType = response.headers.get(&#39;content-type&#39;)
+  if (!contentType || !contentType.includes(&#39;text/html&#39;)) {
+    return response
+  }
+
+  // Inject canonical into &lt;head&gt;
+  return new HTMLRewriter()
+    .on(&#39;head&#39;, new HeadInjector())
+    .transform(response)
+}
+</code></pre>
+<p><strong>Save request URL globally:</strong></p>
+<pre><code class="language-javascript">let globalRequest
+
+addEventListener(&#39;fetch&#39;, event =&gt; {
+  globalRequest = event.request
+  event.respondWith(handleRequest(event.request))
+})
+
+class HeadInjector {
+  element(element) {
+    const url = new URL(globalRequest.url)
+    const canonical = `&lt;link rel=&quot;canonical&quot; href=&quot;${url.origin}${url.pathname}&quot; /&gt;`
+    element.append(canonical, { html: true })
+  }
+}
+</code></pre>
+<h3 id="strip-query-parameters-from-canonical">Strip Query Parameters from Canonical</h3>
+<pre><code class="language-javascript">class HeadInjector {
+  element(element) {
+    const url = new URL(globalRequest.url)
+    // Canonical without query parameters
+    const canonical = `&lt;link rel=&quot;canonical&quot; href=&quot;${url.origin}${url.pathname}&quot; /&gt;`
+    element.append(canonical, { html: true })
+  }
+}
+</code></pre>
+<p><strong>Use case:</strong> <a href="dynamic-canonical-tags-faceted-navigation.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Faceted navigation</a> with filters.</p>
+<h2 id="phase-4-add-security-headers-at-edge">Phase 4: Add Security Headers at Edge</h2>
+<p><strong>Inject security headers without server configuration.</strong></p>
+<h3 id="common-seo-related-headers">Common SEO-Related Headers</h3>
+<pre><code class="language-javascript">async function handleRequest(request) {
+  const response = await fetch(request)
+
+  // Clone response to modify headers
+  const newResponse = new Response(response.body, response)
+
+  // Add security headers
+  newResponse.headers.set(&#39;X-Content-Type-Options&#39;, &#39;nosniff&#39;)
+  newResponse.headers.set(&#39;X-Frame-Options&#39;, &#39;SAMEORIGIN&#39;)
+  newResponse.headers.set(&#39;Referrer-Policy&#39;, &#39;strict-origin-when-cross-origin&#39;)
+
+  // HSTS (force HTTPS)
+  newResponse.headers.set(&#39;Strict-Transport-Security&#39;, &#39;max-age=31536000; includeSubDomains&#39;)
+
+  return newResponse
+}
+</code></pre>
+<h3 id="x-robots-tag-header">X-Robots-Tag Header</h3>
+<p><strong>Noindex specific URLs:</strong></p>
+<pre><code class="language-javascript">async function handleRequest(request) {
+  const url = new URL(request.url)
+  const response = await fetch(request)
+  const newResponse = new Response(response.body, response)
+
+  // Noindex admin pages
+  if (url.pathname.startsWith(&#39;/admin/&#39;)) {
+    newResponse.headers.set(&#39;X-Robots-Tag&#39;, &#39;noindex, nofollow&#39;)
+  }
+
+  return newResponse
+}
+</code></pre>
+<h2 id="phase-5-inject-structured-data-at-edge">Phase 5: Inject Structured Data at Edge</h2>
+<p><strong>Add schema markup without modifying templates.</strong></p>
+<h3 id="inject-organization-schema">Inject Organization Schema</h3>
+<pre><code class="language-javascript">class HeadInjector {
+  element(element) {
+    const schema = {
+      &quot;@context&quot;: &quot;https://schema.org&quot;,
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;name&quot;: &quot;Example Corp&quot;,
+      &quot;url&quot;: &quot;https://example.com&quot;,
+      &quot;logo&quot;: &quot;https://example.com/logo.png&quot;
+    }
+
+    const script = `&lt;script type=&quot;application/ld+json&quot;&gt;${JSON.stringify(schema)}&lt;/script&gt;`
+    element.append(script, { html: true })
+  }
+}
+
+async function handleRequest(request) {
+  const response = await fetch(request)
+
+  return new HTMLRewriter()
+    .on(&#39;head&#39;, new HeadInjector())
+    .transform(response)
+}
+</code></pre>
+<h3 id="dynamic-product-schema">Dynamic Product Schema</h3>
+<pre><code class="language-javascript">class ProductSchemaInjector {
+  element(element) {
+    const url = new URL(globalRequest.url)
+
+    // Extract product ID from URL
+    const productId = url.pathname.split(&#39;/&#39;).pop()
+
+    // Fetch product data from API (or embed in HTML)
+    // For demo, hardcoded
+    const schema = {
+      &quot;@context&quot;: &quot;https://schema.org&quot;,
+      &quot;@type&quot;: &quot;Product&quot;,
+      &quot;name&quot;: &quot;Product Name&quot;,
+      &quot;sku&quot;: productId,
+      &quot;offers&quot;: {
+        &quot;@type&quot;: &quot;Offer&quot;,
+        &quot;price&quot;: &quot;29.99&quot;,
+        &quot;priceCurrency&quot;: &quot;USD&quot;
+      }
+    }
+
+    const script = `&lt;script type=&quot;application/ld+json&quot;&gt;${JSON.stringify(schema)}&lt;/script&gt;`
+    element.append(script, { html: true })
+  }
+}
+</code></pre>
+<h2 id="phase-6-a-b-testing-seo-changes-at-edge">Phase 6: A/B Testing SEO Changes at Edge</h2>
+<p><strong>Test modifications on subset of traffic.</strong></p>
+<h3 id="split-traffic-by-user-agent">Split Traffic by User-Agent</h3>
+<p><strong>Test only Googlebot:</strong></p>
+<pre><code class="language-javascript">async function handleRequest(request) {
+  const userAgent = request.headers.get(&#39;user-agent&#39;) || &#39;&#39;
+
+  // Apply SEO modifications only for bots
+  if (userAgent.includes(&#39;Googlebot&#39;) || userAgent.includes(&#39;Bingbot&#39;)) {
+    const response = await fetch(request)
+
+    // Inject canonical, schema, etc.
+    return new HTMLRewriter()
+      .on(&#39;head&#39;, new HeadInjector())
+      .transform(response)
+  }
+
+  // Normal users get unmodified response
+  return fetch(request)
+}
+</code></pre>
+<p><strong>Caution:</strong> Showing different content to bots vs. users can trigger cloaking penalties if content differs substantially. Use for technical SEO (headers, tags) only, not content changes.</p>
+<h3 id="traffic-splitting-10-test">Traffic Splitting (10% Test)</h3>
+<pre><code class="language-javascript">async function handleRequest(request) {
+  const testGroup = Math.random() &lt; 0.1 // 10% of traffic
+
+  if (testGroup) {
+    // Apply edge SEO modifications
+    const response = await fetch(request)
+    return new HTMLRewriter().on(&#39;head&#39;, new HeadInjector()).transform(response)
+  }
+
+  // Control group: no modifications
+  return fetch(request)
+}
+</code></pre>
+<p><strong>Track in Analytics:</strong></p>
+<pre><code class="language-javascript">// Add test group header
+newResponse.headers.set(&#39;X-Test-Group&#39;, testGroup ? &#39;edge-seo&#39; : &#39;control&#39;)
+</code></pre>
+<h2 id="phase-7-performance-optimization-at-edge">Phase 7: Performance Optimization at Edge</h2>
+<p><strong>Improve <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals</a> at CDN layer.</strong></p>
+<h3 id="automatic-image-optimization">Automatic Image Optimization</h3>
+<p><strong>Cloudflare Image Resizing:</strong></p>
+<pre><code class="language-javascript">async function handleRequest(request) {
+  const url = new URL(request.url)
+
+  // Resize images for mobile
+  if (url.pathname.match(/\.(jpg|jpeg|png)$/)) {
+    const accept = request.headers.get(&#39;accept&#39;)
+
+    // Convert to WebP if supported
+    if (accept &amp;&amp; accept.includes(&#39;image/webp&#39;)) {
+      url.searchParams.set(&#39;format&#39;, &#39;webp&#39;)
+    }
+
+    // Resize for mobile
+    const userAgent = request.headers.get(&#39;user-agent&#39;) || &#39;&#39;
+    if (userAgent.includes(&#39;Mobile&#39;)) {
+      url.searchParams.set(&#39;width&#39;, &#39;800&#39;)
+    }
+
+    return fetch(url.toString())
+  }
+
+  return fetch(request)
+}
+</code></pre>
+<h3 id="remove-unused-css-js">Remove Unused CSS/JS</h3>
+<p><strong>Strip render-blocking resources:</strong></p>
+<pre><code class="language-javascript">class ScriptRemover {
+  element(element) {
+    const src = element.getAttribute(&#39;src&#39;)
+
+    // Remove specific third-party scripts
+    if (src &amp;&amp; src.includes(&#39;unnecessary-analytics.js&#39;)) {
+      element.remove()
+    }
+  }
+}
+
+async function handleRequest(request) {
+  const response = await fetch(request)
+
+  return new HTMLRewriter()
+    .on(&#39;script&#39;, new ScriptRemover())
+    .transform(response)
+}
+</code></pre>
+<p><strong>Caution:</strong> Breaking JavaScript can crash site. Test thoroughly.</p>
+<h2 id="common-edge-seo-mistakes">Common Edge SEO Mistakes</h2>
+<h3 id="mistake-1-caching-user-specific-modifications">Mistake 1: Caching User-Specific Modifications</h3>
+<p><strong>Problem:</strong> Worker modifies HTML based on cookie, edge caches it, all users see same modification.</p>
+<p><strong>Fix:</strong> Use <code>Vary: Cookie</code> or disable caching:</p>
+<pre><code class="language-javascript">newResponse.headers.set(&#39;Cache-Control&#39;, &#39;private, no-store&#39;)
+</code></pre>
+<h3 id="mistake-2-redirect-loops">Mistake 2: Redirect Loops</h3>
+<p><strong>Problem:</strong> Redirect logic creates infinite loop.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="language-javascript">// BAD: Infinite loop
+if (url.pathname === &#39;/page&#39;) {
+  return Response.redirect(&#39;/page&#39;, 301) // Redirects to itself!
+}
+</code></pre>
+<p><strong>Fix:</strong> Ensure redirect target differs from source.</p>
+<h3 id="mistake-3-breaking-origin-functionality">Mistake 3: Breaking Origin Functionality</h3>
+<p><strong>Problem:</strong> HTML transformation breaks JavaScript selectors.</p>
+<p><strong>Example:</strong> Injecting <code>&lt;script&gt;</code> into <code>&lt;head&gt;</code> changes DOM structure, breaking <code>document.querySelector(&#39;head &gt; script:first-child&#39;)</code>.</p>
+<p><strong>Fix:</strong> Test modifications on staging before production.</p>
+<h3 id="mistake-4-ignoring-worker-limits">Mistake 4: Ignoring Worker Limits</h3>
+<p><strong>Cloudflare Workers limits:</strong></p>
+<ul>
+<li>CPU time: 50ms (free), 50ms (paid) per request</li>
+<li>Memory: 128MB</li>
+<li>Request size: 100MB</li>
+</ul>
+<p><strong>Exceeding limits:</strong> Worker throws error, request fails.</p>
+<p><strong>Fix:</strong> Profile Worker execution time, optimize heavy operations.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>What Is Edge SEO:</strong> async function handleRequest(request) {
+// Get original response from origin
+const response = await fetch(request)</li>
+<li><strong>Phase 1: Set Up Cloudflare Workers:</strong> async function handleRequest(request) {
+// Get original response from origin
+const response = await fetch(request)</li>
+<li><strong>Phase 2: Implement 301 Redirects at Edge:</strong> async function handleRequest(request) {
+const url = new URL(request.url)</li>
+<li><strong>Phase 3: Inject Canonical Tags at Edge:</strong> class HeadInjector {
+element(element) {
+  const canonical = <link rel="canonical" href="https://example.com${new URL(request.url).pathname}" />
+  element.</li>
+<li><strong>Phase 4: Add Security Headers at Edge:</strong> // Clone response to modify headers
+const newResponse = new Response(response.body, response)</li>
+<li><strong>Phase 5: Inject Structured Data at Edge:</strong> const script = <script type="application/ld+json">${JSON.stringify(schema)}</script>
+  element.append(script, { html: true })
+}
+}</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="does-edge-seo-slow-down-my-site">Does edge SEO slow down my site?</h3>
+<p><strong>Minimal impact.</strong> Well-optimized Workers add &lt;10ms latency. <strong>HTMLRewriter</strong> is stream-based (processes HTML as it arrives, not all at once), so large pages don&#39;t cause memory issues. Monitor Worker execution time in Cloudflare Analytics → Workers. If exceeding 20ms consistently, optimize code. See <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals optimization</a>.</p>
+<h3 id="can-i-use-edge-seo-to-implement-dynamic-rendering">Can I use edge SEO to implement dynamic rendering?</h3>
+<p><strong>Yes.</strong> Detect Googlebot user-agent, serve pre-rendered HTML from edge cache while serving JavaScript SPA to users. <strong>Rendertron</strong> can run as Worker or external service. Alternatively, use <a href="dynamic-rendering-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">dynamic rendering guide</a> with origin-side rendering. Edge approach faster but more complex.</p>
+<h3 id="will-google-penalize-me-for-using-edge-seo">Will Google penalize me for using edge SEO?</h3>
+<p><strong>No</strong>, if modifications don&#39;t constitute cloaking. <strong>Allowed:</strong> Adding canonical tags, schema markup, security headers, redirects. <strong>Not allowed:</strong> Showing substantially different content to Googlebot vs. users (hiding products, changing prices). Edge SEO for technical improvements is compliant with Google guidelines.</p>
+<h3 id="can-i-use-edge-seo-with-shopify-or-wordpress-com">Can I use edge SEO with Shopify or WordPress.com?</h3>
+<p><strong>Yes.</strong> Edge SEO doesn&#39;t require backend access, works with any platform. Point domain to Cloudflare, enable Workers, implement modifications. <strong>Shopify</strong> and <strong>WordPress.com</strong> restrict backend code, making edge SEO ideal for technical fixes. <strong>Caution:</strong> Shopify Plus has built-in edge scripting (Shopify Scripts), use that instead of external Workers if available.</p>
+<h3 id="how-do-i-test-edge-modifications-before-deploying-to-production">How do I test edge modifications before deploying to production?</h3>
+<p><strong>Cloudflare staging:</strong> Workers → Preview (test in browser). <strong>Route testing:</strong> Create worker route for subdomain (<code>staging.example.com/*</code>), test thoroughly, then deploy to production route (<code>example.com/*</code>). <strong>User-Agent testing:</strong> Apply modifications only to Googlebot initially, monitor Search Console for issues, roll out to all traffic after validation. See <a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migration guide</a> for testing strategies.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/edge-caching-vs-origin-caching.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Edge Caching vs Origin Caching: Speed Up Site Response Times for SEO</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compare edge caching (CDN) vs origin caching (Varnish, Redis) for improving TTFB. Choose the right caching strategy for Core Web Vitals optimization.</p>
+          </a>
+
+          <a href="/articles/defer-javascript-without-breaking-site.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Defer JavaScript Without Breaking Your Site: Safe Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Defer JavaScript to improve page load speed without breaking functionality. Identify critical scripts, test defer/async attributes, and fix dependency issues.</p>
+          </a>
+
+          <a href="/articles/core-web-vitals-failing-mobile-only.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

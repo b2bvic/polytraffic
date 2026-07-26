@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Preload Fonts Without Causing Layout Shift (font-display Strategy) | Polytraffic</title>
+    <meta name="description" content="Eliminate font-loading FOIT/FOUT with preload, font-display, and subsetting. Maintain CLS under 0.1 while delivering custom typography." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Preload Fonts Without Causing Layout Shift (font-display Strategy) | Polytraffic" />
+    <meta property="og:description" content="Eliminate font-loading FOIT/FOUT with preload, font-display, and subsetting. Maintain CLS under 0.1 while delivering custom typography." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/preload-fonts-without-layout-shift" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/preload-fonts-without-layout-shift.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Preload Fonts Without Causing Layout Shift (font-display Strategy) | Polytraffic" />
+    <meta name="twitter:description" content="Eliminate font-loading FOIT/FOUT with preload, font-display, and subsetting. Maintain CLS under 0.1 while delivering custom typography." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/preload-fonts-without-layout-shift.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/preload-fonts-without-layout-shift" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Preload Fonts Without Causing Layout Shift (font-display Strategy)",
+    "description": "Eliminate font-loading FOIT/FOUT with preload, font-display, and subsetting. Maintain CLS under 0.1 while delivering custom typography.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/preload-fonts-without-layout-shift.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/preload-fonts-without-layout-shift.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Performance Optimization.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Preload Fonts Without Causing Layout Shift (font-display Strategy)"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Performance Optimization.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Preload Fonts Without Causing Layout Shift (font-display Strategy)</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/preload-fonts-without-layout-shift.png" alt="How to Preload Fonts Without Causing Layout Shift (font-display Strategy)" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-preload-fonts-without-causing-layout-shift-font-display-strategy">How to Preload Fonts Without Causing Layout Shift (font-display Strategy)</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Eliminate font-loading FOIT/FOUT with preload, font-display, and subsetting. Maintain CLS under 0.1 while delivering custom typography.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#understanding-font-loading-behavior" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding Font Loading Behavior</a></li>
+<li><a href="#preload-implementation-for-early-font-discovery" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Preload Implementation for Early Font Discovery</a></li>
+<li><a href="#font-display-strategy-for-immediate-text-visibility" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Font-Display Strategy for Immediate Text Visibility</a></li>
+<li><a href="#minimizing-layout-shift-with-font-matching" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Minimizing Layout Shift with Font Matching</a></li>
+<li><a href="#font-subsetting-to-reduce-file-size" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Font Subsetting to Reduce File Size</a></li>
+<li><a href="#self-hosting-vs-google-fonts" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Self-Hosting vs. Google Fonts</a></li>
+<li><a href="#testing-and-measuring-font-loading" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Testing and Measuring Font Loading</a></li>
+<li><a href="#advanced-optimization-techniques" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced Optimization Techniques</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Web font loading</strong> creates visible text delays (FOIT - Flash of Invisible Text) or style shifts (FOUT - Flash of Unstyled Text) that degrade user experience and Core Web Vitals. Browsers hide text 3 seconds waiting for custom fonts to download, users see blank pages despite content existing in DOM. When fonts finally load, text reflows causing layout shift (CLS penalties). A site scoring 0.18 CLS from font loading alone fails Core Web Vitals, harming rankings.</p>
+<p>Preloading fonts combined with <code>font-display: swap</code> provides immediate text visibility using fallback fonts while custom fonts download in background. When custom fonts arrive, browsers swap them without blocking rendering. Proper implementation achieves CLS &lt;0.05 while delivering brand-specific typography, maintaining both performance and design requirements.</p>
+<h2 id="understanding-font-loading-behavior">Understanding Font Loading Behavior</h2>
+<p><strong>Default font loading</strong> blocks text rendering until custom fonts download. Browsers discover font requirements only after parsing CSS, typically 300-600ms into page load. Then fonts download (200-800ms on mobile networks). During this period, text remains invisible (FOIT) or unstyled (FOUT depending on browser).</p>
+<p><strong>FOIT (Flash of Invisible Text)</strong>: Chrome, Firefox default behavior. Text hidden while font downloads, appearing suddenly when complete. Long downloads (&gt;3s) cause browsers to give up, showing fallback fonts. Users experience blank pages followed by sudden text appearance.</p>
+<p><strong>FOUT (Flash of Unstyled Text)</strong>: Safari, older browsers. Shows fallback fonts immediately, swapping to custom fonts when available. Causes visible style shifts, text size changes, weight changes, width changes trigger reflow as custom fonts replace fallbacks.</p>
+<p><strong>Cumulative Layout Shift</strong> from font loading stems from metric mismatches between fallback and custom fonts. If fallback font (Arial) renders text 400px wide and custom font renders same text 380px wide, content below shifts 20px upward when swap occurs. Repeated across multiple text blocks, shifts compound to 0.15-0.25 CLS.</p>
+<h3 id="font-loading-timeline">Font Loading Timeline</h3>
+<p>Typical font loading sequence without optimization:</p>
+<pre><code>0ms:    HTML request starts
+100ms:  HTML received, parsing begins
+200ms:  CSS discovered in &lt;head&gt;
+300ms:  CSS downloaded, parsed
+400ms:  Font file discovered in CSS @font-face
+500ms:  Font request starts
+1200ms: Font downloaded (700ms on 4G)
+1250ms: Font decoded and ready
+1250ms: Text swaps from invisible/fallback to custom font
+</code></pre>
+<p><strong>1,250ms of FOIT</strong> or visible FOUT. Users on slow networks wait 2-3 seconds for text appearance. This delay tanks First Contentful Paint and frustrates users.</p>
+<h2 id="preload-implementation-for-early-font-discovery">Preload Implementation for Early Font Discovery</h2>
+<p><strong>Link rel preload</strong> moves font discovery from CSS parsing (400ms) to HTML head parsing (100ms), eliminating 300ms discovery delay:</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;link rel=&quot;preload&quot; href=&quot;/fonts/custom-font.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/styles.css&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<p>The <code>crossorigin</code> attribute is required even for same-origin fonts due to browser security requirements for font loading.</p>
+<p><strong>Preload multiple weights</strong>:</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;/fonts/custom-regular.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/fonts/custom-bold.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+</code></pre>
+<p><strong>Preload only critical fonts</strong>: Preloading 5+ fonts consumes bandwidth needed for other critical resources. Prioritize:</p>
+<ol>
+<li>Body text font (most visible text uses this)</li>
+<li>Headline font if distinctly different</li>
+<li>Bold weight if extensively used</li>
+</ol>
+<p>Italic and specialty weights load without preload, they appear less frequently, making preload less valuable.</p>
+<h3 id="preload-performance-impact">Preload Performance Impact</h3>
+<p><strong>Network prioritization</strong> treats preloaded fonts as high-priority resources. Browsers allocate bandwidth preferentially to preloaded fonts over images, non-critical scripts, and analytics.</p>
+<p><strong>Early connection establishment</strong>: Fonts from third-party domains (Google Fonts, Adobe Fonts) benefit from preconnect:</p>
+<pre><code class="language-html">&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+</code></pre>
+<p>Preconnect establishes DNS, TCP, and TLS connections to font CDNs before font requests occur, saving 200-400ms on mobile networks.</p>
+<p><strong>Cache benefits</strong>: Once preloaded and cached, subsequent page loads serve fonts from browser cache instantly. First page load pays download cost, later pages load instantly.</p>
+<h2 id="font-display-strategy-for-immediate-text-visibility">Font-Display Strategy for Immediate Text Visibility</h2>
+<p><strong>Font-display property</strong> controls rendering behavior during font loading:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;CustomFont&#39;;
+  src: url(&#39;/fonts/custom-font.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+</code></pre>
+<p><strong>Font-display values</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Behavior</th>
+<th>Block Period</th>
+<th>Swap Period</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>swap</strong></td>
+<td>Show fallback immediately, swap when ready</td>
+<td>0ms</td>
+<td>Infinite</td>
+<td>Body text, general use</td>
+</tr>
+<tr>
+<td><strong>block</strong></td>
+<td>Invisible 3s, then swap</td>
+<td>3000ms</td>
+<td>Infinite</td>
+<td>Icons, critical brand fonts</td>
+</tr>
+<tr>
+<td><strong>fallback</strong></td>
+<td>Invisible 100ms, swap 3s window</td>
+<td>100ms</td>
+<td>3000ms</td>
+<td>Progressive enhancement</td>
+</tr>
+<tr>
+<td><strong>optional</strong></td>
+<td>Invisible 100ms, swap only if cached</td>
+<td>100ms</td>
+<td>0ms</td>
+<td>Non-critical fonts</td>
+</tr>
+<tr>
+<td><strong>auto</strong></td>
+<td>Browser default (usually block)</td>
+<td>Varies</td>
+<td>Varies</td>
+<td>Don&#39;t use</td>
+</tr>
+</tbody></table>
+<p><strong>Swap (recommended)</strong>: Text visible immediately using fallback font. Custom font swaps when loaded. Causes FOUT but ensures text visibility. Optimal for body text, users can read content while fonts load.</p>
+<p><strong>Block</strong>: Text invisible 3 seconds while font loads. After 3s, browser gives up and shows fallback. Custom font swaps if arrives within ~30s. Useful for icon fonts where fallback glyphs display wrong icons. Avoid for body text, users see blank pages.</p>
+<p><strong>Fallback</strong>: Compromise between swap and block. Brief 100ms invisibility, then shows fallback. Custom font swaps only within 3s window. If font takes 4s to load, fallback remains permanently. Useful when font loading is uncertain (flaky CDNs, slow networks).</p>
+<p><strong>Optional</strong>: Respects user connection speed. Fast networks load fonts. Slow networks skip font loading entirely, using fallbacks permanently. Treats custom fonts as progressive enhancement. Eliminates CLS but may show inconsistent typography across users.</p>
+<h3 id="optimal-configuration">Optimal Configuration</h3>
+<p><strong>Body text</strong>:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;BodyFont&#39;;
+  src: url(&#39;/fonts/body-regular.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: swap;
+}
+</code></pre>
+<p>Immediate text visibility &gt; temporary style flash. Users prioritize reading content over perfect typography during initial load.</p>
+<p><strong>Headlines</strong>:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;HeadlineFont&#39;;
+  src: url(&#39;/fonts/headline-bold.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: swap;
+}
+</code></pre>
+<p>Same as body. Headlines should remain readable even during FOUT period.</p>
+<p><strong>Icon fonts</strong>:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;IconFont&#39;;
+  src: url(&#39;/fonts/icons.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: block;
+}
+</code></pre>
+<p>Icon fonts showing fallback glyphs display wrong symbols. Brief invisibility (3s max) preferable to wrong icons. Consider replacing icon fonts with SVGs entirely, better accessibility and no FOIT/FOUT issues.</p>
+<h2 id="minimizing-layout-shift-with-font-matching">Minimizing Layout Shift with Font Matching</h2>
+<p><strong>Size-adjust property</strong> modifies fallback font metrics to match custom font dimensions:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;CustomFont&#39;;
+  src: url(&#39;/fonts/custom.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: &#39;CustomFontFallback&#39;;
+  src: local(&#39;Arial&#39;);
+  size-adjust: 95%;
+  ascent-override: 105%;
+  descent-override: 35%;
+  line-gap-override: 0%;
+}
+
+body {
+  font-family: &#39;CustomFont&#39;, &#39;CustomFontFallback&#39;, Arial, sans-serif;
+}
+</code></pre>
+<p><strong>Size-adjust</strong> scales fallback font to match custom font size. If custom font renders 5% smaller than Arial, <code>size-adjust: 95%</code> shrinks Arial to match.</p>
+<p><strong>Ascent/descent/line-gap overrides</strong> fine-tune vertical metrics. These adjustments eliminate most layout shift during font swap.</p>
+<h3 id="calculating-adjustment-values">Calculating Adjustment Values</h3>
+<p><strong>Font comparison tools</strong> measure metric differences:</p>
+<ol>
+<li><strong>Font Style Matcher</strong> (meowni.ca/font-style-matcher): Visual comparison tool</li>
+<li><strong>Capsize</strong> (seek-oss.github.io/capsize): Calculates metrics programmatically</li>
+<li>Manual measurement: Render identical text in both fonts, measure dimensions</li>
+</ol>
+<p>Example calculation:</p>
+<ul>
+<li>Custom font renders 400px wide headline</li>
+<li>Arial renders same headline 420px wide</li>
+<li>Size-adjust = 400 / 420 = 0.952 → 95.2%</li>
+</ul>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;ArialAdjusted&#39;;
+  src: local(&#39;Arial&#39;);
+  size-adjust: 95.2%;
+}
+
+body {
+  font-family: &#39;CustomFont&#39;, &#39;ArialAdjusted&#39;, Arial, sans-serif;
+}
+</code></pre>
+<p><strong>Browser support</strong>: size-adjust and metric overrides work in Chrome 92+, Firefox 89+, Safari 17+. Older browsers ignore these properties, using unadjusted fallbacks. Progressive enhancement, modern browsers get optimized fallbacks, older browsers experience slightly larger layout shifts.</p>
+<h2 id="font-subsetting-to-reduce-file-size">Font Subsetting to Reduce File Size</h2>
+<p><strong>Full font files</strong> contain thousands of glyphs for multiple languages and special characters. A typical font includes:</p>
+<ul>
+<li>Latin characters (A-Z, a-z, 0-9)</li>
+<li>Extended Latin (accented characters)</li>
+<li>Cyrillic, Greek, Arabic scripts</li>
+<li>Symbols, ligatures, fractions</li>
+</ul>
+<p>Sites using only English content load unnecessary glyphs. <strong>Subsetting</strong> removes unused characters, reducing file sizes 60-85%.</p>
+<p><strong>Creating subsets</strong>:</p>
+<pre><code class="language-bash"># Using pyftsubset (part of fonttools)
+pyftsubset custom-font.ttf \
+  --output-file=&quot;custom-font-subset.woff2&quot; \
+  --flavor=woff2 \
+  --layout-features=&quot;*&quot; \
+  --unicodes=&quot;U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD&quot;
+</code></pre>
+<p>This creates Latin-only subset. Original file: 180KB. Subset: 35KB (81% reduction).</p>
+<p><strong>Google Fonts subsetting</strong>:</p>
+<pre><code class="language-html">&lt;!-- Full font (all characters) --&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&quot; rel=&quot;stylesheet&quot;&gt;
+
+&lt;!-- Latin subset only --&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;subset=latin&quot; rel=&quot;stylesheet&quot;&gt;
+
+&lt;!-- Latin + Latin Extended --&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;subset=latin,latin-ext&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+<p>Subsetting reduces transfer time on mobile networks:</p>
+<ul>
+<li>Full font: 180KB @ 4G = 720ms</li>
+<li>Subset: 35KB @ 4G = 140ms</li>
+<li><strong>580ms faster First Contentful Paint</strong></li>
+</ul>
+<h3 id="variable-fonts-for-weight-ranges">Variable Fonts for Weight Ranges</h3>
+<p><strong>Variable fonts</strong> contain multiple weights in single files:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;CustomVariable&#39;;
+  src: url(&#39;/fonts/custom-variable.woff2&#39;) format(&#39;woff2&#39;);
+  font-weight: 100 900; /* Entire range */
+  font-display: swap;
+}
+
+h1 { font-weight: 800; }
+h2 { font-weight: 700; }
+body { font-weight: 400; }
+</code></pre>
+<p>Traditional approach requires separate files for each weight:</p>
+<ul>
+<li>Regular: 40KB</li>
+<li>Bold: 42KB</li>
+<li>Total: 82KB + 2 HTTP requests</li>
+</ul>
+<p>Variable font:</p>
+<ul>
+<li>All weights: 50KB + 1 HTTP request</li>
+</ul>
+<p>Variable fonts benefit sites using 3+ weights. Sites using only 1-2 weights gain little benefit.</p>
+<h2 id="self-hosting-vs-google-fonts">Self-Hosting vs. Google Fonts</h2>
+<p><strong>Google Fonts advantages</strong>:</p>
+<ul>
+<li>CDN delivery (fast, geographically distributed)</li>
+<li>Already cached for many users</li>
+<li>Automatic format negotiation (WOFF2 for modern browsers)</li>
+<li>Simple implementation</li>
+</ul>
+<p><strong>Google Fonts disadvantages</strong>:</p>
+<ul>
+<li>Third-party DNS lookup (50-150ms delay)</li>
+<li>TLS negotiation overhead (100-200ms)</li>
+<li>No preload possible for font files (only CDN connection)</li>
+<li>Privacy concerns (GDPR compliance)</li>
+</ul>
+<p><strong>Self-hosting advantages</strong>:</p>
+<ul>
+<li>No third-party DNS/TLS overhead</li>
+<li>Full preload control</li>
+<li>Complete control over caching</li>
+<li>No external dependencies</li>
+<li>Privacy-friendly</li>
+</ul>
+<p><strong>Self-hosting disadvantages</strong>:</p>
+<ul>
+<li>Manual format conversion/subsetting</li>
+<li>Hosting bandwidth costs</li>
+<li>No shared cache benefit</li>
+<li>Requires CDN for global performance</li>
+</ul>
+<p><strong>Recommendation</strong>: Self-host for optimal performance. Overhead reduction from eliminating third-party connections outweighs Google Fonts CDN benefits. Use Google Fonts for prototyping, migrate to self-hosted for production.</p>
+<h2 id="testing-and-measuring-font-loading">Testing and Measuring Font Loading</h2>
+<p><strong>Chrome DevTools Network panel</strong>:</p>
+<ol>
+<li>Filter by &quot;Font&quot;</li>
+<li>Disable cache (checkbox)</li>
+<li>Throttle to &quot;Slow 4G&quot;</li>
+<li>Reload page</li>
+<li>Measure font download timing and priority</li>
+</ol>
+<p><strong>Priority levels</strong>:</p>
+<ul>
+<li>&quot;Highest&quot;: Preloaded fonts</li>
+<li>&quot;High&quot;: Fonts discovered early in CSS</li>
+<li>&quot;Low&quot;: Late-discovered fonts</li>
+</ul>
+<p><strong>Lighthouse audit</strong> flags font issues:</p>
+<ul>
+<li>&quot;Ensure text remains visible during webfont load&quot; (font-display warning)</li>
+<li>&quot;Preload key requests&quot; (suggests preloading fonts)</li>
+<li>&quot;Eliminate render-blocking resources&quot; (CSS blocking font discovery)</li>
+</ul>
+<p><strong>WebPageTest filmstrip</strong> shows visual progression:</p>
+<ul>
+<li>Note when text first appears (FCP)</li>
+<li>Observe FOUT flash when fonts swap</li>
+<li>Measure layout shift timing</li>
+</ul>
+<p><strong>Layout shift measurement</strong>:</p>
+<pre><code class="language-javascript">// Measure CLS from font loading
+let cls = 0;
+new PerformanceObserver((list) =&gt; {
+  for (const entry of list.getEntries()) {
+    if (!entry.hadRecentInput) {
+      cls += entry.value;
+    }
+  }
+  console.log(&#39;Cumulative Layout Shift:&#39;, cls);
+}).observe({type: &#39;layout-shift&#39;, buffered: true});
+</code></pre>
+<p>Run before/after font optimization to quantify CLS improvements.</p>
+<h2 id="advanced-optimization-techniques">Advanced Optimization Techniques</h2>
+<p><strong>Critical FOFT (Flash of Faux Text)</strong>:</p>
+<ol>
+<li>Load single font weight (regular) immediately</li>
+<li>Use font-synthesis for bold/italic (browser fakes styles)</li>
+<li>Load actual bold/italic fonts after page interactive</li>
+</ol>
+<pre><code class="language-css">/* Stage 1: Load regular only */
+@font-face {
+  font-family: &#39;CustomFOFT&#39;;
+  src: url(&#39;/fonts/regular.woff2&#39;) format(&#39;woff2&#39;);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Stage 2: Load bold after page load */
+@font-face {
+  font-family: &#39;CustomFOFT&#39;;
+  src: url(&#39;/fonts/bold.woff2&#39;) format(&#39;woff2&#39;);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+</code></pre>
+<p>Prioritizes readable text over perfect typography. Bold text initially uses synthesized (faux) bold, swapping to real bold when available.</p>
+<p><strong>Font loading API</strong> provides programmatic control:</p>
+<pre><code class="language-javascript">// Load font asynchronously
+const font = new FontFace(&#39;CustomFont&#39;, &#39;url(/fonts/custom.woff2)&#39;, {
+  weight: &#39;400&#39;,
+  style: &#39;normal&#39;,
+  display: &#39;swap&#39;
+});
+
+font.load().then((loadedFont) =&gt; {
+  document.fonts.add(loadedFont);
+  document.body.classList.add(&#39;fonts-loaded&#39;);
+});
+</code></pre>
+<p>Apply styles only after fonts load:</p>
+<pre><code class="language-css">body { font-family: Arial, sans-serif; }
+body.fonts-loaded { font-family: &#39;CustomFont&#39;, Arial, sans-serif; }
+</code></pre>
+<p>This approach eliminates FOUT entirely, no visible swap. However, it delays custom font display until JavaScript executes and fonts load. Use for optional design enhancements, not body text.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Understanding Font Loading Behavior:</strong> Typical font loading sequence without optimization:</li>
+<li><strong>Preload Implementation for Early Font Discovery:</strong> The crossorigin attribute is required even for same-origin fonts due to browser security requirements for font loading.</li>
+<li><strong>Font-Display Strategy for Immediate Text Visibility:</strong> Immediate text visibility &gt; temporary style flash.</li>
+<li><strong>Minimizing Layout Shift with Font Matching:</strong> @font-face {
+font-family: &#39;CustomFontFallback&#39;;
+src: local(&#39;Arial&#39;);
+size-adjust: 95%;
+ascent-override: 105%;
+descent-override: 35%;
+line-gap-overri</li>
+<li><strong>Font Subsetting to Reduce File Size:</strong> Sites using only English content load unnecessary glyphs.</li>
+<li><strong>Self-Hosting vs. Google Fonts:</strong> Run before/after font optimization to quantify CLS improvements.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<h3 id="does-font-display-optional-eliminate-layout-shift-entirely">Does font-display: optional eliminate layout shift entirely?</h3>
+<p>Yes, but at the cost of inconsistent typography. Optional causes browsers to skip font loading on slow connections, permanently using fallback fonts. Fast connections load custom fonts, slow connections see fallbacks forever. This creates inconsistent brand presentation across users. Better approach: use swap with size-adjust fallback matching to minimize CLS while ensuring consistent typography.</p>
+<h3 id="should-i-preload-google-fonts-or-self-host-them">Should I preload Google Fonts or self-host them?</h3>
+<p>Self-host for best performance. Google Fonts require DNS lookup (50-150ms), TLS handshake (100-200ms), and connection establishment before downloading fonts. Self-hosted fonts eliminate third-party overhead. Additionally, self-hosting enables true preload (Google Fonts allows preconnect only, not preload). Subsetting self-hosted fonts further reduces file sizes beyond Google Fonts optimizations. Self-hosting trades convenience for 200-400ms faster font loading.</p>
+<h3 id="how-many-fonts-should-i-preload">How many fonts should I preload?</h3>
+<p>Maximum 2-3 critical fonts. Preload body text font (highest priority), headline font if distinctly different, and bold weight if extensively used. Preloading 5+ fonts consumes bandwidth better spent on critical images, CSS, and JavaScript. Italic, light, and extra-bold weights load without preload, they appear less frequently, making early loading less valuable. Excessive preloading paradoxically slows pages by delaying other critical resources.</p>
+<h3 id="can-i-use-font-display-swap-and-avoid-fout-entirely">Can I use font-display: swap and avoid FOUT entirely?</h3>
+<p>No. Swap explicitly shows fallback fonts immediately, causing visible style changes when custom fonts swap in. However, you can minimize FOUT visibility using size-adjust properties to match fallback metrics to custom font metrics. This reduces layout shift to near-zero (&lt;0.02 CLS) while maintaining text visibility. The alternative, block or invisible text, harms user experience more than brief style flash. Users prioritize reading content over perfect typography during initial load.</p>
+<h3 id="do-font-loading-optimizations-affect-seo-rankings">Do font loading optimizations affect SEO rankings?</h3>
+<p>Indirectly through Core Web Vitals. Layout shift from font loading contributes to CLS metric. Sites exceeding 0.1 CLS at 75th percentile fail Core Web Vitals, harming rankings. Optimized font loading with swap + size-adjust + preload typically achieves CLS 0.03-0.06, comfortably passing thresholds. First Contentful Paint improvements from immediate text visibility (swap vs. block) also benefit rankings. Font optimization alone won&#39;t overcome content quality deficits but removes technical disadvantages competitors may suffer.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/purge-cache-without-breaking-site.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Purge Cache Without Breaking Your Site (CDN and Browser Cache)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Safely clear CDN, page cache, and object cache without downtime. Selective purging strategies and cache warming for seamless deployments.</p>
+          </a>
+
+          <a href="/articles/font-display-swap-fout-fix.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Font Display FOUT with font-display: swap for Better Performance</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate flash of unstyled text and improve Core Web Vitals by implementing font-display swap, preloading web fonts, and optimizing font loading strategies.</p>
+          </a>
+
+          <a href="/articles/minify-css-javascript-html.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Minify CSS, JavaScript, and HTML to Reduce Page Load Time</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate render-blocking resources and shrink file sizes with proper minification. Step-by-step guide to CSS, JS, and HTML compression techniques.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

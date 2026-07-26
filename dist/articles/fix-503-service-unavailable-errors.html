@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fix 503 Service Unavailable Errors: Stop Downtime from Tanking SEO | Polytraffic</title>
+    <meta name="description" content="Fix 503 errors killing crawlability and user access. Causes (server overload, DDoS, maintenance mode), platform fixes, proper 503 headers for Google." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Fix 503 Service Unavailable Errors: Stop Downtime from Tanking SEO | Polytraffic" />
+    <meta property="og:description" content="Fix 503 errors killing crawlability and user access. Causes (server overload, DDoS, maintenance mode), platform fixes, proper 503 headers for Google." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-503-service-unavailable-errors" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-503-service-unavailable-errors.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fix 503 Service Unavailable Errors: Stop Downtime from Tanking SEO | Polytraffic" />
+    <meta name="twitter:description" content="Fix 503 errors killing crawlability and user access. Causes (server overload, DDoS, maintenance mode), platform fixes, proper 503 headers for Google." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-503-service-unavailable-errors.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-503-service-unavailable-errors" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Fix 503 Service Unavailable Errors: Stop Downtime from Tanking SEO",
+    "description": "Fix 503 errors killing crawlability and user access. Causes (server overload, DDoS, maintenance mode), platform fixes, proper 503 headers for Google.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-503-service-unavailable-errors.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-503-service-unavailable-errors.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Fix 503 Service Unavailable Errors: Stop Downtime from Tanking SEO"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Fix 503 Service Unavailable Errors: Stop Downtime from Tanking SEO</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-503-service-unavailable-errors.png" alt="Fix 503 Service Unavailable Errors: Stop Downtime from Tanking SEO" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="fix-503-service-unavailable-errors-stop-downtime-from-tanking-seo">Fix 503 Service Unavailable Errors: Stop Downtime from Tanking SEO</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Fix 503 errors killing crawlability and user access. Causes (server overload, DDoS, maintenance mode), platform fixes, proper 503 headers for Google.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-503-errors-hurt-seo-less-than-500s-if-handled-correctly" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why 503 Errors Hurt SEO Less Than 500s (If Handled Correctly)</a></li>
+<li><a href="#detecting-503-errors" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Detecting 503 Errors</a></li>
+<li><a href="#common-cause-1-server-resource-exhaustion-traffic-surge" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 1: Server Resource Exhaustion (Traffic Surge)</a></li>
+<li><a href="#common-cause-2-ddos-attack" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 2: DDoS Attack</a></li>
+<li><a href="#common-cause-3-maintenance-mode-left-active" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 3: Maintenance Mode Left Active</a></li>
+<li><a href="#common-cause-4-web-server-configuration-errors" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 4: Web Server Configuration Errors</a></li>
+<li><a href="#common-cause-5-upstream-service-failures-nginx-reverse-proxy" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 5: Upstream Service Failures (Nginx Reverse Proxy)</a></li>
+<li><a href="#common-cause-6-shopify-app-theme-conflicts" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Cause 6: Shopify App/Theme Conflicts</a></li>
+<li><a href="#proper-503-headers-for-seo-during-maintenance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Proper 503 Headers for SEO During Maintenance</a></li>
+<li><a href="#verifying-503-fix" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Verifying 503 Fix</a></li>
+<li><a href="#monitoring-503-errors" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring 503 Errors</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>503 Service Unavailable errors signal that your server is temporarily unable to handle requests due to overload, maintenance, or resource exhaustion. Unlike 500 errors (permanent failures requiring code fixes), 503s indicate temporary unavailability, but if persistent for hours or days, they devastate SEO by blocking <strong>Googlebot</strong>, triggering deindexing, and erasing ranking progress.</p>
+<p>I&#39;ve debugged 503 errors on 30+ sites ranging from traffic surge crashes (Black Friday server overload) to DDoS attacks to misconfigured maintenance modes left active for weeks. A SaaS site hit with a DDoS attack returned 503s for 36 hours. <strong>Google</strong> recrawled after recovery but rankings dropped 40% across 200 keywords, taking 8 weeks to recover despite perfect uptime afterward.</p>
+<p>This guide covers 503 error detection, root cause analysis (traffic spikes, resource limits, DDoS, maintenance mode), platform-specific fixes for <strong>WordPress</strong>, <strong>Shopify</strong>, <strong>Nginx</strong>, <strong>Apache</strong>, and best practices for maintenance mode that preserve SEO during planned downtime.</p>
+<h2 id="why-503-errors-hurt-seo-less-than-500s-if-handled-correctly">Why 503 Errors Hurt SEO Less Than 500s (If Handled Correctly)</h2>
+<p><strong>Google</strong> treats 503s as temporary disruptions. When <strong>Googlebot</strong> encounters 503:</p>
+<ol>
+<li><strong>Google</strong> checks for <code>Retry-After</code> header (tells bots when to retry)</li>
+<li>If header present, <strong>Google</strong> waits specified duration before recrawling</li>
+<li>If no header, <strong>Google</strong> retries intermittently over 24-72 hours</li>
+<li>If 503 persists &gt;72 hours, <strong>Google</strong> reduces crawl rate and may deindex affected URLs</li>
+</ol>
+<p><strong>503 vs 500:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Google Behavior</th>
+<th>SEO Impact</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>503 Service Unavailable</strong></td>
+<td>&quot;Temporarily offline, retry soon&quot;</td>
+<td>Minimal if brief (&lt;2 hours), severe if persistent (&gt;24 hours)</td>
+</tr>
+<tr>
+<td><strong>500 Internal Server Error</strong></td>
+<td>&quot;Something&#39;s broken, retry later&quot;</td>
+<td>Severe (signals code failure, not temporary overload)</td>
+</tr>
+</tbody></table>
+<p><strong>Key difference:</strong> 503 with <code>Retry-After</code> header tells <strong>Google</strong> &quot;come back in X seconds.&quot; 500 provides no retry guidance, causing longer crawl delays.</p>
+<h2 id="detecting-503-errors">Detecting 503 Errors</h2>
+<h3 id="google-search-console">Google Search Console</h3>
+<p><strong>Pages → Why pages aren&#39;t indexed → &quot;Server error (5xx)&quot;:</strong></p>
+<p>503s appear alongside 500/502/504 errors in this report. Filter by:</p>
+<ul>
+<li>&quot;Last crawled&quot; date (recent 503s = active issue)</li>
+<li>Affected URL count (10 URLs vs 10,000 URLs signals different root causes)</li>
+</ul>
+<p><strong>URL Inspection Tool:</strong></p>
+<p>Test specific URL:</p>
+<ol>
+<li>Enter URL</li>
+<li>&quot;Test live URL&quot;</li>
+<li>If 503 active, shows &quot;URL is not available to Google&quot; with HTTP 503 status</li>
+</ol>
+<h3 id="server-logs">Server Logs</h3>
+<p><strong>Apache access log:</strong></p>
+<pre><code class="language-bash">grep &quot; 503 &quot; /var/log/apache2/access.log | tail -100
+</code></pre>
+<p>Shows which URLs returned 503, when, and to which user agents.</p>
+<p><strong>Nginx access log:</strong></p>
+<pre><code class="language-bash">awk &#39;$9 == 503 {print $0}&#39; /var/log/nginx/access.log | tail -100
+</code></pre>
+<h3 id="uptime-monitoring-tools">Uptime Monitoring Tools</h3>
+<p><strong>UptimeRobot</strong>, <strong>Pingdom</strong>, <strong>StatusCake</strong> alert when your site returns 503.</p>
+<p>Setup:</p>
+<ol>
+<li>Add URL monitors for homepage + critical pages</li>
+<li>Set check interval (1-5 minutes)</li>
+<li>Configure alerts (email/Slack/SMS when 503 detected)</li>
+</ol>
+<p>Catches 503s in real-time before users or <strong>Google</strong> encounter them en masse.</p>
+<h2 id="common-cause-1-server-resource-exhaustion-traffic-surge">Common Cause 1: Server Resource Exhaustion (Traffic Surge)</h2>
+<p>Traffic spike exceeds server capacity, causing 503 responses.</p>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>503 errors during specific hours (peak traffic times)</li>
+<li>Server CPU/memory at 100%</li>
+<li>Slow page loads before 503 appears</li>
+</ul>
+<p><strong>Diagnosis:</strong></p>
+<p>Check server load:</p>
+<pre><code class="language-bash">top
+</code></pre>
+<p>Look for processes consuming 90-100% CPU. High load average (&gt;4 on 4-core server) indicates overload.</p>
+<p>Check memory usage:</p>
+<pre><code class="language-bash">free -h
+</code></pre>
+<p>If &quot;available&quot; memory is &lt;200MB, server is swapping (using disk as RAM), causing 503s.</p>
+<p><strong>Fix 1: Increase Server Resources</strong></p>
+<p><strong>VPS/Cloud Hosting:</strong></p>
+<ul>
+<li>Upgrade to higher-tier plan (more CPU/RAM)</li>
+<li>Enable auto-scaling (AWS, Google Cloud, DigitalOcean allow automatic resource scaling during traffic spikes)</li>
+</ul>
+<p><strong>Shared Hosting:</strong></p>
+<ul>
+<li>Contact host to upgrade plan</li>
+<li>Or migrate to VPS for dedicated resources</li>
+</ul>
+<p><strong>Fix 2: Implement Caching</strong></p>
+<p>Reduce server load by serving cached pages:</p>
+<p><strong>WordPress:</strong></p>
+<p>Install <strong>WP Rocket</strong>, <strong>W3 Total Cache</strong>, or <strong>LiteSpeed Cache</strong>:</p>
+<ol>
+<li>Plugins → Add New → Search &quot;WP Rocket&quot; → Install → Activate</li>
+<li>Settings → Enable page caching</li>
+<li>Test: Load pages, check for cached versions (HTML comment shows cache timestamp)</li>
+</ol>
+<p><strong>Nginx FastCGI Caching:</strong></p>
+<p>Add to Nginx config (<code>/etc/nginx/sites-available/yoursite</code>):</p>
+<pre><code class="language-nginx">fastcgi_cache_path /var/cache/nginx levels=1:2 keys_zone=my_cache:10m max_size=1g inactive=60m;
+
+server {
+    location ~ \.php$ {
+        fastcgi_cache my_cache;
+        fastcgi_cache_valid 200 60m;
+        add_header X-Cache-Status $upstream_cache_status;
+    }
+}
+</code></pre>
+<p>Restart Nginx:</p>
+<pre><code class="language-bash">sudo systemctl restart nginx
+</code></pre>
+<p><strong>Fix 3: Optimize Database Queries</strong></p>
+<p>Slow database queries cause resource exhaustion. Use <strong>Query Monitor</strong> (WordPress) to find slow queries (&gt;1 second execution time).</p>
+<p>Optimize by adding indexes:</p>
+<pre><code class="language-sql">ALTER TABLE wp_posts ADD INDEX idx_post_date (post_date);
+</code></pre>
+<p><strong>Fix 4: Enable CDN</strong></p>
+<p>Offload traffic to edge servers (CloudFlare, Fastly, Cloudflare).</p>
+<p><strong>CloudFlare setup:</strong></p>
+<ol>
+<li>Sign up at cloudflare.com</li>
+<li>Add your domain</li>
+<li>Update nameservers at your domain registrar</li>
+<li>Enable &quot;Auto Minify&quot; + &quot;Brotli&quot; + &quot;Always Online&quot; (serves cached version if origin returns 503)</li>
+</ol>
+<p><strong>CloudFlare &quot;Always Online&quot;</strong> serves stale cached pages when origin is down, preventing 503s from reaching users.</p>
+<h2 id="common-cause-2-ddos-attack">Common Cause 2: DDoS Attack</h2>
+<p>Distributed Denial of Service attack floods server with malicious traffic, exhausting resources.</p>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>Sudden 503 errors across all pages</li>
+<li>Server logs show thousands of requests from suspicious IPs</li>
+<li>Traffic spike in analytics (10x-100x normal traffic)</li>
+</ul>
+<p><strong>Diagnosis:</strong></p>
+<p>Check access log for request patterns:</p>
+<pre><code class="language-bash">awk &#39;{print $1}&#39; /var/log/apache2/access.log | sort | uniq -c | sort -rn | head -20
+</code></pre>
+<p>Shows top 20 IPs by request count. If single IP has 10,000+ requests in an hour, likely bot/attack.</p>
+<p><strong>Immediate Fix: Enable CloudFlare DDoS Protection</strong></p>
+<p>CloudFlare offers free DDoS mitigation:</p>
+<ol>
+<li>Sign up for CloudFlare (free plan)</li>
+<li>Add domain, update nameservers</li>
+<li>Security → DDoS Protection → Set to &quot;High&quot; sensitivity</li>
+<li>Enable &quot;Under Attack Mode&quot; (shows challenge page to all visitors, blocks bots)</li>
+</ol>
+<p>Traffic flows through CloudFlare&#39;s network, filtering malicious requests before they reach your server.</p>
+<p><strong>Fix: Block Attack IPs at Firewall</strong></p>
+<p>If not using CloudFlare, block IPs via server firewall:</p>
+<p><strong>iptables (Linux):</strong></p>
+<pre><code class="language-bash">sudo iptables -A INPUT -s 198.51.100.42 -j DROP
+</code></pre>
+<p>Blocks all traffic from IP 198.51.100.42.</p>
+<p><strong>Fail2Ban (Automated IP Blocking):</strong></p>
+<p>Install <strong>Fail2Ban</strong> to auto-block IPs exceeding request limits:</p>
+<pre><code class="language-bash">sudo apt install fail2ban
+</code></pre>
+<p>Configure Apache jail (<code>/etc/fail2ban/jail.local</code>):</p>
+<pre><code class="language-ini">[apache-badbots]
+enabled = true
+filter = apache-badbots
+action = iptables-multiport[name=apache-badbots, port=&quot;http,https&quot;]
+logpath = /var/log/apache2/access.log
+maxretry = 5
+findtime = 300
+bantime = 3600
+</code></pre>
+<p>Bans IPs making 5+ requests in 5 minutes for 1 hour.</p>
+<p>Restart Fail2Ban:</p>
+<pre><code class="language-bash">sudo systemctl restart fail2ban
+</code></pre>
+<h2 id="common-cause-3-maintenance-mode-left-active">Common Cause 3: Maintenance Mode Left Active</h2>
+<p><strong>WordPress</strong> maintenance mode or custom &quot;Under Construction&quot; plugins return 503s.</p>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>503 appears after plugin activation or theme update</li>
+<li>Affects all pages (homepage, posts, everything)</li>
+</ul>
+<p><strong>Diagnosis:</strong></p>
+<p>Check if <code>.maintenance</code> file exists:</p>
+<pre><code class="language-bash">ls -la /var/www/html/.maintenance
+</code></pre>
+<p>If present, <strong>WordPress</strong> is in maintenance mode.</p>
+<p><strong>Fix: Delete .maintenance File</strong></p>
+<p>Via SSH:</p>
+<pre><code class="language-bash">rm /var/www/html/.maintenance
+</code></pre>
+<p>Via FTP/File Manager:</p>
+<ol>
+<li>Connect to site root</li>
+<li>Show hidden files (<code>.maintenance</code> is hidden)</li>
+<li>Delete <code>.maintenance</code></li>
+</ol>
+<p>Test site, should load immediately.</p>
+<p><strong>Maintenance Plugin Left Active:</strong></p>
+<p>If using <strong>WP Maintenance Mode</strong> or <strong>Coming Soon</strong> plugins:</p>
+<ol>
+<li>Deactivate plugin via wp-admin (if accessible)</li>
+<li>If wp-admin is locked, rename plugin folder via FTP:<ul>
+<li><code>/wp-content/plugins/maintenance-plugin/</code> → <code>/wp-content/plugins/maintenance-plugin-disabled/</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="common-cause-4-web-server-configuration-errors">Common Cause 4: Web Server Configuration Errors</h2>
+<p>Nginx/Apache misconfiguration causes 503 responses.</p>
+<p><strong>Nginx:</strong></p>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>503 errors on all PHP pages</li>
+<li>Static files (images, CSS) load fine</li>
+</ul>
+<p><strong>Diagnosis:</strong></p>
+<p>Error log shows:</p>
+<pre><code>[error] connect() to unix:/var/run/php/php8.2-fpm.sock failed (111: Connection refused)
+</code></pre>
+<p><strong>Cause:</strong> PHP-FPM (PHP FastCGI Process Manager) not running.</p>
+<p><strong>Fix:</strong></p>
+<p>Start PHP-FPM:</p>
+<pre><code class="language-bash">sudo systemctl start php8.2-fpm
+</code></pre>
+<p>Enable auto-start on boot:</p>
+<pre><code class="language-bash">sudo systemctl enable php8.2-fpm
+</code></pre>
+<p><strong>Apache:</strong></p>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>503 on all pages</li>
+<li>Error log shows:</li>
+</ul>
+<pre><code>[error] server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+</code></pre>
+<p><strong>Fix:</strong></p>
+<p>Increase Apache MaxRequestWorkers:</p>
+<p>Edit <code>/etc/apache2/apache2.conf</code> or <code>/etc/apache2/mods-enabled/mpm_prefork.conf</code>:</p>
+<pre><code class="language-apache">&lt;IfModule mpm_prefork_module&gt;
+    StartServers             5
+    MinSpareServers          5
+    MaxSpareServers         10
+    MaxRequestWorkers      250
+    MaxConnectionsPerChild   0
+&lt;/IfModule&gt;
+</code></pre>
+<p>Increase <code>MaxRequestWorkers</code> (default 150-256, increase to 300-500 depending on RAM).</p>
+<p>Restart Apache:</p>
+<pre><code class="language-bash">sudo systemctl restart apache2
+</code></pre>
+<h2 id="common-cause-5-upstream-service-failures-nginx-reverse-proxy">Common Cause 5: Upstream Service Failures (Nginx Reverse Proxy)</h2>
+<p>Nginx acts as reverse proxy to backend service (Node.js, Python app) that crashes.</p>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>503 on dynamic pages</li>
+<li>Nginx error log shows:</li>
+</ul>
+<pre><code>upstream timed out (110: Connection timed out) while connecting to upstream
+</code></pre>
+<p><strong>Diagnosis:</strong></p>
+<p>Check backend service status:</p>
+<pre><code class="language-bash">sudo systemctl status your-app-name
+</code></pre>
+<p>If inactive/failed, service crashed.</p>
+<p><strong>Fix:</strong></p>
+<p>Restart backend service:</p>
+<pre><code class="language-bash">sudo systemctl restart your-app-name
+</code></pre>
+<p><strong>Long-term fix:</strong> Debug why backend crashes (check application logs, resource limits, code errors).</p>
+<h2 id="common-cause-6-shopify-app-theme-conflicts">Common Cause 6: Shopify App/Theme Conflicts</h2>
+<p><strong>Shopify</strong> apps injecting broken code or theme customizations cause 503s.</p>
+<p><strong>Symptoms:</strong></p>
+<ul>
+<li>503 after installing app or editing theme</li>
+<li>Affects storefront pages, admin loads fine</li>
+</ul>
+<p><strong>Fix:</strong></p>
+<p><strong>Uninstall Recent Apps:</strong></p>
+<ol>
+<li>Shopify Admin → Apps</li>
+<li>Review recently-installed apps</li>
+<li>Uninstall suspicious app</li>
+<li>Test storefront</li>
+</ol>
+<p><strong>Revert Theme Changes:</strong></p>
+<ol>
+<li>Online Store → Themes</li>
+<li>Actions → Compare → Select previous version</li>
+<li>Revert to stable version</li>
+</ol>
+<p><strong>Contact Shopify Support:</strong></p>
+<p>Shopify Plus merchants have priority support. Open ticket with details (when 503 started, recent changes).</p>
+<h2 id="proper-503-headers-for-seo-during-maintenance">Proper 503 Headers for SEO During Maintenance</h2>
+<p>If you must take site offline for maintenance (server migration, major updates), use 503 with <code>Retry-After</code> header to minimize SEO impact.</p>
+<p><strong>Apache .htaccess:</strong></p>
+<pre><code class="language-apache"># Enable maintenance mode
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/maintenance\.html$
+RewriteRule .* - [R=503,L]
+Header always set Retry-After &quot;3600&quot;
+ErrorDocument 503 /maintenance.html
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Returns 503 status for all URLs except <code>/maintenance.html</code></li>
+<li><code>Retry-After: 3600</code> tells <strong>Googlebot</strong> to retry in 1 hour (3600 seconds)</li>
+<li>Serves custom maintenance page at <code>/maintenance.html</code></li>
+</ul>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-nginx">server {
+    if (-f /var/www/html/maintenance.flag) {
+        return 503;
+    }
+    add_header Retry-After 3600;
+    error_page 503 /maintenance.html;
+    location = /maintenance.html {
+        root /var/www/html;
+        internal;
+    }
+}
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>If <code>/var/www/html/maintenance.flag</code> file exists, return 503</li>
+<li>Add <code>Retry-After</code> header</li>
+<li>Serve <code>/maintenance.html</code> as maintenance page</li>
+</ul>
+<p><strong>Activate maintenance mode:</strong></p>
+<pre><code class="language-bash">touch /var/www/html/maintenance.flag
+</code></pre>
+<p><strong>Disable maintenance mode:</strong></p>
+<pre><code class="language-bash">rm /var/www/html/maintenance.flag
+</code></pre>
+<p><strong>CloudFlare Maintenance Page:</strong></p>
+<p>For sites behind <strong>CloudFlare</strong>, enable &quot;Always Online&quot; to serve cached pages during origin 503s.</p>
+<p>Or use <strong>CloudFlare Workers</strong> to serve custom maintenance page:</p>
+<pre><code class="language-javascript">addEventListener(&#39;fetch&#39;, event =&gt; {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  const maintenanceMode = true; // Toggle maintenance mode
+  
+  if (maintenanceMode) {
+    return new Response(&#39;Site under maintenance. Back soon!&#39;, {
+      status: 503,
+      headers: {
+        &#39;Content-Type&#39;: &#39;text/html&#39;,
+        &#39;Retry-After&#39;: &#39;3600&#39;
+      }
+    })
+  }
+  
+  return fetch(request)
+}
+</code></pre>
+<p>Deploy Worker → Route to <code>yoursite.com/*</code> → Site shows 503 with <code>Retry-After</code> during maintenance.</p>
+<h2 id="verifying-503-fix">Verifying 503 Fix</h2>
+<h3 id="test-1-manual-browser-check">Test 1: Manual Browser Check</h3>
+<p>Visit previously-503-erroring URLs. Should load without error.</p>
+<h3 id="test-2-curl-check-for-retry-after-header">Test 2: cURL Check for Retry-After Header</h3>
+<pre><code class="language-bash">curl -I https://yoursite.com/
+</code></pre>
+<p>Check response:</p>
+<pre><code>HTTP/2 200
+</code></pre>
+<p>If still in maintenance mode, should show:</p>
+<pre><code>HTTP/2 503
+Retry-After: 3600
+</code></pre>
+<h3 id="test-3-google-search-console-url-inspection">Test 3: Google Search Console URL Inspection</h3>
+<ol>
+<li>Enter fixed URL</li>
+<li>&quot;Test live URL&quot;</li>
+<li>Should show &quot;URL is available to Google&quot; with HTTP 200 status</li>
+</ol>
+<h3 id="test-4-request-indexing">Test 4: Request Indexing</h3>
+<p>After confirming 200 status, click &quot;Request Indexing&quot; to prioritize recrawling.</p>
+<h2 id="monitoring-503-errors">Monitoring 503 Errors</h2>
+<h3 id="uptimerobot-setup">UptimeRobot Setup</h3>
+<ol>
+<li>uptimerobot.com → Add Monitor</li>
+<li>Monitor Type: HTTP(s)</li>
+<li>URL: Your homepage + 5-10 key pages</li>
+<li>Monitoring Interval: Every 5 minutes</li>
+<li>Alert Contacts: Email/Slack/SMS</li>
+</ol>
+<p>Receives alert within 5 minutes of 503 appearing.</p>
+<h3 id="google-search-console-alerts">Google Search Console Alerts</h3>
+<p>Enable email notifications:</p>
+<ol>
+<li>Google Search Console → Settings → Users and Permissions</li>
+<li>Enable &quot;Email notifications&quot;</li>
+<li>Google emails when server error count spikes</li>
+</ol>
+<h3 id="server-monitoring-new-relic-datadog">Server Monitoring (New Relic, Datadog)</h3>
+<p>APM (Application Performance Monitoring) tools track 503 errors in real-time.</p>
+<p><strong>New Relic:</strong></p>
+<ol>
+<li>Install New Relic APM agent on server</li>
+<li>View error dashboard → Filter by HTTP status 503</li>
+<li>Set alerts: &quot;If 503 error count &gt;10 in 5 minutes, notify&quot;</li>
+</ol>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Detecting 503 Errors:</strong> 503s appear alongside 500/502/504 errors in this report.</li>
+<li><strong>Common Cause 1: Server Resource Exhaustion (Traffic Surge):</strong> Traffic spike exceeds server capacity, causing 503 responses.</li>
+<li><strong>Common Cause 2: DDoS Attack:</strong> Distributed Denial of Service attack floods server with malicious traffic, exhausting resources.</li>
+<li><strong>Common Cause 4: Web Server Configuration Errors:</strong> Nginx/Apache misconfiguration causes 503 responses.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>How long can my site be down before Google deindexes it?</strong></p>
+<p><strong>Google</strong> tolerates brief outages (1-2 hours) with minimal impact. After 24-48 hours of persistent 503s, crawl rate drops. After 7-14 days, deindexing begins. Use <code>Retry-After</code> header to signal planned maintenance.</p>
+<p><strong>Should I use 503 or &quot;Under Construction&quot; page during maintenance?</strong></p>
+<p>Use 503 status code (not 200 status with &quot;Under Construction&quot; message). 200 signals normal operation, confusing <strong>Google</strong>. 503 correctly signals temporary unavailability.</p>
+<p><strong>Can I prevent Googlebot from crawling during maintenance?</strong></p>
+<p>Use <code>Retry-After</code> header instead of blocking <strong>Googlebot</strong> in robots.txt. Blocking causes deindexing. 503 + Retry-After tells <strong>Google</strong> to wait without removing pages from index.</p>
+<p><strong>Do 503 errors hurt rankings permanently?</strong></p>
+<p>No. Once resolved, rankings typically recover within 2-4 weeks if downtime was brief (&lt;24 hours). Extended outages (7+ days) require longer recovery (6-8 weeks).</p>
+<p><strong>What&#39;s the ideal Retry-After value?</strong></p>
+<p>For planned maintenance: Set to expected downtime (1-6 hours). For unplanned issues: Start with 3600 seconds (1 hour), adjust if fix takes longer.</p>
+<p><strong>Can CloudFlare &quot;Always Online&quot; completely prevent 503 errors?</strong></p>
+<p><strong>CloudFlare</strong> serves cached pages when origin returns 503, but only for previously-cached URLs. New pages or dynamic content may still show 503. Use in combination with <code>Retry-After</code> headers.</p>
+<p><strong>Do 503 errors affect Core Web Vitals?</strong></p>
+<p>Not directly (503 pages don&#39;t load, so no LCP/CLS measurement). But user experience suffers, potentially impacting engagement signals long-term.</p>
+<p><strong>Should I disable monitoring during planned maintenance?</strong></p>
+<p>No. Keep monitoring active to verify 503s appear as expected and disappear after maintenance completes. Adjust alert thresholds temporarily to avoid noise.</p>
+<p><strong>What if 503 errors recur intermittently?</strong></p>
+<p>Signals inadequate server resources or recurring attacks. Implement autoscaling, upgrade hosting, or enable permanent DDoS protection (CloudFlare).</p>
+<p><strong>Can I serve different 503 pages to users vs bots?</strong></p>
+<p>Yes, but ensure both return 503 status code. Serving 200 to bots while showing maintenance page to users = cloaking (Google penalty risk). Always return 503 to all visitors.</p>
+<p>Check <strong>Google Search Console</strong> for 503 errors today. Analyze server logs to identify cause (traffic surge, DDoS, maintenance mode). Implement fixes (caching, resource upgrades, DDoS protection). Add <code>Retry-After</code> headers for planned maintenance. Set up <strong>UptimeRobot</strong> monitoring to catch future 503s within 5 minutes.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-500-internal-server-errors-seo.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix 500 Internal Server Errors for SEO: Stop Killing Rankings with Server Crashes</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Debug 500 errors killing crawlability. Server log analysis, common causes (PHP memory, database timeouts, plugin conflicts), platform-specific fixes.</p>
+          </a>
+
+          <a href="/articles/deindex-pages-from-google-quickly.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Deindex Pages from Google Quickly: Complete Removal Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Remove pages from Google search results fast. Use Search Console removals tool, noindex meta tags, and 410 Gone status for permanent deindexing.</p>
+          </a>
+
+          <a href="/articles/fix-ad-layout-shift-cls.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Fix Cumulative Layout Shift caused by ads. Reserve ad space, async loading, GPT lazy load, AdSense optimization for 0.1 CLS threshold.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

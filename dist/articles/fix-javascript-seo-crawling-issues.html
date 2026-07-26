@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide) | Polytraffic</title>
+    <meta name="description" content="JavaScript-heavy sites confuse search engine crawlers when content loads client-side. Learn how to diagnose rendering problems, implement server-side rendering, and ensure Google indexes your dynamic content." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide) | Polytraffic" />
+    <meta property="og:description" content="JavaScript-heavy sites confuse search engine crawlers when content loads client-side. Learn how to diagnose rendering problems, implement server-side rendering, and ensure Google indexes your dynamic content." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-javascript-seo-crawling-issues" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-javascript-seo-crawling-issues.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide) | Polytraffic" />
+    <meta name="twitter:description" content="JavaScript-heavy sites confuse search engine crawlers when content loads client-side. Learn how to diagnose rendering problems, implement server-side rendering, and ensure Google indexes your dynamic content." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-javascript-seo-crawling-issues.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-javascript-seo-crawling-issues" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide)",
+    "description": "JavaScript-heavy sites confuse search engine crawlers when content loads client-side. Learn how to diagnose rendering problems, implement server-side rendering, and ensure Google indexes your dynamic content.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-javascript-seo-crawling-issues.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-javascript-seo-crawling-issues.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide)"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide)</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-javascript-seo-crawling-issues.png" alt="How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide)" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-fix-javascript-seo-crawling-issues-complete-rendering-guide">How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide)</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> JavaScript-heavy sites confuse search engine crawlers when content loads client-side. Learn how to diagnose rendering problems, implement server-side rendering, and ensure Google indexes your dynamic content.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#understanding-how-search-engines-handle-javascript" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding How Search Engines Handle JavaScript</a></li>
+<li><a href="#diagnosing-javascript-rendering-issues" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Diagnosing JavaScript Rendering Issues</a></li>
+<li><a href="#implementing-server-side-rendering-ssr" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementing Server-Side Rendering (SSR)</a></li>
+<li><a href="#using-static-site-generation-ssg" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Using Static Site Generation (SSG)</a></li>
+<li><a href="#implementing-dynamic-rendering" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementing Dynamic Rendering</a></li>
+<li><a href="#optimizing-client-side-rendering" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Optimizing Client-Side Rendering</a></li>
+<li><a href="#handling-javascript-generated-links" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Handling JavaScript-Generated Links</a></li>
+<li><a href="#validating-javascript-seo-fixes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Validating JavaScript SEO Fixes</a></li>
+<li><a href="#framework-specific-seo-considerations" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Framework-Specific SEO Considerations</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>JavaScript frameworks</strong> (React, Vue, Angular, Next.js) load content dynamically, but search engine crawlers expect static HTML. When critical content, headings, product descriptions, navigation links, only appears after JavaScript execution, crawlers may see empty pages or miss essential SEO elements.</p>
+<p>This guide covers JavaScript rendering diagnosis, server-side rendering implementation, and validation protocols. You&#39;ll learn how to identify what crawlers see versus what users see, implement rendering solutions, and verify Google indexes your dynamic content properly.</p>
+<h2 id="understanding-how-search-engines-handle-javascript">Understanding How Search Engines Handle JavaScript</h2>
+<p><strong>Traditional HTML sites</strong> deliver complete content in initial HTML responses. Crawlers parse HTML directly without executing JavaScript. Everything needed for indexing, text, links, meta tags, exists in the source code immediately.</p>
+<p><strong>JavaScript-rendered sites</strong> send minimal HTML shells. The initial response contains little content, basic structure and JavaScript files. Content populates after browsers download, parse, and execute JavaScript code.</p>
+<p><strong>Google&#39;s rendering process</strong> occurs in two phases:</p>
+<ol>
+<li><p><strong>Initial crawl</strong>: Googlebot downloads HTML and CSS, extracting content immediately available in source code. This happens quickly and frequently.</p>
+</li>
+<li><p><strong>Rendering queue</strong>: Pages requiring JavaScript execution enter a rendering queue. Google&#39;s Web Rendering Service (WRS) loads pages in headless Chrome, executes JavaScript, and indexes the rendered result. This happens later, sometimes hours or days after initial crawl.</p>
+</li>
+</ol>
+<p>The <strong>gap between crawling and rendering</strong> creates SEO problems. If important content only appears after JavaScript execution, Google indexes incomplete pages until rendering completes. For time-sensitive content (news, events, limited offers), this delay kills visibility.</p>
+<p><strong>Other search engines</strong> vary in JavaScript support:</p>
+<ul>
+<li><strong>Bing</strong>: Supports JavaScript rendering similarly to Google but with smaller crawl budgets and potentially longer delays</li>
+<li><strong>Baidu</strong>: Limited JavaScript support; prefers server-side rendered content</li>
+<li><strong>Yandex</strong>: Improving JavaScript handling but server-side rendering recommended</li>
+<li><strong>DuckDuckGo</strong>: Relies on Bing&#39;s index; inherits Bing&#39;s JavaScript capabilities</li>
+</ul>
+<h2 id="diagnosing-javascript-rendering-issues">Diagnosing JavaScript Rendering Issues</h2>
+<p>Several tools reveal what crawlers see versus what browsers render after JavaScript execution.</p>
+<p><strong>View source vs. inspect element</strong> provides quick diagnosis:</p>
+<ol>
+<li>Visit your page in Chrome</li>
+<li>Right-click → &quot;View Page Source&quot; (Ctrl/Cmd+U)</li>
+<li>Search (Ctrl/Cmd+F) for important content, product descriptions, article text, key headings</li>
+</ol>
+<p>If content doesn&#39;t appear in source, it&#39;s JavaScript-rendered. Crawlers don&#39;t see it initially.</p>
+<ol start="4">
+<li>Right-click on the same content → &quot;Inspect Element&quot; (Ctrl/Cmd+Shift+I)</li>
+<li>If content appears in Inspector but not in source, JavaScript added it after page load</li>
+</ol>
+<p><strong>Disable JavaScript in browser</strong> simulates crawler experience:</p>
+<p>Chrome:</p>
+<ol>
+<li>Open DevTools (F12)</li>
+<li>Press Ctrl/Cmd+Shift+P to open Command Menu</li>
+<li>Type &quot;Disable JavaScript&quot;</li>
+<li>Select &quot;Disable JavaScript&quot;</li>
+<li>Reload page</li>
+</ol>
+<p>What appears now is roughly what crawlers see before rendering. Missing navigation, content, or functionality indicates crawling issues.</p>
+<p><strong>Google Search Console URL Inspection Tool</strong> shows exactly what Google crawled and rendered:</p>
+<ol>
+<li>Open Search Console</li>
+<li>Enter your page URL in the search bar</li>
+<li>Click &quot;Test Live URL&quot;</li>
+<li>After processing, click &quot;View Tested Page&quot;</li>
+<li>Compare three views:<ul>
+<li><strong>Screenshot</strong>: Visual rendering after JavaScript execution</li>
+<li><strong>HTML</strong>: Raw HTML Googlebot crawled initially</li>
+<li><strong>More Info</strong>: Details about page status, canonical URL, indexability</li>
+</ul>
+</li>
+</ol>
+<p>Compare the screenshot (rendered) to HTML (crawled). Major differences indicate rendering-dependent content.</p>
+<p><strong>Screaming Frog SEO Spider</strong> with JavaScript rendering enabled:</p>
+<ol>
+<li>Open Screaming Frog</li>
+<li>Go to Configuration → Spider → Rendering</li>
+<li>Select &quot;JavaScript&quot; rendering mode</li>
+<li>Set &quot;Rendering Engine&quot; to &quot;Chromium&quot;</li>
+<li>Crawl your site</li>
+<li>Compare JavaScript-enabled crawl to JavaScript-disabled crawl</li>
+</ol>
+<p>Export both datasets and compare content lengths, internal link counts, and heading structures. Significant differences reveal JavaScript dependencies.</p>
+<p><strong>WebPageTest</strong> provides detailed rendering analysis:</p>
+<ol>
+<li>Visit <a href="https://www.webpagetest.org/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">webpagetest.org</a></li>
+<li>Enter your URL</li>
+<li>Click &quot;Start Test&quot;</li>
+<li>View filmstrip showing progressive page rendering</li>
+<li>Check &quot;Content Breakdown&quot; for resource loading sequence</li>
+</ol>
+<p>Look for large gaps between initial HTML loading and content appearance. If meaningful content appears 2+ seconds after page load, crawlers may miss it during initial processing.</p>
+<p>For related crawling issues, see our guide on <a href="/articles/fix-indexing-issues-search-console.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing indexing issues in Search Console</a>.</p>
+<h2 id="implementing-server-side-rendering-ssr">Implementing Server-Side Rendering (SSR)</h2>
+<p><strong>Server-side rendering</strong> executes JavaScript on the server before sending HTML to browsers and crawlers. Both receive fully rendered content immediately, eliminating rendering delays and crawl issues.</p>
+<p><strong>Next.js SSR implementation</strong> for React applications:</p>
+<p>Next.js provides built-in SSR. Convert client-side pages to SSR:</p>
+<pre><code class="language-javascript">// pages/products/[id].js
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  const res = await fetch(`https://api.example.com/products/${id}`);
+  const product = await res.json();
+
+  return {
+    props: { product }
+  };
+}
+
+export default function Product({ product }) {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;{product.name}&lt;/h1&gt;
+      &lt;p&gt;{product.description}&lt;/p&gt;
+      &lt;span&gt;${product.price}&lt;/span&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p><code>getServerSideProps</code> runs on the server for every request, fetching data and passing it as props. The component renders server-side with complete content before sending HTML to the client.</p>
+<p><strong>Nuxt.js SSR implementation</strong> for Vue applications:</p>
+<p>Nuxt.js includes SSR by default. Fetch data in <code>asyncData</code>:</p>
+<pre><code class="language-javascript">// pages/products/_id.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;{{ product.name }}&lt;/h1&gt;
+    &lt;p&gt;{{ product.description }}&lt;/p&gt;
+    &lt;span&gt;${{ product.price }}&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  async asyncData({ params, $axios }) {
+    const product = await $axios.$get(`/api/products/${params.id}`);
+    return { product };
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<p><code>asyncData</code> executes server-side before rendering, ensuring complete content in initial HTML.</p>
+<p><strong>Angular Universal</strong> for Angular applications:</p>
+<p>Install Angular Universal:</p>
+<pre><code class="language-bash">ng add @nguniversal/express-engine
+</code></pre>
+<p>This adds server-side rendering infrastructure. Build and serve:</p>
+<pre><code class="language-bash">npm run build:ssr
+npm run serve:ssr
+</code></pre>
+<p>Angular Universal renders components server-side, outputting full HTML for every route.</p>
+<p><strong>SSR benefits</strong>:</p>
+<ul>
+<li><strong>Immediate content availability</strong>: Crawlers see complete content in initial HTML</li>
+<li><strong>Faster perceived load times</strong>: Users see content before JavaScript downloads and executes</li>
+<li><strong>Better SEO</strong>: No dependence on rendering queue delays</li>
+<li><strong>Social media previews</strong>: Open Graph meta tags populate from server, enabling proper social sharing</li>
+</ul>
+<p><strong>SSR trade-offs</strong>:</p>
+<ul>
+<li><strong>Server load</strong>: Every page request requires server-side rendering, increasing server resource usage</li>
+<li><strong>Complexity</strong>: More complex deployment and debugging compared to static sites</li>
+<li><strong>Caching requirements</strong>: Implement aggressive caching (Redis, Varnish) to handle load</li>
+</ul>
+<h2 id="using-static-site-generation-ssg">Using Static Site Generation (SSG)</h2>
+<p><strong>Static site generation</strong> pre-renders pages at build time, generating static HTML files that deploy to CDNs. This combines SSR benefits (complete HTML immediately) with static site performance (no server rendering per request).</p>
+<p><strong>Next.js Static Generation</strong>:</p>
+<p>Use <code>getStaticProps</code> for pages with data dependencies:</p>
+<pre><code class="language-javascript">// pages/blog/[slug].js
+export async function getStaticProps({ params }) {
+  const post = await fetchPost(params.slug);
+  return {
+    props: { post },
+    revalidate: 60 // Regenerate page every 60 seconds
+  };
+}
+
+export async function getStaticPaths() {
+  const posts = await fetchAllPosts();
+  const paths = posts.map(post =&gt; ({
+    params: { slug: post.slug }
+  }));
+
+  return {
+    paths,
+    fallback: &#39;blocking&#39; // Server-render new pages on demand
+  };
+}
+
+export default function BlogPost({ post }) {
+  return (
+    &lt;article&gt;
+      &lt;h1&gt;{post.title}&lt;/h1&gt;
+      &lt;div dangerouslySetInnerHTML={{ __html: post.content }} /&gt;
+    &lt;/article&gt;
+  );
+}
+</code></pre>
+<p>At build time, Next.js generates static HTML for every blog post. The <code>revalidate</code> option implements Incremental Static Regeneration (ISR), periodically rebuilding pages with fresh data.</p>
+<p><strong>Gatsby Static Generation</strong> for React:</p>
+<p>Gatsby builds completely static sites from React components:</p>
+<pre><code class="language-javascript">// gatsby-node.js
+exports.createPages = async ({ graphql, actions }) =&gt; {
+  const { createPage } = actions;
+  const result = await graphql(`
+    query {
+      allProduct {
+        nodes {
+          id
+          slug
+        }
+      }
+    }
+  `);
+
+  result.data.allProduct.nodes.forEach(product =&gt; {
+    createPage({
+      path: `/products/${product.slug}`,
+      component: require.resolve(`./src/templates/product.js`),
+      context: { id: product.id }
+    });
+  });
+};
+</code></pre>
+<p>During <code>gatsby build</code>, every product page generates as static HTML. Deploy the resulting files to any CDN or static host.</p>
+<p><strong>Hugo, Jekyll, Eleventy</strong> for non-React static generation:</p>
+<p>These tools generate static sites from Markdown content or data files:</p>
+<pre><code class="language-yaml"># content/products/wireless-mouse.md
+---
+title: &quot;Wireless Mouse&quot;
+price: 29.99
+description: &quot;Ergonomic wireless mouse with 6 buttons&quot;
+---
+
+Detailed product description in Markdown...
+</code></pre>
+<p>Build command generates HTML:</p>
+<pre><code class="language-bash">hugo build
+</code></pre>
+<p>Output is static HTML requiring no JavaScript for content display.</p>
+<p><strong>SSG benefits</strong>:</p>
+<ul>
+<li><strong>Maximum performance</strong>: Static files serve from CDNs with near-instant load times</li>
+<li><strong>Perfect SEO</strong>: Complete HTML immediately available, no rendering delays</li>
+<li><strong>Scalability</strong>: Serve millions of requests without server-side processing</li>
+<li><strong>Security</strong>: No server-side code execution reduces attack surfaces</li>
+</ul>
+<p><strong>SSG limitations</strong>:</p>
+<ul>
+<li><strong>Build time</strong>: Large sites (10,000+ pages) take minutes to hours to build</li>
+<li><strong>Real-time updates</strong>: Content changes require rebuilds and redeployments</li>
+<li><strong>Dynamic features</strong>: User-specific content, real-time inventory, personalization require client-side JavaScript or edge functions</li>
+</ul>
+<h2 id="implementing-dynamic-rendering">Implementing Dynamic Rendering</h2>
+<p><strong>Dynamic rendering</strong> serves different HTML to users and crawlers. Users receive JavaScript-rendered content; crawlers receive pre-rendered HTML. This is a pragmatic workaround when SSR or SSG aren&#39;t feasible.</p>
+<p><strong>Rendertron setup</strong> (open-source dynamic rendering service):</p>
+<ol>
+<li>Deploy Rendertron service:</li>
+</ol>
+<pre><code class="language-bash">git clone https://github.com/GoogleChrome/rendertron.git
+cd rendertron
+npm install
+npm run build
+npm start
+</code></pre>
+<ol start="2">
+<li>Configure your server to detect crawlers and proxy to Rendertron:</li>
+</ol>
+<pre><code class="language-javascript">// Express.js middleware
+const fetch = require(&#39;node-fetch&#39;);
+
+const BOTS = [
+  &#39;googlebot&#39;,
+  &#39;bingbot&#39;,
+  &#39;slurp&#39;,
+  &#39;duckduckbot&#39;,
+  &#39;baiduspider&#39;,
+  &#39;yandexbot&#39;,
+  &#39;facebookexternalhit&#39;,
+  &#39;twitterbot&#39;,
+  &#39;linkedinbot&#39;
+];
+
+function isBot(userAgent) {
+  return BOTS.some(bot =&gt; userAgent.toLowerCase().includes(bot));
+}
+
+async function dynamicRenderingMiddleware(req, res, next) {
+  const userAgent = req.headers[&#39;user-agent&#39;] || &#39;&#39;;
+
+  if (isBot(userAgent)) {
+    const renderedUrl = `http://localhost:3000/render/${req.protocol}://${req.get(&#39;host&#39;)}${req.originalUrl}`;
+    const response = await fetch(renderedUrl);
+    const html = await response.text();
+    return res.send(html);
+  }
+
+  next();
+}
+
+app.use(dynamicRenderingMiddleware);
+</code></pre>
+<p>Crawlers receive pre-rendered HTML from Rendertron; regular users get standard client-side rendered pages.</p>
+<p><strong>Prerender.io</strong> (commercial dynamic rendering service):</p>
+<ol>
+<li>Sign up at <a href="https://prerender.io/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">prerender.io</a></li>
+<li>Install middleware for your platform:</li>
+</ol>
+<pre><code class="language-bash">npm install prerender-node
+</code></pre>
+<ol start="3">
+<li>Configure in your application:</li>
+</ol>
+<pre><code class="language-javascript">const prerender = require(&#39;prerender-node&#39;);
+prerender.set(&#39;prerenderToken&#39;, &#39;YOUR_TOKEN&#39;);
+app.use(prerender);
+</code></pre>
+<p>Prerender.io automatically detects crawlers and serves cached pre-rendered versions.</p>
+<p><strong>Dynamic rendering considerations</strong>:</p>
+<p>Google discourages dynamic rendering (calling it a &quot;workaround&quot;), preferring SSR or SSG. However, dynamic rendering remains acceptable when:</p>
+<ul>
+<li><strong>Legacy constraints</strong> prevent SSR/SSG implementation</li>
+<li><strong>Third-party dependencies</strong> require client-side JavaScript</li>
+<li><strong>Migration period</strong>: Use while transitioning to SSR/SSG</li>
+</ul>
+<p>Never use dynamic rendering to serve substantially different content to crawlers versus users (cloaking). Ensure rendered content matches what users see after JavaScript execution.</p>
+<h2 id="optimizing-client-side-rendering">Optimizing Client-Side Rendering</h2>
+<p>If SSR, SSG, and dynamic rendering aren&#39;t options, optimize client-side rendering to minimize SEO impact.</p>
+<p><strong>Improve initial HTML</strong>:</p>
+<p>Include critical content in initial HTML, even if JavaScript enhances it:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Product Name - Example Store&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;Product description here&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;nav&gt;
+      &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
+      &lt;a href=&quot;/products&quot;&gt;Products&lt;/a&gt;
+      &lt;a href=&quot;/about&quot;&gt;About&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;main id=&quot;app&quot;&gt;
+    &lt;h1&gt;Product Name&lt;/h1&gt;
+    &lt;p&gt;Product description that appears even without JavaScript...&lt;/p&gt;
+    &lt;!-- JavaScript will enhance this with dynamic content --&gt;
+  &lt;/main&gt;
+  &lt;script src=&quot;/bundle.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Crawlers see basic content immediately. JavaScript progressively enhances the experience without blocking initial content access.</p>
+<p><strong>Reduce JavaScript bundle size</strong>:</p>
+<p>Large bundles delay execution, extending the gap between crawling and rendering:</p>
+<ol>
+<li><strong>Code splitting</strong>: Break bundles into smaller chunks loaded on demand</li>
+</ol>
+<pre><code class="language-javascript">// React lazy loading
+import React, { lazy, Suspense } from &#39;react&#39;;
+
+const ProductDetails = lazy(() =&gt; import(&#39;./ProductDetails&#39;));
+
+function Product() {
+  return (
+    &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+      &lt;ProductDetails /&gt;
+    &lt;/Suspense&gt;
+  );
+}
+</code></pre>
+<ol start="2">
+<li><strong>Tree shaking</strong>: Remove unused code from bundles</li>
+</ol>
+<pre><code class="language-javascript">// webpack.config.js
+module.exports = {
+  mode: &#39;production&#39;,
+  optimization: {
+    usedExports: true
+  }
+};
+</code></pre>
+<ol start="3">
+<li><strong>Defer non-critical JavaScript</strong>:</li>
+</ol>
+<pre><code class="language-html">&lt;script src=&quot;/critical.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/analytics.js&quot; defer&gt;&lt;/script&gt;
+&lt;script src=&quot;/chat-widget.js&quot; async&gt;&lt;/script&gt;
+</code></pre>
+<p>Critical JavaScript loads first; non-essential scripts defer to prevent blocking.</p>
+<p><strong>Implement loading states with semantic HTML</strong>:</p>
+<pre><code class="language-html">&lt;div id=&quot;product-container&quot;&gt;
+  &lt;noscript&gt;
+    &lt;p&gt;Please enable JavaScript to view product details.&lt;/p&gt;
+  &lt;/noscript&gt;
+  &lt;div class=&quot;loading-skeleton&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;!-- Placeholder content visible while JavaScript loads --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><strong>Lazy-load below-the-fold content</strong>:</p>
+<pre><code class="language-javascript">const observer = new IntersectionObserver((entries) =&gt; {
+  entries.forEach(entry =&gt; {
+    if (entry.isIntersecting) {
+      loadContent(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll(&#39;.lazy-load&#39;).forEach(el =&gt; {
+  observer.observe(el);
+});
+</code></pre>
+<p>Critical above-the-fold content loads immediately; below-the-fold content loads as users scroll. Crawlers still access all content via internal links.</p>
+<p>For additional performance optimization, see our guides on <a href="/articles/fix-oversized-images-slowing-site.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing oversized images</a> and <a href="/articles/fix-long-tasks-blocking-main-thread.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing long tasks blocking the main thread</a>.</p>
+<h2 id="handling-javascript-generated-links">Handling JavaScript-Generated Links</h2>
+<p><strong>Internal links</strong> generated by JavaScript may not be discoverable by crawlers during initial HTML parsing. This creates orphan pages Google can&#39;t find.</p>
+<p><strong>Diagnose link rendering issues</strong>:</p>
+<ol>
+<li>View page source (not Inspect Element)</li>
+<li>Search for internal links: <code>&lt;a href=&quot;/&quot;</code></li>
+<li>If critical navigation links don&#39;t appear in source, JavaScript generates them</li>
+</ol>
+<p><strong>Fix JavaScript link discovery</strong>:</p>
+<p><strong>Option 1: Include links in initial HTML</strong>:</p>
+<pre><code class="language-html">&lt;nav&gt;
+  &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
+  &lt;a href=&quot;/products&quot;&gt;Products&lt;/a&gt;
+  &lt;a href=&quot;/blog&quot;&gt;Blog&lt;/a&gt;
+  &lt;a href=&quot;/contact&quot;&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+<p>JavaScript can enhance these links (add classes, tracking) without controlling their existence.</p>
+<p><strong>Option 2: Use HTML sitemap</strong>:</p>
+<p>Create an HTML sitemap page with all internal links in crawlable HTML:</p>
+<pre><code class="language-html">&lt;h2&gt;Products&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/products/wireless-mouse&quot;&gt;Wireless Mouse&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/products/mechanical-keyboard&quot;&gt;Mechanical Keyboard&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/products/usb-c-hub&quot;&gt;USB-C Hub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>Submit this sitemap in robots.txt and link from footer. Crawlers discover all pages even if JavaScript navigation fails.</p>
+<p><strong>Option 3: XML sitemap</strong>:</p>
+<p>Ensure comprehensive XML sitemaps include all pages:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  &lt;url&gt;
+    &lt;loc&gt;https://example.com/products/wireless-mouse&lt;/loc&gt;
+    &lt;lastmod&gt;2026-02-08&lt;/lastmod&gt;
+    &lt;changefreq&gt;weekly&lt;/changefreq&gt;
+    &lt;priority&gt;0.8&lt;/priority&gt;
+  &lt;/url&gt;
+  &lt;!-- More URLs... --&gt;
+&lt;/urlset&gt;
+</code></pre>
+<p>Submit to Google Search Console. Google discovers and crawls all listed URLs regardless of internal linking.</p>
+<p><strong>Avoid JavaScript-only navigation</strong>:</p>
+<p>Never use <code>&lt;div onclick=&quot;navigate()&quot;&gt;</code> for navigation links. These aren&#39;t crawlable. Always use proper <code>&lt;a href=&quot;&quot;&gt;</code> tags:</p>
+<pre><code class="language-html">&lt;!-- Bad: Not crawlable --&gt;
+&lt;div onclick=&quot;loadPage(&#39;/products&#39;)&quot;&gt;Products&lt;/div&gt;
+
+&lt;!-- Good: Crawlable --&gt;
+&lt;a href=&quot;/products&quot;&gt;Products&lt;/a&gt;
+</code></pre>
+<p>For understanding how link discovery affects indexing, see our guide on <a href="/articles/fix-orphan-pages-google-cant-find.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing orphan pages Google can't find</a>.</p>
+<h2 id="validating-javascript-seo-fixes">Validating JavaScript SEO Fixes</h2>
+<p>After implementing rendering solutions, validate that crawlers see complete content.</p>
+<p><strong>Google Search Console URL Inspection</strong>:</p>
+<ol>
+<li>Enter fixed page URL</li>
+<li>Click &quot;Test Live URL&quot;</li>
+<li>Wait for processing (30-60 seconds)</li>
+<li>Click &quot;View Tested Page&quot;</li>
+<li>Check screenshot, verify all content appears</li>
+<li>Compare HTML tab to live page source. HTML should now include dynamic content</li>
+<li>Request indexing to expedite reprocessing</li>
+</ol>
+<p><strong>Rich Results Test</strong>:</p>
+<ol>
+<li>Visit <a href="https://search.google.com/test/rich-results" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Rich Results Test</a></li>
+<li>Enter your URL</li>
+<li>Wait for rendering</li>
+<li>Click &quot;View tested page&quot; → &quot;More info&quot; → &quot;HTML&quot;</li>
+<li>Search for critical content in rendered HTML</li>
+</ol>
+<p>If content appears, Google&#39;s rendering succeeded.</p>
+<p><strong>Mobile-Friendly Test</strong>:</p>
+<ol>
+<li>Visit <a href="https://search.google.com/test/mobile-friendly" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Mobile-Friendly Test</a></li>
+<li>Enter your URL</li>
+<li>After processing, view screenshot</li>
+<li>Verify content renders properly on mobile</li>
+</ol>
+<p><strong>Monitor Search Console Performance</strong>:</p>
+<p>Compare organic impressions and clicks before and after implementing rendering fixes:</p>
+<ol>
+<li>Go to Performance report</li>
+<li>Compare date ranges (30 days before fix vs. 30 days after)</li>
+<li>Look for impression increases (more pages visible in search)</li>
+<li>Check average position improvements</li>
+</ol>
+<p>Expect gradual improvements over 2-4 weeks as Google recrawls and reindexes pages with improved rendering.</p>
+<p><strong>Crawl with Screaming Frog (JavaScript mode)</strong>:</p>
+<ol>
+<li>Enable JavaScript rendering in Configuration</li>
+<li>Crawl site</li>
+<li>Check H1, word count, internal links tabs</li>
+<li>Compare to previous crawls, these metrics should increase with proper rendering</li>
+</ol>
+<p><strong>Lighthouse SEO audit</strong>:</p>
+<ol>
+<li>Open Chrome DevTools</li>
+<li>Go to Lighthouse tab</li>
+<li>Select &quot;SEO&quot; category</li>
+<li>Run audit</li>
+<li>Check &quot;Crawling and Indexing&quot; section for warnings about rendering issues</li>
+</ol>
+<h2 id="framework-specific-seo-considerations">Framework-Specific SEO Considerations</h2>
+<p>Different JavaScript frameworks require different SEO approaches.</p>
+<p><strong>React</strong>:</p>
+<ul>
+<li><strong>Without SSR</strong>: Client-side only React has significant SEO challenges. Implement Next.js or similar SSR solution.</li>
+<li><strong>With Next.js</strong>: Use <code>getStaticProps</code> for static content, <code>getServerSideProps</code> for dynamic content</li>
+<li><strong>Metadata</strong>: Use <code>next/head</code> for meta tags in each page component</li>
+</ul>
+<pre><code class="language-javascript">import Head from &#39;next/head&#39;;
+
+export default function Product({ product }) {
+  return (
+    &lt;&gt;
+      &lt;Head&gt;
+        &lt;title&gt;{product.name} - Example Store&lt;/title&gt;
+        &lt;meta name=&quot;description&quot; content={product.description} /&gt;
+      &lt;/Head&gt;
+      &lt;h1&gt;{product.name}&lt;/h1&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p><strong>Vue</strong>:</p>
+<ul>
+<li><strong>Without SSR</strong>: Similar SEO challenges to React</li>
+<li><strong>With Nuxt.js</strong>: Use <code>asyncData</code> or <code>fetch</code> hooks for server-side data fetching</li>
+<li><strong>Metadata</strong>: Use <code>head()</code> method in components</li>
+</ul>
+<pre><code class="language-javascript">export default {
+  head() {
+    return {
+      title: this.product.name,
+      meta: [
+        { hid: &#39;description&#39;, name: &#39;description&#39;, content: this.product.description }
+      ]
+    };
+  }
+}
+</code></pre>
+<p><strong>Angular</strong>:</p>
+<ul>
+<li><strong>Without SSR</strong>: Angular&#39;s client-side rendering creates SEO barriers</li>
+<li><strong>With Angular Universal</strong>: Full server-side rendering support</li>
+<li><strong>Metadata</strong>: Use <code>Title</code> and <code>Meta</code> services</li>
+</ul>
+<pre><code class="language-typescript">import { Title, Meta } from &#39;@angular/platform-browser&#39;;
+
+constructor(
+  private titleService: Title,
+  private metaService: Meta
+) {}
+
+ngOnInit() {
+  this.titleService.setTitle(this.product.name);
+  this.metaService.updateTag({
+    name: &#39;description&#39;,
+    content: this.product.description
+  });
+}
+</code></pre>
+<p><strong>Svelte/SvelteKit</strong>:</p>
+<p>SvelteKit provides excellent SEO capabilities with minimal configuration:</p>
+<pre><code class="language-javascript">// +page.server.js
+export async function load({ params }) {
+  const product = await fetchProduct(params.id);
+  return { product };
+}
+</code></pre>
+<pre><code class="language-svelte">&lt;!-- +page.svelte --&gt;
+&lt;script&gt;
+  export let data;
+&lt;/script&gt;
+
+&lt;svelte:head&gt;
+  &lt;title&gt;{data.product.name}&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content={data.product.description} /&gt;
+&lt;/svelte:head&gt;
+
+&lt;h1&gt;{data.product.name}&lt;/h1&gt;
+</code></pre>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Diagnosing JavaScript Rendering Issues:</strong> Several tools reveal what crawlers see versus what browsers render after JavaScript execution.</li>
+<li><strong>Using Static Site Generation (SSG):</strong> Use getStaticProps for pages with data dependencies:</li>
+<li><strong>Optimizing Client-Side Rendering:</strong> If SSR, SSG, and dynamic rendering aren&#39;t options, optimize client-side rendering to minimize SEO impact.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Does Google render all JavaScript for SEO?</strong></p>
+<p>Google attempts to render JavaScript for most pages but with delays and limitations. Pages enter a rendering queue after initial crawling, with rendering occurring hours or days later. This delay affects time-sensitive content. Additionally, complex JavaScript, long execution times, or resources blocked by robots.txt may prevent successful rendering. Server-side rendering eliminates these uncertainties.</p>
+<p><strong>Can Googlebot execute all JavaScript features?</strong></p>
+<p>Googlebot uses a recent version of Chromium but doesn&#39;t support all modern JavaScript features immediately. It lacks features like real-time updates via WebSockets, persistent storage beyond page loads, and user-specific personalization. For maximum compatibility, target ES5 JavaScript or transpile modern code with Babel.</p>
+<p><strong>How long does Google&#39;s rendering queue take?</strong></p>
+<p>Rendering delays vary from hours to weeks depending on crawl budget, page priority, and site authority. High-authority sites with frequent crawling see rendering within hours. New or low-authority sites may wait days or weeks. Time-sensitive content (news, events, sales) needs server-side rendering to avoid visibility delays.</p>
+<p><strong>Should I use dynamic rendering or server-side rendering?</strong></p>
+<p>Server-side rendering is always preferable. Google views dynamic rendering as a workaround for sites that can&#39;t implement SSR. Dynamic rendering introduces complexity (maintaining two rendering paths) and potential cloaking risks if implementation differs between crawler and user content. Use SSR or SSG whenever feasible; reserve dynamic rendering for legacy applications or transition periods.</p>
+<p><strong>How do I know if my JavaScript SEO issues are fixed?</strong></p>
+<p>Use Google Search Console&#39;s URL Inspection tool to test live URLs after fixes. Compare the rendered screenshot to your live page, they should match. Monitor indexed page counts in the Page Indexing report; increases indicate improved discoverability. Track organic impressions in the Performance report; increases signal better visibility. Allow 2-4 weeks for Google to recrawl and reindex after implementing fixes.</p>
+<p><strong>Do all search engines render JavaScript like Google?</strong></p>
+<p>No. Bing has similar capabilities to Google but with smaller crawl budgets and potentially longer rendering delays. Baidu has limited JavaScript support and strongly prefers server-rendered content. Yandex is improving but still recommends SSR. DuckDuckGo relies on Bing&#39;s index. For international SEO or broad search engine coverage, implement server-side rendering rather than relying on crawler JavaScript execution.</p>
+<p><strong>Can I use client-side routing (React Router, Vue Router) for SEO?</strong></p>
+<p>Yes, if you implement proper server-side rendering or static generation. Client-side routing without SSR creates single-page applications where route changes don&#39;t trigger full page loads, potentially confusing crawlers. With SSR, each route renders server-side with unique HTML, canonical tags, and metadata. Ensure each route has a corresponding server-side route configuration.</p>
+<p><strong>What&#39;s the best framework for JavaScript SEO?</strong></p>
+<p>Next.js (React), Nuxt.js (Vue), and SvelteKit offer excellent built-in SEO capabilities with minimal configuration. All provide server-side rendering, static generation, and proper metadata management. Choose based on your team&#39;s familiarity with the underlying framework (React, Vue, Svelte) rather than SEO capabilities, all three handle SEO well when configured properly.</p>
+<p><strong>How do I handle user-generated content in JavaScript applications?</strong></p>
+<p>User-generated content that loads dynamically (comments, reviews, forum posts) should render server-side to ensure Google indexes it. Fetch and include this content during server-side rendering using <code>getServerSideProps</code>, <code>asyncData</code>, or equivalent mechanisms. For performance, implement caching strategies (Redis, CDN) to avoid database queries on every request.</p>
+<p><strong>Should I disable JavaScript for SEO testing?</strong></p>
+<p>Yes, disabling JavaScript reveals what initial HTML contains before JavaScript execution. This simulates the crawler&#39;s view during initial crawling. Use browser DevTools to disable JavaScript and reload pages. Missing navigation, content, or metadata indicates SEO issues. However, remember Google does eventually render JavaScript, so complete JavaScript disabling is more pessimistic than Google&#39;s actual capabilities.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/dynamic-rendering-seo-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Dynamic Rendering SEO Guide: Serve JavaScript Sites to Googlebot</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement dynamic rendering to serve pre-rendered HTML to Googlebot while keeping JavaScript for users. Fix indexing issues on React, Vue, Angular sites.</p>
+          </a>
+
+          <a href="/articles/fix-indexing-issues-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Indexing Issues in Google Search Console (Complete Diagnostic Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Google Search Console shows pages excluded from indexing? Learn how to diagnose crawl errors, fix server issues, resolve canonical conflicts, and force Google to index your critical pages.</p>
+          </a>
+
+          <a href="/articles/fix-mobile-viewport-issues.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Mobile Viewport Issues: Complete Guide to Responsive Meta Tags and CSS</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Resolve mobile viewport configuration errors that cause horizontal scrolling, tiny text, and mobile usability warnings in Google Search Console.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

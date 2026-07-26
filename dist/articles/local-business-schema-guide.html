@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Business Schema Guide: Complete Structured Data Implementation | Polytraffic</title>
+    <meta name="description" content="Implement LocalBusiness schema with hours, address, reviews, and service areas. Optimize for Google Maps, local pack, and knowledge panels." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Local Business Schema Guide: Complete Structured Data Implementation | Polytraffic" />
+    <meta property="og:description" content="Implement LocalBusiness schema with hours, address, reviews, and service areas. Optimize for Google Maps, local pack, and knowledge panels." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/local-business-schema-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/local-business-schema-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Local Business Schema Guide: Complete Structured Data Implementation | Polytraffic" />
+    <meta name="twitter:description" content="Implement LocalBusiness schema with hours, address, reviews, and service areas. Optimize for Google Maps, local pack, and knowledge panels." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/local-business-schema-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/local-business-schema-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Local Business Schema Guide: Complete Structured Data Implementation",
+    "description": "Implement LocalBusiness schema with hours, address, reviews, and service areas. Optimize for Google Maps, local pack, and knowledge panels.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/local-business-schema-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/local-business-schema-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Local SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Local Business Schema Guide: Complete Structured Data Implementation"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Local SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Local Business Schema Guide: Complete Structured Data Implementation</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/local-business-schema-guide.png" alt="Local Business Schema Guide: Complete Structured Data Implementation" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="local-business-schema-guide-complete-structured-data-implementation">Local Business Schema Guide: Complete Structured Data Implementation</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Implement LocalBusiness schema with hours, address, reviews, and service areas. Optimize for Google Maps, local pack, and knowledge panels.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#localbusiness-schema-fundamentals" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">LocalBusiness Schema Fundamentals</a></li>
+<li><a href="#business-type-selection" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Business Type Selection</a></li>
+<li><a href="#address-and-contact-details" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Address and Contact Details</a></li>
+<li><a href="#opening-hours-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Opening Hours Implementation</a></li>
+<li><a href="#reviews-and-ratings" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Reviews and Ratings</a></li>
+<li><a href="#service-area-configuration" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Service Area Configuration</a></li>
+<li><a href="#images-and-media" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Images and Media</a></li>
+<li><a href="#price-range-and-payment" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Price Range and Payment</a></li>
+<li><a href="#wordpress-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WordPress Implementation</a></li>
+<li><a href="#validation-and-testing" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Validation and Testing</a></li>
+<li><a href="#common-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Mistakes</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>LocalBusiness schema</strong> communicates critical location data to Google, business hours, service areas, contact methods, and review aggregates, enabling rich local search features like knowledge panels, local pack prominence, and enhanced map listings. Proper structured data implementation increases local visibility by 30-50% through improved ranking signals and featured result eligibility.</p>
+<h2 id="localbusiness-schema-fundamentals">LocalBusiness Schema Fundamentals</h2>
+<p><strong>LocalBusiness schema type</strong> extends Organization, inheriting general business properties while adding location-specific fields. Google recognizes 100+ LocalBusiness subtypes (Restaurant, Store, MedicalBusiness) for specialized businesses.</p>
+<p><strong>Core required properties</strong> for functional implementation:</p>
+<ul>
+<li><code>@type</code>: &quot;LocalBusiness&quot; or specific subtype</li>
+<li><code>name</code>: Official business name</li>
+<li><code>address</code>: Physical location with structured PostalAddress</li>
+<li><code>telephone</code>: Primary phone number</li>
+<li><code>url</code>: Website homepage</li>
+</ul>
+<p><strong>Recommended properties</strong> for enhanced features:</p>
+<ul>
+<li><code>openingHoursSpecification</code>: Operating hours</li>
+<li><code>geo</code>: Latitude/longitude coordinates</li>
+<li><code>priceRange</code>: Cost indicator ($, $$, $$$)</li>
+<li><code>image</code>: Business photos</li>
+<li><code>aggregateRating</code>: Review ratings</li>
+<li><code>servesCuisine</code>: (Restaurants) Food type</li>
+</ul>
+<p><strong>JSON-LD format</strong> injects schema via <code>&lt;script&gt;</code> tags in page <code>&lt;head&gt;</code>:</p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;LocalBusiness&quot;,
+  &quot;name&quot;: &quot;Example Coffee Shop&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;streetAddress&quot;: &quot;123 Main Street&quot;,
+    &quot;addressLocality&quot;: &quot;San Francisco&quot;,
+    &quot;addressRegion&quot;: &quot;CA&quot;,
+    &quot;postalCode&quot;: &quot;94102&quot;,
+    &quot;addressCountry&quot;: &quot;US&quot;
+  },
+  &quot;telephone&quot;: &quot;+1-415-555-0123&quot;,
+  &quot;url&quot;: &quot;https://example.com&quot;
+}
+&lt;/script&gt;
+</code></pre>
+<h2 id="business-type-selection">Business Type Selection</h2>
+<p><strong>Specific subtypes</strong> outperform generic &quot;LocalBusiness&quot; by signaling exact business category:</p>
+<ul>
+<li><strong>Restaurant</strong>: Cafes, diners, bistros</li>
+<li><strong>Store</strong>: Retail shops, clothing stores</li>
+<li><strong>FoodEstablishment</strong>: Bakeries, fast food, bars</li>
+<li><strong>ProfessionalService</strong>: Law firms, consulting, agencies</li>
+<li><strong>HomeAndConstructionBusiness</strong>: Contractors, electricians, plumbers</li>
+<li><strong>MedicalBusiness</strong>: Doctors, dentists, clinics</li>
+<li><strong>AutomotiveBusiness</strong>: Repair shops, dealerships</li>
+<li><strong>LodgingBusiness</strong>: Hotels, B&amp;Bs, resorts</li>
+</ul>
+<p><strong>Reference Schema.org</strong> for complete subtype list: schema.org/LocalBusiness. Choose the most specific applicable type &quot;ItalianRestaurant&quot; beats &quot;Restaurant&quot; which beats &quot;FoodEstablishment.&quot;</p>
+<p><strong>Multiple locations</strong> require separate LocalBusiness entries per physical location. Multi-location businesses should implement schema on each location page, not the homepage:</p>
+<pre><code class="language-html">&lt;!-- Location 1 page --&gt;
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@type&quot;: &quot;LocalBusiness&quot;,
+  &quot;name&quot;: &quot;Example Coffee - Downtown&quot;,
+  &quot;address&quot;: { &quot;streetAddress&quot;: &quot;123 Main St&quot;, &quot;addressLocality&quot;: &quot;San Francisco&quot; }
+}
+&lt;/script&gt;
+
+&lt;!-- Location 2 page --&gt;
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@type&quot;: &quot;LocalBusiness&quot;,
+  &quot;name&quot;: &quot;Example Coffee - Marina&quot;,
+  &quot;address&quot;: { &quot;streetAddress&quot;: &quot;456 Bay St&quot;, &quot;addressLocality&quot;: &quot;San Francisco&quot; }
+}
+&lt;/script&gt;
+</code></pre>
+<h2 id="address-and-contact-details">Address and Contact Details</h2>
+<p><strong>PostalAddress structure</strong> requires five components for US addresses:</p>
+<pre><code class="language-json">&quot;address&quot;: {
+  &quot;@type&quot;: &quot;PostalAddress&quot;,
+  &quot;streetAddress&quot;: &quot;123 Main Street Suite 200&quot;,
+  &quot;addressLocality&quot;: &quot;San Francisco&quot;,
+  &quot;addressRegion&quot;: &quot;CA&quot;,
+  &quot;postalCode&quot;: &quot;94102&quot;,
+  &quot;addressCountry&quot;: &quot;US&quot;
+}
+</code></pre>
+<p><strong>streetAddress</strong> includes building numbers, street names, and suite/unit numbers. <strong>addressLocality</strong> is the city name. <strong>addressRegion</strong> uses two-letter state codes (CA, NY, TX). <strong>postalCode</strong> follows local formatting (ZIP for US, postal codes for other countries).</p>
+<p><strong>International addresses</strong> adapt components:</p>
+<pre><code class="language-json">&quot;address&quot;: {
+  &quot;@type&quot;: &quot;PostalAddress&quot;,
+  &quot;streetAddress&quot;: &quot;10 Downing Street&quot;,
+  &quot;addressLocality&quot;: &quot;London&quot;,
+  &quot;postalCode&quot;: &quot;SW1A 2AA&quot;,
+  &quot;addressCountry&quot;: &quot;GB&quot;
+}
+</code></pre>
+<p><strong>Telephone formatting</strong> should include country code with plus prefix:</p>
+<pre><code class="language-json">&quot;telephone&quot;: &quot;+1-415-555-0123&quot;
+</code></pre>
+<p>Avoid letters in phone numbers, format as digits with hyphens. Multiple contact methods use <code>telephone</code> (primary) and <code>contactPoint</code> for additional:</p>
+<pre><code class="language-json">&quot;telephone&quot;: &quot;+1-415-555-0123&quot;,
+&quot;contactPoint&quot;: {
+  &quot;@type&quot;: &quot;ContactPoint&quot;,
+  &quot;telephone&quot;: &quot;+1-415-555-0199&quot;,
+  &quot;contactType&quot;: &quot;customer service&quot;
+}
+</code></pre>
+<p><strong>Geo coordinates</strong> improve map accuracy:</p>
+<pre><code class="language-json">&quot;geo&quot;: {
+  &quot;@type&quot;: &quot;GeoCoordinates&quot;,
+  &quot;latitude&quot;: 37.7749,
+  &quot;longitude&quot;: -122.4194
+}
+</code></pre>
+<p>Find coordinates via Google Maps: right-click location → select coordinates (copies to clipboard). Precision to 4 decimal places suffices (±11 meters accuracy).</p>
+<h2 id="opening-hours-implementation">Opening Hours Implementation</h2>
+<p><strong>openingHoursSpecification</strong> defines operating hours per day:</p>
+<pre><code class="language-json">&quot;openingHoursSpecification&quot;: [
+  {
+    &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+    &quot;dayOfWeek&quot;: [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;],
+    &quot;opens&quot;: &quot;08:00&quot;,
+    &quot;closes&quot;: &quot;18:00&quot;
+  },
+  {
+    &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+    &quot;dayOfWeek&quot;: &quot;Saturday&quot;,
+    &quot;opens&quot;: &quot;09:00&quot;,
+    &quot;closes&quot;: &quot;15:00&quot;
+  }
+]
+</code></pre>
+<p><strong>Time format</strong> uses 24-hour notation (08:00 for 8 AM, 18:00 for 6 PM). Group consecutive days with identical hours to reduce verbosity.</p>
+<p><strong>Closed days</strong> omit from openingHoursSpecification, absence signals closed. If explicitly stating closure:</p>
+<pre><code class="language-json">{
+  &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+  &quot;dayOfWeek&quot;: &quot;Sunday&quot;,
+  &quot;opens&quot;: &quot;00:00&quot;,
+  &quot;closes&quot;: &quot;00:00&quot;
+}
+</code></pre>
+<p><strong>24/7 operations</strong> span midnight:</p>
+<pre><code class="language-json">&quot;openingHoursSpecification&quot;: {
+  &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+  &quot;dayOfWeek&quot;: [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;],
+  &quot;opens&quot;: &quot;00:00&quot;,
+  &quot;closes&quot;: &quot;23:59&quot;
+}
+</code></pre>
+<p><strong>Seasonal hours</strong> require special event markup:</p>
+<pre><code class="language-json">&quot;specialOpeningHoursSpecification&quot;: {
+  &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+  &quot;opens&quot;: &quot;00:00&quot;,
+  &quot;closes&quot;: &quot;00:00&quot;,
+  &quot;validFrom&quot;: &quot;2026-12-25&quot;,
+  &quot;validThrough&quot;: &quot;2026-12-25&quot;
+}
+</code></pre>
+<p>This indicates Christmas closure without permanently modifying standard hours.</p>
+<h2 id="reviews-and-ratings">Reviews and Ratings</h2>
+<p><strong>aggregateRating</strong> displays star ratings in search results:</p>
+<pre><code class="language-json">&quot;aggregateRating&quot;: {
+  &quot;@type&quot;: &quot;AggregateRating&quot;,
+  &quot;ratingValue&quot;: &quot;4.5&quot;,
+  &quot;reviewCount&quot;: &quot;127&quot;
+}
+</code></pre>
+<p><strong>ratingValue</strong> represents average rating (1-5 scale). <strong>reviewCount</strong> indicates total reviews. Google validates these numbers against discoverable reviews, inflating values risks penalties.</p>
+<p><strong>Individual reviews</strong> add credibility with review schema:</p>
+<pre><code class="language-json">&quot;review&quot;: [
+  {
+    &quot;@type&quot;: &quot;Review&quot;,
+    &quot;author&quot;: {
+      &quot;@type&quot;: &quot;Person&quot;,
+      &quot;name&quot;: &quot;John Smith&quot;
+    },
+    &quot;datePublished&quot;: &quot;2026-02-01&quot;,
+    &quot;reviewRating&quot;: {
+      &quot;@type&quot;: &quot;Rating&quot;,
+      &quot;ratingValue&quot;: &quot;5&quot;,
+      &quot;bestRating&quot;: &quot;5&quot;
+    },
+    &quot;reviewBody&quot;: &quot;Excellent service and great coffee. Highly recommend!&quot;
+  }
+]
+</code></pre>
+<p><strong>First-party reviews</strong> (hosted on your site) require visible review content matching schema. Don&#39;t markup reviews existing only in schema. Google detects and penalizes hidden reviews.</p>
+<p><strong>Third-party review aggregation</strong> should pull from Google Business Profile, Yelp, or industry-specific platforms. Update aggregateRating monthly to reflect current ratings.</p>
+<h2 id="service-area-configuration">Service Area Configuration</h2>
+<p><strong>Service area businesses</strong> (plumbers, contractors, delivery) serve regions without requiring customers to visit:</p>
+<pre><code class="language-json">&quot;@type&quot;: &quot;HomeAndConstructionBusiness&quot;,
+&quot;name&quot;: &quot;ABC Plumbing&quot;,
+&quot;areaServed&quot;: [
+  {
+    &quot;@type&quot;: &quot;City&quot;,
+    &quot;name&quot;: &quot;San Francisco&quot;
+  },
+  {
+    &quot;@type&quot;: &quot;City&quot;,
+    &quot;name&quot;: &quot;Oakland&quot;
+  },
+  {
+    &quot;@type&quot;: &quot;City&quot;,
+    &quot;name&quot;: &quot;Berkeley&quot;
+  }
+]
+</code></pre>
+<p><strong>Radius-based service areas</strong> specify distance:</p>
+<pre><code class="language-json">&quot;areaServed&quot;: {
+  &quot;@type&quot;: &quot;GeoCircle&quot;,
+  &quot;geoMidpoint&quot;: {
+    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
+    &quot;latitude&quot;: 37.7749,
+    &quot;longitude&quot;: -122.4194
+  },
+  &quot;geoRadius&quot;: &quot;50 miles&quot;
+}
+</code></pre>
+<p><strong>Postal code ranges</strong> define service boundaries:</p>
+<pre><code class="language-json">&quot;areaServed&quot;: {
+  &quot;@type&quot;: &quot;PostalCodeRangeSpecification&quot;,
+  &quot;postalCodeBegin&quot;: &quot;94102&quot;,
+  &quot;postalCodeEnd&quot;: &quot;94199&quot;,
+  &quot;addressCountry&quot;: &quot;US&quot;
+}
+</code></pre>
+<p><strong>Virtual businesses</strong> without physical addresses use serviceArea exclusively, omitting physical address schema to avoid confusion.</p>
+<h2 id="images-and-media">Images and Media</h2>
+<p><strong>image property</strong> displays business photos in knowledge panels:</p>
+<pre><code class="language-json">&quot;image&quot;: [
+  &quot;https://example.com/storefront.jpg&quot;,
+  &quot;https://example.com/interior.jpg&quot;,
+  &quot;https://example.com/products.jpg&quot;
+]
+</code></pre>
+<p><strong>Image requirements</strong>:</p>
+<ul>
+<li>Minimum 1200px width</li>
+<li>16:9, 4:3, or 1:1 aspect ratios</li>
+<li>JPEG or PNG format</li>
+<li>Show actual business (exterior, interior, products), not stock photos</li>
+</ul>
+<p><strong>Logo specification</strong> differentiates from general images:</p>
+<pre><code class="language-json">&quot;logo&quot;: &quot;https://example.com/logo.png&quot;
+</code></pre>
+<p>Logos should be square (1:1 ratio), minimum 112px, representing the official business mark.</p>
+<p><strong>Video content</strong> via VideoObject enhances engagement:</p>
+<pre><code class="language-json">&quot;video&quot;: {
+  &quot;@type&quot;: &quot;VideoObject&quot;,
+  &quot;name&quot;: &quot;Tour of Example Coffee Shop&quot;,
+  &quot;description&quot;: &quot;Virtual tour of our downtown location&quot;,
+  &quot;thumbnailUrl&quot;: &quot;https://example.com/video-thumb.jpg&quot;,
+  &quot;uploadDate&quot;: &quot;2026-02-01&quot;,
+  &quot;contentUrl&quot;: &quot;https://example.com/videos/tour.mp4&quot;
+}
+</code></pre>
+<h2 id="price-range-and-payment">Price Range and Payment</h2>
+<p><strong>priceRange</strong> indicates cost level:</p>
+<pre><code class="language-json">&quot;priceRange&quot;: &quot;$$&quot;
+</code></pre>
+<p>Use 1-4 dollar signs: $ (inexpensive), $$ (moderate), $$$ (expensive), $$$$ (expensive). This appears in Google Maps and search results helping users filter by budget.</p>
+<p><strong>Payment methods</strong> via acceptedPaymentMethod:</p>
+<pre><code class="language-json">&quot;paymentAccepted&quot;: &quot;Cash, Credit Card, Debit Card, Apple Pay&quot;
+</code></pre>
+<p>Or structured format:</p>
+<pre><code class="language-json">&quot;acceptedPaymentMethod&quot;: [
+  &quot;http://purl.org/goodrelations/v1#Cash&quot;,
+  &quot;http://purl.org/goodrelations/v1#ByBankTransferInAdvance&quot;
+]
+</code></pre>
+<p><strong>Menu links</strong> (restaurants) provide direct access:</p>
+<pre><code class="language-json">&quot;hasMenu&quot;: &quot;https://example.com/menu&quot;
+</code></pre>
+<p>Or structured menu schema:</p>
+<pre><code class="language-json">&quot;hasMenu&quot;: {
+  &quot;@type&quot;: &quot;Menu&quot;,
+  &quot;url&quot;: &quot;https://example.com/menu&quot;
+}
+</code></pre>
+<h2 id="wordpress-implementation">WordPress Implementation</h2>
+<p><strong>Schema plugins</strong> automate LocalBusiness markup:</p>
+<ul>
+<li><strong>Rank Math</strong>: Schema tab → Local Business → Fill form fields → Auto-generates JSON-LD</li>
+<li><strong>Yoast SEO Local</strong>: Dedicated local business extension ($69/year)</li>
+<li><strong>Schema Pro</strong>: Visual schema builder supporting LocalBusiness type</li>
+<li><strong>All in One Schema.org</strong>: Free plugin with LocalBusiness templates</li>
+</ul>
+<p><strong>Manual implementation</strong> via theme functions:</p>
+<pre><code class="language-php">function add_local_business_schema() {
+  $schema = [
+    &#39;@context&#39; =&gt; &#39;https://schema.org&#39;,
+    &#39;@type&#39; =&gt; &#39;LocalBusiness&#39;,
+    &#39;name&#39; =&gt; get_bloginfo(&#39;name&#39;),
+    &#39;address&#39; =&gt; [
+      &#39;@type&#39; =&gt; &#39;PostalAddress&#39;,
+      &#39;streetAddress&#39; =&gt; &#39;123 Main St&#39;,
+      &#39;addressLocality&#39; =&gt; &#39;San Francisco&#39;,
+      &#39;addressRegion&#39; =&gt; &#39;CA&#39;,
+      &#39;postalCode&#39; =&gt; &#39;94102&#39;,
+      &#39;addressCountry&#39; =&gt; &#39;US&#39;
+    ],
+    &#39;telephone&#39; =&gt; &#39;+1-415-555-0123&#39;,
+    &#39;url&#39; =&gt; home_url()
+  ];
+  echo &#39;&lt;script type=&quot;application/ld+json&quot;&gt;&#39; . json_encode($schema) . &#39;&lt;/script&gt;&#39;;
+}
+add_action(&#39;wp_head&#39;, &#39;add_local_business_schema&#39;);
+</code></pre>
+<p><strong>Custom fields</strong> enable schema editing via WordPress admin:</p>
+<pre><code class="language-php">// Add custom fields for hours, ratings, etc. using ACF or CMB2
+// Pull field values into schema generation function
+$hours = get_field(&#39;business_hours&#39;);
+$rating = get_field(&#39;average_rating&#39;);
+</code></pre>
+<h2 id="validation-and-testing">Validation and Testing</h2>
+<p><strong>Google&#39;s Rich Results Test</strong> validates schema syntax:</p>
+<ol>
+<li>Visit search.google.com/test/rich-results</li>
+<li>Enter URL or paste schema code</li>
+<li>Review errors and warnings</li>
+<li>Fix issues highlighted in red</li>
+<li>Retest until validation passes</li>
+</ol>
+<p><strong>Schema Markup Validator</strong> (schema.org validator) tests against official specifications:</p>
+<ol>
+<li>Visit validator.schema.org</li>
+<li>Paste schema code</li>
+<li>Check for specification compliance</li>
+<li>Address any warnings</li>
+</ol>
+<p><strong>Google Search Console</strong> monitors schema performance:</p>
+<ol>
+<li>Go to Enhancements → Unparsable structured data</li>
+<li>Review errors preventing rich result eligibility</li>
+<li>Fix flagged issues</li>
+<li>Request re-indexing via URL Inspection</li>
+</ol>
+<p><strong>Mobile-Friendly Test</strong> ensures schema functions on mobile:</p>
+<ol>
+<li>Visit search.google.com/test/mobile-friendly</li>
+<li>Enter URL</li>
+<li>Verify schema appears in rendered HTML</li>
+<li>Check mobile display of structured data</li>
+</ol>
+<p><strong>Preview tools</strong> show how schema displays:</p>
+<ul>
+<li>Google SERP Preview: See potential search result appearance</li>
+<li>Google Maps Preview: Check how business listing appears</li>
+<li>Facebook Open Graph Debugger: Verify social sharing (if using OpenGraph alongside schema)</li>
+</ul>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<p><strong>Mismatched NAP</strong> (Name, Address, Phone) between schema and visible page content confuses Google. Schema must exactly match displayed information, no abbreviations, formatting differences, or variations.</p>
+<p><strong>Missing required properties</strong> cause validation failures. Every LocalBusiness requires at minimum: @type, name, address, and telephone. Omitting any prevents rich results.</p>
+<p><strong>Incorrect business type</strong> reduces relevance. Using generic &quot;LocalBusiness&quot; instead of specific subtype (Restaurant, MedicalBusiness) misses category-specific features.</p>
+<p><strong>Fake or inflated reviews</strong> in aggregateRating trigger manual penalties. Only markup genuinely collected reviews with verifiable sources.</p>
+<p><strong>Multiple schemas for same business</strong> on one page create conflicting data. Use one comprehensive LocalBusiness schema per page, not multiple partial implementations.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>LocalBusiness Schema Fundamentals:</strong> <!-- Location 2 page --></li>
+</ul>
+<script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "name": "Example Coffee - Marina",
+  "address": { "streetAddress":
+* **Business Type Selection:** <!-- Location 2 page -->
+<script type="application/ld+json">
+{
+  "@type": "LocalBusiness",
+  "name": "Example Coffee - Marina",
+  "address": { "streetAddress":
+* **Address and Contact Details:** Avoid letters in phone numbers, format as digits with hyphens.
+* **Opening Hours Implementation:** This indicates Christmas closure without permanently modifying standard hours.
+* **Reviews and Ratings:** Logos should be square (1:1 ratio), minimum 112px, representing the official business mark.
+* **Service Area Configuration:** Logos should be square (1:1 ratio), minimum 112px, representing the official business mark.
+
+## FAQ: Local Business Schema
+
+### Does schema directly improve local rankings?
+
+**Schema provides ranking signals** but doesn't guarantee top positions. Google confirmed structured data helps understand business details, which influences relevance matching and knowledge panel display. Studies show businesses with complete schema rank 10-20% higher in local pack on average, though causation is unclear, businesses investing in schema also optimize other factors. Schema's primary benefit is **enabling rich results** (star ratings, hours, attributes) that increase CTR by 20-30%, indirectly improving rankings through engagement signals. Implement schema as foundational hygiene, not a ranking miracle, combine with citations, reviews, and on-page optimization for measurable local SEO improvement.
+
+### Should schema match Google Business Profile exactly?
+
+**Yes, consistency is critical.** Google cross-references schema against Google Business Profile (GBP), citations, and on-page content. Mismatches (different phone numbers, addresses, hours) signal data quality issues, reducing trust and rich result eligibility. Use identical formatting: if GBP shows "123 Main Street," schema should too, not "123 Main St." Synchronize hours, ensuring schema reflects current GBP hours. Update both simultaneously when business details change. Automated tools pulling from GBP API ensure perfect synchronization but aren't always necessary, manual checks quarterly suffice for most businesses.
+
+### Can I use schema if I don't have a physical location?
+
+**Service area businesses** without physical addresses should use `areaServed` instead of `address`. Don't fabricate addresses to satisfy schema requirements. Google penalizes deceptive location data. Virtual consultants, freelancers, and delivery-only businesses use:
+
+```json
+{
+  "@type": "ProfessionalService",
+  "name": "Virtual Consulting",
+  "areaServed": "United States",
+  "url": "https://example.com"
+}
+```
+
+Omit address entirely. If required for validation, use a registered business address (accountant, registered agent) marked as not publicly visible, though this risks local pack exclusion, service area businesses rarely rank in traditional local pack.
+
+### How often should I update business schema?
+
+Update **immediately when business details change**: new hours, phone numbers, addresses, or price ranges. Google recrawls pages irregularly, request re-indexing via Search Console URL Inspection after schema updates to accelerate processing. For aggregateRating, update monthly to reflect current review counts and averages. Annual reviews ensure schema stays current even without obvious changes, verify hours during holiday seasons, check that images remain accessible, confirm phone numbers are still active. Schema doesn't require constant maintenance but demands accuracy, stale hours showing you're open when you're closed harms UX and rankings.
+
+### Does LocalBusiness schema work for franchises?
+
+**Yes, each location needs separate schema.** Franchise locations should implement individual LocalBusiness markup on their location-specific pages. Don't use generic corporate schema on franchise pages. Corporate homepage can use Organization schema with `subOrganization` referencing locations:
+
+```json
+{
+  "@type": "Organization",
+  "name": "Example Franchise Corporate",
+  "subOrganization": [
+    { "@type": "LocalBusiness", "name": "Example - Location 1", "address": {...} },
+    { "@type": "LocalBusiness", "name": "Example - Location 2", "address": {...} }
+  ]
+}
+```
+
+However, this quickly becomes unwieldy for 10+ locations. Better approach: location-specific schema on each location page, aggregate Organization schema on corporate site linking to location pages.
+
+---
+
+## When This Fix Isn't Your Priority
+
+Skip this for now if:
+
+- **Your site has fundamental crawling/indexing issues.** Fixing a meta description is pointless if Google can't reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.
+- **You're mid-migration.** During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.
+- **The page gets zero impressions in Search Console.** If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn't indexed first.
+
+---
+
+## Frequently Asked Questions
+
+### How long does this fix take to implement?
+
+Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.
+
+### Will this fix work on WordPress, Shopify, and custom sites?
+
+The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.
+
+### How do I verify the fix worked?
+
+Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/local-pack-ranking-factors.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Local SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Local Pack Ranking Factors: Complete Guide to Google's Local Algorithm</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master Google local pack rankings through proximity, relevance, and prominence signals. Optimize Google Business Profile, citations, reviews, and on-page SEO.</p>
+          </a>
+
+          <a href="/articles/google-business-profile-optimization.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Local SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Google Business Profile Optimization: Complete Technical Setup Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Optimize your Google Business Profile for maximum local visibility with this technical guide covering verification, categories, and ranking signals.</p>
+          </a>
+
+          <a href="/articles/local-seo-quick-fixes.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Local SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Local SEO Quick Fixes: 15 Improvements You Can Make Today</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Boost local rankings immediately with Google Business Profile optimization, NAP consistency fixes, schema markup, and mobile optimization. Fast results in 24-48 hours.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

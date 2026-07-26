@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Set Up a CDN for Speed Optimization | Polytraffic</title>
+    <meta name="description" content="CDNs cache your site globally and cut load times by 40-60%. But misconfigure one and you'll break caching, serve stale content, or leak origin server IPs." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Set Up a CDN for Speed Optimization | Polytraffic" />
+    <meta property="og:description" content="CDNs cache your site globally and cut load times by 40-60%. But misconfigure one and you'll break caching, serve stale content, or leak origin server IPs." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/cdn-setup-guide-speed-optimization" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/cdn-setup-guide-speed-optimization.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Set Up a CDN for Speed Optimization | Polytraffic" />
+    <meta name="twitter:description" content="CDNs cache your site globally and cut load times by 40-60%. But misconfigure one and you'll break caching, serve stale content, or leak origin server IPs." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/cdn-setup-guide-speed-optimization.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/cdn-setup-guide-speed-optimization" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Set Up a CDN for Speed Optimization",
+    "description": "CDNs cache your site globally and cut load times by 40-60%. But misconfigure one and you'll break caching, serve stale content, or leak origin server IPs.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/cdn-setup-guide-speed-optimization.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/cdn-setup-guide-speed-optimization.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/speed.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Set Up a CDN for Speed Optimization"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/speed.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Set Up a CDN for Speed Optimization</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/cdn-setup-guide-speed-optimization.png" alt="How to Set Up a CDN for Speed Optimization" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-set-up-a-cdn-for-speed-optimization">How to Set Up a CDN for Speed Optimization</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> CDNs cache your site globally and cut load times by 40-60%. But misconfigure one and you&#39;ll break caching, serve stale content, or leak origin server IPs.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-cdns-improve-speed" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why CDNs Improve Speed</a></li>
+<li><a href="#cdn-vs-origin-server-what-gets-cached" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">CDN vs Origin Server: What Gets Cached</a></li>
+<li><a href="#step-1-choose-a-cdn-provider" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 1: Choose a CDN Provider</a></li>
+<li><a href="#step-2-connect-your-site-to-the-cdn" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 2: Connect Your Site to the CDN</a></li>
+<li><a href="#step-3-configure-caching-rules" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 3: Configure Caching Rules</a></li>
+<li><a href="#step-4-enable-compression-gzip-and-brotli" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 4: Enable Compression (Gzip and Brotli)</a></li>
+<li><a href="#step-5-test-cdn-delivery" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 5: Test CDN Delivery</a></li>
+<li><a href="#step-6-purge-cache-when-content-changes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 6: Purge Cache When Content Changes</a></li>
+<li><a href="#step-7-enable-origin-shielding" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 7: Enable Origin Shielding</a></li>
+<li><a href="#step-8-monitor-cdn-performance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 8: Monitor CDN Performance</a></li>
+<li><a href="#common-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Mistakes</a></li>
+<li><a href="#next-steps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Next Steps</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>A <strong>Content Delivery Network (CDN)</strong> caches your site&#39;s static assets (images, CSS, JavaScript) on servers distributed globally. When a user in Tokyo visits your site hosted in Virginia, they load assets from a Tokyo edge server instead of crossing the Pacific. Latency drops from 300ms to 20ms. Your <strong>Time to First Byte (TTFB)</strong> improves. Pages load faster.</p>
+<p>But CDNs aren&#39;t plug-and-play. Misconfigure caching rules and you&#39;ll serve stale content. Skip origin shielding and you&#39;ll hammer your server with cache misses. Forget to update DNS and your CDN sits idle while users hit your origin directly.</p>
+<p>This guide walks through setting up a CDN correctly, choosing a provider, configuring caching, testing edge delivery, and avoiding the mistakes that waste money or break your site.</p>
+<h2 id="why-cdns-improve-speed">Why CDNs Improve Speed</h2>
+<h3 id="latency-reduction">Latency Reduction</h3>
+<p>Distance kills speed. A server in Virginia takes 200-400ms to respond to a request from Australia. A CDN edge server in Sydney responds in 10-30ms. The farther users are from your origin, the more a CDN helps.</p>
+<h3 id="offloading-origin-server-load">Offloading Origin Server Load</h3>
+<p>Every request to your origin consumes server resources. A CDN caches static assets and serves them from edge servers, reducing origin requests by 70-90%. This lowers hosting costs and prevents server overload during traffic spikes.</p>
+<h3 id="ddos-protection-and-uptime">DDoS Protection and Uptime</h3>
+<p>Most CDNs include DDoS mitigation. Traffic floods hit the CDN&#39;s edge network, not your origin. Your server stays online even during attacks.</p>
+<h3 id="http-2-and-http-3-support">HTTP/2 and HTTP/3 Support</h3>
+<p>Modern CDNs support <strong>HTTP/2</strong> (multiplexing, header compression) and <strong>HTTP/3</strong> (QUIC protocol, faster handshakes). Older hosting providers may not. Routing traffic through a CDN upgrades your protocol support automatically.</p>
+<h2 id="cdn-vs-origin-server-what-gets-cached">CDN vs Origin Server: What Gets Cached</h2>
+<h3 id="what-cdns-cache">What CDNs Cache</h3>
+<ul>
+<li><strong>Static assets:</strong> Images (JPG, PNG, WebP, SVG), CSS, JavaScript, fonts, PDFs</li>
+<li><strong>Media files:</strong> Videos, audio files (if hosted on your domain)</li>
+<li><strong>HTML (optional):</strong> Full-page caching for blogs or static sites</li>
+</ul>
+<h3 id="what-cdns-don-t-cache-by-default">What CDNs Don't Cache (By Default)</h3>
+<ul>
+<li><strong>Dynamic content:</strong> User-specific pages (account dashboards, shopping carts)</li>
+<li><strong>Authenticated content:</strong> Pages behind login</li>
+<li><strong>API responses:</strong> Unless explicitly configured</li>
+</ul>
+<h3 id="how-caching-works">How Caching Works</h3>
+<ol>
+<li><strong>User requests page</strong> → CDN checks if it has a cached copy</li>
+<li><strong>Cache hit</strong> → CDN serves cached version from edge server (fast)</li>
+<li><strong>Cache miss</strong> → CDN fetches content from origin, caches it, then serves it (slower first time, fast for subsequent users)</li>
+<li><strong>Cache expiration</strong> → After TTL (Time to Live) expires, CDN refetches from origin</li>
+</ol>
+<h2 id="step-1-choose-a-cdn-provider">Step 1: Choose a CDN Provider</h2>
+<h3 id="top-cdn-providers-for-seo-and-speed">Top CDN Providers for SEO and Speed</h3>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Best For</th>
+<th>Pricing</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Cloudflare</strong></td>
+<td>Ease of use, free tier</td>
+<td>Free - $200+/mo</td>
+<td>DNS-based setup, firewall, DDoS protection, HTTP/3, Brotli compression</td>
+</tr>
+<tr>
+<td><strong>Bunny CDN</strong></td>
+<td>Cost-efficiency, pay-as-you-go</td>
+<td>$0.01/GB</td>
+<td>Pull zones, origin shielding, edge rules, perma-cache</td>
+</tr>
+<tr>
+<td><strong>Fastly</strong></td>
+<td>Enterprise, edge compute</td>
+<td>$50+/mo</td>
+<td>Real-time purging, edge logic (VCL), instant config changes</td>
+</tr>
+<tr>
+<td><strong>KeyCDN</strong></td>
+<td>Developer-friendly, API-first</td>
+<td>$0.04/GB</td>
+<td>Pull/push zones, raw logs, HTTP/2, Brotli</td>
+</tr>
+<tr>
+<td><strong>Amazon CloudFront</strong></td>
+<td>AWS ecosystem, scalability</td>
+<td>Pay-as-you-go</td>
+<td>Integrates with S3, Lambda@Edge, WAF</td>
+</tr>
+<tr>
+<td><strong>StackPath</strong></td>
+<td>Mid-market, managed</td>
+<td>$10+/mo</td>
+<td>Managed CDN + WAF, real-time analytics</td>
+</tr>
+</tbody></table>
+<h3 id="decision-criteria">Decision Criteria</h3>
+<ul>
+<li><strong>Traffic volume:</strong> High traffic → Cloudflare or CloudFront. Low traffic → Bunny or KeyCDN (cheaper per GB).</li>
+<li><strong>Technical skill:</strong> Beginner → Cloudflare (DNS setup, automatic). Advanced → Fastly or KeyCDN (custom rules).</li>
+<li><strong>Budget:</strong> Free → Cloudflare. Pay-per-use → Bunny. Enterprise → Fastly.</li>
+<li><strong>Features needed:</strong> WAF + DDoS → Cloudflare or StackPath. Edge compute → Fastly or Lambda@Edge.</li>
+</ul>
+<h2 id="step-2-connect-your-site-to-the-cdn">Step 2: Connect Your Site to the CDN</h2>
+<p>CDNs integrate in two ways: <strong>DNS-based (proxy)</strong> or <strong>origin pull (subdomain)</strong>.</p>
+<h3 id="method-1-dns-based-full-site-proxy-cloudflare-example">Method 1: DNS-Based (Full Site Proxy). Cloudflare Example</h3>
+<p><strong>How it works:</strong> You change your domain&#39;s nameservers to the CDN&#39;s. All traffic routes through the CDN.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Sign up for Cloudflare</strong> → Add your domain</li>
+<li><strong>Cloudflare scans DNS records</strong> → Import existing A, CNAME, MX records</li>
+<li><strong>Change nameservers at your registrar</strong> → Replace GoDaddy/Namecheap nameservers with Cloudflare&#39;s</li>
+<li><strong>Wait for propagation</strong> → 1-24 hours for DNS to update globally</li>
+<li><strong>Enable proxy (orange cloud)</strong> → In Cloudflare dashboard, ensure DNS records have orange cloud icon (proxied) not grey (DNS-only)</li>
+</ol>
+<p><strong>Pros:</strong> Easiest setup. Caches entire site. Built-in firewall and analytics.
+<strong>Cons:</strong> DNS change required. Can break email if MX records aren&#39;t configured correctly.</p>
+<h3 id="method-2-origin-pull-subdomain-cname-bunny-cdn-example">Method 2: Origin Pull (Subdomain CNAME). Bunny CDN Example</h3>
+<p><strong>How it works:</strong> You create a subdomain (<code>cdn.yoursite.com</code>) that points to the CDN. You rewrite asset URLs to load from the subdomain.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Sign up for Bunny CDN</strong> → Create a Pull Zone</li>
+<li><strong>Set origin URL</strong> → Enter your site&#39;s URL (<code>https://yoursite.com</code>)</li>
+<li><strong>Get CDN hostname</strong> → Bunny provides a URL like <code>yourpullzone.b-cdn.net</code></li>
+<li><strong>Add CNAME record</strong> → In your DNS, create a CNAME: <code>cdn.yoursite.com</code> → <code>yourpullzone.b-cdn.net</code></li>
+<li><strong>Rewrite asset URLs</strong> → Change image/CSS/JS paths from <code>/images/photo.jpg</code> to <code>https://cdn.yoursite.com/images/photo.jpg</code></li>
+</ol>
+<p><strong>Pros:</strong> No nameserver change. Fine-grained control over what&#39;s cached.
+<strong>Cons:</strong> Requires URL rewriting (plugin or manual). Doesn&#39;t cache HTML by default.</p>
+<h2 id="step-3-configure-caching-rules">Step 3: Configure Caching Rules</h2>
+<h3 id="set-cache-ttl-time-to-live">Set Cache TTL (Time to Live)</h3>
+<p>TTL determines how long assets stay cached before the CDN refetches from origin.</p>
+<p><strong>Recommended TTLs:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Asset Type</th>
+<th>TTL</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Images</td>
+<td>1 year</td>
+<td>Rarely change</td>
+</tr>
+<tr>
+<td>CSS/JS</td>
+<td>1 week - 1 month</td>
+<td>Versioned with query strings or hashes</td>
+</tr>
+<tr>
+<td>Fonts</td>
+<td>1 year</td>
+<td>Static</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>1 hour - 1 day</td>
+<td>Dynamic content changes frequently</td>
+</tr>
+<tr>
+<td>API responses</td>
+<td>No cache or 1 minute</td>
+<td>User-specific data</td>
+</tr>
+</tbody></table>
+<p><strong>Example (Cloudflare Page Rules):</strong></p>
+<pre><code>URL: *yoursite.com/images/*
+Cache Level: Cache Everything
+Edge Cache TTL: 1 year
+Browser Cache TTL: 1 year
+</code></pre>
+<p><strong>Example (Bunny CDN Edge Rules):</strong></p>
+<pre><code>If Request URL matches /images/*
+Set Cache Expiry: 31536000 seconds (1 year)
+</code></pre>
+<h3 id="cache-control-headers-origin-server">Cache-Control Headers (Origin Server)</h3>
+<p>Your origin server sends <code>Cache-Control</code> headers that tell the CDN how to cache:</p>
+<pre><code>Cache-Control: public, max-age=31536000
+</code></pre>
+<ul>
+<li><strong><code>public</code></strong>: Cacheable by CDN and browsers</li>
+<li><strong><code>max-age=31536000</code></strong>: Cache for 1 year (31,536,000 seconds)</li>
+<li><strong><code>no-cache</code></strong>: CDN must revalidate before serving cached copy</li>
+<li><strong><code>no-store</code></strong>: Do not cache (for sensitive data)</li>
+</ul>
+<p><strong>Apache (.htaccess):</strong></p>
+<pre><code class="language-apache">&lt;IfModule mod_headers.c&gt;
+  &lt;FilesMatch &quot;\.(jpg|jpeg|png|gif|webp|svg|css|js|woff|woff2)$&quot;&gt;
+    Header set Cache-Control &quot;public, max-age=31536000&quot;
+  &lt;/FilesMatch&gt;
+&lt;/IfModule&gt;
+</code></pre>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-nginx">location ~* \.(jpg|jpeg|png|gif|webp|svg|css|js|woff|woff2)$ {
+  add_header Cache-Control &quot;public, max-age=31536000&quot;;
+}
+</code></pre>
+<h3 id="bypass-cache-for-dynamic-content">Bypass Cache for Dynamic Content</h3>
+<p>Don&#39;t cache user-specific or authenticated pages:</p>
+<p><strong>Cloudflare Page Rules:</strong></p>
+<pre><code>URL: *yoursite.com/account/*
+Cache Level: Bypass
+</code></pre>
+<p><strong>Bunny CDN:</strong></p>
+<pre><code>If Request URL matches /account/*
+Bypass Cache: Enabled
+</code></pre>
+<h2 id="step-4-enable-compression-gzip-and-brotli">Step 4: Enable Compression (Gzip and Brotli)</h2>
+<p>CDNs compress assets before serving them, reducing transfer size by 60-80%.</p>
+<h3 id="cloudflare">Cloudflare</h3>
+<p><strong>Settings &gt; Speed &gt; Optimization:</strong></p>
+<ul>
+<li><strong>Auto Minify:</strong> Enable CSS, JS, HTML (removes whitespace)</li>
+<li><strong>Brotli:</strong> Enabled by default (check under Speed tab)</li>
+</ul>
+<h3 id="bunny-cdn">Bunny CDN</h3>
+<p><strong>Pull Zone Settings &gt; Optimizer:</strong></p>
+<ul>
+<li><strong>Enable Bunny Optimizer</strong> → Compresses images on-the-fly</li>
+<li><strong>Brotli Compression</strong> → Enabled by default</li>
+</ul>
+<h3 id="origin-server-fallback">Origin Server (Fallback)</h3>
+<p>If CDN doesn&#39;t compress, enable on origin:</p>
+<p><strong>Apache (.htaccess):</strong></p>
+<pre><code class="language-apache">&lt;IfModule mod_deflate.c&gt;
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json
+&lt;/IfModule&gt;
+</code></pre>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-nginx">gzip on;
+gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
+</code></pre>
+<h2 id="step-5-test-cdn-delivery">Step 5: Test CDN Delivery</h2>
+<h3 id="verify-assets-load-from-cdn">Verify Assets Load From CDN</h3>
+<ol>
+<li><strong>Open Chrome DevTools</strong> → Network tab</li>
+<li><strong>Load your site</strong> → Filter by &quot;Img&quot; or &quot;CSS&quot;</li>
+<li><strong>Check Response Headers</strong> → Look for <code>CF-Cache-Status</code> (Cloudflare) or <code>X-Cache</code> (other CDNs)</li>
+</ol>
+<p><strong>Cloudflare:</strong></p>
+<pre><code>CF-Cache-Status: HIT
+</code></pre>
+<p><strong>Bunny/KeyCDN:</strong></p>
+<pre><code>X-Cache: HIT
+</code></pre>
+<p><strong>If you see <code>MISS</code>:</strong> Asset wasn&#39;t cached yet. Reload the page, second load should show <code>HIT</code>.</p>
+<h3 id="test-speed-from-multiple-locations">Test Speed From Multiple Locations</h3>
+<p>Use <strong>WebPageTest.org:</strong></p>
+<ol>
+<li>Enter your URL</li>
+<li>Select <strong>multiple test locations</strong> (Virginia, Tokyo, Sydney)</li>
+<li>Compare TTFB and load times <strong>before and after</strong> CDN setup</li>
+</ol>
+<p><strong>Expected improvement:</strong> TTFB drops by 40-70% in distant locations.</p>
+<h3 id="use-pingdom-or-gtmetrix">Use Pingdom or GTmetrix</h3>
+<p>Both tools test from global servers and report CDN performance:</p>
+<ul>
+<li><strong>Pingdom</strong> → Tools &gt; Website Speed Test → Select location</li>
+<li><strong>GTmetrix</strong> → Analyze from multiple locations</li>
+</ul>
+<p><strong>Red flags:</strong></p>
+<ul>
+<li>Assets still loading from origin IP → DNS not propagated or CNAME misconfigured</li>
+<li>TTFB still high → Origin shielding disabled or cache rules too conservative</li>
+</ul>
+<h2 id="step-6-purge-cache-when-content-changes">Step 6: Purge Cache When Content Changes</h2>
+<p>When you update a CSS file or swap an image, the CDN serves the old cached version until TTL expires. You need to <strong>purge the cache</strong> manually.</p>
+<h3 id="cloudflare-cache-purge">Cloudflare Cache Purge</h3>
+<p><strong>Dashboard &gt; Caching &gt; Purge Cache:</strong></p>
+<ul>
+<li><strong>Purge Everything</strong> → Clears entire cache (use sparingly, forces all users to fetch from origin)</li>
+<li><strong>Custom Purge</strong> → Specify URLs to purge (e.g., <code>/style.css</code>)</li>
+</ul>
+<h3 id="bunny-cdn-purge">Bunny CDN Purge</h3>
+<p><strong>Pull Zone &gt; Purge Cache:</strong></p>
+<ul>
+<li>Enter specific file URL or purge all</li>
+</ul>
+<h3 id="automate-purge-advanced">Automate Purge (Advanced)</h3>
+<p>Use CDN APIs to purge on deployment:</p>
+<p><strong>Cloudflare API:</strong></p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.cloudflare.com/client/v4/zones/{zone_id}/purge_cache&quot; \
+  -H &quot;Authorization: Bearer {api_token}&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  --data &#39;{&quot;purge_everything&quot;:true}&#39;
+</code></pre>
+<p><strong>Bunny CDN API:</strong></p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.bunny.net/pullzone/{pull_zone_id}/purgeCache&quot; \
+  -H &quot;AccessKey: {api_key}&quot;
+</code></pre>
+<h2 id="step-7-enable-origin-shielding">Step 7: Enable Origin Shielding</h2>
+<p><strong>Origin shielding</strong> places a middle-tier cache between edge servers and your origin. Instead of 100 edge servers requesting an asset from origin (on cache miss), they request it from the shield server. Only the shield requests from origin.</p>
+<p><strong>Benefit:</strong> Reduces origin load by 90%.</p>
+<p><strong>Enable in:</strong></p>
+<ul>
+<li><strong>Cloudflare:</strong> Argo Tiered Caching ($5/mo)</li>
+<li><strong>Bunny CDN:</strong> Origin Shield (free, enable in settings)</li>
+<li><strong>CloudFront:</strong> Origin Shield ($0.01 per 10K requests)</li>
+</ul>
+<h2 id="step-8-monitor-cdn-performance">Step 8: Monitor CDN Performance</h2>
+<h3 id="metrics-to-track">Metrics to Track</h3>
+<ol>
+<li><strong>Cache hit ratio</strong>. Percentage of requests served from cache vs origin<ul>
+<li><strong>Target:</strong> 80-95% hit ratio</li>
+<li><strong>Low hit ratio?</strong> → TTL too short, cache rules too strict, or assets not cacheable</li>
+</ul>
+</li>
+<li><strong>Bandwidth savings</strong>. Traffic offloaded from origin</li>
+<li><strong>TTFB</strong>. Should drop by 40-70% in distant locations</li>
+<li><strong>Origin requests</strong>. Should decrease by 70-90%</li>
+</ol>
+<h3 id="cloudflare-analytics">Cloudflare Analytics</h3>
+<p><strong>Dashboard &gt; Analytics &gt; Performance:</strong></p>
+<ul>
+<li>Cache hit ratio</li>
+<li>Bandwidth saved</li>
+<li>Requests by country</li>
+</ul>
+<h3 id="bunny-cdn-analytics">Bunny CDN Analytics</h3>
+<p><strong>Dashboard &gt; Statistics:</strong></p>
+<ul>
+<li>Cache hit ratio</li>
+<li>Bandwidth usage by zone</li>
+<li>Top files by requests</li>
+</ul>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<h3 id="mistake-1-not-enabling-cloudflare-proxy-orange-cloud">Mistake 1: Not Enabling Cloudflare Proxy (Orange Cloud)</h3>
+<p>DNS records set to <strong>DNS-only (grey cloud)</strong>. Traffic bypasses CDN.</p>
+<p><strong>Fix:</strong> Click DNS record → Toggle to <strong>Proxied (orange cloud)</strong>.</p>
+<h3 id="mistake-2-caching-dynamic-content">Mistake 2: Caching Dynamic Content</h3>
+<p>User dashboards, shopping carts, or login pages cached. Users see each other&#39;s data.</p>
+<p><strong>Fix:</strong> Bypass cache for <code>/account/*</code>, <code>/cart/*</code>, <code>/checkout/*</code>.</p>
+<h3 id="mistake-3-no-cache-headers-on-origin">Mistake 3: No Cache Headers on Origin</h3>
+<p>Origin doesn&#39;t send <code>Cache-Control</code> headers. CDN caches assets for only 2 hours (default).</p>
+<p><strong>Fix:</strong> Add <code>Cache-Control: public, max-age=31536000</code> headers for static assets.</p>
+<h3 id="mistake-4-purging-cache-too-often">Mistake 4: Purging Cache Too Often</h3>
+<p>You purge cache after every edit. Users constantly fetch from origin. Speed gains disappear.</p>
+<p><strong>Fix:</strong> Version assets with query strings (<code>style.css?v=2</code>) or hashes. No need to purge, new version loads automatically.</p>
+<h3 id="mistake-5-forgetting-to-test-global-load-times">Mistake 5: Forgetting to Test Global Load Times</h3>
+<p>You test from your location only. International users still see slow load times.</p>
+<p><strong>Fix:</strong> Use WebPageTest or Pingdom with <strong>multiple test locations</strong>.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Step 1: Choose a CDN Provider:</strong> CDNs integrate in two ways: DNS-based (proxy) or origin pull (subdomain).</li>
+<li><strong>Step 2: Connect Your Site to the CDN:</strong> CDNs integrate in two ways: DNS-based (proxy) or origin pull (subdomain).</li>
+<li><strong>Step 3: Configure Caching Rules:</strong> TTL determines how long assets stay cached before the CDN refetches from origin.</li>
+<li><strong>Step 4: Enable Compression (Gzip and Brotli):</strong> CDNs compress assets before serving them, reducing transfer size by 60-80%.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="do-i-need-a-cdn-if-my-hosting-is-fast">Do I need a CDN if my hosting is fast?</h3>
+<p>Yes, if you have <strong>global traffic</strong>. Even the fastest server in Virginia will be slow for users in Australia. CDNs reduce latency by serving content from edge servers closer to users.</p>
+<h3 id="does-a-cdn-improve-core-web-vitals">Does a CDN improve Core Web Vitals?</h3>
+<p>Yes. CDNs reduce <strong>TTFB</strong> (server response time), which improves <strong>Largest Contentful Paint (LCP)</strong>. They also compress assets, reducing download time.</p>
+<h3 id="can-i-use-a-cdn-with-wordpress">Can I use a CDN with WordPress?</h3>
+<p>Yes. Plugins like <strong>WP Rocket</strong>, <strong>W3 Total Cache</strong>, or <strong>LiteSpeed Cache</strong> integrate with Cloudflare, Bunny CDN, and others. They rewrite asset URLs automatically.</p>
+<h3 id="what-happens-if-the-cdn-goes-down">What happens if the CDN goes down?</h3>
+<p>If CDN is down, traffic fails (unless you have failover DNS). <strong>Cloudflare</strong> has 99.99%+ uptime. Smaller CDNs may have outages. Use a CDN with strong SLAs.</p>
+<h3 id="should-i-cache-html-pages">Should I cache HTML pages?</h3>
+<p>Yes for <strong>static sites</strong> (blogs, landing pages). No for <strong>dynamic sites</strong> (e-commerce, dashboards). If caching HTML, set short TTL (1 hour) and purge on updates.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Set up your CDN. Test load times before and after using WebPageTest from multiple locations. Enable Brotli compression and origin shielding. Monitor cache hit ratio, aim for 80%+. For related guidance, see <a href="/articles/fix-slow-server-response-time-ttfb.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fix Slow Server Response Time (TTFB)</a>, <a href="/articles/cloudflare-speed-optimization-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cloudflare Speed Optimization Guide</a>, and <a href="/articles/how-to-fix-slow-website.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Fix Slow Website</a>.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/cloudflare-speed-optimization-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">speed</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Cloudflare Speed Optimization: Complete Setup Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Cloudflare's free tier cuts load times by 40-60% with global caching, Brotli compression, and HTTP/3. But default settings leave speed on the table.</p>
+          </a>
+
+          <a href="/articles/best-wordpress-caching-plugins-compared.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">speed</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Best WordPress Caching Plugins Compared (Speed Test Data)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">WP Rocket, W3 Total Cache, and LiteSpeed Cache tested on identical sites. Real speed data shows which plugin delivers the fastest load times.</p>
+          </a>
+
+          <a href="/articles/browser-caching-setup-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">speed</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Set Up Browser Caching for Speed and SEO</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Browser caching stores static files locally so repeat visitors load pages instantly. Configure cache headers to reduce server load and improve Core Web Vitals.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

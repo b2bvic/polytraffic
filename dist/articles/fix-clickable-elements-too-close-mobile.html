@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Fix "Clickable Elements Too Close Together" on Mobile | Polytraffic</title>
+    <meta name="description" content="Mobile usability errors crater conversions and trigger Google penalties. Learn how to diagnose touch target spacing issues with Chrome DevTools, fix them with CSS, and validate fixes in Google Search Console." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Fix &quot;Clickable Elements Too Close Together&quot; on Mobile | Polytraffic" />
+    <meta property="og:description" content="Mobile usability errors crater conversions and trigger Google penalties. Learn how to diagnose touch target spacing issues with Chrome DevTools, fix them with CSS, and validate fixes in Google Search Console." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-clickable-elements-too-close-mobile" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-clickable-elements-too-close-mobile.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Fix &quot;Clickable Elements Too Close Together&quot; on Mobile | Polytraffic" />
+    <meta name="twitter:description" content="Mobile usability errors crater conversions and trigger Google penalties. Learn how to diagnose touch target spacing issues with Chrome DevTools, fix them with CSS, and validate fixes in Google Search Console." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-clickable-elements-too-close-mobile.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-clickable-elements-too-close-mobile" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Fix \"Clickable Elements Too Close Together\" on Mobile",
+    "description": "Mobile usability errors crater conversions and trigger Google penalties. Learn how to diagnose touch target spacing issues with Chrome DevTools, fix them with CSS, and validate fixes in Google Search Console.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-clickable-elements-too-close-mobile.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-clickable-elements-too-close-mobile.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Fix \"Clickable Elements Too Close Together\" on Mobile"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Fix &quot;Clickable Elements Too Close Together&quot; on Mobile</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-clickable-elements-too-close-mobile.png" alt="How to Fix &quot;Clickable Elements Too Close Together&quot; on Mobile" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-fix-clickable-elements-too-close-together-on-mobile">How to Fix "Clickable Elements Too Close Together" on Mobile</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Mobile usability errors crater conversions and trigger Google penalties. Learn how to diagnose touch target spacing issues with Chrome DevTools, fix them with CSS, and validate fixes in Google Search Console.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-touch-target-spacing-matters-for-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Touch Target Spacing Matters for SEO</a></li>
+<li><a href="#how-to-audit-touch-target-errors" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Audit Touch Target Errors</a></li>
+<li><a href="#common-touch-target-violations-and-how-to-spot-them" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Touch Target Violations (And How to Spot Them)</a></li>
+<li><a href="#step-by-step-css-fixes-for-touch-target-spacing" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step-by-Step CSS Fixes for Touch Target Spacing</a></li>
+<li><a href="#validate-fixes-with-google-search-console" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Validate Fixes with Google Search Console</a></li>
+<li><a href="#advanced-fixes-for-complex-scenarios" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced Fixes for Complex Scenarios</a></li>
+<li><a href="#common-mistakes-to-avoid" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Mistakes to Avoid</a></li>
+<li><a href="#how-to-prioritize-fixes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Prioritize Fixes</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>&quot;Clickable elements too close together&quot;</strong> is Google&#39;s polite way of saying your mobile site is unusable. Buttons crammed together, links stacked in tiny text, navigation menus that require surgical precision to tap, these aren&#39;t minor UX issues. They&#39;re <strong>conversion killers</strong> and <strong>ranking penalties</strong> rolled into one.</p>
+<p>Google&#39;s <strong>Mobile-Friendly Test</strong> and <strong>Search Console</strong> flag these errors because they correlate directly with <strong>bounce rate</strong>, <strong>dwell time</strong>, and <strong>task completion</strong>. If users can&#39;t tap your CTA without hitting three other links, they&#39;ll leave. And Google watches them leave.</p>
+<p>This guide shows you how to audit touch target spacing, fix violations with responsive CSS, and validate that Google recognizes your fixes.</p>
+<h2 id="why-touch-target-spacing-matters-for-seo">Why Touch Target Spacing Matters for SEO</h2>
+<p><strong>Mobile-first indexing</strong> means Google crawls and ranks your site based on the mobile version. If your mobile experience is broken, your rankings suffer, regardless of how pristine your desktop site looks.</p>
+<h3 id="google-s-touch-target-guidelines">Google's Touch Target Guidelines</h3>
+<p>Google requires:</p>
+<ul>
+<li><strong>Touch targets</strong> (buttons, links, form fields) must be at least <strong>48×48 pixels</strong> (roughly 9mm)</li>
+<li><strong>Spacing</strong> between touch targets must be at least <strong>8 pixels</strong> (approximately 1.5mm)</li>
+</ul>
+<p>These numbers come from human finger anatomy. The average adult fingertip is 10mm wide. Anything smaller creates <strong>fat-finger errors</strong>, users tap the wrong element, get frustrated, and bounce.</p>
+<h3 id="real-world-impact">Real-World Impact</h3>
+<p>A <strong>2023 study</strong> from Baymard Institute found:</p>
+<ul>
+<li><strong>42% of mobile users</strong> abandon checkout flows due to tap errors</li>
+<li><strong>67% of conversion failures</strong> on mobile stem from UX friction (not technical errors)</li>
+<li>Sites that fixed touch target spacing saw <strong>18-23% lift in mobile conversions</strong></li>
+</ul>
+<p>Google doesn&#39;t publish the exact ranking penalty, but data from <strong>SEMrush</strong> correlates mobile usability errors with <strong>5-15% drops in mobile organic traffic</strong>.</p>
+<h2 id="how-to-audit-touch-target-errors">How to Audit Touch Target Errors</h2>
+<p>Before you fix, diagnose. Use these tools to map every spacing violation on your site.</p>
+<h3 id="method-1-google-search-console-fastest-overview">Method 1: Google Search Console (Fastest Overview)</h3>
+<ol>
+<li>Open <strong>Google Search Console</strong></li>
+<li>Go to <strong>Experience → Mobile Usability</strong></li>
+<li>Look for error: <strong>&quot;Clickable elements too close together&quot;</strong></li>
+</ol>
+<p>Click into the error to see affected URLs. Google samples pages, it won&#39;t show <em>every</em> violation, but it flags patterns.</p>
+<p>Export the list: <strong>Export → Download → CSV</strong></p>
+<h3 id="method-2-mobile-friendly-test-single-page-deep-dive">Method 2: Mobile-Friendly Test (Single-Page Deep Dive)</h3>
+<p>For individual pages:</p>
+<ol>
+<li>Go to <strong>Google Mobile-Friendly Test</strong>: <code>https://search.google.com/test/mobile-friendly</code></li>
+<li>Enter your URL</li>
+<li>Click <strong>Test URL</strong></li>
+</ol>
+<p>If violations exist, Google shows:</p>
+<ul>
+<li>Which elements are too close</li>
+<li>Visual overlay highlighting problem areas</li>
+<li>Specific pixel measurements</li>
+</ul>
+<p>This is your diagnostic tool for high-priority pages (homepage, product pages, checkout).</p>
+<h3 id="method-3-chrome-devtools-developer-level-precision">Method 3: Chrome DevTools (Developer-Level Precision)</h3>
+<p><strong>Chrome DevTools</strong> lets you simulate mobile devices and measure touch targets pixel-by-pixel.</p>
+<ol>
+<li>Open your site in <strong>Chrome</strong></li>
+<li>Press <code>F12</code> (Windows) or <code>Cmd+Option+I</code> (Mac)</li>
+<li>Click <strong>Toggle Device Toolbar</strong> (phone/tablet icon, or <code>Ctrl+Shift+M</code>)</li>
+<li>Select a device: <strong>iPhone 12 Pro</strong> or <strong>Samsung Galaxy S21</strong></li>
+<li>Right-click any element → <strong>Inspect</strong></li>
+<li>In the <strong>Computed</strong> tab, check:<ul>
+<li><strong>Width</strong> and <strong>Height</strong> (must be ≥48px each)</li>
+<li><strong>Margin</strong> (spacing from adjacent elements, must be ≥8px)</li>
+</ul>
+</li>
+</ol>
+<p>Use the <strong>Ruler</strong> in DevTools:</p>
+<ol>
+<li>Click the <strong>ruler icon</strong> in the top toolbar</li>
+<li>Drag across touch targets to measure spacing</li>
+</ol>
+<h3 id="method-4-lighthouse-audit-automated-at-scale">Method 4: Lighthouse Audit (Automated at Scale)</h3>
+<p><strong>Lighthouse</strong> (built into Chrome DevTools) audits mobile usability automatically.</p>
+<ol>
+<li>Open DevTools (<code>F12</code>)</li>
+<li>Go to <strong>Lighthouse</strong> tab</li>
+<li>Select <strong>Mobile</strong> and check <strong>Accessibility</strong></li>
+<li>Click <strong>Generate report</strong></li>
+</ol>
+<p>Scroll to <strong>&quot;Touch targets are not sized appropriately&quot;</strong>. Lighthouse lists:</p>
+<ul>
+<li>Elements with insufficient size</li>
+<li>Elements with insufficient spacing</li>
+<li>Pixel dimensions for each violation</li>
+</ul>
+<p>Export the report: <strong>Save as HTML</strong> for documentation.</p>
+<h2 id="common-touch-target-violations-and-how-to-spot-them">Common Touch Target Violations (And How to Spot Them)</h2>
+<h3 id="violation-1-navigation-menus-with-tiny-links">Violation #1: Navigation Menus with Tiny Links</h3>
+<p><strong>Symptom:</strong> Hamburger menu reveals 10 links stacked vertically with 2-3px spacing.</p>
+<p><strong>How to spot:</strong></p>
+<pre><code class="language-css">/* Inspect styles in DevTools */
+.menu-item {
+  padding: 2px 0; /* Too small */
+  font-size: 12px; /* Tiny text */
+}
+</code></pre>
+<p><strong>Fix:</strong></p>
+<pre><code class="language-css">.menu-item {
+  padding: 12px 16px; /* Creates 48px total height with text */
+  font-size: 16px; /* Readable on mobile */
+  line-height: 1.5;
+}
+</code></pre>
+<h3 id="violation-2-social-share-buttons-crammed-together">Violation #2: Social Share Buttons Crammed Together</h3>
+<p><strong>Symptom:</strong> Facebook, Twitter, LinkedIn icons in a 30px row with no spacing.</p>
+<p><strong>Inspect:</strong></p>
+<pre><code class="language-html">&lt;div class=&quot;social-icons&quot;&gt;
+  &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;fb.png&quot; width=&quot;24&quot;&gt;&lt;/a&gt;
+  &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;tw.png&quot; width=&quot;24&quot;&gt;&lt;/a&gt;
+  &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;li.png&quot; width=&quot;24&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Icons are 24px (too small) with 0px spacing.</p>
+<p><strong>Fix:</strong></p>
+<pre><code class="language-css">.social-icons a {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  margin-right: 12px; /* 12px spacing between icons */
+  padding: 8px; /* Internal padding to keep icon centered */
+}
+
+.social-icons img {
+  width: 32px; /* Icon itself can be smaller if padding creates 48px target */
+  height: 32px;
+}
+</code></pre>
+<h3 id="violation-3-footer-links-in-dense-grid">Violation #3: Footer Links in Dense Grid</h3>
+<p><strong>Symptom:</strong> Footer has 20 links in 4 columns, each link 14px text with 3px spacing.</p>
+<p><strong>Inspect:</strong></p>
+<pre><code class="language-css">.footer-link {
+  padding: 3px 5px;
+  font-size: 14px;
+}
+</code></pre>
+<p>Total touch target: ~20px tall (fails Google&#39;s 48px rule).</p>
+<p><strong>Fix:</strong></p>
+<pre><code class="language-css">.footer-link {
+  display: block; /* Force links to stack, not inline */
+  padding: 14px 12px; /* Creates 48px height with text */
+  font-size: 16px;
+  line-height: 1.25;
+}
+</code></pre>
+<h3 id="violation-4-form-fields-stacked-without-spacing">Violation #4: Form Fields Stacked Without Spacing</h3>
+<p><strong>Symptom:</strong> Name, email, phone fields with 4px margin between.</p>
+<p><strong>Inspect:</strong></p>
+<pre><code class="language-css">input[type=&quot;text&quot;] {
+  height: 36px; /* Too short */
+  margin-bottom: 4px; /* Too close */
+}
+</code></pre>
+<p><strong>Fix:</strong></p>
+<pre><code class="language-css">input[type=&quot;text&quot;],
+input[type=&quot;email&quot;],
+textarea {
+  height: 48px; /* Minimum touch target */
+  margin-bottom: 16px; /* 16px spacing */
+  font-size: 16px; /* Prevents iOS auto-zoom on focus */
+}
+</code></pre>
+<p><strong>Pro tip:</strong> iOS Safari zooms in on form fields with <code>font-size &lt; 16px</code>. Use 16px or larger to prevent disorienting zoom.</p>
+<h3 id="violation-5-pagination-links-1-2-3-next-crammed">Violation #5: Pagination Links (1, 2, 3, Next) Crammed</h3>
+<p><strong>Symptom:</strong> Numbered pagination links are 32px wide with 2px spacing.</p>
+<p><strong>Fix:</strong></p>
+<pre><code class="language-css">.pagination a {
+  display: inline-block;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px;
+  margin: 0 6px; /* 12px total spacing between elements */
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}
+</code></pre>
+<h2 id="step-by-step-css-fixes-for-touch-target-spacing">Step-by-Step CSS Fixes for Touch Target Spacing</h2>
+<h3 id="step-1-set-global-minimum-touch-target-size">Step 1: Set Global Minimum Touch Target Size</h3>
+<p>Add this to your global CSS (applies to all buttons and links):</p>
+<pre><code class="language-css">/* Global touch target baseline */
+a,
+button,
+input[type=&quot;submit&quot;],
+input[type=&quot;button&quot;],
+.clickable {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+</code></pre>
+<p>This creates a <strong>safety net</strong>. Even if individual components lack spacing, this rule enforces minimums.</p>
+<h3 id="step-2-add-spacing-between-adjacent-elements">Step 2: Add Spacing Between Adjacent Elements</h3>
+<p>Use <strong>margin</strong> or <strong>gap</strong> (for Flexbox/Grid) to separate touch targets:</p>
+<p><strong>Flexbox example:</strong></p>
+<pre><code class="language-css">.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 12px spacing between all menu items */
+}
+
+.menu-item {
+  padding: 12px 16px;
+}
+</code></pre>
+<p><strong>Grid example:</strong></p>
+<pre><code class="language-css">.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px; /* 16px spacing between grid items */
+}
+
+.footer-link {
+  padding: 12px;
+}
+</code></pre>
+<p><strong>Margin fallback (for older browsers):</strong></p>
+<pre><code class="language-css">.menu-item {
+  margin-bottom: 12px;
+}
+
+.menu-item:last-child {
+  margin-bottom: 0; /* Remove margin on last item to prevent excess space */
+}
+</code></pre>
+<h3 id="step-3-use-media-queries-for-mobile-only-adjustments">Step 3: Use Media Queries for Mobile-Only Adjustments</h3>
+<p>Don&#39;t bloat desktop spacing. Apply fixes only on mobile:</p>
+<pre><code class="language-css">/* Desktop: compact spacing */
+.nav-link {
+  padding: 6px 12px;
+  margin: 0 4px;
+}
+
+/* Mobile: expanded touch targets */
+@media (max-width: 768px) {
+  .nav-link {
+    padding: 14px 16px;
+    margin: 8px 0;
+    display: block; /* Force links to stack vertically */
+  }
+}
+</code></pre>
+<h3 id="step-4-adjust-icon-buttons-without-breaking-design">Step 4: Adjust Icon Buttons Without Breaking Design</h3>
+<p>Icons often need to stay visually small (24-32px) while maintaining 48px touch targets. Use <strong>padding</strong> to expand the clickable area without enlarging the icon:</p>
+<pre><code class="language-css">.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0; /* No padding needed—width/height handle it */
+}
+
+.icon-button img,
+.icon-button svg {
+  width: 24px; /* Icon stays small */
+  height: 24px;
+  pointer-events: none; /* Prevents icon from intercepting clicks */
+}
+</code></pre>
+<h3 id="step-5-test-with-pseudo-element-overlays-developer-debugging">Step 5: Test with Pseudo-Element Overlays (Developer Debugging)</h3>
+<p>Visualize touch target zones during development:</p>
+<pre><code class="language-css">/* Debugging: Show touch target boundaries */
+a::after,
+button::after {
+  content: &#39;&#39;;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px dashed red; /* Shows expanded touch zone */
+  pointer-events: none;
+}
+</code></pre>
+<p>This draws a red box around touch targets. Remove once fixes are validated.</p>
+<h2 id="validate-fixes-with-google-search-console">Validate Fixes with Google Search Console</h2>
+<p>After deploying CSS fixes:</p>
+<h3 id="step-1-request-mobile-re-crawl">Step 1: Request Mobile Re-Crawl</h3>
+<ol>
+<li><strong>Google Search Console → URL Inspection</strong></li>
+<li>Enter a fixed URL</li>
+<li>Click <strong>Test live URL</strong></li>
+<li>If &quot;Page is mobile-friendly&quot; appears, click <strong>Request Indexing</strong></li>
+</ol>
+<p>Google will re-crawl within 24-48 hours.</p>
+<h3 id="step-2-monitor-mobile-usability-report">Step 2: Monitor Mobile Usability Report</h3>
+<ol>
+<li><strong>GSC → Experience → Mobile Usability</strong></li>
+<li>Wait 7-14 days</li>
+<li>Check if &quot;Clickable elements too close together&quot; count drops</li>
+</ol>
+<p>If errors persist:</p>
+<ul>
+<li>Re-test with <strong>Mobile-Friendly Test</strong> to confirm fixes deployed</li>
+<li>Clear CDN cache (if using Cloudflare, Fastly, etc.)</li>
+<li>Check for cached CSS (add <code>?v=2</code> to stylesheet URLs to force reload)</li>
+</ul>
+<h3 id="step-3-verify-in-lighthouse">Step 3: Verify in Lighthouse</h3>
+<p>Re-run <strong>Lighthouse</strong> audit (see Method 4 above). Scroll to <strong>Accessibility → Touch targets</strong>. If it shows green checkmark, you&#39;re validated.</p>
+<h2 id="advanced-fixes-for-complex-scenarios">Advanced Fixes for Complex Scenarios</h2>
+<h3 id="scenario-1-data-tables-on-mobile">Scenario 1: Data Tables on Mobile</h3>
+<p>Tables are notoriously hard to make mobile-friendly. Users can&#39;t tap small table cells.</p>
+<p><strong>Bad approach:</strong> Scale down table font size.</p>
+<p><strong>Good approach:</strong> Convert table to stacked cards on mobile:</p>
+<pre><code class="language-css">/* Desktop: normal table */
+table {
+  width: 100%;
+}
+
+/* Mobile: stacked rows */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  tr {
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    padding: 12px;
+  }
+
+  td {
+    padding: 12px 0;
+    min-height: 48px; /* Touch target compliance */
+  }
+
+  td::before {
+    content: attr(data-label); /* Shows column name before each cell */
+    font-weight: bold;
+    display: inline-block;
+    width: 50%;
+  }
+}
+</code></pre>
+<p>HTML:</p>
+<pre><code class="language-html">&lt;td data-label=&quot;Name&quot;&gt;John Doe&lt;/td&gt;
+&lt;td data-label=&quot;Email&quot;&gt;john@example.com&lt;/td&gt;
+</code></pre>
+<h3 id="scenario-2-dropdown-menus-with-sub-items">Scenario 2: Dropdown Menus with Sub-Items</h3>
+<p>Multi-level menus on mobile are risky. Users tap a parent link but trigger a child link by mistake.</p>
+<p><strong>Solution:</strong> Increase spacing and add tap-anywhere expansion:</p>
+<pre><code class="language-css">.menu-parent {
+  padding: 14px 16px;
+  min-height: 48px;
+}
+
+.menu-child {
+  padding: 12px 24px; /* Indent + padding for hierarchy */
+  min-height: 48px;
+  margin-top: 8px; /* Spacing from parent */
+}
+</code></pre>
+<p>Use JavaScript to expand/collapse on tap (not hover):</p>
+<pre><code class="language-javascript">document.querySelectorAll(&#39;.menu-parent&#39;).forEach(item =&gt; {
+  item.addEventListener(&#39;click&#39;, (e) =&gt; {
+    e.preventDefault();
+    item.nextElementSibling.classList.toggle(&#39;open&#39;);
+  });
+});
+</code></pre>
+<h3 id="scenario-3-sticky-headers-blocking-content">Scenario 3: Sticky Headers Blocking Content</h3>
+<p>Sticky navigation bars can overlap touch targets below. Increase header height to prevent this:</p>
+<pre><code class="language-css">.sticky-header {
+  position: fixed;
+  top: 0;
+  height: 60px; /* Sufficient for 48px touch targets + padding */
+  padding: 6px 16px;
+}
+
+/* Offset body content to prevent overlap */
+body {
+  padding-top: 60px;
+}
+</code></pre>
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+<h3 id="mistake-1-relying-on-hover-states-on-mobile">Mistake #1: Relying on :hover States on Mobile</h3>
+<p>Mobile devices don&#39;t have hover. Never use hover to reveal critical actions:</p>
+<p><strong>Bad:</strong></p>
+<pre><code class="language-css">.menu-item:hover .submenu {
+  display: block; /* Invisible on mobile */
+}
+</code></pre>
+<p><strong>Good:</strong></p>
+<pre><code class="language-css">.menu-item.active .submenu {
+  display: block; /* Toggled via JavaScript on tap */
+}
+</code></pre>
+<h3 id="mistake-2-using-user-scalable-no-in-viewport-meta">Mistake #2: Using user-scalable=no in Viewport Meta</h3>
+<p>This disables pinch-zoom and triggers accessibility violations:</p>
+<p><strong>Bad:</strong></p>
+<pre><code class="language-html">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, user-scalable=no&quot;&gt;
+</code></pre>
+<p><strong>Good:</strong></p>
+<pre><code class="language-html">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+</code></pre>
+<p>Let users zoom. If text is too small to read, fix the font size, don&#39;t disable zoom.</p>
+<h3 id="mistake-3-ignoring-landscape-orientation">Mistake #3: Ignoring Landscape Orientation</h3>
+<p>Most tests use portrait mode, but users rotate devices. Test landscape:</p>
+<ol>
+<li>In <strong>Chrome DevTools</strong>, click <strong>Rotate</strong> icon</li>
+<li>Verify touch targets still meet 48×48px</li>
+</ol>
+<p>Common issue: Landscape mode reduces vertical space, causing buttons to overlap. Fix:</p>
+<pre><code class="language-css">@media (max-height: 500px) and (orientation: landscape) {
+  .button {
+    padding: 10px 16px; /* Slightly reduced vertical padding */
+    margin: 6px 0;
+  }
+}
+</code></pre>
+<h2 id="how-to-prioritize-fixes">How to Prioritize Fixes</h2>
+<p>Not all pages matter equally. Triage based on:</p>
+<h3 id="high-priority-fix-first">High Priority (Fix First)</h3>
+<ol>
+<li><strong>Homepage</strong>. Highest traffic, highest visibility</li>
+<li><strong>Product/Service pages</strong>. Direct conversion impact</li>
+<li><strong>Checkout/Forms</strong>. Errors here kill conversions</li>
+<li><strong>Navigation menus</strong>. Affect every page</li>
+</ol>
+<h3 id="medium-priority-fix-next">Medium Priority (Fix Next)</h3>
+<ol>
+<li><strong>Blog posts</strong>. High traffic but lower conversion intent</li>
+<li><strong>Category pages</strong>. Filter/sort buttons may be too close</li>
+<li><strong>Footer links</strong>. Legal/privacy pages required by law</li>
+</ol>
+<h3 id="low-priority-batch-later">Low Priority (Batch Later)</h3>
+<ol>
+<li><strong>Archive pages</strong>. Low traffic, low conversion</li>
+<li><strong>Thank-you pages</strong>. Seen once after conversion</li>
+<li><strong>Error pages</strong>. Infrequent traffic</li>
+</ol>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Touch Target Spacing Matters for SEO:</strong> Google requires:</li>
+</ul>
+<ul>
+<li>Touch targets (buttons, links, form fields) must be at least 48×48 pixels (roughly 9mm)</li>
+<li>Spacing between touch targets must be at least 8 pi</li>
+</ul>
+<ul>
+<li><strong>Common Touch Target Violations (And How to Spot Them):</strong> Icons are 24px (too small) with 0px spacing.</li>
+<li><strong>Step-by-Step CSS Fixes for Touch Target Spacing:</strong> Add this to your global CSS (applies to all buttons and links):</li>
+<li><strong>Advanced Fixes for Complex Scenarios:</strong> Tables are notoriously hard to make mobile-friendly.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>How do I fix touch target errors in WordPress?</strong></p>
+<p>Most WordPress themes control spacing via <strong>Customizer</strong> or theme settings. Check:</p>
+<ol>
+<li><strong>Appearance → Customize → Additional CSS</strong>. Add custom CSS from this guide</li>
+<li><strong>Page Builder settings</strong> (Elementor, Divi). Increase padding on button/link widgets</li>
+<li><strong>Mobile-specific settings</strong>. Many themes have separate mobile controls</li>
+</ol>
+<p><strong>Do touch target errors affect desktop rankings?</strong></p>
+<p>No. <strong>Mobile-first indexing</strong> means Google ranks based on mobile version, but touch targets are mobile-only requirements. Desktop spacing can be tighter.</p>
+<p><strong>Can I use JavaScript to fix spacing dynamically?</strong></p>
+<p>Yes, but CSS is faster and more reliable. If you must use JS:</p>
+<pre><code class="language-javascript">document.querySelectorAll(&#39;a, button&#39;).forEach(el =&gt; {
+  if (el.offsetHeight &lt; 48 || el.offsetWidth &lt; 48) {
+    el.style.minHeight = &#39;48px&#39;;
+    el.style.minWidth = &#39;48px&#39;;
+    el.style.padding = &#39;12px&#39;;
+  }
+});
+</code></pre>
+<p>Run this on <code>DOMContentLoaded</code>.</p>
+<p><strong>How long does it take Google to recognize fixes?</strong></p>
+<p>7-14 days for small sites after requesting re-indexing. For large sites (50,000+ pages), expect 4-8 weeks as Google re-crawls incrementally.</p>
+<p><strong>What if Google still flags errors after I fix them?</strong></p>
+<ol>
+<li>Clear cache (browser, CDN, server)</li>
+<li>Test with <strong>Mobile-Friendly Test</strong> to confirm fixes deployed</li>
+<li>Check for CSS conflicts (later stylesheets overriding your fixes)</li>
+<li>Verify media queries trigger (test with DevTools device emulation)</li>
+</ol>
+<p><strong>Should I worry about accessibility guidelines beyond Google&#39;s?</strong></p>
+<p>Yes. <strong>WCAG 2.1 Level AA</strong> requires 44×44px touch targets (slightly smaller than Google&#39;s 48×48px). Aim for 48×48px to satisfy both.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<p>Touch target spacing is foundational mobile UX. Violations don&#39;t hurt rankings, they hemorrhage conversions, spike bounce rates, and erode trust. Fix systematically: audit with Lighthouse, patch with responsive CSS, validate with GSC. Your mobile traffic, and your revenue, depend on it.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/core-web-vitals-failing-mobile-only.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests.</p>
+          </a>
+
+          <a href="/articles/fix-mobile-viewport-issues.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Mobile Viewport Issues: Complete Guide to Responsive Meta Tags and CSS</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Resolve mobile viewport configuration errors that cause horizontal scrolling, tiny text, and mobile usability warnings in Google Search Console.</p>
+          </a>
+
+          <a href="/articles/fix-text-too-small-to-read-mobile.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix &quot;Text Too Small to Read&quot; Mobile Usability Errors</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Resolve Google Search Console mobile usability errors by adjusting font sizes, viewport settings, and responsive typography for improved mobile rankings.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

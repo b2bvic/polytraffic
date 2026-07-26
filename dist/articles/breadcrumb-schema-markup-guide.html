@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breadcrumb Schema Markup: Implementation Guide | Polytraffic</title>
+    <meta name="description" content="Breadcrumb schema shows your site hierarchy in search results. Add BreadcrumbList structured data to improve navigation and click-through rates." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Breadcrumb Schema Markup: Implementation Guide | Polytraffic" />
+    <meta property="og:description" content="Breadcrumb schema shows your site hierarchy in search results. Add BreadcrumbList structured data to improve navigation and click-through rates." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/breadcrumb-schema-markup-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/breadcrumb-schema-markup-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Breadcrumb Schema Markup: Implementation Guide | Polytraffic" />
+    <meta name="twitter:description" content="Breadcrumb schema shows your site hierarchy in search results. Add BreadcrumbList structured data to improve navigation and click-through rates." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/breadcrumb-schema-markup-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/breadcrumb-schema-markup-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Breadcrumb Schema Markup: Implementation Guide",
+    "description": "Breadcrumb schema shows your site hierarchy in search results. Add BreadcrumbList structured data to improve navigation and click-through rates.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/breadcrumb-schema-markup-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/breadcrumb-schema-markup-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Breadcrumb Schema Markup: Implementation Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Breadcrumb Schema Markup: Implementation Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/breadcrumb-schema-markup-guide.png" alt="Breadcrumb Schema Markup: Implementation Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="breadcrumb-schema-markup-implementation-guide">Breadcrumb Schema Markup: Implementation Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Breadcrumb schema shows your site hierarchy in search results. Add BreadcrumbList structured data to improve navigation and click-through rates.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#what-breadcrumb-schema-does" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">What Breadcrumb Schema Does</a></li>
+<li><a href="#breadcrumb-schema-structure" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Breadcrumb Schema Structure</a></li>
+<li><a href="#visible-on-page-breadcrumbs" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Visible On-Page Breadcrumbs</a></li>
+<li><a href="#how-to-implement-breadcrumb-schema" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Implement Breadcrumb Schema</a></li>
+<li><a href="#breadcrumb-schema-best-practices" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Breadcrumb Schema Best Practices</a></li>
+<li><a href="#validating-breadcrumb-schema" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Validating Breadcrumb Schema</a></li>
+<li><a href="#common-breadcrumb-schema-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Breadcrumb Schema Mistakes</a></li>
+<li><a href="#breadcrumb-schema-and-internal-linking" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Breadcrumb Schema and Internal Linking</a></li>
+<li><a href="#breadcrumb-schema-vs-other-structured-data" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Breadcrumb Schema vs. Other Structured Data</a></li>
+<li><a href="#next-steps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Next Steps</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Breadcrumb schema (<code>BreadcrumbList</code>) tells Google the hierarchical structure of your site. When implemented correctly, Google displays breadcrumbs in search results instead of your URL, showing users exactly where the page sits in your site architecture. This improves click-through rates and helps users understand your site structure before clicking.</p>
+<p>Without breadcrumb schema, Google shows your raw URL (<code>yoursite.com/category/subcategory/page</code>). With schema, Google shows clean breadcrumbs (<code>Home &gt; Category &gt; Subcategory &gt; Page</code>). This guide shows how to implement breadcrumb schema and integrate it with visible on-page breadcrumbs.</p>
+<h2 id="what-breadcrumb-schema-does">What Breadcrumb Schema Does</h2>
+<p>Breadcrumb schema uses the <code>BreadcrumbList</code> type to mark up the navigation path from your homepage to the current page.</p>
+<p><strong>Example breadcrumb path:</strong></p>
+<pre><code>Home &gt; SEO Guides &gt; Technical SEO &gt; Breadcrumb Schema
+</code></pre>
+<h3 id="how-breadcrumbs-appear-in-search-results">How Breadcrumbs Appear in Search Results</h3>
+<p>Google displays breadcrumbs above the page title in search results:</p>
+<pre><code>yoursite.com › SEO Guides › Technical SEO › Breadcrumb Schema
+How to Implement Breadcrumb Schema Markup
+</code></pre>
+<p>This gives users context before they click, improving relevance matching and reducing bounce rate.</p>
+<h2 id="breadcrumb-schema-structure">Breadcrumb Schema Structure</h2>
+<p>Breadcrumb schema is a <code>BreadcrumbList</code> containing multiple <code>ListItem</code> objects. Each item represents one level in the hierarchy.</p>
+<h3 id="basic-breadcrumb-schema-example">Basic Breadcrumb Schema Example</h3>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BreadcrumbList&quot;,
+  &quot;itemListElement&quot;: [
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 1,
+      &quot;name&quot;: &quot;Home&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 2,
+      &quot;name&quot;: &quot;SEO Guides&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com/seo-guides&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 3,
+      &quot;name&quot;: &quot;Technical SEO&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com/seo-guides/technical-seo&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 4,
+      &quot;name&quot;: &quot;Breadcrumb Schema&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com/seo-guides/technical-seo/breadcrumb-schema&quot;
+    }
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<h3 id="field-explanations">Field Explanations</h3>
+<ul>
+<li><strong>@type: &quot;BreadcrumbList&quot;</strong>. Identifies this as breadcrumb structured data</li>
+<li><strong>itemListElement</strong>. Array of breadcrumb items</li>
+<li><strong>position</strong>. Numeric order (1 = first breadcrumb, 2 = second, etc.)</li>
+<li><strong>name</strong>. Text displayed for this breadcrumb level</li>
+<li><strong>item</strong>. URL for this breadcrumb level</li>
+</ul>
+<p>The last breadcrumb (position 4 in the example) is the current page. You can include or omit the <code>item</code> URL for the current page. Google accepts both.</p>
+<h2 id="visible-on-page-breadcrumbs">Visible On-Page Breadcrumbs</h2>
+<p>Breadcrumb schema should match visible breadcrumbs on the page. If you have visible breadcrumbs in your header or below the title, ensure the schema mirrors them.</p>
+<h3 id="html-breadcrumb-example">HTML Breadcrumb Example</h3>
+<pre><code class="language-html">&lt;nav aria-label=&quot;breadcrumb&quot;&gt;
+  &lt;ol class=&quot;breadcrumb&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/seo-guides&quot;&gt;SEO Guides&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/seo-guides/technical-seo&quot;&gt;Technical SEO&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Breadcrumb Schema&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
+</code></pre>
+<p>The JSON-LD schema should match this hierarchy exactly.</p>
+<h2 id="how-to-implement-breadcrumb-schema">How to Implement Breadcrumb Schema</h2>
+<h3 id="wordpress-yoast-seo">WordPress (Yoast SEO)</h3>
+<p>Yoast SEO auto-generates breadcrumb schema if you enable breadcrumbs.</p>
+<ol>
+<li><strong>SEO &gt; Search Appearance &gt; Breadcrumbs</strong></li>
+<li>Enable <strong>Enable Breadcrumbs</strong></li>
+<li>Configure separator (e.g., <code>&gt;</code> or <code>/</code>)</li>
+<li>Add breadcrumb code to your theme:</li>
+</ol>
+<pre><code class="language-php">&lt;?php if ( function_exists(&#39;yoast_breadcrumb&#39;) ) {
+  yoast_breadcrumb( &#39;&lt;nav id=&quot;breadcrumbs&quot;&gt;&#39;,&#39;&lt;/nav&gt;&#39; );
+} ?&gt;
+</code></pre>
+<p>Place this in <code>header.php</code> or <code>single.php</code> where you want breadcrumbs to appear.</p>
+<h3 id="wordpress-rank-math">WordPress (Rank Math)</h3>
+<p>Rank Math also auto-generates breadcrumb schema.</p>
+<ol>
+<li><strong>Rank Math &gt; General Settings &gt; Breadcrumbs</strong></li>
+<li>Enable <strong>Enable Breadcrumbs Function</strong></li>
+<li>Add to your theme:</li>
+</ol>
+<pre><code class="language-php">&lt;?php if (function_exists(&#39;rank_math_the_breadcrumbs&#39;)) rank_math_the_breadcrumbs(); ?&gt;
+</code></pre>
+<h3 id="shopify">Shopify</h3>
+<p>Shopify themes (Dawn, Debut) include breadcrumbs by default. Schema is automatically generated.</p>
+<p>To verify, view page source and search for <code>BreadcrumbList</code>.</p>
+<p>To customize breadcrumbs, edit your theme&#39;s <code>breadcrumbs.liquid</code> or <code>product-template.liquid</code> file.</p>
+<h3 id="manual-implementation-html">Manual Implementation (HTML)</h3>
+<p>Add the JSON-LD schema to the <code>&lt;head&gt;</code> or <code>&lt;body&gt;</code> of your page:</p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BreadcrumbList&quot;,
+  &quot;itemListElement&quot;: [
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 1,
+      &quot;name&quot;: &quot;Home&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 2,
+      &quot;name&quot;: &quot;Category&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com/category&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 3,
+      &quot;name&quot;: &quot;Current Page&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com/category/current-page&quot;
+    }
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<p>Replace <code>name</code> and <code>item</code> values with your actual breadcrumb path.</p>
+<h3 id="dynamic-implementation-jekyll-hugo-next-js">Dynamic Implementation (Jekyll, Hugo, Next.js)</h3>
+<p>For static site generators, generate breadcrumbs programmatically based on URL structure.</p>
+<p><strong>Jekyll example:</strong></p>
+<pre><code class="language-liquid">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BreadcrumbList&quot;,
+  &quot;itemListElement&quot;: [
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 1,
+      &quot;name&quot;: &quot;Home&quot;,
+      &quot;item&quot;: &quot;{{ site.url }}&quot;
+    },
+    {% assign crumbs = page.url | split: &#39;/&#39; %}
+    {% for crumb in crumbs offset:1 %}
+      {% if forloop.last %}
+      {
+        &quot;@type&quot;: &quot;ListItem&quot;,
+        &quot;position&quot;: {{ forloop.index | plus: 1 }},
+        &quot;name&quot;: &quot;{{ page.title }}&quot;,
+        &quot;item&quot;: &quot;{{ site.url }}{{ page.url }}&quot;
+      }
+      {% endif %}
+    {% endfor %}
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<p>This auto-generates breadcrumbs based on URL structure and page title.</p>
+<h2 id="breadcrumb-schema-best-practices">Breadcrumb Schema Best Practices</h2>
+<h3 id="rule-1-match-schema-to-visible-breadcrumbs">Rule 1: Match Schema to Visible Breadcrumbs</h3>
+<p>The JSON-LD schema should mirror the breadcrumbs users see on the page. Mismatches confuse users and may cause Google to ignore the schema.</p>
+<h3 id="rule-2-use-absolute-urls">Rule 2: Use Absolute URLs</h3>
+<p>Always use full URLs with protocol and domain:</p>
+<pre><code class="language-json">&quot;item&quot;: &quot;https://yoursite.com/category&quot;
+</code></pre>
+<p>Not:</p>
+<pre><code class="language-json">&quot;item&quot;: &quot;/category&quot;
+</code></pre>
+<h3 id="rule-3-keep-position-sequential">Rule 3: Keep Position Sequential</h3>
+<p>Position numbers should increment by 1 (1, 2, 3, 4...). Don&#39;t skip numbers.</p>
+<h3 id="rule-4-include-homepage-as-position-1">Rule 4: Include Homepage as Position 1</h3>
+<p>The first breadcrumb should always be the homepage:</p>
+<pre><code class="language-json">{
+  &quot;@type&quot;: &quot;ListItem&quot;,
+  &quot;position&quot;: 1,
+  &quot;name&quot;: &quot;Home&quot;,
+  &quot;item&quot;: &quot;https://yoursite.com&quot;
+}
+</code></pre>
+<h3 id="rule-5-current-page-can-be-last-item">Rule 5: Current Page Can Be Last Item</h3>
+<p>The current page can be included as the final breadcrumb. You can omit the <code>item</code> URL for the current page if it&#39;s not clickable in your visible breadcrumbs.</p>
+<p><strong>With current page URL:</strong></p>
+<pre><code class="language-json">{
+  &quot;@type&quot;: &quot;ListItem&quot;,
+  &quot;position&quot;: 4,
+  &quot;name&quot;: &quot;Current Page&quot;,
+  &quot;item&quot;: &quot;https://yoursite.com/category/current-page&quot;
+}
+</code></pre>
+<p><strong>Without current page URL:</strong></p>
+<pre><code class="language-json">{
+  &quot;@type&quot;: &quot;ListItem&quot;,
+  &quot;position&quot;: 4,
+  &quot;name&quot;: &quot;Current Page&quot;
+}
+</code></pre>
+<p>Both are valid.</p>
+<h2 id="validating-breadcrumb-schema">Validating Breadcrumb Schema</h2>
+<h3 id="google-rich-results-test">Google Rich Results Test</h3>
+<ol>
+<li>Go to <a href="https://search.google.com/test/rich-results" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://search.google.com/test/rich-results</a></li>
+<li>Enter your page URL or paste HTML</li>
+<li>Click <strong>Test URL</strong></li>
+<li>Expand <strong>BreadcrumbList</strong> to verify structure</li>
+</ol>
+<h3 id="schema-markup-validator">Schema Markup Validator</h3>
+<ol>
+<li>Go to <a href="https://validator.schema.org/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://validator.schema.org/</a></li>
+<li>Paste JSON-LD code</li>
+<li>Check for errors</li>
+</ol>
+<h3 id="google-search-console">Google Search Console</h3>
+<p>Monitor <strong>Google Search Console &gt; Enhancements &gt; Breadcrumb</strong> for errors or warnings.</p>
+<p>If breadcrumbs aren&#39;t appearing in search results after implementation, wait 2-4 weeks for Google to recrawl and process the schema.</p>
+<h2 id="common-breadcrumb-schema-mistakes">Common Breadcrumb Schema Mistakes</h2>
+<h3 id="mistake-1-breadcrumb-schema-doesn-t-match-visible-breadcrumbs">Mistake 1: Breadcrumb Schema Doesn't Match Visible Breadcrumbs</h3>
+<p>If your schema says <code>Home &gt; Products &gt; Shoes</code> but your visible breadcrumbs say <code>Home &gt; Footwear &gt; Shoes</code>, Google may ignore the schema.</p>
+<p><strong>Fix:</strong> Ensure schema and visible breadcrumbs match exactly.</p>
+<h3 id="mistake-2-using-relative-urls">Mistake 2: Using Relative URLs</h3>
+<pre><code class="language-json">&quot;item&quot;: &quot;/category/page&quot;
+</code></pre>
+<p><strong>Fix:</strong> Use absolute URLs:</p>
+<pre><code class="language-json">&quot;item&quot;: &quot;https://yoursite.com/category/page&quot;
+</code></pre>
+<h3 id="mistake-3-skipping-position-numbers">Mistake 3: Skipping Position Numbers</h3>
+<pre><code class="language-json">&quot;position&quot;: 1
+&quot;position&quot;: 3 // Skipped position 2
+</code></pre>
+<p><strong>Fix:</strong> Use sequential numbering (1, 2, 3, 4...).</p>
+<h3 id="mistake-4-no-visible-breadcrumbs-on-page">Mistake 4: No Visible Breadcrumbs on Page</h3>
+<p>Google expects visible breadcrumbs to match the schema. If you have breadcrumb schema but no visible breadcrumbs, Google may not display them in search results.</p>
+<p><strong>Fix:</strong> Add visible breadcrumbs to your page layout.</p>
+<h3 id="mistake-5-breadcrumb-schema-on-pages-without-hierarchy">Mistake 5: Breadcrumb Schema on Pages Without Hierarchy</h3>
+<p>Don&#39;t add breadcrumb schema to your homepage (it has no parent) or flat pages without category structure.</p>
+<p><strong>Good use:</strong> Product pages, blog posts, category pages
+<strong>Bad use:</strong> Homepage, contact page, about page (unless they fit into a larger hierarchy)</p>
+<h2 id="breadcrumb-schema-and-internal-linking">Breadcrumb Schema and Internal Linking</h2>
+<p>Breadcrumbs are a form of internal linking. Each breadcrumb link passes link equity and reinforces your site structure.</p>
+<h3 id="seo-benefits">SEO Benefits</h3>
+<ul>
+<li><strong>Improves crawl efficiency</strong>. Breadcrumbs help <strong>Googlebot</strong> understand your site hierarchy</li>
+<li><strong>Distributes link equity</strong>. Category pages receive internal links from all child pages</li>
+<li><strong>Reduces orphan pages</strong>. Every page with breadcrumbs links back to parent pages</li>
+<li><strong>Reinforces topical clusters</strong>. Breadcrumbs connect related pages thematically</li>
+</ul>
+<h2 id="breadcrumb-schema-vs-other-structured-data">Breadcrumb Schema vs. Other Structured Data</h2>
+<p>You can combine breadcrumb schema with other schema types on the same page.</p>
+<p><strong>Example: Article + Breadcrumb Schema</strong></p>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;Article&quot;,
+  &quot;headline&quot;: &quot;Breadcrumb Schema Guide&quot;,
+  &quot;author&quot;: {
+    &quot;@type&quot;: &quot;Person&quot;,
+    &quot;name&quot;: &quot;Victor Valentine Romo&quot;
+  }
+}
+&lt;/script&gt;
+
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BreadcrumbList&quot;,
+  &quot;itemListElement&quot;: [
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 1,
+      &quot;name&quot;: &quot;Home&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;ListItem&quot;,
+      &quot;position&quot;: 2,
+      &quot;name&quot;: &quot;SEO Guides&quot;,
+      &quot;item&quot;: &quot;https://yoursite.com/seo-guides&quot;
+    }
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<p>Both schemas coexist without conflict.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>What Breadcrumb Schema Does:</strong> Breadcrumb schema uses the BreadcrumbList type to mark up the navigation path from your homepage to the current page.</li>
+<li><strong>Breadcrumb Schema Structure:</strong> Breadcrumb schema is a BreadcrumbList containing multiple ListItem objects.</li>
+<li><strong>Visible On-Page Breadcrumbs:</strong> Breadcrumb schema should match visible breadcrumbs on the page.</li>
+<li><strong>How to Implement Breadcrumb Schema:</strong> Yoast SEO auto-generates breadcrumb schema if you enable breadcrumbs.</li>
+<li><strong>Breadcrumb Schema Best Practices:</strong> The JSON-LD schema should mirror the breadcrumbs users see on the page.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="do-i-need-visible-breadcrumbs-for-the-schema-to-work">Do I need visible breadcrumbs for the schema to work?</h3>
+<p>Yes. Google expects visible breadcrumbs to match the schema. If you add breadcrumb schema without visible breadcrumbs on the page, Google may not display them in search results.</p>
+<h3 id="can-i-use-breadcrumb-schema-on-the-homepage">Can I use breadcrumb schema on the homepage?</h3>
+<p>No. The homepage has no parent pages, so breadcrumbs don&#39;t apply. Start using breadcrumb schema on category pages, product pages, and blog posts.</p>
+<h3 id="how-long-before-breadcrumbs-appear-in-google-search-results">How long before breadcrumbs appear in Google search results?</h3>
+<p>2-4 weeks after implementation. Google must recrawl your pages, process the schema, and decide to display breadcrumbs instead of your URL.</p>
+<h3 id="do-breadcrumbs-improve-rankings">Do breadcrumbs improve rankings?</h3>
+<p>Indirectly. Breadcrumbs improve internal linking, which helps Google understand your site structure. They also improve click-through rate by providing context in search results. Both factors can positively affect rankings.</p>
+<h3 id="can-i-have-multiple-breadcrumblist-schemas-on-one-page">Can I have multiple BreadcrumbList schemas on one page?</h3>
+<p>No. Use one <code>BreadcrumbList</code> per page. If you have multiple navigation paths (e.g., a product in multiple categories), choose the most relevant path for the schema.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Implement breadcrumb schema on your category pages, product pages, and blog posts. Add visible breadcrumbs to your site layout if you don&#39;t have them already. Validate using <strong>Google Rich Results Test</strong>. Monitor <strong>Google Search Console &gt; Enhancements &gt; Breadcrumb</strong> for errors. For related schema guidance, see <a href="/articles/schema-markup-seo-implementation-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Schema Markup SEO Implementation Guide</a>, <a href="/articles/internal-linking-strategy-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Internal Linking Strategy Guide</a>, and <a href="/articles/structured-data-troubleshooting-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Structured Data Troubleshooting Guide</a>.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/article-schema-markup-blog-news.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Article Schema Markup for Blog Posts and News</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Article schema tells Google your content type, author, publish date, and publisher. Implement it correctly and unlock rich results in search and Discover.</p>
+          </a>
+
+          <a href="/articles/author-schema-markup-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Author Schema and Bylines: Quick EEAT Implementation</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Author schema signals expertise and authority. Add Person schema with credentials, social profiles, and bylines to strengthen EEAT signals for content.</p>
+          </a>
+
+          <a href="/articles/cms-migration-seo-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">CMS Migration SEO Guide: WordPress to Shopify and Beyond</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">CMS migrations break URLs, lose redirects, and drop rankings if executed wrong. Map every URL, preserve link equity, and validate before launch.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

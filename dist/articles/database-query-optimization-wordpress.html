@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB | Polytraffic</title>
+    <meta name="description" content="Optimize WordPress database queries to reduce Time to First Byte. Index slow queries, cache results with Redis, and eliminate N+1 query patterns." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB | Polytraffic" />
+    <meta property="og:description" content="Optimize WordPress database queries to reduce Time to First Byte. Index slow queries, cache results with Redis, and eliminate N+1 query patterns." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/database-query-optimization-wordpress" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/database-query-optimization-wordpress.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB | Polytraffic" />
+    <meta name="twitter:description" content="Optimize WordPress database queries to reduce Time to First Byte. Index slow queries, cache results with Redis, and eliminate N+1 query patterns." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/database-query-optimization-wordpress.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/database-query-optimization-wordpress" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB",
+    "description": "Optimize WordPress database queries to reduce Time to First Byte. Index slow queries, cache results with Redis, and eliminate N+1 query patterns.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/database-query-optimization-wordpress.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/database-query-optimization-wordpress.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/database-query-optimization-wordpress.png" alt="Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="database-query-optimization-for-wordpress-fix-slow-queries-and-improve-ttfb">Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Optimize WordPress database queries to reduce Time to First Byte. Index slow queries, cache results with Redis, and eliminate N+1 query patterns.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-wordpress-database-queries-slow-page-speed" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why WordPress Database Queries Slow Page Speed</a></li>
+<li><a href="#phase-1-diagnose-slow-queries-with-query-monitor" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 1: Diagnose Slow Queries with Query Monitor</a></li>
+<li><a href="#phase-2-add-database-indexes-to-wppostmeta-and-wpusermeta" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 2: Add Database Indexes to wppostmeta and wpusermeta</a></li>
+<li><a href="#phase-3-implement-redis-object-caching" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 3: Implement Redis Object Caching</a></li>
+<li><a href="#phase-4-eliminate-n-1-query-patterns" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 4: Eliminate N+1 Query Patterns</a></li>
+<li><a href="#phase-5-optimize-woocommerce-database-queries" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 5: Optimize WooCommerce Database Queries</a></li>
+<li><a href="#phase-6-optimize-wordpress-core-tables" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 6: Optimize WordPress Core Tables</a></li>
+<li><a href="#phase-7-monitor-query-performance-continuously" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 7: Monitor Query Performance Continuously</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Database queries</strong> account for 60-80% of <strong>WordPress</strong> page generation time, retrieving posts, taxonomies, user metadata, and custom fields from <strong>MySQL</strong> tables before rendering HTML. Poorly optimized queries, missing indexes, N+1 patterns (executing 50 separate queries instead of 1 joined query), uncached results, push <strong>Time to First Byte (TTFB)</strong> above 1 second, triggering <strong>Googlebot</strong> crawl throttling and failing <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals</a>. Sites with 10,000+ posts, complex custom post types, or meta-heavy WooCommerce installations hit hardest. This guide diagnoses slow queries with <strong>Query Monitor</strong>, adds database indexes, implements <strong>Redis</strong> object caching, and refactors N+1 patterns to reduce query counts from 300+ per page load to under 50.</p>
+<h2 id="why-wordpress-database-queries-slow-page-speed">Why WordPress Database Queries Slow Page Speed</h2>
+<p><strong>WordPress core</strong> queries are generally optimized, but themes, plugins, and custom code introduce inefficiencies.</p>
+<p><strong>Common query performance killers:</strong></p>
+<ol>
+<li><strong>Missing indexes</strong> on meta tables (<code>wp_postmeta</code>, <code>wp_usermeta</code>), full table scans instead of indexed lookups</li>
+<li><strong>N+1 queries</strong>, looping through posts and querying meta individually (100 posts = 100+ queries)</li>
+<li><strong>Uncached results</strong>, identical queries executed on every page load</li>
+<li><strong>Large result sets</strong>, fetching 1000 posts when only 10 are needed</li>
+<li><strong>Complex JOINs</strong>, multi-table queries without proper indexes</li>
+</ol>
+<h2 id="phase-1-diagnose-slow-queries-with-query-monitor">Phase 1: Diagnose Slow Queries with Query Monitor</h2>
+<p><strong>Query Monitor</strong> plugin exposes every database query executed during page generation.</p>
+<h3 id="install-and-activate-query-monitor">Install and Activate Query Monitor</h3>
+<pre><code class="language-bash"># WP-CLI installation
+wp plugin install query-monitor --activate
+</code></pre>
+<p><strong>Or:</strong> WordPress admin → Plugins → Add New → search &quot;Query Monitor&quot; → Install → Activate</p>
+<h3 id="identify-slow-queries">Identify Slow Queries</h3>
+<ol>
+<li>Visit any page on your site</li>
+<li>Click &quot;Query Monitor&quot; in admin bar</li>
+<li>&quot;Queries&quot; tab shows all database queries with execution times</li>
+</ol>
+<p><strong>Red flags:</strong></p>
+<ul>
+<li>Queries taking &gt;100ms (highlighted in red)</li>
+<li>Query count &gt;100 per page</li>
+<li>Duplicate identical queries (should be cached)</li>
+</ul>
+<p><strong>Example slow query:</strong></p>
+<pre><code class="language-sql">SELECT meta_value
+FROM wp_postmeta
+WHERE post_id = 123 AND meta_key = &#39;_product_sku&#39;
+</code></pre>
+<p><strong>Execution time:</strong> 450ms (slow due to missing index on <code>meta_key</code>)</p>
+<h3 id="analyze-query-callers">Analyze Query Callers</h3>
+<p><strong>Query Monitor</strong> → Queries → Caller column shows which plugin/theme triggered each query.</p>
+<p><strong>Common culprits:</strong></p>
+<ul>
+<li><strong>WooCommerce</strong> product meta queries</li>
+<li><strong>Advanced Custom Fields (ACF)</strong> field loading</li>
+<li><strong>WPML</strong> translation queries</li>
+<li><strong>Yoast SEO</strong> meta retrieval</li>
+</ul>
+<h3 id="export-slow-queries-for-analysis">Export Slow Queries for Analysis</h3>
+<p><strong>Query Monitor</strong> → Queries → click &quot;Export&quot; → save CSV</p>
+<p>Sort by execution time to prioritize optimization targets.</p>
+<h2 id="phase-2-add-database-indexes-to-wp-postmeta-and-wp-usermeta">Phase 2: Add Database Indexes to wp_postmeta and wp_usermeta</h2>
+<p><strong>Missing indexes</strong> cause full table scans on large meta tables (10,000+ rows).</p>
+<h3 id="check-existing-indexes">Check Existing Indexes</h3>
+<p><strong>Run in phpMyAdmin or MySQL CLI:</strong></p>
+<pre><code class="language-sql">SHOW INDEX FROM wp_postmeta;
+</code></pre>
+<p><strong>Default indexes:</strong></p>
+<ul>
+<li><code>meta_id</code> (primary key)</li>
+<li><code>post_id</code> (index)</li>
+</ul>
+<p><strong>Missing:</strong> Index on <code>meta_key</code> for queries like:</p>
+<pre><code class="language-sql">SELECT * FROM wp_postmeta WHERE meta_key = &#39;_product_sku&#39;
+</code></pre>
+<h3 id="add-index-on-meta-key">Add Index on meta_key</h3>
+<p><strong>Execute in phpMyAdmin or via WP-CLI:</strong></p>
+<pre><code class="language-sql">ALTER TABLE wp_postmeta ADD INDEX meta_key_index (meta_key);
+</code></pre>
+<p><strong>For compound queries (meta_key + post_id):</strong></p>
+<pre><code class="language-sql">ALTER TABLE wp_postmeta ADD INDEX post_meta_key_index (post_id, meta_key);
+</code></pre>
+<p><strong>Warning:</strong> Indexing takes time on large tables (10+ million rows = several minutes). Run during low-traffic periods.</p>
+<h3 id="add-index-on-wp-usermeta">Add Index on wp_usermeta</h3>
+<p><strong>Same pattern for user meta:</strong></p>
+<pre><code class="language-sql">ALTER TABLE wp_usermeta ADD INDEX meta_key_index (meta_key);
+</code></pre>
+<h3 id="validate-index-impact">Validate Index Impact</h3>
+<p><strong>Before indexing:</strong></p>
+<pre><code class="language-sql">EXPLAIN SELECT meta_value FROM wp_postmeta WHERE meta_key = &#39;_product_sku&#39;;
+</code></pre>
+<p>Output: <code>type: ALL</code> (full table scan)</p>
+<p><strong>After indexing:</strong></p>
+<pre><code class="language-sql">EXPLAIN SELECT meta_value FROM wp_postmeta WHERE meta_key = &#39;_product_sku&#39;;
+</code></pre>
+<p>Output: <code>type: ref</code> (indexed lookup)</p>
+<p><strong>Speed improvement:</strong> 450ms → 12ms</p>
+<h2 id="phase-3-implement-redis-object-caching">Phase 3: Implement Redis Object Caching</h2>
+<p><strong>WordPress object cache</strong> stores query results in memory, eliminating repeated database hits.</p>
+<h3 id="install-redis-server">Install Redis Server</h3>
+<p><strong>Ubuntu/Debian:</strong></p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install redis-server
+sudo systemctl enable redis-server
+sudo systemctl start redis-server
+</code></pre>
+<p><strong>Verify Redis is running:</strong></p>
+<pre><code class="language-bash">redis-cli ping
+# Should return: PONG
+</code></pre>
+<h3 id="install-redis-object-cache-plugin">Install Redis Object Cache Plugin</h3>
+<p><strong>Via WP-CLI:</strong></p>
+<pre><code class="language-bash">wp plugin install redis-cache --activate
+wp redis enable
+</code></pre>
+<p><strong>Or:</strong> WordPress admin → Plugins → Add New → &quot;Redis Object Cache&quot; → Install → Activate → Settings → Enable Object Cache</p>
+<h3 id="configure-wordpress-to-use-redis">Configure WordPress to Use Redis</h3>
+<p><strong>Add to wp-config.php:</strong></p>
+<pre><code class="language-php">define(&#39;WP_REDIS_HOST&#39;, &#39;127.0.0.1&#39;);
+define(&#39;WP_REDIS_PORT&#39;, 6379);
+define(&#39;WP_REDIS_DATABASE&#39;, 0);
+define(&#39;WP_CACHE_KEY_SALT&#39;, &#39;yoursite.com&#39;); // unique per site
+</code></pre>
+<h3 id="validate-redis-caching">Validate Redis Caching</h3>
+<p><strong>Query Monitor</strong> → Object Cache section shows:</p>
+<ul>
+<li><strong>Hits:</strong> Queries served from cache</li>
+<li><strong>Misses:</strong> Queries hitting database</li>
+<li><strong>Ratio:</strong> Aim for &gt;90% hit rate</li>
+</ul>
+<p><strong>Check Redis CLI:</strong></p>
+<pre><code class="language-bash">redis-cli
+&gt; INFO stats
+</code></pre>
+<p>Look for <code>keyspace_hits</code> increasing and <code>keyspace_misses</code> low.</p>
+<h2 id="phase-4-eliminate-n-1-query-patterns">Phase 4: Eliminate N+1 Query Patterns</h2>
+<p><strong>N+1 queries</strong> occur when looping through posts and querying meta individually.</p>
+<h3 id="identify-n-1-patterns">Identify N+1 Patterns</h3>
+<p><strong>Query Monitor</strong> → Duplicate Queries shows identical queries executed multiple times.</p>
+<p><strong>Example N+1 pattern:</strong></p>
+<pre><code class="language-php">$posts = get_posts([&#39;numberposts&#39; =&gt; 50]);
+
+foreach ($posts as $post) {
+  $meta = get_post_meta($post-&gt;ID, &#39;_custom_field&#39;, true); // Query executed 50 times
+}
+</code></pre>
+<p><strong>Query Monitor shows:</strong></p>
+<pre><code>50× SELECT meta_value FROM wp_postmeta WHERE post_id = X AND meta_key = &#39;_custom_field&#39;
+</code></pre>
+<h3 id="fix-n-1-with-update-post-meta-cache">Fix N+1 with update_post_meta_cache()</h3>
+<p><strong>WordPress</strong> provides <code>update_post_meta_cache()</code> to batch-fetch meta for multiple posts.</p>
+<p><strong>Optimized version:</strong></p>
+<pre><code class="language-php">$posts = get_posts([&#39;numberposts&#39; =&gt; 50]);
+update_post_meta_cache(wp_list_pluck($posts, &#39;ID&#39;)); // Single query fetches all meta
+
+foreach ($posts as $post) {
+  $meta = get_post_meta($post-&gt;ID, &#39;_custom_field&#39;, true); // Served from cache
+}
+</code></pre>
+<p><strong>Before:</strong> 50 queries
+<strong>After:</strong> 1 query</p>
+<h3 id="use-wp-query-with-update-post-caches">Use WP_Query with update_post_caches</h3>
+<p><strong>WP_Query</strong> automatically caches post meta when <code>update_post_meta_cache =&gt; true</code>:</p>
+<pre><code class="language-php">$query = new WP_Query([
+  &#39;post_type&#39; =&gt; &#39;product&#39;,
+  &#39;posts_per_page&#39; =&gt; 50,
+  &#39;update_post_meta_cache&#39; =&gt; true, // Fetches all meta in single query
+]);
+
+while ($query-&gt;have_posts()) {
+  $query-&gt;the_post();
+  $sku = get_post_meta(get_the_ID(), &#39;_product_sku&#39;, true); // Cache hit
+}
+</code></pre>
+<h2 id="phase-5-optimize-woocommerce-database-queries">Phase 5: Optimize WooCommerce Database Queries</h2>
+<p><strong>WooCommerce</strong> generates heavy meta queries for products, orders, and sessions.</p>
+<h3 id="index-woocommerce-meta-keys">Index WooCommerce Meta Keys</h3>
+<p><strong>Most-queried WooCommerce meta keys:</strong></p>
+<pre><code class="language-sql">ALTER TABLE wp_postmeta ADD INDEX wc_price_index (meta_key(20), meta_value(10));
+ALTER TABLE wp_postmeta ADD INDEX wc_stock_index (meta_key(20), meta_value(10));
+</code></pre>
+<p><strong>Compound index for product lookups:</strong></p>
+<pre><code class="language-sql">ALTER TABLE wp_postmeta ADD INDEX wc_product_meta (post_id, meta_key(20));
+</code></pre>
+<h3 id="clean-woocommerce-sessions-table">Clean WooCommerce Sessions Table</h3>
+<p><strong>WooCommerce</strong> sessions table (<code>wp_woocommerce_sessions</code>) grows unbounded on high-traffic stores.</p>
+<p><strong>Check table size:</strong></p>
+<pre><code class="language-sql">SELECT COUNT(*) FROM wp_woocommerce_sessions;
+</code></pre>
+<p>If &gt;100,000 rows, clean expired sessions:</p>
+<pre><code class="language-sql">DELETE FROM wp_woocommerce_sessions
+WHERE session_expiry &lt; UNIX_TIMESTAMP();
+</code></pre>
+<p><strong>Automate with WP-Cron:</strong></p>
+<pre><code class="language-php">// functions.php
+add_action(&#39;woocommerce_cleanup_sessions&#39;, function() {
+  global $wpdb;
+  $wpdb-&gt;query(&quot;DELETE FROM {$wpdb-&gt;prefix}woocommerce_sessions WHERE session_expiry &lt; UNIX_TIMESTAMP()&quot;);
+});
+
+if (!wp_next_scheduled(&#39;woocommerce_cleanup_sessions&#39;)) {
+  wp_schedule_event(time(), &#39;daily&#39;, &#39;woocommerce_cleanup_sessions&#39;);
+}
+</code></pre>
+<h3 id="disable-woocommerce-cart-fragments-ajax">Disable WooCommerce Cart Fragments (AJAX)</h3>
+<p><strong>Cart fragments</strong> execute AJAX queries on every page load, checking cart status.</p>
+<p><strong>Disable if cart widget isn&#39;t critical:</strong></p>
+<pre><code class="language-php">// functions.php
+add_action(&#39;wp_enqueue_scripts&#39;, function() {
+  wp_dequeue_script(&#39;wc-cart-fragments&#39;);
+}, 11);
+</code></pre>
+<p><strong>Alternative:</strong> Limit cart fragments to cart/checkout pages:</p>
+<pre><code class="language-php">add_action(&#39;wp_enqueue_scripts&#39;, function() {
+  if (!is_cart() &amp;&amp; !is_checkout()) {
+    wp_dequeue_script(&#39;wc-cart-fragments&#39;);
+  }
+}, 11);
+</code></pre>
+<h2 id="phase-6-optimize-wordpress-core-tables">Phase 6: Optimize WordPress Core Tables</h2>
+<p><strong>wp_posts</strong> and <strong>wp_options</strong> tables degrade over time with orphaned data.</p>
+<h3 id="clean-post-revisions">Clean Post Revisions</h3>
+<p><strong>Revisions</strong> bloat <code>wp_posts</code> table (sites with 10,000 posts and 30 revisions each = 300,000 rows).</p>
+<p><strong>Check revision count:</strong></p>
+<pre><code class="language-sql">SELECT COUNT(*) FROM wp_posts WHERE post_type = &#39;revision&#39;;
+</code></pre>
+<p><strong>Delete old revisions:</strong></p>
+<pre><code class="language-sql">DELETE FROM wp_posts WHERE post_type = &#39;revision&#39;;
+</code></pre>
+<p><strong>Limit future revisions in wp-config.php:</strong></p>
+<pre><code class="language-php">define(&#39;WP_POST_REVISIONS&#39;, 3); // Keep only last 3 revisions
+</code></pre>
+<h3 id="clean-transients-from-wp-options">Clean Transients from wp_options</h3>
+<p><strong>Transients</strong> (temporary cached data) accumulate in <code>wp_options</code> if external object cache isn&#39;t used.</p>
+<p><strong>Check transient count:</strong></p>
+<pre><code class="language-sql">SELECT COUNT(*) FROM wp_options WHERE option_name LIKE &#39;%transient%&#39;;
+</code></pre>
+<p><strong>Delete expired transients:</strong></p>
+<pre><code class="language-sql">DELETE FROM wp_options
+WHERE option_name LIKE &#39;%_transient_timeout_%&#39;
+  AND option_value &lt; UNIX_TIMESTAMP();
+
+DELETE FROM wp_options
+WHERE option_name LIKE &#39;%_transient_%&#39;
+  AND option_name NOT LIKE &#39;%_transient_timeout_%&#39;
+  AND option_name IN (
+    SELECT REPLACE(option_name, &#39;_timeout&#39;, &#39;&#39;)
+    FROM wp_options
+    WHERE option_name LIKE &#39;%_transient_timeout_%&#39;
+      AND option_value &lt; UNIX_TIMESTAMP()
+  );
+</code></pre>
+<p><strong>Automate with plugin:</strong> Install &quot;Delete Expired Transients&quot; or use WP-CLI:</p>
+<pre><code class="language-bash">wp transient delete --expired
+</code></pre>
+<h3 id="optimize-wp-options-autoload">Optimize wp_options Autoload</h3>
+<p><strong>Autoloaded options</strong> load on every page request. Heavy autoload slows all queries.</p>
+<p><strong>Check autoload size:</strong></p>
+<pre><code class="language-sql">SELECT SUM(LENGTH(option_value)) / 1024 / 1024 AS size_mb
+FROM wp_options
+WHERE autoload = &#39;yes&#39;;
+</code></pre>
+<p><strong>If &gt;1MB, identify heavy options:</strong></p>
+<pre><code class="language-sql">SELECT option_name, LENGTH(option_value) / 1024 AS size_kb
+FROM wp_options
+WHERE autoload = &#39;yes&#39;
+ORDER BY size_kb DESC
+LIMIT 20;
+</code></pre>
+<p><strong>Disable autoload for rarely-used options:</strong></p>
+<pre><code class="language-sql">UPDATE wp_options SET autoload = &#39;no&#39; WHERE option_name = &#39;large_plugin_setting&#39;;
+</code></pre>
+<h2 id="phase-7-monitor-query-performance-continuously">Phase 7: Monitor Query Performance Continuously</h2>
+<p><strong>One-time optimization</strong> degrades as plugins update and content grows.</p>
+<h3 id="set-up-query-monitor-alerts">Set Up Query Monitor Alerts</h3>
+<p><strong>Query Monitor</strong> → Settings → Email alerts for queries &gt;500ms</p>
+<p><strong>Configure in wp-config.php:</strong></p>
+<pre><code class="language-php">define(&#39;QM_ENABLE_CAPS_PANEL&#39;, false); // Disable capability checks (slow)
+define(&#39;QM_DISABLED&#39;, false); // Always enable Query Monitor
+</code></pre>
+<h3 id="track-ttfb-with-real-user-monitoring">Track TTFB with Real User Monitoring</h3>
+<p><strong>Server response time</strong> (TTFB) reflects database query performance.</p>
+<p><strong>Cloudflare Analytics</strong> (free):</p>
+<ul>
+<li>Go to Analytics → Performance</li>
+<li>Track &quot;Origin Response Time&quot; (includes database queries)</li>
+</ul>
+<p><strong>Target:</strong> &lt;200ms TTFB</p>
+<p><strong>Google Analytics 4:</strong></p>
+<pre><code class="language-javascript">// Track TTFB
+gtag(&#39;event&#39;, &#39;timing_complete&#39;, {
+  name: &#39;server_response&#39;,
+  value: performance.timing.responseStart - performance.timing.requestStart,
+});
+</code></pre>
+<h3 id="schedule-weekly-database-optimization">Schedule Weekly Database Optimization</h3>
+<p><strong>WP-Cron task:</strong></p>
+<pre><code class="language-php">add_action(&#39;weekly_db_optimize&#39;, function() {
+  global $wpdb;
+  $wpdb-&gt;query(&quot;OPTIMIZE TABLE {$wpdb-&gt;posts}&quot;);
+  $wpdb-&gt;query(&quot;OPTIMIZE TABLE {$wpdb-&gt;postmeta}&quot;);
+  $wpdb-&gt;query(&quot;OPTIMIZE TABLE {$wpdb-&gt;options}&quot;);
+});
+
+if (!wp_next_scheduled(&#39;weekly_db_optimize&#39;)) {
+  wp_schedule_event(time(), &#39;weekly&#39;, &#39;weekly_db_optimize&#39;);
+}
+</code></pre>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Phase 2: Add Database Indexes to wppostmeta and wpusermeta:</strong> foreach ($posts as $post) {
+$meta = getpostmeta($post-&gt;ID, &#39;customfield&#39;, true); // Query executed 50 times
+}</li>
+<li><strong>Phase 3: Implement Redis Object Caching:</strong> foreach ($posts as $post) {
+$meta = getpostmeta($post-&gt;ID, &#39;customfield&#39;, true); // Query executed 50 times
+}</li>
+<li><strong>Phase 4: Eliminate N+1 Query Patterns:</strong> foreach ($posts as $post) {
+$meta = getpostmeta($post-&gt;ID, &#39;customfield&#39;, true); // Query executed 50 times
+}</li>
+<li><strong>Phase 5: Optimize WooCommerce Database Queries:</strong> If &gt;100,000 rows, clean expired sessions:
+sql
+DELETE FROM wpwoocommercesessions
+WHERE sessionexpiry &lt; UNIXTIMESTAMP();</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="will-database-optimization-plugins-like-wp-optimize-break-my-site">Will database optimization plugins like WP-Optimize break my site?</h3>
+<p><strong>Database optimization plugins</strong> (WP-Optimize, WP-Sweep) automate cleanup but can delete critical data if misconfigured. Always:</p>
+<ol>
+<li>Backup database before optimization (<code>wp db export backup.sql</code>)</li>
+<li>Test on staging site first</li>
+<li>Review what will be deleted (don&#39;t blindly click &quot;optimize all&quot;)</li>
+<li>Avoid plugins that promise &quot;one-click speed boost&quot; understand what they&#39;re changing</li>
+</ol>
+<h3 id="how-much-does-redis-improve-wordpress-query-performance">How much does Redis improve WordPress query performance?</h3>
+<p><strong>Redis object caching</strong> typically reduces query count by 60-80% on subsequent page loads. First page load (cache miss) remains slow, but repeat visits are 3-5x faster. <strong>TTFB</strong> drops from 800ms to 150ms on cached pages. Requires server with 512MB+ RAM allocated to Redis.</p>
+<h3 id="should-i-use-persistent-object-caching-redis-or-transients-for-query-caching">Should I use persistent object caching (Redis) or transients for query caching?</h3>
+<p><strong>Redis</strong> (persistent object cache) caches across page loads and users, far superior to transients. <strong>Transients</strong> store in database (wp_options), adding query overhead. Use Redis for production sites with &gt;1000 visitors/day. Transients acceptable for small sites without Redis access.</p>
+<h3 id="can-database-query-optimization-fix-slow-admin-panel-performance">Can database query optimization fix slow admin panel performance?</h3>
+<p>Yes. <strong>WordPress admin</strong> executes complex queries (post lists, media library). Optimizations that speed frontend also speed admin. Additionally:</p>
+<ul>
+<li>Increase PHP memory limit (<code>define(&#39;WP_MEMORY_LIMIT&#39;, &#39;256M&#39;)</code>)</li>
+<li>Disable admin AJAX if unused (<code>define(&#39;DOING_AJAX&#39;, false)</code>)</li>
+<li>Use <a href="https://wordpress.org/plugins/heartbeat-control/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Heartbeat Control</a> plugin to reduce admin AJAX frequency</li>
+</ul>
+<h3 id="how-often-should-i-optimize-wordpress-database-tables">How often should I optimize WordPress database tables?</h3>
+<p><strong>Monthly optimization</strong> sufficient for most sites. High-traffic WooCommerce stores benefit from weekly optimization. Don&#39;t optimize daily, marginal gains, risks table locks during peak traffic. Schedule during low-traffic hours (3-5am). See <a href="core-web-vitals-failing-mobile-only.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals mobile optimization</a> for related speed improvements.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-slow-server-response-time-ttfb.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Slow Server Response Time (TTFB) for Better Core Web Vitals</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Reduce Time to First Byte below 600ms by optimizing server configurations, database queries, caching layers, and CDN delivery for improved LCP scores.</p>
+          </a>
+
+          <a href="/articles/crawl-budget-optimization-large-sites.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Crawl Budget Optimization for Large Sites: Technical Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Maximize Googlebot crawl efficiency on large sites. Fix crawl waste, prioritize high-value pages, and optimize server response for 1M+ page sites.</p>
+          </a>
+
+          <a href="/articles/featured-snippet-optimization-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Featured Snippet Optimization: Steal Position Zero in 7 Days</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Win featured snippets with proven formatting tactics. Paragraph, list, table, and video snippet strategies with tracking workflow included.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers | Polytraffic</title>
+    <meta name="description" content="Implement server-side caching to reduce TTFB, improve Core Web Vitals, and optimize crawl budget. Technical guide covering Redis, Varnish, and CDN strategies." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers | Polytraffic" />
+    <meta property="og:description" content="Implement server-side caching to reduce TTFB, improve Core Web Vitals, and optimize crawl budget. Technical guide covering Redis, Varnish, and CDN strategies." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/server-side-caching-explained" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/server-side-caching-explained.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers | Polytraffic" />
+    <meta name="twitter:description" content="Implement server-side caching to reduce TTFB, improve Core Web Vitals, and optimize crawl budget. Technical guide covering Redis, Varnish, and CDN strategies." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/server-side-caching-explained.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/server-side-caching-explained" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers",
+    "description": "Implement server-side caching to reduce TTFB, improve Core Web Vitals, and optimize crawl budget. Technical guide covering Redis, Varnish, and CDN strategies.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/server-side-caching-explained.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/server-side-caching-explained.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Performance.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Performance.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/server-side-caching-explained.png" alt="Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="server-side-caching-explained-speed-up-your-site-for-users-and-crawlers">Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Implement server-side caching to reduce TTFB, improve Core Web Vitals, and optimize crawl budget. Technical guide covering Redis, Varnish, and CDN strategies.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-server-side-caching-matters-for-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Server-Side Caching Matters for SEO</a></li>
+<li><a href="#types-of-server-side-caching" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Types of Server-Side Caching</a></li>
+<li><a href="#implementing-page-caching" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementing Page Caching</a></li>
+<li><a href="#object-caching-with-redis" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Object Caching with Redis</a></li>
+<li><a href="#cdn-edge-caching" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">CDN Edge Caching</a></li>
+<li><a href="#cache-invalidation-strategies" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cache Invalidation Strategies</a></li>
+<li><a href="#excluding-dynamic-content-from-caching" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Excluding Dynamic Content from Caching</a></li>
+<li><a href="#monitoring-cache-performance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring Cache Performance</a></li>
+<li><a href="#testing-cache-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Testing Cache Implementation</a></li>
+<li><a href="#common-caching-pitfalls" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Caching Pitfalls</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Server-side caching</strong> stores generated HTML, database query results, or computed data in fast-access memory layers, eliminating repetitive processing for identical requests. Instead of querying databases, executing PHP scripts, and rendering templates for every page load, cached versions serve instantly, reducing Time to First Byte (TTFB) from 800ms to 50ms and dramatically improving Core Web Vitals scores that influence rankings.</p>
+<p>Google&#39;s crawler benefits equally from caching. Faster response times allow Googlebot to crawl more URLs per second within allocated crawl budget, discovering new content faster and refreshing existing pages more frequently. Sites with TTFB &gt;600ms see reduced crawl rates; those under 200ms maximize crawl efficiency and indexing velocity.</p>
+<h2 id="why-server-side-caching-matters-for-seo">Why Server-Side Caching Matters for SEO</h2>
+<p><strong>Core Web Vitals impact:</strong> Largest Contentful Paint (LCP) begins when the server responds. Slow TTFB delays LCP, failing the 2.5-second threshold. Server-side caching reduces TTFB from 600-1200ms (typical dynamic generation) to 50-150ms (cached response), improving LCP by 500-1000ms.</p>
+<p><strong>Crawl budget optimization:</strong> Googlebot allocates finite crawl requests per site daily. Faster responses allow more pages crawled in the same timeframe. A site serving pages in 100ms instead of 800ms can be crawled 8x faster, enabling daily recrawls instead of weekly.</p>
+<p><strong>Reduced server load:</strong> Caching prevents server CPU and database saturation during traffic spikes. Servers handling 10,000 requests/hour without caching struggle at 1,000 simultaneous users hitting uncached pages. Cached responses serve at 100x lower computational cost.</p>
+<p><strong>Mobile performance:</strong> Mobile networks amplify latency. Caching reduces origin server round trips, minimizing the impact of slow 3G/4G connections. Users on 100ms latency connections see 200ms TTFB with caching vs. 900ms without.</p>
+<p><strong>Real-world measurement:</strong> Google Search Console&#39;s Core Web Vitals report flags &quot;slow&quot; TTFB as a contributing factor to poor LCP scores. PageSpeed Insights&#39; &quot;Reduce server response time&quot; audit quantifies savings from caching implementation.</p>
+<h2 id="types-of-server-side-caching">Types of Server-Side Caching</h2>
+<p><strong>Page caching (full-page cache):</strong> Stores complete HTML output of rendered pages. Most effective for static or semi-static content (blog posts, product pages, landing pages).</p>
+<p><strong>Example flow without caching:</strong></p>
+<ol>
+<li>User requests /blog/seo-guide</li>
+<li>Server executes PHP, queries database for post content, author details, comments</li>
+<li>Template engine renders HTML</li>
+<li>Server sends HTML to user</li>
+<li>Total time: 650ms</li>
+</ol>
+<p><strong>With page caching:</strong></p>
+<ol>
+<li>User requests /blog/seo-guide</li>
+<li>Server checks cache for stored HTML</li>
+<li>Cache returns pre-rendered HTML</li>
+<li>Server sends HTML to user</li>
+<li>Total time: 45ms</li>
+</ol>
+<p><strong>Object caching:</strong> Stores database query results, API responses, or computed values in memory. Reduces database load without caching entire pages.</p>
+<p><strong>Example:</strong> WordPress stores post metadata, user sessions, and plugin data in object cache (Redis/Memcached), reducing database queries from 50/page to 5/page.</p>
+<p><strong>Opcode caching:</strong> Stores compiled PHP bytecode, eliminating script parsing overhead. PHP&#39;s OPcache extension provides this automatically in PHP 7.0+.</p>
+<p><strong>Database query caching:</strong> MySQL/PostgreSQL cache frequently executed queries. Limited effectiveness compared to application-level caching.</p>
+<p><strong>CDN edge caching:</strong> Content Delivery Networks cache static assets (images, CSS, JS) and HTML at geographically distributed servers. Reduces latency by serving content from locations nearest users.</p>
+<h2 id="implementing-page-caching">Implementing Page Caching</h2>
+<p><strong>Apache + mod_cache:</strong></p>
+<p>Enable modules:</p>
+<pre><code class="language-bash">a2enmod cache
+a2enmod cache_disk
+a2enmod headers
+</code></pre>
+<p>Configure caching in Apache config or .htaccess:</p>
+<pre><code class="language-apache">&lt;IfModule mod_cache.c&gt;
+  CacheEnable disk /
+  CacheRoot /var/cache/apache2/mod_cache_disk
+  CacheDefaultExpire 3600
+  CacheMaxExpire 86400
+
+  # Don&#39;t cache logged-in users
+  SetEnvIf Cookie &quot;wordpress_logged_in&quot; no-cache
+  CacheDisable /wp-admin
+  CacheDisable /cart
+  CacheDisable /checkout
+&lt;/IfModule&gt;
+</code></pre>
+<p><strong>Nginx + FastCGI Cache:</strong></p>
+<p>Add to Nginx config:</p>
+<pre><code class="language-nginx">fastcgi_cache_path /var/cache/nginx levels=1:2 keys_zone=WORDPRESS:100m inactive=60m;
+fastcgi_cache_key &quot;$scheme$request_method$host$request_uri&quot;;
+
+server {
+  location ~ \.php$ {
+    fastcgi_cache WORDPRESS;
+    fastcgi_cache_valid 200 60m;
+    fastcgi_cache_bypass $skip_cache;
+    fastcgi_no_cache $skip_cache;
+
+    add_header X-Cache-Status $upstream_cache_status;
+
+    fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+    include fastcgi_params;
+  }
+
+  # Skip cache for dynamic pages
+  set $skip_cache 0;
+
+  if ($request_uri ~* &quot;/wp-admin/|/cart/|/checkout/&quot;) {
+    set $skip_cache 1;
+  }
+
+  if ($http_cookie ~* &quot;wordpress_logged_in&quot;) {
+    set $skip_cache 1;
+  }
+}
+</code></pre>
+<p><strong>WordPress caching plugins:</strong></p>
+<ul>
+<li><strong>WP Rocket:</strong> Commercial ($59/year), automatic page cache, minification, lazy loading</li>
+<li><strong>W3 Total Cache:</strong> Free, page cache + object cache + browser cache + CDN integration</li>
+<li><strong>WP Super Cache:</strong> Free, simpler than W3TC, generates static HTML files</li>
+<li><strong>LiteSpeed Cache:</strong> Free, optimized for LiteSpeed servers, includes image optimization</li>
+</ul>
+<p>All plugins write cached HTML to disk, serving via .htaccess rules before WordPress loads.</p>
+<p><strong>Varnish Cache:</strong></p>
+<p>Reverse proxy cache sitting in front of web servers. Extremely fast (serves 200,000+ requests/second).</p>
+<p>Install Varnish:</p>
+<pre><code class="language-bash">apt install varnish
+</code></pre>
+<p>Configure VCL (Varnish Configuration Language) in /etc/varnish/default.vcl:</p>
+<pre><code class="language-vcl">backend default {
+  .host = &quot;127.0.0.1&quot;;
+  .port = &quot;8080&quot;;
+}
+
+sub vcl_recv {
+  # Don&#39;t cache logged-in users
+  if (req.http.Cookie ~ &quot;wordpress_logged_in&quot;) {
+    return (pass);
+  }
+
+  # Don&#39;t cache admin, cart, checkout
+  if (req.url ~ &quot;^/wp-admin&quot; || req.url ~ &quot;^/cart&quot; || req.url ~ &quot;^/checkout&quot;) {
+    return (pass);
+  }
+
+  return (hash);
+}
+
+sub vcl_backend_response {
+  # Cache for 1 hour
+  set beresp.ttl = 1h;
+
+  # Serve stale content if backend is down
+  set beresp.grace = 6h;
+}
+</code></pre>
+<p>Change Apache/Nginx to listen on port 8080, let Varnish handle port 80/443.</p>
+<h2 id="object-caching-with-redis">Object Caching with Redis</h2>
+<p><strong>Redis</strong> is an in-memory key-value store ideal for caching database query results, session data, and transient data.</p>
+<p><strong>Install Redis:</strong></p>
+<pre><code class="language-bash">apt install redis-server
+systemctl enable redis-server
+</code></pre>
+<p><strong>WordPress Redis integration:</strong></p>
+<p>Install Redis Object Cache plugin, configure wp-config.php:</p>
+<pre><code class="language-php">define(&#39;WP_REDIS_HOST&#39;, &#39;127.0.0.1&#39;);
+define(&#39;WP_REDIS_PORT&#39;, 6379);
+define(&#39;WP_REDIS_TIMEOUT&#39;, 1);
+define(&#39;WP_REDIS_DATABASE&#39;, 0);
+</code></pre>
+<p>WordPress automatically stores transients, user data, and post metadata in Redis instead of database.</p>
+<p><strong>Performance gain:</strong> Typical WordPress site reduces database queries from 40-60/page to 8-12/page, improving TTFB by 200-400ms.</p>
+<p><strong>Custom application Redis caching (PHP):</strong></p>
+<pre><code class="language-php">$redis = new Redis();
+$redis-&gt;connect(&#39;127.0.0.1&#39;, 6379);
+
+// Check cache
+$cacheKey = &#39;product_&#39; . $productId;
+$product = $redis-&gt;get($cacheKey);
+
+if (!$product) {
+  // Cache miss - query database
+  $product = $db-&gt;query(&quot;SELECT * FROM products WHERE id = ?&quot;, [$productId]);
+
+  // Store in cache for 1 hour
+  $redis-&gt;setex($cacheKey, 3600, json_encode($product));
+} else {
+  // Cache hit - decode cached data
+  $product = json_decode($product);
+}
+</code></pre>
+<p><strong>Memcached alternative:</strong> Similar to Redis but simpler. No persistence, pure memory cache. Choose Redis for richer data structures and persistence; Memcached for pure speed and simplicity.</p>
+<h2 id="cdn-edge-caching">CDN Edge Caching</h2>
+<p><strong>Content Delivery Networks</strong> cache content at edge locations worldwide, reducing latency by serving from nearest geographic server.</p>
+<p><strong>Cloudflare setup:</strong></p>
+<ol>
+<li><p>Sign up at cloudflare.com</p>
+</li>
+<li><p>Add domain, change nameservers</p>
+</li>
+<li><p>Enable caching via Page Rules:</p>
+<ul>
+<li>Cache Level: Standard (caches static resources)</li>
+<li>Browser Cache TTL: 1 month</li>
+<li>Edge Cache TTL: 2 hours</li>
+</ul>
+</li>
+<li><p>Configure cache-everything for specific URLs:</p>
+</li>
+</ol>
+<pre><code>Page Rule: example.com/blog/*
+Cache Level: Cache Everything
+Edge Cache TTL: 2 hours
+</code></pre>
+<p><strong>Cache headers:</strong> Control CDN caching via HTTP headers:</p>
+<pre><code class="language-php">// Cache for 1 hour at CDN, 30 minutes in browser
+header(&#39;Cache-Control: public, max-age=1800, s-maxage=3600&#39;);
+header(&#39;Expires: &#39; . gmdate(&#39;D, d M Y H:i:s&#39;, time() + 1800) . &#39; GMT&#39;);
+</code></pre>
+<ul>
+<li><strong>max-age:</strong> Browser cache duration</li>
+<li><strong>s-maxage:</strong> CDN/proxy cache duration</li>
+<li><strong>public:</strong> Allow caching by CDN and browsers</li>
+<li><strong>private:</strong> Only browser caching, no CDN</li>
+<li><strong>no-cache:</strong> Always revalidate with origin</li>
+<li><strong>no-store:</strong> Don&#39;t cache at all</li>
+</ul>
+<p><strong>Cache purging:</strong> Invalidate cached content when updates occur:</p>
+<p><strong>Cloudflare API:</strong></p>
+<pre><code class="language-bash">curl -X POST &quot;https://api.cloudflare.com/client/v4/zones/ZONE_ID/purge_cache&quot; \
+  --oauth2-bearer &quot;$CF_TOKEN&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#39;{&quot;files&quot;:[&quot;https://example.com/blog/updated-post&quot;]}&#39;
+</code></pre>
+<p><strong>KeyCDN:</strong></p>
+<pre><code class="language-bash">curl -X DELETE &quot;https://api.keycdn.com/zones/purgeurl/ZONE_ID.json&quot; \
+  --config keycdn-curl.conf \
+  -d &quot;urls=https://example.com/blog/updated-post&quot;
+</code></pre>
+<h2 id="cache-invalidation-strategies">Cache Invalidation Strategies</h2>
+<p><strong>Time-based expiration (TTL):</strong> Cache expires after fixed duration (1 hour, 24 hours). Simple but may serve stale content.</p>
+<pre><code class="language-nginx">fastcgi_cache_valid 200 1h;  # Cache successful responses for 1 hour
+</code></pre>
+<p><strong>Manual purge:</strong> Clear cache when content updates.</p>
+<p><strong>Nginx FastCGI purge:</strong></p>
+<pre><code class="language-bash">rm -rf /var/cache/nginx/*
+nginx -s reload
+</code></pre>
+<p><strong>Varnish purge:</strong></p>
+<pre><code class="language-bash">varnishadm &quot;ban req.url ~ ^/blog/updated-post&quot;
+</code></pre>
+<p><strong>Smart invalidation:</strong> Purge specific cache keys when related content changes.</p>
+<p><strong>WordPress example:</strong> When post is updated, purge:</p>
+<ul>
+<li>Post page cache</li>
+<li>Homepage cache</li>
+<li>Category archive cache</li>
+<li>Author archive cache</li>
+<li>Related posts cache</li>
+</ul>
+<p><strong>WP Rocket automatic purge triggers:</strong></p>
+<ul>
+<li>Post/page publish/update</li>
+<li>Comment approval</li>
+<li>Theme/plugin change</li>
+<li>Widget update</li>
+</ul>
+<p><strong>Cache warming:</strong> Rebuild cache proactively after purges. Crawler script requests important URLs to repopulate cache before users arrive.</p>
+<pre><code class="language-bash">#!/bin/bash
+# cache-warmer.sh
+
+urls=(
+  &quot;https://example.com/&quot;
+  &quot;https://example.com/products/&quot;
+  &quot;https://example.com/blog/&quot;
+  &quot;https://example.com/about/&quot;
+)
+
+for url in &quot;${urls[@]}&quot;; do
+  curl -s -o /dev/null &quot;$url&quot;
+  echo &quot;Warmed: $url&quot;
+done
+</code></pre>
+<p>Run after cache purges to prevent cold-cache slowdowns.</p>
+<h2 id="excluding-dynamic-content-from-caching">Excluding Dynamic Content from Caching</h2>
+<p><strong>Never cache:</strong></p>
+<ul>
+<li>User account pages (/account/, /dashboard/)</li>
+<li>Shopping carts and checkout flows</li>
+<li>Admin panels (/wp-admin/, /admin/)</li>
+<li>Form submissions (POST requests)</li>
+<li>Logged-in user sessions</li>
+<li>Search result pages (unique per query)</li>
+<li>Pages with personalized content</li>
+</ul>
+<p><strong>Cookie-based exclusions:</strong></p>
+<pre><code class="language-nginx">set $skip_cache 0;
+
+# Don&#39;t cache logged-in users
+if ($http_cookie ~* &quot;wordpress_logged_in|woocommerce_items_in_cart&quot;) {
+  set $skip_cache 1;
+}
+
+fastcgi_cache_bypass $skip_cache;
+fastcgi_no_cache $skip_cache;
+</code></pre>
+<p><strong>URL-based exclusions:</strong></p>
+<pre><code class="language-apache"># Don&#39;t cache admin or checkout
+SetEnvIf Request_URI &quot;^/wp-admin/&quot; no-cache
+SetEnvIf Request_URI &quot;^/checkout/&quot; no-cache
+CacheDisable env=no-cache
+</code></pre>
+<p><strong>Query parameter exclusions:</strong></p>
+<pre><code class="language-nginx"># Don&#39;t cache URLs with query parameters (unless whitelisted)
+if ($args ~* &quot;.*&quot;) {
+  set $skip_cache 1;
+}
+
+# But allow caching for pagination
+if ($args = &quot;page=2&quot;) {
+  set $skip_cache 0;
+}
+</code></pre>
+<h2 id="monitoring-cache-performance">Monitoring Cache Performance</h2>
+<p><strong>Cache hit ratio:</strong> Percentage of requests served from cache vs. origin.</p>
+<p><strong>Formula:</strong></p>
+<pre><code>Hit Ratio = (Cache Hits / Total Requests) × 100
+</code></pre>
+<p><strong>Target:</strong> 80-95% for static content sites, 60-80% for dynamic e-commerce.</p>
+<p><strong>Check Nginx cache status:</strong></p>
+<p>Add header to responses:</p>
+<pre><code class="language-nginx">add_header X-Cache-Status $upstream_cache_status;
+</code></pre>
+<p>Responses show:</p>
+<ul>
+<li><strong>HIT:</strong> Served from cache</li>
+<li><strong>MISS:</strong> Not in cache, fetched from origin</li>
+<li><strong>BYPASS:</strong> Intentionally skipped cache (logged-in user, POST request)</li>
+<li><strong>EXPIRED:</strong> Cache entry expired, revalidating</li>
+</ul>
+<p><strong>Monitor via logs:</strong></p>
+<pre><code class="language-bash">awk &#39;/HIT/ {hits++} /MISS/ {misses++} END {print &quot;Hit ratio:&quot;, hits/(hits+misses)*100&quot;%&quot;}&#39; /var/log/nginx/access.log
+</code></pre>
+<p><strong>Redis cache monitoring:</strong></p>
+<pre><code class="language-bash">redis-cli info stats | grep keyspace
+</code></pre>
+<p>Shows cache hit/miss rates.</p>
+<p><strong>CDN analytics:</strong> Cloudflare, Fastly, and KeyCDN dashboards display:</p>
+<ul>
+<li>Cache hit ratio per URL</li>
+<li>Bandwidth saved via caching</li>
+<li>Cache purge history</li>
+<li>Geographic cache distribution</li>
+</ul>
+<p><strong>TTFB measurement:</strong></p>
+<p>Before caching:</p>
+<pre><code class="language-bash">curl -w &quot;TTFB: %{time_starttransfer}\n&quot; -o /dev/null -s https://example.com/
+</code></pre>
+<p>After caching:</p>
+<pre><code class="language-bash">curl -w &quot;TTFB: %{time_starttransfer}\n&quot; -o /dev/null -s https://example.com/
+</code></pre>
+<p>Expect 60-80% TTFB reduction.</p>
+<h2 id="testing-cache-implementation">Testing Cache Implementation</h2>
+<p><strong>Verify cache headers:</strong></p>
+<pre><code class="language-bash">curl -I https://example.com/
+</code></pre>
+<p>Look for:</p>
+<pre><code>Cache-Control: max-age=3600, public
+Age: 1234
+X-Cache: HIT
+</code></pre>
+<p><strong>Age header:</strong> Shows how long content has been cached (seconds).</p>
+<p><strong>Test multiple requests:</strong></p>
+<pre><code class="language-bash">for i in {1..5}; do
+  curl -w &quot;TTFB: %{time_starttransfer}\n&quot; -o /dev/null -s https://example.com/blog/post
+done
+</code></pre>
+<p>First request (cache MISS): 600ms
+Subsequent requests (cache HIT): 50ms</p>
+<p><strong>Test cache bypass:</strong></p>
+<pre><code class="language-bash"># Request with cache-busting parameter
+curl -I &quot;https://example.com/?nocache=1&quot;
+
+# Should show BYPASS or MISS
+</code></pre>
+<p><strong>Test logged-in exclusion:</strong></p>
+<pre><code class="language-bash">curl -I -H &quot;Cookie: wordpress_logged_in=user123&quot; https://example.com/
+</code></pre>
+<p>Should show cache BYPASS, confirming logged-in users get fresh content.</p>
+<p><strong>WebPageTest.org:</strong> Run before/after cache implementation tests. Compare TTFB and LCP metrics.</p>
+<h2 id="common-caching-pitfalls">Common Caching Pitfalls</h2>
+<p><strong>Caching user-specific content:</strong> Serving User A&#39;s personalized dashboard to User B.</p>
+<p><strong>Fix:</strong> Exclude user-specific URLs and cookie-based sessions from caching.</p>
+<p><strong>Stale content persisting:</strong> Updated content doesn&#39;t appear for hours.</p>
+<p><strong>Fix:</strong> Implement cache purge on content updates. Reduce TTL for frequently changing pages.</p>
+<p><strong>Cache poisoning:</strong> Malicious requests cache poisoned responses served to all users.</p>
+<p><strong>Fix:</strong> Sanitize cache keys, exclude unusual query parameters, implement security headers.</p>
+<p><strong>Overloading origin during cache miss storms:</strong> Traffic spike causes cache expiration, all requests hit origin simultaneously.</p>
+<p><strong>Fix:</strong> Implement &quot;grace period&quot; serving stale content while revalidating:</p>
+<pre><code class="language-vcl">sub vcl_backend_response {
+  set beresp.grace = 6h;  # Serve stale content up to 6 hours if origin is down
+}
+</code></pre>
+<p><strong>Caching errors:</strong> 404 or 500 responses cached, serving errors repeatedly.</p>
+<p><strong>Fix:</strong> Only cache successful responses:</p>
+<pre><code class="language-nginx">fastcgi_cache_valid 200 1h;  # Only cache HTTP 200
+fastcgi_cache_valid 404 1m;  # Cache 404s briefly to prevent repeated origin checks
+fastcgi_cache_valid 500 0;   # Never cache server errors
+</code></pre>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Server-Side Caching Matters for SEO:</strong> Enable modules:
+bash
+a2enmod cache
+a2enmod cachedisk
+a2enmod headers</li>
+<li><strong>Types of Server-Side Caching:</strong> Enable modules:
+bash
+a2enmod cache
+a2enmod cachedisk
+a2enmod headers</li>
+<li><strong>Implementing Page Caching:</strong> Enable modules:
+bash
+a2enmod cache
+a2enmod cachedisk
+a2enmod headers</li>
+<li><strong>Object Caching with Redis:</strong> Install Redis Object Cache plugin, configure wp-config.php:
+php
+define(&#39;WPREDISHOST&#39;, &#39;127.0.0.1&#39;);
+define(&#39;WPREDISPORT&#39;, 6379);
+define(&#39;WPREDISTIMEOUT&#39;, 1);
+de</li>
+<li><strong>Cache Invalidation Strategies:</strong> urls=(
+&quot;<a href="https://example.com/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/</a>&quot;
+&quot;<a href="https://example.com/products/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/products/</a>&quot;
+&quot;<a href="https://example.com/blog/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/blog/</a>&quot;
+&quot;<a href="https://example.com/about/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/about/</a>&quot;
+)</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Does caching affect SEO negatively?</strong></p>
+<p>No. Faster sites rank better. Google&#39;s crawler benefits from caching just like users. Ensure cached content matches what users see (no cloaking).</p>
+<p><strong>Should I cache mobile and desktop differently?</strong></p>
+<p>Not necessary with responsive design. With dynamic serving, cache separate mobile/desktop versions using Vary: User-Agent header.</p>
+<p><strong>How often should I purge cache?</strong></p>
+<p>On-demand when content updates. Scheduled purges (e.g., midnight daily) ensure daily content like news/blogs stays fresh.</p>
+<p><strong>Can I cache e-commerce product pages?</strong></p>
+<p>Yes, but exclude personalized elements (recently viewed, cart status) via AJAX. Cache product details, purge on price/inventory changes.</p>
+<p><strong>Does CloudFlare cache HTML by default?</strong></p>
+<p>Only static assets (images, CSS, JS). HTML requires &quot;Cache Everything&quot; page rule explicitly enabled.</p>
+<p><strong>What TTL should I use?</strong></p>
+<p>Static pages (blog posts): 24 hours
+Semi-static (product pages): 1-4 hours
+Dynamic (homepage, listings): 15-60 minutes
+Never cache: user accounts, checkout, admin</p>
+<p><strong>How do I cache WordPress pages for logged-in users?</strong></p>
+<p>Don&#39;t cache personalized content. Use fragment caching (cache static widgets separately) or AJAX load dynamic elements on cached pages.</p>
+<p><strong>Will caching break real-time features?</strong></p>
+<p>Yes. Exclude real-time pages (chat, notifications, stock tickers) from caching or implement WebSocket updates on cached pages.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/shopify-speed-optimization-fixes.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Shopify Speed Optimization Fixes That Actually Move the Needle</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Technical performance fixes for Shopify stores that reduce load time, improve Core Web Vitals, and boost search rankings without breaking functionality.</p>
+          </a>
+
+          <a href="/articles/wordpress-speed-optimization-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">WordPress Speed Optimization Guide: Complete Performance Fixes</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Accelerate WordPress load times using caching strategies, image optimization, database cleanup, and CDN implementation that improve Core Web Vitals and rankings.</p>
+          </a>
+
+          <a href="/articles/edge-caching-vs-origin-caching.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Edge Caching vs Origin Caching: Speed Up Site Response Times for SEO</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compare edge caching (CDN) vs origin caching (Varnish, Redis) for improving TTFB. Choose the right caching strategy for Core Web Vitals optimization.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Audit and Clean Up Old Redirects | Polytraffic</title>
+    <meta name="description" content="Old redirects accumulate into chains, loops, and dead ends. Audit your redirect map, flatten chains, remove obsolete redirects, and recover wasted link equity." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Audit and Clean Up Old Redirects | Polytraffic" />
+    <meta property="og:description" content="Old redirects accumulate into chains, loops, and dead ends. Audit your redirect map, flatten chains, remove obsolete redirects, and recover wasted link equity." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/audit-cleanup-old-redirects" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/audit-cleanup-old-redirects.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Audit and Clean Up Old Redirects | Polytraffic" />
+    <meta name="twitter:description" content="Old redirects accumulate into chains, loops, and dead ends. Audit your redirect map, flatten chains, remove obsolete redirects, and recover wasted link equity." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/audit-cleanup-old-redirects.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/audit-cleanup-old-redirects" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Audit and Clean Up Old Redirects",
+    "description": "Old redirects accumulate into chains, loops, and dead ends. Audit your redirect map, flatten chains, remove obsolete redirects, and recover wasted link equity.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/audit-cleanup-old-redirects.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/audit-cleanup-old-redirects.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Audit and Clean Up Old Redirects"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Audit and Clean Up Old Redirects</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/audit-cleanup-old-redirects.png" alt="How to Audit and Clean Up Old Redirects" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-audit-and-clean-up-old-redirects">How to Audit and Clean Up Old Redirects</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Old redirects accumulate into chains, loops, and dead ends. Audit your redirect map, flatten chains, remove obsolete redirects, and recover wasted link equity.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-old-redirects-become-problems" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Old Redirects Become Problems</a></li>
+<li><a href="#redirect-audit-process" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Redirect Audit Process</a></li>
+<li><a href="#how-to-clean-up-redirects" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Clean Up Redirects</a></li>
+<li><a href="#platform-specific-cleanup" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Platform-Specific Cleanup</a></li>
+<li><a href="#how-often-to-audit-redirects" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How Often to Audit Redirects</a></li>
+<li><a href="#redirect-cleanup-checklist" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Redirect Cleanup Checklist</a></li>
+<li><a href="#tools-for-redirect-audits" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Tools for Redirect Audits</a></li>
+<li><a href="#next-steps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Next Steps</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Redirects accumulate over time. You migrate a site, rename URLs, consolidate pages, delete old content. Each change adds a redirect. Years later, you have hundreds of redirects, some chaining across 3-4 hops, some pointing to 404s, some duplicating each other. This mess wastes link equity, confuses crawlers, and slows down page load times.</p>
+<p>An effective redirect audit identifies redirect chains, loops, orphaned redirects, and obsolete rules. Cleaning them up consolidates link equity, reduces server load, and improves crawl efficiency. This guide walks through the audit process and shows how to clean up redirects across different platforms.</p>
+<h2 id="why-old-redirects-become-problems">Why Old Redirects Become Problems</h2>
+<h3 id="problem-1-redirect-chains">Problem 1: Redirect Chains</h3>
+<p>A chain occurs when one redirect points to another redirect:</p>
+<pre><code>https://example.com/old-page (301) →
+https://example.com/renamed-page (301) →
+https://example.com/final-page
+</code></pre>
+<p>Each hop in the chain dilutes link equity and adds latency. Google may stop following the chain after 3-5 hops, abandoning the final destination entirely.</p>
+<h3 id="problem-2-redirect-loops">Problem 2: Redirect Loops</h3>
+<p>A loop occurs when redirects circle back to themselves:</p>
+<pre><code>https://example.com/page-a (301) →
+https://example.com/page-b (301) →
+https://example.com/page-a
+</code></pre>
+<p>Browsers and bots abandon the request, returning an error. Users see &quot;Too many redirects&quot; messages.</p>
+<h3 id="problem-3-redirects-to-404s">Problem 3: Redirects to 404s</h3>
+<p>Old redirects point to pages that no longer exist:</p>
+<pre><code>https://example.com/deleted-page (301) →
+https://example.com/target-page (404)
+</code></pre>
+<p>This wastes link equity. Any backlinks or internal links to <code>deleted-page</code> end up at a 404.</p>
+<h3 id="problem-4-temporary-redirects-left-permanent">Problem 4: Temporary Redirects Left Permanent</h3>
+<p>A 302 redirect implemented for A/B testing or a seasonal campaign is never removed. Google treats it as temporary indefinitely, never consolidating link equity.</p>
+<h3 id="problem-5-accumulation-bloat">Problem 5: Accumulation Bloat</h3>
+<p>Sites with frequent content changes accumulate thousands of redirects over years. Each redirect consumes server resources. Large redirect files slow down .htaccess parsing or CMS query times.</p>
+<h2 id="redirect-audit-process">Redirect Audit Process</h2>
+<h3 id="step-1-export-all-redirects">Step 1: Export All Redirects</h3>
+<p>Collect every redirect rule from all sources.</p>
+<p><strong>Apache (.htaccess):</strong></p>
+<pre><code class="language-bash">cat .htaccess | grep -E &quot;Redirect|RewriteRule&quot;
+</code></pre>
+<p><strong>Nginx (nginx.conf):</strong></p>
+<pre><code class="language-bash">grep -E &quot;return 301|return 302|rewrite&quot; /etc/nginx/nginx.conf
+</code></pre>
+<p><strong>WordPress (Redirection plugin):</strong></p>
+<ol>
+<li>Go to <strong>Tools &gt; Redirection &gt; Groups</strong></li>
+<li>Click <strong>Export</strong> and download CSV</li>
+</ol>
+<p><strong>Shopify:</strong></p>
+<ol>
+<li><strong>Online Store &gt; Navigation &gt; URL Redirects</strong></li>
+<li>Click <strong>Export</strong> to download CSV</li>
+</ol>
+<p><strong>Cloudflare (Page Rules):</strong></p>
+<ol>
+<li><strong>Rules &gt; Page Rules</strong></li>
+<li>Manually document forwarding URL rules (no bulk export)</li>
+</ol>
+<h3 id="step-2-crawl-your-site">Step 2: Crawl Your Site</h3>
+<p>Run a full crawl with <strong>Screaming Frog SEO Spider</strong>:</p>
+<ol>
+<li>Enter your domain</li>
+<li>Enable <strong>Spider &gt; Configuration &gt; Spider &gt; Advanced &gt; Always Follow Redirects</strong></li>
+<li>Run the crawl</li>
+<li>Go to <strong>Response Codes &gt; Redirection (3xx)</strong></li>
+<li>Export the list</li>
+</ol>
+<p>This shows all redirects discovered during the crawl.</p>
+<h3 id="step-3-identify-redirect-chains">Step 3: Identify Redirect Chains</h3>
+<p>In Screaming Frog:</p>
+<ol>
+<li>Go to <strong>Response Codes &gt; Redirection (3xx)</strong></li>
+<li>Click <strong>Bulk Export &gt; Response Codes &gt; Redirect Chains</strong></li>
+<li>Open the exported CSV</li>
+</ol>
+<p>Each chain shows the full redirect path from start to final destination.</p>
+<p><strong>Example chain:</strong></p>
+<pre><code>/old-url → /renamed-url → /final-url
+</code></pre>
+<h3 id="step-4-find-redirects-to-404s">Step 4: Find Redirects to 404s</h3>
+<p>Filter Screaming Frog results for redirects whose target returns a 404:</p>
+<ol>
+<li>Export <strong>Redirection (3xx)</strong> list</li>
+<li>Cross-reference with <strong>Client Error (4xx)</strong> list</li>
+<li>Find redirects pointing to 404 URLs</li>
+</ol>
+<p>Alternatively, use <strong>Screaming Frog &gt; Bulk Export &gt; Redirect Chains</strong> and look for chains ending in 404.</p>
+<h3 id="step-5-check-for-redirect-loops">Step 5: Check for Redirect Loops</h3>
+<p>Loops typically cause crawl errors. Check <strong>Screaming Frog &gt; Response Codes &gt; Error (Too Many Redirects)</strong>.</p>
+<p>Alternatively, test manually:</p>
+<pre><code class="language-bash">curl -L https://yoursite.com/suspected-loop
+</code></pre>
+<p>If it hangs or returns &quot;Too many redirects,&quot; you have a loop.</p>
+<h3 id="step-6-identify-temporary-redirects-302s">Step 6: Identify Temporary Redirects (302s)</h3>
+<p>Filter for 302 status codes in Screaming Frog. Review each 302:</p>
+<ul>
+<li>Is it genuinely temporary (A/B test, seasonal redirect)?</li>
+<li>Or should it be a permanent 301?</li>
+</ul>
+<p>Change long-standing 302s to 301s.</p>
+<h2 id="how-to-clean-up-redirects">How to Clean Up Redirects</h2>
+<h3 id="fix-1-flatten-redirect-chains">Fix 1: Flatten Redirect Chains</h3>
+<p>Change chained redirects to point directly to the final destination.</p>
+<p><strong>Before:</strong></p>
+<pre><code>/page-v1 → /page-v2 → /page-v3
+</code></pre>
+<p><strong>After:</strong></p>
+<pre><code>/page-v1 → /page-v3
+/page-v2 → /page-v3
+</code></pre>
+<p><strong>Apache (.htaccess) example:</strong></p>
+<p>Before:</p>
+<pre><code class="language-apache">Redirect 301 /page-v1 https://example.com/page-v2
+Redirect 301 /page-v2 https://example.com/page-v3
+</code></pre>
+<p>After:</p>
+<pre><code class="language-apache">Redirect 301 /page-v1 https://example.com/page-v3
+Redirect 301 /page-v2 https://example.com/page-v3
+</code></pre>
+<h3 id="fix-2-remove-or-update-redirects-to-404s">Fix 2: Remove or Update Redirects to 404s</h3>
+<p>If a redirect points to a 404, either:</p>
+<p><strong>Option A:</strong> Redirect to a relevant live page (category, parent page, homepage)</p>
+<pre><code class="language-apache">Redirect 301 /old-product https://example.com/products
+</code></pre>
+<p><strong>Option B:</strong> Remove the redirect entirely and let it 404 naturally (if it has no backlinks or traffic)</p>
+<p>Check backlinks first using <strong>Ahrefs</strong> or <strong>Google Search Console &gt; Links &gt; Top linking sites</strong>. Don&#39;t remove redirects with active backlinks.</p>
+<h3 id="fix-3-break-redirect-loops">Fix 3: Break Redirect Loops</h3>
+<p>Identify the conflicting redirect rules and remove the circular logic.</p>
+<p><strong>Example loop:</strong></p>
+<pre><code class="language-apache">Redirect 301 /page-a https://example.com/page-b
+Redirect 301 /page-b https://example.com/page-a
+</code></pre>
+<p><strong>Fix:</strong> Determine the correct target and remove the circular rule:</p>
+<pre><code class="language-apache">Redirect 301 /page-a https://example.com/page-b
+# Remove the second rule
+</code></pre>
+<h3 id="fix-4-convert-302s-to-301s">Fix 4: Convert 302s to 301s</h3>
+<p>Change temporary redirects to permanent if the move is permanent.</p>
+<p><strong>Before:</strong></p>
+<pre><code class="language-apache">Redirect 302 /old-page https://example.com/new-page
+</code></pre>
+<p><strong>After:</strong></p>
+<pre><code class="language-apache">Redirect 301 /old-page https://example.com/new-page
+</code></pre>
+<p>In WordPress Redirection plugin, edit the redirect and change the type from <strong>302 - Found</strong> to <strong>301 - Moved Permanently</strong>.</p>
+<h3 id="fix-5-remove-obsolete-redirects">Fix 5: Remove Obsolete Redirects</h3>
+<p>Redirects older than 1 year with zero traffic and zero backlinks can be removed.</p>
+<p><strong>How to check:</strong></p>
+<ol>
+<li><strong>Google Analytics</strong>. Filter for redirected URLs, check sessions in last 12 months</li>
+<li><strong>Ahrefs</strong> or <strong>Semrush</strong>. Check referring domains to redirected URL</li>
+<li><strong>Google Search Console &gt; Links</strong>. Check if any external links point to the old URL</li>
+</ol>
+<p>If traffic + backlinks = 0, remove the redirect.</p>
+<p><strong>Exception:</strong> Keep redirects for URLs in external directories, citations, or printed materials (business cards, brochures) even if they show zero traffic.</p>
+<h3 id="fix-6-consolidate-duplicate-redirects">Fix 6: Consolidate Duplicate Redirects</h3>
+<p>Sometimes multiple redirect rules point to the same target or conflict.</p>
+<p><strong>Example duplicates:</strong></p>
+<pre><code class="language-apache">Redirect 301 /old-page https://example.com/new-page
+RedirectMatch 301 /old-page https://example.com/new-page
+</code></pre>
+<p><strong>Fix:</strong> Keep the most efficient rule (usually <code>Redirect</code> over <code>RedirectMatch</code> for simple one-to-one redirects). Remove duplicates.</p>
+<h2 id="platform-specific-cleanup">Platform-Specific Cleanup</h2>
+<h3 id="wordpress-redirection-plugin">WordPress (Redirection Plugin)</h3>
+<ol>
+<li><strong>Tools &gt; Redirection &gt; Redirects</strong></li>
+<li>Sort by <strong>Last Hit</strong> (shows when the redirect was last triggered)</li>
+<li>Filter for redirects with &quot;Last Hit: Never&quot; or dates older than 1 year</li>
+<li>Check traffic/backlinks, then delete unused redirects</li>
+<li>For chains, edit the source redirect to point to the final destination</li>
+</ol>
+<h3 id="shopify">Shopify</h3>
+<ol>
+<li><strong>Online Store &gt; Navigation &gt; URL Redirects</strong></li>
+<li>Export current redirects to CSV</li>
+<li>Use <strong>Ahrefs</strong> or <strong>Google Search Console</strong> to check backlinks for each redirected URL</li>
+<li>Remove redirects with zero backlinks and zero traffic</li>
+<li>For chains, update the &quot;Redirect from&quot; URL to point directly to the final &quot;Redirect to&quot; URL</li>
+</ol>
+<h3 id="apache-htaccess">Apache (.htaccess)</h3>
+<ol>
+<li>Make a backup: <code>cp .htaccess .htaccess.backup</code></li>
+<li>Open <code>.htaccess</code> in a text editor</li>
+<li>Remove obsolete redirects</li>
+<li>Flatten chains by updating redirect targets</li>
+<li>Test changes:</li>
+</ol>
+<pre><code class="language-bash">curl -I https://yoursite.com/old-url
+</code></pre>
+<p>Look for <code>Location:</code> header pointing to the correct final destination.</p>
+<h3 id="nginx-nginx-conf">Nginx (nginx.conf)</h3>
+<ol>
+<li>Backup config: <code>sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup</code></li>
+<li>Edit config: <code>sudo nano /etc/nginx/nginx.conf</code></li>
+<li>Update <code>return 301</code> rules to point directly to final destinations</li>
+<li>Remove obsolete rules</li>
+<li>Test config: <code>sudo nginx -t</code></li>
+<li>Reload: <code>sudo systemctl reload nginx</code></li>
+</ol>
+<h3 id="cloudflare-page-rules">Cloudflare Page Rules</h3>
+<p>Cloudflare limits Page Rules (3 on free plan, 20-125 on paid). Prioritize high-traffic redirects. Remove low-traffic rules.</p>
+<ol>
+<li><strong>Rules &gt; Page Rules</strong></li>
+<li>Identify low-traffic redirects using <strong>Analytics &gt; Traffic</strong></li>
+<li>Delete or update rules</li>
+<li>Test changes by visiting the old URL</li>
+</ol>
+<h2 id="how-often-to-audit-redirects">How Often to Audit Redirects</h2>
+<ul>
+<li><strong>After every site migration</strong>. Verify all redirects are implemented correctly and no chains exist</li>
+<li><strong>Quarterly for active sites</strong>. Catch redirect issues before they accumulate</li>
+<li><strong>Annually for stable sites</strong>. Remove obsolete redirects and flatten chains</li>
+</ul>
+<h2 id="redirect-cleanup-checklist">Redirect Cleanup Checklist</h2>
+<p>Use this checklist for systematic cleanup:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Export all redirects from .htaccess, CMS, or server config</li>
+<li><input disabled="" type="checkbox"> Crawl site with Screaming Frog, export redirect report</li>
+<li><input disabled="" type="checkbox"> Identify and flatten redirect chains (A → B → C becomes A → C, B → C)</li>
+<li><input disabled="" type="checkbox"> Find redirects to 404s, update target or remove redirect</li>
+<li><input disabled="" type="checkbox"> Check for redirect loops, remove circular rules</li>
+<li><input disabled="" type="checkbox"> Convert long-standing 302s to 301s</li>
+<li><input disabled="" type="checkbox"> Remove redirects older than 1 year with zero traffic and zero backlinks</li>
+<li><input disabled="" type="checkbox"> Test a sample of redirects using <code>curl -I</code> to verify status codes</li>
+<li><input disabled="" type="checkbox"> Update internal links to bypass redirects (link directly to final destination)</li>
+<li><input disabled="" type="checkbox"> Monitor Google Search Console for crawl errors related to redirects</li>
+</ul>
+<h2 id="tools-for-redirect-audits">Tools for Redirect Audits</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use Case</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Screaming Frog</strong></td>
+<td>Crawl site, identify chains and 404 targets</td>
+<td>Free (500 URLs) / Paid ($259/year)</td>
+</tr>
+<tr>
+<td><strong>Ahrefs</strong></td>
+<td>Check backlinks to redirected URLs</td>
+<td>Paid ($129+/month)</td>
+</tr>
+<tr>
+<td><strong>Google Search Console</strong></td>
+<td>Monitor crawl errors, check backlinks</td>
+<td>Free</td>
+</tr>
+<tr>
+<td><strong>Redirect Path (Chrome extension)</strong></td>
+<td>Manually test redirects in browser</td>
+<td>Free</td>
+</tr>
+<tr>
+<td><strong>curl</strong></td>
+<td>Command-line redirect testing</td>
+<td>Free</td>
+</tr>
+</tbody></table>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Old Redirects Become Problems:</strong> A chain occurs when one redirect points to another redirect:</li>
+<li><strong>Redirect Audit Process:</strong> Collect every redirect rule from all sources.</li>
+<li><strong>How to Clean Up Redirects:</strong> Change chained redirects to point directly to the final destination.</li>
+<li><strong>How Often to Audit Redirects:</strong> Use this checklist for systematic cleanup:</li>
+<li><strong>Redirect Cleanup Checklist:</strong> Use this checklist for systematic cleanup:</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-many-redirect-hops-are-too-many">How many redirect hops are too many?</h3>
+<p>Google recommends no more than 2 hops (source → intermediate → final). Beyond that, link equity dilutes and crawl efficiency drops. Flatten any chain longer than 1 hop.</p>
+<h3 id="should-i-remove-old-redirects-with-backlinks">Should I remove old redirects with backlinks?</h3>
+<p>No. Even if traffic is zero, redirects with backlinks should be kept to preserve link equity. Only remove redirects with zero backlinks AND zero traffic.</p>
+<h3 id="can-i-delete-all-302-redirects-and-replace-them-with-301s">Can I delete all 302 redirects and replace them with 301s?</h3>
+<p>Not all. If a 302 is genuinely temporary (A/B test, seasonal campaign), keep it as a 302. Convert only the 302s that represent permanent changes.</p>
+<h3 id="do-redirects-slow-down-my-site">Do redirects slow down my site?</h3>
+<p>Yes, slightly. Each redirect adds latency (50-200ms per hop). Chains multiply this delay. Flattening chains and removing unnecessary redirects reduces load time.</p>
+<h3 id="what-s-the-fastest-way-to-fix-redirect-chains">What's the fastest way to fix redirect chains?</h3>
+<p>Export the chain report from Screaming Frog, identify the final destination for each chain, then update the source redirect to point directly to the final URL. For large chains, write a script to batch-update redirect rules.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Crawl your site with <strong>Screaming Frog</strong> and export the <strong>Redirect Chains</strong> report. Flatten any chains you find by updating redirect rules to point directly to final destinations. Check <strong>Google Search Console &gt; Coverage</strong> for any redirect-related errors. For related redirect guidance, see <a href="/articles/find-fix-redirect-chains.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find and Fix Redirect Chains</a>, Redirect Chain Audit with Screaming Frog, and <a href="/articles/site-migration-seo-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Site Migration SEO Checklist</a>.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/301-vs-302-redirects-seo.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">301 vs 302 Redirects for SEO: When to Use Each</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">301 redirects pass link equity. 302 redirects don't signal permanence. Choose wrong and you leak rankings. This guide shows when to use each redirect type.</p>
+          </a>
+
+          <a href="/articles/article-schema-markup-blog-news.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Article Schema Markup for Blog Posts and News</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Article schema tells Google your content type, author, publish date, and publisher. Implement it correctly and unlock rich results in search and Discover.</p>
+          </a>
+
+          <a href="/articles/author-schema-markup-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Author Schema and Bylines: Quick EEAT Implementation</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Author schema signals expertise and authority. Add Person schema with credentials, social profiles, and bylines to strengthen EEAT signals for content.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

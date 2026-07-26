@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration | Polytraffic</title>
+    <meta name="description" content="Score platform dependency risk across Google, Meta, TikTok, YouTube, and 10 more channels using a quantitative framework. Build migration plans before you need them." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration | Polytraffic" />
+    <meta property="og:description" content="Score platform dependency risk across Google, Meta, TikTok, YouTube, and 10 more channels using a quantitative framework. Build migration plans before you need them." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/platform-risk-assessment" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/platform-risk-assessment.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration | Polytraffic" />
+    <meta name="twitter:description" content="Score platform dependency risk across Google, Meta, TikTok, YouTube, and 10 more channels using a quantitative framework. Build migration plans before you need them." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/platform-risk-assessment.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/platform-risk-assessment" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration",
+    "description": "Score platform dependency risk across Google, Meta, TikTok, YouTube, and 10 more channels using a quantitative framework. Build migration plans before you need them.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/platform-risk-assessment.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/platform-risk-assessment.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/resilience.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/resilience.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/platform-risk-assessment.png" alt="Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="platform-risk-assessment-evaluate-dependency-risk-per-platform-and-plan-migration">Platform Risk Assessment: Evaluate Dependency Risk Per Platform and Plan Migration</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Score platform dependency risk across Google, Meta, TikTok, YouTube, and 10 more channels using a quantitative framework. Build migration plans before you need them.</li>
+<li><strong>Who it&#39;s for:</strong> traffic strategists and growth operators</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#the-platform-risk-scoring-framework" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">The Platform Risk Scoring Framework</a></li>
+<li><a href="#platform-risk-scores-14-major-traffic-channels" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Platform Risk Scores: 14 Major Traffic Channels</a></li>
+<li><a href="#migration-planning-exit-strategies-per-platform" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Migration Planning: Exit Strategies Per Platform</a></li>
+<li><a href="#quarterly-risk-assessment-protocol" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Quarterly Risk Assessment Protocol</a></li>
+<li><a href="#historical-platform-disruption-case-studies" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Historical Platform Disruption Case Studies</a></li>
+<li><a href="#when-this-analysis-doesn-t-apply" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Analysis Doesn't Apply</a></li>
+</ul>
+<p>Every traffic platform you depend on carries measurable risk that can be scored, compared, and mitigated, and publishers who quantify platform risk before a disruption event make allocation decisions that prevent business crises, while publishers who assess risk after disruption spend 6-18 months in recovery mode that systematic risk management would have averted. This framework scores 14 major traffic platforms across algorithm volatility, policy stability, ownership concentration, and historical disruption frequency, then maps migration paths that activate when risk thresholds are breached.</p>
+<p>The distinction between risk assessment and risk reaction determines business outcomes. <strong>Google</strong>&#39;s September 2023 HCU, <strong>Meta</strong>&#39;s organic reach collapse (2016-2024), and <strong>TikTok</strong>&#39;s regulatory uncertainty all provided advance warning signals that risk-conscious publishers converted into protective diversification. Risk-reactive publishers treated these as surprise events. They were only surprising if you weren&#39;t measuring.</p>
+<p>[Internal link: <a href="/articles/platform-risk-traffic.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Platform risk in traffic acquisition</a>]</p>
+<hr>
+<h2 id="the-platform-risk-scoring-framework">The Platform Risk Scoring Framework</h2>
+<p>Score each platform across five dimensions on a 1-5 scale (1 = lowest risk, 5 = highest risk). The composite score determines overall platform risk level.</p>
+<h3 id="dimension-1-algorithm-volatility-how-often-and-severely-does-the-algorithm-change">Dimension 1: Algorithm Volatility (How often and severely does the algorithm change?)</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>No algorithm; deterministic delivery</td>
+<td>Email (SMTP delivery)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Stable algorithm with predictable changes</td>
+<td><strong>Bing</strong>, <strong>DuckDuckGo</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Regular updates with moderate impact</td>
+<td><strong>Pinterest</strong>, <strong>YouTube</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Frequent updates with significant impact</td>
+<td><strong>Google</strong> organic, <strong>LinkedIn</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Opaque algorithm with unpredictable shifts</td>
+<td><strong>TikTok</strong>, <strong>Meta</strong> organic</td>
+</tr>
+</tbody></table>
+<h3 id="dimension-2-policy-stability-how-predictable-are-the-platform-s-rules">Dimension 2: Policy Stability (How predictable are the platform's rules?)</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Open standard; no platform policies</td>
+<td>Email, RSS</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Stable policies with advance notice</td>
+<td><strong>Google</strong> Ads, <strong>Bing</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Regular policy updates with documentation</td>
+<td><strong>YouTube</strong>, <strong>Pinterest</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Frequent policy shifts with inconsistent enforcement</td>
+<td><strong>Meta</strong>, <strong>LinkedIn</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Unpredictable policy environment</td>
+<td><strong>TikTok</strong>, <strong>Twitter/X</strong></td>
+</tr>
+</tbody></table>
+<h3 id="dimension-3-ownership-concentration-how-dependent-are-you-on-one-company">Dimension 3: Ownership Concentration (How dependent are you on one company?)</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Decentralized; no single owner</td>
+<td>Email, RSS, open web</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Multiple independent platforms</td>
+<td>Diverse social portfolio</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Two platforms owned by same company</td>
+<td>YouTube + Google Search</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Multiple channels within one ecosystem</td>
+<td>Google Organic + Ads + Discover</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Single platform dependency</td>
+<td>All traffic from one source</td>
+</tr>
+</tbody></table>
+<h3 id="dimension-4-historical-disruption-frequency-how-often-has-this-platform-caused-publisher-harm">Dimension 4: Historical Disruption Frequency (How often has this platform caused publisher harm?)</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>No significant disruptions</td>
+<td>Email delivery (protocol-level)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Rare disruptions (1 per 3+ years)</td>
+<td><strong>Pinterest</strong>, <strong>Bing</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Periodic disruptions (1-2 per year)</td>
+<td><strong>Google</strong> organic</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Frequent disruptions (3+ per year)</td>
+<td><strong>Meta</strong> organic</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Continuous disruption</td>
+<td><strong>TikTok</strong>, <strong>Twitter/X</strong></td>
+</tr>
+</tbody></table>
+<h3 id="dimension-5-data-portability-can-you-migrate-your-audience-off-platform">Dimension 5: Data Portability (Can you migrate your audience off-platform?)</h3>
+<table>
+<thead>
+<tr>
+<th>Score</th>
+<th>Definition</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Full data ownership and portability</td>
+<td>Email list (you own subscriber data)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Partial export available</td>
+<td><strong>YouTube</strong> (subscriber notifications, but not subscriber list)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Limited data access</td>
+<td><strong>LinkedIn</strong> (can export connections)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Minimal data portability</td>
+<td><strong>Pinterest</strong>, <strong>Reddit</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>No meaningful data export</td>
+<td><strong>TikTok</strong>, <strong>Instagram</strong> followers</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="platform-risk-scores-14-major-traffic-channels">Platform Risk Scores: 14 Major Traffic Channels</h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Algo Volatility</th>
+<th>Policy Stability</th>
+<th>Ownership Conc.</th>
+<th>Disruption Freq.</th>
+<th>Data Portability</th>
+<th><strong>Total (5-25)</strong></th>
+<th><strong>Risk Level</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Email</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><strong>5</strong></td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>RSS/Direct</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td><strong>5</strong></td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td><strong>Bing</strong> Organic</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td><strong>12</strong></td>
+<td>Low</td>
+</tr>
+<tr>
+<td><strong>Pinterest</strong></td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td><strong>14</strong></td>
+<td>Low-Moderate</td>
+</tr>
+<tr>
+<td><strong>YouTube</strong></td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td><strong>14</strong></td>
+<td>Low-Moderate</td>
+</tr>
+<tr>
+<td><strong>Reddit</strong></td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td><strong>14</strong></td>
+<td>Low-Moderate</td>
+</tr>
+<tr>
+<td><strong>Quora</strong></td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td><strong>13</strong></td>
+<td>Low-Moderate</td>
+</tr>
+<tr>
+<td><strong>LinkedIn</strong></td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td><strong>15</strong></td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td><strong>Google</strong> Organic</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td><strong>18</strong></td>
+<td>High</td>
+</tr>
+<tr>
+<td><strong>Google</strong> Ads</td>
+<td>3</td>
+<td>2</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td><strong>16</strong></td>
+<td>Moderate-High</td>
+</tr>
+<tr>
+<td><strong>Meta</strong> (FB/IG)</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td><strong>21</strong></td>
+<td>Very High</td>
+</tr>
+<tr>
+<td><strong>Twitter/X</strong></td>
+<td>4</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>4</td>
+<td><strong>20</strong></td>
+<td>Very High</td>
+</tr>
+<tr>
+<td><strong>TikTok</strong></td>
+<td>5</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>5</td>
+<td><strong>22</strong></td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><strong>Substack</strong></td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td><strong>12</strong></td>
+<td>Low</td>
+</tr>
+</tbody></table>
+<h3 id="interpreting-composite-scores">Interpreting Composite Scores</h3>
+<table>
+<thead>
+<tr>
+<th>Score Range</th>
+<th>Risk Level</th>
+<th>Recommended Max Allocation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5-8</td>
+<td>Minimal</td>
+<td>No cap (owned channels)</td>
+</tr>
+<tr>
+<td>9-12</td>
+<td>Low</td>
+<td>40% of traffic portfolio</td>
+</tr>
+<tr>
+<td>13-15</td>
+<td>Moderate</td>
+<td>25% of traffic portfolio</td>
+</tr>
+<tr>
+<td>16-18</td>
+<td>High</td>
+<td>15% of traffic portfolio</td>
+</tr>
+<tr>
+<td>19-22</td>
+<td>Very High</td>
+<td>10% of traffic portfolio</td>
+</tr>
+<tr>
+<td>23-25</td>
+<td>Critical</td>
+<td>5% (experimental only)</td>
+</tr>
+</tbody></table>
+<p><strong>Google</strong> organic scoring 18 (High) may seem aggressive given its traffic dominance. But the score reflects reality: publishers concentrating 70%+ of traffic in a channel scoring 18 face quantifiable risk that justifies the classification. The high score doesn&#39;t mean avoid Google, it means cap your dependency and build hedges.</p>
+<hr>
+<h2 id="migration-planning-exit-strategies-per-platform">Migration Planning: Exit Strategies Per Platform</h2>
+<p>Migration plans should exist before you need them. Building migration infrastructure during a crisis wastes the weeks when alternative channels matter most.</p>
+<h3 id="google-organic-email-alternative-search-social">Google Organic → Email + Alternative Search + Social</h3>
+<p><strong>Migration trigger:</strong> Organic traffic declines 30%+ sustained over 4 weeks.</p>
+<p><strong>Pre-built migration assets:</strong></p>
+<ul>
+<li>Email list with minimum 20% of monthly visitor count as subscribers</li>
+<li><strong>Bing</strong> Webmaster Tools configured and monitored</li>
+<li>Social media accounts with established audiences on 2+ platforms</li>
+<li>Paid campaign templates ready to activate in <strong>Google Ads</strong> and <strong>Meta Ads</strong></li>
+</ul>
+<p><strong>Migration execution:</strong></p>
+<ol>
+<li>Activate email broadcast with increase to 2-3x normal frequency</li>
+<li>Amplify social posting with content redirected from SEO production</li>
+<li>Launch targeted paid campaigns on highest-converting keywords</li>
+<li>Monitor alternative search engines for ranking opportunities Google has abandoned</li>
+<li>Assess whether recovery effort or permanent channel reduction is appropriate</li>
+</ol>
+<h3 id="meta-facebook-instagram-pinterest-reddit-youtube-email">Meta (Facebook/Instagram) → Pinterest + Reddit + YouTube + Email</h3>
+<p><strong>Migration trigger:</strong> Meta organic reach declines below 1% or Meta Ads CPCs exceed profitability threshold.</p>
+<p><strong>Pre-built migration assets:</strong></p>
+<ul>
+<li><strong>Pinterest</strong> business account with 30+ boards and 500+ pins</li>
+<li><strong>Reddit</strong> account with 1,000+ karma in target subreddits</li>
+<li><strong>YouTube</strong> channel with 20+ search-optimized videos</li>
+<li>Email capture optimized on all Meta-sourced landing pages</li>
+</ul>
+<p><strong>Migration execution:</strong></p>
+<ol>
+<li>Shift content production from Meta formats to Pinterest, Reddit, and YouTube formats</li>
+<li>Redirect paid budget from Meta to <strong>Pinterest Ads</strong> and <strong>YouTube Ads</strong></li>
+<li>Convert remaining Meta audience to email subscribers through lead magnet campaigns</li>
+<li>Maintain minimum viable Meta presence (1 post/week) in case conditions improve</li>
+</ol>
+<h3 id="tiktok-youtube-shorts-instagram-reels-pinterest-idea-pins">TikTok → YouTube Shorts + Instagram Reels + Pinterest Idea Pins</h3>
+<p><strong>Migration trigger:</strong> TikTok regulatory restriction or algorithm suppression lasting 30+ days.</p>
+<p><strong>Pre-built migration assets:</strong></p>
+<ul>
+<li>All TikTok content archived locally (video files, not platform copies)</li>
+<li><strong>YouTube</strong> channel configured for Shorts uploading</li>
+<li><strong>Instagram</strong> account with Reels capability</li>
+<li>Content repurposing workflow established</li>
+</ul>
+<p><strong>Migration execution:</strong></p>
+<ol>
+<li>Upload archived TikTok content to YouTube Shorts and Instagram Reels (same day)</li>
+<li>Adapt posting cadence to each platform&#39;s optimal frequency</li>
+<li>Redirect link-in-bio traffic from TikTok to alternative platform profiles</li>
+<li>Communicate platform transition to audience through all available channels</li>
+</ol>
+<hr>
+<h2 id="quarterly-risk-assessment-protocol">Quarterly Risk Assessment Protocol</h2>
+<h3 id="review-checklist">Review Checklist</h3>
+<p>Every 90 days, reassess platform risk scores:</p>
+<ol>
+<li><strong>Score updates:</strong> Has any platform changed algorithm behavior, policies, or ownership structure?</li>
+<li><strong>Allocation compliance:</strong> Does your current traffic allocation align with maximum recommended allocation per risk level?</li>
+<li><strong>Migration readiness:</strong> Are your pre-built migration assets current and functional?</li>
+<li><strong>Correlation check:</strong> Have cross-platform correlations shifted? (New platform partnerships or acquisitions can increase correlation)</li>
+<li><strong>Emerging platforms:</strong> Should any new channel be added to your assessment framework?</li>
+</ol>
+<h3 id="risk-score-change-triggers">Risk Score Change Triggers</h3>
+<p><strong>Immediate reassessment required when:</strong></p>
+<ul>
+<li>Platform announces major algorithm change</li>
+<li>Platform changes monetization or policy structure</li>
+<li>Regulatory action affects a platform in your portfolio</li>
+<li>Platform ownership changes (acquisition, management transition)</li>
+<li>A platform in your portfolio experiences documented mass-publisher impact</li>
+</ul>
+<h3 id="documentation-standard">Documentation Standard</h3>
+<p>Maintain a living document tracking:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Update Frequency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Platform risk scores</td>
+<td>Quarterly</td>
+</tr>
+<tr>
+<td>Current traffic allocation</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>Migration plan status</td>
+<td>Quarterly</td>
+</tr>
+<tr>
+<td>Pre-built asset readiness</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>Correlation matrix</td>
+<td>Quarterly</td>
+</tr>
+</tbody></table>
+<p>This documentation transforms platform risk from an abstract concern into an operational management practice.</p>
+<hr>
+<h2 id="historical-platform-disruption-case-studies">Historical Platform Disruption Case Studies</h2>
+<p>Understanding historical disruption events calibrates risk scores against reality rather than abstraction.</p>
+<h3 id="google-helpful-content-update-september-2023">Google Helpful Content Update (September 2023)</h3>
+<p><strong>What happened:</strong> Google deployed a site-wide content quality classifier that penalized entire domains based on aggregate content quality assessment. Sites with a high percentage of content deemed &quot;unhelpful&quot; saw domain-wide ranking suppression.</p>
+<p><strong>Publisher impact:</strong></p>
+<ul>
+<li>Affiliate sites lost 40-90% of organic traffic within 72 hours</li>
+<li>Recovery required 6-18 months of content pruning and quality improvement</li>
+<li>Some sites never recovered, the classifier permanently reclassified their domains</li>
+<li><strong>Estimated revenue impact:</strong> Billions in aggregate publisher revenue loss across the affected ecosystem</li>
+</ul>
+<p><strong>Risk lesson:</strong> Google&#39;s ability to apply site-wide penalties based on algorithmic classification creates binary risk, either your site passes the quality threshold or it doesn&#39;t. Partial quality improvement may not trigger reclassification.</p>
+<h3 id="meta-organic-reach-collapse-2016-2024">Meta Organic Reach Collapse (2016-2024)</h3>
+<p><strong>What happened:</strong> <strong>Meta</strong> systematically reduced organic reach for business pages from 16% average reach per post in 2012 to under 2% by 2024. The reduction wasn&#39;t sudden, it followed a predictable trajectory as Meta shifted toward paid distribution economics.</p>
+<p><strong>Publisher impact:</strong></p>
+<ul>
+<li>Publishers who built audiences of 500,000+ Facebook followers saw effective reach decline to 10,000 or fewer per post</li>
+<li>Content strategies built on organic Facebook distribution became unviable</li>
+<li>The transition forced a shift from organic social to paid social, fundamentally changing the channel&#39;s economics</li>
+</ul>
+<p><strong>Risk lesson:</strong> Platform risk isn&#39;t limited to sudden disruptions. Gradual economic restructuring can degrade a channel&#39;s value over years. The decline was visible in the data for anyone measuring organic reach trends, publishers who monitored and diversified early avoided the worst impacts.</p>
+<h3 id="tiktok-regulatory-uncertainty-2020-2026">TikTok Regulatory Uncertainty (2020-2026)</h3>
+<p><strong>What happened:</strong> US legislative efforts to ban or force divestiture of <strong>TikTok</strong> created binary regulatory risk. The platform cycled through ban threats, court challenges, legislative deadlines, and executive orders without resolution.</p>
+<p><strong>Publisher impact:</strong></p>
+<ul>
+<li>Publishers building TikTok-dependent traffic channels faced potential overnight channel elimination</li>
+<li>Content investment carried binary risk: either the platform remains (investment pays off) or it doesn&#39;t (investment becomes worthless)</li>
+<li>Cross-platform repurposing (YouTube Shorts, Instagram Reels) became mandatory risk management</li>
+</ul>
+<p><strong>Risk lesson:</strong> Regulatory risk differs from algorithmic risk. Algorithm changes degrade traffic gradually and can be optimized against. Regulatory action eliminates access entirely. Cap allocation to platforms facing active regulatory risk at 5-10% of portfolio.</p>
+<h3 id="twitter-x-ownership-transition-2022-2025">Twitter/X Ownership Transition (2022-2025)</h3>
+<p><strong>What happened:</strong> <strong>Elon Musk</strong>&#39;s acquisition of Twitter and subsequent rebranding to X produced rapid policy changes, advertiser exodus, content moderation shifts, and algorithm modifications that destabilized the platform&#39;s value proposition for publishers.</p>
+<p><strong>Publisher impact:</strong></p>
+<ul>
+<li>Advertising rates collapsed temporarily (opportunity for budget-constrained advertisers)</li>
+<li>Organic reach algorithms changed repeatedly without documentation</li>
+<li>Brand safety concerns drove major advertisers to other platforms</li>
+<li>Publisher referral traffic from Twitter declined 30-50% over 18 months</li>
+</ul>
+<p><strong>Risk lesson:</strong> Ownership transitions represent high-impact platform risk events. When platform ownership changes, assume policy volatility will follow and pre-position migration plans. The risk was visible the day the acquisition was announced, publishers who acted early protected their traffic portfolios.</p>
+<hr>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>The Platform Risk Scoring Framework:</strong> Score each platform across five dimensions on a 1-5 scale (1 = lowest risk, 5 = highest risk).</li>
+<li><strong>Platform Risk Scores: 14 Major Traffic Channels:</strong> Migration plans should exist before you need them.</li>
+<li><strong>Migration Planning: Exit Strategies Per Platform:</strong> Migration plans should exist before you need them.</li>
+<li><strong>Quarterly Risk Assessment Protocol:</strong> Every 90 days, reassess platform risk scores:</li>
+<li><strong>Historical Platform Disruption Case Studies:</strong> Understanding historical disruption events calibrates risk scores against reality rather than abstraction.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<h3 id="why-does-google-score-as-high-risk-when-it-sends-the-most-traffic">Why does Google score as "High" risk when it sends the most traffic?</h3>
+<p>Traffic volume and risk are independent dimensions. <strong>Google</strong> scores 18/25 because it deploys 4-6 core algorithm updates annually (high volatility), controls multiple channels most publishers depend on (high ownership concentration), and has historically caused significant publisher harm through updates like the Helpful Content Update (moderate-high disruption frequency). The high risk score doesn&#39;t mean Google is bad, it means dependency on Google should be capped and hedged.</p>
+<h3 id="how-do-i-reduce-platform-risk-without-losing-traffic-volume">How do I reduce platform risk without losing traffic volume?</h3>
+<p>Incremental diversification. Reduce your highest-risk channel&#39;s share by 5-10 percentage points per quarter while building lower-risk channels. A publisher at 75% Google organic can target 65% by quarter-end by investing in email list growth and Pinterest. The 10-point reduction meaningfully reduces risk while the alternative channels replace the volume over 2-3 quarters.</p>
+<h3 id="should-i-avoid-high-risk-platforms-entirely">Should I avoid high-risk platforms entirely?</h3>
+<p>No. High-risk platforms often provide high-return traffic. <strong>TikTok</strong> (Critical risk) can generate 100,000+ views per video. <strong>Meta</strong> (High risk) provides precise audience targeting unavailable elsewhere. The risk score determines allocation caps, not avoidance. Use high-risk platforms within their recommended allocation limits and maintain migration plans.</p>
+<h3 id="how-do-i-assess-a-new-platform-that-isn-t-in-this-framework">How do I assess a new platform that isn't in this framework?</h3>
+<p>Score the platform across the five dimensions using the rubrics provided. Research the platform&#39;s algorithm documentation (or lack thereof), policy history, corporate ownership, disruption track record, and data export capabilities. New platforms typically score 3-4 on most dimensions due to limited track record, with higher scores on policy stability (less documented) and data portability (less developed export tools).</p>
+<hr>
+<h2 id="when-this-analysis-doesn-t-apply">When This Analysis Doesn't Apply</h2>
+<p>Skip this framework if:</p>
+<ul>
+<li><strong>You&#39;re in the first 3 months of a new site.</strong> Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.</li>
+<li><strong>Your traffic is already diversified below 40% from any single source.</strong> You&#39;ve solved the concentration problem. Focus on channel efficiency and conversion optimization instead.</li>
+<li><strong>You&#39;re running a time-limited campaign.</strong> Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.</li>
+</ul>
+<hr>
+<p><strong>Related Resources:</strong></p>
+<ul>
+<li><a href="/articles/platform-risk-traffic.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Platform risk in traffic acquisition</a>. Detailed risk mechanics by platform category</li>
+<li><a href="/articles/traffic-portfolio-management.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Traffic portfolio management</a>. Allocation framework incorporating risk scores</li>
+<li><a href="/articles/traffic-cliff-prevention.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Traffic cliff prevention</a>. Early warning systems for platform disruptions</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-quickly-can-i-implement-this-traffic-strategy">How quickly can I implement this traffic strategy?</h3>
+<p>Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.</p>
+<h3 id="does-this-work-for-sites-with-less-than-10k-monthly-visitors">Does this work for sites with less than 10K monthly visitors?</h3>
+<p>Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down, start with simpler attribution before building complex models.</p>
+<h3 id="what-tools-do-i-need-to-execute-this">What tools do I need to execute this?</h3>
+<p>Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required, the strategy is more important than the tooling.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/platform-risk-traffic.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Platform Risk in Traffic Acquisition: Score and Mitigate Single-Source Vulnerability</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Framework for scoring and mitigating platform risk in traffic acquisition through diversification, correlation analysis, and risk scoring models.</p>
+          </a>
+
+          <a href="/articles/platform-dependency-token-economics.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Platform Dependency Math: What the OpenClaw Shock Teaches Traffic Operators</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Anthropic restricted OpenClaw's access overnight and an ecosystem woke up to new economics. The same dependency math governs every traffic channel you don't own. Here's how to run it on your own portfolio.</p>
+          </a>
+
+          <a href="/articles/canonical-tag-implementation-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">canonical tag implementation guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2"></p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

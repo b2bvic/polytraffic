@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains | Polytraffic</title>
+    <meta name="description" content="Implement cross-domain canonical tags to consolidate ranking signals across domains. Fix syndicated content, domain migrations, and multi-site SEO issues." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains | Polytraffic" />
+    <meta property="og:description" content="Implement cross-domain canonical tags to consolidate ranking signals across domains. Fix syndicated content, domain migrations, and multi-site SEO issues." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/cross-domain-canonical-tags-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/cross-domain-canonical-tags-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains | Polytraffic" />
+    <meta name="twitter:description" content="Implement cross-domain canonical tags to consolidate ranking signals across domains. Fix syndicated content, domain migrations, and multi-site SEO issues." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/cross-domain-canonical-tags-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/cross-domain-canonical-tags-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains",
+    "description": "Implement cross-domain canonical tags to consolidate ranking signals across domains. Fix syndicated content, domain migrations, and multi-site SEO issues.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/cross-domain-canonical-tags-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/cross-domain-canonical-tags-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/cross-domain-canonical-tags-guide.png" alt="Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="cross-domain-canonical-tags-fix-duplicate-content-across-multiple-domains">Cross-Domain Canonical Tags: Fix Duplicate Content Across Multiple Domains</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Implement cross-domain canonical tags to consolidate ranking signals across domains. Fix syndicated content, domain migrations, and multi-site SEO issues.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#when-to-use-cross-domain-canonicals" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When to Use Cross-Domain Canonicals</a></li>
+<li><a href="#how-cross-domain-canonical-tags-work" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How Cross-Domain Canonical Tags Work</a></li>
+<li><a href="#implementation-method-1-html-link-tag" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementation Method 1: HTML Link Tag</a></li>
+<li><a href="#implementation-method-2-http-header-for-non-html-resources" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementation Method 2: HTTP Header (For Non-HTML Resources)</a></li>
+<li><a href="#cross-domain-canonical-mistakes-that-break-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cross-Domain Canonical Mistakes That Break Implementation</a></li>
+<li><a href="#cross-domain-canonicals-vs-301-redirects" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cross-Domain Canonicals vs. 301 Redirects</a></li>
+<li><a href="#validate-cross-domain-canonicals" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Validate Cross-Domain Canonicals</a></li>
+<li><a href="#advanced-cross-domain-canonical-for-syndication-networks" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced: Cross-Domain Canonical for Syndication Networks</a></li>
+<li><a href="#cross-domain-canonicals-for-multi-site-wordpress-networks" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cross-Domain Canonicals for Multi-Site WordPress Networks</a></li>
+<li><a href="#monitor-cross-domain-canonical-health" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitor Cross-Domain Canonical Health</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Cross-domain canonical tags</strong> tell <strong>Google</strong> that identical content hosted on multiple domains should consolidate ranking signals to a single preferred URL, preventing duplicate content penalties and fragmented authority. Publishers syndicating articles to <strong>Medium</strong>, <strong>LinkedIn</strong>, and partner sites use cross-domain canonicals to preserve original source rankings. E-commerce brands operating regional domains (example.com, example.co.uk, example.ca) with overlapping products need canonicalization to avoid competing against themselves. Incorrectly implemented cross-domain canonicals, pointing to non-existent URLs, creating canonical loops, or missing HTTPS, cause Google to ignore the tags entirely, leaving duplicate content unresolved. This guide covers when cross-domain canonicals apply, implementation syntax for HTML and HTTP headers, and validation strategies for multi-domain SEO architectures.</p>
+<h2 id="when-to-use-cross-domain-canonicals">When to Use Cross-Domain Canonicals</h2>
+<p><strong>Cross-domain canonicals</strong> differ from same-domain canonicals (faceted navigation, pagination). Use cross-domain tags when identical or near-identical content exists on different root domains.</p>
+<h3 id="scenario-1-content-syndication">Scenario 1: Content Syndication</h3>
+<p>Your blog publishes an article at <code>yourblog.com/seo-guide</code>. <strong>Medium</strong> republishes it at <code>medium.com/@you/seo-guide</code>. Without canonicalization, both URLs compete in search results.</p>
+<p><strong>Solution:</strong> Medium&#39;s version points canonical to your original:</p>
+<pre><code class="language-html">&lt;!-- On medium.com/@you/seo-guide --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yourblog.com/seo-guide&quot; /&gt;
+</code></pre>
+<p><strong>Result:</strong> Google indexes your original URL, Medium&#39;s version is suppressed. Your site retains ranking authority.</p>
+<h3 id="scenario-2-multi-domain-e-commerce-regional-sites">Scenario 2: Multi-Domain E-Commerce (Regional Sites)</h3>
+<p>An e-commerce brand operates:</p>
+<ul>
+<li><code>example.com</code> (US site, English)</li>
+<li><code>example.co.uk</code> (UK site, English)</li>
+<li><code>example.ca</code> (Canada site, English/French)</li>
+</ul>
+<p>Product &quot;Blue Widget&quot; appears on all three domains with identical descriptions.</p>
+<p><strong>Wrong approach:</strong> No canonicals → all three URLs compete, fragment ranking signals
+<strong>Correct approach:</strong> Use <a href="country-vs-language-targeting-hreflang.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">hreflang tags</a> for regional targeting, NOT cross-domain canonicals</p>
+<p><strong>When to use cross-domain canonical for e-commerce:</strong></p>
+<ul>
+<li>Two domains sell identical products but only one should rank (e.g., wholesale site + retail site)</li>
+<li>Migrating from old domain to new domain (see <a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migration</a>)</li>
+</ul>
+<h3 id="scenario-3-white-label-content">Scenario 3: White-Label Content</h3>
+<p>A SaaS platform generates customer-facing content at:</p>
+<ul>
+<li><code>client1.yourplatform.com/docs/api</code></li>
+<li><code>client2.yourplatform.com/docs/api</code></li>
+</ul>
+<p>Both pages are identical (generated from same template). Without canonicalization, Google sees duplicates.</p>
+<p><strong>Solution:</strong> All white-label pages canonicalize to primary documentation:</p>
+<pre><code class="language-html">&lt;!-- On client1.yourplatform.com/docs/api --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yourplatform.com/docs/api&quot; /&gt;
+
+&lt;!-- On client2.yourplatform.com/docs/api --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yourplatform.com/docs/api&quot; /&gt;
+</code></pre>
+<h3 id="scenario-4-affiliate-or-partner-content">Scenario 4: Affiliate or Partner Content</h3>
+<p>A manufacturer produces product descriptions used by 50 retail partners. Partners host identical descriptions on their domains.</p>
+<p><strong>Problem:</strong> Google picks one page to rank (often not the manufacturer&#39;s), or suppresses all as duplicates.</p>
+<p><strong>Solution:</strong> Partner sites canonicalize to manufacturer&#39;s product page:</p>
+<pre><code class="language-html">&lt;!-- On retailer.com/product/widget --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://manufacturer.com/product/widget&quot; /&gt;
+</code></pre>
+<p><strong>Benefit to partner:</strong> Page won&#39;t rank organically, but still appears in site search, gets indexed for brand queries, and captures direct traffic.</p>
+<h2 id="how-cross-domain-canonical-tags-work">How Cross-Domain Canonical Tags Work</h2>
+<p><strong>Google</strong> treats canonical tags as <strong>strong hints</strong>, not directives. Google may ignore cross-domain canonicals if:</p>
+<ol>
+<li>The canonical URL returns 404 or 5xx errors</li>
+<li>Robots.txt blocks the canonical URL</li>
+<li>Content on both pages diverges significantly (&gt;20% different)</li>
+<li>The canonical URL is significantly slower than the duplicate</li>
+</ol>
+<p><strong>Best practices to ensure Google honors canonicals:</strong></p>
+<ul>
+<li>Canonical URL must return HTTP 200</li>
+<li>Canonical URL must load in &lt;3 seconds</li>
+<li>Content must be substantially similar (&gt;80% match)</li>
+<li>Canonical URL must be accessible (not blocked by robots.txt, not requiring login)</li>
+</ul>
+<h2 id="implementation-method-1-html-link-tag">Implementation Method 1: HTML Link Tag</h2>
+<p><strong>Most common method</strong>, add canonical tag in <code>&lt;head&gt;</code> section of HTML.</p>
+<h3 id="basic-cross-domain-canonical">Basic Cross-Domain Canonical</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;link rel=&quot;canonical&quot; href=&quot;https://originaldomain.com/article&quot; /&gt;
+  &lt;title&gt;Article Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Content --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>Rules:</strong></p>
+<ul>
+<li>Use absolute URLs (not relative paths like <code>/article</code>)</li>
+<li>Include protocol (<code>https://</code>, not <code>//originaldomain.com</code>)</li>
+<li>Ensure canonical URL is indexable (not blocked, not 404)</li>
+</ul>
+<h3 id="cross-domain-canonical-with-https-migration">Cross-Domain Canonical with HTTPS Migration</h3>
+<p>When migrating from HTTP to HTTPS, old HTTP URLs should canonicalize to HTTPS versions.</p>
+<pre><code class="language-html">&lt;!-- On http://example.com/page --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/page&quot; /&gt;
+</code></pre>
+<p><strong>Better approach:</strong> Implement 301 redirects from HTTP to HTTPS. Canonical tags alone don&#39;t pass link equity as effectively as redirects. Use canonicals + redirects together during migrations.</p>
+<h2 id="implementation-method-2-http-header-for-non-html-resources">Implementation Method 2: HTTP Header (For Non-HTML Resources)</h2>
+<p><strong>PDFs, images, and other non-HTML files</strong> can&#39;t contain HTML tags. Use <strong>HTTP Link header</strong> instead.</p>
+<h3 id="canonical-header-syntax">Canonical Header Syntax</h3>
+<pre><code>Link: &lt;https://originaldomain.com/document.pdf&gt;; rel=&quot;canonical&quot;
+</code></pre>
+<p><strong>Implementation (Apache .htaccess):</strong></p>
+<pre><code class="language-apache">&lt;FilesMatch &quot;\.(pdf|doc|docx)$&quot;&gt;
+  Header set Link &#39;&lt;https://originaldomain.com/documents/%{REQUEST_URI}&gt;; rel=&quot;canonical&quot;&#39;
+&lt;/FilesMatch&gt;
+</code></pre>
+<p><strong>Implementation (Nginx):</strong></p>
+<pre><code class="language-nginx">location ~* \.(pdf|doc)$ {
+  add_header Link &#39;&lt;https://originaldomain.com$request_uri&gt;; rel=&quot;canonical&quot;&#39;;
+}
+</code></pre>
+<h2 id="cross-domain-canonical-mistakes-that-break-implementation">Cross-Domain Canonical Mistakes That Break Implementation</h2>
+<h3 id="mistake-1-canonical-points-to-404-or-redirect">Mistake 1: Canonical Points to 404 or Redirect</h3>
+<p>If canonical URL returns 404 or 301, Google ignores the tag.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">&lt;!-- On domain-b.com/article --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-a.com/old-article&quot; /&gt;
+&lt;!-- https://domain-a.com/old-article returns 404 --&gt;
+</code></pre>
+<p><strong>Correct:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-a.com/current-article&quot; /&gt;
+&lt;!-- Canonical URL must return 200 status --&gt;
+</code></pre>
+<p><strong>Validation:</strong></p>
+<pre><code class="language-bash">curl -I https://domain-a.com/current-article
+# Should return: HTTP/2 200
+</code></pre>
+<h3 id="mistake-2-canonical-loop-circular-reference">Mistake 2: Canonical Loop (Circular Reference)</h3>
+<p>Two pages point canonical to each other, creating a loop.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">&lt;!-- On domain-a.com/page --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-b.com/page&quot; /&gt;
+
+&lt;!-- On domain-b.com/page --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-a.com/page&quot; /&gt;
+&lt;!-- Circular reference! Google ignores both --&gt;
+</code></pre>
+<p><strong>Correct:</strong> Only the duplicate points to the original:</p>
+<pre><code class="language-html">&lt;!-- On domain-a.com/page (original) --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-a.com/page&quot; /&gt;
+&lt;!-- Self-referencing canonical --&gt;
+
+&lt;!-- On domain-b.com/page (duplicate) --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-a.com/page&quot; /&gt;
+&lt;!-- Points to original --&gt;
+</code></pre>
+<h3 id="mistake-3-multiple-canonical-tags">Mistake 3: Multiple Canonical Tags</h3>
+<p>Two canonical tags on the same page confuse Google.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-a.com/page&quot; /&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-b.com/page&quot; /&gt;
+&lt;!-- Google picks one arbitrarily or ignores both --&gt;
+</code></pre>
+<p><strong>Correct:</strong> One canonical tag per page.</p>
+<h3 id="mistake-4-canonical-url-blocked-by-robots-txt">Mistake 4: Canonical URL Blocked by Robots.txt</h3>
+<p>If canonical URL is disallowed in robots.txt, Google can&#39;t verify content match.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">&lt;!-- On domain-b.com/article --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-a.com/article&quot; /&gt;
+
+&lt;!-- domain-a.com/robots.txt --&gt;
+User-agent: *
+Disallow: /article
+&lt;!-- Canonical URL blocked! Google ignores tag --&gt;
+</code></pre>
+<p><strong>Fix:</strong> Ensure canonical URL is crawlable. Check robots.txt:</p>
+<pre><code class="language-bash">curl https://domain-a.com/robots.txt | grep -i disallow
+</code></pre>
+<h3 id="mistake-5-content-divergence-20">Mistake 5: Content Divergence >20%</h3>
+<p>If content on duplicate page differs significantly from canonical, Google may ignore tag.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Canonical page: 2000-word article on SEO</li>
+<li>Duplicate page: 500-word excerpt + unrelated comments</li>
+</ul>
+<p>Google sees these as different pages, ignores canonical.</p>
+<p><strong>Fix:</strong> Ensure duplicates are near-identical (same title, body, media). Minor differences (footer, ads) are acceptable.</p>
+<h2 id="cross-domain-canonicals-vs-301-redirects">Cross-Domain Canonicals vs. 301 Redirects</h2>
+<p><strong>When to use canonical tags:</strong></p>
+<ul>
+<li>You want duplicates accessible for direct traffic but suppress from search results (syndicated content on Medium)</li>
+<li>Source domain can&#39;t implement redirects (partner/affiliate content)</li>
+</ul>
+<p><strong>When to use 301 redirects:</strong></p>
+<ul>
+<li>Permanently moving content from one domain to another (<a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migration</a>)</li>
+<li>Consolidating multiple domains into one</li>
+<li>Migrating HTTP to HTTPS</li>
+</ul>
+<p><strong>Key difference:</strong> 301 redirects pass 90-99% of link equity and force browsers to load the redirect target. Canonical tags pass link equity but leave duplicate URLs accessible.</p>
+<h2 id="validate-cross-domain-canonicals">Validate Cross-Domain Canonicals</h2>
+<h3 id="check-canonical-tag-in-html-source">Check Canonical Tag in HTML Source</h3>
+<p><strong>View page source:</strong></p>
+<pre><code class="language-bash">curl -s https://domain-b.com/page | grep -i &quot;rel=\&quot;canonical\&quot;&quot;
+</code></pre>
+<p>Expected output:</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://domain-a.com/page&quot; /&gt;
+</code></pre>
+<h3 id="validate-with-google-search-console">Validate with Google Search Console</h3>
+<p><strong>URL Inspection Tool:</strong></p>
+<ol>
+<li>Enter duplicate URL (e.g., <code>domain-b.com/page</code>)</li>
+<li>Check &quot;Page indexing&quot; section</li>
+<li>Look for &quot;Google-selected canonical&quot; field</li>
+</ol>
+<p>If Google honors your canonical, it shows:</p>
+<pre><code>Google-selected canonical: https://domain-a.com/page (user-declared canonical)
+</code></pre>
+<p>If Google ignores your canonical, it shows:</p>
+<pre><code>Google-selected canonical: https://domain-b.com/page (Google-selected canonical differs from user-declared)
+</code></pre>
+<h3 id="validate-with-screaming-frog">Validate with Screaming Frog</h3>
+<p><strong>Crawl site with canonical tags:</strong></p>
+<ol>
+<li>Screaming Frog → Configuration → Spider → Follow Canonicals: No (to see duplicates)</li>
+<li>Crawl duplicate domain</li>
+<li>Internal → Canonicals tab → filter by &quot;Canonical Outside of Crawl&quot; (shows cross-domain canonicals)</li>
+</ol>
+<h2 id="advanced-cross-domain-canonical-for-syndication-networks">Advanced: Cross-Domain Canonical for Syndication Networks</h2>
+<p><strong>Content syndication platforms</strong> (Medium, LinkedIn, Substack) allow setting canonical URLs when publishing.</p>
+<h3 id="medium-canonical-import">Medium Canonical Import</h3>
+<p><strong>Method 1: Import with canonical (recommended):</strong></p>
+<ol>
+<li>Medium → Stories → Import a story</li>
+<li>Enter original URL</li>
+<li>Medium auto-adds canonical tag pointing to original</li>
+</ol>
+<p><strong>Method 2: Manually add canonical:</strong></p>
+<pre><code class="language-html">&lt;!-- Medium editor doesn&#39;t show HTML, but canonical is added automatically if imported via URL --&gt;
+</code></pre>
+<h3 id="wordpress-syndication-with-canonical">WordPress Syndication with Canonical</h3>
+<p><strong>Yoast SEO plugin</strong> (WordPress):</p>
+<ol>
+<li>Edit post → Yoast SEO meta box → Advanced</li>
+<li>Canonical URL: <code>https://originaldomain.com/post</code></li>
+<li>Publish syndicated version</li>
+</ol>
+<p><strong>Programmatic implementation:</strong></p>
+<pre><code class="language-php">add_action(&#39;wp_head&#39;, function() {
+  if (is_singular(&#39;post&#39;)) {
+    $canonical = get_post_meta(get_the_ID(), &#39;_syndication_canonical&#39;, true);
+    if ($canonical) {
+      echo &#39;&lt;link rel=&quot;canonical&quot; href=&quot;&#39; . esc_url($canonical) . &#39;&quot; /&gt;&#39;;
+    }
+  }
+});
+</code></pre>
+<h2 id="cross-domain-canonicals-for-multi-site-wordpress-networks">Cross-Domain Canonicals for Multi-Site WordPress Networks</h2>
+<p><strong>WordPress Multisite</strong> installations with shared content across subsites need canonicalization.</p>
+<h3 id="scenario-corporate-blog-network">Scenario: Corporate Blog Network</h3>
+<ul>
+<li><code>corporate.com/blog/post-1</code> (original)</li>
+<li><code>regional.corporate.com/blog/post-1</code> (duplicate for regional audience)</li>
+</ul>
+<p><strong>Solution:</strong> Regional site canonicalizes to main site:</p>
+<pre><code class="language-php">// regional.corporate.com functions.php
+add_filter(&#39;wpseo_canonical&#39;, function($canonical) {
+  if (is_singular(&#39;post&#39;)) {
+    return &#39;https://corporate.com&#39; . $_SERVER[&#39;REQUEST_URI&#39;];
+  }
+  return $canonical;
+});
+</code></pre>
+<h2 id="monitor-cross-domain-canonical-health">Monitor Cross-Domain Canonical Health</h2>
+<h3 id="google-search-console-coverage-report">Google Search Console Coverage Report</h3>
+<p><strong>Search Console</strong> → Coverage → Excluded → &quot;Duplicate, Google chose different canonical than user&quot;</p>
+<p><strong>This report shows:</strong></p>
+<ul>
+<li>URLs where your declared canonical was ignored</li>
+<li>Google&#39;s chosen canonical (might be wrong)</li>
+</ul>
+<p><strong>Fix process:</strong></p>
+<ol>
+<li>Identify ignored canonicals in report</li>
+<li>Validate canonical URL is accessible (not 404, not blocked)</li>
+<li>Check content similarity (&gt;80% match required)</li>
+<li>Request reindexing via URL Inspection Tool</li>
+</ol>
+<h3 id="log-file-analysis-for-canonical-validation">Log File Analysis for Canonical Validation</h3>
+<p><strong>Googlebot crawls</strong> canonical URLs to verify content match. Check server logs for crawl patterns.</p>
+<p><strong>Extract Googlebot canonical verification crawls:</strong></p>
+<pre><code class="language-bash">grep &quot;Googlebot&quot; /var/log/apache2/access.log | grep &quot;original-domain.com&quot; | awk &#39;{print $7}&#39; | sort | uniq -c | sort -rn
+</code></pre>
+<p>If Googlebot crawls canonical URLs frequently, it&#39;s validating canonicals. Infrequent crawls suggest canonicals are ignored.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>When to Use Cross-Domain Canonicals:</strong> Your blog publishes an article at yourblog.com/seo-guide.</li>
+<li><strong>How Cross-Domain Canonical Tags Work:</strong> When migrating from HTTP to HTTPS, old HTTP URLs should canonicalize to HTTPS versions.</li>
+<li><strong>Implementation Method 1: HTML Link Tag:</strong> When migrating from HTTP to HTTPS, old HTTP URLs should canonicalize to HTTPS versions.</li>
+<li><strong>Implementation Method 2: HTTP Header (For Non-HTML Resources):</strong> If canonical URL returns 404 or 301, Google ignores the tag.</li>
+<li><strong>Cross-Domain Canonical Mistakes That Break Implementation:</strong> If canonical URL returns 404 or 301, Google ignores the tag.</li>
+<li><strong>Cross-Domain Canonicals vs. 301 Redirects:</strong> Expected output:
+html</li>
+</ul>
+<link rel="canonical" href="https://domain-a.com/page" />
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="can-i-use-cross-domain-canonicals-for-pages-with-different-content">Can I use cross-domain canonicals for pages with different content?</h3>
+<p>No. <strong>Cross-domain canonicals</strong> require content to be substantially similar (&gt;80% match). If content differs significantly, Google ignores the canonical tag. Use canonicals only for true duplicates or near-duplicates (same article with minor formatting differences, not related articles).</p>
+<h3 id="do-cross-domain-canonicals-pass-all-link-equity-like-301-redirects">Do cross-domain canonicals pass all link equity like 301 redirects?</h3>
+<p><strong>Canonical tags</strong> pass most link equity (Google claims &quot;nearly all&quot;), but <strong>301 redirects</strong> are more definitive and pass slightly more authority. For permanent consolidation, use 301 redirects. For temporary syndication where you want duplicates accessible, use canonicals. See <a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migration guide</a> for redirect strategies.</p>
+<h3 id="should-i-use-cross-domain-canonicals-for-regional-domains-with-translated-content">Should I use cross-domain canonicals for regional domains with translated content?</h3>
+<p>No. Use <a href="country-vs-language-targeting-hreflang.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">hreflang tags</a> instead. <strong>Hreflang</strong> tells Google that pages in different languages/countries are related variants, and each should rank in its respective region. <strong>Canonicals</strong> consolidate ranking to one URL, suppressing others, the opposite of what you want for international SEO.</p>
+<h3 id="can-i-use-cross-domain-canonicals-to-fix-scraped-content-on-competitor-sites">Can I use cross-domain canonicals to fix scraped content on competitor sites?</h3>
+<p><strong>Google</strong> recommends using <strong>DMCA takedown requests</strong> for unauthorized scrapers. If a competitor scrapes your content and you can&#39;t force them to add canonicals, Google&#39;s algorithms often identify the original source based on crawl date, backlink profiles, and site authority. Cross-domain canonicals only work if you control the duplicate site.</p>
+<h3 id="what-happens-if-i-remove-a-cross-domain-canonical-tag">What happens if I remove a cross-domain canonical tag?</h3>
+<p><strong>Google</strong> will eventually recrawl both pages and treat them as independent URLs. The previously suppressed duplicate may start competing with the original in search results, potentially causing duplicate content issues. If you intentionally want both to rank (e.g., ending a syndication partnership), remove canonicals and differentiate content to avoid competing for the same keywords.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/dynamic-canonical-tags-faceted-navigation.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Dynamic Canonical Tags for Faceted Navigation: Stop Duplicate Content</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement dynamic canonical tags for faceted navigation filters. Prevent duplicate content from color, size, price filters without blocking crawl budget.</p>
+          </a>
+
+          <a href="/articles/fix-duplicate-content-fast.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Duplicate Content Fast (Step-by-Step SEO Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Duplicate content fragments PageRank across multiple URLs, confuses Google about which version to index, and tanks your rankings. Learn how to audit duplicates with Screaming Frog, diagnose root causes, and fix them using canonicals, redirects, and noindex strategies.</p>
+          </a>
+
+          <a href="/articles/fix-duplicate-content-url-parameters.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Duplicate Content from URL Parameters (Ultimate Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">URL parameters from filters, sorting, tracking codes, and session IDs create infinite duplicate content variations that hemorrhage crawl budget and fragment PageRank. Learn how to diagnose parameter duplicates and fix them using canonicals, redirects, and robots.txt.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

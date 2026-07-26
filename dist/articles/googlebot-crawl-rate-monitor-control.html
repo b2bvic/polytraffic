@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide | Polytraffic</title>
+    <meta name="description" content="Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide | Polytraffic" />
+    <meta property="og:description" content="Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/googlebot-crawl-rate-monitor-control" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/googlebot-crawl-rate-monitor-control.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide | Polytraffic" />
+    <meta name="twitter:description" content="Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/googlebot-crawl-rate-monitor-control.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/googlebot-crawl-rate-monitor-control" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide",
+    "description": "Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/googlebot-crawl-rate-monitor-control.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/googlebot-crawl-rate-monitor-control.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/googlebot-crawl-rate-monitor-control.png" alt="Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="googlebot-crawl-rate-monitor-and-control-technical-crawl-budget-optimization-guide">Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#understanding-crawl-budget-allocation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding Crawl Budget Allocation</a></li>
+<li><a href="#server-response-optimization-for-crawl-efficiency" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Server Response Optimization for Crawl Efficiency</a></li>
+<li><a href="#strategic-url-prioritization-through-crawl-control" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Strategic URL Prioritization Through Crawl Control</a></li>
+<li><a href="#crawl-rate-limiting-and-server-protection" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Crawl Rate Limiting and Server Protection</a></li>
+<li><a href="#log-file-analysis-for-crawl-pattern-optimization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Log File Analysis for Crawl Pattern Optimization</a></li>
+<li><a href="#accelerating-crawl-through-technical-signals" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Accelerating Crawl Through Technical Signals</a></li>
+<li><a href="#crawl-budget-recovery-after-technical-issues" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Crawl Budget Recovery After Technical Issues</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Googlebot crawl rate</strong> determines how many pages <strong>Google</strong> requests from your server within specific timeframes. Sites exceeding allocated crawl budgets experience indexing delays for new content, while excessive crawl rates overwhelm servers with resource-depleting requests. Optimization balances maximum indexing velocity against server capacity constraints through strategic URL prioritization and technical efficiency improvements.</p>
+<h2 id="understanding-crawl-budget-allocation">Understanding Crawl Budget Allocation</h2>
+<p>Crawl budget represents the number of URLs <strong>Googlebot</strong> will crawl on your site within a given period. <strong>Google</strong> calculates this based on site authority (backlink profile, traffic patterns), server response times, and historical crawl success rates. High-authority sites receive larger budgets; low-authority or technically problematic sites receive smaller allocations.</p>
+<p>Site size relative to crawl budget creates urgency. Sites with 1,000 pages and 500-page daily crawl budgets achieve complete recrawl coverage every 2 days. Sites with 100,000 pages and 1,000-page daily budgets require 100 days for complete recrawl, making content freshness and strategic URL prioritization critical for indexing velocity.</p>
+<p>Crawl budget waste occurs when <strong>Googlebot</strong> spends allocation on low-value URLs: duplicate content, infinite scroll pagination, faceted navigation parameters, and session IDs. Each wasted crawl represents an opportunity cost, a high-value product or article page that remains uncrawled while <strong>Googlebot</strong> processes redundant URLs.</p>
+<p>Monitor crawl budget utilization through <strong>Google Search Console</strong> Settings &gt; Crawl Stats report. The report surfaces total crawl requests, average response time, and host status distribution across 90-day windows. Sites consuming full allocated budgets while maintaining large uncrawled URL inventories require optimization. Sites with declining crawl rates despite stable content publication face authority or technical issues.</p>
+<p>Calculate your crawl demand by totaling: active pages requiring regular recrawl (products, blog posts), new URLs published monthly, and redirects requiring discovery. If demand exceeds observed crawl rates by 30%+, you&#39;ve entered crawl budget deficit requiring immediate optimization to prevent indexing delays.</p>
+<p>Related: <a href="google-search-console-seo-audit-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">google-search-console-seo-audit-guide.html</a> for monitoring crawl patterns systematically.</p>
+<h2 id="server-response-optimization-for-crawl-efficiency">Server Response Optimization for Crawl Efficiency</h2>
+<p>Server response times directly impact crawl budget. Slow-responding servers cause <strong>Googlebot</strong> to reduce crawl rate automatically to prevent server overload. Optimizing response times increases crawl velocity without manual intervention.</p>
+<p>Target server response times under 200ms for HTML pages. Response times exceeding 500ms trigger automatic crawl rate reduction as <strong>Googlebot</strong> interprets slow responses as server capacity constraints. Use server logs or <strong>Google Search Console</strong> Crawl Stats to identify slow-responding URLs and prioritize optimization.</p>
+<p>Implement server-side caching for static content and database query results. WordPress sites benefit from object caching (Redis, Memcached) that stores database query results, eliminating redundant database hits during crawl surges. E-commerce platforms should cache product data, reducing load times during <strong>Googlebot</strong> crawls of large product catalogs.</p>
+<p>Optimize database queries causing bottlenecks. Audit slow query logs to identify problematic queries executed during page generation. Add database indexes to frequently queried columns, eliminate N+1 query patterns, and implement query result caching to reduce execution time from hundreds of milliseconds to single-digit milliseconds.</p>
+<p>Configure separate resources for <strong>Googlebot</strong> versus user traffic. Implement quality-of-service rules prioritizing user requests over bot requests during peak traffic. This prevents <strong>Googlebot</strong> crawls from degrading user experience while maintaining crawl access during off-peak periods when server capacity allows aggressive crawling.</p>
+<p>Deploy CDN caching for media resources. Images, CSS, and JavaScript files should serve from edge locations near <strong>Googlebot&#39;s</strong> data centers rather than forcing requests to origin servers. CDN caching reduces origin server load and improves response times, allowing origin servers to focus processing power on dynamic HTML generation.</p>
+<p>Monitor server error rates in <strong>Google Search Console</strong> Crawl Stats. Error rates above 5% indicate server instability or resource exhaustion during crawls. Common causes include insufficient PHP workers, database connection pool exhaustion, or memory limits triggering 500-series errors under crawl load.</p>
+<p>Related: <a href="http-status-codes-seo-reference.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http-status-codes-seo-reference.html</a> for understanding status codes affecting crawl behavior.</p>
+<h2 id="strategic-url-prioritization-through-crawl-control">Strategic URL Prioritization Through Crawl Control</h2>
+<p>Direct <strong>Googlebot</strong> toward high-value URLs while blocking low-value targets through robots.txt, internal linking architecture, and XML sitemap curation. Strategic prioritization ensures crawl budget focuses on revenue-generating or traffic-driving pages.</p>
+<p>Identify crawl-worthy URLs by traffic potential and business value. Product pages, category pages, and pillar content represent high-priority targets. Author archives, date-based archives, and tag pages without unique content represent low-priority targets consuming budget without value generation.</p>
+<p>Block low-value URL patterns in robots.txt. Faceted navigation parameters, search result pages, and paginated archives rarely provide unique value worth crawling. Block these patterns explicitly:</p>
+<pre><code>User-agent: Googlebot
+Disallow: /*?filter=
+Disallow: /search?
+Disallow: /*?page=
+Disallow: /*?sort=
+</code></pre>
+<p>Audit for crawl trap patterns consuming budget. Infinite calendar navigation (next month links extending infinitely into future), session ID generation creating unique URLs per visit, and filter combination explosion (color + size + material + price range creating thousands of combinations) represent common traps. Implement URL parameter handling in <strong>Search Console</strong> or canonicalization to consolidate crawl signals.</p>
+<p>Use internal linking to signal priority. Pages receiving more internal links get crawled more frequently because <strong>Googlebot</strong> discovers them through multiple paths. Important pages should appear in navigation, sidebar widgets, footer links, and contextual content links. Buried pages requiring 5+ clicks from homepage rarely get crawled.</p>
+<p>Create focused XML sitemaps excluding low-priority URLs. Sitemaps containing only high-value pages guide <strong>Googlebot</strong> toward content you want indexed urgently. Separate sitemaps by content type (products, articles, category pages) enable differential crawl priority through submission timing and update frequency signals.</p>
+<p>Implement lastmod dates in sitemaps accurately. <strong>Googlebot</strong> prioritizes recently modified pages, crawling updated content more aggressively than static pages. Accurate lastmod timestamps direct crawl budget toward fresh content requiring indexing while reducing redundant crawls of unchanged pages.</p>
+<p>Related: <a href="html-sitemaps-vs-xml-sitemaps.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">html-sitemaps-vs-xml-sitemaps.html</a> for sitemap architecture strategies.</p>
+<h2 id="crawl-rate-limiting-and-server-protection">Crawl Rate Limiting and Server Protection</h2>
+<p>The Crawl Rate Limiter in <strong>Google Search Console</strong> Settings allows manual crawl rate reduction when <strong>Googlebot</strong> overwhelms server capacity. Use this emergency control sparingly, unnecessary limiting delays indexing and reduces organic visibility.</p>
+<p>Reduce crawl rate only when server logs confirm <strong>Googlebot</strong> causes performance degradation. Check for correlation between crawl timestamps and server CPU/memory spikes. If <strong>Googlebot</strong> requests coincide with server resource exhaustion or user-facing slowdowns, rate limiting becomes necessary.</p>
+<p>Set crawl rate limits through the Crawl Rate Limiter interface. The tool offers &quot;Lower&quot; and &quot;Limit to specific rate&quot; options. &quot;Lower&quot; reduces rate moderately; specific rate setting requires choosing requests per second (low single-digits to high single-digits). Start conservative (2-3 requests/second) and increase gradually while monitoring server load.</p>
+<p>Temporary rate limiting during site migrations prevents crawl interference with database migrations, content migrations, or platform changes requiring stable server environments. Enable limiting before beginning migration, complete the migration, then remove limits after stabilization to allow normal crawl resumption.</p>
+<p>Monitor the impact of rate limiting on indexing velocity. After implementing limits, track new page discovery time in <strong>Search Console</strong> Coverage report. If products published today don&#39;t appear indexed for 7+ days (versus 1-2 days before limiting), the rate limit constrains indexing excessively and requires adjustment.</p>
+<p>Alternative to rate limiting: upgrade server resources. If crawl rate limiting becomes permanent requirement rather than temporary emergency measure, your server capacity no longer supports your site&#39;s scale. Increase RAM, CPU cores, database resources, or migrate to more capable hosting infrastructure rather than artificially constraining <strong>Google&#39;s</strong> ability to index your content.</p>
+<h2 id="log-file-analysis-for-crawl-pattern-optimization">Log File Analysis for Crawl Pattern Optimization</h2>
+<p>Server logs reveal precise <strong>Googlebot</strong> behavior: which URLs get crawled, frequency patterns, response times, and error occurrences. Log analysis surfaces optimization opportunities invisible in <strong>Search Console</strong> aggregate data.</p>
+<p>Extract <strong>Googlebot</strong> requests from server logs by filtering user-agent strings: <code>Googlebot</code>, <code>Googlebot-Image</code>, <code>Googlebot-Video</code>, <code>Googlebot-News</code>. Segment by bot type to analyze crawler-specific patterns. Googlebot-Image requests indicate image indexing activity; excessive image crawls might warrant investigation into image sitemap efficiency.</p>
+<p>Calculate crawl frequency distribution across URL patterns. Identify URLs crawled daily versus weekly versus never. Pages crawled daily but updated infrequently waste budget; consider reducing internal link prominence or implementing more accurate lastmod timestamps. Pages updated daily but crawled monthly suffer indexing lag requiring increased internal linking or sitemap prioritization.</p>
+<p>Detect crawl anomalies through request spike analysis. Sudden 10x crawl volume increases indicate <strong>Googlebot</strong> discovered large URL sets (via sitemaps or external links) and attempts rapid exploration. Review Coverage report to identify newly discovered URL patterns and evaluate whether those URLs merit indexing.</p>
+<p>Analyze error rate patterns by URL type. If product pages return 500 errors at 15% rate during crawls but serve successfully to users, database connection pooling might be insufficient for concurrent crawl + user load. If specific URL parameters consistently error, block those parameters via robots.txt to prevent wasted crawl attempts.</p>
+<p>Track response time distribution across URL patterns. URLs requiring 2+ seconds to generate content for <strong>Googlebot</strong> drag down overall crawl efficiency. Implement caching specifically for bot requests or pre-generate static versions of slow pages to serve during crawl events.</p>
+<p>Correlate crawl timing with indexing velocity using <strong>Search Console</strong> URL Inspection tool. Select sample URLs crawled at different dates, then check their last indexed date in URL Inspection. Gaps between crawl date (from logs) and indexing date indicate post-crawl processing delays or quality signals preventing indexing despite successful crawl.</p>
+<p>Related: <a href="googlebot-crawl-rate-monitor-control.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">googlebot-crawl-rate-monitor-control.html</a> for comprehensive crawl monitoring.</p>
+<h2 id="accelerating-crawl-through-technical-signals">Accelerating Crawl Through Technical Signals</h2>
+<p>Certain technical implementations signal <strong>Google</strong> to crawl more aggressively by indicating content freshness, importance, or time-sensitivity requiring rapid indexing.</p>
+<p>Implement IndexNow protocol for instant indexing notification. <strong>IndexNow</strong> allows publishers to notify search engines about content updates immediately rather than waiting for scheduled crawls. Submit updated URLs via API after publication to trigger priority crawling within hours instead of days.</p>
+<p>Use the URL Inspection tool&#39;s &quot;Request Indexing&quot; feature for high-priority pages. This manual submission places URLs in priority crawl queue, typically processing within 24-48 hours. Limit usage to genuinely important updates, excessive requests might trigger rate limiting.</p>
+<p>Publish structured data with accurate temporal properties. News articles with <code>datePublished</code> and <code>dateModified</code> timestamps in Article schema signal freshness, triggering faster recrawl cycles. Product schema with <code>availability</code> changes alerts <strong>Google</strong> to inventory updates requiring reindexing.</p>
+<p>Advantage RSS/Atom feeds for content discovery. <strong>Google</strong> monitors feeds for new content and crawls linked URLs rapidly upon discovery. Maintain updated feeds with newest content and submit feed URLs in sitemaps to ensure <strong>Google</strong> monitors them actively.</p>
+<p>Increase crawl frequency through social signal velocity. Content receiving rapid social sharing (Twitter, Reddit, LinkedIn) often gets crawled more aggressively as <strong>Google</strong> attempts to capture popular content for fresh results. Promote important content through social channels to trigger discovery acceleration.</p>
+<p>Deploy AMP (Accelerated Mobile Pages) for news/blog content. AMP pages join pre-rendered cache, effectively guaranteeing instant availability. While AMP adoption declined post-Core Web Vitals, AMP content still receives priority crawl treatment and cache benefits unavailable to standard HTML.</p>
+<h2 id="crawl-budget-recovery-after-technical-issues">Crawl Budget Recovery After Technical Issues</h2>
+<p>Technical failures (site downtime, server errors, DNS failures) train <strong>Google</strong> to reduce crawl rate to protect your server. Post-recovery, crawl rate remains suppressed until <strong>Google</strong> confirms stability through extended observation. Accelerate recovery through proactive signaling.</p>
+<p>Submit site-wide recrawl requests through sitemaps after resolving major technical issues. Update sitemap lastmod dates to current timestamp for all affected URLs, then resubmit sitemaps. This signals <strong>Google</strong> content is accessible again and recrawl should proceed.</p>
+<p>Monitor crawl recovery velocity in <strong>Search Console</strong> Crawl Stats. Track daily crawl request counts for 2-4 weeks post-recovery. Gradual increases indicate <strong>Google</strong> rebuilding crawl confidence. Stagnant crawl rates suggest <strong>Google</strong> doesn&#39;t recognize recovery or residual issues persist.</p>
+<p>Verify 200 status code distribution exceeds 95% in Crawl Stats host status breakdown. Persistent error rates (even 5-10%) prevent full crawl rate recovery because <strong>Google</strong> interprets errors as ongoing instability. Investigate and resolve any remaining error sources before expecting crawl normalization.</p>
+<p>Manually request indexing for previously uncrawled high-priority URLs through URL Inspection tool. This bypasses suppressed automatic crawl rates by placing URLs in manual review queues less affected by domain-level crawl budget constraints.</p>
+<p>Consider temporary crawl rate limit removal if limits were imposed during issues. If you reduced crawl rate during problems, explicitly remove restrictions post-recovery to signal <strong>Google</strong> can resume normal crawl volume without server risk.</p>
+<p>Build authority signals to increase long-term crawl budget allocation. Earn backlinks from authoritative domains, increase direct traffic through brand building, and improve user engagement metrics. <strong>Google</strong> allocates larger crawl budgets to sites demonstrating authority and popularity because their content changes matter more to users.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Understanding Crawl Budget Allocation:</strong> Crawl budget represents the number of URLs Googlebot will crawl on your site within a given period.</li>
+<li><strong>Server Response Optimization for Crawl Efficiency:</strong> Server response times directly impact crawl budget.</li>
+<li><strong>Strategic URL Prioritization Through Crawl Control:</strong> Direct Googlebot toward high-value URLs while blocking low-value targets through robots.txt, internal linking architecture, and XML sitemap curation.</li>
+<li><strong>Crawl Rate Limiting and Server Protection:</strong> The Crawl Rate Limiter in Google Search Console Settings allows manual crawl rate reduction when Googlebot overwhelms server capacity.</li>
+<li><strong>Log File Analysis for Crawl Pattern Optimization:</strong> Server logs reveal precise Googlebot behavior: which URLs get crawled, frequency patterns, response times, and error occurrences.</li>
+<li><strong>Accelerating Crawl Through Technical Signals:</strong> Certain technical implementations signal Google to crawl more aggressively by indicating content freshness, importance, or time-sensitivity requiring rapid indexing.</li>
+</ul>
+<h2 id="faq-googlebot-crawl-rate-management">FAQ: Googlebot Crawl Rate Management</h2>
+<h3 id="how-can-i-tell-if-my-site-has-crawl-budget-problems">How can I tell if my site has crawl budget problems?</h3>
+<p>Calculate crawl demand (active pages + monthly new URLs + redirects) and compare against observed daily crawl rate from <strong>Search Console</strong> Crawl Stats. If demand exceeds crawl rate by 30%+ and important pages show indexing delays (7+ days from publication to indexing), you face crawl budget constraints. Large uncrawled URL inventory in Coverage report alongside full crawl budget utilization confirms the problem.</p>
+<h3 id="does-blocking-urls-in-robots-txt-save-crawl-budget">Does blocking URLs in robots.txt save crawl budget?</h3>
+<p>Yes, blocked URLs don&#39;t consume crawl budget because <strong>Googlebot</strong> doesn&#39;t request them. However, <strong>Google</strong> still checks robots.txt for each blocked URL pattern to determine accessibility, which consumes minimal overhead. Block low-value URL patterns to redirect budget toward high-value targets, but don&#39;t block legitimate content hoping to &quot;save&quot; budget, budget saved on low-value URLs gets reallocated to other pages automatically.</p>
+<h3 id="why-did-my-crawl-rate-decrease-suddenly-without-site-changes">Why did my crawl rate decrease suddenly without site changes?</h3>
+<p>Authority shifts trigger crawl budget reallocation. Backlink loss, traffic decline, or increased error rates signal reduced site importance to <strong>Google</strong>, triggering budget reduction. Check for technical issues (increased errors in Crawl Stats), backlink profile changes (lost links in Links report), or algorithm updates affecting rankings (traffic drops coinciding with confirmed Google updates). Address root causes to restore crawl budget allocation.</p>
+<h3 id="should-i-worry-about-crawl-rate-on-small-sites-with-under-1-000-pages">Should I worry about crawl rate on small sites with under 1,000 pages?</h3>
+<p>Generally no. Sites with &lt;1,000 pages receive sufficient crawl budget for complete daily recrawls. Exceptions include extremely low authority sites or sites with persistent technical issues causing crawl avoidance. Focus on content quality and technical health rather than crawl optimization until you exceed 10,000+ pages or observe multi-day indexing delays for new content.</p>
+<h3 id="can-i-increase-my-crawl-budget-by-requesting-higher-crawl-rates-from-google">Can I increase my crawl budget by requesting higher crawl rates from Google?</h3>
+<p>No, <strong>Google</strong> doesn&#39;t accept requests for crawl rate increases. Crawl budget allocation derives from algorithmic assessment of site authority, server capacity, and indexing value. Increase budget by: improving server response times (faster servers enable higher rates), building authority (backlinks, traffic), eliminating crawl waste (blocking low-value URLs), and maintaining technical health (low error rates, consistent uptime). These factors train <strong>Google</strong> to allocate larger budgets organically.</p>
+<p>Related: <a href="google-search-console-seo-audit-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">google-search-console-seo-audit-guide.html</a> for comprehensive crawl monitoring within Search Console audits.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/google-image-search-optimization.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Google Image Search Optimization: Technical Implementation Guide for Visual Discovery</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Optimize images for Google Image Search with technical strategies covering file naming, alt text, structured data, and visual search ranking factors.</p>
+          </a>
+
+          <a href="/articles/image-seo-optimization-checklist.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Image SEO Optimization Checklist: Complete Technical Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master image SEO with file naming, alt text, compression, lazy loading, and structured data. Boost Core Web Vitals and Google Images visibility.</p>
+          </a>
+
+          <a href="/articles/robots-txt-seo-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master robots.txt syntax to block crawlers, manage crawl budget, and prevent indexing issues. Includes testing tools and common pitfalls.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

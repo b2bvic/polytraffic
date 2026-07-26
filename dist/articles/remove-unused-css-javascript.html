@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Unused CSS and JavaScript: Dead Code Elimination Guide | Polytraffic</title>
+    <meta name="description" content="Audit and eliminate unused CSS/JavaScript through coverage analysis, tree shaking, and PurgeCSS. Reduce bundle sizes and accelerate parse/execution time." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Remove Unused CSS and JavaScript: Dead Code Elimination Guide | Polytraffic" />
+    <meta property="og:description" content="Audit and eliminate unused CSS/JavaScript through coverage analysis, tree shaking, and PurgeCSS. Reduce bundle sizes and accelerate parse/execution time." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/remove-unused-css-javascript" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/remove-unused-css-javascript.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Remove Unused CSS and JavaScript: Dead Code Elimination Guide | Polytraffic" />
+    <meta name="twitter:description" content="Audit and eliminate unused CSS/JavaScript through coverage analysis, tree shaking, and PurgeCSS. Reduce bundle sizes and accelerate parse/execution time." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/remove-unused-css-javascript.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/remove-unused-css-javascript" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Remove Unused CSS and JavaScript: Dead Code Elimination Guide",
+    "description": "Audit and eliminate unused CSS/JavaScript through coverage analysis, tree shaking, and PurgeCSS. Reduce bundle sizes and accelerate parse/execution time.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/remove-unused-css-javascript.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/remove-unused-css-javascript.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Page Speed Optimization.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Remove Unused CSS and JavaScript: Dead Code Elimination Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Page Speed Optimization.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Remove Unused CSS and JavaScript: Dead Code Elimination Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/remove-unused-css-javascript.png" alt="Remove Unused CSS and JavaScript: Dead Code Elimination Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="remove-unused-css-and-javascript-dead-code-elimination-guide">Remove Unused CSS and JavaScript: Dead Code Elimination Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Audit and eliminate unused CSS/JavaScript through coverage analysis, tree shaking, and PurgeCSS. Reduce bundle sizes and accelerate parse/execution time.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#coverage-analysis-and-unused-code-detection" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Coverage Analysis and Unused Code Detection</a></li>
+<li><a href="#purgecss-configuration-for-automated-css-cleanup" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">PurgeCSS Configuration for Automated CSS Cleanup</a></li>
+<li><a href="#javascript-dead-code-elimination-and-tree-shaking" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">JavaScript Dead Code Elimination and Tree Shaking</a></li>
+<li><a href="#code-splitting-by-page-and-feature" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Code Splitting by Page and Feature</a></li>
+<li><a href="#wordpress-and-cms-specific-optimization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WordPress and CMS-Specific Optimization</a></li>
+<li><a href="#monitoring-and-preventing-unused-code-accumulation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring and Preventing Unused Code Accumulation</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Unused CSS and JavaScript bloat page weight while consuming parse and execution time without delivering functionality, sites shipping 500KB stylesheets where 60% never applies to rendered elements hemorrhage bandwidth and processing overhead.</strong> Coverage analysis from Chrome DevTools reveals the scope: typical production sites serve 40-70% unused CSS and 50-80% unused JavaScript on any single page. This dead code inflates First Contentful Paint through extended parse times and degrades Total Blocking Time through unnecessary execution cycles, directly impacting Core Web Vitals scores and organic search visibility.</p>
+<p>This guide architects systematic unused code elimination: Chrome DevTools Coverage analysis to quantify dead code, PurgeCSS configuration for automated CSS removal, tree shaking for JavaScript dead code elimination, code splitting to isolate page-specific code, and monitoring protocols to prevent unused code accumulation from returning post-optimization.</p>
+<h2 id="coverage-analysis-and-unused-code-detection">Coverage Analysis and Unused Code Detection</h2>
+<p>Chrome DevTools Coverage panel quantifies unused code with byte-level precision, revealing which portions of CSS and JavaScript files execute during page interactions.</p>
+<p><strong>Access Coverage panel</strong>: Open DevTools (F12 or Cmd+Opt+I), press Cmd+Shift+P (Windows: Ctrl+Shift+P), type &quot;coverage&quot;, select &quot;Show Coverage.&quot; The Coverage panel appears as a drawer tab at the bottom of DevTools.</p>
+<p><strong>Recording coverage</strong>:</p>
+<ol>
+<li>Click the record button (circle icon) in Coverage panel</li>
+<li>Reload the page (Cmd+R) to capture initial page load coverage</li>
+<li>Interact with the page, open menus, click buttons, scroll to reveal lazy-loaded content</li>
+<li>Stop recording to analyze results</li>
+</ol>
+<p>The Coverage panel displays all loaded CSS and JavaScript files with usage bars. Red segments indicate unused bytes, blue segments show used bytes. The &quot;Unused Bytes&quot; column quantifies wasted bytes per file, while &quot;Usage Visualization&quot; provides visual representation of used vs unused code distribution.</p>
+<p><strong>Interpreting results</strong>:</p>
+<ul>
+<li><strong>80%+ red</strong>. Severe over-inclusion, file contains mostly dead code</li>
+<li><strong>50-80% red</strong>. Significant optimization opportunity, likely framework or library code where small portions are used</li>
+<li><strong>20-50% red</strong>. Moderate waste, possibly CSS covering multiple page templates or feature code for different sections</li>
+<li><strong>&lt;20% red</strong>. Acceptable, file is mostly utilized</li>
+</ul>
+<p>Click any file in the Coverage list to open Sources panel with coverage highlighting. Red highlighting marks unused lines, blue highlighting shows executed code. This granular view identifies specific rules or functions to remove.</p>
+<p><strong>Framework CSS waste patterns</strong>: Bootstrap, Foundation, Tailwind (without PurgeCSS) commonly show 70-90% unused CSS. These frameworks include thousands of utility classes and components; typical pages use 10-30% of available classes. Coverage analysis exposes the magnitude:</p>
+<pre><code>bootstrap.min.css: 152 KB total, 121 KB unused (79.6% unused)
+</code></pre>
+<p>This indicates only 31KB of Bootstrap&#39;s CSS applies to the page. 121KB serves no purpose beyond inflating page weight.</p>
+<p><strong>JavaScript library waste</strong>: jQuery, Lodash, Moment.js, React (without tree shaking) exhibit similar patterns:</p>
+<pre><code>lodash.min.js: 71 KB total, 68 KB unused (95.8% unused)
+</code></pre>
+<p>The application uses 2-3 Lodash functions, but standard imports load the entire library. 68KB of functions that never execute.</p>
+<p><strong>Per-page coverage variation</strong>: Different page templates utilize different code portions. Homepage may use 40% of CSS, product pages 35%, blog posts 30%. No single page uses 100% of site-wide CSS. Coverage analysis on multiple page types reveals optimization targets:</p>
+<ul>
+<li>Run coverage on homepage, note unused code</li>
+<li>Run coverage on product page, note unused code</li>
+<li>Run coverage on blog post, note unused code</li>
+<li>Identify code unused across all three, prime deletion candidates</li>
+</ul>
+<p><strong>Manual inspection workflow</strong>: For files showing 80%+ unused code:</p>
+<ol>
+<li>Click filename in Coverage panel to open Sources view</li>
+<li>Scroll through red-highlighted sections</li>
+<li>Identify entire features, components, or utility classes unused</li>
+<li>Search codebase to confirm these features genuinely don&#39;t exist on any page</li>
+<li>Delete confirmed-unused code from source files</li>
+</ol>
+<p>This manual audit applies to custom CSS/JS where automated tools (PurgeCSS, tree shaking) don&#39;t operate.</p>
+<h2 id="purgecss-configuration-for-automated-css-cleanup">PurgeCSS Configuration for Automated CSS Cleanup</h2>
+<p>PurgeCSS scans HTML/JS files for class names, IDs, and selectors, removing CSS rules matching nothing in your content. This automated approach scales to massive stylesheets where manual auditing is impractical.</p>
+<p><strong>Installation</strong>:</p>
+<pre><code class="language-bash">npm install --save-dev @fullhuman/postcss-purgecss
+</code></pre>
+<p><strong>PostCSS integration</strong> (for Webpack, Gulp, or PostCSS CLI builds):</p>
+<pre><code class="language-javascript">// postcss.config.js
+module.exports = {
+  plugins: [
+    require(&#39;@fullhuman/postcss-purgecss&#39;)({
+      content: [
+        &#39;./src/**/*.html&#39;,
+        &#39;./src/**/*.js&#39;,
+        &#39;./src/**/*.jsx&#39;,
+        &#39;./src/**/*.vue&#39;
+      ],
+      defaultExtractor: content =&gt; content.match(/[\w-/:]+(?&lt;!:)/g) || []
+    })
+  ]
+};
+</code></pre>
+<p>This configuration tells PurgeCSS to scan all HTML, JavaScript, JSX, and Vue files in <code>src/</code>, extract class names and selectors, and remove CSS rules matching nothing found in those files.</p>
+<p><strong>Standalone CLI usage</strong>:</p>
+<pre><code class="language-bash">purgecss --css styles.css --content index.html about.html product.html --output dist/
+</code></pre>
+<p>PurgeCSS reads <code>styles.css</code>, scans the three HTML files for used selectors, and outputs purged CSS to <code>dist/styles.css</code>.</p>
+<p><strong>Tailwind CSS integration</strong> (built-in PurgeCSS):</p>
+<pre><code class="language-javascript">// tailwind.config.js
+module.exports = {
+  content: [
+    &#39;./src/**/*.html&#39;,
+    &#39;./src/**/*.js&#39;,
+    &#39;./src/**/*.jsx&#39;
+  ],
+  theme: {},
+  plugins: []
+};
+</code></pre>
+<p>Tailwind v3+ uses the <code>content</code> configuration to automatically purge unused utilities. Running <code>npx tailwindcss -o output.css --minify</code> generates CSS containing only utilities referenced in content files.</p>
+<p><strong>Safelist for dynamic classes</strong>: PurgeCSS removes classes not found literally in content files. Dynamically constructed classes escape detection:</p>
+<pre><code class="language-javascript">// This pattern hides classes from PurgeCSS
+const colorClass = `text-${color}-500`;  // &quot;text-blue-500&quot; won&#39;t be detected
+</code></pre>
+<p>Safelist these patterns explicitly:</p>
+<pre><code class="language-javascript">// purgecss.config.js
+module.exports = {
+  content: [&#39;./src/**/*.html&#39;, &#39;./src/**/*.js&#39;],
+  safelist: {
+    standard: [&#39;text-blue-500&#39;, &#39;bg-red-500&#39;],
+    deep: [/^text-/, /^bg-/],  // Keep all classes starting with text- or bg-
+    greedy: [/^btn-/]           // Keep btn- classes and descendants
+  }
+};
+</code></pre>
+<p>Safelist modes:</p>
+<ul>
+<li><strong>standard</strong>. Exact class matches</li>
+<li><strong>deep</strong>. Regex patterns matching classes and their pseudo-class variants (:hover,:focus)</li>
+<li><strong>greedy</strong>. Regex patterns matching classes and all descendants</li>
+</ul>
+<p><strong>Testing after PurgeCSS</strong>: Visual regression testing catches unintended deletions. Use tools like Percy, BackstopJS, or manual QA across major page templates:</p>
+<ol>
+<li>Generate purged CSS</li>
+<li>Deploy to staging environment</li>
+<li>Systematically browse all page templates</li>
+<li>Check interactive states (hover effects, modals, dropdowns, form validation)</li>
+<li>Identify any broken styles (PurgeCSS removed something it shouldn&#39;t have)</li>
+<li>Add broken selectors to safelist</li>
+<li>Regenerate and retest</li>
+</ol>
+<p><strong>File size reductions</strong>: PurgeCSS typically achieves 70-90% size reduction on framework CSS:</p>
+<pre><code>Before: bootstrap.css (152 KB)
+After: bootstrap.purged.css (23 KB)
+Reduction: 84.9%
+</code></pre>
+<p>For custom stylesheets, reductions vary with code quality, well-maintained custom CSS may reduce 30-50%, while legacy CSS accumulating over years may reduce 70%+.</p>
+<p><strong>Critical CSS + PurgeCSS workflow</strong>:</p>
+<ol>
+<li>Run PurgeCSS to remove all unused CSS</li>
+<li>Run Critical CSS extraction on purged CSS</li>
+<li>Inline critical CSS</li>
+<li>Async load remaining purged CSS</li>
+</ol>
+<p>This combines benefits: PurgeCSS eliminates dead code, Critical CSS extraction isolates above-the-fold needs, resulting in minimal inline CSS and minimal async-loaded CSS.</p>
+<h2 id="javascript-dead-code-elimination-and-tree-shaking">JavaScript Dead Code Elimination and Tree Shaking</h2>
+<p>Tree shaking removes unused JavaScript exports from ES6 modules, preventing bundlers from including functions, classes, or variables never imported by application code.</p>
+<p><strong>Webpack 5 tree shaking</strong> (enabled by default in production mode):</p>
+<pre><code class="language-javascript">// webpack.config.js
+module.exports = {
+  mode: &#39;production&#39;,  // Enables tree shaking
+  entry: &#39;./src/index.js&#39;,
+  output: {
+    filename: &#39;bundle.js&#39;,
+    path: __dirname + &#39;/dist&#39;
+  }
+};
+</code></pre>
+<p>Webpack analyzes module imports/exports, flags unused exports, then Terser minifier eliminates flagged code during minification.</p>
+<p><strong>ES6 module requirements</strong>: Tree shaking requires ES6 <code>import</code>/<code>export</code> syntax. CommonJS <code>require()</code> creates dynamic dependencies static analysis cannot reliably resolve:</p>
+<pre><code class="language-javascript">// Tree-shakeable (ES6)
+import { used function } from &#39;./utils&#39;;
+
+// NOT tree-shakeable (CommonJS)
+const utils = require(&#39;./utils&#39;);
+const fn = utils.usedFunction;
+</code></pre>
+<p>Ensure Babel configuration preserves ES6 modules:</p>
+<pre><code class="language-json">{
+  &quot;presets&quot;: [
+    [&quot;@babel/preset-env&quot;, {
+      &quot;modules&quot;: false  // Don&#39;t transform modules
+    }]
+  ]
+}
+</code></pre>
+<p><strong>Side effect annotations</strong>: Webpack assumes module initialization may have side effects (modifying globals, registering event listeners), preventing elimination even if exports are unused. Declare modules side-effect-free in <code>package.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;my-package&quot;,
+  &quot;sideEffects&quot;: false  // All files are side-effect-free
+}
+</code></pre>
+<p>Or specify side-effect files explicitly:</p>
+<pre><code class="language-json">{
+  &quot;sideEffects&quot;: [
+    &quot;*.css&quot;,
+    &quot;./src/polyfills.js&quot;
+  ]
+}
+</code></pre>
+<p>This enables Webpack to eliminate entire unused modules, not unused exports.</p>
+<p><strong>Lodash tree shaking</strong> requires special handling:</p>
+<pre><code class="language-javascript">// Bad: imports entire Lodash (71KB)
+import _ from &#39;lodash&#39;;
+_.debounce(fn, 300);
+
+// Better: per-method imports
+import debounce from &#39;lodash/debounce&#39;;
+debounce(fn, 300);
+
+// Best: lodash-es (ES6 module build)
+import { debounce } from &#39;lodash-es&#39;;
+debounce(fn, 300);
+</code></pre>
+<p>The <code>lodash-es</code> package provides ES6 module builds enabling tree shaking, unlike standard <code>lodash</code> which uses CommonJS.</p>
+<p><strong>Rollup tree shaking</strong> offers more aggressive elimination:</p>
+<pre><code class="language-javascript">// rollup.config.js
+import { terser } from &#39;rollup-plugin-terser&#39;;
+
+export default {
+  input: &#39;src/index.js&#39;,
+  output: {
+    file: &#39;dist/bundle.js&#39;,
+    format: &#39;esm&#39;
+  },
+  plugins: [terser()]
+};
+</code></pre>
+<p>Rollup analyzes at statement level rather than module level, producing smaller bundles for library code compared to Webpack.</p>
+<p><strong>Dead code from conditional logic</strong>:</p>
+<pre><code class="language-javascript">if (process.env.NODE_ENV !== &#39;production&#39;) {
+  console.log(&#39;Development mode&#39;);
+  enableDebugTools();
+}
+</code></pre>
+<p>When <code>NODE_ENV</code> is defined as &#39;production&#39; during build, bundlers eliminate this entire block as unreachable code. Ensure build processes define environment variables:</p>
+<pre><code class="language-javascript">// webpack.config.js
+const webpack = require(&#39;webpack&#39;);
+
+module.exports = {
+  plugins: [
+    new webpack.DefinePlugin({
+      &#39;process.env.NODE_ENV&#39;: JSON.stringify(&#39;production&#39;)
+    })
+  ]
+};
+</code></pre>
+<p><strong>Analyzing bundle composition</strong>: Webpack Bundle Analyzer visualizes bundle contents:</p>
+<pre><code class="language-bash">npm install --save-dev webpack-bundle-analyzer
+</code></pre>
+<pre><code class="language-javascript">// webpack.config.js
+const BundleAnalyzerPlugin = require(&#39;webpack-bundle-analyzer&#39;).BundleAnalyzerPlugin;
+
+module.exports = {
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
+};
+</code></pre>
+<p>Running Webpack opens interactive treemap showing all modules and their sizes. Large modules consuming disproportionate space surface as optimization targets, consider lazy loading, splitting, or replacing with lighter alternatives.</p>
+<p><strong>Dynamic imports</strong> isolate unused features:</p>
+<pre><code class="language-javascript">// Loads charting library only when user clicks &quot;Show Chart&quot;
+button.addEventListener(&#39;click&#39;, async () =&gt; {
+  const { Chart } = await import(&#39;./charting.js&#39;);
+  new Chart(data);
+});
+</code></pre>
+<p>Heavy features loaded conditionally don&#39;t bloat initial bundle. Coverage analysis shows 0% usage initially; the code only downloads when user action triggers import.</p>
+<h2 id="code-splitting-by-page-and-feature">Code Splitting by Page and Feature</h2>
+<p>Code splitting divides JavaScript into route-specific or feature-specific bundles, eliminating cross-page code bloat where every page loads JavaScript for features that page doesn&#39;t use.</p>
+<p><strong>Route-based splitting</strong> isolates page-specific code:</p>
+<pre><code class="language-javascript">// Without splitting - single bundle contains all pages
+import HomePage from &#39;./pages/Home&#39;;
+import ProductPage from &#39;./pages/Product&#39;;
+import CheckoutPage from &#39;./pages/Checkout&#39;;
+
+// With splitting - separate bundles per route
+const routes = [
+  { path: &#39;/&#39;, component: () =&gt; import(&#39;./pages/Home&#39;) },
+  { path: &#39;/product&#39;, component: () =&gt; import(&#39;./pages/Product&#39;) },
+  { path: &#39;/checkout&#39;, component: () =&gt; import(&#39;./pages/Checkout&#39;) }
+];
+</code></pre>
+<p>React Router + lazy loading:</p>
+<pre><code class="language-javascript">import { lazy, Suspense } from &#39;react&#39;;
+
+const Home = lazy(() =&gt; import(&#39;./pages/Home&#39;));
+const Product = lazy(() =&gt; import(&#39;./pages/Product&#39;));
+
+function App() {
+  return (
+    &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+      &lt;Routes&gt;
+        &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+        &lt;Route path=&quot;/product&quot; element={&lt;Product /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/Suspense&gt;
+  );
+}
+</code></pre>
+<p>Each route loads only its own bundle, eliminating homepage code from product pages and vice versa.</p>
+<p><strong>Feature-based splitting</strong>:</p>
+<pre><code class="language-javascript">// Heavy feature loaded conditionally
+const videoPlayer = () =&gt; import(&#39;./features/VideoPlayer&#39;);
+
+document.querySelector(&#39;.video-trigger&#39;).addEventListener(&#39;click&#39;, async () =&gt; {
+  const { VideoPlayer } = await videoPlayer();
+  new VideoPlayer(config);
+});
+</code></pre>
+<p>Video player code (potentially hundreds of KB with codec support) only loads when users click video triggers.</p>
+<p><strong>Vendor bundle splitting</strong>:</p>
+<pre><code class="language-javascript">// webpack.config.js
+module.exports = {
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: &#39;vendor&#39;,
+          chunks: &#39;all&#39;
+        }
+      }
+    }
+  }
+};
+</code></pre>
+<p>This extracts all third-party dependencies into <code>vendor.js</code>, separating stable library code from frequently changing application code. When you update app code, users reuse cached vendor bundle.</p>
+<p><strong>Granular vendor splitting</strong>:</p>
+<pre><code class="language-javascript">splitChunks: {
+  cacheGroups: {
+    react: {
+      test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+      name: &#39;react&#39;,
+      priority: 20
+    },
+    lodash: {
+      test: /[\\/]node_modules[\\/]lodash[\\/]/,
+      name: &#39;lodash&#39;,
+      priority: 20
+    },
+    vendor: {
+      test: /[\\/]node_modules[\\/]/,
+      name: &#39;vendor&#39;,
+      priority: 10
+    }
+  }
+}
+</code></pre>
+<p>Separate bundles for React, Lodash, and other vendors optimize cache granularity, updating React doesn&#39;t invalidate Lodash cache.</p>
+<p><strong>Critical vs non-critical splitting</strong>:</p>
+<pre><code class="language-javascript">// Critical: Load immediately
+import { formatCurrency } from &#39;./utils&#39;;
+
+// Non-critical: Lazy load
+const analytics = () =&gt; import(&#39;./analytics&#39;);
+
+window.addEventListener(&#39;load&#39;, async () =&gt; {
+  const { track } = await analytics();
+  track(&#39;page-view&#39;);
+});
+</code></pre>
+<p>Analytics, chat widgets, A/B testing, defer until <code>load</code> event or user interaction, keeping initial bundles minimal.</p>
+<p><strong>Preloading split chunks</strong>:</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;/product-page.js&quot; as=&quot;script&quot;&gt;
+</code></pre>
+<p>Preloading anticipated routes (product pages when user hovers product links) eliminates load delay when navigation occurs.</p>
+<h2 id="wordpress-and-cms-specific-optimization">WordPress and CMS-Specific Optimization</h2>
+<p><strong>WordPress unused CSS/JS</strong> accumulates from themes and plugins loading assets globally when they&#39;re needed only on specific pages.</p>
+<p><strong>Asset CleanUp plugin</strong> (free) provides granular control:</p>
+<ol>
+<li>Install Asset CleanUp</li>
+<li>Browse site logged in</li>
+<li>Plugin adds control panel to each page showing all loaded CSS/JS</li>
+<li>Unload unused assets per page type</li>
+<li>Configure global rules (e.g., &quot;Never load Contact Form 7 CSS except on /contact page&quot;)</li>
+</ol>
+<p><strong>Perfmatters plugin</strong> (premium, $29/year):</p>
+<ol>
+<li>Install Perfmatters</li>
+<li>Go to Settings → Assets</li>
+<li>Configure script/style loading per page type</li>
+<li>Enable &quot;Remove jQuery Migrate&quot; if unused</li>
+<li>Defer JavaScript, disable emojis, remove query strings</li>
+</ol>
+<p><strong>Manual theme optimization</strong>:</p>
+<pre><code class="language-php">// functions.php - conditional asset loading
+function load_conditional_assets() {
+    // Remove unused assets
+    wp_dequeue_style(&#39;wp-block-library&#39;); // Gutenberg styles if not using blocks
+
+    // Load Contact Form 7 only on contact page
+    if (!is_page(&#39;contact&#39;)) {
+        wp_dequeue_style(&#39;contact-form-7&#39;);
+        wp_dequeue_script(&#39;contact-form-7&#39;);
+    }
+
+    // Load WooCommerce assets only on shop pages
+    if (!is_woocommerce()) {
+        wp_dequeue_style(&#39;woocommerce-layout&#39;);
+        wp_dequeue_style(&#39;woocommerce-general&#39;);
+        wp_dequeue_script(&#39;woocommerce&#39;);
+    }
+}
+add_action(&#39;wp_enqueue_scripts&#39;, &#39;load_conditional_assets&#39;, 999);
+</code></pre>
+<p>This dequeues specific stylesheets and scripts based on page context, preventing global loading.</p>
+<p><strong>Shopify theme optimization</strong>:</p>
+<p>Shopify themes load assets via <code>{{ &#39;theme.css&#39; | asset_url | stylesheet_tag }}</code>. Unused code removal requires editing theme files:</p>
+<ol>
+<li>Download theme files</li>
+<li>Run PurgeCSS against Liquid templates + theme.css</li>
+<li>Replace theme.css with purged version</li>
+<li>Upload modified theme</li>
+<li>Test across product, collection, cart, checkout pages</li>
+</ol>
+<p><strong>Elementor/page builder cleanup</strong>: Page builders inject large CSS/JS libraries. Optimize via plugins or code:</p>
+<pre><code class="language-php">// Remove Elementor frontend CSS/JS on non-Elementor pages
+function remove_elementor_assets() {
+    if (!is_page_elementor()) {
+        wp_dequeue_style(&#39;elementor-frontend&#39;);
+        wp_dequeue_script(&#39;elementor-frontend&#39;);
+    }
+}
+
+function is_page_elementor() {
+    $post_id = get_the_ID();
+    return \Elementor\Plugin::$instance-&gt;db-&gt;is_built_with_elementor($post_id);
+}
+
+add_action(&#39;wp_enqueue_scripts&#39;, &#39;remove_elementor_assets&#39;, 999);
+</code></pre>
+<h2 id="monitoring-and-preventing-unused-code-accumulation">Monitoring and Preventing Unused Code Accumulation</h2>
+<p><strong>Automated coverage reports</strong> in CI/CD pipelines catch unused code before production:</p>
+<pre><code class="language-javascript">// coverage-check.js
+const puppeteer = require(&#39;puppeteer&#39;);
+
+(async () =&gt; {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  await page.coverage.startCSSCoverage();
+  await page.coverage.startJSCoverage();
+
+  await page.goto(&#39;https://example.com&#39;);
+
+  const [cssCoverage, jsCoverage] = await Promise.all([
+    page.coverage.stopCSSCoverage(),
+    page.coverage.stopJSCoverage()
+  ]);
+
+  const cssUnused = cssCoverage.reduce((total, entry) =&gt; {
+    return total + entry.ranges.reduce((sum, range) =&gt; {
+      return sum + (range.end - range.start);
+    }, 0);
+  }, 0);
+
+  const cssTotal = cssCoverage.reduce((total, entry) =&gt; total + entry.text.length, 0);
+  const cssUsagePercent = ((cssTotal - cssUnused) / cssTotal * 100).toFixed(2);
+
+  console.log(`CSS Usage: ${cssUsagePercent}%`);
+
+  if (cssUsagePercent &lt; 50) {
+    console.error(&#39;ERROR: CSS usage below 50% threshold&#39;);
+    process.exit(1);  // Fail CI build
+  }
+
+  await browser.close();
+})();
+</code></pre>
+<p>Run this script in CI pipeline to fail builds when unused code exceeds thresholds, preventing regressions.</p>
+<p><strong>Bundle size limits</strong> enforce discipline:</p>
+<pre><code class="language-javascript">// webpack.config.js
+module.exports = {
+  performance: {
+    maxAssetSize: 250000,  // 250KB
+    maxEntrypointSize: 400000,  // 400KB
+    hints: &#39;error&#39;  // Fail build if exceeded
+  }
+};
+</code></pre>
+<p>Webpack fails builds when bundle sizes exceed limits, forcing developers to optimize before deployment.</p>
+<p><strong>Bundlephobia integration</strong> checks dependency sizes before installation:</p>
+<pre><code class="language-bash">npx bundle-phobia lodash
+# Output: lodash@4.17.21 - minified: 71.5KB, gzipped: 25.0KB
+</code></pre>
+<p>Review package sizes before adding dependencies, preferring lighter alternatives when functionality overlaps.</p>
+<p><strong>Regular audits</strong>: Schedule quarterly unused code audits:</p>
+<ol>
+<li>Run Coverage analysis on production site</li>
+<li>Document files with 60%+ unused code</li>
+<li>Create tickets for cleanup</li>
+<li>Prioritize by file size × unused percentage</li>
+<li>Implement PurgeCSS/tree shaking or manual removal</li>
+<li>Measure before/after bundle size reduction</li>
+</ol>
+<p><strong>Documentation requirements</strong>: Require developers document why large dependencies are added:</p>
+<pre><code>// package.json
+{
+  &quot;dependencies&quot;: {
+    &quot;moment&quot;: &quot;^2.29.0&quot;  // Required for timezone handling in booking system
+  }
+}
+</code></pre>
+<p>Comments prevent &quot;why do we have this?&quot; confusion later, enabling informed decisions about continued use or replacement.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Coverage Analysis and Unused Code Detection:</strong> Chrome DevTools Coverage panel quantifies unused code with byte-level precision, revealing which portions of CSS and JavaScript files execute during page interactions.</li>
+<li><strong>PurgeCSS Configuration for Automated CSS Cleanup:</strong> PurgeCSS scans HTML/JS files for class names, IDs, and selectors, removing CSS rules matching nothing in your content.</li>
+<li><strong>JavaScript Dead Code Elimination and Tree Shaking:</strong> Tree shaking removes unused JavaScript exports from ES6 modules, preventing bundlers from including functions, classes, or variables never imported by application code.</li>
+<li><strong>Code Splitting by Page and Feature:</strong> Code splitting divides JavaScript into route-specific or feature-specific bundles, eliminating cross-page code bloat where every page loads JavaScript for features that page doesn&#39;t use.</li>
+<li><strong>Monitoring and Preventing Unused Code Accumulation:</strong> (async () =&gt; {
+const browser = await puppeteer.launch();
+const page = await browser.newPage();</li>
+</ul>
+<h2 id="faq-unused-css-and-javascript-removal">FAQ: Unused CSS and JavaScript Removal</h2>
+<p><strong>Will removing unused CSS break responsive designs?</strong>
+No if PurgeCSS configuration includes all content files (HTML, JS, templates). Responsive classes in media queries are preserved when found in content. Test across all breakpoints after purging to verify responsive behavior.</p>
+<p><strong>Can I remove jQuery if plugins depend on it?</strong>
+No. If any WordPress plugins or theme features require jQuery, removing it breaks functionality. Instead, defer jQuery loading (load at body end) and audit plugins, many modern alternatives eliminate jQuery dependence entirely.</p>
+<p><strong>Does tree shaking work with TypeScript?</strong>
+Yes. Configure TypeScript to preserve ES6 modules (<code>&quot;module&quot;: &quot;esnext&quot;</code> in tsconfig.json), then Webpack tree shakes TypeScript-compiled output normally. TypeScript&#39;s type information doesn&#39;t interfere with tree shaking.</p>
+<p><strong>How do I handle CSS frameworks like Bootstrap after purging?</strong>
+PurgeCSS reduces Bootstrap from 150KB to 15-30KB typically, removing unused utilities and components. Test thoroughly, some JavaScript components (modals, dropdowns) require specific CSS classes that may be purged if not found in templates.</p>
+<p><strong>Can removing unused code hurt SEO?</strong>
+No. Search engines don&#39;t penalize small file sizes. Reduced CSS/JS improves page speed metrics (FCP, TBT), which positively impact rankings through Core Web Vitals. Ensure purging doesn&#39;t remove styles affecting Googlebot&#39;s rendered view.</p>
+<p><strong>Should I remove unused CSS from third-party widgets?</strong>
+Risky. Third-party widgets (chat, ads, social) may inject HTML dynamically after page load, requiring CSS not detected in initial content. Safelist third-party CSS selectors or exclude third-party CSS from purging.</p>
+<p><strong>Does code splitting hurt SEO by delaying content?</strong>
+No if critical content renders immediately. Lazy-loaded features (modals, videos, advanced UI) don&#39;t affect SEO. Ensure primary text content and navigation render without waiting for split bundles.</p>
+<p><strong>How do I test for broken styles after PurgeCSS?</strong>
+Visual regression testing across all templates and breakpoints. Automated tools (Percy, BackstopJS) capture screenshots before/after purging, highlighting visual differences. Manual QA should test interactive states (hover, focus, active) and JavaScript-triggered UI changes.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/reduce-javascript-execution-time.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Page Speed Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Reduce JavaScript Execution Time: Performance Optimization Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Cut JavaScript execution overhead through code splitting, tree shaking, deferred loading, and Web Worker offloading. Optimize Total Blocking Time and interaction latency.</p>
+          </a>
+
+          <a href="/articles/remove-render-blocking-resources.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Page Speed Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Remove Render-Blocking Resources: Critical Rendering Path Optimization</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate render-blocking CSS and JavaScript to accelerate First Contentful Paint. Inline critical styles, defer non-critical resources, optimize loading sequence.</p>
+          </a>
+
+          <a href="/articles/reduce-http-requests-speed.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Page Speed Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Reduce HTTP Requests for Page Speed: Resource Optimization Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Cut HTTP request overhead through concatenation, spriting, lazy loading, and resource inlining. Proven techniques to minimize network latency and accelerate page rendering.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canonical vs 301 Redirect: Which to Use and When | Polytraffic</title>
+    <meta name="description" content="Canonical tags and 301 redirects both consolidate duplicate content, but they work differently. Choose wrong and you leak link equity or confuse users." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Canonical vs 301 Redirect: Which to Use and When | Polytraffic" />
+    <meta property="og:description" content="Canonical tags and 301 redirects both consolidate duplicate content, but they work differently. Choose wrong and you leak link equity or confuse users." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/canonical-vs-301-redirect-when-to-use" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/canonical-vs-301-redirect-when-to-use.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Canonical vs 301 Redirect: Which to Use and When | Polytraffic" />
+    <meta name="twitter:description" content="Canonical tags and 301 redirects both consolidate duplicate content, but they work differently. Choose wrong and you leak link equity or confuse users." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/canonical-vs-301-redirect-when-to-use.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/canonical-vs-301-redirect-when-to-use" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Canonical vs 301 Redirect: Which to Use and When",
+    "description": "Canonical tags and 301 redirects both consolidate duplicate content, but they work differently. Choose wrong and you leak link equity or confuse users.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/canonical-vs-301-redirect-when-to-use.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/canonical-vs-301-redirect-when-to-use.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Canonical vs 301 Redirect: Which to Use and When"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Canonical vs 301 Redirect: Which to Use and When</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/canonical-vs-301-redirect-when-to-use.png" alt="Canonical vs 301 Redirect: Which to Use and When" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="canonical-vs-301-redirect-which-to-use-and-when">Canonical vs 301 Redirect: Which to Use and When</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Canonical tags and 301 redirects both consolidate duplicate content, but they work differently. Choose wrong and you leak link equity or confuse users.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#how-canonical-tags-work" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How Canonical Tags Work</a></li>
+<li><a href="#how-301-redirects-work" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How 301 Redirects Work</a></li>
+<li><a href="#canonical-vs-301-redirect-side-by-side-comparison" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Canonical vs 301 Redirect: Side-by-Side Comparison</a></li>
+<li><a href="#when-to-use-a-canonical-tag" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When to Use a Canonical Tag</a></li>
+<li><a href="#when-to-use-a-301-redirect" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When to Use a 301 Redirect</a></li>
+<li><a href="#common-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Mistakes</a></li>
+<li><a href="#decision-matrix-canonical-vs-301-redirect" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Decision Matrix: Canonical vs 301 Redirect</a></li>
+<li><a href="#can-you-use-both-on-the-same-page" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Can You Use Both on the Same Page?</a></li>
+<li><a href="#how-to-implement" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Implement</a></li>
+<li><a href="#next-steps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Next Steps</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Canonical tags and 301 redirects both solve duplicate content problems by consolidating ranking signals to a single URL. But they work differently and serve different purposes. Use a canonical when both URLs need to remain accessible. Use a 301 redirect when the old URL should no longer exist.</p>
+<p>Choosing wrong causes problems. A canonical when you need a redirect leaves duplicate URLs accessible, wasting link equity. A redirect when you need a canonical forces users to a different URL unnecessarily, breaking direct links or bookmarks.</p>
+<p>This guide explains how canonical tags and 301 redirects work, when to use each, and how to avoid common misconfigurations that harm SEO.</p>
+<h2 id="how-canonical-tags-work">How Canonical Tags Work</h2>
+<p>A canonical tag is an HTML element in the <code>&lt;head&gt;</code> that tells Google which version of a page is the preferred one:</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/preferred-url&quot;&gt;
+</code></pre>
+<h3 id="what-canonical-tags-do">What Canonical Tags Do</h3>
+<ol>
+<li><strong>Both URLs remain accessible</strong>. Users and bots can visit both the canonical and non-canonical URLs</li>
+<li><strong>Google consolidates signals to the canonical</strong>. Link equity, rankings, and indexing focus on the canonical URL</li>
+<li><strong>Google treats it as a hint</strong>. Google may ignore your canonical if other signals conflict (sitemap, internal links, redirects)</li>
+</ol>
+<h3 id="when-google-shows-the-non-canonical-url">When Google Shows the Non-Canonical URL</h3>
+<p>Even with a canonical tag, Google may show the non-canonical URL in search results if it better matches the user&#39;s query or device (e.g., showing a mobile URL for mobile searches).</p>
+<h2 id="how-301-redirects-work">How 301 Redirects Work</h2>
+<p>A 301 redirect is a server-side instruction that permanently moves a URL to a new location. When a browser or bot requests the old URL, the server responds with HTTP status <code>301 Moved Permanently</code> and redirects to the new URL.</p>
+<h3 id="what-301-redirects-do">What 301 Redirects Do</h3>
+<ol>
+<li><strong>Old URL is no longer accessible</strong>. Requests to the old URL automatically redirect to the new URL</li>
+<li><strong>Google transfers signals to the new URL</strong>. Link equity, rankings, and indexing move to the new URL</li>
+<li><strong>Google treats it as authoritative</strong>. 301 redirects are directives, not hints. Google follows them.</li>
+</ol>
+<h3 id="link-equity-transfer">Link Equity Transfer</h3>
+<p>301 redirects pass approximately <strong>90-99%</strong> of link equity to the new URL. Canonical tags pass similar equity, but because the old URL remains accessible, there&#39;s potential for signal dilution if Google receives conflicting signals.</p>
+<h2 id="canonical-vs-301-redirect-side-by-side-comparison">Canonical vs 301 Redirect: Side-by-Side Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Canonical Tag</th>
+<th>301 Redirect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Both URLs accessible?</strong></td>
+<td>Yes</td>
+<td>No (old URL redirects)</td>
+</tr>
+<tr>
+<td><strong>User experience</strong></td>
+<td>Users can visit either URL</td>
+<td>Users are redirected automatically</td>
+</tr>
+<tr>
+<td><strong>Link equity passed?</strong></td>
+<td>Yes (~90-99%)</td>
+<td>Yes (~90-99%)</td>
+</tr>
+<tr>
+<td><strong>Google&#39;s treatment</strong></td>
+<td>Hint (can be ignored)</td>
+<td>Directive (followed)</td>
+</tr>
+<tr>
+<td><strong>Speed of consolidation</strong></td>
+<td>Slower (Google processes as hint)</td>
+<td>Faster (immediate enforcement)</td>
+</tr>
+<tr>
+<td><strong>Use when...</strong></td>
+<td>Both URLs need to exist</td>
+<td>Old URL should no longer be visited</td>
+</tr>
+<tr>
+<td><strong>Reversal difficulty</strong></td>
+<td>Easy (remove tag)</td>
+<td>Harder (remove redirect rule, potential 404s)</td>
+</tr>
+</tbody></table>
+<h2 id="when-to-use-a-canonical-tag">When to Use a Canonical Tag</h2>
+<h3 id="scenario-1-url-parameters-tracking-filters-sorting">Scenario 1: URL Parameters (Tracking, Filters, Sorting)</h3>
+<p>URLs with parameters create duplicates:</p>
+<pre><code>https://yoursite.com/products
+https://yoursite.com/products?sort=price
+https://yoursite.com/products?color=red
+https://yoursite.com/products?utm_source=email
+</code></pre>
+<p>All show the same or similar content. Use canonical tags to consolidate signals to the base URL:</p>
+<pre><code class="language-html">&lt;!-- On https://yoursite.com/products?sort=price --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/products&quot;&gt;
+</code></pre>
+<p><strong>Why not a redirect:</strong> Users may have bookmarked or shared the parameterized URL. Redirecting breaks those links.</p>
+<h3 id="scenario-2-print-or-mobile-specific-pages">Scenario 2: Print or Mobile-Specific Pages</h3>
+<p>You have a print-friendly version or mobile-specific URL:</p>
+<pre><code>https://yoursite.com/article (main page)
+https://yoursite.com/article/print (print version)
+</code></pre>
+<p>Canonical the print version to the main page:</p>
+<pre><code class="language-html">&lt;!-- On /article/print --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/article&quot;&gt;
+</code></pre>
+<p><strong>Why not a redirect:</strong> Users who specifically request the print version expect to see it.</p>
+<h3 id="scenario-3-syndicated-or-republished-content">Scenario 3: Syndicated or Republished Content</h3>
+<p>You publish content on Medium, LinkedIn, or a partner site. Those platforms republish your content with a canonical pointing back to your original:</p>
+<pre><code class="language-html">&lt;!-- On external site republishing your content --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/original-article&quot;&gt;
+</code></pre>
+<p><strong>Why not a redirect:</strong> The external site needs the content to remain accessible on their domain.</p>
+<h3 id="scenario-4-product-variations-with-minimal-differences">Scenario 4: Product Variations with Minimal Differences</h3>
+<p>You sell the same product in different colors, each with its own URL:</p>
+<pre><code>https://yoursite.com/product/widget-blue
+https://yoursite.com/product/widget-red
+</code></pre>
+<p>If the only difference is color and you want one variation to rank, canonical the others to it:</p>
+<pre><code class="language-html">&lt;!-- On /product/widget-red --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/product/widget-blue&quot;&gt;
+</code></pre>
+<p><strong>Why not a redirect:</strong> Users may link directly to the red widget. Redirecting breaks those links.</p>
+<h3 id="scenario-5-http-to-https-backup-method">Scenario 5: HTTP to HTTPS (Backup Method)</h3>
+<p>If your HTTP pages are still accessible (you haven&#39;t forced HTTPS via redirect), use canonical tags to signal HTTPS as preferred:</p>
+<pre><code class="language-html">&lt;!-- On http://yoursite.com/page --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/page&quot;&gt;
+</code></pre>
+<p><strong>Better approach:</strong> Implement a 301 redirect from HTTP to HTTPS sitewide. Canonical is a fallback if you can&#39;t control redirects.</p>
+<h2 id="when-to-use-a-301-redirect">When to Use a 301 Redirect</h2>
+<h3 id="scenario-1-permanent-url-changes">Scenario 1: Permanent URL Changes</h3>
+<p>You renamed a page or restructured your URLs:</p>
+<pre><code>Old: https://yoursite.com/services/seo-optimization
+New: https://yoursite.com/seo-services
+</code></pre>
+<p>Implement a 301 redirect. The old URL should no longer exist:</p>
+<pre><code class="language-apache">Redirect 301 /services/seo-optimization https://yoursite.com/seo-services
+</code></pre>
+<p><strong>Why not a canonical:</strong> The old URL is obsolete. Redirecting ensures users and bots always land on the new URL.</p>
+<h3 id="scenario-2-site-migrations">Scenario 2: Site Migrations</h3>
+<p>You&#39;re migrating to a new domain or changing URL structure:</p>
+<pre><code>Old: http://oldsite.com/page
+New: https://newsite.com/page
+</code></pre>
+<p>301 redirect every old URL to its new equivalent.</p>
+<p><strong>Why not a canonical:</strong> Cross-domain canonicals are supported but less reliable than redirects. Redirects are authoritative.</p>
+<h3 id="scenario-3-consolidating-duplicate-pages">Scenario 3: Consolidating Duplicate Pages</h3>
+<p>You have two pages covering the same topic and want to merge them:</p>
+<pre><code>Weak: https://yoursite.com/seo-tips
+Strong: https://yoursite.com/seo-guide
+</code></pre>
+<p>Merge the content into the stronger page and 301 redirect the weaker page:</p>
+<pre><code class="language-apache">Redirect 301 /seo-tips https://yoursite.com/seo-guide
+</code></pre>
+<p><strong>Why not a canonical:</strong> Once merged, the weaker page shouldn&#39;t exist anymore.</p>
+<h3 id="scenario-4-deleting-pages-with-backlinks">Scenario 4: Deleting Pages with Backlinks</h3>
+<p>A page is being removed, but it has backlinks or traffic. Redirect it to the most relevant page:</p>
+<pre><code>Deleted: https://yoursite.com/outdated-service
+Redirect to: https://yoursite.com/services
+</code></pre>
+<p><strong>Why not a canonical:</strong> The deleted page no longer has content. Redirecting preserves link equity.</p>
+<h3 id="scenario-5-enforcing-preferred-domain-www-vs-non-www">Scenario 5: Enforcing Preferred Domain (WWW vs Non-WWW)</h3>
+<p>Redirect all www traffic to non-www (or vice versa):</p>
+<pre><code class="language-apache"># Redirect www to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.yoursite\.com [NC]
+RewriteRule ^(.*)$ https://yoursite.com/$1 [L,R=301]
+</code></pre>
+<p><strong>Why not a canonical:</strong> This is a site-wide structural decision. Redirects enforce it for all users and bots.</p>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<h3 id="mistake-1-using-canonical-instead-of-redirect-for-deleted-pages">Mistake 1: Using Canonical Instead of Redirect for Deleted Pages</h3>
+<p>A page is deleted, but you add a canonical to the homepage instead of redirecting.</p>
+<p><strong>Problem:</strong> The deleted page returns a 404 with a canonical tag. Google ignores the canonical because the page doesn&#39;t exist.</p>
+<p><strong>Fix:</strong> 301 redirect the deleted page to a relevant live page.</p>
+<h3 id="mistake-2-using-redirect-instead-of-canonical-for-parameter-urls">Mistake 2: Using Redirect Instead of Canonical for Parameter URLs</h3>
+<p>You redirect all <code>?sort=</code> parameter variations to the base URL.</p>
+<p><strong>Problem:</strong> Users who bookmarked <code>?sort=price</code> get redirected to the unsorted view, breaking their preferred filter.</p>
+<p><strong>Fix:</strong> Use canonical tags. Keep the parameterized URLs accessible but consolidate SEO signals.</p>
+<h3 id="mistake-3-canonical-and-redirect-conflict">Mistake 3: Canonical and Redirect Conflict</h3>
+<p>A page has a canonical tag pointing to <code>/page-b</code>, but the page is also 301 redirected to <code>/page-c</code>.</p>
+<p><strong>Problem:</strong> Conflicting signals. Google may ignore both.</p>
+<p><strong>Fix:</strong> If the page redirects, remove the canonical tag. Redirects supersede canonicals.</p>
+<h3 id="mistake-4-chaining-redirects-when-canonical-would-work">Mistake 4: Chaining Redirects When Canonical Would Work</h3>
+<p>You redirect <code>/page-old</code> → <code>/page-interim</code> → <code>/page-new</code>.</p>
+<p><strong>Problem:</strong> Redirect chains slow down page load and dilute link equity.</p>
+<p><strong>Fix:</strong> Either flatten the redirect (<code>/page-old</code> → <code>/page-new</code>) or use canonical tags if all pages need to remain accessible.</p>
+<h3 id="mistake-5-using-canonical-for-cross-domain-without-verification">Mistake 5: Using Canonical for Cross-Domain Without Verification</h3>
+<p>You canonical your content on Domain A to Domain B, but Domain B doesn&#39;t allow it (e.g., Medium doesn&#39;t let you canonical to them).</p>
+<p><strong>Problem:</strong> Google may ignore the cross-domain canonical.</p>
+<p><strong>Fix:</strong> Verify the target domain supports cross-domain canonicals before implementing.</p>
+<h2 id="decision-matrix-canonical-vs-301-redirect">Decision Matrix: Canonical vs 301 Redirect</h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Use Canonical</th>
+<th>Use 301 Redirect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>URL parameters (filters, sorting, tracking)</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Print/mobile-specific versions</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Syndicated content</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Permanent URL rename</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Site migration</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Deleted pages with backlinks</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Consolidating duplicate pages</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>WWW vs non-WWW</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>HTTP to HTTPS</td>
+<td>❌</td>
+<td>✅ (canonical as backup)</td>
+</tr>
+<tr>
+<td>Product variations (minor differences)</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p><strong>Rule of thumb:</strong> If the old URL should still be accessible to users, use a canonical. If it should no longer exist, use a 301 redirect.</p>
+<h2 id="can-you-use-both-on-the-same-page">Can You Use Both on the Same Page?</h2>
+<p>Yes, but only in specific scenarios.</p>
+<p><strong>Valid use case:</strong> A 301 redirect exists, and the target page has a self-referencing canonical.</p>
+<pre><code class="language-apache"># .htaccess redirect
+Redirect 301 /old-page https://yoursite.com/new-page
+</code></pre>
+<pre><code class="language-html">&lt;!-- On https://yoursite.com/new-page --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/new-page&quot;&gt;
+</code></pre>
+<p>This is valid. The redirect moves users to the new page, and the canonical reinforces that the new page is canonical.</p>
+<p><strong>Invalid use case:</strong> A page returns 200 status, has a canonical pointing to Page B, and also has a redirect in .htaccess pointing to Page C.</p>
+<p><strong>Problem:</strong> Conflicting signals. Google doesn&#39;t know whether to treat Page B or Page C as canonical.</p>
+<p><strong>Fix:</strong> Remove the canonical or the redirect, not both.</p>
+<h2 id="how-to-implement">How to Implement</h2>
+<h3 id="canonical-tag-html">Canonical Tag (HTML)</h3>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/preferred-url&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<h3 id="301-redirect-apache-htaccess">301 Redirect (Apache .htaccess)</h3>
+<pre><code class="language-apache">Redirect 301 /old-page https://yoursite.com/new-page
+</code></pre>
+<h3 id="301-redirect-nginx">301 Redirect (Nginx)</h3>
+<pre><code class="language-nginx">location /old-page {
+  return 301 https://yoursite.com/new-page;
+}
+</code></pre>
+<h3 id="301-redirect-wordpress-plugin">301 Redirect (WordPress Plugin)</h3>
+<p>Use <strong>Redirection</strong> or <strong>Yoast SEO Premium</strong>:</p>
+<ol>
+<li>Go to <strong>Tools &gt; Redirection</strong></li>
+<li>Add source URL and target URL</li>
+<li>Select <strong>301 - Permanent</strong></li>
+<li>Save</li>
+</ol>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>How Canonical Tags Work:</strong> A canonical tag is an HTML element in the <head> that tells Google which version of a page is the preferred one:</li>
+<li><strong>How 301 Redirects Work:</strong> A 301 redirect is a server-side instruction that permanently moves a URL to a new location.</li>
+<li><strong>When to Use a 301 Redirect:</strong> You renamed a page or restructured your URLs:</li>
+<li><strong>Common Mistakes:</strong> A page is deleted, but you add a canonical to the homepage instead of redirecting.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="can-i-use-a-canonical-tag-across-domains">Can I use a canonical tag across domains?</h3>
+<p>Yes. Cross-domain canonicals tell Google that the authoritative version of content lives on a different domain (common for syndication). But they&#39;re less reliable than same-domain canonicals. Google verifies that the target domain allows the canonical.</p>
+<h3 id="does-a-301-redirect-pass-link-equity">Does a 301 redirect pass link equity?</h3>
+<p>Yes, approximately 90-99% of link equity passes through a 301 redirect. This is comparable to canonical tags.</p>
+<h3 id="what-happens-if-i-remove-a-canonical-tag">What happens if I remove a canonical tag?</h3>
+<p>The page becomes self-canonical (Google treats it as the preferred version by default). If you previously canonicalized it to another page, removing the tag signals that the page should now rank on its own.</p>
+<h3 id="can-i-change-a-canonical-to-a-redirect-later">Can I change a canonical to a redirect later?</h3>
+<p>Yes. If you initially used a canonical but later decide the old URL should no longer exist, replace the canonical with a 301 redirect.</p>
+<h3 id="do-canonicals-and-redirects-affect-core-web-vitals">Do canonicals and redirects affect Core Web Vitals?</h3>
+<p>Redirects add latency (50-200ms per hop), which can increase Largest Contentful Paint (LCP). Canonicals don&#39;t add latency because both URLs remain accessible. For speed-critical pages, canonicals are better than redirects if both URLs need to exist.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Audit your site for canonical and redirect usage. Use <strong>Screaming Frog</strong> to identify pages with canonicals and check if redirects would be more appropriate (e.g., deleted pages). Use <strong>Google Search Console &gt; Coverage</strong> to find indexing issues caused by canonical/redirect conflicts. For related guidance, see <a href="/articles/canonical-tag-implementation-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Canonical Tag Implementation Guide</a>, <a href="/articles/301-vs-302-redirects-seo.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">301 vs 302 Redirects for SEO</a>, and <a href="/articles/fix-duplicate-content-fast.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fix Duplicate Content Fast</a>.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/301-vs-302-redirects-seo.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">301 vs 302 Redirects for SEO: When to Use Each</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">301 redirects pass link equity. 302 redirects don't signal permanence. Choose wrong and you leak rankings. This guide shows when to use each redirect type.</p>
+          </a>
+
+          <a href="/articles/article-schema-markup-blog-news.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Article Schema Markup for Blog Posts and News</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Article schema tells Google your content type, author, publish date, and publisher. Implement it correctly and unlock rich results in search and Discover.</p>
+          </a>
+
+          <a href="/articles/audit-cleanup-old-redirects.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Audit and Clean Up Old Redirects</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Old redirects accumulate into chains, loops, and dead ends. Audit your redirect map, flatten chains, remove obsolete redirects, and recover wasted link equity.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

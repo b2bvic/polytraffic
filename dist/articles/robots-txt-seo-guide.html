@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget | Polytraffic</title>
+    <meta name="description" content="Master robots.txt syntax to block crawlers, manage crawl budget, and prevent indexing issues. Includes testing tools and common pitfalls." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget | Polytraffic" />
+    <meta property="og:description" content="Master robots.txt syntax to block crawlers, manage crawl budget, and prevent indexing issues. Includes testing tools and common pitfalls." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/robots-txt-seo-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/robots-txt-seo-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget | Polytraffic" />
+    <meta name="twitter:description" content="Master robots.txt syntax to block crawlers, manage crawl budget, and prevent indexing issues. Includes testing tools and common pitfalls." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/robots-txt-seo-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/robots-txt-seo-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget",
+    "description": "Master robots.txt syntax to block crawlers, manage crawl budget, and prevent indexing issues. Includes testing tools and common pitfalls.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/robots-txt-seo-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/robots-txt-seo-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/robots-txt-seo-guide.png" alt="robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="robots-txt-seo-guide-control-crawler-access-and-preserve-crawl-budget">robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Master robots.txt syntax to block crawlers, manage crawl budget, and prevent indexing issues. Includes testing tools and common pitfalls.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-robots-txt-matters-for-technical-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why robots.txt Matters for Technical SEO</a></li>
+<li><a href="#robots-txt-syntax-and-directive-types" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">robots.txt Syntax and Directive Types</a></li>
+<li><a href="#blocking-entire-sections-or-file-types" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Blocking Entire Sections or File Types</a></li>
+<li><a href="#allowing-specific-bots-while-blocking-others" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Allowing Specific Bots While Blocking Others</a></li>
+<li><a href="#preserving-crawl-budget-on-large-sites" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Preserving Crawl Budget on Large Sites</a></li>
+<li><a href="#common-robots-txt-mistakes-and-fixes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common robots.txt Mistakes and Fixes</a></li>
+<li><a href="#testing-robots-txt-configuration" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Testing robots.txt Configuration</a></li>
+<li><a href="#robots-txt-vs-meta-robots-vs-x-robots-tag" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">robots.txt vs meta robots vs X-Robots-Tag</a></li>
+<li><a href="#sitemap-declarations-in-robots-txt" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Sitemap Declarations in robots.txt</a></li>
+<li><a href="#handling-subdomains-and-https-variants" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Handling Subdomains and HTTPS Variants</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>The <strong>robots.txt file</strong> controls which search engine crawlers can access specific directories, pages, or files on your site. Placed at the root domain (example.com/robots.txt), this plain-text protocol instructs bots to skip low-value pages, preventing wasted crawl budget on admin dashboards, duplicate content, or resource files. Misconfigured robots.txt files block critical pages from indexing, causing catastrophic ranking losses, yet most sites never validate their directives.</p>
+<p>Google&#39;s crawler respects robots.txt as a request, not a mandate. While Googlebot honors disallow directives, malicious bots ignore them. The file serves primarily to optimize crawl efficiency: directing limited crawl budget toward high-value pages while excluding administrative interfaces, filtered URLs, and staging environments from search indexes.</p>
+<h2 id="why-robots-txt-matters-for-technical-seo">Why robots.txt Matters for Technical SEO</h2>
+<p><strong>Crawl budget optimization:</strong> Large sites with millions of URLs face crawl rate limits. Googlebot allocates finite resources per site daily, measured in requests per second and total daily crawls. Sites wasting budget on low-value pages (faceted navigation parameters, session IDs, printer-friendly versions) sacrifice crawling frequency on valuable content.</p>
+<p><strong>Preventing resource waste:</strong> Blocking crawlers from CSS, JavaScript, and image files historically improved crawl efficiency. Google now recommends allowing access to rendering resources since Googlebot executes JavaScript and requires assets for mobile-first indexing. However, blocking large downloadable files (PDFs &gt;5MB, ZIP archives, video files) prevents bandwidth consumption without SEO value.</p>
+<p><strong>Security through obscurity (weak):</strong> robots.txt hides admin panels, development directories, and sensitive paths from casual discovery. This provides minimal security, determined attackers bypass robots.txt, but reduces automated bot traffic to /wp-admin/, /admin/, and similar endpoints.</p>
+<p><strong>Duplicate content management:</strong> Sites generating URL parameters for sorting, filtering, or tracking create thousands of duplicate pages. Blocking parameterized URLs in robots.txt prevents index bloat:</p>
+<pre><code>Disallow: /*?*sort=
+Disallow: /*?*filter=
+</code></pre>
+<p><strong>Staging environment protection:</strong> Development and staging subdomains (staging.example.com, dev.example.com) should block all crawlers to prevent accidental indexing:</p>
+<pre><code>User-agent: *
+Disallow: /
+</code></pre>
+<p><strong>Incorrect robots.txt causes:</strong></p>
+<ul>
+<li><strong>Homepage blocked:</strong> <code>Disallow: /</code> blocks the entire site</li>
+<li><strong>Assets blocked:</strong> Disallowing CSS/JS prevents rendering evaluation</li>
+<li><strong>Pagination blocked:</strong> Blocking /page/2/, /page/3/ limits content discovery</li>
+<li><strong>Important sections missing:</strong> Blocking /blog/ or /products/ removes primary content from indexes</li>
+</ul>
+<p>Google Search Console reports robots.txt issues under <strong>Settings → Crawler → robots.txt tester</strong>. The tool highlights blocked URLs and simulates Googlebot&#39;s interpretation of directives.</p>
+<h2 id="robots-txt-syntax-and-directive-types">robots.txt Syntax and Directive Types</h2>
+<p>The robots.txt file consists of <strong>records</strong>, groups of directives targeting specific user-agents (crawlers).</p>
+<p><strong>Basic structure:</strong></p>
+<pre><code>User-agent: [bot identifier]
+Disallow: [path to block]
+Allow: [path to permit within a disallowed directory]
+Sitemap: [sitemap URL]
+</code></pre>
+<p><strong>User-agent directive:</strong> Specifies which crawler the following rules apply to.</p>
+<pre><code>User-agent: *
+</code></pre>
+<p>The asterisk <code>*</code> targets all bots. Specific bots use their user-agent strings:</p>
+<pre><code>User-agent: Googlebot
+Disallow: /private/
+
+User-agent: Bingbot
+Disallow: /temp/
+</code></pre>
+<p><strong>Common user-agents:</strong></p>
+<ul>
+<li><code>Googlebot</code> Google&#39;s web crawler</li>
+<li><code>Googlebot-Image</code> Google image search crawler</li>
+<li><code>Googlebot-News</code> Google News crawler</li>
+<li><code>Bingbot</code> Microsoft Bing crawler</li>
+<li><code>Slurp</code> Yahoo crawler (now powered by Bing)</li>
+<li><code>DuckDuckBot</code> DuckDuckGo crawler</li>
+<li><code>Baiduspider</code> Baidu crawler (Chinese search engine)</li>
+<li><code>AhrefsBot</code>, <code>SemrushBot</code>, <code>MJ12bot</code> SEO tool crawlers</li>
+</ul>
+<p><strong>Disallow directive:</strong> Prevents crawlers from accessing specified paths.</p>
+<pre><code>Disallow: /admin/
+</code></pre>
+<p>This blocks example.com/admin/ and all subdirectories (/admin/users/, /admin/settings/).</p>
+<p><strong>Allow directive:</strong> Creates exceptions within disallowed directories.</p>
+<pre><code>User-agent: *
+Disallow: /checkout/
+Allow: /checkout/success
+</code></pre>
+<p>Crawlers can access /checkout/success but not other /checkout/ pages.</p>
+<p><strong>Pattern matching:</strong></p>
+<p><strong>Asterisk wildcard (<code>*</code>)</strong> matches any sequence of characters:</p>
+<pre><code>Disallow: /*?*sessionid=
+</code></pre>
+<p>Blocks URLs containing <code>?sessionid=</code> anywhere in the path (example.com/products?sessionid=abc123).</p>
+<p><strong>Dollar sign (<code>$</code>)</strong> matches end of URL:</p>
+<pre><code>Disallow: /*.pdf$
+</code></pre>
+<p>Blocks all PDF files (example.com/document.pdf) but not URLs where <code>.pdf</code> appears mid-path (example.com/pdf-guides/article).</p>
+<p><strong>Sitemap directive:</strong> Declares sitemap locations (multiple allowed):</p>
+<pre><code>Sitemap: https://example.com/sitemap.xml
+Sitemap: https://example.com/sitemap-news.xml
+Sitemap: https://example.com/sitemap-images.xml
+</code></pre>
+<p>Crawlers parse sitemap URLs to discover content. Place sitemap directives at the file&#39;s end after all user-agent records.</p>
+<p><strong>Crawl-delay directive (non-standard):</strong> Requests crawlers wait specified seconds between requests:</p>
+<pre><code>User-agent: *
+Crawl-delay: 10
+</code></pre>
+<p>Google ignores crawl-delay; use Search Console&#39;s crawler rate settings instead. Some bots (Bing, Yandex) respect crawl-delay.</p>
+<h2 id="blocking-entire-sections-or-file-types">Blocking Entire Sections or File Types</h2>
+<p><strong>Block admin areas:</strong></p>
+<pre><code>User-agent: *
+Disallow: /wp-admin/
+Disallow: /admin/
+Disallow: /dashboard/
+</code></pre>
+<p><strong>Block search result pages (infinite URL variations):</strong></p>
+<pre><code>Disallow: /search?
+Disallow: /*?s=
+Disallow: /*?q=
+</code></pre>
+<p><strong>Block URL parameters:</strong></p>
+<pre><code>Disallow: /*?*
+</code></pre>
+<p>This aggressively blocks all parameterized URLs. Use cautiously, some parameters carry unique content (example.com/products?category=shoes may differ significantly from example.com/products).</p>
+<p><strong>Refined parameter blocking:</strong></p>
+<pre><code>Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /*?*sessionid=
+Disallow: /*?*utm_
+</code></pre>
+<p>Blocks specific parameters while allowing others.</p>
+<p><strong>Block file types:</strong></p>
+<pre><code>Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.zip$
+Disallow: /*.exe$
+</code></pre>
+<p><strong>Block development environments:</strong></p>
+<pre><code>User-agent: *
+Disallow: /
+</code></pre>
+<p>For staging.example.com or dev.example.com, place this at the root to block all paths.</p>
+<p><strong>Block printer-friendly and mobile-alternate URLs:</strong></p>
+<pre><code>Disallow: /*/print$
+Disallow: /m/
+</code></pre>
+<h2 id="allowing-specific-bots-while-blocking-others">Allowing Specific Bots While Blocking Others</h2>
+<p><strong>Block SEO tool crawlers while allowing search engines:</strong></p>
+<pre><code>User-agent: Googlebot
+Disallow:
+
+User-agent: Bingbot
+Disallow:
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+</code></pre>
+<p>Empty <code>Disallow:</code> allows full access. Subsequent records targeting specific bots override the <code>User-agent: *</code> wildcard.</p>
+<p><strong>Allow Google but block Bing:</strong></p>
+<pre><code>User-agent: Bingbot
+Disallow: /
+
+User-agent: *
+Disallow: /admin/
+</code></pre>
+<p>Bingbot can&#39;t access anything; other bots follow the wildcard rules.</p>
+<p><strong>Block AI crawlers training language models:</strong></p>
+<pre><code>User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+</code></pre>
+<p>These user-agents (OpenAI, Anthropic, Common Crawl, Google AI training) request content for model training. Blocking prevents unauthorized data harvesting while still allowing search engine indexing.</p>
+<h2 id="preserving-crawl-budget-on-large-sites">Preserving Crawl Budget on Large Sites</h2>
+<p><strong>E-commerce faceted navigation:</strong> Filter combinations generate exponential URL variations (example.com/products?color=red&amp;size=large&amp;material=cotton&amp;brand=nike). Each combination wastes crawl budget.</p>
+<p><strong>Strategy:</strong></p>
+<pre><code>User-agent: *
+Disallow: /*?*color=
+Disallow: /*?*size=
+Disallow: /*?*material=
+Disallow: /*?*brand=
+</code></pre>
+<p>Alternatively, use <a href="self-referencing-canonical-tags.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">canonical tags</a> to consolidate variations to base category URLs.</p>
+<p><strong>Pagination:</strong> Blocking pagination pages (/page/2/, /page/3/) prevents deep crawling but hides content. Instead, allow pagination and use <code>rel=&quot;next&quot;</code> / <code>rel=&quot;prev&quot;</code> or <code>rel=&quot;canonical&quot;</code> directives.</p>
+<p><strong>If you must block pagination:</strong></p>
+<pre><code>Disallow: /*/page/
+Disallow: /*?page=
+</code></pre>
+<p><strong>Tag and archive pages:</strong> WordPress and blog platforms generate archive pages per tag, category, author, and date. These create duplicate content.</p>
+<pre><code>Disallow: /tag/
+Disallow: /author/
+Disallow: /20*/  # Blocks date-based archives (2020/, 2021/, etc.)
+</code></pre>
+<p><strong>Tradeoff:</strong> Blocking tags prevents discovery of posts linked only via tag pages. Better approach: noindex tags via meta robots while allowing crawling.</p>
+<p><strong>Calendar and event archives:</strong></p>
+<pre><code>Disallow: /events/20*/
+Disallow: /calendar/
+</code></pre>
+<p><strong>Session IDs and tracking parameters:</strong></p>
+<pre><code>Disallow: /*?*sessionid=
+Disallow: /*?*sid=
+Disallow: /*?*PHPSESSID=
+</code></pre>
+<p><strong>Search Console Parameter Handling:</strong> An alternative to robots.txt for managing URL parameters. Configure in <strong>Settings → Crawler → URL Parameters</strong> to instruct Google how parameters affect content.</p>
+<h2 id="common-robots-txt-mistakes-and-fixes">Common robots.txt Mistakes and Fixes</h2>
+<p><strong>Mistake 1: Blocking the entire site</strong></p>
+<pre><code>User-agent: *
+Disallow: /
+</code></pre>
+<p><strong>Impact:</strong> No pages index. Traffic drops to zero.</p>
+<p><strong>Fix:</strong> Remove or change to block specific directories only.</p>
+<p><strong>Mistake 2: Blocking CSS and JavaScript</strong></p>
+<pre><code>Disallow: /css/
+Disallow: /js/
+Disallow: /assets/
+</code></pre>
+<p><strong>Impact:</strong> Googlebot can&#39;t render pages correctly, harming mobile-first indexing and Core Web Vitals evaluation.</p>
+<p><strong>Fix:</strong> Allow rendering resources:</p>
+<pre><code>Allow: /css/
+Allow: /js/
+Allow: /assets/
+</code></pre>
+<p><strong>Mistake 3: Using robots.txt to prevent indexing</strong></p>
+<p>Blocking a URL in robots.txt prevents crawling but <strong>doesn&#39;t prevent indexing</strong>. If external sites link to blocked pages, Google may index URLs without visiting them, showing &quot;A description for this result is not available&quot; in SERPs.</p>
+<p><strong>Fix:</strong> Use <code>meta robots noindex</code> tags or <code>X-Robots-Tag</code> HTTP headers to prevent indexing. Allow crawling so Googlebot sees noindex directives.</p>
+<p><strong>Mistake 4: Conflicting directives</strong></p>
+<pre><code>User-agent: *
+Disallow: /blog/
+Allow: /blog/
+</code></pre>
+<p><strong>Impact:</strong> Undefined behavior. Most bots respect the first matching directive.</p>
+<p><strong>Fix:</strong> Remove contradictory rules. Use Allow only to create exceptions within broader Disallow paths.</p>
+<p><strong>Mistake 5: Trailing slashes inconsistency</strong></p>
+<pre><code>Disallow: /admin
+</code></pre>
+<p>This blocks example.com/admin but NOT example.com/admin/ (with trailing slash).</p>
+<p><strong>Fix:</strong> Use wildcards for clarity:</p>
+<pre><code>Disallow: /admin*
+</code></pre>
+<p>Or specify both:</p>
+<pre><code>Disallow: /admin
+Disallow: /admin/
+</code></pre>
+<p><strong>Mistake 6: Incorrect wildcard syntax</strong></p>
+<pre><code>Disallow: /products?id*
+</code></pre>
+<p>This blocks example.com/products?id* literally (the asterisk as a character), not as a wildcard.</p>
+<p><strong>Fix:</strong> Place asterisk correctly:</p>
+<pre><code>Disallow: /products?id=*
+</code></pre>
+<p><strong>Mistake 7: Case sensitivity</strong></p>
+<p>robots.txt paths are case-sensitive on Linux servers (case-insensitive on Windows servers).</p>
+<pre><code>Disallow: /Admin/
+</code></pre>
+<p>This blocks /Admin/ but not /admin/ on Linux.</p>
+<p><strong>Fix:</strong> Block both variations or enforce lowercase URL conventions:</p>
+<pre><code>Disallow: /admin/
+Disallow: /Admin/
+</code></pre>
+<h2 id="testing-robots-txt-configuration">Testing robots.txt Configuration</h2>
+<p><strong>Google Search Console robots.txt Tester:</strong></p>
+<ol>
+<li>Go to <strong>Settings → Crawler → robots.txt tester</strong></li>
+<li>View live robots.txt file</li>
+<li>Enter URLs to test if directives block them</li>
+<li>Select user-agent (Googlebot, Googlebot-Image, etc.)</li>
+<li>Click <strong>Test</strong> to see Allow/Block result</li>
+</ol>
+<p><strong>Expected results:</strong></p>
+<ul>
+<li>Important pages (/, /products/, /blog/) show <strong>Allowed</strong></li>
+<li>Admin pages (/wp-admin/, /dashboard/) show <strong>Blocked</strong></li>
+<li>Resource files (/css/, /js/) show <strong>Allowed</strong></li>
+</ul>
+<p><strong>Local testing before deployment:</strong></p>
+<p>Use command-line tools to validate syntax:</p>
+<pre><code class="language-bash">curl https://example.com/robots.txt
+</code></pre>
+<p>Verify file returns HTTP 200 and displays expected directives.</p>
+<p><strong>Third-party validators:</strong></p>
+<ul>
+<li><strong>Merkle&#39;s robots.txt Validator:</strong> <a href="https://technicalseo.com/tools/robots-txt/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://technicalseo.com/tools/robots-txt/</a></li>
+<li><strong>Bing Webmaster Tools robots.txt Tester:</strong> Similar to Google&#39;s tool for Bing</li>
+</ul>
+<p><strong>Testing workflow:</strong></p>
+<ol>
+<li>Draft robots.txt locally</li>
+<li>Validate syntax via online tools</li>
+<li>Deploy to production</li>
+<li>Test in Search Console robots.txt Tester</li>
+<li>Monitor URL Inspection tool for blocked pages</li>
+<li>Check coverage report for unexpected exclusions</li>
+</ol>
+<h2 id="robots-txt-vs-meta-robots-vs-x-robots-tag">robots.txt vs meta robots vs X-Robots-Tag</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Visibility</th>
+<th>Indexing Control</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>robots.txt</strong></td>
+<td>Prevents crawling</td>
+<td>Public file, anyone can view</td>
+<td>No—blocks access, not indexing</td>
+</tr>
+<tr>
+<td><strong>meta robots</strong></td>
+<td>Controls indexing</td>
+<td>Requires crawling to see</td>
+<td>Yes—noindex, nofollow</td>
+</tr>
+<tr>
+<td><strong>X-Robots-Tag</strong></td>
+<td>HTTP header directive</td>
+<td>Requires crawling to see</td>
+<td>Yes—noindex, nofollow, noarchive</td>
+</tr>
+</tbody></table>
+<p><strong>robots.txt:</strong> Blocks crawler access. Efficient for large-scale blocks (entire directories). Does NOT prevent indexing if external links exist.</p>
+<p><strong>meta robots:</strong> HTML tag in <code>&lt;head&gt;</code> controls indexing and following links:</p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+</code></pre>
+<p>Requires Googlebot to crawl the page to see the directive. Use when you want to prevent indexing but allow crawling (to pass PageRank via internal links).</p>
+<p><strong>X-Robots-Tag:</strong> HTTP header alternative to meta tags, useful for non-HTML files (PDFs, images):</p>
+<pre><code class="language-http">HTTP/1.1 200 OK
+X-Robots-Tag: noindex
+Content-Type: application/pdf
+</code></pre>
+<p><strong>Precedence:</strong> If robots.txt blocks a URL, Googlebot can&#39;t see meta robots or X-Robots-Tag headers, so indexing directives don&#39;t apply. Always allow crawling when using noindex directives.</p>
+<p><strong>Strategy summary:</strong></p>
+<ul>
+<li><strong>Block crawling:</strong> Use robots.txt for low-value pages (admin, search, parameters)</li>
+<li><strong>Prevent indexing:</strong> Use meta robots or X-Robots-Tag for pages you want crawled but not indexed (tag pages, duplicate content, thank-you pages)</li>
+<li><strong>Both:</strong> Never block in robots.txt AND noindex, pick one approach</li>
+</ul>
+<p>Learn more about <a href="robots-txt-vs-meta-robots-vs-x-robots-tag.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">robots.txt vs meta robots differences</a>.</p>
+<h2 id="sitemap-declarations-in-robots-txt">Sitemap Declarations in robots.txt</h2>
+<p>Including sitemap URLs in robots.txt helps crawlers discover content faster.</p>
+<p><strong>Format:</strong></p>
+<pre><code>Sitemap: https://example.com/sitemap.xml
+Sitemap: https://example.com/sitemap-images.xml
+Sitemap: https://example.com/sitemap-videos.xml
+</code></pre>
+<p><strong>Multiple sitemaps:</strong> Declare each on a separate line. Useful for large sites with sitemap index files:</p>
+<pre><code>Sitemap: https://example.com/sitemap_index.xml
+</code></pre>
+<p><strong>Subdomain sitemaps:</strong> Each subdomain requires its own robots.txt:</p>
+<pre><code># blog.example.com/robots.txt
+User-agent: *
+Disallow: /drafts/
+
+Sitemap: https://blog.example.com/sitemap.xml
+</code></pre>
+<p><strong>Submitting to Search Console:</strong> While sitemap declarations in robots.txt help, also submit sitemaps directly via Search Console for monitoring:</p>
+<ol>
+<li>Go to <strong>Indexing → Sitemaps</strong></li>
+<li>Enter sitemap URL (example.com/sitemap.xml)</li>
+<li>Click <strong>Submit</strong></li>
+</ol>
+<p>Google reports indexed URLs, errors, and warnings per sitemap.</p>
+<h2 id="handling-subdomains-and-https-variants">Handling Subdomains and HTTPS Variants</h2>
+<p><strong>Subdomains require separate robots.txt files:</strong></p>
+<ul>
+<li>example.com/robots.txt</li>
+<li>blog.example.com/robots.txt</li>
+<li>shop.example.com/robots.txt</li>
+</ul>
+<p>Directives in example.com/robots.txt <strong>don&#39;t apply</strong> to subdomains.</p>
+<p><strong>Protocol specificity:</strong> Modern sites serve HTTPS exclusively. Ensure robots.txt exists at:</p>
+<ul>
+<li><a href="https://example.com/robots.txt" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com/robots.txt</a></li>
+</ul>
+<p>If you redirect HTTP → HTTPS, <a href="http://example.com/robots.txt" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://example.com/robots.txt</a> should 301 redirect to HTTPS version or serve identical content.</p>
+<p><strong>Testing:</strong> Verify both https:// and http:// (if applicable) versions of robots.txt return 200 status codes.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why robots.txt Matters for Technical SEO:</strong> Google Search Console reports robots.txt issues under Settings → Crawler → robots.txt tester.</li>
+<li><strong>robots.txt Syntax and Directive Types:</strong> The robots.txt file consists of records, groups of directives targeting specific user-agents (crawlers).</li>
+<li><strong>Blocking Entire Sections or File Types:</strong> This aggressively blocks all parameterized URLs.</li>
+<li><strong>Preserving Crawl Budget on Large Sites:</strong> Alternatively, use canonical tags to consolidate variations to base category URLs.</li>
+<li><strong>Common robots.txt Mistakes and Fixes:</strong> Blocking a URL in robots.txt prevents crawling but doesn&#39;t prevent indexing.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Does robots.txt affect rankings?</strong></p>
+<p>Indirectly. Blocking low-value pages preserves crawl budget for important content, potentially improving crawl frequency and indexing speed. Blocking critical pages harms rankings by preventing indexing.</p>
+<p><strong>Can I use robots.txt to block duplicate content?</strong></p>
+<p>Yes, but noindex meta tags or canonical tags are better solutions. robots.txt blocks crawling, preventing Googlebot from seeing canonicalization signals.</p>
+<p><strong>What happens if robots.txt returns 404?</strong></p>
+<p>Crawlers assume full access, equivalent to an empty robots.txt file allowing all paths.</p>
+<p><strong>Can I password-protect robots.txt?</strong></p>
+<p>No. Crawlers require public access to robots.txt (no authentication). Password-protecting returns 401/403 errors, causing crawlers to assume full access.</p>
+<p><strong>Should I block Googlebot-Image from my images?</strong></p>
+<p>Only if you don&#39;t want images appearing in Google Images search. Most sites benefit from image search traffic, so allow Googlebot-Image.</p>
+<p><strong>How do I stop robots.txt from being publicly viewable?</strong></p>
+<p>You can&#39;t. The robots.txt protocol requires public visibility at the root domain. Never include sensitive information (API keys, passwords) in robots.txt.</p>
+<p><strong>Can I use robots.txt on a single page?</strong></p>
+<p>No. robots.txt applies to the entire domain. For single-page directives, use meta robots tags.</p>
+<p><strong>Do I need a robots.txt file if I want to allow everything?</strong></p>
+<p>Not required, but recommended to declare sitemap locations:</p>
+<pre><code>User-agent: *
+Disallow:
+
+Sitemap: https://example.com/sitemap.xml
+</code></pre>
+<p><strong>Why do malicious bots ignore robots.txt?</strong></p>
+<p>robots.txt is a voluntary protocol. Malicious scrapers, spam bots, and hackers intentionally ignore it. For security, use server-level blocks (IP bans, rate limiting, firewall rules), not robots.txt.</p>
+<p><strong>Can I block Google but allow Bing?</strong></p>
+<p>Yes:</p>
+<pre><code>User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow:
+</code></pre>
+<p>However, this eliminates Google traffic, rarely beneficial.</p>
+<p><strong>How often does Google recrawl robots.txt?</strong></p>
+<p>Google caches robots.txt for up to 24 hours. Changes may take a day to propagate. Use Search Console robots.txt Tester to force immediate testing of new directives.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/googlebot-crawl-rate-monitor-control.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Googlebot Crawl Rate Monitor and Control: Technical Crawl Budget Optimization Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master Googlebot crawl rate monitoring and control with this technical guide covering crawl budget optimization, server load management, and indexing acceleration.</p>
+          </a>
+
+          <a href="/articles/robots-txt-vs-meta-robots-vs-x-robots-tag.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">robots.txt vs meta robots vs X-Robots-Tag: When to Use Each</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Technical guide to robots.txt, meta robots tags, and X-Robots-Tag HTTP headers. Learn which method controls crawling vs indexing effectively.</p>
+          </a>
+
+          <a href="/articles/robots-txt-testing-debugging-tools.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">robots.txt Testing and Debugging Tools: Complete Validation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Validate robots.txt syntax, test crawler directives, and debug blocking issues with Google Search Console, command-line tools, and third-party validators.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

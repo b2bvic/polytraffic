@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Fix "Too Many Redirects" Error (Redirect Loop) in WordPress and Beyond | Polytraffic</title>
+    <meta name="description" content="Diagnose and resolve redirect loop errors caused by .htaccess conflicts, SSL issues, CDN misconfigurations, and plugin conflicts that break site accessibility." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Fix &quot;Too Many Redirects&quot; Error (Redirect Loop) in WordPress and Beyond | Polytraffic" />
+    <meta property="og:description" content="Diagnose and resolve redirect loop errors caused by .htaccess conflicts, SSL issues, CDN misconfigurations, and plugin conflicts that break site accessibility." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-too-many-redirects-error" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-too-many-redirects-error.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Fix &quot;Too Many Redirects&quot; Error (Redirect Loop) in WordPress and Beyond | Polytraffic" />
+    <meta name="twitter:description" content="Diagnose and resolve redirect loop errors caused by .htaccess conflicts, SSL issues, CDN misconfigurations, and plugin conflicts that break site accessibility." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-too-many-redirects-error.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-too-many-redirects-error" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Fix \"Too Many Redirects\" Error (Redirect Loop) in WordPress and Beyond",
+    "description": "Diagnose and resolve redirect loop errors caused by .htaccess conflicts, SSL issues, CDN misconfigurations, and plugin conflicts that break site accessibility.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-too-many-redirects-error.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-too-many-redirects-error.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Fix \"Too Many Redirects\" Error (Redirect Loop) in WordPress and Beyond"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Fix &quot;Too Many Redirects&quot; Error (Redirect Loop) in WordPress and Beyond</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-too-many-redirects-error.png" alt="How to Fix &quot;Too Many Redirects&quot; Error (Redirect Loop) in WordPress and Beyond" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-fix-too-many-redirects-error-redirect-loop-in-wordpress-and-beyond">How to Fix "Too Many Redirects" Error (Redirect Loop) in WordPress and Beyond</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Diagnose and resolve redirect loop errors caused by .htaccess conflicts, SSL issues, CDN misconfigurations, and plugin conflicts that break site accessibility.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-redirect-loops-break-seo-immediately" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Redirect Loops Break SEO Immediately</a></li>
+<li><a href="#diagnosing-the-redirect-loop" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Diagnosing the Redirect Loop</a></li>
+<li><a href="#fixing-https-http-redirect-loops" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fixing HTTPS/HTTP Redirect Loops</a></li>
+<li><a href="#fixing-www-vs-non-www-loops" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fixing WWW vs. Non-WWW Loops</a></li>
+<li><a href="#fixing-wordpress-plugin-conflicts" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fixing WordPress Plugin Conflicts</a></li>
+<li><a href="#fixing-cdn-and-proxy-loops" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fixing CDN and Proxy Loops</a></li>
+<li><a href="#fixing-server-configuration-loops" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fixing Server Configuration Loops</a></li>
+<li><a href="#clearing-browser-and-server-cache" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Clearing Browser and Server Cache</a></li>
+<li><a href="#wordpress-database-url-fix" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WordPress Database URL Fix</a></li>
+<li><a href="#preventing-future-redirect-loops" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Preventing Future Redirect Loops</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>The <strong>&quot;Too Many Redirects&quot;</strong> error (ERR_TOO_MANY_REDIRECTS in Chrome, &quot;Page isn&#39;t redirecting properly&quot; in Firefox) occurs when URL A redirects to URL B, which redirects back to URL A, creating an infinite loop. Browsers abort after 5-10 redirects to prevent crashes. The site becomes completely inaccessible. <strong>Googlebot</strong> can&#39;t crawl, users can&#39;t visit, and rankings plummet within days.</p>
+<p>Common causes: <strong>HTTPS/HTTP mismatches</strong> (site forces HTTPS but server redirects back to HTTP), <strong>.htaccess conflicts</strong> (multiple redirect rules fighting), <strong>WordPress URL settings</strong> (site URL ≠ home URL), <strong>CDN/proxy issues</strong> (Cloudflare forwarding loops), and <strong>plugin conflicts</strong> (SEO plugins with conflicting redirect rules). This guide systematically isolates and fixes each trigger.</p>
+<h2 id="why-redirect-loops-break-seo-immediately">Why Redirect Loops Break SEO Immediately</h2>
+<p><strong>Googlebot</strong> follows redirects but terminates after detecting loops. <strong>Search Console</strong> reports the affected URLs as &quot;Redirect error&quot; under <strong>Pages &gt; Why pages aren&#39;t indexed</strong>. These pages disappear from search results within 24-48 hours of the error appearing.</p>
+<p><strong>Crawl budget</strong> gets wasted on failed redirect attempts. If your homepage loops, <strong>Googlebot</strong> burns its daily crawl allotment trying to access one URL instead of discovering new content. Sites with redirect loops see <strong>70-90% crawl rate drops</strong> in Search Console&#39;s <strong>Crawl Stats</strong> report.</p>
+<p><strong>User experience</strong> craters, bounce rate becomes 100% because no one can load the page. If the loop affects the homepage or category archives, traffic stops completely. E-commerce sites lose revenue instantly. Every hour the error persists costs conversions and rankings.</p>
+<h2 id="diagnosing-the-redirect-loop">Diagnosing the Redirect Loop</h2>
+<p>Before fixing, identify where the loop originates.</p>
+<h3 id="check-the-redirect-chain">Check the Redirect Chain</h3>
+<p>Use <strong>curl</strong> with headers follow:</p>
+<pre><code class="language-bash">curl -I -L https://example.com
+</code></pre>
+<p>The <code>-L</code> flag follows redirects. Output shows each hop:</p>
+<pre><code>HTTP/2 301
+Location: https://www.example.com
+
+HTTP/2 301
+Location: https://example.com
+
+HTTP/2 301
+Location: https://www.example.com
+...
+</code></pre>
+<p>This reveals a WWW ↔ non-WWW loop. The site redirects <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a> → <a href="https://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://www.example.com</a> → <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a> infinitely.</p>
+<h3 id="test-http-vs-https">Test HTTP vs. HTTPS</h3>
+<p>Redirect loops often stem from protocol conflicts:</p>
+<pre><code class="language-bash">curl -I http://example.com
+curl -I https://example.com
+</code></pre>
+<p>If <strong>HTTP</strong> redirects to <strong>HTTPS</strong>, then <strong>HTTPS</strong> redirects back to <strong>HTTP</strong>, you have an SSL configuration issue.</p>
+<h3 id="use-redirect-checker-tools">Use Redirect Checker Tools</h3>
+<p><strong>Redirect Detective</strong> (redirectdetective.com) visualizes chains:</p>
+<ol>
+<li>Enter your URL</li>
+<li>Click <strong>Check Redirects</strong></li>
+<li>See the redirect path and loop detection</li>
+</ol>
+<p><strong>HTTPStatus</strong> (httpstatus.io) provides similar analysis.</p>
+<h3 id="wordpress-specific-loop-detection">WordPress-Specific Loop Detection</h3>
+<p>If you can&#39;t access wp-admin, check from the command line:</p>
+<pre><code class="language-bash">curl -I https://example.com/wp-admin/
+</code></pre>
+<p>If wp-admin loops but the frontend doesn&#39;t, the issue is WordPress-specific (plugin or settings).</p>
+<h2 id="fixing-https-http-redirect-loops">Fixing HTTPS/HTTP Redirect Loops</h2>
+<p>The most common cause: forcing HTTPS incorrectly.</p>
+<h3 id="check-htaccess-https-rules">Check .htaccess HTTPS Rules</h3>
+<p>Conflicting HTTPS rules create loops. Open <code>.htaccess</code>:</p>
+<pre><code class="language-bash">nano /var/www/html/.htaccess
+</code></pre>
+<p><strong>Bad configuration</strong>:</p>
+<pre><code class="language-apache"># Rule 1: Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# Rule 2: Force HTTPS (duplicate)
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</code></pre>
+<p>Two rules fighting each other. <strong>Fix</strong>: Keep only one rule.</p>
+<p><strong>Correct configuration</strong>:</p>
+<pre><code class="language-apache">RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</code></pre>
+<p>Save and test.</p>
+<h3 id="fix-server-level-ssl-redirect">Fix Server-Level SSL Redirect</h3>
+<p>If <code>.htaccess</code> looks clean, check <strong>Apache</strong> virtual host config:</p>
+<pre><code class="language-bash">sudo nano /etc/apache2/sites-available/example.com.conf
+</code></pre>
+<p>Look for conflicting redirects:</p>
+<pre><code class="language-apache">&lt;VirtualHost *:80&gt;
+  ServerName example.com
+  Redirect permanent / https://example.com/
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:443&gt;
+  ServerName example.com
+  # SSL config
+&lt;/VirtualHost&gt;
+</code></pre>
+<p>This forces HTTP → HTTPS. If your <code>.htaccess</code> also forces HTTPS, loops occur when proxies or CDNs forward requests as HTTP internally.</p>
+<h3 id="cloudflare-ssl-tls-settings">Cloudflare SSL/TLS Settings</h3>
+<p><strong>Cloudflare</strong> proxies traffic, often causing SSL loops.</p>
+<ol>
+<li>Go to <strong>Cloudflare Dashboard &gt; SSL/TLS</strong></li>
+<li>Check the setting:<ul>
+<li><strong>Off</strong>: No encryption (rarely used)</li>
+<li><strong>Flexible</strong>: Encrypts visitor ↔ Cloudflare, but Cloudflare ↔ origin is HTTP</li>
+<li><strong>Full</strong>: Encrypts visitor ↔ Cloudflare ↔ origin (self-signed cert OK)</li>
+<li><strong>Full (Strict)</strong>: Encrypts visitor ↔ Cloudflare ↔ origin (valid cert required)</li>
+</ul>
+</li>
+</ol>
+<p>If set to <strong>Flexible</strong> and your server forces HTTPS, loops occur:</p>
+<ol>
+<li>Visitor requests <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a></li>
+<li><strong>Cloudflare</strong> forwards as <a href="http://origin-server" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">http://origin-server</a></li>
+<li>Origin redirects to <a href="https://origin-server" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://origin-server</a></li>
+<li><strong>Cloudflare</strong> sees HTTPS request, forwards as HTTP</li>
+<li>Loop</li>
+</ol>
+<p><strong>Fix</strong>: Change to <strong>Full</strong> or <strong>Full (Strict)</strong> if you have a valid SSL cert.</p>
+<h2 id="fixing-www-vs-non-www-loops">Fixing WWW vs. Non-WWW Loops</h2>
+<p>Inconsistent canonical domain settings create loops.</p>
+<h3 id="standardize-in-htaccess">Standardize in .htaccess</h3>
+<p><strong>Force non-WWW</strong>:</p>
+<pre><code class="language-apache">RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.example\.com$ [NC]
+RewriteRule ^(.*)$ https://example.com/$1 [L,R=301]
+</code></pre>
+<p><strong>Force WWW</strong>:</p>
+<pre><code class="language-apache">RewriteEngine On
+RewriteCond %{HTTP_HOST} ^example\.com$ [NC]
+RewriteRule ^(.*)$ https://www.example.com/$1 [L,R=301]
+</code></pre>
+<p>Choose one. Don&#39;t use both.</p>
+<h3 id="wordpress-settings-match">WordPress Settings Match</h3>
+<p>Go to <strong>Settings &gt; General</strong> (if accessible):</p>
+<ul>
+<li><strong>WordPress Address (URL)</strong>: <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a></li>
+<li><strong>Site Address (URL)</strong>: <a href="https://example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://example.com</a></li>
+</ul>
+<p>Both must match exactly (same protocol, same WWW/non-WWW). Mismatches cause loops.</p>
+<p>If locked out of wp-admin, edit via <strong>wp-config.php</strong>:</p>
+<pre><code class="language-php">define(&#39;WP_HOME&#39;, &#39;https://example.com&#39;);
+define(&#39;WP_SITEURL&#39;, &#39;https://example.com&#39;);
+</code></pre>
+<p>Add these above <code>/* That&#39;s all, stop editing! */</code>.</p>
+<h3 id="search-console-canonical-domain">Search Console Canonical Domain</h3>
+<p>Set your preferred domain in <strong>Search Console &gt; Settings &gt; Property</strong>. If you chose non-WWW but your server redirects to WWW, fix the server config to match.</p>
+<h2 id="fixing-wordpress-plugin-conflicts">Fixing WordPress Plugin Conflicts</h2>
+<p>Redirect plugins can conflict with <code>.htaccess</code> rules or each other.</p>
+<h3 id="deactivate-all-plugins">Deactivate All Plugins</h3>
+<p>If locked out, rename the plugins folder via FTP:</p>
+<pre><code class="language-bash">mv /wp-content/plugins /wp-content/plugins-disabled
+</code></pre>
+<p>Try accessing the site. If it loads, a plugin caused the loop. Rename back:</p>
+<pre><code class="language-bash">mv /wp-content/plugins-disabled /wp-content/plugins
+</code></pre>
+<p>Then deactivate plugins one-by-one via <strong>phpMyAdmin</strong>:</p>
+<pre><code class="language-sql">UPDATE wp_options
+SET option_value = &#39;&#39;
+WHERE option_name = &#39;active_plugins&#39;;
+</code></pre>
+<p>This deactivates all plugins. Reactivate individually in wp-admin to find the culprit.</p>
+<h3 id="common-plugin-culprits">Common Plugin Culprits</h3>
+<p><strong>Really Simple SSL</strong>: Misconfigured SSL settings cause loops. Deactivate, fix <code>.htaccess</code>, then reconfigure.</p>
+<p><strong>Yoast SEO / RankMath</strong>: Redirect features can conflict with <code>.htaccess</code>. Disable redirect modules in plugin settings.</p>
+<p><strong>Redirection</strong>: Custom redirects that create circular chains. Check <strong>Tools &gt; Redirection &gt; Log</strong> to see redirect chains.</p>
+<h3 id="delete-problematic-redirects">Delete Problematic Redirects</h3>
+<p>In <strong>Redirection plugin</strong>:</p>
+<ol>
+<li>Go to <strong>Tools &gt; Redirection &gt; Redirects</strong></li>
+<li>Sort by <strong>Hits</strong> to find active redirects</li>
+<li>Delete any that form loops (e.g., <code>/page-a/</code> → <code>/page-b/</code>, <code>/page-b/</code> → <code>/page-a/</code>)</li>
+</ol>
+<h2 id="fixing-cdn-and-proxy-loops">Fixing CDN and Proxy Loops</h2>
+<p><strong>Cloudflare</strong>, <strong>Cloudfront</strong>, and other proxies introduce complexity.</p>
+<h3 id="disable-cloudflare-temporarily">Disable Cloudflare Temporarily</h3>
+<p><strong>Cloudflare &gt; DNS</strong> → Toggle the proxy icon to <strong>DNS Only</strong> (gray cloud). This bypasses Cloudflare&#39;s proxy, revealing whether the loop originates from Cloudflare or the origin server.</p>
+<p>If the loop disappears, the issue is Cloudflare configuration (SSL/TLS mode, page rules, redirects).</p>
+<h3 id="check-cloudflare-page-rules">Check Cloudflare Page Rules</h3>
+<p><strong>Cloudflare &gt; Rules &gt; Page Rules</strong>:</p>
+<p>Look for conflicting forwarding rules:</p>
+<ul>
+<li>Rule 1: <code>http://example.com/*</code> → <code>https://example.com/$1</code></li>
+<li>Rule 2: <code>https://example.com/*</code> → <code>https://www.example.com/$1</code></li>
+</ul>
+<p>These create WWW/non-WWW + HTTPS loops. Consolidate into a single rule.</p>
+<h3 id="aws-cloudfront-forwarding">AWS CloudFront Forwarding</h3>
+<p><strong>CloudFront</strong> can forward HTTP headers incorrectly, causing loops. Check <strong>Behaviors &gt; Viewer Protocol Policy</strong>:</p>
+<ul>
+<li>Set to <strong>Redirect HTTP to HTTPS</strong> if your origin expects HTTPS</li>
+<li>Set to <strong>HTTP and HTTPS</strong> if your origin handles redirects</li>
+</ul>
+<p>If set to <strong>Redirect HTTP to HTTPS</strong> and your origin also redirects, loops occur.</p>
+<h2 id="fixing-server-configuration-loops">Fixing Server Configuration Loops</h2>
+<p><strong>Nginx</strong> and <strong>Apache</strong> virtual host misconfigurations cause loops.</p>
+<h3 id="nginx-redirect-loop-fix">Nginx Redirect Loop Fix</h3>
+<p>Check <code>/etc/nginx/sites-available/example.com</code>:</p>
+<p><strong>Bad</strong>:</p>
+<pre><code class="language-nginx">server {
+  listen 80;
+  server_name example.com www.example.com;
+  return 301 https://example.com$request_uri;
+}
+
+server {
+  listen 443 ssl;
+  server_name example.com www.example.com;
+  return 301 https://example.com$request_uri; # Loop!
+}
+</code></pre>
+<p>The HTTPS block redirects to itself.</p>
+<p><strong>Fix</strong>:</p>
+<pre><code class="language-nginx">server {
+  listen 80;
+  server_name example.com www.example.com;
+  return 301 https://example.com$request_uri;
+}
+
+server {
+  listen 443 ssl;
+  server_name www.example.com;
+  return 301 https://example.com$request_uri;
+}
+
+server {
+  listen 443 ssl;
+  server_name example.com;
+
+  # SSL config
+  # Site content
+}
+</code></pre>
+<p>Separate blocks for WWW redirect and canonical domain.</p>
+<h3 id="apache-virtual-host-loop-fix">Apache Virtual Host Loop Fix</h3>
+<p>Check <code>/etc/apache2/sites-available/example.com.conf</code>:</p>
+<p><strong>Bad</strong>:</p>
+<pre><code class="language-apache">&lt;VirtualHost *:443&gt;
+  ServerName example.com
+  Redirect permanent / https://example.com/
+&lt;/VirtualHost&gt;
+</code></pre>
+<p>Redirects to itself.</p>
+<p><strong>Fix</strong>: Remove the redirect from the HTTPS block. HTTPS block should serve content, not redirect.</p>
+<h2 id="clearing-browser-and-server-cache">Clearing Browser and Server Cache</h2>
+<p>Caches store old redirect rules.</p>
+<h3 id="clear-browser-cache">Clear Browser Cache</h3>
+<p><strong>Chrome</strong>: Cmd+Shift+Delete → <strong>Cached images and files</strong> → Clear</p>
+<p><strong>Firefox</strong>: Cmd+Shift+Delete → <strong>Cache</strong> → Clear Now</p>
+<p>Or use Incognito/Private mode to bypass cache.</p>
+<h3 id="clear-wordpress-cache-plugins">Clear WordPress Cache Plugins</h3>
+<p><strong>WP Rocket</strong>: <strong>WP Rocket &gt; Clear Cache</strong></p>
+<p><strong>W3 Total Cache</strong>: <strong>Performance &gt; Dashboard &gt; Empty All Caches</strong></p>
+<p><strong>LiteSpeed Cache</strong>: <strong>LiteSpeed Cache &gt; Toolbox &gt; Purge All</strong></p>
+<h3 id="clear-server-side-cache">Clear Server-Side Cache</h3>
+<p><strong>Varnish</strong>:</p>
+<pre><code class="language-bash">sudo varnishadm &quot;ban req.url ~ .&quot;
+</code></pre>
+<p><strong>Nginx FastCGI Cache</strong>:</p>
+<pre><code class="language-bash">sudo rm -rf /var/cache/nginx/*
+sudo systemctl restart nginx
+</code></pre>
+<h3 id="clear-cdn-cache">Clear CDN Cache</h3>
+<p><strong>Cloudflare</strong>: <strong>Caching &gt; Configuration &gt; Purge Everything</strong></p>
+<p><strong>Cloudfront</strong>: <strong>Invalidations &gt; Create Invalidation</strong> → enter <code>/*</code> to purge all paths</p>
+<h2 id="wordpress-database-url-fix">WordPress Database URL Fix</h2>
+<p>Direct database edits fix locked-out sites.</p>
+<h3 id="update-site-url-via-phpmyadmin">Update Site URL via phpMyAdmin</h3>
+<ol>
+<li>Access <strong>phpMyAdmin</strong></li>
+<li>Select your WordPress database</li>
+<li>Open <strong>wp_options</strong> table</li>
+<li>Find rows where <code>option_name</code> = <code>&#39;siteurl&#39;</code> and <code>&#39;home&#39;</code></li>
+<li>Edit <strong>option_value</strong> to match your canonical URL (e.g., <code>https://example.com</code>)</li>
+<li>Save</li>
+</ol>
+<h3 id="sql-query-for-bulk-update">SQL Query for Bulk Update</h3>
+<pre><code class="language-sql">UPDATE wp_options SET option_value = &#39;https://example.com&#39; WHERE option_name = &#39;siteurl&#39;;
+UPDATE wp_options SET option_value = &#39;https://example.com&#39; WHERE option_name = &#39;home&#39;;
+</code></pre>
+<p>Run in <strong>phpMyAdmin &gt; SQL</strong> tab.</p>
+<h2 id="preventing-future-redirect-loops">Preventing Future Redirect Loops</h2>
+<h3 id="htaccess-version-control">.htaccess Version Control</h3>
+<p>Keep a backup of working <code>.htaccess</code>:</p>
+<pre><code class="language-bash">cp .htaccess .htaccess.backup
+</code></pre>
+<p>Before making changes, test locally or on staging. Never edit <code>.htaccess</code> directly on production without a backup.</p>
+<h3 id="monitor-redirect-chains">Monitor Redirect Chains</h3>
+<p>Set up <strong>UptimeRobot</strong> to monitor your site:</p>
+<ol>
+<li>Add a monitor at uptimerobot.com</li>
+<li>Set <strong>Monitor Type</strong> to <strong>HTTP(s)</strong></li>
+<li>Set <strong>URL</strong> to your homepage</li>
+<li>Enable <strong>Alert when down</strong></li>
+</ol>
+<p><strong>UptimeRobot</strong> detects redirect loops and emails alerts.</p>
+<h3 id="test-after-ssl-changes">Test After SSL Changes</h3>
+<p>Every time you modify SSL settings:</p>
+<ol>
+<li>Clear all caches (browser, server, CDN)</li>
+<li>Test in multiple browsers</li>
+<li>Use <code>curl -I -L</code> to verify redirect chains</li>
+<li>Check mobile separately (mobile networks sometimes cache differently)</li>
+</ol>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Redirect Loops Break SEO Immediately:</strong> Before fixing, identify where the loop originates.</li>
+<li><strong>Diagnosing the Redirect Loop:</strong> Before fixing, identify where the loop originates.</li>
+<li><strong>Fixing HTTPS/HTTP Redirect Loops:</strong> The most common cause: forcing HTTPS incorrectly.</li>
+<li><strong>Fixing WWW vs. Non-WWW Loops:</strong> Inconsistent canonical domain settings create loops.</li>
+<li><strong>Fixing WordPress Plugin Conflicts:</strong> Redirect plugins can conflict with .htaccess rules or each other.</li>
+<li><strong>Fixing CDN and Proxy Loops:</strong> If the loop disappears, the issue is Cloudflare configuration (SSL/TLS mode, page rules, redirects).</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Can redirect loops fix themselves?</strong>
+No. Loops persist until you change server configuration or plugin settings.</p>
+<p><strong>Q: Why does the loop affect only some browsers?</strong>
+Browser cache. One browser cached old redirect rules. Clear cache or test in Incognito.</p>
+<p><strong>Q: Can I fix redirect loops without FTP/SSH access?</strong>
+If you have <strong>cPanel</strong> or hosting dashboard access, use <strong>File Manager</strong> to edit <code>.htaccess</code> and <strong>phpMyAdmin</strong> to update database. If not, contact your host.</p>
+<p><strong>Q: How long do redirect loops take to fix rankings?</strong>
+Once fixed, <strong>Googlebot</strong> recrawls within 24-48 hours. Rankings typically recover within 7 days if the loop was brief.</p>
+<p><strong>Q: Do redirect loops trigger penalties?</strong>
+No, but <strong>Google</strong> treats looped pages as inaccessible. They drop from the index until fixed.</p>
+<p><strong>Q: Can malware cause redirect loops?</strong>
+Yes. Malware injects malicious redirects. Scan with <strong>Wordfence</strong> or <strong>Sucuri</strong> if loops appear suddenly without configuration changes.</p>
+<p><strong>Q: Should I use 301 or 302 for HTTPS redirects?</strong>
+<strong>301 (permanent)</strong>. This tells browsers and search engines to always use HTTPS.</p>
+<p><strong>Q: Why does curl show different results than the browser?</strong>
+Browsers cache redirects and handle cookies differently. <code>curl</code> shows raw server responses.</p>
+<p><strong>Q: Can multiple CDNs cause loops?</strong>
+Yes. If you stack <strong>Cloudflare</strong> and <strong>CloudFront</strong>, conflicting redirect rules cause loops. Use one CDN per site.</p>
+<p><strong>Q: What&#39;s the fastest way to diagnose the exact loop cause?</strong>
+Disable Cloudflare (DNS only mode), deactivate all plugins, remove .htaccess rules. Test after each step to isolate the culprit.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-redirect-loops.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Redirect Loops: Diagnose and Resolve Circular Redirect Errors</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Identify and fix redirect loops causing browser errors and blocking search engine crawlers. Learn detection tools and resolution strategies for htaccess, Cloudflare, and CMS redirects.</p>
+          </a>
+
+          <a href="/articles/database-query-optimization-wordpress.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Database Query Optimization for WordPress: Fix Slow Queries and Improve TTFB</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Optimize WordPress database queries to reduce Time to First Byte. Index slow queries, cache results with Redis, and eliminate N+1 query patterns.</p>
+          </a>
+
+          <a href="/articles/find-fix-redirect-chains.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Find and Fix Redirect Chains: Stop Wasting PageRank and Load Time</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Detect redirect chains killing speed and SEO. Screaming Frog, Ahrefs, redirect mapper tools with consolidation workflows for WordPress, Shopify, Apache.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

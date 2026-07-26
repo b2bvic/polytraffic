@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Measure Traffic Channel Correlation in GA4 | Polytraffic</title>
+    <meta name="description" content="Step-by-step guide to using Google Analytics 4's attribution tools to identify traffic channel correlations, measure multi-touch journeys, and optimize budget allocation." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Measure Traffic Channel Correlation in GA4 | Polytraffic" />
+    <meta property="og:description" content="Step-by-step guide to using Google Analytics 4's attribution tools to identify traffic channel correlations, measure multi-touch journeys, and optimize budget allocation." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/measure-traffic-channel-correlation-ga4" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/measure-traffic-channel-correlation-ga4.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Measure Traffic Channel Correlation in GA4 | Polytraffic" />
+    <meta name="twitter:description" content="Step-by-step guide to using Google Analytics 4's attribution tools to identify traffic channel correlations, measure multi-touch journeys, and optimize budget allocation." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/measure-traffic-channel-correlation-ga4.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/measure-traffic-channel-correlation-ga4" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Measure Traffic Channel Correlation in GA4",
+    "description": "Step-by-step guide to using Google Analytics 4's attribution tools to identify traffic channel correlations, measure multi-touch journeys, and optimize budget allocation.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/measure-traffic-channel-correlation-ga4.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/measure-traffic-channel-correlation-ga4.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/traffic-strategy.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Measure Traffic Channel Correlation in GA4"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/traffic-strategy.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Measure Traffic Channel Correlation in GA4</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/measure-traffic-channel-correlation-ga4.png" alt="Measure Traffic Channel Correlation in GA4" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="measure-traffic-channel-correlation-in-ga4">Measure Traffic Channel Correlation in GA4</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Step-by-step guide to using Google Analytics 4&#39;s attribution tools to identify traffic channel correlations, measure multi-touch journeys, and optimize budget allocation.</li>
+<li><strong>Who it&#39;s for:</strong> traffic strategists and growth operators</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#understanding-ga4-attribution" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Understanding GA4 Attribution</a></li>
+<li><a href="#tool-1-conversion-paths-report" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Tool 1: Conversion Paths Report</a></li>
+<li><a href="#tool-2-model-comparison" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Tool 2: Model Comparison</a></li>
+<li><a href="#tool-3-path-exploration" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Tool 3: Path Exploration</a></li>
+<li><a href="#cohort-analysis-for-correlation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cohort Analysis for Correlation</a></li>
+<li><a href="#time-lag-analysis" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Time Lag Analysis</a></li>
+<li><a href="#cross-channel-influence-report" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cross-Channel Influence Report</a></li>
+<li><a href="#practical-application-budget-reallocation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Practical Application: Budget Reallocation</a></li>
+<li><a href="#when-this-analysis-doesn-t-apply" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Analysis Doesn't Apply</a></li>
+</ul>
+<p>Traffic channels rarely operate in isolation. A user discovers you via <strong>paid social</strong>, ignores the ad, searches your brand name three days later via <strong>organic search</strong>, then returns a week later via <strong>email</strong> to convert. Standard last-click attribution credits email with the conversion, but paid social initiated the awareness, and organic search reinforced it. Understanding these <strong>multi-touch correlations</strong>, how channels influence each other across the customer journey, determines whether you&#39;re optimizing channels independently (suboptimal) or as an interdependent ecosystem (optimal).</p>
+<p><strong>Google Analytics 4</strong> provides three primary tools for measuring channel correlation: <strong>Conversion Paths</strong> (shows multi-touch sequences), <strong>Model Comparison</strong> (compares attribution models to reveal hidden channel value), and <strong>Path Exploration</strong> (visualizes user journeys). Mastering these tools exposes which channels work synergistically and which cannibalize each other, enabling smarter budget allocation.</p>
+<h2 id="understanding-ga4-attribution">Understanding GA4 Attribution</h2>
+<p>GA4 uses <strong>data-driven attribution (DDA)</strong> as its default model, machine learning distributes conversion credit across all touchpoints based on their observed impact on conversion likelihood. This reveals channel correlation better than single-touch models (first-click or last-click), which ignore multi-channel journeys entirely.</p>
+<p><strong>Attribution models in GA4:</strong></p>
+<p><strong>Last Click:</strong> 100% credit to final touchpoint before conversion
+<strong>First Click:</strong> 100% credit to first touchpoint
+<strong>Linear:</strong> Equal credit across all touchpoints
+<strong>Time Decay:</strong> More credit to recent touchpoints (exponential decay)
+<strong>Position-Based (40/20/40):</strong> 40% to first touch, 40% to last touch, 20% distributed among middle touches
+<strong>Data-Driven:</strong> ML-based credit allocation based on touchpoint contribution</p>
+<p><strong>Key insight:</strong> Large discrepancies between models indicate strong multi-channel behavior. If <strong>Paid Social</strong> gets 5% credit under Last Click but 25% under Data-Driven, it&#39;s a critical awareness-stage channel that last-click logic undervalues.</p>
+<h2 id="tool-1-conversion-paths-report">Tool 1: Conversion Paths Report</h2>
+<p>The <strong>Conversion Paths</strong> report shows the sequence of touchpoints users handle before converting.</p>
+<h3 id="accessing-the-report">Accessing the Report</h3>
+<ol>
+<li>Go to <strong>GA4 → Advertising → Attribution → Conversion Paths</strong></li>
+<li>Select conversion event to analyze (e.g., <code>purchase</code>, <code>sign_up</code>, <code>lead_submission</code>)</li>
+<li>Adjust date range (minimum 30 days for meaningful patterns)</li>
+</ol>
+<h3 id="reading-conversion-paths">Reading Conversion Paths</h3>
+<p>The report displays common user journeys as sequences:</p>
+<p><strong>Example paths:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Conversions</th>
+<th>% of Total</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Organic Search → Email → Direct</td>
+<td>1,850</td>
+<td>22%</td>
+</tr>
+<tr>
+<td>Paid Social → Organic Search → Paid Search</td>
+<td>980</td>
+<td>12%</td>
+</tr>
+<tr>
+<td>Direct → Direct → Direct</td>
+<td>780</td>
+<td>9%</td>
+</tr>
+<tr>
+<td>Email → Organic Search → Email</td>
+<td>650</td>
+<td>8%</td>
+</tr>
+<tr>
+<td>Paid Search → Organic Search → Direct</td>
+<td>520</td>
+<td>6%</td>
+</tr>
+</tbody></table>
+<p><strong>Interpreting patterns:</strong></p>
+<p><strong>Multi-channel dominance:</strong> If most conversions follow multi-touch paths (2-4+ touches), your channels are correlated. Single-channel attribution misses the complete picture.</p>
+<p><strong>Sequential dependencies:</strong> Some channels appear almost exclusively early (Paid Social, Display) or late (Email, Direct). This reveals each channel&#39;s funnel position.</p>
+<p><strong>Channel loops:</strong> Paths like <code>Email → Organic Search → Email</code> indicate users consume content across multiple channels before converting, email reminds them, they research via search, then return via email.</p>
+<h3 id="identifying-correlation-patterns">Identifying Correlation Patterns</h3>
+<p><strong>Positive correlation indicators:</strong></p>
+<ul>
+<li><strong>High co-occurrence:</strong> Two channels frequently appear together in paths. Example: 40% of Paid Social paths include subsequent Organic Search touch.</li>
+<li><strong>Sequential patterns:</strong> Channel A consistently precedes Channel B. Example: <code>Display → Paid Search</code> appears 800 times, <code>Paid Search → Display</code> appears only 50 times. Display drives awareness that converts to Paid Search.</li>
+</ul>
+<p><strong>Negative correlation indicators:</strong></p>
+<ul>
+<li><strong>Substitution paths:</strong> <code>Paid Search → Organic Search → Direct</code> where paid intercepts users who&#39;d reach you organically anyway.</li>
+<li><strong>Single-source dominance:</strong> <code>Direct → Direct → Direct</code> paths suggest users know you well, paid acquisition might be redundant.</li>
+</ul>
+<h3 id="filtering-by-channel-pair">Filtering by Channel Pair</h3>
+<p>To isolate specific channel correlations:</p>
+<ol>
+<li>In Conversion Paths report, use <strong>Path contains</strong> filter</li>
+<li>Filter for two channels: <code>Paid Social AND Organic Search</code></li>
+<li>View only paths where both channels appear</li>
+</ol>
+<p><strong>Example result:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Conversions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Paid Social → Organic Search → Direct</td>
+<td>420</td>
+</tr>
+<tr>
+<td>Organic Search → Paid Social → Email</td>
+<td>180</td>
+</tr>
+<tr>
+<td>Paid Social → Organic Search → Organic Search</td>
+<td>95</td>
+</tr>
+</tbody></table>
+<p><strong>Analysis:</strong> 695 conversions (out of 8,000 total) involved both Paid Social and Organic Search. That&#39;s 8.7% of conversions.</p>
+<p>If Paid Social appears in 15% of all paths and Organic in 60%, but they co-occur in only 8.7%, they&#39;re less correlated than expected (15% × 60% = 9% expected). Slight negative correlation or independence.</p>
+<p>If co-occurrence is 20%+, strong positive correlation, the channels amplify each other.</p>
+<h2 id="tool-2-model-comparison">Tool 2: Model Comparison</h2>
+<p><strong>Model Comparison</strong> reveals how channel credit shifts under different attribution models.</p>
+<h3 id="accessing-model-comparison">Accessing Model Comparison</h3>
+<ol>
+<li>Go to <strong>GA4 → Advertising → Attribution → Model Comparison</strong></li>
+<li>Select two models to compare (e.g., Last Click vs. Data-Driven)</li>
+<li>Choose conversion event and date range</li>
+</ol>
+<h3 id="interpreting-credit-shifts">Interpreting Credit Shifts</h3>
+<p>The report shows how conversion credit changes when you switch attribution models:</p>
+<p><strong>Example output (Last Click vs. Data-Driven):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Last Click Conversions</th>
+<th>DDA Conversions</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Email</td>
+<td>2,800</td>
+<td>2,200</td>
+<td>-21%</td>
+</tr>
+<tr>
+<td>Organic Search</td>
+<td>2,400</td>
+<td>2,600</td>
+<td>+8%</td>
+</tr>
+<tr>
+<td>Paid Search</td>
+<td>1,500</td>
+<td>1,400</td>
+<td>-7%</td>
+</tr>
+<tr>
+<td>Direct</td>
+<td>1,200</td>
+<td>800</td>
+<td>-33%</td>
+</tr>
+<tr>
+<td>Paid Social</td>
+<td>400</td>
+<td>1,200</td>
+<td>+200%</td>
+</tr>
+</tbody></table>
+<p><strong>Key findings:</strong></p>
+<p><strong>Email and Direct over-credited by Last Click:</strong> These often appear as final touchpoints (users return via email or direct navigation after earlier channel exposures). DDA reduces their credit because they&#39;re not driving initial discovery.</p>
+<p><strong>Paid Social massively under-credited by Last Click:</strong> Appears early in journeys, rarely as last touch. DDA reveals Paid Social drives 1,200 conversions&#39; worth of value (initial awareness), not 400.</p>
+<p><strong>Budget implications:</strong> If you&#39;re using last-click logic, you&#39;d underinvest in Paid Social by 3× (400 vs. 1,200 conversions). DDA-based allocation would shift budget from Email/Direct (over-credited) to Paid Social (under-credited).</p>
+<h3 id="calculating-true-channel-value">Calculating True Channel Value</h3>
+<p>Use Data-Driven model conversions to estimate true channel contribution:</p>
+<p><strong>Formula:</strong></p>
+<p><strong>Channel Value = (DDA Conversions × Avg Order Value) - Channel Cost</strong></p>
+<p><strong>Example (Paid Social):</strong></p>
+<ul>
+<li>DDA Conversions: 1,200</li>
+<li>Avg Order Value: $50</li>
+<li>Revenue attributed: 1,200 × $50 = <strong>$60,000</strong></li>
+<li>Paid Social spend: $15,000</li>
+<li><strong>Net value:</strong> $45,000 (ROI: 300%)</li>
+</ul>
+<p>Compare to last-click calculation:</p>
+<ul>
+<li>Last Click Conversions: 400</li>
+<li>Revenue: $20,000</li>
+<li>Spend: $15,000</li>
+<li><strong>Net value:</strong> $5,000 (ROI: 33%)</li>
+</ul>
+<p><strong>Impact:</strong> DDA reveals Paid Social is 9× more valuable than last-click suggests. This justifies scaling Paid Social budget.</p>
+<h2 id="tool-3-path-exploration">Tool 3: Path Exploration</h2>
+<p><strong>Path Exploration</strong> visualizes user journeys as flow diagrams (Sankey charts), showing how traffic moves between channels.</p>
+<h3 id="setting-up-path-exploration">Setting Up Path Exploration</h3>
+<ol>
+<li>Go to <strong>GA4 → Explore → Create new exploration → Path Exploration</strong></li>
+<li><strong>Starting point:</strong> <code>session_start</code></li>
+<li><strong>Add step:</strong> <code>session_source / medium</code> (or <code>session_default_channel_group</code>)</li>
+<li><strong>Ending point:</strong> Conversion event (e.g., <code>purchase</code>)</li>
+</ol>
+<h3 id="reading-the-flow-diagram">Reading the Flow Diagram</h3>
+<p>The visualization shows traffic flowing from sources → intermediate touchpoints → conversion.</p>
+<p><strong>Example flow:</strong></p>
+<pre><code>[Paid Social] (5,000) → [Organic Search] (2,000) → [Purchase] (400)
+                     → [Email] (1,500) → [Purchase] (300)
+                     → [Drop-off] (1,500)
+
+[Organic Search] (8,000) → [Direct] (3,000) → [Purchase] (900)
+                         → [Email] (2,000) → [Purchase] (500)
+                         → [Drop-off] (3,000)
+</code></pre>
+<p><strong>Insights:</strong></p>
+<p><strong>Paid Social → Organic Search:</strong> 2,000 users (40% of Paid Social traffic) follow this path. Indicates Paid Social drives brand awareness that converts to organic searches.</p>
+<p><strong>Organic Search → Direct:</strong> 3,000 users (37.5% of Organic traffic) handle directly after initial organic visit. Strong retention signal.</p>
+<p><strong>Drop-offs:</strong> 1,500 Paid Social users and 3,000 Organic users don&#39;t return, conversion optimization opportunity.</p>
+<h3 id="identifying-correlation">Identifying Correlation</h3>
+<p><strong>Positive correlation:</strong> High flow between two channels (&gt;20% of Channel A traffic moves to Channel B). Example: Paid Social → Organic Search (40% flow) indicates positive correlation. Paid Social seeds awareness that drives organic traffic.</p>
+<p><strong>Negative correlation:</strong> Low flow despite high traffic volumes. Example: Paid Search and Paid Social each drive 10,000 sessions, but only 500 users interact with both, suggests independent audiences (or one cannibalizes the other without driving cross-channel engagement).</p>
+<p><strong>Zero correlation:</strong> Channels don&#39;t appear in each other&#39;s paths frequently (&lt;5% overlap).</p>
+<h2 id="cohort-analysis-for-correlation">Cohort Analysis for Correlation</h2>
+<p><strong>Cohort analysis</strong> tracks how users acquired via Channel A behave over time, including which channels they return through.</p>
+<h3 id="setup">Setup</h3>
+<ol>
+<li>Go to <strong>GA4 → Explore → Cohort Exploration</strong></li>
+<li><strong>Cohort definition:</strong> First <code>session_source</code> or <code>session_campaign</code></li>
+<li><strong>Cohort size:</strong> By date (daily or weekly cohorts)</li>
+<li><strong>Metric:</strong> <code>sessions</code> or <code>active_users</code></li>
+<li><strong>Return criteria:</strong> Segment by <code>session_source</code> in return visits</li>
+</ol>
+<h3 id="example-analysis">Example Analysis</h3>
+<p><strong>Cohort:</strong> Users acquired via Paid Social in January</p>
+<p><strong>Week 1:</strong> 5,000 users acquired
+<strong>Week 2:</strong> 800 returned (16% retention)</p>
+<ul>
+<li>480 via Direct (60%)</li>
+<li>240 via Organic Search (30%)</li>
+<li>80 via Email (10%)</li>
+</ul>
+<p><strong>Week 3:</strong> 600 returned (12% retention)</p>
+<ul>
+<li>360 via Direct (60%)</li>
+<li>180 via Organic Search (30%)</li>
+<li>60 via Email (10%)</li>
+</ul>
+<p><strong>Interpretation:</strong> Paid Social users return primarily via Direct and Organic Search. This indicates:</p>
+<ol>
+<li>Paid Social drives awareness (users bookmark or remember brand name)</li>
+<li>30% of return traffic comes via Organic Search, paid social is positively correlated with organic (drives brand searches)</li>
+</ol>
+<p><strong>Optimization insight:</strong> Cutting Paid Social would reduce not only direct Paid Social traffic but also downstream Organic Search and Direct traffic (30-40% of return visits). True cost of pausing Paid Social includes both direct and indirect traffic loss.</p>
+<h2 id="time-lag-analysis">Time Lag Analysis</h2>
+<p><strong>Time lag</strong> measures days between first touchpoint and conversion. Long lags indicate multi-channel nurturing; short lags suggest direct-response behavior.</p>
+<h3 id="accessing-time-lag">Accessing Time Lag</h3>
+<ol>
+<li>Go to <strong>GA4 → Advertising → Attribution → Conversion Paths</strong></li>
+<li>Add <strong>Time to conversion</strong> dimension</li>
+<li>Filter by specific channels to compare lag times</li>
+</ol>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Median Time to Conversion</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Paid Social</td>
+<td>14 days</td>
+</tr>
+<tr>
+<td>Organic Search</td>
+<td>7 days</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>3 days</td>
+</tr>
+<tr>
+<td>Direct</td>
+<td>1 day</td>
+</tr>
+</tbody></table>
+<p><strong>Interpretation:</strong></p>
+<p><strong>Paid Social (14 days):</strong> Long lag suggests awareness-stage channel. Users don&#39;t convert immediately, they research, compare, return via other channels.</p>
+<p><strong>Email (3 days):</strong> Short lag indicates high-intent or nurtured audience. Email reminds users ready to convert.</p>
+<p><strong>Direct (1 day):</strong> Shortest lag, users handling directly are already decided.</p>
+<p><strong>Correlation insight:</strong> Channels with long lags (Paid Social, Display) often precede channels with short lags (Email, Direct) in conversion paths. This sequential pattern reveals positive correlation, early-stage channels feed late-stage channels.</p>
+<h2 id="cross-channel-influence-report">Cross-Channel Influence Report</h2>
+<p>Create a custom report measuring how often channels appear together in conversion journeys.</p>
+<h3 id="setup-in-ga4-explore">Setup in GA4 Explore</h3>
+<ol>
+<li><strong>Explore → Free Form</strong></li>
+<li><strong>Dimensions:</strong> <code>Session source/medium</code>, <code>User first session source/medium</code></li>
+<li><strong>Metrics:</strong> <code>Conversions</code></li>
+<li><strong>Filters:</strong> Conversion event of interest</li>
+</ol>
+<p><strong>Output:</strong> Table showing conversion counts by first-touch and last-touch channel combination.</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>First Touch</th>
+<th>Last Touch</th>
+<th>Conversions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Paid Social</td>
+<td>Email</td>
+<td>850</td>
+</tr>
+<tr>
+<td>Paid Social</td>
+<td>Organic Search</td>
+<td>420</td>
+</tr>
+<tr>
+<td>Paid Social</td>
+<td>Paid Social</td>
+<td>180</td>
+</tr>
+<tr>
+<td>Organic Search</td>
+<td>Email</td>
+<td>1,200</td>
+</tr>
+<tr>
+<td>Organic Search</td>
+<td>Direct</td>
+<td>900</td>
+</tr>
+<tr>
+<td>Organic Search</td>
+<td>Organic Search</td>
+<td>650</td>
+</tr>
+</tbody></table>
+<p><strong>Analysis:</strong></p>
+<p><strong>Paid Social → Email (850):</strong> Paid Social initiates, Email converts. Strong positive correlation.</p>
+<p><strong>Paid Social → Paid Social (180):</strong> Single-touch conversions are rare (12% of Paid Social-initiated conversions). Indicates multi-channel nurturing is critical.</p>
+<p><strong>Organic Search → Organic Search (650):</strong> 40% of Organic-initiated conversions are single-touch. Organic delivers both awareness and conversion.</p>
+<p><strong>Optimization:</strong> Paid Social + Email is a high-performing combination (850 conversions). Scale both together rather than choosing one.</p>
+<h2 id="practical-application-budget-reallocation">Practical Application: Budget Reallocation</h2>
+<p>Use correlation insights to reallocate budget.</p>
+<p><strong>Scenario:</strong></p>
+<p><strong>Current budget:</strong></p>
+<ul>
+<li>Paid Social: $5,000/month (Last-click: 400 conversions)</li>
+<li>Email: $1,000/month (Last-click: 2,800 conversions)</li>
+</ul>
+<p><strong>Data-Driven attribution reveals:</strong></p>
+<ul>
+<li>Paid Social: 1,200 DDA conversions (influences 70% of Email conversions)</li>
+<li>Email: 2,200 DDA conversions</li>
+</ul>
+<p><strong>Reallocation decision:</strong></p>
+<p>Paid Social is 3× more valuable than last-click suggests. It drives awareness that converts via Email. Cutting Paid Social would reduce Email conversions by 30% (840 conversions lost).</p>
+<p><strong>Action:</strong> Increase Paid Social budget by $2,000/month (to $7,000). Expected outcome: +480 DDA conversions directly, +200 Email conversions indirectly = <strong>+680 total conversions</strong>.</p>
+<p>Compare to increasing Email budget by $2,000: Might generate +200 conversions, but without Paid Social feeding awareness, diminishing returns set in.</p>
+<p><strong>Result:</strong> Budget reallocation based on correlation insights compounds effectiveness, optimize the <em>system</em>, not individual channels.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>What&#39;s the minimum data volume to measure correlation reliably?</strong>
+1,000+ conversions monthly minimum. Below that, noise overwhelms signal. Correlation patterns become visible at 5,000+ conversions monthly.</p>
+<p><strong>Can I measure correlation for non-conversion goals (traffic, engagement)?</strong>
+Yes. Create custom events for engagement milestones (<code>engaged_session</code>, <code>3_pages_viewed</code>). Analyze conversion paths and attribution for these events the same way.</p>
+<p><strong>How often should I review attribution data?</strong>
+Quarterly for strategic decisions (budget reallocation). Monthly for tactical optimization (campaign adjustments). Real-time for paid channels with daily spend.</p>
+<p><strong>What if GA4 shows contradictory data between reports?</strong>
+Common when comparing models (Last Click vs. DDA) or time periods (attribution lookback window differences). Trust Data-Driven model if you meet minimum thresholds (1,000+ conversions). Otherwise, use Position-Based as middle ground.</p>
+<p><strong>Should I optimize for single-channel performance or multi-channel ecosystems?</strong>
+Ecosystems. Single-channel optimization leads to suboptimal outcomes (cutting channels that feed others). Always consider cross-channel effects when making budget decisions.</p>
+<hr>
+<h2 id="when-this-analysis-doesn-t-apply">When This Analysis Doesn't Apply</h2>
+<p>Skip this framework if:</p>
+<ul>
+<li><strong>You&#39;re in the first 3 months of a new site.</strong> Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.</li>
+<li><strong>Your traffic is already diversified below 40% from any single source.</strong> You&#39;ve solved the concentration problem. Focus on channel efficiency and conversion optimization instead.</li>
+<li><strong>You&#39;re running a time-limited campaign.</strong> Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-quickly-can-i-implement-this-traffic-strategy">How quickly can I implement this traffic strategy?</h3>
+<p>Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.</p>
+<h3 id="does-this-work-for-sites-with-less-than-10k-monthly-visitors">Does this work for sites with less than 10K monthly visitors?</h3>
+<p>Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down, start with simpler attribution before building complex models.</p>
+<h3 id="what-tools-do-i-need-to-execute-this">What tools do I need to execute this?</h3>
+<p>Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required, the strategy is more important than the tooling.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/direct-traffic-undervalued-channel.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Why Direct Traffic is the Most Undervalued Channel in Digital Marketing</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Marketers chase paid clicks while direct traffic—the purest brand signal—gets ignored. Learn why direct traffic has the highest LTV and lowest CAC when measured correctly.</p>
+          </a>
+
+          <a href="/articles/discord-traffic-channel-publishers.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Discord as a Traffic Channel: How Publishers Build Communities That Drive Visits</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Discord communities generate high-intent traffic and reduce platform dependency. Learn server architecture, content distribution strategies, and monetization models.</p>
+          </a>
+
+          <a href="/articles/multi-channel-traffic-solo-publishers.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Multi-Channel Traffic for Solo Publishers</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Practical multi-channel traffic strategies for solo publishers with limited time and budget—prioritization frameworks, minimum viable diversification, and automation tactics.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

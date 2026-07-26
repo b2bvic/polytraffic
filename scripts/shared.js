@@ -1,0 +1,523 @@
+/**
+ * Polytraffic — Signal Grid Design System
+ * Shared module: mega nav, footer, head includes, tailwind config
+ * All HTML generators live here. Build scripts import from this single source.
+ */
+
+const SITE = {
+  name: 'Polytraffic',
+  url: 'https://polytraffic.com',
+  tagline: 'Multi-channel traffic intelligence for publishers.',
+  description: 'Traffic diversification frameworks, algorithm update recovery, and platform risk analysis for publishers who refuse to gamble on a single channel.',
+  author: 'Victor Valentine Romo',
+  authorUrl: 'https://victorvalentineromo.com',
+  parentBrand: 'Scale With Search',
+  parentUrl: 'https://scalewithsearch.com',
+  offerName: 'Scale With Search',
+  offerUrl: 'https://scalewithsearch.com',
+  year: new Date().getFullYear(),
+};
+
+const ENTITY_DOMAINS = [
+  'scalewithsearch.com',
+  'victorvalentineromo.com',
+  'aifirstsearch.com',
+  'browserprompt.com',
+  'creatinepedia.com',
+  'polytraffic.com',
+  'organicarbitrage.com',
+  'aipaypercrawl.com',
+];
+
+const CATEGORIES = {
+  channels: {
+    label: 'Channels',
+    slug: 'channels',
+    links: [
+      { title: 'SEO', href: '/channels/seo.html' },
+      { title: 'Paid Search', href: '/channels/paid-search.html' },
+      { title: 'Social', href: '/channels/social.html' },
+      { title: 'Email', href: '/channels/email.html' },
+      { title: 'Referral', href: '/channels/referral.html' },
+      { title: 'Direct', href: '/channels/direct.html' },
+    ],
+  },
+  economics: {
+    label: 'Economics',
+    slug: 'economics',
+    links: [
+      { title: 'CPV Analysis', href: '/economics/cpv-analysis.html' },
+      { title: 'Attribution Models', href: '/economics/attribution-models.html' },
+      { title: 'ROI Frameworks', href: '/economics/roi-frameworks.html' },
+    ],
+  },
+  resilience: {
+    label: 'Resilience',
+    slug: 'resilience',
+    href: '/resilience.html',
+  },
+  tools: {
+    label: 'Tools',
+    slug: 'tools',
+    links: [
+      { title: 'Calculators', href: '/tools/calculators.html' },
+      { title: 'Frameworks', href: '/tools/frameworks.html' },
+      { title: 'Templates', href: '/tools/templates.html' },
+    ],
+  },
+};
+
+// Category mapping for articles without explicit category frontmatter
+const CATEGORY_KEYWORDS = {
+  channels: ['seo', 'paid search', 'social', 'email', 'referral', 'direct', 'affiliate', 'channel', 'traffic source'],
+  economics: ['cpv', 'cost per visitor', 'attribution', 'roi', 'economics', 'cost', 'revenue', 'monetiz'],
+  resilience: ['algorithm', 'update', 'recovery', 'resilience', 'risk', 'platform risk', 'diversif', 'correlation', 'portfolio'],
+  tools: ['calculator', 'framework', 'template', 'tool', 'spreadsheet', 'tracking'],
+};
+
+function inferCategory(article) {
+  if (article.category) return article.category;
+  const text = `${article.title} ${article.description} ${article.keywords || article.focus_keyword || ''}`.toLowerCase();
+  let bestCat = 'resilience';
+  let bestScore = 0;
+  for (const [cat, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
+    let score = 0;
+    for (const kw of keywords) {
+      if (text.includes(kw)) score++;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      bestCat = cat;
+    }
+  }
+  return bestCat;
+}
+
+// ── Tailwind Config ──────────────────────────────────────────────
+const tailwindConfig = `
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }`;
+
+// ── Head Includes ────────────────────────────────────────────────
+function headIncludes({ title, description, canonical, type = 'website', ogImage, jsonLd, noindex = false }) {
+  // Cloudflare Pages serves clean URLs and 308s the .html variants;
+  // canonicals and og:url must point at the URL that returns 200.
+  canonical = canonical.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+  const entityLinks = ENTITY_DOMAINS.map(d => `    <link rel="me" href="https://${d}" />`).join('\n');
+  const robotsMeta = noindex ? '\n    <meta name="robots" content="noindex" />' : '';
+
+  let jsonLdBlock = '';
+  if (jsonLd) {
+    jsonLdBlock = `\n    <script type="application/ld+json">\n${typeof jsonLd === 'string' ? jsonLd : JSON.stringify(jsonLd, null, 2)}\n    </script>`;
+  }
+
+  return `    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+    <meta name="description" content="${escapeAttr(description)}" />
+    <meta name="author" content="${SITE.author}" />${robotsMeta}
+    <meta property="og:title" content="${escapeAttr(title)}" />
+    <meta property="og:description" content="${escapeAttr(description)}" />
+    <meta property="og:type" content="${type}" />
+    <meta property="og:url" content="${canonical}" />
+    <meta property="og:site_name" content="${SITE.name}" />${ogImage ? `\n    <meta property="og:image" content="${ogImage}" />\n    <meta property="og:image:width" content="1200" />\n    <meta property="og:image:height" content="675" />` : ''}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttr(title)}" />
+    <meta name="twitter:description" content="${escapeAttr(description)}" />${ogImage ? `\n    <meta name="twitter:image" content="${ogImage}" />` : ''}
+    <link rel="canonical" href="${canonical}" />
+${entityLinks}
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>${tailwindConfig}
+    </script>${jsonLdBlock}`;
+}
+
+// ── Mega Nav HTML ────────────────────────────────────────────────
+function megaNavHtml(activePath = '') {
+  return `
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              ${CATEGORIES.channels.links.map(l => `<a href="${l.href}">${l.title}</a>`).join('\n              ')}
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              ${CATEGORIES.economics.links.map(l => `<a href="${l.href}">${l.title}</a>`).join('\n              ')}
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              ${CATEGORIES.tools.links.map(l => `<a href="${l.href}">${l.title}</a>`).join('\n              ')}
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          ${CATEGORIES.channels.links.map(l => `<a href="${l.href}" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">${l.title}</a>`).join('\n          ')}
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          ${CATEGORIES.economics.links.map(l => `<a href="${l.href}" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">${l.title}</a>`).join('\n          ')}
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          ${CATEGORIES.tools.links.map(l => `<a href="${l.href}" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">${l.title}</a>`).join('\n          ')}
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>`;
+}
+
+// ── Mega Nav Script ──────────────────────────────────────────────
+const megaNavScript = `
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>`;
+
+// ── Footer HTML ──────────────────────────────────────────────────
+function footerHtml() {
+  const entityLinksList = ENTITY_DOMAINS
+    .filter(d => d !== 'polytraffic.com')
+    .map(d => {
+      const name = d.replace('.com', '').replace(/([A-Z])/g, ' $1').trim();
+      const display = d.replace('.com', '');
+      return `          <li><a href="https://${d}" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">${display}</a></li>`;
+    }).join('\n');
+
+  return `
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="${SITE.parentUrl}" class="text-violet-500 hover:text-violet-400">${SITE.parentBrand}</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+${entityLinksList}
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; ${SITE.year} ${SITE.name}. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>`;
+}
+
+// ── Schema Generators ────────────────────────────────────────────
+function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": SITE.name,
+        "url": SITE.url,
+        "description": SITE.description,
+        "publisher": { "@id": `${SITE.url}/#organization` },
+      },
+      {
+        "@type": "Organization",
+        "@id": `${SITE.url}/#organization`,
+        "name": SITE.name,
+        "url": SITE.url,
+        "founder": {
+          "@type": "Person",
+          "name": SITE.author,
+          "url": SITE.authorUrl,
+        },
+        "sameAs": ENTITY_DOMAINS.map(d => `https://${d}`),
+      },
+    ],
+  };
+}
+
+function articleSchema({ title, description, slug, date, category }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": {
+      "@type": "ImageObject",
+      "url": `${SITE.url}/images/articles/${slug}.png`,
+      "width": 1200,
+      "height": 675,
+    },
+    "author": {
+      "@type": "Person",
+      "name": SITE.author,
+      "url": SITE.authorUrl,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": SITE.name,
+      "url": SITE.url,
+    },
+    "datePublished": date,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${SITE.url}/articles/${slug}.html`,
+    },
+  };
+}
+
+function breadcrumbSchema(crumbs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": c.name,
+      "item": c.url ? `${SITE.url}${c.url}` : undefined,
+    })),
+  };
+}
+
+function faqSchema(pairs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": pairs.map(p => ({
+      "@type": "Question",
+      "name": p.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": p.a,
+      },
+    })),
+  };
+}
+
+// ── Breadcrumb HTML ──────────────────────────────────────────────
+function breadcrumbHtml(crumbs) {
+  const items = crumbs.map((c, i) => {
+    const isLast = i === crumbs.length - 1;
+    const chevron = isLast ? '' : ' <span class="pt-chevron">&rsaquo;</span> ';
+    if (isLast) {
+      return `<span class="text-slate-400">${escapeHtml(c.name)}</span>`;
+    }
+    return `<a href="${c.url}">${escapeHtml(c.name)}</a>${chevron}`;
+  });
+  return `<nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb">${items.join('')}</nav>`;
+}
+
+// ── Utility ──────────────────────────────────────────────────────
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function escapeAttr(str) {
+  return String(str).replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function slugify(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+// ── Exports ──────────────────────────────────────────────────────
+
+// ── Entity SEO (network-wide) ─────────────────────────────────
+const ENTITY_PERSON_SCHEMA = '{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}';
+const ENTITY_ORG_SCHEMA = '{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}';
+const ENTITY_WEBSITE_SCHEMA = '{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}';
+const ENTITY_SCHEMAS_HTML = `
+  <script type="application/ld+json">${ENTITY_PERSON_SCHEMA}</script>
+  <script type="application/ld+json">${ENTITY_ORG_SCHEMA}</script>
+  <script type="application/ld+json">${ENTITY_WEBSITE_SCHEMA}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+`;
+
+
+module.exports = {
+  ENTITY_SCHEMAS_HTML,
+  SITE,
+  ENTITY_DOMAINS,
+  CATEGORIES,
+  CATEGORY_KEYWORDS,
+  inferCategory,
+  tailwindConfig,
+  headIncludes,
+  megaNavHtml,
+  megaNavScript,
+  footerHtml,
+  websiteSchema,
+  articleSchema,
+  breadcrumbSchema,
+  faqSchema,
+  breadcrumbHtml,
+  escapeHtml,
+  escapeAttr,
+  slugify,
+};

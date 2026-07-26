@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server-Side Analytics for Accurate Traffic Measurement Across Multiple Channels | Polytraffic</title>
+    <meta name="description" content="Discover why server-side analytics delivers more accurate multi-channel traffic data than client-side tracking and how to implement it effectively." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Server-Side Analytics for Accurate Traffic Measurement Across Multiple Channels | Polytraffic" />
+    <meta property="og:description" content="Discover why server-side analytics delivers more accurate multi-channel traffic data than client-side tracking and how to implement it effectively." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/server-side-analytics-accurate-traffic" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/server-side-analytics-accurate-traffic.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Server-Side Analytics for Accurate Traffic Measurement Across Multiple Channels | Polytraffic" />
+    <meta name="twitter:description" content="Discover why server-side analytics delivers more accurate multi-channel traffic data than client-side tracking and how to implement it effectively." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/server-side-analytics-accurate-traffic.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/server-side-analytics-accurate-traffic" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Server-Side Analytics for Accurate Traffic Measurement Across Multiple Channels",
+    "description": "Discover why server-side analytics delivers more accurate multi-channel traffic data than client-side tracking and how to implement it effectively.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/server-side-analytics-accurate-traffic.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/server-side-analytics-accurate-traffic.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Analytics.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Server-Side Analytics for Accurate Traffic Measurement Across Multiple Channels"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Analytics.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Server-Side Analytics for Accurate Traffic Measurement Across Multiple Channels</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/server-side-analytics-accurate-traffic.png" alt="Server-Side Analytics for Accurate Traffic Measurement Across Multiple Channels" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="server-side-analytics-for-accurate-traffic-measurement-across-multiple-channels">Server-Side Analytics for Accurate Traffic Measurement Across Multiple Channels</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Discover why server-side analytics delivers more accurate multi-channel traffic data than client-side tracking and how to implement it effectively.</li>
+<li><strong>Who it&#39;s for:</strong> traffic strategists and growth operators</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#client-side-analytics-failure-modes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Client-Side Analytics Failure Modes</a></li>
+<li><a href="#server-side-tracking-architecture" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Server-Side Tracking Architecture</a></li>
+<li><a href="#implementing-server-side-google-analytics-4" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementing Server-Side Google Analytics 4</a></li>
+<li><a href="#cross-channel-attribution-with-server-side-data" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cross-Channel Attribution with Server-Side Data</a></li>
+<li><a href="#privacy-compliance-and-server-side-tracking" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Privacy Compliance and Server-Side Tracking</a></li>
+<li><a href="#server-side-performance-considerations" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Server-Side Performance Considerations</a></li>
+<li><a href="#hybrid-client-side-and-server-side-strategies" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Hybrid Client-Side and Server-Side Strategies</a></li>
+<li><a href="#measuring-ad-blocker-traffic-impact" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Measuring Ad Blocker Traffic Impact</a></li>
+<li><a href="#server-log-analysis-tools" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Server Log Analysis Tools</a></li>
+<li><a href="#bot-traffic-filtering-server-side" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Bot Traffic Filtering Server-Side</a></li>
+<li><a href="#migration-strategy-from-client-side-to-server-side" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Migration Strategy from Client-Side to Server-Side</a></li>
+<li><a href="#when-this-analysis-doesn-t-apply" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Analysis Doesn't Apply</a></li>
+</ul>
+<p>Client-side analytics suffers from ad blocker interference, browser privacy restrictions, and JavaScript failures that systematically undercount traffic by 15-40%. Server-side tracking captures every HTTP request before browser-based blocking mechanisms activate, delivering accurate cross-channel measurement. Publishers optimizing traffic diversification without reliable data make decisions on corrupted information, misallocating budget and strategic focus.</p>
+<h2 id="client-side-analytics-failure-modes">Client-Side Analytics Failure Modes</h2>
+<p><strong>Ad blockers</strong> eliminate Google Analytics, Facebook Pixel, and similar JavaScript tracking for 25-40% of desktop users. <strong>uBlock Origin</strong>, <strong>Adblock Plus</strong>, and browser-native blocking features strip tracking scripts before execution. Blocked traffic remains invisible in analytics dashboards. Publishers perceive false traffic declines when ad blocker adoption increases, not actual visitor reductions.</p>
+<p><strong>Safari Intelligent Tracking Prevention</strong> and <strong>Firefox Enhanced Tracking Protection</strong> limit cookie lifespans to 7 days for client-side trackers. Users returning after one week register as new visitors rather than returning users. Attribution windows compress artificially, crediting last-touch channels while earlier touchpoints disappear from conversion paths. Multi-channel analysis breaks when user journeys exceed one-week windows.</p>
+<p><strong>Content Security Policies</strong> implemented by security-conscious enterprises block third-party JavaScript execution. Corporate users accessing content through VPNs or secure network configurations may never fire analytics tags. B2B publishers lose visibility into significant portions of professional audience traffic.</p>
+<p><strong>JavaScript failures</strong> from page load errors, network timeouts, or conflicting scripts prevent analytics execution for 2-5% of page views. Server-side tracking executes independent of client-side rendering, capturing traffic regardless of browser errors. Publishers relying exclusively on client-side analytics never see failed JavaScript sessions.</p>
+<p><strong>Single-page applications</strong> built with React, Vue, or Angular frameworks require additional tracking configuration. Default Google Analytics implementations miss pageview transitions occurring without full page reloads. Server-side tracking captures route changes through server requests or explicit tracking calls immune to SPA configuration errors.</p>
+<h2 id="server-side-tracking-architecture">Server-Side Tracking Architecture</h2>
+<p>Server-side analytics processes events on web servers or CDN edge nodes before responses reach browsers. HTTP requests hitting servers trigger tracking events regardless of subsequent browser behavior. Every URL request, API call, and resource load generates trackable server log entry immune to client-side blocking.</p>
+<p><strong>Google Analytics 4</strong> supports server-side implementation through Measurement Protocol API. Servers send event data directly to GA4 bypassing browser tracking. Events include page_view, purchase, sign_up, and custom events. Server-generated client_id maintains user identity across sessions. Implementation requires backend development but delivers complete traffic picture.</p>
+<p><strong>Server log analysis</strong> using tools like <strong>GoAccess</strong>, <strong>Matomo</strong>, or <strong>AWStats</strong> processes web server logs (Apache, Nginx) to extract traffic patterns. Log analysis captures 100% of HTTP requests without JavaScript dependencies. Raw log data includes IP addresses, user agents, referrers, and response codes enabling deep forensic analysis unavailable in client-side tools.</p>
+<p><strong>Tag management via server containers</strong> moves tracking logic from browsers to servers. <strong>Google Tag Manager Server-Side</strong> receives events from client-side data layer and forwards to analytics platforms after server-side processing. This hybrid approach maintains tag management flexibility while gaining server-side reliability and privacy advantages.</p>
+<p><strong>API-based tracking</strong> for server-rendered pages sends analytics events during page generation. Server-side rendered content (PHP, Python, Ruby, Node) can fire tracking calls before HTML delivery. Users never receive tracking JavaScript, all measurement occurs backend. This approach eliminates ad blocker concerns entirely.</p>
+<h2 id="implementing-server-side-google-analytics-4">Implementing Server-Side Google Analytics 4</h2>
+<p>Deploy Google Tag Manager server container on <strong>Cloud Run</strong>, <strong>App Engine</strong>, or <strong>AWS Fargate</strong>. Server container receives events from client-side GTM via endpoint URL. Events process server-side before forwarding to GA4. This architecture intercepts and enriches data unavailable to client-side tracking.</p>
+<p>Configure client-side GTM to send data to server container endpoint rather than directly to GA4. Use <code>server_container_url</code> parameter pointing to your hosted container. Client-side datalayer pushes remain unchanged, server container handles destination routing.</p>
+<p>Implement server-side event forwarding using GA4 tag templates in server GTM. Configure Measurement Protocol parameters including api_secret, measurement_id, and client_id. Server enriches events with user IP address (masked to comply with privacy), user_agent, and location data before GA4 transmission.</p>
+<p><strong>First-party cookies</strong> set via server-side implementation persist longer than third-party cookies blocked by browsers. Server-set cookies with HTTPOnly and Secure flags survive browser privacy protections. Generate and maintain client_id server-side for consistent user identification across sessions.</p>
+<p>Handle bot traffic filtering server-side using user agent analysis and behavioral patterns. Bots representing 30-50% of server traffic must exclude from analytics to prevent data pollution. Server-side logic identifies crawlers (Googlebot, Bingbot), scrapers, and malicious bots before counting legitimate user sessions.</p>
+<h2 id="cross-channel-attribution-with-server-side-data">Cross-Channel Attribution with Server-Side Data</h2>
+<p>Server-side tracking captures complete referrer information stripped by client-side privacy protections. HTTPS referrer policies often truncate external referrers, showing only domain without path. Server logs preserve full referrer URLs enabling granular traffic source analysis.</p>
+<p><strong>UTM parameters</strong> persist through server-side capture even when users bounce quickly. Client-side analytics miss sessions ending before JavaScript execution completes. Server-side tracking counts these sessions, revealing bounce rates for paid campaigns more accurately than client-side measurement undercounting immediate exits.</p>
+<p>Integrate CRM data server-side to connect anonymous traffic with known user identities. When users log in or provide emails, server-side code associates client_id with user records. Subsequent traffic from authenticated users enables lifetime journey analysis across months or years, transcending client-side cookie limitations.</p>
+<p><strong>Purchase attribution</strong> flows from server-side transaction events to analytics platforms with complete accuracy. E-commerce confirmation pages tracked server-side capture 100% of transactions. Client-side tracking loses 5-15% of conversions from ad blocker users or JavaScript errors during checkout completion.</p>
+<p>Build multi-touch attribution models using complete server-side journey data. Track touchpoints from initial organic search visit through paid retargeting ad to email campaign click and final direct conversion. Server-side data maintains consistent user identity throughout journey, enabling sophisticated attribution weighting unavailable with client-side cookie limitations.</p>
+<h2 id="privacy-compliance-and-server-side-tracking">Privacy Compliance and Server-Side Tracking</h2>
+<p><strong>GDPR</strong> and <strong>CCPA</strong> compliance requires consent management regardless of tracking method. Server-side tracking doesn&#39;t exempt publishers from consent requirements. Implement consent checks before event transmission. Store consent status server-side and respect user opt-out decisions in analytics logic.</p>
+<p><strong>IP address anonymization</strong> required by many privacy frameworks applies to server-side tracking. Mask final IP octet before storage or transmission to analytics platforms. Google Analytics 4 automatically anonymizes IPs, but custom server-side implementations require explicit anonymization code.</p>
+<p><strong>Data retention policies</strong> limit storage duration for personally identifiable information. Server logs containing IP addresses and user agents must purge after retention periods expire (90 days to 24 months depending on jurisdiction). Implement automated log rotation deleting data exceeding retention limits.</p>
+<p><strong>Cookie consent banners</strong> remain necessary for server-set cookies. First-party analytics cookies require consent under GDPR regardless of client or server-side implementation. Obtain consent before setting client_id cookies or tracking user sessions. Document cookie purposes and durations in privacy policy.</p>
+<p>Server-side tracking reduces third-party data sharing, improving privacy posture. Data flows from your servers to analytics platforms without intermediate brokers. This direct data relationship simplifies data processing agreements and reduces GDPR data processor complexity compared to client-side tracking involving multiple third parties.</p>
+<h2 id="server-side-performance-considerations">Server-Side Performance Considerations</h2>
+<p><strong>Response time impact</strong> from server-side tracking depends on implementation architecture. Synchronous tracking calls delaying page response harm user experience. Implement asynchronous event queuing sending analytics data after response delivery. Background workers process tracking queues without blocking user requests.</p>
+<p><strong>CDN edge computing</strong> enables tracking at geographically distributed nodes. <strong>Cloudflare Workers</strong>, <strong>Fastly Compute@Edge</strong>, and <strong>Amazon CloudFront Functions</strong> execute JavaScript at CDN edge locations. Edge tracking processes events nearest users, minimizing latency while maintaining server-side reliability advantages.</p>
+<p><strong>Server resource consumption</strong> from analytics processing increases hosting costs. Each tracked event requires CPU cycles for log parsing, data enrichment, and API calls. High-traffic sites processing millions of daily events need scaled server-side infrastructure. Budget $100-500 monthly for dedicated analytics processing capacity at 1M+ monthly pageviews.</p>
+<p><strong>Data transfer costs</strong> accumulate when sending server-side events to analytics platforms. GA4 Measurement Protocol calls, third-party analytics POST requests, and log file transfers consume bandwidth. Cloud hosting providers charge $0.08-0.12 per GB egress. Sites with 10M monthly pageviews sending 1KB per event transfer ~10GB monthly, costing $1-2.</p>
+<p>Optimize server-side tracking performance by batching events. Queue events locally and send in batches of 10-25 events per API call. Batching reduces API overhead and network round-trips. Google Analytics 4 supports batched event submission via Measurement Protocol reducing request volume 10x.</p>
+<h2 id="hybrid-client-side-and-server-side-strategies">Hybrid Client-Side and Server-Side Strategies</h2>
+<p>Implement server-side tracking for critical conversion events (purchases, signups, form submissions) while using client-side for engagement metrics (scroll depth, video plays, element visibility). This hybrid approach captures revenue-critical data server-side while avoiding server overhead for lower-priority engagement tracking.</p>
+<p><strong>Progressive enhancement</strong> starts with client-side analytics and falls back to server-side for blocked users. Detect ad blocker presence client-side and trigger fallback server-side tracking pixel. Users without blockers use standard client-side analytics. Blocked users send events through server endpoint. This approach maximizes data capture across all user segments.</p>
+<p><strong>Client-side enrichment</strong> adds interaction data unavailable server-side. Browser dimensions, screen resolution, scroll position, and element engagement require JavaScript measurement. Send enriched events from client to server container for processing. Server combines client-side interaction data with server-side reliability benefits.</p>
+<p><strong>Real-time dashboards</strong> benefit from client-side tracking&#39;s immediate data availability. Google Analytics 4 shows client-side events in real-time reports within seconds. Server-side events may delay minutes depending on batch processing. Use client-side for real-time monitoring and server-side for accurate historical analysis.</p>
+<h2 id="measuring-ad-blocker-traffic-impact">Measuring Ad Blocker Traffic Impact</h2>
+<p>Compare client-side analytics (Google Analytics) with server-side log analysis (Matomo, GoAccess) over identical timeframes. Traffic volume discrepancies reveal ad blocker impact. Server logs showing 100,000 daily visitors while GA4 shows 65,000 indicates 35% ad blocker usage in your audience.</p>
+<p>Segment discrepancies by traffic source to identify blocker-heavy channels. <strong>Hacker News</strong> and <strong>Reddit</strong> users employ ad blockers at 60-70% rates. <strong>Facebook</strong> and <strong>Instagram</strong> traffic shows 15-25% blocking. Channel-specific blocker rates inform realistic traffic expectations and attribution accuracy per channel.</p>
+<p><strong>Device segmentation</strong> reveals desktop ad blocker adoption (30-45%) vastly exceeds mobile (5-15%). Mobile browsers offer fewer blocking options and users install blockers less frequently. Desktop-heavy sites lose more visibility to blockers than mobile-first publishers. Adjust traffic expectations by device mix.</p>
+<p>Geographic analysis exposes regional ad blocker variation. European audiences adopt blockers at 40-50% rates due to privacy awareness. US audiences block 25-35%. Asian markets vary widely. Japan and South Korea exceed 40% while emerging markets stay below 20%. Global sites should weight traffic data by regional blocker adoption.</p>
+<h2 id="server-log-analysis-tools">Server Log Analysis Tools</h2>
+<p><strong>Matomo</strong> (formerly Piwik) offers comprehensive log import functionality. Upload server logs (Apache, Nginx, IIS formats) for processing. Matomo generates traffic reports matching Google Analytics structure. Self-hosted deployment provides complete data ownership. Cloud hosting runs $20-100 monthly depending on traffic volume.</p>
+<p><strong>GoAccess</strong> provides real-time command-line log analysis. Run against live log files to generate terminal dashboards or HTML reports. Free and open-source tool requires no external servers. Useful for immediate traffic forensics when analytics dashboards lag. Install via package managers: <code>apt install goaccess</code> or <code>brew install goaccess</code>.</p>
+<p><strong>AWStats</strong> generates detailed static HTML reports from log files. Configure via Perl scripts to process logs periodically (hourly, daily). Reports include visitor trends, popular pages, referrers, search keywords, and technical metrics. Dated interface but reliable analysis for log-based traffic measurement. Free and included with most hosting control panels.</p>
+<p><strong>Snowplow Analytics</strong> provides event streaming architecture for enterprise server-side tracking. Self-hosted infrastructure captures events in real-time processing pipelines. Events stream to data warehouses (Redshift, BigQuery, Snowflake) for custom analysis. Suitable for companies processing 100M+ monthly events requiring complete data ownership. Implementation requires dedicated engineering resources.</p>
+<h2 id="bot-traffic-filtering-server-side">Bot Traffic Filtering Server-Side</h2>
+<p>Analyze user agent strings to identify known bots. Maintain blocklists including Googlebot, Bingbot, Yandex, Baidu crawlers, social media scrapers (FacebookBot, Twitterbot), and monitoring services (UptimeRobot, Pingdom). Filter these requests before analytics processing. Bot traffic represents 30-50% of total server requests but should exclude from visitor counts.</p>
+<p><strong>Behavioral analysis</strong> identifies sophisticated bots mimicking human user agents. Requests accessing robots.txt, immediately requesting sitemaps, or following every link sequentially indicate crawler behavior. Implement honeypot links visible only to crawlers, flagging any traffic clicking these traps as bot activity.</p>
+<p><strong>Request rate limiting</strong> detects aggressive crawlers. Legitimate users average 2-5 pageviews per minute. Bots may request 10-100 pages per minute. Flag IP addresses exceeding human-plausible rates. Whitelist known good bots while blocking aggressive unknown crawlers. Rate limiting prevents both analytics pollution and server resource abuse.</p>
+<p><strong>JavaScript challenges</strong> serve to suspected bots requiring JavaScript execution to continue. Bots failing challenges filter from analytics. This technique identifies bots while still allowing legitimate browser traffic. Cloudflare offers automated bot filtering using JavaScript challenges, CAPTCHAs, and machine learning classification.</p>
+<h2 id="migration-strategy-from-client-side-to-server-side">Migration Strategy from Client-Side to Server-Side</h2>
+<p>Run parallel tracking during transition period. Maintain existing Google Analytics while implementing server-side measurement. Compare data sources for 30-60 days to validate server-side implementation accuracy. Parallel operation reveals discrepancies requiring correction before deprecating client-side tracking.</p>
+<p><strong>Historical data preservation</strong> requires exporting client-side analytics before transition. Google Analytics 4 allows data export to BigQuery for preservation. Export enables year-over-year comparisons after migration. Without historical export, analysis requiring multi-year trends becomes impossible.</p>
+<p>Document implementation differences between client and server-side systems. Server-side tracking may categorize traffic sources differently or calculate metrics using alternate definitions. Create mapping documentation explaining discrepancies in dashboards. Train stakeholders on new metric interpretations to prevent misreading data.</p>
+<p><strong>Gradual rollout</strong> tests server-side infrastructure under increasing load. Begin with 10% of traffic routed to server-side tracking. Monitor error rates, latency impacts, and data accuracy. Increase percentage weekly until reaching 100% migration. Phased approach prevents sudden catastrophic failures affecting entire analytics infrastructure.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Client-Side Analytics Failure Modes:</strong> Server-side analytics processes events on web servers or CDN edge nodes before responses reach browsers.</li>
+<li><strong>Server-Side Tracking Architecture:</strong> Server-side analytics processes events on web servers or CDN edge nodes before responses reach browsers.</li>
+<li><strong>Implementing Server-Side Google Analytics 4:</strong> Deploy Google Tag Manager server container on Cloud Run, App Engine, or AWS Fargate.</li>
+<li><strong>Cross-Channel Attribution with Server-Side Data:</strong> Server-side tracking captures complete referrer information stripped by client-side privacy protections.</li>
+<li><strong>Privacy Compliance and Server-Side Tracking:</strong> Server-side tracking reduces third-party data sharing, improving privacy posture.</li>
+<li><strong>Server-Side Performance Considerations:</strong> Optimize server-side tracking performance by batching events.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<h3 id="does-server-side-tracking-slow-down-websites">Does server-side tracking slow down websites?</h3>
+<p>No, when implemented asynchronously. Tracking events queue for background processing after page responses deliver to browsers. Synchronous implementations blocking responses do slow sites, but proper architecture eliminates performance impact. Edge computing solutions (Cloudflare Workers) add &lt;5ms latency.</p>
+<h3 id="can-server-side-analytics-track-user-engagement-like-scroll-depth">Can server-side analytics track user engagement like scroll depth?</h3>
+<p>No, server-side tracking captures only server interactions, page loads, API calls, form submissions. Engagement metrics requiring browser measurement (scroll, clicks, video plays) need client-side JavaScript. Hybrid implementations combine server-side for core metrics with client-side for engagement tracking.</p>
+<h3 id="is-server-side-tracking-more-expensive-than-client-side">Is server-side tracking more expensive than client-side?</h3>
+<p>Yes, moderately. Server-side tracking requires hosting costs ($100-500/month for high-traffic sites) and development resources for implementation. Client-side tracking costs nothing beyond analytics platform fees. However, improved data accuracy offsets costs through better optimization decisions based on complete traffic picture.</p>
+<h3 id="does-server-side-tracking-work-with-google-tag-manager">Does server-side tracking work with Google Tag Manager?</h3>
+<p>Yes. Google Tag Manager Server-Side container receives events from client-side GTM and processes tags on servers. This maintains GTM&#39;s flexibility while gaining server-side reliability. Cloud hosting costs $50-200 monthly depending on traffic volume and chosen platform (Cloud Run, AWS, Azure).</p>
+<h3 id="will-server-side-tracking-eliminate-all-ad-blocker-undercounting">Will server-side tracking eliminate all ad blocker undercounting?</h3>
+<p>For server-initiated events, yes. Pure server-side tracking (log analysis, backend-generated events) captures all traffic. Hybrid implementations sending events from client to server still suffer partial blocking if blockers prevent initial client-side transmission. Maximum accuracy requires pure server-side measurement, though this sacrifices some engagement metrics.</p>
+<hr>
+<h2 id="when-this-analysis-doesn-t-apply">When This Analysis Doesn't Apply</h2>
+<p>Skip this framework if:</p>
+<ul>
+<li><strong>You&#39;re in the first 3 months of a new site.</strong> Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.</li>
+<li><strong>Your traffic is already diversified below 40% from any single source.</strong> You&#39;ve solved the concentration problem. Focus on channel efficiency and conversion optimization instead.</li>
+<li><strong>You&#39;re running a time-limited campaign.</strong> Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-quickly-can-i-implement-this-traffic-strategy">How quickly can I implement this traffic strategy?</h3>
+<p>Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.</p>
+<h3 id="does-this-work-for-sites-with-less-than-10k-monthly-visitors">Does this work for sites with less than 10K monthly visitors?</h3>
+<p>Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down, start with simpler attribution before building complex models.</p>
+<h3 id="what-tools-do-i-need-to-execute-this">What tools do I need to execute this?</h3>
+<p>Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required, the strategy is more important than the tooling.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/track-time-investment-traffic-channel.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Analytics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Track Time Investment Per Traffic Channel: Effort Allocation Framework for Multi-Channel Publishers</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">How to measure and optimize time investment across traffic channels, calculating productivity ratios and reallocating effort to highest-yield sources.</p>
+          </a>
+
+          <a href="/articles/traffic-channel-roi-calculator.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Analytics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Traffic Channel ROI Calculator: Quantifying Returns from SEO, Social, Email, and Paid Acquisition</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Complete framework for calculating traffic channel ROI including time investment, capital costs, conversion tracking, and lifetime value attribution.</p>
+          </a>
+
+          <a href="/articles/traffic-correlation-calculator.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Analytics</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Traffic Correlation Calculator: Measuring Channel Co-Movement for Portfolio Risk Analysis</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Calculate traffic correlations between channels to identify diversification gaps, measure systematic risk, and optimize portfolio resilience.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fix index bloat | Polytraffic</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="fix index bloat | Polytraffic" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-index-bloat" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-index-bloat.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="fix index bloat | Polytraffic" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-index-bloat.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-index-bloat" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "fix index bloat",
+    "description": "",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-index-bloat.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-01-19",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-index-bloat.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/resilience.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "fix index bloat"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/resilience.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">fix index bloat</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-index-bloat.png" alt="fix index bloat" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <p>title:: How to Fix Index Bloat: Noindex, Canonicals, and Consolidation Strategies
+description:: Index bloat dilutes your site&#39;s quality signals with junk pages Google shouldn&#39;t index. Prune the bloat with noindex, canonicals, and consolidation. Guide inside.
+focus_keyword:: fix index bloat
+category:: indexing
+author:: Victor Valentine Romo
+date:: 2026.03.20</p>
+<h1 id="how-to-fix-index-bloat-noindex-canonicals-and-consolidation-strategies">How to Fix Index Bloat: Noindex, Canonicals, and Consolidation Strategies</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> fix-index-bloat</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-index-bloat-hurts-your-entire-site" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Index Bloat Hurts Your Entire Site</a></li>
+<li><a href="#step-1-measure-your-index-size-5-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 1: Measure Your Index Size (5 Minutes)</a></li>
+<li><a href="#index-bloat-vs-content-volume-understanding-the-difference" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Index Bloat vs. Content Volume: Understanding the Difference</a></li>
+<li><a href="#step-2-identify-the-bloat-sources-15-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 2: Identify the Bloat Sources (15 Minutes)</a></li>
+<li><a href="#step-3-apply-the-right-fix-for-each-bloat-type-30-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 3: Apply the Right Fix for Each Bloat Type (30 Minutes)</a></li>
+<li><a href="#step-4-handle-e-commerce-index-bloat-specifically" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 4: Handle E-Commerce Index Bloat Specifically</a></li>
+<li><a href="#step-5-verify-the-cleanup-10-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 5: Verify the Cleanup (10 Minutes)</a></li>
+<li><a href="#step-6-prevent-future-bloat-ongoing" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 6: Prevent Future Bloat (Ongoing)</a></li>
+<li><a href="#measuring-the-impact-of-bloat-reduction" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Measuring the Impact of Bloat Reduction</a></li>
+<li><a href="#lean-indexes-rank-better" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Lean Indexes Rank Better</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Index bloat occurs when Google indexes hundreds or thousands of low-value pages on your site, thin tag archives, parameter variations, paginated results, empty category pages, and internal search results that have no business appearing in search results. Every junk page in Google&#39;s index dilutes your site&#39;s perceived quality, wastes crawl budget, and drags down rankings for the pages that matter.</p>
+<p>The fix is strategic pruning: identify the bloat, decide what to noindex, what to canonicalize, and what to remove entirely. You can audit and begin fixing index bloat in a single session.</p>
+<h2 id="why-index-bloat-hurts-your-entire-site">Why Index Bloat Hurts Your Entire Site</h2>
+<p>Google&#39;s <strong>Helpful Content System</strong> evaluates your site holistically. A site with 500 indexed pages where 300 are thin or duplicative doesn&#39;t get credit for 200 good pages. It gets penalized for having 300 bad ones. The sitewide quality signal drags down everything.</p>
+<h3 id="how-bloat-accumulates">How Bloat Accumulates</h3>
+<p>Most index bloat isn&#39;t intentional. It accumulates through:</p>
+<ul>
+<li><strong>CMS defaults</strong> that index tag pages, author archives, date archives, and search result pages</li>
+<li><strong>E-commerce faceted navigation</strong> creating millions of filter combinations (color + size + price + brand = exponential URL growth)</li>
+<li><strong>URL parameters</strong> for tracking, sorting, and session IDs that Google treats as separate pages</li>
+<li><strong>Pagination</strong> generating dozens of archive pages with thin content</li>
+<li><strong>Staging or test pages</strong> that accidentally become indexable</li>
+<li><strong>Duplicate content</strong> from www vs. non-www, HTTP vs. HTTPS, trailing slash variations</li>
+</ul>
+<h3 id="the-math-of-bloat">The Math of Bloat</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Healthy Site</th>
+<th>Bloated Site</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Total indexed pages</td>
+<td>500</td>
+<td>5,000</td>
+</tr>
+<tr>
+<td>Pages with organic traffic</td>
+<td>200 (40%)</td>
+<td>200 (4%)</td>
+</tr>
+<tr>
+<td>Average page quality signal</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Crawl budget efficiency</td>
+<td>80%+ on valuable pages</td>
+<td>20% on valuable pages</td>
+</tr>
+</tbody></table>
+<p>Both sites have the same 200 valuable pages, but the bloated site&#39;s quality signal is devastated by the 4,800 junk pages diluting it.</p>
+<h2 id="step-1-measure-your-index-size-5-minutes">Step 1: Measure Your Index Size (5 Minutes)</h2>
+<h3 id="google-search-operator">Google Search Operator</h3>
+<p>Search <code>site:yoursite.com</code> in Google. The number of results shown is an approximate count of your indexed pages.</p>
+<p><strong>Red flag:</strong> If the indexed count is significantly higher than your intentional page count, you have bloat. A 100-page blog showing 800 indexed URLs has a problem.</p>
+<h3 id="google-search-console">Google Search Console</h3>
+<p>Go to <strong>Indexing &gt; Pages</strong>. The &quot;Indexed&quot; section shows the exact count of pages Google has chosen to index. The &quot;Not indexed&quot; section shows pages Google found but didn&#39;t index (which is good for pages you don&#39;t want indexed).</p>
+<h3 id="screaming-frog">Screaming Frog</h3>
+<p>Crawl your site and compare:</p>
+<ul>
+<li>Total crawlable URLs (from the crawl)</li>
+<li>Total indexed URLs (from GSC)</li>
+<li>Total intentional content pages (your known count)</li>
+</ul>
+<p>If indexed URLs &gt;&gt; intentional pages, the difference is bloat.</p>
+<h2 id="index-bloat-vs-content-volume-understanding-the-difference">Index Bloat vs. Content Volume: Understanding the Difference</h2>
+<p>Not every large index is bloated. A 50,000-page e-commerce catalog with unique product descriptions on every page isn&#39;t bloated, it&#39;s comprehensive. A 500-page blog with 4,500 thin tag pages, empty author archives, and parameter variations is bloated.</p>
+<p>The distinction: <strong>intentional content</strong> that serves a specific user need is not bloat, regardless of volume. <strong>Automatically generated or duplicate pages</strong> that provide no unique value are bloat, regardless of how few there are.</p>
+<h3 id="the-bloat-audit-mindset">The Bloat Audit Mindset</h3>
+<p>When evaluating whether a page is bloat, ask:</p>
+<ol>
+<li><strong>Would a human searching for this content find this page helpful?</strong> If no one would benefit from finding this specific URL in search results, it&#39;s a candidate for noindex or removal.</li>
+<li><strong>Does this page have unique content not available on other pages?</strong> If the page&#39;s unique content is a heading and a list of links to other pages (typical of thin tag/category archives), it&#39;s likely bloat.</li>
+<li><strong>Has this page earned any traffic in the past 12 months?</strong> Zero-traffic indexed pages contribute nothing to your site&#39;s goals while reducing your quality ratio.</li>
+</ol>
+<h2 id="step-2-identify-the-bloat-sources-15-minutes">Step 2: Identify the Bloat Sources (15 Minutes)</h2>
+<h3 id="method-1-gsc-index-coverage-analysis">Method 1: GSC Index Coverage Analysis</h3>
+<p>In <strong>Google Search Console &gt; Indexing &gt; Pages</strong>, click on <strong>&quot;Indexed&quot;</strong> and examine the URLs. Look for patterns:</p>
+<ul>
+<li><code>/tag/</code> URLs (tag archive pages)</li>
+<li><code>/?s=</code> or <code>/search/</code> URLs (internal search results)</li>
+<li><code>/page/2/</code>, <code>/page/3/</code> etc. (pagination)</li>
+<li>URLs with query parameters (<code>?sort=</code>, <code>?filter=</code>, <code>?color=</code>)</li>
+<li><code>/author/</code> URLs (author archives on single-author sites)</li>
+<li>Date-based archives (<code>/2024/01/</code>, <code>/2024/02/</code>)</li>
+</ul>
+<h3 id="method-2-screaming-frog-crawl-analysis">Method 2: Screaming Frog Crawl Analysis</h3>
+<ol>
+<li>Crawl your site with <strong>Screaming Frog</strong></li>
+<li>Export all URLs</li>
+<li>Sort and filter for patterns:<ul>
+<li>Filter URLs containing <code>?</code> (parameter pages)</li>
+<li>Filter URLs containing <code>/tag/</code> or <code>/category/</code> (taxonomy pages)</li>
+<li>Filter by word count (ascending) to find thin pages</li>
+<li>Filter by meta robots directive to see what&#39;s already noindexed</li>
+</ul>
+</li>
+</ol>
+<h3 id="method-3-site-search-pattern-queries">Method 3: Site Search Pattern Queries</h3>
+<p>Run these searches in Google to quantify specific bloat sources:</p>
+<pre><code>site:yoursite.com inurl:tag
+site:yoursite.com inurl:?s=
+site:yoursite.com inurl:page/
+site:yoursite.com inurl:author
+</code></pre>
+<p>Each query reveals how many pages of that type Google has indexed.</p>
+<h2 id="step-3-apply-the-right-fix-for-each-bloat-type-30-minutes">Step 3: Apply the Right Fix for Each Bloat Type (30 Minutes)</h2>
+<h3 id="fix-noindex-for-pages-that-should-exist-but-not-rank">Fix: Noindex (For Pages That Should Exist But Not Rank)</h3>
+<p>Use <code>noindex</code> for pages that serve a user function but shouldn&#39;t appear in search results:</p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<p>The <code>follow</code> directive ensures Google still follows links on these pages, preserving their navigation value without adding them to the index.</p>
+<p><strong>Apply noindex to:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Page Type</th>
+<th>Why Noindex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tag archives with &lt;3 posts</td>
+<td>Too thin to provide search value</td>
+</tr>
+<tr>
+<td>Author archives (single-author sites)</td>
+<td>Duplicates the blog index</td>
+</tr>
+<tr>
+<td>Date-based archives</td>
+<td>Arbitrary grouping, no topical value</td>
+</tr>
+<tr>
+<td>Internal search results</td>
+<td>Infinite URL variations, thin content</td>
+</tr>
+<tr>
+<td>Paginated archives (page 2+)</td>
+<td>Thin duplicate of the main archive</td>
+</tr>
+<tr>
+<td>Login/register/account pages</td>
+<td>Private, no search value</td>
+</tr>
+<tr>
+<td>Thank-you/confirmation pages</td>
+<td>Post-conversion, no search value</td>
+</tr>
+</tbody></table>
+<p><strong>WordPress implementation:</strong></p>
+<ul>
+<li><strong>Yoast SEO:</strong> Go to <strong>SEO &gt; Search Appearance &gt; Taxonomies</strong> and disable indexing for tags, date archives, and author archives</li>
+<li><strong>Rank Math:</strong> Go to <strong>Rank Math &gt; Titles &amp; Meta</strong> and set the same taxonomies to noindex</li>
+</ul>
+<h3 id="fix-canonical-tags-for-duplicate-variations">Fix: Canonical Tags (For Duplicate Variations)</h3>
+<p>When the same content is accessible at multiple URLs, use canonical tags to consolidate ranking signals:</p>
+<pre><code class="language-html">&lt;!-- On the duplicate page --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/preferred-url&quot;&gt;
+</code></pre>
+<p><strong>Apply canonicals to:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Canonical Points To</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP version of a page</td>
+<td>HTTPS version</td>
+</tr>
+<tr>
+<td>www version</td>
+<td>Non-www version (or vice versa)</td>
+</tr>
+<tr>
+<td>Trailing slash variation</td>
+<td>Your chosen standard</td>
+</tr>
+<tr>
+<td>Parameter variations (?sort=, ?ref=)</td>
+<td>The clean URL without parameters</td>
+</tr>
+<tr>
+<td>Print-friendly versions</td>
+<td>The standard page</td>
+</tr>
+<tr>
+<td>AMP versions</td>
+<td>The canonical non-AMP page</td>
+</tr>
+</tbody></table>
+<p>For comprehensive canonical tag guidance, see <a href="/articles/fix-duplicate-content.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing duplicate content</a>.</p>
+<h3 id="fix-robots-txt-parameter-blocking-for-faceted-navigation">Fix: Robots.txt Parameter Blocking (For Faceted Navigation)</h3>
+<p>E-commerce sites with faceted navigation (filter by color, size, price, brand) can generate millions of URL combinations. Block the parameter patterns in robots.txt:</p>
+<pre><code>User-agent: *
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?color=
+Disallow: /*?size=
+Disallow: /*?price=
+</code></pre>
+<p>See <a href="/articles/fix-robots-txt-mistakes.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">robots.txt fixes</a> for the full setup guide.</p>
+<h3 id="fix-content-consolidation-for-thin-overlapping-pages">Fix: Content Consolidation (For Thin Overlapping Pages)</h3>
+<p>When multiple thin pages cover the same topic:</p>
+<ol>
+<li>Choose the strongest page (most backlinks, most traffic)</li>
+<li>Merge unique content from weaker pages into the winner</li>
+<li>301 redirect weaker URLs to the consolidated page</li>
+<li>Update internal links to point to the consolidated page</li>
+</ol>
+<p>This reduces indexed page count while strengthening the surviving page&#39;s authority and content depth. See <a href="/articles/fix-thin-content.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing thin content</a> for the detailed process.</p>
+<h3 id="fix-410-gone-for-pages-that-should-not-exist">Fix: 410 Gone (For Pages That Should Not Exist)</h3>
+<p>For pages with zero value, test pages, spam results, content that shouldn&#39;t have been published:</p>
+<p>Return a 410 status code. Google drops 410 pages from the index faster than 404 pages, and a 410 explicitly communicates &quot;this page is permanently gone.&quot;</p>
+<p><strong>Only use 410 for pages with no backlinks.</strong> If a page has backlinks, 301 redirect it to a relevant page to capture that authority.</p>
+<h2 id="step-4-handle-e-commerce-index-bloat-specifically">Step 4: Handle E-Commerce Index Bloat Specifically</h2>
+<p>E-commerce sites face unique bloat challenges from product variations, faceted navigation, and out-of-stock items.</p>
+<h3 id="product-variations">Product Variations</h3>
+<p>If color/size/model variations create separate URLs:</p>
+<pre><code>/product-name?color=red
+/product-name?color=blue
+/product-name?size=large
+</code></pre>
+<p>Canonicalize all variations to the main product URL:</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://yoursite.com/product-name&quot;&gt;
+</code></pre>
+<h3 id="out-of-stock-products">Out-of-Stock Products</h3>
+<p>Options:</p>
+<ol>
+<li><strong>Keep indexed</strong> with an &quot;out of stock&quot; notice and related product recommendations (preserves backlinks and ranking)</li>
+<li><strong>Noindex</strong> if the product is permanently discontinued and has no backlinks</li>
+<li><strong>301 redirect</strong> to the most relevant alternative product</li>
+</ol>
+<h3 id="shopify-specific-bloat">Shopify-Specific Bloat</h3>
+<p><strong>Shopify</strong> generates bloat through:</p>
+<ul>
+<li><code>/collections/all</code> (duplicate of the main collection)</li>
+<li>Tag-filtered URLs (<code>/collections/shoes/tag-sale</code>)</li>
+<li>Pagination on collection pages</li>
+</ul>
+<p>Edit your <code>robots.txt.liquid</code> file to block the worst offenders:</p>
+<pre><code>Disallow: /collections/*+*
+Disallow: /collections/*%2B*
+Disallow: /collections/*%2b*
+</code></pre>
+<h2 id="step-5-verify-the-cleanup-10-minutes">Step 5: Verify the Cleanup (10 Minutes)</h2>
+<h3 id="request-removal-for-urgent-cases">Request Removal for Urgent Cases</h3>
+<p>If specific pages need to leave the index quickly:</p>
+<ol>
+<li>Open <strong>Google Search Console &gt; Removals</strong></li>
+<li>Submit the URL for temporary removal</li>
+<li>This hides the URL from search results for 6 months while Google processes the permanent noindex or 410 signal</li>
+</ol>
+<h3 id="monitor-re-indexing">Monitor Re-Indexing</h3>
+<p>After implementing noindex/canonical/410 changes:</p>
+<ol>
+<li>Check <strong>GSC &gt; Indexing &gt; Pages</strong> weekly for the first month</li>
+<li>The &quot;Indexed&quot; count should decrease as Google recrawls and processes your directives</li>
+<li>&quot;Not indexed&quot; count should increase proportionally (for noindexed pages)</li>
+<li>The ratio of valuable pages to total indexed pages should improve</li>
+</ol>
+<h3 id="timeline">Timeline</h3>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Time for Google to Process</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>noindex tag</td>
+<td>2-4 weeks</td>
+</tr>
+<tr>
+<td>Canonical tag</td>
+<td>2-6 weeks</td>
+</tr>
+<tr>
+<td>410 Gone</td>
+<td>1-3 weeks</td>
+</tr>
+<tr>
+<td>301 redirect</td>
+<td>2-4 weeks</td>
+</tr>
+<tr>
+<td>Robots.txt block</td>
+<td>4-8 weeks (slower, blocks crawling not indexing)</td>
+</tr>
+</tbody></table>
+<h2 id="step-6-prevent-future-bloat-ongoing">Step 6: Prevent Future Bloat (Ongoing)</h2>
+<h3 id="cms-configuration-checklist">CMS Configuration Checklist</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Tag archives: noindexed or disabled</li>
+<li><input disabled="" type="checkbox"> Author archives: noindexed (especially single-author sites)</li>
+<li><input disabled="" type="checkbox"> Date archives: noindexed or disabled</li>
+<li><input disabled="" type="checkbox"> Internal search results: noindexed and blocked in robots.txt</li>
+<li><input disabled="" type="checkbox"> Pagination: noindexed for page 2+ or use rel=&quot;next/prev&quot;</li>
+<li><input disabled="" type="checkbox"> Media attachment pages: disabled (WordPress-specific bloat source)</li>
+</ul>
+<h3 id="pre-launch-content-checklist">Pre-Launch Content Checklist</h3>
+<p>Before publishing any new content or page type:</p>
+<ol>
+<li>Is this page unique and valuable enough to appear in search results?</li>
+<li>Does a similar page already exist? (Check for <a href="/articles/fix-keyword-cannibalization.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">cannibalization</a>)</li>
+<li>Should this URL be canonical, noindexed, or freely indexed?</li>
+</ol>
+<h3 id="building-a-bloat-prevention-culture">Building a Bloat Prevention Culture</h3>
+<p>For sites managed by teams, establish editorial guidelines that prevent bloat from accumulating:</p>
+<ol>
+<li><strong>Publishing gate:</strong> Every new page type (tag, author archive, parameter URL) must be evaluated for SEO value before being enabled</li>
+<li><strong>Retirement protocol:</strong> When content becomes outdated or irrelevant, it&#39;s noindexed or redirected, not left to accumulate</li>
+<li><strong>Plugin review:</strong> Before installing any plugin that creates new URL patterns, evaluate the SEO impact of those URLs</li>
+<li><strong>Monthly metric review:</strong> Track the indexed-pages-to-traffic ratio monthly. If it drops, investigate what new bloat has accumulated</li>
+</ol>
+<h3 id="quarterly-audit">Quarterly Audit</h3>
+<p>Run a full index bloat audit every quarter:</p>
+<ol>
+<li>Compare <code>site:yoursite.com</code> count against known page count</li>
+<li>Crawl with <strong>Screaming Frog</strong> and check for new thin/duplicate pages</li>
+<li>Review <strong>GSC &gt; Indexing &gt; Pages</strong> for new problem patterns</li>
+<li>Verify noindex tags on previously fixed pages still exist (theme updates can reset them)</li>
+</ol>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Index Bloat Hurts Your Entire Site:</strong> Google&#39;s Helpful Content System evaluates your site holistically.</li>
+<li><strong>Step 2: Identify the Bloat Sources (15 Minutes):</strong> In Google Search Console &gt; Indexing &gt; Pages, click on &quot;Indexed&quot; and examine the URLs.</li>
+<li><strong>Step 3: Apply the Right Fix for Each Bloat Type (30 Minutes):</strong> Use noindex for pages that serve a user function but shouldn&#39;t appear in search results:</li>
+<li><strong>Step 4: Handle E-Commerce Index Bloat Specifically:</strong> E-commerce sites face unique bloat challenges from product variations, faceted navigation, and out-of-stock items.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<h3 id="how-many-indexed-pages-is-too-many">How many indexed pages is too many?</h3>
+<p>There&#39;s no absolute number. The metric that matters is the ratio of indexed pages that receive organic traffic versus those that don&#39;t. If 80%+ of your indexed pages get zero organic traffic, you have significant bloat. A healthy site has 40-60% of its indexed pages contributing traffic.</p>
+<h3 id="will-noindexing-pages-lose-my-backlinks">Will noindexing pages lose my backlinks?</h3>
+<p>No. A <code>noindex, follow</code> directive removes the page from search results but still allows Google to follow links on that page and pass authority. The page itself won&#39;t rank, but its outbound links still distribute equity. If the page has valuable backlinks and you want those links to benefit another page, 301 redirect instead.</p>
+<h3 id="can-i-noindex-too-many-pages">Can I noindex too many pages?</h3>
+<p>Theoretically, if you noindex pages that should be indexed, you&#39;ll lose traffic. But noindexing genuinely low-value pages never hurts. The risk is over-pruning, noindexing pages that drive traffic. Always check traffic data before noindexing anything.</p>
+<h3 id="should-i-delete-bloated-pages-or-noindex-them">Should I delete bloated pages or noindex them?</h3>
+<p>Noindex is safer because it&#39;s reversible. Deletion (410) is permanent. Use noindex for pages that serve any user function (navigation, internal linking). Use 410 only for pages that have zero value for any purpose.</p>
+<h3 id="does-google-penalize-sites-for-index-bloat">Does Google penalize sites for index bloat?</h3>
+<p>Google doesn&#39;t apply a manual penalty for index bloat. But the <strong>Helpful Content System</strong> uses a sitewide quality classifier that evaluates the overall proportion of helpful vs. unhelpful content. High bloat lowers this proportion, indirectly suppressing rankings across your entire domain.</p>
+<h2 id="measuring-the-impact-of-bloat-reduction">Measuring the Impact of Bloat Reduction</h2>
+<p>After implementing your pruning strategy, track these metrics to quantify the improvement:</p>
+<h3 id="sitewide-quality-signal">Sitewide Quality Signal</h3>
+<p><strong>Before and after comparison:</strong></p>
+<ol>
+<li>Record your total indexed pages (from <code>site:yoursite.com</code> count and GSC)</li>
+<li>Record the percentage of indexed pages receiving organic traffic (from GSC Performance)</li>
+<li>After pruning, track both numbers monthly</li>
+</ol>
+<p><strong>Target ratios:</strong></p>
+<ul>
+<li>Healthy site: 40-60% of indexed pages receive organic traffic</li>
+<li>Bloated site: Under 15% of indexed pages receive organic traffic</li>
+<li>After cleanup: Aim for 30%+ within 3 months, 50%+ within 6 months</li>
+</ul>
+<h3 id="crawl-stats-improvement">Crawl Stats Improvement</h3>
+<p>In <strong>Google Search Console &gt; Settings &gt; Crawl Stats</strong>:</p>
+<ul>
+<li><strong>Total crawl requests</strong> should stabilize or increase (Google is spending budget on valuable pages)</li>
+<li><strong>Average response time</strong> should decrease (less server load from junk page crawling)</li>
+<li><strong>Host status</strong> should show fewer errors</li>
+</ul>
+<h3 id="rankings-recovery-timeline">Rankings Recovery Timeline</h3>
+<p>After significant index bloat cleanup:</p>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Expected Change</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1-2</td>
+<td>Noindexed pages begin dropping from index</td>
+</tr>
+<tr>
+<td>2-4</td>
+<td>Crawl budget redistribution to valuable pages</td>
+</tr>
+<tr>
+<td>4-8</td>
+<td>Rankings stabilization, early improvements on key pages</td>
+</tr>
+<tr>
+<td>8-12</td>
+<td>Full Helpful Content System reassessment (if applicable)</td>
+</tr>
+<tr>
+<td>12-24</td>
+<td>Sustained ranking improvements as quality ratio improves</td>
+</tr>
+</tbody></table>
+<p>The timeline is longer for sites that triggered a <strong>Helpful Content System</strong> demotion. The classifier needs to observe a sustained improvement in content quality ratio before lifting the sitewide suppression.</p>
+<h3 id="tracking-with-a-bloat-dashboard">Tracking With a Bloat Dashboard</h3>
+<p>Create a monthly tracking spreadsheet:</p>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Indexed Pages</th>
+<th>Pages With Traffic</th>
+<th>Traffic Ratio</th>
+<th>Avg Position (Top 50 KWs)</th>
+<th>Total Organic Sessions</th>
+</tr>
+</thead>
+</table>
+<p>This dashboard makes the correlation between index cleanliness and ranking performance visible over time.</p>
+<h2 id="lean-indexes-rank-better">Lean Indexes Rank Better</h2>
+<p>Every indexed page either strengthens or weakens your site&#39;s quality signal. There&#39;s no neutral. Junk pages don&#39;t sit harmlessly in the index, they actively dilute the signals Google uses to evaluate your best content.</p>
+<p>Audit your index. Identify the bloat. Apply noindex, canonicals, consolidation, or removal as appropriate. A lean, high-quality index sends a clear message to Google: every page on this site deserves to be here. That&#39;s the signal that lifts rankings across the board.</p>
+<p>Start with <code>site:yoursite.com</code> in Google. Count the results. Compare against your known page count. The gap between those numbers is your opportunity.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-javascript-bloat.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">fix javascript bloat</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2"></p>
+          </a>
+
+          <a href="/articles/canonical-tag-implementation-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">canonical tag implementation guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2"></p>
+          </a>
+
+          <a href="/articles/fix-core-web-vitals.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">fix core web vitals</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2"></p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

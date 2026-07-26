@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silo Structure vs Hub-and-Spoke: Which Internal Linking Model Wins | Polytraffic</title>
+    <meta name="description" content="Technical comparison of silo architecture and hub-and-spoke internal linking models with implementation guidance for different site types and content strategies." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Silo Structure vs Hub-and-Spoke: Which Internal Linking Model Wins | Polytraffic" />
+    <meta property="og:description" content="Technical comparison of silo architecture and hub-and-spoke internal linking models with implementation guidance for different site types and content strategies." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/silo-structure-vs-hub-and-spoke" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/silo-structure-vs-hub-and-spoke.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Silo Structure vs Hub-and-Spoke: Which Internal Linking Model Wins | Polytraffic" />
+    <meta name="twitter:description" content="Technical comparison of silo architecture and hub-and-spoke internal linking models with implementation guidance for different site types and content strategies." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/silo-structure-vs-hub-and-spoke.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/silo-structure-vs-hub-and-spoke" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Silo Structure vs Hub-and-Spoke: Which Internal Linking Model Wins",
+    "description": "Technical comparison of silo architecture and hub-and-spoke internal linking models with implementation guidance for different site types and content strategies.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/silo-structure-vs-hub-and-spoke.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/silo-structure-vs-hub-and-spoke.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Site Architecture.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Silo Structure vs Hub-and-Spoke: Which Internal Linking Model Wins"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Site Architecture.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Silo Structure vs Hub-and-Spoke: Which Internal Linking Model Wins</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/silo-structure-vs-hub-and-spoke.png" alt="Silo Structure vs Hub-and-Spoke: Which Internal Linking Model Wins" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="silo-structure-vs-hub-and-spoke-which-internal-linking-model-wins">Silo Structure vs Hub-and-Spoke: Which Internal Linking Model Wins</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Technical comparison of silo architecture and hub-and-spoke internal linking models with implementation guidance for different site types and content strategies.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#how-silo-structure-isolates-topical-authority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How Silo Structure Isolates Topical Authority</a></li>
+<li><a href="#hub-and-spoke-authority-centralization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Hub-and-Spoke Authority Centralization</a></li>
+<li><a href="#when-silo-architecture-outperforms-hub-and-spoke" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When Silo Architecture Outperforms Hub-and-Spoke</a></li>
+<li><a href="#hub-and-spoke-advantages-for-topical-clusters" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Hub-and-Spoke Advantages for Topical Clusters</a></li>
+<li><a href="#hybrid-models-that-balance-both-approaches" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Hybrid Models That Balance Both Approaches</a></li>
+<li><a href="#url-structure-implications-for-each-model" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">URL Structure Implications for Each Model</a></li>
+<li><a href="#internal-link-density-requirements-differ" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Internal Link Density Requirements Differ</a></li>
+<li><a href="#schema-markup-integration" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Schema Markup Integration</a></li>
+<li><a href="#migration-strategies-between-models" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Migration Strategies Between Models</a></li>
+<li><a href="#crawl-budget-optimization-for-each-architecture" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Crawl Budget Optimization for Each Architecture</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Internal linking architecture determines how authority distributes across your domain and whether search engines can accurately map thematic relationships between content nodes. Two competing models dominate SEO discourse: <strong>strict silo structures</strong> that isolate topical clusters, and <strong>hub-and-spoke patterns</strong> that centralize authority through pillar content. Each model makes different trade-offs between topical clarity, PageRank flow, and crawl efficiency.</p>
+<p>The architectural choice isn&#39;t arbitrary, it cascades into every content decision, affects how you structure URLs, and shapes which pages capture rankings for high-value queries. Sites that implement hybrid models or poorly execute either pattern dilute topical signals and fragment authority distribution, leaving rankings to competitors with clearer information hierarchies.</p>
+<p>This analysis surfaces the mechanical differences between approaches, identifies which site types benefit from each model, and provides implementation blueprints that prevent common architectural failures.</p>
+<h2 id="how-silo-structure-isolates-topical-authority">How Silo Structure Isolates Topical Authority</h2>
+<p>Silo architecture organizes content into <strong>vertical thematic columns</strong> where pages within a category link exclusively to other pages in the same category. A fitness site might maintain separate silos for strength training, cardiovascular exercise, and nutrition, each silo containing 10-20 related articles that cross-reference each other but never link to content in adjacent silos.</p>
+<p>The structural goal is <strong>topical containment</strong>. When 15 strength training articles all link to each other and nowhere else, search engines receive unambiguous signals that this content cluster represents concentrated expertise on a narrow subject domain. Internal link equity recirculates within the silo rather than bleeding into unrelated categories.</p>
+<p>Silo architecture manifests in URL structure through subdirectories that mirror category boundaries:</p>
+<pre><code>example.com/strength-training/
+  ├── deadlift-form-guide
+  ├── squat-variations
+  ├── bench-press-techniques
+  └── compound-movements-overview
+</code></pre>
+<p>Articles within <code>/strength-training/</code> link to each other using relative paths, while articles in <code>/cardio/</code> remain isolated in their own subdirectory cluster. The only exception: <strong>silo header pages</strong> that summarize their category&#39;s scope and link to all constituent articles, creating one-way paths from general to specific.</p>
+<p>This isolation prevents <strong>topical dilution</strong> where a page about deadlifts links to articles about meal timing or running form. Search engines can confidently classify the entire silo as belonging to a coherent subject area, increasing the likelihood of ranking multiple pages from that silo for related queries.</p>
+<h2 id="hub-and-spoke-authority-centralization">Hub-and-Spoke Authority Centralization</h2>
+<p>Hub-and-spoke architecture channels authority through <strong>central pillar content</strong> that serves as the primary ranking target, with supporting <strong>spoke articles</strong> that address subtopics and link back to the hub. Instead of distributing authority evenly across related content, this model concentrates link equity in a single comprehensive resource.</p>
+<p>A pillar page titled &quot;Complete Guide to Email Marketing&quot; might serve as the hub, with 12 supporting articles on topics like subject line optimization, deliverability troubleshooting, and segmentation strategies. Each spoke article links back to the central hub and potentially to 1-2 adjacent spokes, but the dominant link pattern drives authority inward toward the pillar.</p>
+<p>The URL structure reflects this centralization:</p>
+<pre><code>example.com/email-marketing-guide/ (hub)
+example.com/email-subject-lines/ (spoke)
+example.com/email-deliverability/ (spoke)
+example.com/email-segmentation/ (spoke)
+</code></pre>
+<p>Spoke articles might exist at root level or within a category subdirectory, but their internal linking behavior identifies them as satellites orbiting a central resource. The hub accumulates internal links from all spokes, positioning it as the authoritative resource for broad queries while spokes target long-tail variations.</p>
+<p>This model works when you need <strong>one page to dominate rankings</strong> for a high-value keyword family. If &quot;email marketing&quot; generates 10,000 monthly searches while individual subtopics generate 200-500 each, hub-and-spoke concentrates authority where it matters most rather than dispersing it evenly across the topic cluster.</p>
+<h2 id="when-silo-architecture-outperforms-hub-and-spoke">When Silo Architecture Outperforms Hub-and-Spoke</h2>
+<p>Silo structures excel for <strong>multi-faceted sites</strong> where distinct product lines, service categories, or subject areas merit independent treatment. An e-commerce store selling both outdoor gear and fitness equipment benefits from strict separation, hiking boot reviews shouldn&#39;t link to protein powder comparisons even though both serve &quot;active lifestyle&quot; customers.</p>
+<p>Sites with <strong>deep category hierarchies</strong> spanning 50+ pages per major topic also favor silos. A legal site covering personal injury, family law, and criminal defense needs topical boundaries to prevent authority fragmentation. Each practice area can support 20-30 informational articles that collectively signal specialization, but cross-linking between practice areas would weaken individual category authority.</p>
+<p><strong>Local service businesses</strong> with multiple location pages benefit from silo thinking where each city page anchors its own cluster of neighborhood-specific content. A plumbing company serving 10 cities creates 10 silos, each city page linking to service pages for that geography, with no cross-contamination between location clusters.</p>
+<p>The silo model also suits <strong>affiliate sites</strong> where category-level rankings drive revenue. If your camera review site competes for &quot;best DSLR cameras,&quot; &quot;best mirrorless cameras,&quot; and &quot;best point-and-shoot cameras&quot; as separate ranking opportunities, maintaining distinct silos for each camera type prevents internal competition and allows each category page to function as an independent authority hub.</p>
+<p>Silo failures occur when <strong>topical relationships are artificial</strong>. If users frequently need to cross between categories (comparing products across silos, understanding how two practice areas intersect), strict isolation creates navigational friction and leaves semantic gaps that competitors fill with more interconnected content.</p>
+<h2 id="hub-and-spoke-advantages-for-topical-clusters">Hub-and-Spoke Advantages for Topical Clusters</h2>
+<p>Hub-and-spoke thrives when <strong>one comprehensive resource</strong> should rank for both broad and specific queries within a subject domain. SaaS product documentation benefits from this model, a central &quot;Getting Started&quot; hub links to setup guides, feature explanations, and troubleshooting articles that all reinforce the hub&#39;s authority for the product name itself.</p>
+<p>The pattern works for <strong>thin content consolidation</strong> where 15 short articles individually lack ranking power but collectively contain enough depth to compete. Rather than maintaining 15 competing pages, create one 8,000-word pillar that incorporates all subtopics, then build targeted spokes for queries demanding standalone treatment.</p>
+<p><strong>Commercial intent queries</strong> favor hub-and-spoke when the central page serves as a conversion destination. A project management software company needs its main product page to rank for &quot;project management software&quot; while supporting content about specific methodologies (Agile, Waterfall, Kanban) funnels traffic back to the commercial hub.</p>
+<p>Sites with <strong>limited content volume</strong> (30-50 total pages) benefit from authority concentration rather than dilution across multiple silos. If you can&#39;t build 20-page clusters for each major topic, hub-and-spoke ensures your strongest content receives maximum internal link support.</p>
+<p>The model falters when <strong>spokes compete with the hub</strong> for the same queries. If your pillar targets &quot;social media marketing&quot; but spokes about Facebook ads and Instagram strategy also optimize for that exact phrase, you&#39;ve created internal keyword cannibalization. Spokes must target distinct long-tail variants while the hub captures the head term.</p>
+<h2 id="hybrid-models-that-balance-both-approaches">Hybrid Models That Balance Both Approaches</h2>
+<p>Most successful sites implement <strong>partial silos with strategic cross-linking</strong> rather than rigid adherence to one model. You might maintain distinct silos for major categories but allow contextually relevant cross-silo links when users genuinely need to handle between topics.</p>
+<p>A marketing blog could structure primary categories as silos (SEO, paid advertising, content marketing, analytics) while permitting targeted links between articles that genuinely complement each other, an article about SEO content briefs linking to a content writing guide in the content marketing silo.</p>
+<p>The decision rule: allow cross-silo links only when the connection serves <strong>user intent navigation</strong> rather than SEO manipulation. If someone reading about Google Analytics funnel reports would benefit from understanding conversion rate optimization, a link to CRO content in a separate silo adds value. Random cross-links inserted for authority distribution confuse both users and search engines.</p>
+<p>Another hybrid approach: <strong>hub-and-spoke within silos</strong>. Each major category functions as a silo, but within that category you implement hub-and-spoke linking where a pillar article serves as the category&#39;s authoritative hub and supporting articles act as spokes. This combines topical isolation between categories with authority concentration within each category.</p>
+<p>Implementation requires <strong>intentional linking governance</strong>. Document which pages serve as hubs, which function as spokes, and under what conditions cross-silo linking is permitted. Without explicit rules, content teams default to ad hoc linking that undermines architectural intent.</p>
+<h2 id="url-structure-implications-for-each-model">URL Structure Implications for Each Model</h2>
+<p>Silo architecture demands <strong>subdirectory-based URLs</strong> that mirror category boundaries. This creates visual separation in search results where users see multiple pages from <code>example.com/category/</code> and intuitively understand they&#39;ve found a specialized resource with depth in that area.</p>
+<p>Hub-and-spoke permits more <strong>URL flexibility</strong> since spoke articles don&#39;t need to cluster under a common subdirectory. You might place all content at root level (<code>example.com/article-slug/</code>) with linking patterns rather than URL paths establishing relationships. This approach maximizes URL brevity and avoids nested subdirectories that dilute PageRank through additional hierarchy levels.</p>
+<p>The choice affects <strong>crawl efficiency</strong>. Search engines discover content in subdirectory silos systematically by following category paths, while hub-and-spoke content at root level requires discovering spokes through hub links. Sites with hundreds of pages benefit from subdirectory organization that provides structural context; smaller sites can rely on linking patterns alone.</p>
+<p>URL changes midstream are costly. Migrating from root-level URLs to subdirectory silos requires 301 redirects for every moved page, temporary ranking volatility, and rewriting hundreds of internal links. Choose architectural conventions before launching content production, not after publishing 200 articles. See <a href="url-structure-change-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">url-structure-change-seo-guide</a> for migration protocols.</p>
+<h2 id="internal-link-density-requirements-differ">Internal Link Density Requirements Differ</h2>
+<p>Silo structures require <strong>higher internal link density</strong> within each category to establish thematic cohesion. An article in a 20-page silo should link to 5-8 other silo pages, creating a dense interconnection web that signals comprehensive coverage. Under-linked silos feel disconnected and lose the topical authority benefits that justify the architecture.</p>
+<p>Hub-and-spoke operates with <strong>sparse spoke-to-spoke linking</strong>. Each spoke primarily links to the hub, with occasional connections to 1-2 adjacent spokes where overlap exists. The hub maintains 10-15 links to its supporting spokes, but spokes don&#39;t need to reference each other extensively since their relationship is mediated through the central pillar.</p>
+<p>This difference affects <strong>content production velocity</strong>. Silo models require backward-editing existing articles each time you publish new content in a category, the new article needs links from 5+ existing pages to integrate properly. Hub-and-spoke simply requires the new spoke to link to the existing hub, with minimal changes to other spokes.</p>
+<p>Silo maintenance also demands <strong>periodic link audits</strong> to ensure no orphan pages exist within categories and that link distribution remains balanced. Hub-and-spoke centralization makes authority distribution more predictable since almost all equity flows through the hub.</p>
+<h2 id="schema-markup-integration">Schema Markup Integration</h2>
+<p>Silo architectures benefit from <strong>CollectionPage schema</strong> on category hubs that enumerate articles within the silo. This explicit taxonomy declaration helps search engines understand category boundaries and relationships:</p>
+<pre><code class="language-json">{
+  &quot;@type&quot;: &quot;CollectionPage&quot;,
+  &quot;name&quot;: &quot;Strength Training Guides&quot;,
+  &quot;hasPart&quot;: [
+    {&quot;@id&quot;: &quot;/strength-training/deadlift-form-guide&quot;},
+    {&quot;@id&quot;: &quot;/strength-training/squat-variations&quot;},
+    {&quot;@id&quot;: &quot;/strength-training/bench-press-techniques&quot;}
+  ]
+}
+</code></pre>
+<p>Hub-and-spoke implementations use <strong>FAQPage or HowTo schema</strong> on pillar content that references supporting articles, creating structured relationships between comprehensive guides and their constituent subtopics. This signals to search engines that the hub represents authoritative coverage while spokes provide specialized depth.</p>
+<p>Both models should implement <strong>breadcrumb schema</strong> that reflects the linking hierarchy. Silos use breadcrumbs that show category descent (<code>Home &gt; Strength Training &gt; Deadlift Form</code>), while hub-and-spoke breadcrumbs might show topical relationships (<code>Home &gt; Email Marketing Guide &gt; Deliverability</code>) even if URL structure doesn&#39;t mirror that path.</p>
+<p>Proper schema implementation prevents <strong>duplicate content issues</strong> where search engines can&#39;t determine which page should rank for ambiguous queries. Structured data provides explicit signals about content relationships that supplement linking patterns. Review <a href="structured-data-troubleshooting-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">structured-data-troubleshooting-guide</a> for validation workflows.</p>
+<h2 id="migration-strategies-between-models">Migration Strategies Between Models</h2>
+<p>Switching from hub-and-spoke to silo structure requires <strong>URL reorganization</strong> and updated internal linking across all content. Before implementing:</p>
+<ol>
+<li>Map existing content into proposed silos based on primary topic focus</li>
+<li>Identify pages that don&#39;t fit cleanly into any silo (candidates for deletion or merger)</li>
+<li>Create category hub pages for each new silo</li>
+<li>Implement 301 redirects from old URLs to new subdirectory structure</li>
+<li>Rewrite internal links to respect silo boundaries</li>
+<li>Update XML sitemaps and internal search to reflect new architecture</li>
+</ol>
+<p>Converting from silo to hub-and-spoke is mechanically simpler since it primarily requires <strong>linking changes</strong> rather than URL restructuring. Identify which pages in each silo should become pillar hubs, designate remaining pages as spokes, and update internal links to centralize authority through hubs. URLs can remain in subdirectories even while linking patterns shift to hub-and-spoke.</p>
+<p>Test architectural changes on <strong>low-stakes categories</strong> before rolling out site-wide. Migrate one product category or content vertical, monitor ranking changes for 4-6 weeks, then decide whether to continue or revert. Complete site restructures introduce too many variables to diagnose problems if rankings decline.</p>
+<h2 id="crawl-budget-optimization-for-each-architecture">Crawl Budget Optimization for Each Architecture</h2>
+<p>Silo structures <strong>segment crawl budget</strong> by category, with search engines allocating resources to each subdirectory based on its update frequency and link equity. Active silos with frequent content additions receive more crawl attention than stagnant categories, creating natural prioritization that aligns with content investment.</p>
+<p>Hub-and-spoke concentrates <strong>crawl budget on pillar pages</strong> that accumulate the most internal links and traffic. Search engines prioritize the hub during crawls, then follow links to spokes. This ensures your most commercially important pages receive frequent recrawling while supporting content updates less regularly.</p>
+<p>Large sites (1,000+ pages) benefit from silo architecture&#39;s <strong>crawl segmentation</strong>, preventing low-priority categories from consuming crawl budget needed for high-value content. E-commerce sites with seasonal product categories can effectively &quot;hibernate&quot; off-season silos by reducing their internal linking prominence, redirecting crawl resources to active inventory.</p>
+<p>Hub-and-spoke&#39;s centralization risks <strong>spoke neglect</strong> where supporting articles receive minimal crawl attention if the hub doesn&#39;t link prominently to them or if internal link equity doesn&#39;t flow efficiently. Combat this by including spokes in XML sitemaps and ensuring the hub maintains fresh links to all supporting content.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>How Silo Structure Isolates Topical Authority:</strong> Silo architecture organizes content into vertical thematic columns where pages within a category link exclusively to other pages in the same category.</li>
+<li><strong>Hub-and-Spoke Authority Centralization:</strong> Hub-and-spoke architecture channels authority through central pillar content that serves as the primary ranking target, with supporting spoke articles that address subtopics and link back to the hub.</li>
+<li><strong>When Silo Architecture Outperforms Hub-and-Spoke:</strong> Silo structures excel for multi-faceted sites where distinct product lines, service categories, or subject areas merit independent treatment.</li>
+<li><strong>Hub-and-Spoke Advantages for Topical Clusters:</strong> Hub-and-spoke thrives when one comprehensive resource should rank for both broad and specific queries within a subject domain.</li>
+<li><strong>Hybrid Models That Balance Both Approaches:</strong> Most successful sites implement partial silos with strategic cross-linking rather than rigid adherence to one model.</li>
+<li><strong>URL Structure Implications for Each Model:</strong> Silo architecture demands subdirectory-based URLs that mirror category boundaries.</li>
+</ul>
+<h2 id="faq-choosing-and-implementing-your-internal-linking-model">FAQ: Choosing and Implementing Your Internal Linking Model</h2>
+<p><strong>Can I combine silo and hub-and-spoke on the same site?</strong>
+Yes. Many sites use silo structure for primary category organization while implementing hub-and-spoke within each silo. The key is maintaining consistency within each architectural zone rather than randomly mixing approaches.</p>
+<p><strong>How do I handle navigation menus in strict silo structures?</strong>
+Navigation menus typically exist outside silo constraints since they serve site-wide wayfinding. Silo principles apply to in-content contextual links, not persistent navigation elements that must support cross-category browsing.</p>
+<p><strong>Does hub-and-spoke create thin content problems for spokes?</strong>
+Only if spokes merely excerpt hub content rather than providing unique depth on subtopics. Each spoke should justify standalone existence by targeting specific long-tail queries the hub can&#39;t address comprehensively.</p>
+<p><strong>How many internal links should a hub page contain?</strong>
+10-15 links to supporting spokes is optimal. Beyond 20 links, dilution effects diminish per-link equity transfer and the hub becomes a link directory rather than a cohesive resource. See <a href="topic-clusters-internal-links-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">topic-clusters-internal-links-guide</a> for density strategies.</p>
+<p><strong>Should product pages link to blog content?</strong>
+In silo architectures, only if the blog content belongs to the same topical silo as the product. In hub-and-spoke, link if the blog content serves as a spoke supporting the product page as a hub, or vice versa.</p>
+<p><strong>Do strict silos prevent ranking for related queries?</strong>
+Not if your silos accurately reflect how search engines categorize topics. Problems occur when artificial silo boundaries contradict natural semantic relationships. Test whether your proposed silos align with how queries cluster in keyword research.</p>
+<p><strong>How deep should category hierarchies go?</strong>
+Avoid subdirectory nesting beyond 2-3 levels. <code>example.com/category/subcategory/article/</code> is usually the maximum before PageRank dilution and crawl depth penalties emerge. Flatter hierarchies transfer authority more efficiently.</p>
+<p><strong>Can I implement these models without changing URLs?</strong>
+Hub-and-spoke absolutely, it&#39;s primarily a linking strategy. Silo architecture works best with URL structure alignment but can function through linking patterns alone if URL changes aren&#39;t feasible.</p>
+<p><strong>How do I measure whether my architecture is working?</strong>
+Track category-level organic sessions and keyword rankings over 90 days. Successful silo implementation shows increasing rankings for multiple pages within each category. Effective hub-and-spoke concentrates rankings on pillar pages while spokes capture long-tail variations.</p>
+<p><strong>What&#39;s the relationship between site architecture and topical authority?</strong>
+Architecture is the scaffolding that topical authority builds upon. Clear structural signals (through silos or hub-and-spoke) help search engines understand your expertise boundaries. See <a href="topical-authority-building-seo.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">topical-authority-building-seo</a> for content depth strategies that complement architectural choices.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/topic-clusters-internal-links-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Site Architecture</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Topic Clusters and Internal Links: Complete Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master topic cluster architecture with strategic internal linking to boost topical authority, improve crawl efficiency, and increase organic rankings across content hubs.</p>
+          </a>
+
+          <a href="/articles/internal-linking-strategy-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Internal Linking Strategy Guide: Architecture for SEO Success</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build internal linking architecture that distributes PageRank and creates topical clusters. Pillar-cluster model, hub pages, and contextual linking strategies.</p>
+          </a>
+
+          <a href="/articles/fix-orphan-pages-no-internal-links.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Orphan Pages With No Internal Links: Complete Linking Strategy Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate orphan pages through strategic internal linking, contextual cross-references, and automated link discovery to restore PageRank flow and rankings.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

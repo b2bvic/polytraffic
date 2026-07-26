@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy Load Images Without Breaking SEO: Complete Implementation Guide | Polytraffic</title>
+    <meta name="description" content="Implement lazy loading for images using native loading attribute, Intersection Observer, and noscript fallbacks. Optimize Core Web Vitals without harming indexation." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Lazy Load Images Without Breaking SEO: Complete Implementation Guide | Polytraffic" />
+    <meta property="og:description" content="Implement lazy loading for images using native loading attribute, Intersection Observer, and noscript fallbacks. Optimize Core Web Vitals without harming indexation." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/lazy-load-images-without-breaking-seo" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/lazy-load-images-without-breaking-seo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lazy Load Images Without Breaking SEO: Complete Implementation Guide | Polytraffic" />
+    <meta name="twitter:description" content="Implement lazy loading for images using native loading attribute, Intersection Observer, and noscript fallbacks. Optimize Core Web Vitals without harming indexation." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/lazy-load-images-without-breaking-seo.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/lazy-load-images-without-breaking-seo" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Lazy Load Images Without Breaking SEO: Complete Implementation Guide",
+    "description": "Implement lazy loading for images using native loading attribute, Intersection Observer, and noscript fallbacks. Optimize Core Web Vitals without harming indexation.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/lazy-load-images-without-breaking-seo.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/lazy-load-images-without-breaking-seo.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Lazy Load Images Without Breaking SEO: Complete Implementation Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Lazy Load Images Without Breaking SEO: Complete Implementation Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/lazy-load-images-without-breaking-seo.png" alt="Lazy Load Images Without Breaking SEO: Complete Implementation Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="lazy-load-images-without-breaking-seo-complete-implementation-guide">Lazy Load Images Without Breaking SEO: Complete Implementation Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Implement lazy loading for images using native loading attribute, Intersection Observer, and noscript fallbacks. Optimize Core Web Vitals without harming indexation.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-lazy-loading-matters" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Lazy Loading Matters</a></li>
+<li><a href="#native-lazy-loading" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Native Lazy Loading</a></li>
+<li><a href="#intersection-observer-api" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Intersection Observer API</a></li>
+<li><a href="#noscript-fallbacks" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Noscript Fallbacks</a></li>
+<li><a href="#low-quality-image-placeholders-lqip" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Low-Quality Image Placeholders (LQIP)</a></li>
+<li><a href="#preventing-layout-shift" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Preventing Layout Shift</a></li>
+<li><a href="#excluding-critical-images" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Excluding Critical Images</a></li>
+<li><a href="#wordpress-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WordPress Implementation</a></li>
+<li><a href="#javascript-framework-integration" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">JavaScript Framework Integration</a></li>
+<li><a href="#testing-and-validation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Testing and Validation</a></li>
+<li><a href="#common-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Mistakes</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Lazy loading defers off-screen image loading until users scroll near them, dramatically improving <strong>Largest Contentful Paint (LCP)</strong> and reducing initial page weight. Incorrect implementation blocks Googlebot from discovering images or delays Core Web Vitals measurements, requiring careful balance between performance gains and SEO preservation.</p>
+<h2 id="why-lazy-loading-matters">Why Lazy Loading Matters</h2>
+<p><strong>Page weight reduction</strong> occurs when only visible images load initially. A blog post with 20 images totaling 15MB loads 2-3 visible images (2MB) on first paint, deferring the remaining 13MB until scroll. This cuts initial load time by 60-80% on image-heavy pages.</p>
+<p><strong>Largest Contentful Paint</strong> improves when above-the-fold hero images load immediately while below-fold images defer. LCP measures time until the largest visible element renders, lazy loading non-critical images prevents them from competing for bandwidth during initial render.</p>
+<p><strong>Bandwidth savings</strong> benefit mobile users on metered connections. Users scrolling only 40% down a page avoid downloading 60% of images, saving 5-10MB per page view. At scale, this reduces hosting bandwidth costs significantly.</p>
+<p><strong>Core Web Vitals</strong> optimization requires lazy loading below-fold content while ensuring above-fold content loads instantly. Google&#39;s algorithm rewards fast LCP, sites improving from 4.5s to 2.0s LCP through lazy loading see ranking improvements within 30-60 days.</p>
+<p><strong>Cumulative Layout Shift</strong> prevention requires explicit width/height attributes even on lazy-loaded images. Without dimensions, images cause layout shift when they load, harming CLS scores regardless of lazy loading implementation.</p>
+<h2 id="native-lazy-loading">Native Lazy Loading</h2>
+<p><strong>The loading attribute</strong> enables browser-native lazy loading without JavaScript:</p>
+<pre><code class="language-html">&lt;img src=&quot;product.jpg&quot; alt=&quot;Product name&quot; loading=&quot;lazy&quot; width=&quot;800&quot; height=&quot;600&quot;&gt;
+</code></pre>
+<p>Browsers delay loading images with <code>loading=&quot;lazy&quot;</code> until they enter the viewport or approach it (typically 1-2 viewports ahead). The browser handles intersection detection automatically without custom scripts.</p>
+<p><strong>Browser support</strong> exceeds 94% as of 2026, covering Chrome, Edge, Firefox, and Safari. Unsupported browsers ignore the attribute and load images normally, progressive enhancement where modern browsers benefit without breaking legacy browsers.</p>
+<p><strong>Eager loading</strong> for critical above-fold images prevents lazy loading delays on hero images:</p>
+<pre><code class="language-html">&lt;img src=&quot;hero.jpg&quot; alt=&quot;Hero image&quot; loading=&quot;eager&quot; width=&quot;1920&quot; height=&quot;1080&quot;&gt;
+</code></pre>
+<p>Explicitly setting <code>loading=&quot;eager&quot;</code> ensures browsers prioritize the image even if it&#39;s initially off-screen (common on mobile viewports where hero images sit partially below fold).</p>
+<p><strong>Googlebot compatibility</strong> with native lazy loading is excellent. Google&#39;s rendering engine respects <code>loading=&quot;lazy&quot;</code> and discovers images correctly when they have proper <code>src</code> attributes. No special fallbacks needed for SEO, native lazy loading is crawler-safe.</p>
+<p><strong>Implementation simplicity</strong> makes native lazy loading the default choice for new implementations. Add the attribute during content creation or via CMS plugins, avoiding complex JavaScript logic.</p>
+<h2 id="intersection-observer-api">Intersection Observer API</h2>
+<p><strong>Intersection Observer</strong> provides JavaScript-based lazy loading with more control than native loading attribute. Useful for complex scenarios requiring custom trigger distances or compatibility with older browsers:</p>
+<pre><code class="language-javascript">const imageObserver = new IntersectionObserver((entries, observer) =&gt; {
+  entries.forEach(entry =&gt; {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      img.src = img.dataset.src;
+      img.removeAttribute(&#39;data-src&#39;);
+      observer.unobserve(img);
+    }
+  });
+}, {
+  rootMargin: &#39;50px&#39; // Start loading 50px before entering viewport
+});
+
+document.querySelectorAll(&#39;img[data-src]&#39;).forEach(img =&gt; {
+  imageObserver.observe(img);
+});
+</code></pre>
+<p><strong>Data attributes</strong> store the actual image URL while <code>src</code> contains a placeholder or blank value. When the image enters the viewport, JavaScript replaces <code>src</code> with the <code>data-src</code> value, triggering the load.</p>
+<p><strong>Root margin</strong> controls when loading begins. <code>rootMargin: &#39;200px&#39;</code> starts loading images 200px before they enter the viewport, ensuring images appear loaded by the time users scroll to them. Balance pre-loading (smooth UX) against bandwidth waste (loading images users never reach).</p>
+<p><strong>Threshold settings</strong> define what percentage of the image must be visible before triggering:</p>
+<pre><code class="language-javascript">{
+  threshold: 0.1 // Trigger when 10% of image is visible
+}
+</code></pre>
+<p>Lower thresholds (0.01-0.1) provide smoother experiences by pre-loading just before visibility. Higher thresholds (0.5-1.0) delay loading until images are substantially visible, maximizing bandwidth savings.</p>
+<p><strong>Polyfills</strong> for older browsers lacking Intersection Observer support enable compatibility:</p>
+<pre><code class="language-javascript">if (!(&#39;IntersectionObserver&#39; in window)) {
+  // Load all images immediately as fallback
+  document.querySelectorAll(&#39;img[data-src]&#39;).forEach(img =&gt; {
+    img.src = img.dataset.src;
+  });
+}
+</code></pre>
+<h2 id="noscript-fallbacks">Noscript Fallbacks</h2>
+<p><strong>Noscript tags</strong> ensure images load when JavaScript is disabled or fails:</p>
+<pre><code class="language-html">&lt;img class=&quot;lazy&quot; data-src=&quot;image.jpg&quot; src=&quot;placeholder.jpg&quot; alt=&quot;Description&quot; loading=&quot;lazy&quot;&gt;
+&lt;noscript&gt;
+  &lt;img src=&quot;image.jpg&quot; alt=&quot;Description&quot;&gt;
+&lt;/noscript&gt;
+</code></pre>
+<p>Browsers without JavaScript render the <code>&lt;noscript&gt;</code> content, loading the full image. JavaScript-enabled browsers ignore <code>&lt;noscript&gt;</code>, using the lazy loading mechanism instead.</p>
+<p><strong>Googlebot rendering</strong> executes JavaScript and follows lazy loading, but noscript fallbacks provide insurance against rendering failures. If Googlebot&#39;s JavaScript execution times out, the noscript content ensures image discovery.</p>
+<p><strong>Progressive enhancement</strong> layers lazy loading atop functional base HTML. Start with standard <code>&lt;img src=&quot;&quot;&gt;</code> tags for critical images, enhance with lazy loading for below-fold content, add noscript for JavaScript-disabled scenarios.</p>
+<p><strong>Duplicate content concerns</strong> from noscript tags are minimal. Google understands noscript is a fallback mechanism and doesn&#39;t penalize duplicate image references. The noscript version won&#39;t index separately; it&#39;s treated as alternate content for the same image.</p>
+<h2 id="low-quality-image-placeholders-lqip">Low-Quality Image Placeholders (LQIP)</h2>
+<p><strong>Base64-encoded thumbnails</strong> serve as <code>src</code> placeholders while full images lazy load:</p>
+<pre><code class="language-html">&lt;img src=&quot;data:image/jpeg;base64,/9j/4AAQSkZJRg...&quot;
+     data-src=&quot;full-image.jpg&quot;
+     alt=&quot;Description&quot;
+     class=&quot;lazy&quot;
+     width=&quot;800&quot;
+     height=&quot;600&quot;&gt;
+</code></pre>
+<p>The base64 string embeds a tiny (1-2KB) blurred version inline, preventing layout shift and showing users a preview during load. Generate LQIP using tools like <strong>Sqip</strong> or <strong>lqip-loader</strong> for Webpack.</p>
+<p><strong>BlurHash</strong> encodes images into compact (20-30 byte) strings decoded to blurred placeholders via JavaScript:</p>
+<pre><code class="language-html">&lt;canvas data-blurhash=&quot;LEHV6nWB2yk8pyo0adR*.7kCMdnj&quot;&gt;&lt;/canvas&gt;
+</code></pre>
+<p>Libraries like <strong>blurhash.js</strong> decode the hash client-side, creating smooth gradient placeholders. This reduces HTML size compared to base64 LQIP while maintaining visual feedback.</p>
+<p><strong>Solid color backgrounds</strong> matching image dominant colors provide the simplest placeholder:</p>
+<pre><code class="language-html">&lt;img src=&quot;image.jpg&quot;
+     alt=&quot;Description&quot;
+     loading=&quot;lazy&quot;
+     style=&quot;background-color: #E8D5B7;&quot;
+     width=&quot;800&quot;
+     height=&quot;600&quot;&gt;
+</code></pre>
+<p>Extract dominant colors programmatically using tools like <strong>node-vibrant</strong> or manually via image editing software. This prevents white flashes as images load.</p>
+<p><strong>Skeleton screens</strong> use CSS to create placeholder layouts resembling image shapes:</p>
+<pre><code class="language-css">.lazy-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+</code></pre>
+<h2 id="preventing-layout-shift">Preventing Layout Shift</h2>
+<p><strong>Width and height attributes</strong> must be present on all lazy-loaded images:</p>
+<pre><code class="language-html">&lt;img src=&quot;image.jpg&quot; alt=&quot;Description&quot; loading=&quot;lazy&quot; width=&quot;1200&quot; height=&quot;800&quot;&gt;
+</code></pre>
+<p>Browsers reserve layout space based on these dimensions before images load, preventing content reflow (CLS) when images appear. Omitting dimensions causes 100-300ms layout shifts per image.</p>
+<p><strong>Aspect ratio sizing</strong> maintains proportions across responsive designs using CSS:</p>
+<pre><code class="language-css">.lazy-image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+}
+</code></pre>
+<p>This preserves aspect ratios without hardcoded pixel dimensions, adapting to container widths while preventing shift.</p>
+<p><strong>Container height reservation</strong> explicitly sets wrapper heights matching image dimensions:</p>
+<pre><code class="language-html">&lt;div style=&quot;height: 600px; width: 100%;&quot;&gt;
+  &lt;img src=&quot;image.jpg&quot; alt=&quot;Description&quot; loading=&quot;lazy&quot; class=&quot;responsive&quot;&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Useful when images should fill containers dynamically. The container holds space even while images load.</p>
+<p><strong>Intrinsic sizing</strong> via padding-top hacks maintains aspect ratios:</p>
+<pre><code class="language-css">.image-container {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+}
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</code></pre>
+<h2 id="excluding-critical-images">Excluding Critical Images</h2>
+<p><strong>Above-the-fold images</strong> should never lazy load. Hero images, logos, and content visible on page load must use <code>loading=&quot;eager&quot;</code> or omit the loading attribute entirely:</p>
+<pre><code class="language-html">&lt;!-- Critical above-fold image --&gt;
+&lt;img src=&quot;hero.jpg&quot; alt=&quot;Hero&quot; loading=&quot;eager&quot; width=&quot;1920&quot; height=&quot;1080&quot;&gt;
+
+&lt;!-- Below-fold image --&gt;
+&lt;img src=&quot;content.jpg&quot; alt=&quot;Content&quot; loading=&quot;lazy&quot; width=&quot;800&quot; height=&quot;600&quot;&gt;
+</code></pre>
+<p><strong>LCP element identification</strong> via Chrome DevTools Performance panel shows which image is LCP. Never lazy load the LCP image, it should be the highest priority resource on the page.</p>
+<p><strong>First viewport calculation</strong> determines which images are critical. On desktop (1920x1080), images in the top 1080px should load eagerly. On mobile (375x667), images in the top 667px are critical.</p>
+<p><strong>Conditional lazy loading</strong> applies lazy loading only to images below measured fold:</p>
+<pre><code class="language-javascript">const images = document.querySelectorAll(&#39;img[data-src]&#39;);
+images.forEach(img =&gt; {
+  const rect = img.getBoundingClientRect();
+  if (rect.top &lt; window.innerHeight) {
+    // Image is above fold, load immediately
+    img.src = img.dataset.src;
+  } else {
+    // Image is below fold, lazy load
+    imageObserver.observe(img);
+  }
+});
+</code></pre>
+<h2 id="wordpress-implementation">WordPress Implementation</h2>
+<p><strong>Native lazy loading support</strong> exists in WordPress 5.5+, automatically adding <code>loading=&quot;lazy&quot;</code> to content images. Enable via Settings or programmatically:</p>
+<pre><code class="language-php">add_filter(&#39;wp_lazy_loading_enabled&#39;, &#39;__return_true&#39;);
+</code></pre>
+<p><strong>Exclude featured images</strong> from lazy loading when they&#39;re above-fold:</p>
+<pre><code class="language-php">add_filter(&#39;wp_img_tag_add_loading_attr&#39;, function($value, $image, $context) {
+  if ($context === &#39;the_post_thumbnail&#39;) {
+    return false; // Don&#39;t lazy load featured images
+  }
+  return $value;
+}, 10, 3);
+</code></pre>
+<p><strong>Lazy load plugin</strong> options like <strong>a3 Lazy Load</strong> or <strong>Lazy Load by WP Rocket</strong> offer more control than native WordPress lazy loading, including threshold settings and placeholder customization.</p>
+<p><strong>Gutenberg block support</strong> respects the loading attribute when set in image blocks. Enable &quot;Lazy load&quot; option in image block settings or set globally via theme customization.</p>
+<p><strong>Advanced Custom Fields</strong> images require manual lazy loading implementation:</p>
+<pre><code class="language-php">$image = get_field(&#39;product_image&#39;);
+echo &#39;&lt;img src=&quot;&#39; . $image[&#39;url&#39;] . &#39;&quot; alt=&quot;&#39; . $image[&#39;alt&#39;] . &#39;&quot; loading=&quot;lazy&quot; width=&quot;&#39; . $image[&#39;width&#39;] . &#39;&quot; height=&quot;&#39; . $image[&#39;height&#39;] . &#39;&quot;&gt;&#39;;
+</code></pre>
+<h2 id="javascript-framework-integration">JavaScript Framework Integration</h2>
+<p><strong>React lazy loading</strong> via <code>react-lazyload</code> library:</p>
+<pre><code class="language-jsx">import LazyLoad from &#39;react-lazyload&#39;;
+
+function ProductImage() {
+  return (
+    &lt;LazyLoad height={600} offset={100}&gt;
+      &lt;img src=&quot;product.jpg&quot; alt=&quot;Product&quot; width=&quot;800&quot; height=&quot;600&quot; /&gt;
+    &lt;/LazyLoad&gt;
+  );
+}
+</code></pre>
+<p><strong>Next.js Image component</strong> includes automatic lazy loading:</p>
+<pre><code class="language-jsx">import Image from &#39;next/image&#39;;
+
+function Hero() {
+  return (
+    &lt;Image
+      src=&quot;/hero.jpg&quot;
+      alt=&quot;Hero&quot;
+      width={1920}
+      height={1080}
+      priority // Disables lazy loading for critical images
+    /&gt;
+  );
+}
+</code></pre>
+<p>Set <code>priority</code> prop on above-fold images to prevent lazy loading. Omit <code>priority</code> for below-fold images to enable automatic lazy loading.</p>
+<p><strong>Vue lazy loading</strong> via <code>vue-lazyload</code>:</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;img v-lazy=&quot;imageUrl&quot; alt=&quot;Description&quot; width=&quot;800&quot; height=&quot;600&quot;&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import VueLazyload from &#39;vue-lazyload&#39;;
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  loading: &#39;/loading.gif&#39;
+});
+&lt;/script&gt;
+</code></pre>
+<h2 id="testing-and-validation">Testing and Validation</h2>
+<p><strong>Chrome DevTools Network tab</strong> shows when images load. Enable throttling to &quot;Fast 3G,&quot; scroll through the page, observe images loading as they enter the viewport. Images loading before scroll indicate lazy loading isn&#39;t working.</p>
+<p><strong>Lighthouse audit</strong> flags improperly lazy-loaded above-fold images in &quot;Defer offscreen images&quot; warning. It also catches missing width/height causing layout shift via &quot;Image elements do not have explicit width and height.&quot;</p>
+<p><strong>PageSpeed Insights</strong> shows LCP impact of lazy loading. Compare LCP before and after implementation, properly configured lazy loading should improve LCP by 20-40% on image-heavy pages.</p>
+<p><strong>Googlebot rendering check</strong> via Search Console URL Inspection tests whether Google discovers lazy-loaded images. &quot;View Crawled Page&quot; screenshot should show all images rendered, confirming successful lazy loading that doesn&#39;t harm indexation.</p>
+<p><strong>WebPageTest waterfall</strong> visualizes image load timing. Lazy-loaded images appear in the waterfall only after scroll simulation, while critical images load immediately during initial page load.</p>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<p><strong>Lazy loading above-fold images</strong> delays LCP, harming Core Web Vitals. Always exclude hero images, logos, and visible content from lazy loading using <code>loading=&quot;eager&quot;</code> or omitting the attribute.</p>
+<p><strong>Missing dimensions</strong> on lazy-loaded images cause CLS as images load and force layout reflow. Always specify width and height attributes matching actual or rendered image dimensions.</p>
+<p><strong>Blank src attributes</strong> (<code>src=&quot;&quot;</code>) cause broken images for Googlebot if JavaScript fails. Use placeholder images (data URIs, low-quality previews) or rely on native <code>loading=&quot;lazy&quot;</code> which doesn&#39;t require blank src.</p>
+<p><strong>Aggressive thresholds</strong> (loading only when 80-100% visible) create jarring UX where users see images pop in as they scroll. Use 10-30% thresholds or negative root margins (<code>rootMargin: &#39;-100px&#39;</code>) for smooth pre-loading.</p>
+<p><strong>Ignoring noscript fallbacks</strong> risks SEO if Googlebot JavaScript rendering fails. Always include noscript tags with full image sources for JavaScript-disabled scenarios.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Lazy Loading Matters:</strong> Browsers delay loading images with loading=&quot;lazy&quot; until they enter the viewport or approach it (typically 1-2 viewports ahead).</li>
+<li><strong>Native Lazy Loading:</strong> Browsers delay loading images with loading=&quot;lazy&quot; until they enter the viewport or approach it (typically 1-2 viewports ahead).</li>
+<li><strong>Intersection Observer API:</strong> document.querySelectorAll(&#39;img[data-src]&#39;).forEach(img =&gt; {
+imageObserver.observe(img);
+});</li>
+<li><strong>Noscript Fallbacks:</strong> Browsers without JavaScript render the <noscript> content, loading the full image.</li>
+<li><strong>Low-Quality Image Placeholders (LQIP):</strong> The base64 string embeds a tiny (1-2KB) blurred version inline, preventing layout shift and showing users a preview during load.</li>
+<li><strong>Preventing Layout Shift:</strong> Browsers reserve layout space based on these dimensions before images load, preventing content reflow (CLS) when images appear.</li>
+</ul>
+<h2 id="faq-lazy-loading-images-seo">FAQ: Lazy Loading Images SEO</h2>
+<h3 id="does-lazy-loading-hurt-google-image-search-rankings">Does lazy loading hurt Google image search rankings?</h3>
+<p>No, properly implemented lazy loading doesn&#39;t harm image search visibility. <strong>Google</strong> successfully renders and indexes lazy-loaded images using native <code>loading=&quot;lazy&quot;</code> attribute or JavaScript-based methods. Ensure images have proper <code>src</code> attributes (not blank), valid alt text, and structured data when appropriate. Avoid setting <code>src=&quot;&quot;</code> and relying solely on JavaScript, use placeholders or native loading attribute. <strong>Google Search Console</strong> URL Inspection confirms whether Google sees your images. If images appear in the &quot;View Crawled Page&quot; screenshot, lazy loading implementation is SEO-safe. Test after implementing to verify proper indexation.</p>
+<h3 id="should-i-use-native-loading-lazy-or-javascript">Should I use native loading="lazy" or JavaScript?</h3>
+<p>Prefer <strong>native <code>loading=&quot;lazy&quot;</code></strong> for simplicity and compatibility, it works with Googlebot, requires no JavaScript, and provides automatic browser optimization. Use <strong>JavaScript Intersection Observer</strong> when you need custom trigger distances, compatibility with old browsers, or advanced features like placeholder transitions. Native lazy loading is sufficient for 95% of use cases. Combine both: native lazy loading as primary method with JavaScript enhancements for custom UX. Never use JavaScript-only lazy loading without noscript fallbacks, this risks SEO if rendering fails.</p>
+<h3 id="can-i-lazy-load-images-in-the-first-viewport">Can I lazy load images in the first viewport?</h3>
+<p>Avoid lazy loading above-the-fold images, this delays <strong>LCP</strong> and harms Core Web Vitals. Images visible without scrolling should load immediately using <code>loading=&quot;eager&quot;</code> or omitting the loading attribute. On desktop, the first 800-1000px of content is typically above-fold; on mobile, 600-700px. Measure on actual devices to determine your fold height. Some implementations use JavaScript to calculate fold position dynamically and only lazy load images below it. This optimization prevents accidentally lazy-loading critical images that vary by viewport size.</p>
+<h3 id="does-lazy-loading-affect-core-web-vitals">Does lazy loading affect Core Web Vitals?</h3>
+<p>Properly implemented lazy loading <strong>improves</strong> Core Web Vitals by reducing initial page weight, speeding up <strong>First Contentful Paint</strong> and <strong>Largest Contentful Paint</strong>. Incorrectly lazy loading above-fold images <strong>harms</strong> LCP by delaying critical content. Always exclude LCP elements from lazy loading. Set width/height attributes to prevent <strong>Cumulative Layout Shift</strong> when images load. Use native <code>loading=&quot;lazy&quot;</code> or Intersection Observer with appropriate root margins (100-200px) to pre-load images smoothly. Sites improving LCP from 4+ seconds to under 2.5 seconds through lazy loading often see ranking improvements within 60-90 days.</p>
+<h3 id="how-do-i-lazy-load-background-images-in-css">How do I lazy load background images in CSS?</h3>
+<p>CSS background images require JavaScript for lazy loading since CSS doesn&#39;t support the <code>loading</code> attribute. Use <strong>Intersection Observer</strong> to add a class applying the background image when the element enters the viewport:</p>
+<pre><code class="language-html">&lt;div class=&quot;hero-section lazy-bg&quot; data-bg=&quot;hero.jpg&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+const bgObserver = new IntersectionObserver(entries =&gt; {
+  entries.forEach(entry =&gt; {
+    if (entry.isIntersecting) {
+      entry.target.style.backgroundImage = `url(${entry.target.dataset.bg})`;
+      bgObserver.unobserve(entry.target);
+    }
+  });
+});
+document.querySelectorAll(&#39;.lazy-bg&#39;).forEach(el =&gt; bgObserver.observe(el));
+&lt;/script&gt;
+</code></pre>
+<p>Alternatively, use <code>&lt;img&gt;</code> tags with <code>position: absolute</code> layered behind content instead of CSS backgrounds, these support native lazy loading without JavaScript.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/image-schema-markup-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Image Schema Markup Guide: Complete Implementation for Rich Results</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master ImageObject schema for Google Images rich results. Product images, recipe photos, and article images with structured data for enhanced visibility.</p>
+          </a>
+
+          <a href="/articles/google-image-search-optimization.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Google Image Search Optimization: Technical Implementation Guide for Visual Discovery</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Optimize images for Google Image Search with technical strategies covering file naming, alt text, structured data, and visual search ranking factors.</p>
+          </a>
+
+          <a href="/articles/how-to-schema-markup-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement HowTo schema markup for featured snippet eligibility with this technical guide covering JSON-LD structure, validation, and ranking optimization.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

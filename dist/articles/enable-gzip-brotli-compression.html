@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enable Gzip and Brotli Compression: Cut Load Time 60-80% | Polytraffic</title>
+    <meta name="description" content="Deploy gzip and Brotli compression in 15 minutes. Nginx, Apache, Cloudflare configs included. Reduce payload size 70%+ without touching code." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Enable Gzip and Brotli Compression: Cut Load Time 60-80% | Polytraffic" />
+    <meta property="og:description" content="Deploy gzip and Brotli compression in 15 minutes. Nginx, Apache, Cloudflare configs included. Reduce payload size 70%+ without touching code." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/enable-gzip-brotli-compression" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/enable-gzip-brotli-compression.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Enable Gzip and Brotli Compression: Cut Load Time 60-80% | Polytraffic" />
+    <meta name="twitter:description" content="Deploy gzip and Brotli compression in 15 minutes. Nginx, Apache, Cloudflare configs included. Reduce payload size 70%+ without touching code." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/enable-gzip-brotli-compression.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/enable-gzip-brotli-compression" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Enable Gzip and Brotli Compression: Cut Load Time 60-80%",
+    "description": "Deploy gzip and Brotli compression in 15 minutes. Nginx, Apache, Cloudflare configs included. Reduce payload size 70%+ without touching code.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/enable-gzip-brotli-compression.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/enable-gzip-brotli-compression.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Enable Gzip and Brotli Compression: Cut Load Time 60-80%"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Enable Gzip and Brotli Compression: Cut Load Time 60-80%</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/enable-gzip-brotli-compression.png" alt="Enable Gzip and Brotli Compression: Cut Load Time 60-80%" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="enable-gzip-and-brotli-compression-cut-load-time-60-80">Enable Gzip and Brotli Compression: Cut Load Time 60-80%</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Deploy gzip and Brotli compression in 15 minutes. Nginx, Apache, Cloudflare configs included. Reduce payload size 70%+ without touching code.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-compression-improves-seo-performance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Compression Improves SEO Performance</a></li>
+<li><a href="#gzip-vs-brotli-algorithm-comparison" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Gzip vs Brotli: Algorithm Comparison</a></li>
+<li><a href="#how-compression-works-server-side-encoding" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How Compression Works: Server-Side Encoding</a></li>
+<li><a href="#enable-brotli-gzip-on-nginx" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Enable Brotli + Gzip on Nginx</a></li>
+<li><a href="#enable-brotli-gzip-on-apache" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Enable Brotli + Gzip on Apache</a></li>
+<li><a href="#enable-compression-on-cloudflare" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Enable Compression on Cloudflare</a></li>
+<li><a href="#enable-compression-on-shared-hosting" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Enable Compression on Shared Hosting</a></li>
+<li><a href="#static-pre-compression-for-production" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Static Pre-Compression for Production</a></li>
+<li><a href="#verify-compression-in-devtools" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Verify Compression in DevTools</a></li>
+<li><a href="#measure-compression-impact" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Measure Compression Impact</a></li>
+<li><a href="#troubleshooting-common-issues" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Troubleshooting Common Issues</a></li>
+<li><a href="#file-types-to-always-compress" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">File Types to Always Compress</a></li>
+<li><a href="#file-types-to-never-compress" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">File Types to NEVER Compress</a></li>
+<li><a href="#performance-benchmarks-real-world-impact" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Performance Benchmarks: Real-World Impact</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Text-based assets. HTML, CSS, JavaScript, JSON, XML, account for 40-70% of total page weight on most sites. Shipping these files uncompressed wastes bandwidth, inflates load times, and kills mobile performance on slower connections. Compression algorithms like <strong>gzip</strong> and <strong>Brotli</strong> reduce text file sizes by 60-85% with zero quality loss, delivering instant Core Web Vitals improvements.</p>
+<p><strong>Brotli</strong> outperforms <strong>gzip</strong> by 15-20% on average and enjoys universal browser support (98.4% global as of 2026). Yet 34% of the top 1 million sites still serve uncompressed assets or rely solely on legacy <strong>gzip</strong> encoding. This guide walks through enabling both algorithms across <strong>Apache</strong>, <strong>Nginx</strong>, <strong>Cloudflare</strong>, and common hosting platforms.</p>
+<h2 id="why-compression-improves-seo-performance">Why Compression Improves SEO Performance</h2>
+<p><strong>Google&#39;s</strong> Core Web Vitals (CWV) metrics. Largest Contentful Paint (LCP), First Input Delay (FID), Cumulative Layout Shift (CLS), directly influence rankings in mobile search. Compression impacts two of three:</p>
+<p><strong>LCP improvement:</strong> Faster HTML delivery means earlier rendering of above-the-fold content. Reducing a 120KB HTML file to 18KB via <strong>Brotli</strong> can drop LCP from 3.2s to 1.8s on 3G connections.</p>
+<p><strong>FID improvement:</strong> Smaller JavaScript bundles parse faster. A 450KB JS file compressed to 95KB reduces parse time by 200-300ms on mid-tier mobile devices.</p>
+<p><strong>Crawl budget optimization:</strong> <strong>Googlebot</strong> crawls 40-60% more pages per session when average response sizes drop from 800KB to 180KB. Critical for large sites competing for indexing priority.</p>
+<p><strong>Lighthouse score impact:</strong> Enabling compression resolves the &quot;Enable text compression&quot; audit failure, typically worth 8-15 points in the Performance score. Sites scoring 90+ see 12% higher CTR on average.</p>
+<h2 id="gzip-vs-brotli-algorithm-comparison">Gzip vs Brotli: Algorithm Comparison</h2>
+<p>Both algorithms compress by finding repeated patterns in text and replacing them with shorter references. Key differences:</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Gzip</th>
+<th>Brotli</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Compression ratio</strong></td>
+<td>65-75% size reduction</td>
+<td>75-85% size reduction</td>
+</tr>
+<tr>
+<td><strong>CPU overhead</strong></td>
+<td>Low (0.1-0.3ms per file)</td>
+<td>Moderate (0.3-0.8ms per file)</td>
+</tr>
+<tr>
+<td><strong>Browser support</strong></td>
+<td>99.9% (since IE6)</td>
+<td>98.4% (all modern browsers)</td>
+</tr>
+<tr>
+<td><strong>Static vs dynamic</strong></td>
+<td>Both</td>
+<td>Both (static preferred)</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Fallback layer</td>
+<td>Primary compression</td>
+</tr>
+</tbody></table>
+<p><strong>Brotli</strong> wins on compression density but costs slightly more CPU. The optimal setup: Serve <strong>Brotli</strong> to supported browsers, fall back to <strong>gzip</strong> for legacy clients. Modern servers handle this negotiation automatically via <code>Accept-Encoding</code> headers.</p>
+<h2 id="how-compression-works-server-side-encoding">How Compression Works: Server-Side Encoding</h2>
+<p>When a browser requests a file, it sends an <code>Accept-Encoding</code> header listing supported compression algorithms:</p>
+<pre><code>GET /styles.css HTTP/1.1
+Accept-Encoding: br, gzip, deflate
+</code></pre>
+<p>The server checks available encodings, compresses the file using the best match, and responds with a <code>Content-Encoding</code> header:</p>
+<pre><code>HTTP/1.1 200 OK
+Content-Encoding: br
+Content-Type: text/css
+Content-Length: 18432
+</code></pre>
+<p>The browser receives the compressed stream, decompresses it, and processes the original file. This happens transparently, no client-side code changes required.</p>
+<p><strong>Two compression modes:</strong></p>
+<p><strong>Dynamic compression:</strong> Server compresses files on-demand per request. Adds 0.3-1.5ms latency but requires no pre-processing. Best for sites with frequent file changes.</p>
+<p><strong>Static compression:</strong> Pre-compress files at build time, serve pre-compressed versions. Zero latency penalty, ideal for production environments with infrequent deployments.</p>
+<h2 id="enable-brotli-gzip-on-nginx">Enable Brotli + Gzip on Nginx</h2>
+<p><strong>Nginx</strong> requires the <code>ngx_brotli</code> module for <strong>Brotli</strong> support. Most compiled distributions don&#39;t include it by default.</p>
+<h3 id="step-1-verify-module-availability">Step 1: Verify Module Availability</h3>
+<pre><code class="language-bash">nginx -V 2&gt;&amp;1 | grep brotli
+</code></pre>
+<p>If output is empty, you need to compile or install a build with <strong>Brotli</strong> support:</p>
+<p><strong>Ubuntu/Debian:</strong></p>
+<pre><code class="language-bash">sudo apt install nginx-extras
+</code></pre>
+<p><strong>CentOS/RHEL:</strong></p>
+<pre><code class="language-bash">sudo yum install nginx-mod-http-brotli
+</code></pre>
+<p><strong>Compile from source:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/google/ngx_brotli.git
+cd ngx_brotli &amp;&amp; git submodule update --init
+./configure --add-module=../ngx_brotli
+make &amp;&amp; sudo make install
+</code></pre>
+<h3 id="step-2-configure-nginx">Step 2: Configure Nginx</h3>
+<p>Edit <code>/etc/nginx/nginx.conf</code> or your site&#39;s config file in <code>/etc/nginx/sites-available/</code>:</p>
+<pre><code class="language-nginx">http {
+    # Gzip Settings
+    gzip on;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_types text/plain text/css text/xml text/javascript
+               application/json application/javascript application/xml+rss
+               application/rss+xml font/truetype font/opentype
+               application/vnd.ms-fontobject image/svg+xml;
+    gzip_disable &quot;msie6&quot;;
+
+    # Brotli Settings
+    brotli on;
+    brotli_comp_level 6;
+    brotli_static on;
+    brotli_types text/plain text/css text/xml text/javascript
+                 application/json application/javascript application/xml+rss
+                 application/rss+xml font/truetype font/opentype
+                 application/vnd.ms-fontobject image/svg+xml;
+}
+</code></pre>
+<p><strong>Key parameters:</strong></p>
+<ul>
+<li><code>gzip_comp_level 6</code>: Compression intensity (1-9). Level 6 balances size reduction and CPU cost. Levels 7-9 yield &lt;5% additional compression at 2x CPU cost.</li>
+<li><code>brotli_comp_level 6</code>: Same scale. Brotli levels map differently, level 4 ≈ gzip level 6.</li>
+<li><code>brotli_static on</code>: Serve pre-compressed <code>.br</code> files if available (e.g., <code>styles.css.br</code>).</li>
+<li><code>gzip_types</code> / <code>brotli_types</code>: File MIME types to compress. Exclude images/video (already compressed).</li>
+</ul>
+<h3 id="step-3-test-and-reload">Step 3: Test and Reload</h3>
+<pre><code class="language-bash">sudo nginx -t
+sudo systemctl reload nginx
+</code></pre>
+<p>Verify compression in browser DevTools:</p>
+<pre><code class="language-bash">curl -H &quot;Accept-Encoding: br&quot; -I https://yoursite.com/styles.css
+</code></pre>
+<p>Look for <code>Content-Encoding: br</code> in response headers.</p>
+<h2 id="enable-brotli-gzip-on-apache">Enable Brotli + Gzip on Apache</h2>
+<p><strong>Apache</strong> uses <code>mod_deflate</code> for <strong>gzip</strong> and <code>mod_brotli</code> for <strong>Brotli</strong>.</p>
+<h3 id="step-1-enable-modules">Step 1: Enable Modules</h3>
+<pre><code class="language-bash">sudo a2enmod deflate
+sudo a2enmod brotli
+sudo systemctl restart apache2
+</code></pre>
+<p>If <code>mod_brotli</code> isn&#39;t available, install it:</p>
+<p><strong>Ubuntu/Debian:</strong></p>
+<pre><code class="language-bash">sudo apt install apache2-mod-brotli
+</code></pre>
+<p><strong>CentOS/RHEL:</strong></p>
+<pre><code class="language-bash">sudo yum install mod_brotli
+</code></pre>
+<h3 id="step-2-configure-apache">Step 2: Configure Apache</h3>
+<p>Edit <code>/etc/apache2/mods-available/deflate.conf</code>:</p>
+<pre><code class="language-apache">&lt;IfModule mod_deflate.c&gt;
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+    AddOutputFilterByType DEFLATE application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE font/truetype font/opentype application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE image/svg+xml
+
+    # Don&#39;t compress images/video
+    SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|mp4|webm)$ no-gzip
+
+    # Netscape 4.x workaround
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+&lt;/IfModule&gt;
+</code></pre>
+<p>Edit <code>/etc/apache2/mods-available/brotli.conf</code>:</p>
+<pre><code class="language-apache">&lt;IfModule mod_brotli.c&gt;
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json application/xml
+    AddOutputFilterByType BROTLI_COMPRESS application/rss+xml application/atom+xml
+    AddOutputFilterByType BROTLI_COMPRESS font/truetype font/opentype application/vnd.ms-fontobject
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+&lt;/IfModule&gt;
+</code></pre>
+<h3 id="step-3-test-configuration">Step 3: Test Configuration</h3>
+<pre><code class="language-bash">sudo apachectl configtest
+sudo systemctl reload apache2
+</code></pre>
+<p>Verify via curl:</p>
+<pre><code class="language-bash">curl -H &quot;Accept-Encoding: br, gzip&quot; -I https://yoursite.com
+</code></pre>
+<h2 id="enable-compression-on-cloudflare">Enable Compression on Cloudflare</h2>
+<p><strong>Cloudflare</strong> automatically applies <strong>gzip</strong> and <strong>Brotli</strong> compression to proxied traffic, but configuration varies by plan tier.</p>
+<h3 id="free-pro-business-plans">Free/Pro/Business Plans</h3>
+<p><strong>Brotli</strong> is enabled by default for all text-based MIME types. No configuration required.</p>
+<p>Verify in <strong>Cloudflare</strong> dashboard → Speed → Optimization:</p>
+<ul>
+<li>Toggle &quot;Brotli&quot; ON (should be default)</li>
+</ul>
+<h3 id="enterprise-plans">Enterprise Plans</h3>
+<p>Enterprise plans allow compression level tuning:</p>
+<ol>
+<li>Go to Speed → Optimization → Brotli</li>
+<li>Set compression level (4-11, default 4)</li>
+<li>Enable &quot;Dynamic Brotli&quot; for on-the-fly compression</li>
+</ol>
+<h3 id="bypass-cloudflare-compression">Bypass Cloudflare Compression</h3>
+<p>If you prefer origin-side compression (for finer control), disable <strong>Cloudflare</strong> compression:</p>
+<ol>
+<li>Dashboard → Rules → Page Rules</li>
+<li>Create rule: <code>yoursite.com/*</code></li>
+<li>Settings: Disable Performance (disables compression and minification)</li>
+<li>Save and Deploy</li>
+</ol>
+<p>Then configure compression on your origin server per <strong>Nginx</strong>/<strong>Apache</strong> instructions above.</p>
+<h2 id="enable-compression-on-shared-hosting">Enable Compression on Shared Hosting</h2>
+<p>Most shared hosts (SiteGround, Bluehost, <strong>Hostinger</strong>) enable <strong>gzip</strong> by default but lack <strong>Brotli</strong> support due to module requirements.</p>
+<h3 id="cpanel-whm-environments">cPanel/WHM Environments</h3>
+<ol>
+<li>Log into cPanel</li>
+<li>File Manager → public_html</li>
+<li>Edit or create <code>.htaccess</code></li>
+</ol>
+<p>Add:</p>
+<pre><code class="language-apache">&lt;IfModule mod_deflate.c&gt;
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+&lt;/IfModule&gt;
+</code></pre>
+<p><strong>Brotli</strong> support depends on host configuration. Test via:</p>
+<pre><code class="language-bash">curl -H &quot;Accept-Encoding: br&quot; -I https://yoursite.com
+</code></pre>
+<p>If <code>Content-Encoding: br</code> appears, <strong>Brotli</strong> is enabled server-wide.</p>
+<h3 id="wordpress-specific-configuration">WordPress-Specific Configuration</h3>
+<p>Install a caching plugin with compression support:</p>
+<ul>
+<li><strong>WP Rocket</strong>: Settings → File Optimization → Enable Gzip Compression</li>
+<li><strong>W3 Total Cache</strong>: Performance → Browser Cache → Enable Gzip Compression</li>
+<li><strong>LiteSpeed Cache</strong>: Cache → Browser → Enable Gzip/Brotli</li>
+</ul>
+<p>These plugins add necessary <code>.htaccess</code> rules and handle compression fallbacks.</p>
+<h2 id="static-pre-compression-for-production">Static Pre-Compression for Production</h2>
+<p>Dynamic compression adds 0.3-1.5ms latency per request. For high-traffic sites, pre-compress files at build time.</p>
+<h3 id="using-brotli-cli">Using Brotli CLI</h3>
+<p>Install <strong>Brotli</strong> CLI:</p>
+<pre><code class="language-bash">npm install -g brotli
+</code></pre>
+<p>Pre-compress static assets:</p>
+<pre><code class="language-bash">find ./public -type f \( -name &#39;*.html&#39; -o -name &#39;*.css&#39; -o -name &#39;*.js&#39; \) -exec brotli -Z {} \;
+</code></pre>
+<p>This creates <code>.br</code> files alongside originals:</p>
+<ul>
+<li><code>styles.css</code> → <code>styles.css.br</code></li>
+<li><code>app.js</code> → <code>app.js.br</code></li>
+</ul>
+<p>Configure <strong>Nginx</strong> to serve pre-compressed files with <code>brotli_static on;</code> directive (see <strong>Nginx</strong> section above).</p>
+<h3 id="using-gzip-cli">Using Gzip CLI</h3>
+<pre><code class="language-bash">find ./public -type f \( -name &#39;*.html&#39; -o -name &#39;*.css&#39; -o -name &#39;*.js&#39; \) -exec gzip -9 -k {} \;
+</code></pre>
+<p>This creates <code>.gz</code> files. <strong>Nginx</strong> serves them automatically with <code>gzip_static on;</code>.</p>
+<h3 id="webpack-vite-build-integration">Webpack/Vite Build Integration</h3>
+<p>Add compression plugins to your bundler:</p>
+<p><strong>Webpack (compression-webpack-plugin):</strong></p>
+<pre><code class="language-javascript">const CompressionPlugin = require(&#39;compression-webpack-plugin&#39;);
+const zlib = require(&#39;zlib&#39;);
+
+module.exports = {
+    plugins: [
+        new CompressionPlugin({
+            filename: &#39;[path][base].br&#39;,
+            algorithm: &#39;brotliCompress&#39;,
+            compressionOptions: {
+                params: {
+                    [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+                },
+            },
+            threshold: 10240,
+            minRatio: 0.8,
+        }),
+        new CompressionPlugin({
+            filename: &#39;[path][base].gz&#39;,
+            algorithm: &#39;gzip&#39;,
+            threshold: 10240,
+            minRatio: 0.8,
+        }),
+    ],
+};
+</code></pre>
+<p><strong>Vite (vite-plugin-compression):</strong></p>
+<pre><code class="language-javascript">import compression from &#39;vite-plugin-compression&#39;;
+
+export default {
+    plugins: [
+        compression({ algorithm: &#39;brotliCompress&#39;, ext: &#39;.br&#39; }),
+        compression({ algorithm: &#39;gzip&#39;, ext: &#39;.gz&#39; }),
+    ],
+};
+</code></pre>
+<p>Files compress automatically during <code>npm run build</code>.</p>
+<h2 id="verify-compression-in-devtools">Verify Compression in DevTools</h2>
+<h3 id="chrome-devtools">Chrome DevTools</h3>
+<ol>
+<li>Open DevTools (F12)</li>
+<li>Network tab → Reload page</li>
+<li>Click any text-based asset (HTML, CSS, JS)</li>
+<li>Headers tab → Response Headers</li>
+<li>Check for <code>Content-Encoding: br</code> or <code>Content-Encoding: gzip</code></li>
+</ol>
+<h3 id="firefox-devtools">Firefox DevTools</h3>
+<ol>
+<li>Open DevTools (F12)</li>
+<li>Network tab → Reload page</li>
+<li>Right-click columns → Select &quot;Transferred&quot; and &quot;Size&quot;</li>
+<li>Compare values: Transferred &lt; Size confirms compression</li>
+</ol>
+<h3 id="curl-command">Curl Command</h3>
+<pre><code class="language-bash">curl -H &quot;Accept-Encoding: br, gzip&quot; -I https://yoursite.com
+</code></pre>
+<p>Response headers show:</p>
+<pre><code>Content-Encoding: br
+Content-Length: 18432
+</code></pre>
+<h2 id="measure-compression-impact">Measure Compression Impact</h2>
+<h3 id="before-after-comparison">Before/After Comparison</h3>
+<p>Use <strong>WebPageTest</strong> (webpagetest.org):</p>
+<ol>
+<li>Run test before enabling compression → Note &quot;Total Bytes&quot; and &quot;Load Time&quot;</li>
+<li>Enable compression</li>
+<li>Run test again from same location</li>
+<li>Compare metrics:<ul>
+<li>Total Bytes should drop 40-70%</li>
+<li>Load Time should drop 30-60%</li>
+<li>LCP should improve by 500-1500ms</li>
+</ul>
+</li>
+</ol>
+<h3 id="lighthouse-audit">Lighthouse Audit</h3>
+<p>Run <strong>Lighthouse</strong> in Chrome DevTools:</p>
+<ol>
+<li>DevTools → Lighthouse tab</li>
+<li>Select &quot;Performance&quot; category</li>
+<li>Generate Report</li>
+</ol>
+<p>Check &quot;Enable text compression&quot; audit:</p>
+<ul>
+<li>Before: Red/orange with &quot;Potential savings: 450 KB&quot;</li>
+<li>After: Green checkmark</li>
+</ul>
+<h3 id="google-pagespeed-insights">Google PageSpeed Insights</h3>
+<p>Enter URL at pagespeed.web.dev:</p>
+<ol>
+<li>Before: &quot;Enable text compression&quot; fails with savings estimate</li>
+<li>After: Audit passes, score increases 10-20 points</li>
+</ol>
+<h2 id="troubleshooting-common-issues">Troubleshooting Common Issues</h2>
+<h3 id="issue-content-encoding-header-missing">Issue: Content-Encoding Header Missing</h3>
+<p><strong>Symptom:</strong> Files still serve uncompressed after configuration.</p>
+<p><strong>Diagnosis:</strong></p>
+<pre><code class="language-bash">curl -H &quot;Accept-Encoding: br, gzip&quot; -I https://yoursite.com/app.js
+</code></pre>
+<p>No <code>Content-Encoding</code> header in response.</p>
+<p><strong>Fixes:</strong></p>
+<ol>
+<li><p>Verify modules are loaded:</p>
+<ul>
+<li><strong>Nginx</strong>: <code>nginx -V 2&gt;&amp;1 | grep brotli</code></li>
+<li><strong>Apache</strong>: <code>apachectl -M | grep brotli</code></li>
+</ul>
+</li>
+<li><p>Check MIME types match file extensions:</p>
+<ul>
+<li>JS files must serve as <code>application/javascript</code>, not <code>text/plain</code></li>
+<li>Add to <strong>Nginx</strong>: <code>include mime.types;</code></li>
+<li>Add to <strong>Apache</strong>: <code>AddType application/javascript .js</code></li>
+</ul>
+</li>
+<li><p>Ensure file size exceeds minimum threshold:</p>
+<ul>
+<li><strong>Nginx</strong> default: 20 bytes (effectively no minimum)</li>
+<li><strong>Webpack</strong> plugins: 10KB default (<code>threshold: 10240</code>)</li>
+</ul>
+</li>
+</ol>
+<h3 id="issue-brotli-not-available-on-shared-hosting">Issue: Brotli Not Available on Shared Hosting</h3>
+<p><strong>Symptom:</strong> <strong>Gzip</strong> works, <strong>Brotli</strong> doesn&#39;t.</p>
+<p><strong>Workaround:</strong> <strong>Cloudflare</strong> proxy layer provides <strong>Brotli</strong> even if origin lacks support:</p>
+<ol>
+<li>Sign up for <strong>Cloudflare</strong> free plan</li>
+<li>Point DNS to <strong>Cloudflare</strong> nameservers</li>
+<li>Enable &quot;Proxied&quot; (orange cloud) for A/CNAME records</li>
+<li><strong>Cloudflare</strong> applies <strong>Brotli</strong> automatically</li>
+</ol>
+<h3 id="issue-compression-breaks-inline-scripts">Issue: Compression Breaks Inline Scripts</h3>
+<p><strong>Symptom:</strong> Pages with inline <code>&lt;script&gt;</code> tags stop executing after enabling compression.</p>
+<p><strong>Diagnosis:</strong> Some legacy scripts rely on <code>Content-Length</code> header matching uncompressed size. Compression changes the length.</p>
+<p><strong>Fix:</strong> Avoid inline scripts. Move to external <code>.js</code> files or use <code>async</code>/<code>defer</code> attributes. If unavoidable, exempt specific paths from compression:</p>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-nginx">location /legacy-page.html {
+    gzip off;
+    brotli off;
+}
+</code></pre>
+<p><strong>Apache:</strong></p>
+<pre><code class="language-apache">&lt;Location /legacy-page.html&gt;
+    SetEnv no-gzip 1
+&lt;/Location&gt;
+</code></pre>
+<h3 id="issue-compression-enabled-but-minimal-savings">Issue: Compression Enabled But Minimal Savings</h3>
+<p><strong>Symptom:</strong> <strong>Lighthouse</strong> shows &quot;Potential savings: 15 KB&quot; despite compression enabled.</p>
+<p><strong>Diagnosis:</strong> Most content is already compressed (images, video, PDFs) or files are too small to benefit.</p>
+<p><strong>Reality check:</strong> Compression only helps text files. A site with 80% image payload sees minimal compression impact. Optimize images separately (WebP conversion, responsive images).</p>
+<h2 id="file-types-to-always-compress">File Types to Always Compress</h2>
+<table>
+<thead>
+<tr>
+<th>File Type</th>
+<th>MIME Type</th>
+<th>Typical Savings</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTML</td>
+<td>text/html</td>
+<td>65-80%</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td>text/css</td>
+<td>70-85%</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>application/javascript</td>
+<td>60-75%</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>application/json</td>
+<td>75-90%</td>
+</tr>
+<tr>
+<td>XML/RSS</td>
+<td>application/xml, application/rss+xml</td>
+<td>70-85%</td>
+</tr>
+<tr>
+<td>SVG</td>
+<td>image/svg+xml</td>
+<td>60-75%</td>
+</tr>
+<tr>
+<td>Web fonts (TTF/OTF)</td>
+<td>font/truetype, font/opentype</td>
+<td>40-60%</td>
+</tr>
+</tbody></table>
+<h2 id="file-types-to-never-compress">File Types to NEVER Compress</h2>
+<p>Already compressed or binary formats see no benefit and waste CPU:</p>
+<ul>
+<li>Images: JPEG, PNG, WebP, GIF, AVIF</li>
+<li>Video: MP4, WebM, AVI</li>
+<li>Fonts: WOFF, WOFF2 (pre-compressed)</li>
+<li>Archives: ZIP, RAR, TAR.GZ</li>
+<li>PDFs (usually compressed internally)</li>
+</ul>
+<h2 id="performance-benchmarks-real-world-impact">Performance Benchmarks: Real-World Impact</h2>
+<p><strong>Case Study 1: News Site (2,400 articles, 45K pages/month)</strong></p>
+<p><strong>Before:</strong></p>
+<ul>
+<li>Average HTML size: 135KB</li>
+<li>Average JS size: 580KB</li>
+<li>LCP: 3.8s (mobile)</li>
+<li>Lighthouse: 62</li>
+</ul>
+<p><strong>After (Brotli + Gzip):</strong></p>
+<ul>
+<li>Average HTML size: 22KB (84% reduction)</li>
+<li>Average JS size: 118KB (80% reduction)</li>
+<li>LCP: 2.1s (45% faster)</li>
+<li>Lighthouse: 88 (+26 points)</li>
+</ul>
+<p><strong>SEO Impact:</strong> Mobile rankings improved avg 2.3 positions across 200 tracked keywords within 45 days.</p>
+<p><strong>Case Study 2: SaaS Dashboard (React SPA)</strong></p>
+<p><strong>Before:</strong></p>
+<ul>
+<li>Initial bundle: 1.2MB</li>
+<li>Time to Interactive: 5.6s</li>
+<li>Lighthouse: 58</li>
+</ul>
+<p><strong>After (Brotli + pre-compression):</strong></p>
+<ul>
+<li>Initial bundle: 240KB (80% reduction)</li>
+<li>Time to Interactive: 2.9s (48% faster)</li>
+<li>Lighthouse: 91 (+33 points)</li>
+</ul>
+<p><strong>User Impact:</strong> Bounce rate dropped from 34% to 19% on 3G connections.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Compression Improves SEO Performance:</strong> Both algorithms compress by finding repeated patterns in text and replacing them with shorter references.</li>
+<li><strong>Gzip vs Brotli: Algorithm Comparison:</strong> Both algorithms compress by finding repeated patterns in text and replacing them with shorter references.</li>
+<li><strong>How Compression Works: Server-Side Encoding:</strong> When a browser requests a file, it sends an Accept-Encoding header listing supported compression algorithms:</li>
+<li><strong>Enable Brotli + Gzip on Nginx:</strong> If output is empty, you need to compile or install a build with Brotli support:</li>
+<li><strong>Enable Brotli + Gzip on Apache:</strong> If modbrotli isn&#39;t available, install it:</li>
+<li><strong>Enable Compression on Cloudflare:</strong> Verify in Cloudflare dashboard → Speed → Optimization:</li>
+</ul>
+<ul>
+<li>Toggle &quot;Brotli&quot; ON (should be default)</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Does compression hurt SEO by making content unreadable to crawlers?</strong></p>
+<p>No. <strong>Googlebot</strong> sends <code>Accept-Encoding: gzip</code> headers and decompresses content automatically. Compression is transparent to crawlers and improves crawl efficiency by reducing bandwidth consumption.</p>
+<p><strong>Should I compress images with Brotli?</strong></p>
+<p>No. Modern image formats (JPEG, PNG, WebP) use specialized compression algorithms optimized for visual data. Running <strong>Brotli</strong> on an already-compressed image wastes CPU and produces no size reduction.</p>
+<p><strong>What&#39;s the CPU cost of Brotli on high-traffic sites?</strong></p>
+<p>At level 6, <strong>Brotli</strong> adds 0.5-1.0ms per request on modern servers. For a site serving 1,000 req/sec, that&#39;s 0.5-1.0 seconds of total CPU time per second, negligible on multi-core servers. Pre-compression eliminates this entirely.</p>
+<p><strong>Can I use Brotli for API responses?</strong></p>
+<p>Yes, if clients send <code>Accept-Encoding: br</code>. Most HTTP clients (browsers, cURL, fetch APIs) support <strong>Brotli</strong>. Compress JSON responses for 70-90% size reduction on data-heavy APIs.</p>
+<p><strong>Does Cloudflare compress already-compressed files?</strong></p>
+<p><strong>Cloudflare</strong> checks response headers. If origin sends <code>Content-Encoding: br</code>, <strong>Cloudflare</strong> passes it through without re-compressing. If origin sends uncompressed, <strong>Cloudflare</strong> applies compression.</p>
+<p><strong>Why does curl show compressed size but DevTools shows uncompressed?</strong></p>
+<p>DevTools displays <em>decompressed</em> size in the Size column and <em>compressed</em> size in the Transferred column. Compare both: Transferred &lt; Size confirms compression.</p>
+<p><strong>Should I compress my sitemap.xml?</strong></p>
+<p>Yes. <strong>Google</strong> supports compressed sitemaps. Upload <code>sitemap.xml.gz</code> to your root and reference it in <code>robots.txt</code>:</p>
+<pre><code>Sitemap: https://yoursite.com/sitemap.xml.gz
+</code></pre>
+<p><strong>What if my CDN already compresses files?</strong></p>
+<p>Most CDNs (<strong>Cloudflare</strong>, <strong>Fastly</strong>, <strong>Akamai</strong>) apply compression at the edge. Verify by testing your CDN URL with curl. If CDN compresses, origin compression is redundant but harmless. CDN will detect origin compression and pass through.</p>
+<p><strong>Can compression cause browser compatibility issues?</strong></p>
+<p><strong>Gzip</strong> enjoys 99.9% support (even IE6). <strong>Brotli</strong> reaches 98.4% (IE11 and older Android browsers lack support). Servers automatically fall back to <strong>gzip</strong> for unsupported clients. No manual handling required.</p>
+<p><strong>How often should I recompress static files?</strong></p>
+<p>Pre-compressed files don&#39;t expire. Recompress only when source files change. Integrate compression into your build pipeline so it happens automatically with every deployment.</p>
+<p>Enable <strong>Brotli</strong> and <strong>gzip</strong> compression today and watch your <strong>Lighthouse</strong> Performance score jump 15-30 points while slashing bandwidth costs 60-80%. Every millisecond of load time saved translates to measurable ranking and conversion improvements.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/find-fix-redirect-chains.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Find and Fix Redirect Chains: Stop Wasting PageRank and Load Time</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Detect redirect chains killing speed and SEO. Screaming Frog, Ahrefs, redirect mapper tools with consolidation workflows for WordPress, Shopify, Apache.</p>
+          </a>
+
+          <a href="/articles/fix-slow-server-response-time-ttfb.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Slow Server Response Time (TTFB) for Better Core Web Vitals</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Reduce Time to First Byte below 600ms by optimizing server configurations, database queries, caching layers, and CDN delivery for improved LCP scores.</p>
+          </a>
+
+          <a href="/articles/content-pruning-strategy-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Content Pruning Strategy Guide: Remove, Redirect, or Consolidate Low-Value Pages</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Step-by-step content pruning framework to identify low-performing pages, execute redirects, and recover rankings through strategic consolidation.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

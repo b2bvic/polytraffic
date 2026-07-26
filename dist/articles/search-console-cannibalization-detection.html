@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detect Keyword Cannibalization with Google Search Console Data | Polytraffic</title>
+    <meta name="description" content="Use Search Console performance reports to identify keyword cannibalization issues. Step-by-step analysis of competing pages and consolidation strategies." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Detect Keyword Cannibalization with Google Search Console Data | Polytraffic" />
+    <meta property="og:description" content="Use Search Console performance reports to identify keyword cannibalization issues. Step-by-step analysis of competing pages and consolidation strategies." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/search-console-cannibalization-detection" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/search-console-cannibalization-detection.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Detect Keyword Cannibalization with Google Search Console Data | Polytraffic" />
+    <meta name="twitter:description" content="Use Search Console performance reports to identify keyword cannibalization issues. Step-by-step analysis of competing pages and consolidation strategies." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/search-console-cannibalization-detection.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/search-console-cannibalization-detection" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Detect Keyword Cannibalization with Google Search Console Data",
+    "description": "Use Search Console performance reports to identify keyword cannibalization issues. Step-by-step analysis of competing pages and consolidation strategies.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/search-console-cannibalization-detection.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/search-console-cannibalization-detection.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Detect Keyword Cannibalization with Google Search Console Data"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Detect Keyword Cannibalization with Google Search Console Data</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/search-console-cannibalization-detection.png" alt="Detect Keyword Cannibalization with Google Search Console Data" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="detect-keyword-cannibalization-with-google-search-console-data">Detect Keyword Cannibalization with Google Search Console Data</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Use Search Console performance reports to identify keyword cannibalization issues. Step-by-step analysis of competing pages and consolidation strategies.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-keyword-cannibalization-degrades-seo-performance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Keyword Cannibalization Degrades SEO Performance</a></li>
+<li><a href="#accessing-search-console-performance-data" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Accessing Search Console Performance Data</a></li>
+<li><a href="#identifying-cannibalization-query-first-approach" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Identifying Cannibalization: Query-First Approach</a></li>
+<li><a href="#identifying-cannibalization-page-first-approach" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Identifying Cannibalization: Page-First Approach</a></li>
+<li><a href="#using-search-console-filters-to-surface-cannibalization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Using Search Console Filters to Surface Cannibalization</a></li>
+<li><a href="#cannibalization-severity-scoring" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cannibalization Severity Scoring</a></li>
+<li><a href="#consolidation-strategies-for-cannibalizing-pages" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Consolidation Strategies for Cannibalizing Pages</a></li>
+<li><a href="#monitoring-post-consolidation-performance" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring Post-Consolidation Performance</a></li>
+<li><a href="#cannibalization-vs-legitimate-multi-page-targeting" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Cannibalization vs. Legitimate Multi-Page Targeting</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Keyword cannibalization</strong> occurs when multiple pages target identical or overlapping search queries, fragmenting ranking signals across URLs instead of consolidating authority to a single optimized page. Google struggles to determine which page deserves to rank, resulting in ranking volatility, lower average positions, and missed traffic opportunities. Search Console&#39;s performance data reveals cannibalization by exposing which URLs compete for the same queries, and which pages win or lose the ranking lottery on any given day.</p>
+<p>Traditional cannibalization detection relies on manual keyword mapping and content audits. Search Console automates discovery by showing actual query-URL pairs from Google&#39;s index, filtered by impressions, clicks, and position. Pages with high impressions but low clicks at positions 3-10 often indicate cannibalization, one URL ranks well enough to earn impressions but loses clicks to another competing internal page.</p>
+<h2 id="why-keyword-cannibalization-degrades-seo-performance">Why Keyword Cannibalization Degrades SEO Performance</h2>
+<p><strong>Diluted PageRank:</strong> Internal links distribute authority across multiple competing pages instead of concentrating signals on one authoritative resource. A site with five pages about &quot;SEO audit checklist&quot; splits backlinks and PageRank five ways. Consolidating into one comprehensive page concentrates authority, improving rankings.</p>
+<p><strong>Confused crawl priority:</strong> Googlebot allocates crawl budget across all competing URLs. Sites waste crawl frequency on duplicate efforts rather than discovering new content.</p>
+<p><strong>Split engagement signals:</strong> Users clicking different URLs for the same query distribute engagement metrics (dwell time, bounce rate, return visits) across pages. Google sees multiple mediocre-performing pages instead of one high-engagement resource.</p>
+<p><strong>Ranking volatility:</strong> Google alternates which page ranks for a query, sometimes showing page A, other days page B. Average position hovers at 8-15 instead of stabilizing in top 3.</p>
+<p><strong>Lost content depth:</strong> Five shallow 800-word pages on similar topics underperform compared to one 4,000-word comprehensive guide. Cannibalized pages sacrifice depth for breadth.</p>
+<p><strong>Real-world symptom:</strong> Check Search Console and notice &quot;keyword&quot; generates impressions for /blog/keyword-guide, /resources/keyword, and /services/keyword with positions 9, 12, and 15. None break top 5. Consolidating to one URL lifts to position 3-5.</p>
+<h2 id="accessing-search-console-performance-data">Accessing Search Console Performance Data</h2>
+<p><strong>Navigation:</strong></p>
+<ol>
+<li>Open <a href="https://search.google.com/search-console" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Google Search Console</a></li>
+<li>Select property (domain or URL prefix)</li>
+<li>Click <strong>Performance</strong> in left sidebar</li>
+</ol>
+<p><strong>Default view:</strong> Shows total clicks, impressions, average CTR, and average position over the last 3 months for all queries and pages.</p>
+<p><strong>Key metrics:</strong></p>
+<ul>
+<li><strong>Clicks:</strong> Number of times users clicked search results leading to your site</li>
+<li><strong>Impressions:</strong> Number of times your URLs appeared in search results</li>
+<li><strong>CTR (Click-Through Rate):</strong> Clicks divided by impressions</li>
+<li><strong>Position:</strong> Average ranking position (1 = top of page 1)</li>
+</ul>
+<p><strong>Date range selector:</strong> Modify to analyze specific time periods. Use &quot;Compare&quot; feature to identify ranking changes over time.</p>
+<p><strong>Filter buttons:</strong></p>
+<ul>
+<li><strong>Queries:</strong> Keyword terms users searched</li>
+<li><strong>Pages:</strong> URLs that ranked for queries</li>
+<li><strong>Countries:</strong> Geographic location of searchers</li>
+<li><strong>Devices:</strong> Desktop, mobile, tablet</li>
+<li><strong>Search appearance:</strong> Rich results, video carousels, etc.</li>
+</ul>
+<p><strong>Export data:</strong> Download reports as CSV or Google Sheets for advanced analysis (pivot tables, VLOOKUP formulas).</p>
+<h2 id="identifying-cannibalization-query-first-approach">Identifying Cannibalization: Query-First Approach</h2>
+<p><strong>Method:</strong> Find queries ranking for multiple URLs, then determine if consolidation improves outcomes.</p>
+<p><strong>Step 1: Export query-URL pairs</strong></p>
+<ol>
+<li>Go to Performance → Queries tab</li>
+<li>Set date range to last 3-6 months (longer periods smooth volatility)</li>
+<li>Click <strong>Export</strong> → Download as Google Sheets</li>
+<li>Open <strong>Search results</strong> tab within Sheets</li>
+</ol>
+<p><strong>Step 2: Filter for high-impression queries</strong></p>
+<p>Sort by <strong>Impressions</strong> column descending. Focus on queries with 100+ monthly impressions (indicates meaningful traffic potential).</p>
+<p><strong>Step 3: Check URL count per query</strong></p>
+<p>For each high-volume query:</p>
+<ol>
+<li>Type query into Search Console search box</li>
+<li>Add filter: <strong>Query</strong> → <strong>Exact match</strong> → Enter query</li>
+<li>Switch to <strong>Pages</strong> tab</li>
+<li>Count how many URLs appear</li>
+</ol>
+<p><strong>Cannibalization signals:</strong></p>
+<ul>
+<li><strong>2+ URLs</strong> ranking for the same query</li>
+<li><strong>Similar positions</strong> (e.g., positions 8, 10, 12 instead of one at position 3)</li>
+<li><strong>Fluctuating top URL</strong> (compare date ranges, different URLs rank across time periods)</li>
+</ul>
+<p><strong>Example diagnosis:</strong></p>
+<p>Query: &quot;technical SEO checklist&quot;</p>
+<ul>
+<li>/blog/technical-seo-checklist. 450 impressions, position 9.2</li>
+<li>/resources/seo-checklist. 380 impressions, position 11.5</li>
+<li>/services/technical-seo. 220 impressions, position 14.1</li>
+</ul>
+<p><strong>Verdict:</strong> Three pages compete. None reach top 5. Opportunity to consolidate.</p>
+<h2 id="identifying-cannibalization-page-first-approach">Identifying Cannibalization: Page-First Approach</h2>
+<p><strong>Method:</strong> Find pages ranking for identical query sets, indicating redundant content.</p>
+<p><strong>Step 1: Export page-query pairs</strong></p>
+<ol>
+<li>Performance → Pages tab</li>
+<li>Export to Google Sheets</li>
+</ol>
+<p><strong>Step 2: Identify pages with overlapping queries</strong></p>
+<p>Use pivot table or manual analysis:</p>
+<ol>
+<li>Select two similar pages (e.g., /blog/seo-audit and /guides/seo-audit)</li>
+<li>Compare query lists</li>
+<li>Calculate overlap percentage</li>
+</ol>
+<p><strong>Formula:</strong></p>
+<pre><code>Overlap % = (Shared queries / Total unique queries) × 100
+</code></pre>
+<p><strong>High overlap (70%+)</strong> indicates cannibalization. Pages target nearly identical keyword sets.</p>
+<p><strong>Step 3: Evaluate content similarity</strong></p>
+<p>Read both pages. If content covers the same topic with similar structure, depth, and angle, consolidation candidates emerge.</p>
+<p><strong>Consolidation decision matrix:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Both pages rank poorly (positions 10+)</td>
+<td>Merge into one comprehensive page</td>
+</tr>
+<tr>
+<td>One page ranks well (positions 1-5), other poorly</td>
+<td>301 redirect weaker page to stronger</td>
+</tr>
+<tr>
+<td>Pages cover different angles of same topic</td>
+<td>Keep separate, improve differentiation via keyword focus</td>
+</tr>
+<tr>
+<td>One page is outdated, other is fresh</td>
+<td>Update outdated page or redirect to fresh content</td>
+</tr>
+</tbody></table>
+<h2 id="using-search-console-filters-to-surface-cannibalization">Using Search Console Filters to Surface Cannibalization</h2>
+<p><strong>Filter by query pattern:</strong></p>
+<ol>
+<li>Performance → Queries</li>
+<li>Add filter: <strong>Query</strong> → <strong>Contains</strong> → Enter keyword stem (e.g., &quot;SEO audit&quot;)</li>
+<li>Review all queries containing that term</li>
+<li>Switch to Pages tab to see which URLs rank</li>
+</ol>
+<p><strong>Example:</strong></p>
+<p>Filter: Contains &quot;SEO audit&quot;</p>
+<p>Results:</p>
+<ul>
+<li>SEO audit checklist</li>
+<li>SEO audit template</li>
+<li>SEO audit guide</li>
+<li>SEO audit process</li>
+</ul>
+<p>Pages ranking:</p>
+<ul>
+<li>/blog/seo-audit-guide</li>
+<li>/resources/seo-audit-template</li>
+<li>/services/seo-audit</li>
+</ul>
+<p>If multiple pages rank for &quot;SEO audit checklist,&quot; cannibalization exists.</p>
+<p><strong>Filter by position range:</strong></p>
+<ol>
+<li>Performance → Pages</li>
+<li>Add filter: <strong>Position</strong> → <strong>Less than</strong> → 20</li>
+<li>Export results</li>
+<li>Identify pages ranking for similar queries in positions 8-20 (the &quot;cannibalization zone&quot;)</li>
+</ol>
+<p>Pages ranking on page 2-3 often compete with internal pages ranking slightly higher (positions 3-7). Users click position 3 page; position 11 page never receives traffic despite relevance.</p>
+<p><strong>Filter by device:</strong></p>
+<ol>
+<li>Performance → Devices</li>
+<li>Select &quot;Mobile&quot;</li>
+<li>Compare mobile rankings to desktop</li>
+</ol>
+<p>Sometimes cannibalization appears only on mobile due to different SERPs, page speed, or mobile-specific content targeting.</p>
+<h2 id="cannibalization-severity-scoring">Cannibalization Severity Scoring</h2>
+<p>Prioritize fixes by calculating impact potential.</p>
+<p><strong>Scoring formula:</strong></p>
+<pre><code>Severity = (Total Impressions × Competing URL Count) / Average Position
+</code></pre>
+<p><strong>Example 1:</strong></p>
+<p>Query: &quot;project management software&quot;</p>
+<ul>
+<li>5,000 impressions/month</li>
+<li>3 competing URLs</li>
+<li>Average position: 12</li>
+</ul>
+<p>Severity = (5,000 × 3) / 12 = 1,250</p>
+<p><strong>Example 2:</strong></p>
+<p>Query: &quot;best running shoes&quot;</p>
+<ul>
+<li>1,200 impressions/month</li>
+<li>2 competing URLs</li>
+<li>Average position: 8</li>
+</ul>
+<p>Severity = (1,200 × 2) / 8 = 300</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><strong>Severity &gt;1,000:</strong> Critical, high traffic potential with significant cannibalization</li>
+<li><strong>Severity 500-1,000:</strong> High priority, moderate traffic with clear consolidation opportunity</li>
+<li><strong>Severity 100-500:</strong> Medium priority, evaluate ROI of consolidation effort</li>
+<li><strong>Severity &lt;100:</strong> Low priority, minor queries or already ranking well</li>
+</ul>
+<p><strong>Prioritization workflow:</strong></p>
+<ol>
+<li>Calculate severity for all cannibalizing query clusters</li>
+<li>Sort by severity descending</li>
+<li>Fix top 10 clusters first</li>
+<li>Monitor Search Console for ranking improvements</li>
+<li>Iterate on next priority clusters</li>
+</ol>
+<h2 id="consolidation-strategies-for-cannibalizing-pages">Consolidation Strategies for Cannibalizing Pages</h2>
+<p><strong>Strategy 1: Merge content + 301 redirect</strong></p>
+<p><strong>When:</strong> Two pages cover nearly identical topics with similar depth.</p>
+<p><strong>Process:</strong></p>
+<ol>
+<li>Identify stronger page (higher backlinks, better content, better URL structure)</li>
+<li>Merge unique content from weaker page into stronger page</li>
+<li>Update stronger page with combined insights</li>
+<li>301 redirect weaker URL to stronger URL</li>
+<li>Update internal links to point to consolidated URL</li>
+<li>Remove redirected URL from sitemap</li>
+</ol>
+<p><strong>Example:</strong></p>
+<p>/blog/seo-checklist (500 backlinks, position 9) + /resources/seo-audit-guide (120 backlinks, position 11)</p>
+<p>→ Consolidate all content into /blog/seo-checklist</p>
+<p>→ 301 redirect /resources/seo-audit-guide → /blog/seo-checklist</p>
+<p><strong>Expected outcome:</strong> Combined authority lifts /blog/seo-checklist to positions 3-5 within 4-8 weeks.</p>
+<p><strong>Strategy 2: Canonical tag consolidation</strong></p>
+<p><strong>When:</strong> Pages serve different user intents but rank for overlapping queries. You want to keep both URLs accessible.</p>
+<p><strong>Process:</strong></p>
+<ol>
+<li>Identify primary page (most relevant to core query)</li>
+<li>Add canonical tag to secondary pages pointing to primary:</li>
+</ol>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/primary-page&quot;&gt;
+</code></pre>
+<ol start="3">
+<li>Google consolidates ranking signals to canonical URL</li>
+</ol>
+<p><strong>Example:</strong></p>
+<p>/products/seo-software and /blog/seo-software-review both rank for &quot;SEO software&quot;</p>
+<p>→ Set canonical on blog post to product page</p>
+<p>→ Product page ranks for &quot;SEO software,&quot; blog post ranks for &quot;SEO software review&quot;</p>
+<p><strong>Strategy 3: Content differentiation + keyword targeting</strong></p>
+<p><strong>When:</strong> Pages accidentally overlap but serve distinct user intents.</p>
+<p><strong>Process:</strong></p>
+<ol>
+<li>Redefine keyword targets per page</li>
+<li>Rewrite content to focus on differentiated angles</li>
+<li>Update title tags, H1s, and body content to reflect distinct positioning</li>
+<li>Add internal links between pages with contextually relevant anchor text</li>
+</ol>
+<p><strong>Example:</strong></p>
+<ul>
+<li>/beginner-seo-guide → Target &quot;SEO basics,&quot; &quot;SEO for beginners&quot;</li>
+<li>/advanced-seo-techniques → Target &quot;advanced SEO strategies,&quot; &quot;technical SEO&quot;</li>
+</ul>
+<p>Both previously ranked for &quot;SEO guide&quot; (generic). Differentiation splits query intent.</p>
+<p><strong>Strategy 4: Noindex secondary pages</strong></p>
+<p><strong>When:</strong> Pages provide user value (customer support, archived content) but shouldn&#39;t compete in search.</p>
+<p><strong>Process:</strong></p>
+<ol>
+<li>Add noindex to secondary pages:</li>
+</ol>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<ol start="2">
+<li>Primary page gains exclusive ranking opportunity</li>
+<li>Secondary pages remain accessible via internal links but don&#39;t index</li>
+</ol>
+<p><strong>Example:</strong></p>
+<p>/faq/seo-services (support page) vs. /services/seo (commercial page)</p>
+<p>→ Noindex FAQ, let service page rank for &quot;SEO services&quot;</p>
+<p><strong>Strategy 5: Delete or consolidate thin content</strong></p>
+<p><strong>When:</strong> Cannibalization stems from low-quality pages (thin blog posts, outdated articles).</p>
+<p><strong>Process:</strong></p>
+<ol>
+<li>Audit content quality of competing pages</li>
+<li>Identify pages with &lt;500 words, low engagement, outdated information</li>
+<li>Delete pages with no redeeming value (410 status) or 301 redirect to comprehensive alternative</li>
+<li>Focus efforts on improving remaining authoritative page</li>
+</ol>
+<h2 id="monitoring-post-consolidation-performance">Monitoring Post-Consolidation Performance</h2>
+<p><strong>Set date range comparison:</strong></p>
+<ol>
+<li>Performance → Compare → Custom date range</li>
+<li>Compare 3 months before consolidation vs. 3 months after</li>
+<li>Filter by specific query or URL</li>
+</ol>
+<p><strong>Key metrics to track:</strong></p>
+<p><strong>Position improvement:</strong> Consolidated URL should improve average position by 3-8 ranks within 6-12 weeks.</p>
+<p><strong>Impression stability:</strong> Total impressions may initially drop (fewer URLs ranking) but stabilize as consolidated URL climbs higher positions.</p>
+<p><strong>Click increase:</strong> Higher positions generate disproportionately more clicks. Moving from position 9 to position 3 typically increases CTR from 2% to 15-20%.</p>
+<p><strong>CTR improvement:</strong> Average CTR should increase as consolidated URL ranks in top 5 (positions 1-5 average 28% CTR; positions 6-10 average 3-5%).</p>
+<p><strong>URL Inspection Tool:</strong></p>
+<ol>
+<li>Enter consolidated URL</li>
+<li>Check &quot;Coverage&quot; status: Indexed</li>
+<li>Verify &quot;Sitemaps&quot; lists the URL</li>
+<li>Confirm &quot;Referring page&quot; shows internal links</li>
+</ol>
+<p>For redirected URLs:</p>
+<ol>
+<li>Enter old URL</li>
+<li>Verify status shows &quot;Page with redirect&quot;</li>
+<li>Confirm redirect target matches intended consolidated URL</li>
+</ol>
+<p><strong>Expected timeline:</strong></p>
+<ul>
+<li><strong>Week 1-2:</strong> Google recrawls, discovers 301 redirects</li>
+<li><strong>Week 3-6:</strong> Ranking signals begin consolidating</li>
+<li><strong>Week 7-12:</strong> Position improvements stabilize</li>
+<li><strong>Week 13+:</strong> Sustained rankings at new higher positions</li>
+</ul>
+<p><strong>Red flags:</strong></p>
+<ul>
+<li><strong>Position drop:</strong> If consolidated URL ranks worse than both original pages, content quality may be insufficient or redirect implementation failed</li>
+<li><strong>Indexing issues:</strong> If old URL still indexes alongside new URL, check for redirect chains or soft 404s</li>
+<li><strong>Traffic loss &gt;30%:</strong> Indicates poor consolidation choice, consider reinstating original pages and differentiating instead</li>
+</ul>
+<h2 id="cannibalization-vs-legitimate-multi-page-targeting">Cannibalization vs. Legitimate Multi-Page Targeting</h2>
+<p><strong>Not all multi-page rankings indicate cannibalization.</strong></p>
+<p><strong>Legitimate scenarios:</strong></p>
+<p><strong>Different search intents:</strong></p>
+<p>Query: &quot;best CRM software&quot;</p>
+<ul>
+<li>/blog/best-crm-software-2026 → Informational review content</li>
+<li>/products/crm-comparison → Commercial comparison tool</li>
+<li>/case-studies/crm-success-stories → Social proof</li>
+</ul>
+<p>Different pages serve different user intents. Keep separate.</p>
+<p><strong>Branded queries with multiple relevant pages:</strong></p>
+<p>Query: &quot;[Brand Name] pricing&quot;</p>
+<ul>
+<li>/pricing → Main pricing page</li>
+<li>/blog/pricing-guide → Educational content explaining pricing tiers</li>
+<li>/faq/billing → Support documentation</li>
+</ul>
+<p>All pages legitimately rank because users seek different information.</p>
+<p><strong>Topical authority clusters:</strong></p>
+<p>Topic: Email marketing</p>
+<ul>
+<li>/email-marketing-guide → Pillar page</li>
+<li>/blog/email-subject-lines → Supporting article</li>
+<li>/blog/email-segmentation → Supporting article</li>
+</ul>
+<p>Pillar-cluster architecture intentionally creates multiple related pages. Not cannibalization if proper internal linking and differentiation exist.</p>
+<p><strong>Decision criteria:</strong></p>
+<p>Ask: &quot;Do these pages offer meaningfully different value for this query?&quot;</p>
+<ul>
+<li><strong>Yes</strong> → Keep separate, improve differentiation</li>
+<li><strong>No</strong> → Consolidate</li>
+</ul>
+<p>Query: &quot;SEO audit checklist&quot;</p>
+<p>If /blog/seo-audit-checklist and /resources/seo-checklist-pdf contain the same information in different formats, consolidate or canonical tag.</p>
+<p>If one targets &quot;free SEO audit checklist&quot; (leads magnet) and another targets &quot;enterprise SEO audit process&quot; (commercial), keep separate.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>How long does it take to fix keyword cannibalization?</strong></p>
+<p>Consolidation takes 6-12 weeks for Google to recrawl, process redirects, and stabilize rankings. Simpler fixes (canonical tags, content differentiation) show results in 4-8 weeks.</p>
+<p><strong>Can keyword cannibalization help rankings in some cases?</strong></p>
+<p>Rarely. If different pages target distinct user intents, multi-page rankings benefit users. But true cannibalization (multiple pages targeting identical intent) always harms rankings.</p>
+<p><strong>Should I delete or 301 redirect cannibalizing pages?</strong></p>
+<p>301 redirect if the page has backlinks, traffic, or historical value. Delete (410) if the page is low-quality, has no links, and provides no user value.</p>
+<p><strong>Will consolidating pages hurt traffic temporarily?</strong></p>
+<p>Yes. Expect 10-30% traffic dip in weeks 2-4 as Google recrawls and recalculates rankings. Traffic typically recovers and exceeds pre-consolidation levels by week 8-12.</p>
+<p><strong>How do I know if differentiation or consolidation is the right fix?</strong></p>
+<p>Differentiation works when pages can serve distinct user intents (beginner vs. advanced, free vs. paid, informational vs. commercial). Consolidation works when content is genuinely redundant with no meaningful differences.</p>
+<p><strong>Can internal linking structure cause cannibalization?</strong></p>
+<p>Yes. If internal links distribute equally across competing pages, Google sees no clear authority. Establish content hierarchy: link from supporting articles to pillar pages, not vice versa.</p>
+<p><strong>Should I use canonical tags or 301 redirects to fix cannibalization?</strong></p>
+<p><strong>Canonical tags:</strong> Keep both URLs accessible (user value) but consolidate ranking signals.</p>
+<p><strong>301 redirects:</strong> Completely remove redundant URLs, consolidate traffic and rankings.</p>
+<p>Use redirects for permanent consolidation, canonicals for temporary or partial consolidation.</p>
+<p><strong>How do I prevent cannibalization when creating new content?</strong></p>
+<p>Audit existing content before publishing. Search your site for similar topics. If overlap exists, update existing pages rather than creating new ones. Use <a href="internal-linking-seo-strategy.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">internal linking</a> to establish clear topical hierarchy.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/google-image-search-optimization.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Google Image Search Optimization: Technical Implementation Guide for Visual Discovery</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Optimize images for Google Image Search with technical strategies covering file naming, alt text, structured data, and visual search ranking factors.</p>
+          </a>
+
+          <a href="/articles/identify-keyword-cannibalization-audit.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Identify Keyword Cannibalization Audit: Internal Competition Detection and Resolution Protocol</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Detect and resolve keyword cannibalization with this comprehensive audit covering internal competition patterns, ranking signal fragmentation, and content consolidation strategies.</p>
+          </a>
+
+          <a href="/articles/keyword-cannibalization-consolidation-strategy.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Keyword Cannibalization: Detection and Consolidation Strategy Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Identify keyword cannibalization using Search Console and fix it through content consolidation, 301 redirects, and internal link optimization strategies.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

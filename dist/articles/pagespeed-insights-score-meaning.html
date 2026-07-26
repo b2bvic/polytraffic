@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Your PageSpeed Insights Score Actually Means (Lab vs. Field Data) | Polytraffic</title>
+    <meta name="description" content="Decode PageSpeed Insights metrics, understand lab vs. field data discrepancies, and focus optimization efforts on metrics that affect rankings." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="What Your PageSpeed Insights Score Actually Means (Lab vs. Field Data) | Polytraffic" />
+    <meta property="og:description" content="Decode PageSpeed Insights metrics, understand lab vs. field data discrepancies, and focus optimization efforts on metrics that affect rankings." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/pagespeed-insights-score-meaning" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/pagespeed-insights-score-meaning.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="What Your PageSpeed Insights Score Actually Means (Lab vs. Field Data) | Polytraffic" />
+    <meta name="twitter:description" content="Decode PageSpeed Insights metrics, understand lab vs. field data discrepancies, and focus optimization efforts on metrics that affect rankings." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/pagespeed-insights-score-meaning.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/pagespeed-insights-score-meaning" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Your PageSpeed Insights Score Actually Means (Lab vs. Field Data)",
+    "description": "Decode PageSpeed Insights metrics, understand lab vs. field data discrepancies, and focus optimization efforts on metrics that affect rankings.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/pagespeed-insights-score-meaning.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/pagespeed-insights-score-meaning.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Performance Optimization.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What Your PageSpeed Insights Score Actually Means (Lab vs. Field Data)"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Performance Optimization.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">What Your PageSpeed Insights Score Actually Means (Lab vs. Field Data)</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/pagespeed-insights-score-meaning.png" alt="What Your PageSpeed Insights Score Actually Means (Lab vs. Field Data)" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="what-your-pagespeed-insights-score-means-lab-vs-field-data">What Your PageSpeed Insights Score Means (Lab vs. Field Data)</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Decode PageSpeed Insights metrics, understand lab vs. field data discrepancies, and focus optimization efforts on metrics that affect rankings.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#performance-score-breakdown" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Performance Score Breakdown</a></li>
+<li><a href="#lab-data-vs-field-data-critical-differences" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Lab Data vs. Field Data: Critical Differences</a></li>
+<li><a href="#core-web-vitals-what-actually-affects-rankings" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals: What Affects Rankings</a></li>
+<li><a href="#reading-pagespeed-insights-reports" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Reading PageSpeed Insights Reports</a></li>
+<li><a href="#mobile-vs-desktop-scoring" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Mobile vs. Desktop Scoring</a></li>
+<li><a href="#fixing-common-score-killers" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fixing Common Score Killers</a></li>
+<li><a href="#when-to-ignore-pagespeed-insights" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When to Ignore PageSpeed Insights</a></li>
+<li><a href="#continuous-monitoring-strategy" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Continuous Monitoring Strategy</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>PageSpeed Insights scores</strong> condense complex performance metrics into single numbers. 90/100 signals fast pages, 40/100 indicates problems. However, the score reflects six weighted metrics, not actual user experience. A site scoring 95 in lab tests might fail field data entirely when real users on 3G networks experience 8-second load times. Understanding metric composition, lab versus field distinctions, and which improvements impact rankings prevents optimization misdirection.</p>
+<p>Google&#39;s ranking algorithm weighs <strong>field data</strong> from Chrome User Experience Report (CrUX), not lab scores. Sites passing Core Web Vitals thresholds (LCP &lt;2.5s, FID &lt;100ms, CLS &lt;0.1 at 75th percentile) rank higher regardless of PageSpeed score. Conversely, perfect lab scores mean nothing when field data fails, real user experiences determine rankings.</p>
+<h2 id="performance-score-breakdown">Performance Score Breakdown</h2>
+<p><strong>Six metrics</strong> constitute PageSpeed Insights performance scores with weighted contributions:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Weight</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>First Contentful Paint</td>
+<td>10%</td>
+<td>&lt;1.8s</td>
+</tr>
+<tr>
+<td>Speed Index</td>
+<td>10%</td>
+<td>&lt;3.4s</td>
+</tr>
+<tr>
+<td>Largest Contentful Paint</td>
+<td>25%</td>
+<td>&lt;2.5s</td>
+</tr>
+<tr>
+<td>Time to Interactive</td>
+<td>10%</td>
+<td>&lt;3.8s</td>
+</tr>
+<tr>
+<td>Total Blocking Time</td>
+<td>30%</td>
+<td>&lt;200ms</td>
+</tr>
+<tr>
+<td>Cumulative Layout Shift</td>
+<td>25%</td>
+<td>&lt;0.1</td>
+</tr>
+</tbody></table>
+<p><strong>LCP, TBT, and CLS</strong> comprise 80% of score calculation. Optimizing these three metrics delivers maximum score improvements. FCP, SI, and TTI contribute only 30% combined, focus optimization budget on high-weight metrics first.</p>
+<p><strong>Score ranges</strong> indicate performance tiers:</p>
+<ul>
+<li><strong>90-100</strong>: Fast (green)</li>
+<li><strong>50-89</strong>: Needs improvement (orange)</li>
+<li><strong>0-49</strong>: Slow (red)</li>
+</ul>
+<p>These ranges calibrate against Lighthouse&#39;s synthetic testing environment, throttled to simulate mid-tier mobile devices (Moto G4) on slow 4G networks. Lab scores demonstrate potential performance under controlled conditions, not actual user experience.</p>
+<h3 id="metric-definitions-and-measurement">Metric Definitions and Measurement</h3>
+<p><strong>First Contentful Paint (FCP)</strong> measures when first text or image renders. Blank white screens until FCP creates perception of broken pages. Target &lt;1.8s ensures users see content immediately after navigation. FCP improvements come from reducing server response time, eliminating render-blocking resources, and optimizing critical rendering path.</p>
+<p><strong>Speed Index</strong> quantifies visual completion speed, how quickly above-the-fold content populates. Unlike single-point metrics, Speed Index measures progression across entire load. Pages rendering incrementally (progressive loading) achieve better Speed Index than pages remaining blank until fully loaded. Target &lt;3.4s maintains engagement during load.</p>
+<p><strong>Largest Contentful Paint (LCP)</strong> identifies when largest visible element renders, typically hero images or headline blocks. Google&#39;s Core Web Vitals uses LCP as primary load metric. Target &lt;2.5s (good), &lt;4.0s (needs improvement), &gt;4.0s (poor). LCP optimization requires hero image compression, preloading, and server response tuning.</p>
+<p><strong>Time to Interactive (TTI)</strong> marks when page becomes fully interactive, users can click, type, and interact without delays. Long JavaScript execution blocks interactivity even after visual completion. Target &lt;3.8s ensures pages respond promptly. TTI improvements stem from code splitting, deferring non-critical JavaScript, and reducing main thread work.</p>
+<p><strong>Total Blocking Time (TBT)</strong> sums all periods where main thread blocks for &gt;50ms. Heavy JavaScript execution prevents browser from responding to user input. TBT correlates strongly with Field Input Delay (FID) in real user experiences. Target &lt;200ms maintains responsiveness. Reducing TBT requires minifying JavaScript, code splitting, and deferring third-party scripts.</p>
+<p><strong>Cumulative Layout Shift (CLS)</strong> measures unexpected layout movements, content jumping as images load, ads insert, or fonts apply. Users clicking buttons that shift locations experience frustration. Target &lt;0.1 ensures stable layouts. CLS improvements require image dimensions, font-display settings, and reserved space for dynamic content.</p>
+<h2 id="lab-data-vs-field-data-critical-differences">Lab Data vs. Field Data: Critical Differences</h2>
+<p><strong>Lab data</strong> (Lighthouse) simulates performance under standardized conditions:</p>
+<ul>
+<li>Moto G4 device (mid-tier Android from 2016)</li>
+<li>Slow 4G network (1.4 Mbps download, 400ms RTT)</li>
+<li>Chrome browser, latest version</li>
+<li>Single page load, no cache</li>
+</ul>
+<p>Lab tests provide <strong>reproducible baselines</strong> for comparison across time. Running tests today versus next month produces comparable results. However, lab conditions differ dramatically from real user diversity.</p>
+<p><strong>Field data</strong> (CrUX) aggregates real Chrome user experiences over 28 days:</p>
+<ul>
+<li>All device types (iPhone 16 Pro to budget Android)</li>
+<li>All network conditions (5G, 4G, 3G, WiFi)</li>
+<li>All geographic locations globally</li>
+<li>Cached and uncached page loads</li>
+</ul>
+<p>Field data reflects <strong>actual user experience distribution</strong>, fast users on fiber, slow users on 3G, desktop versus mobile. Google&#39;s algorithm weighs field data because it represents reality, not theoretical performance.</p>
+<h3 id="why-scores-diverge">Why Scores Diverge</h3>
+<p><strong>Lab score 95, field data red</strong> indicates lab optimizations don&#39;t translate to real-world conditions. Common causes:</p>
+<ul>
+<li>Third-party resources load slowly (ads, analytics, widgets)</li>
+<li>Server performance degrades under load (lab tests unloaded servers)</li>
+<li>Geographic CDN coverage gaps (some regions lack edge nodes)</li>
+<li>Mobile device diversity (lab tests single device model)</li>
+</ul>
+<p><strong>Field data green, lab score 60</strong> suggests real users have fast experiences despite poor lab performance. This occurs when:</p>
+<ul>
+<li>User base skews toward fast networks/devices</li>
+<li>Aggressive caching benefits repeat visitors (lab tests uncached)</li>
+<li>Recent optimizations haven&#39;t reflected in lab algorithm updates</li>
+</ul>
+<p><strong>Prioritize field data</strong> when scores conflict. Rankings depend on real user experiences, not lab simulations. If field data passes Core Web Vitals but lab score remains orange, accept it, optimizing further wastes effort on metrics Google ignores.</p>
+<h2 id="core-web-vitals-what-affects-rankings">Core Web Vitals: What Affects Rankings</h2>
+<p><strong>Three metrics</strong> from Core Web Vitals directly influence rankings:</p>
+<p><strong>LCP (Largest Contentful Paint)</strong>: Load performance</p>
+<ul>
+<li>Good: ≤2.5s</li>
+<li>Needs improvement: 2.5-4.0s</li>
+<li>Poor: &gt;4.0s</li>
+</ul>
+<p><strong>FID (First Input Delay)</strong>: Interactivity</p>
+<ul>
+<li>Good: ≤100ms</li>
+<li>Needs improvement: 100-300ms</li>
+<li>Poor: &gt;300ms</li>
+</ul>
+<p><strong>CLS (Cumulative Layout Shift)</strong>: Visual stability</p>
+<ul>
+<li>Good: ≤0.1</li>
+<li>Needs improvement: 0.1-0.25</li>
+<li>Poor: &gt;0.25</li>
+</ul>
+<p><strong>Passing threshold</strong>: 75th percentile of user experiences meets &quot;Good&quot; targets. If 75% of users experience LCP ≤2.5s, FID ≤100ms, and CLS ≤0.1, the site passes Core Web Vitals. Median performance (50th percentile) doesn&#39;t determine pass/fail. 75th percentile does.</p>
+<h3 id="non-core-metrics-seo-impact">Non-Core Metrics' SEO Impact</h3>
+<p><strong>FCP, Speed Index, TTI, TBT</strong> contribute to PageSpeed score but aren&#39;t direct ranking factors. They correlate with Core Web Vitals, improving TBT often improves FID, better Speed Index typically improves LCP. However, Google&#39;s algorithm doesn&#39;t evaluate these metrics directly.</p>
+<p><strong>Focus optimization hierarchy</strong>:</p>
+<ol>
+<li>Field data Core Web Vitals (LCP, FID, CLS) → Direct ranking impact</li>
+<li>Lab LCP, TBT, CLS → Correlate with field CWV, predict field performance</li>
+<li>Lab FCP, Speed Index, TTI → Useful diagnostics, minor ranking influence</li>
+</ol>
+<p>Obsessing over lab Speed Index while field LCP fails wastes resources. Core Web Vitals pass/fail determines ranking benefits.</p>
+<h2 id="reading-pagespeed-insights-reports">Reading PageSpeed Insights Reports</h2>
+<p><strong>Top section</strong> displays performance score (0-100) and field data status (CrUX):</p>
+<ul>
+<li>Green checkmarks: Field data passes thresholds</li>
+<li>Orange exclamations: Needs improvement</li>
+<li>Red X: Field data fails thresholds</li>
+</ul>
+<p><strong>Origin summary</strong> shows aggregate data for entire domain. Individual page performance might differ from origin summary. Sites with mixed performance (fast homepage, slow product pages) show orange/red origin summaries despite some pages performing well.</p>
+<p><strong>No field data available</strong> appears for:</p>
+<ul>
+<li>New sites without 28 days of Chrome user traffic</li>
+<li>Low-traffic pages (&lt;1,000 visitors from Chrome)</li>
+<li>Pages not visited by sufficient Chrome users</li>
+</ul>
+<p>Lack of field data doesn&#39;t prevent ranking. Google evaluates sites without CrUX through lab testing and algorithmic estimates.</p>
+<h3 id="diagnostics-section-interpretation">Diagnostics Section Interpretation</h3>
+<p><strong>Opportunities</strong> list improvements with estimated time savings:</p>
+<ul>
+<li>&quot;Properly size images&quot; → Estimated savings: 3.2s</li>
+<li>&quot;Eliminate render-blocking resources&quot; → Estimated savings: 1.8s</li>
+<li>&quot;Reduce unused JavaScript&quot; → Estimated savings: 0.9s</li>
+</ul>
+<p>Savings estimates represent potential gains if implementing all suggestions perfectly. Real improvements often achieve 40-60% of estimated savings due to implementation realities.</p>
+<p><strong>Diagnostics</strong> identify issues without time estimates:</p>
+<ul>
+<li>&quot;Serve images in next-gen formats&quot; (WebP, AVIF)</li>
+<li>&quot;Enable text compression&quot; (Gzip, Brotli)</li>
+<li>&quot;Avoid enormous network payloads&quot; (total page weight)</li>
+</ul>
+<p>These suggestions improve performance but lack specific time savings calculations.</p>
+<p><strong>Passed audits</strong> show what&#39;s working correctly. Collapsing this section reveals optimizations already implemented, useful for audit documentation or client reporting.</p>
+<h2 id="mobile-vs-desktop-scoring">Mobile vs. Desktop Scoring</h2>
+<p><strong>Mobile tab</strong> throttles to slow 4G and mid-tier device. Desktop tab simulates fast 4G and powerful CPU. Mobile scores typically run 15-30 points lower than desktop due to network and CPU constraints.</p>
+<p><strong>Google prioritizes mobile</strong> via mobile-first indexing. Mobile field data determines Core Web Vitals pass/fail for ranking purposes. Desktop performance matters for desktop users but doesn&#39;t influence rankings independently, mobile experience drives algorithm decisions.</p>
+<p><strong>Responsive design challenges</strong> create mobile-specific issues:</p>
+<ul>
+<li>Hero images sized for desktop waste mobile bandwidth</li>
+<li>JavaScript bundles optimized for desktop CPUs overwhelm mobile</li>
+<li>Fonts and CSS payloads unchanged between devices</li>
+</ul>
+<p>Target mobile optimization first. Desktop performance follows naturally when mobile succeeds, but reverse isn&#39;t true.</p>
+<h2 id="fixing-common-score-killers">Fixing Common Score Killers</h2>
+<p><strong>Unoptimized images</strong> typically dominate &quot;Opportunities.&quot; A single 2MB hero image can reduce scores 20 points. Implement:</p>
+<ul>
+<li>Responsive images via srcset</li>
+<li>Modern formats (WebP, AVIF)</li>
+<li>Lazy loading for below-fold images</li>
+<li>CDN delivery with compression</li>
+</ul>
+<p><strong>Render-blocking CSS/JS</strong> delays FCP and LCP. Critical CSS inlining and async JavaScript loading eliminates this:</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;!-- Inline critical CSS --&gt;
+  &lt;style&gt;/* Critical above-fold styles */&lt;/style&gt;
+
+  &lt;!-- Defer non-critical CSS --&gt;
+  &lt;link rel=&quot;preload&quot; href=&quot;styles.css&quot; as=&quot;style&quot; onload=&quot;this.onload=null;this.rel=&#39;stylesheet&#39;&quot;&gt;
+
+  &lt;!-- Defer JavaScript --&gt;
+  &lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+<p><strong>Third-party scripts</strong> (analytics, ads, chat widgets) contribute 40-70% of JavaScript payload. Defer loading until after page interactive:</p>
+<pre><code class="language-javascript">// Load third-party after page load
+window.addEventListener(&#39;load&#39;, () =&gt; {
+  // Google Analytics
+  const ga = document.createElement(&#39;script&#39;);
+  ga.src = &#39;https://www.google-analytics.com/analytics.js&#39;;
+  document.head.appendChild(ga);
+});
+</code></pre>
+<p><strong>Font loading</strong> causes invisible text (FOIT) or unstyled text (FOUT). Use font-display: swap for immediate text visibility:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;CustomFont&#39;;
+  src: url(&#39;font.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: swap;
+}
+</code></pre>
+<p><strong>Layout shift</strong> from images without dimensions. Specify width/height attributes:</p>
+<pre><code class="language-html">&lt;img src=&quot;hero.jpg&quot; alt=&quot;Hero&quot; width=&quot;1200&quot; height=&quot;600&quot; loading=&quot;eager&quot;&gt;
+</code></pre>
+<p>Browsers reserve space immediately, preventing layout shift during image load.</p>
+<h2 id="when-to-ignore-pagespeed-insights">When to Ignore PageSpeed Insights</h2>
+<p><strong>Functionality trumps scores</strong> for complex applications. Banking portals, healthcare systems, and enterprise SaaS prioritize security and functionality over performance scores. Acceptable to score 60-70 when alternative requires sacrificing critical features.</p>
+<p><strong>Third-party dependencies</strong> beyond control affect scores. E-commerce sites running Shopify, BigCommerce, or Magento face platform constraints. Optimizing within platform limitations yields improvements, but perfect scores may be unattainable without platform changes.</p>
+<p><strong>Advertising revenue</strong> versus performance trade-offs require business decisions. Removing ads improves scores 15-20 points but eliminates revenue. Finding balance between monetization and performance aligns with business goals, not arbitrary score targets.</p>
+<p><strong>Niche audiences</strong> on fast connections justify looser targets. B2B SaaS serving corporate users on office networks experiences fewer mobile performance issues than consumer mobile-first sites. Know your audience&#39;s typical conditions.</p>
+<h2 id="continuous-monitoring-strategy">Continuous Monitoring Strategy</h2>
+<p><strong>Weekly PageSpeed checks</strong> track performance trends. Scores fluctuating ±5 points reflect normal variance. Drops &gt;10 points signal regressions requiring investigation.</p>
+<p><strong>Post-deployment testing</strong> catches performance regressions before users experience them. Integrate PageSpeed Insights API into CI/CD pipelines:</p>
+<pre><code class="language-bash"># Lighthouse CI in GitHub Actions
+npm install -g @lhci/cli
+lhci autorun --config=lighthouserc.json
+</code></pre>
+<p>Failing builds when scores drop &gt;10 points prevents deploying performance-degrading changes.</p>
+<p><strong>Field data monitoring</strong> via Search Console Core Web Vitals report reveals real-world impacts. Check monthly for:</p>
+<ul>
+<li>URL groups transitioning between pass/fail states</li>
+<li>New issues affecting multiple pages</li>
+<li>Improvement trends after optimizations</li>
+</ul>
+<p><strong>Real User Monitoring (RUM)</strong> supplements PageSpeed with actual user metrics. Tools like SpeedCurve, Cloudflare Analytics, or New Relic capture 75th percentile performance across device types and geographies, the same metric Google uses for Core Web Vitals scoring.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Performance Score Breakdown:</strong> These ranges calibrate against Lighthouse&#39;s synthetic testing environment, throttled to simulate mid-tier mobile devices (Moto G4) on slow 4G networks.</li>
+<li><strong>Lab Data vs. Field Data: Critical Differences:</strong> Lab tests provide reproducible baselines for comparison across time.</li>
+<li><strong>Core Web Vitals: What Affects Rankings:</strong> Obsessing over lab Speed Index while field LCP fails wastes resources.</li>
+<li><strong>Reading PageSpeed Insights Reports:</strong> Lack of field data doesn&#39;t prevent ranking. Google evaluates sites without CrUX through lab testing and algorithmic estimates.</li>
+<li><strong>Fixing Common Score Killers:</strong> <!-- Defer non-critical CSS --><link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"></li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<h3 id="why-is-my-pagespeed-score-95-but-search-console-shows-failing-core-web-vitals">Why is my PageSpeed score 95 but Search Console shows failing Core Web Vitals?</h3>
+<p>PageSpeed Insights lab score tests single page under synthetic conditions. Search Console reports field data from real Chrome users across your entire domain over 28 days. Field data includes all pages, your homepage might score 95, but product pages scoring 40 drag down domain-wide metrics. Additionally, real user networks (3G in rural areas) perform worse than lab testing&#39;s simulated 4G. Focus on improving field data, not lab scores.</p>
+<h3 id="do-i-need-a-perfect-100-pagespeed-score-for-good-seo">Do I need a perfect 100 PageSpeed score for good SEO?</h3>
+<p>No. Google&#39;s algorithm evaluates Core Web Vitals pass/fail, not PageSpeed scores. Passing CWV requires LCP &lt;2.5s, FID &lt;100ms, CLS &lt;0.1 at 75th percentile, often achievable with PageSpeed scores 70-85. Scores above 90 provide diminishing SEO returns. Prioritize passing field data CWV over chasing perfect lab scores. Time spent improving 90→100 could optimize other SEO factors with better ROI.</p>
+<h3 id="should-i-optimize-for-mobile-or-desktop-pagespeed-first">Should I optimize for mobile or desktop PageSpeed first?</h3>
+<p>Mobile. Google uses mobile-first indexing, mobile performance determines rankings for all devices. Mobile scores run 15-30 points lower than desktop due to network and CPU constraints, making it harder but more impactful. Desktop performance typically improves automatically when mobile succeeds, but not vice versa. Allocate 80% of optimization effort to mobile, 20% to desktop-specific issues.</p>
+<h3 id="how-often-does-google-update-pagespeed-insights-scoring">How often does Google update PageSpeed Insights scoring?</h3>
+<p>Lighthouse (lab testing engine) updates every 4-6 weeks with algorithm tweaks. Field data (CrUX) updates daily with 28-day rolling windows. Your PageSpeed scores change as Lighthouse algorithms evolve, a score of 85 today might become 82 after Lighthouse update without site changes. Focus on metric targets (LCP &lt;2.5s) rather than score numbers to avoid chasing moving targets.</p>
+<h3 id="can-third-party-scripts-prevent-achieving-good-pagespeed-scores">Can third-party scripts prevent achieving good PageSpeed scores?</h3>
+<p>Yes. Google Tag Manager, Facebook Pixel, ad networks, and chat widgets contribute 40-70% of JavaScript payload and significantly impact TBT/TTI. However, Core Web Vitals focus on LCP, FID, and CLS, third-party scripts affect these less than lab-only metrics. Defer third-party loading until after page interactive, use facades for heavy embeds, and audit essential versus nice-to-have scripts. Good CWV scores remain achievable with reasonable third-party scripts.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/field-data-vs-lab-data-core-web-vitals.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank?</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Decode field vs lab CWV data. Learn why PageSpeed Insights and Search Console disagree, which metrics Google uses for rankings, and how to fix both.</p>
+          </a>
+
+          <a href="/articles/purge-cache-without-breaking-site.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Purge Cache Without Breaking Your Site (CDN and Browser Cache)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Safely clear CDN, page cache, and object cache without downtime. Selective purging strategies and cache warming for seamless deployments.</p>
+          </a>
+
+          <a href="/articles/minify-css-javascript-html.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Minify CSS, JavaScript, and HTML to Reduce Page Load Time</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate render-blocking resources and shrink file sizes with proper minification. Step-by-step guide to CSS, JS, and HTML compression techniques.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

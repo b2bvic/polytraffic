@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable | Polytraffic</title>
+    <meta name="description" content="Technical solutions for rendering JavaScript-based SPAs so search engines can crawl, index, and rank React, Vue, and Angular applications effectively." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable | Polytraffic" />
+    <meta property="og:description" content="Technical solutions for rendering JavaScript-based SPAs so search engines can crawl, index, and rank React, Vue, and Angular applications effectively." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/single-page-application-seo-fix" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/single-page-application-seo-fix.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable | Polytraffic" />
+    <meta name="twitter:description" content="Technical solutions for rendering JavaScript-based SPAs so search engines can crawl, index, and rank React, Vue, and Angular applications effectively." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/single-page-application-seo-fix.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/single-page-application-seo-fix" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable",
+    "description": "Technical solutions for rendering JavaScript-based SPAs so search engines can crawl, index, and rank React, Vue, and Angular applications effectively.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/single-page-application-seo-fix.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/single-page-application-seo-fix.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/JavaScript SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/JavaScript SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/single-page-application-seo-fix.png" alt="Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="single-page-application-seo-fix-making-javascript-frameworks-crawlable">Single-Page Application SEO Fix: Making JavaScript Frameworks Crawlable</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Technical solutions for rendering JavaScript-based SPAs so search engines can crawl, index, and rank React, Vue, and Angular applications effectively.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-search-engines-struggle-with-client-side-rendering" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Search Engines Struggle With Client-Side Rendering</a></li>
+<li><a href="#server-side-rendering-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Server-Side Rendering Implementation</a></li>
+<li><a href="#static-site-generation-for-javascript-frameworks" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Static Site Generation for JavaScript Frameworks</a></li>
+<li><a href="#dynamic-rendering-for-crawler-specific-serving" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Dynamic Rendering for Crawler-Specific Serving</a></li>
+<li><a href="#fixing-spa-routing-for-crawlability" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fixing SPA Routing for Crawlability</a></li>
+<li><a href="#metadata-management-in-javascript-applications" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Metadata Management in JavaScript Applications</a></li>
+<li><a href="#structured-data-implementation-for-spas" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Structured Data Implementation for SPAs</a></li>
+<li><a href="#javascript-bundle-optimization" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">JavaScript Bundle Optimization</a></li>
+<li><a href="#preloading-and-prefetching-critical-resources" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Preloading and Prefetching Critical Resources</a></li>
+<li><a href="#monitoring-spa-seo-health" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Monitoring SPA SEO Health</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Single-page applications (SPAs) built with <strong>React</strong>, <strong>Vue</strong>, <strong>Angular</strong>, or similar JavaScript frameworks sacrifice SEO accessibility for client-side performance. These frameworks render content dynamically in the browser after the initial HTML payload loads, creating a gap where search engine crawlers receive empty markup or incomplete content that doesn&#39;t reflect the actual user experience.</p>
+<p>The default SPA architecture ships <strong>minimal HTML</strong> (often a root <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code>) with JavaScript responsible for fetching data and assembling the DOM. Search crawlers executing JavaScript encounter timing challenges, resource constraints, and indexing delays that prevent pages from achieving their ranking potential.</p>
+<p>This guide surfaces the architectural flaws that cripple SPA discoverability and provides implementation paths for server-side rendering, static generation, and dynamic rendering that restore search visibility without abandoning modern framework benefits.</p>
+<h2 id="why-search-engines-struggle-with-client-side-rendering">Why Search Engines Struggle With Client-Side Rendering</h2>
+<p>Googlebot can execute JavaScript, but the execution model differs fundamentally from server-rendered HTML. When a crawler requests a traditional page, it receives complete markup in the initial HTTP response, title tags, meta descriptions, heading structure, body content, and internal links all present immediately.</p>
+<p>SPAs deliver an <strong>empty shell</strong> that requires JavaScript parsing, execution, API calls, and asynchronous data fetching before content materializes. This multi-stage process introduces failure points:</p>
+<p><strong>Timeout thresholds</strong> limit how long crawlers wait for JavaScript execution to complete. If your SPA makes 8 sequential API calls before rendering above-the-fold content, crawlers may timeout before content appears, indexing only the empty container.</p>
+<p><strong>Resource constraints</strong> prevent crawlers from executing every script on every page. Sites with heavy JavaScript bundles (500KB+) or complex initialization sequences may have execution deprioritized, causing incomplete rendering even when no technical failure occurs.</p>
+<p><strong>Rendering queue delays</strong> mean JavaScript-dependent pages enter a secondary indexing pipeline with longer processing times. While server-rendered pages index within hours, client-rendered content can take days or weeks to appear in search results.</p>
+<p><strong>Link discovery failures</strong> occur when navigation exists only in JavaScript, no <code>&lt;a&gt;</code> tags in source HTML means crawlers can&#39;t discover linked pages through traditional parsing. Even if JavaScript eventually renders those links, the discoverability gap fragments crawl coverage.</p>
+<p>These aren&#39;t hypothetical edge cases. SPAs without rendering optimizations routinely experience <strong>40-60% lower organic visibility</strong> compared to functionally identical server-rendered sites, with product pages and deep content often completely absent from indexes.</p>
+<h2 id="server-side-rendering-implementation">Server-Side Rendering Implementation</h2>
+<p>Server-side rendering (SSR) executes your JavaScript framework on the <strong>server</strong> during the initial request, generating complete HTML that ships to both browsers and crawlers. Users receive fully rendered content on first load, with the framework hydrating into an interactive application after JavaScript loads.</p>
+<p><strong>Next.js</strong> (React), <strong>Nuxt.js</strong> (Vue), and <strong>Angular Universal</strong> provide SSR implementations for their respective frameworks. These tools run your application code in Node.js during the request cycle, serialize the rendered output to HTML, and include it in the HTTP response.</p>
+<p>Implementation requires refactoring applications that assume browser-only environments (accessing <code>window</code>, <code>document</code>, or <code>localStorage</code> during initialization). SSR code must handle <strong>both server and client contexts</strong>, using conditional logic or lifecycle hooks that distinguish between environments:</p>
+<pre><code class="language-javascript">// Bad: Assumes browser environment
+const userAgent = window.navigator.userAgent;
+
+// Good: Guards against server-side execution
+const userAgent = typeof window !== &#39;undefined&#39;
+  ? window.navigator.userAgent
+  : &#39;server&#39;;
+</code></pre>
+<p>Data fetching in SSR must complete <strong>before rendering</strong>, not asynchronously after mount. Next.js provides <code>getServerSideProps</code> for fetching data during the request cycle:</p>
+<pre><code class="language-javascript">export async function getServerSideProps(context) {
+  const res = await fetch(`https://api.example.com/products/${context.params.id}`);
+  const product = await res.json();
+
+  return { props: { product } };
+}
+</code></pre>
+<p>This ensures the initial HTML contains product data rather than loading states or skeleton screens. Crawlers receive complete content in the first response without executing JavaScript.</p>
+<p>SSR introduces <strong>server-side computational costs</strong>, every request requires full application execution rather than serving static files. Implement caching strategies that reuse rendered HTML for identical requests, reducing server load while maintaining freshness for dynamic content.</p>
+<p><strong>Incremental Static Regeneration</strong> (ISR) in Next.js balances SSR costs by pre-rendering pages at build time, then regenerating them on-demand after defined intervals:</p>
+<pre><code class="language-javascript">export async function getStaticProps() {
+  const products = await fetchProducts();
+
+  return {
+    props: { products },
+    revalidate: 3600 // Regenerate every hour
+  };
+}
+</code></pre>
+<p>This hybrid approach provides static file serving speed with server-side freshness guarantees.</p>
+<h2 id="static-site-generation-for-javascript-frameworks">Static Site Generation for JavaScript Frameworks</h2>
+<p>Static site generation (SSG) pre-renders your <strong>entire application at build time</strong>, producing HTML files for every route that can be served from a CDN without server execution. This provides maximum performance and crawlability but sacrifices runtime data freshness.</p>
+<p>SSG suits content-heavy sites where pages don&#39;t require real-time data, blogs, documentation sites, marketing pages, and product catalogs with infrequent updates. You rebuild the site when content changes, regenerating all HTML files with updated data.</p>
+<p>Gatsby (React), VuePress (Vue), and Scully (Angular) implement SSG patterns for their frameworks. These tools execute your application during build, make all necessary API calls, and serialize results to static HTML:</p>
+<pre><code class="language-javascript">// Gatsby generates static pages for all products
+exports.createPages = async ({ graphql, actions }) =&gt; {
+  const { createPage } = actions;
+  const result = await graphql(`
+    query {
+      allProducts {
+        nodes { id slug }
+      }
+    }
+  `);
+
+  result.data.allProducts.nodes.forEach(product =&gt; {
+    createPage({
+      path: `/products/${product.slug}`,
+      component: require.resolve(&#39;./src/templates/product.js&#39;),
+      context: { id: product.id }
+    });
+  });
+};
+</code></pre>
+<p>The build process generates <code>/products/widget-a.html</code>, <code>/products/gadget-b.html</code>, etc., each containing complete markup. Search crawlers receive instant responses with zero JavaScript execution required.</p>
+<p>SSG limitations emerge with <strong>large-scale dynamic content</strong>. E-commerce sites with 10,000+ products face prohibitive build times (30+ minutes) when regenerating all pages for minor updates. Product inventory changes, price updates, and review additions require full rebuilds rather than targeted updates.</p>
+<p>Address scale issues with <strong>hybrid rendering</strong> where high-value pages use SSG while long-tail content uses SSR or client-side rendering. Your 50 best-selling products might pre-render statically while the remaining 9,950 render on-demand.</p>
+<h2 id="dynamic-rendering-for-crawler-specific-serving">Dynamic Rendering for Crawler-Specific Serving</h2>
+<p>Dynamic rendering detects crawler requests and serves <strong>pre-rendered HTML</strong> while delivering the normal JavaScript application to browser users. This approach separates crawler needs from user experience, allowing you to optimize each independently.</p>
+<p>Implementation requires <strong>user-agent detection</strong> middleware that identifies crawler requests (Googlebot, Bingbot, etc.) and routes them to a rendering service while passing browser traffic to your standard SPA:</p>
+<pre><code class="language-javascript">const crawlerUserAgents = [
+  &#39;googlebot&#39;, &#39;bingbot&#39;, &#39;yandex&#39;, &#39;baiduspider&#39;,
+  &#39;facebookexternalhit&#39;, &#39;twitterbot&#39;, &#39;linkedinbot&#39;
+];
+
+function isCrawler(userAgent) {
+  return crawlerUserAgents.some(bot =&gt;
+    userAgent.toLowerCase().includes(bot)
+  );
+}
+
+app.use((req, res, next) =&gt; {
+  if (isCrawler(req.get(&#39;user-agent&#39;))) {
+    return renderForCrawler(req, res);
+  }
+  next(); // Serve SPA normally
+});
+</code></pre>
+<p>The crawler rendering path executes your application in a <strong>headless browser</strong> (Puppeteer, Playwright), waits for content to fully load, then extracts the rendered HTML to serve in the response. This ensures crawlers receive complete markup regardless of JavaScript complexity.</p>
+<p><strong>Rendertron</strong> and <strong>Prerender.io</strong> provide hosted dynamic rendering services that handle browser automation and caching. You route crawler traffic to their infrastructure rather than managing headless browsers yourself:</p>
+<pre><code class="language-nginx"># Nginx configuration for dynamic rendering
+location / {
+  if ($http_user_agent ~* &quot;googlebot|bingbot|yandex&quot;) {
+    proxy_pass https://service.prerender.io/https://$host$request_uri;
+  }
+  try_files $uri /index.html;
+}
+</code></pre>
+<p>Google explicitly endorses dynamic rendering as a <strong>transitional solution</strong> while you implement SSR or SSG. It&#39;s not cloaking since crawlers receive content identical to what users see after JavaScript execution, you&#39;re simply pre-executing that JavaScript on their behalf.</p>
+<p>Challenges include <strong>maintaining rendering parity</strong> between crawler and user versions. If your SPA updates with new features but the pre-rendered cache stales, crawlers see outdated content. Implement cache invalidation triggers that regenerate pre-rendered versions when deployments occur.</p>
+<h2 id="fixing-spa-routing-for-crawlability">Fixing SPA Routing for Crawlability</h2>
+<p>Client-side routing in SPAs uses the <strong>History API</strong> (<code>pushState</code>) to update URLs without full page loads. Navigation between <code>/products</code> and <code>/products/widget-a</code> happens entirely in JavaScript without requesting new HTML from the server.</p>
+<p>This creates problems when crawlers request <code>/products/widget-a</code> directly, your server doesn&#39;t recognize that route and returns <strong>404 errors</strong> or the root <code>index.html</code> without route-specific content. The JavaScript application would handle routing after load, but crawlers see the wrong initial state.</p>
+<p>Fix this by configuring your server to <strong>route all paths to index.html</strong>, then let the SPA&#39;s router handle determining which component to render:</p>
+<pre><code class="language-nginx"># Nginx configuration
+location / {
+  try_files $uri $uri/ /index.html;
+}
+</code></pre>
+<pre><code class="language-apache"># Apache configuration
+&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
+</code></pre>
+<p>This ensures <code>/products/widget-a</code> returns your SPA&#39;s HTML, which boots the JavaScript application that detects the current path and renders the appropriate product page.</p>
+<p>For SSR and SSG implementations, the server must recognize routes and render the corresponding component <strong>server-side</strong> rather than serving a generic shell. Next.js and Nuxt handle this automatically through file-based routing, creating <code>pages/products/[slug].js</code> generates routes that SSR handles natively.</p>
+<h2 id="metadata-management-in-javascript-applications">Metadata Management in JavaScript Applications</h2>
+<p>SPAs dynamically update page titles and meta descriptions through JavaScript after route changes, but this happens <strong>after initial HTML delivery</strong>. Crawlers indexing the raw HTML see generic or incorrect metadata that doesn&#39;t match page content.</p>
+<p>Implement a <strong>meta tag management library</strong> that updates document head elements during route transitions:</p>
+<pre><code class="language-javascript">// React Helmet for React applications
+import { Helmet } from &#39;react-helmet&#39;;
+
+function ProductPage({ product }) {
+  return (
+    &lt;&gt;
+      &lt;Helmet&gt;
+        &lt;title&gt;{product.name} | Your Store&lt;/title&gt;
+        &lt;meta name=&quot;description&quot; content={product.description} /&gt;
+        &lt;meta property=&quot;og:title&quot; content={product.name} /&gt;
+        &lt;meta property=&quot;og:image&quot; content={product.image} /&gt;
+      &lt;/Helmet&gt;
+      {/* Product content */}
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>In SSR implementations, these meta tags render <strong>server-side</strong> and appear in initial HTML. In client-only SPAs, they update after route changes for browser users but don&#39;t help crawler indexing.</p>
+<p>For client-rendered SPAs using dynamic rendering, ensure your pre-rendering service <strong>waits for meta tag updates</strong> before capturing HTML. Configure wait conditions based on specific DOM elements or JavaScript execution completion signals.</p>
+<h2 id="structured-data-implementation-for-spas">Structured Data Implementation for SPAs</h2>
+<p>JSON-LD structured data must exist in the initial HTML response for crawlers to process it reliably. SPAs that inject schema markup via JavaScript after component mount risk <strong>delayed or incomplete indexing</strong> of structured data.</p>
+<p>SSR frameworks should render JSON-LD <strong>server-side</strong> using the same data that populates page content:</p>
+<pre><code class="language-javascript">// Next.js product page with server-side schema
+export async function getServerSideProps({ params }) {
+  const product = await fetchProduct(params.id);
+
+  const schema = {
+    &quot;@context&quot;: &quot;https://schema.org&quot;,
+    &quot;@type&quot;: &quot;Product&quot;,
+    &quot;name&quot;: product.name,
+    &quot;description&quot;: product.description,
+    &quot;image&quot;: product.images,
+    &quot;offers&quot;: {
+      &quot;@type&quot;: &quot;Offer&quot;,
+      &quot;price&quot;: product.price,
+      &quot;priceCurrency&quot;: &quot;USD&quot;
+    }
+  };
+
+  return { props: { product, schema } };
+}
+
+function ProductPage({ product, schema }) {
+  return (
+    &lt;&gt;
+      &lt;script type=&quot;application/ld+json&quot;
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /&gt;
+      {/* Product UI */}
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<p>This ensures schema markup appears in the initial response alongside content, not added asynchronously after JavaScript execution.</p>
+<p>For client-only SPAs, use <strong>static JSON-LD blocks</strong> for site-wide schema (Organization, WebSite) in the root HTML template, and rely on dynamic rendering services to capture page-specific schema that JavaScript generates. Validate all schema implementations using <a href="structured-data-testing-tools-workflow.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">structured-data-testing-tools-workflow</a>.</p>
+<h2 id="javascript-bundle-optimization">JavaScript Bundle Optimization</h2>
+<p>Large JavaScript bundles delay <strong>Time to Interactive</strong> (TTI), extending the window where page content exists but isn&#39;t fully functional. This creates SEO issues when crawlers attempt to interact with elements or trigger JavaScript-dependent content reveals.</p>
+<p>Implement <strong>code splitting</strong> to deliver only the JavaScript required for initial route render, deferring non-critical code to lazy-loaded chunks:</p>
+<pre><code class="language-javascript">// React lazy loading for route-based splitting
+import { lazy, Suspense } from &#39;react&#39;;
+
+const ProductPage = lazy(() =&gt; import(&#39;./pages/ProductPage&#39;));
+const AboutPage = lazy(() =&gt; import(&#39;./pages/AboutPage&#39;));
+
+function App() {
+  return (
+    &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+      &lt;Routes&gt;
+        &lt;Route path=&quot;/products/:id&quot; element={&lt;ProductPage /&gt;} /&gt;
+        &lt;Route path=&quot;/about&quot; element={&lt;AboutPage /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/Suspense&gt;
+  );
+}
+</code></pre>
+<p>This generates separate bundles for each route, reducing initial payload size from 500KB to 150KB for the homepage while product page code loads only when that route activates.</p>
+<p><strong>Tree shaking</strong> eliminates unused code from production bundles. Configure your bundler (Webpack, Vite, Rollup) to remove dead code exports:</p>
+<pre><code class="language-javascript">// webpack.config.js
+module.exports = {
+  mode: &#39;production&#39;,
+  optimization: {
+    usedExports: true,
+    minimize: true
+  }
+};
+</code></pre>
+<p>Audit third-party dependencies that inflate bundle size disproportionately. A date-picker library weighing 80KB might replace with a lightweight alternative at 8KB, reducing total bundle size 15% for functionality users access rarely.</p>
+<h2 id="preloading-and-prefetching-critical-resources">Preloading and Prefetching Critical Resources</h2>
+<p>SPAs often lazy-load components, delaying <strong>above-the-fold rendering</strong> until multiple round trips complete. Preload directives instruct browsers to fetch critical resources during HTML parsing rather than waiting for JavaScript execution:</p>
+<pre><code class="language-html">&lt;!-- Preload critical chunks --&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/js/main-chunk.js&quot; as=&quot;script&quot;&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/fonts/heading-font.woff2&quot; as=&quot;font&quot; crossorigin&gt;
+
+&lt;!-- Prefetch likely next pages --&gt;
+&lt;link rel=&quot;prefetch&quot; href=&quot;/products/featured.json&quot;&gt;
+</code></pre>
+<p>SSR implementations can inject dynamic preload hints based on current route, product pages preload product image assets, category pages preload category data endpoints.</p>
+<p><strong>Resource hints</strong> reduce latency for external dependencies:</p>
+<pre><code class="language-html">&lt;!-- DNS prefetching for third-party domains --&gt;
+&lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://api.example.com&quot;&gt;
+
+&lt;!-- Preconnect for critical external resources --&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://cdn.example.com&quot; crossorigin&gt;
+</code></pre>
+<p>These micro-optimizations shave 100-300ms from resource loading, compressing the window where crawlers must wait for content availability.</p>
+<h2 id="monitoring-spa-seo-health">Monitoring SPA SEO Health</h2>
+<p>Standard analytics platforms track pageviews but don&#39;t surface <strong>crawler-specific issues</strong> like rendering failures or timeout-induced partial indexing. Implement monitoring that specifically tracks bot behavior:</p>
+<p><strong>Google Search Console</strong> provides the <strong>URL Inspection Tool</strong> that shows exactly how Googlebot renders your pages. Test representative URLs from each route type (product pages, category pages, blog posts) to verify complete rendering and content extraction.</p>
+<p>The <strong>Coverage Report</strong> surfaces indexing errors, including JavaScript-rendering failures that prevent pages from entering the index. Pages listed as &quot;Crawled - currently not indexed&quot; often indicate rendering issues where content doesn&#39;t materialize before timeout.</p>
+<p><strong>Crawl Stats</strong> reveal if Googlebot encounters excessive errors or timeouts, suggesting infrastructure problems serving bot traffic. SSR implementations with inadequate server resources may return 500 errors under crawler load while user-facing traffic succeeds.</p>
+<p>Implement <strong>synthetic monitoring</strong> that crawls your site with headless browsers on a schedule, capturing rendered HTML and comparing it to expected outputs:</p>
+<pre><code class="language-javascript">// Puppeteer monitoring script
+const puppeteer = require(&#39;puppeteer&#39;);
+
+async function testRendering(url) {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(url, { waitUntil: &#39;networkidle0&#39; });
+
+  const title = await page.title();
+  const h1 = await page.$eval(&#39;h1&#39;, el =&gt; el.textContent);
+
+  console.log(`URL: ${url}`);
+  console.log(`Title: ${title}`);
+  console.log(`H1: ${h1}`);
+
+  await browser.close();
+}
+</code></pre>
+<p>Run this across your site&#39;s template types daily, alerting when rendered output deviates from expected values, indicating regressions in your SPA&#39;s crawlability.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Search Engines Struggle With Client-Side Rendering:</strong> Googlebot can execute JavaScript, but the execution model differs fundamentally from server-rendered HTML.</li>
+<li><strong>Server-Side Rendering Implementation:</strong> Server-side rendering (SSR) executes your JavaScript framework on the server during the initial request, generating complete HTML that ships to both browsers and crawlers.</li>
+<li><strong>Static Site Generation for JavaScript Frameworks:</strong> Static site generation (SSG) pre-renders your entire application at build time, producing HTML files for every route that can be served from a CDN without server execution.</li>
+<li><strong>Dynamic Rendering for Crawler-Specific Serving:</strong> Dynamic rendering detects crawler requests and serves pre-rendered HTML while delivering the normal JavaScript application to browser users.</li>
+<li><strong>Fixing SPA Routing for Crawlability:</strong> Client-side routing in SPAs uses the History API (pushState) to update URLs without full page loads.</li>
+<li><strong>Metadata Management in JavaScript Applications:</strong> SPAs dynamically update page titles and meta descriptions through JavaScript after route changes, but this happens after initial HTML delivery.</li>
+</ul>
+<h2 id="faq-single-page-application-seo-troubleshooting">FAQ: Single-Page Application SEO Troubleshooting</h2>
+<p><strong>Is client-side rendering ever acceptable for SEO?</strong>
+For logged-in dashboards, tools, and applications where public discoverability isn&#39;t required, client-side rendering is fine. For any content targeting organic search traffic, SSR or SSG is strongly recommended.</p>
+<p><strong>How do I choose between SSR and SSG?</strong>
+Use SSG for content that changes infrequently (marketing pages, blogs, documentation). Use SSR for content requiring real-time data (product inventory, user-specific recommendations, live data feeds). Hybrid approaches let you mix strategies per route.</p>
+<p><strong>Does SSR guarantee my site will rank?</strong>
+No. SSR ensures crawlers can access your content, but ranking depends on content quality, backlinks, site authority, and hundreds of other signals. SSR removes a technical barrier, not a ranking guarantee.</p>
+<p><strong>Can I implement SSR gradually or must I migrate the entire site?</strong>
+Most frameworks allow route-by-route SSR adoption. Start with your highest-traffic pages or most commercially important content, validate results, then expand coverage. Complete migration isn&#39;t required to see benefits.</p>
+<p><strong>Will dynamic rendering get me penalized for cloaking?</strong>
+No, as long as crawler and user versions contain identical content after JavaScript execution. Google explicitly endorses dynamic rendering as an acceptable workaround. Don&#39;t serve crawlers unique content or hide elements from users.</p>
+<p><strong>How long does it take for SSR changes to improve rankings?</strong>
+Expect 4-8 weeks for reindexing after implementing SSR. Google must recrawl affected pages, reprocess them with new rendering, and recalculate rankings based on updated signals. Monitor Search Console coverage reports for indexing progress.</p>
+<p><strong>Do SPAs have slower indexing than traditional sites?</strong>
+Yes. Client-rendered content enters a secondary processing queue with longer delays. SSR and SSG restore normal indexing timelines by providing complete HTML in initial responses. See <a href="site-migration-post-launch-audit.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">site-migration-post-launch-audit</a> for validation protocols.</p>
+<p><strong>Should I use prerendering services or build SSR myself?</strong>
+Prerendering services (Prerender.io, Rendertron) are faster to implement but add ongoing costs and latency. SSR gives you full control and better performance but requires framework-specific implementation. Start with prerendering to validate the concept, then migrate to native SSR as traffic justifies it.</p>
+<p><strong>How do I handle SPA routing for multilingual sites?</strong>
+SSR frameworks support internationalization through routing configurations that render appropriate content based on URL path (<code>/en/products</code>, <code>/es/productos</code>) or domain. Each language version should have complete SSR/SSG implementation, not client-side language switching.</p>
+<p><strong>What&#39;s the relationship between SPA performance and crawl budget?</strong>
+Slow-rendering SPAs consume more crawl budget per page since crawlers must wait longer for content availability. This reduces the total pages crawled per session. Fast SSR/SSG implementations maximize pages crawled within your allocated budget. See <a href="troubleshoot-caching-issues-seo.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">troubleshoot-caching-issues-seo</a> for performance optimization strategies.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/render-budget-google-javascript-processing.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">JavaScript SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Render Budget and Google JavaScript Processing: Indexing Optimization</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Understand Google's JavaScript rendering constraints and optimize for efficient crawling. Navigate render budget limits and ensure critical content visibility.</p>
+          </a>
+
+          <a href="/articles/minify-css-javascript-html.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance Optimization</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Minify CSS, JavaScript, and HTML to Reduce Page Load Time</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Eliminate render-blocking resources and shrink file sizes with proper minification. Step-by-step guide to CSS, JS, and HTML compression techniques.</p>
+          </a>
+
+          <a href="/articles/async-vs-defer-javascript-seo.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">speed</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Async vs Defer for JavaScript: Which to Use for SEO</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Render-blocking JavaScript kills page speed. Use async or defer to load scripts without blocking rendering. This guide shows when to use each.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

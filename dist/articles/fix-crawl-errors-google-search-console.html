@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Fix Crawl Errors in Google Search Console (Complete Guide) | Polytraffic</title>
+    <meta name="description" content="Crawl errors block Googlebot from indexing your pages, crater organic visibility, and signal poor site health. Learn how to diagnose 404s, server errors, redirect loops, and robots.txt blocks in Google Search Console and fix them systematically." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Fix Crawl Errors in Google Search Console (Complete Guide) | Polytraffic" />
+    <meta property="og:description" content="Crawl errors block Googlebot from indexing your pages, crater organic visibility, and signal poor site health. Learn how to diagnose 404s, server errors, redirect loops, and robots.txt blocks in Google Search Console and fix them systematically." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-crawl-errors-google-search-console" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-crawl-errors-google-search-console.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Fix Crawl Errors in Google Search Console (Complete Guide) | Polytraffic" />
+    <meta name="twitter:description" content="Crawl errors block Googlebot from indexing your pages, crater organic visibility, and signal poor site health. Learn how to diagnose 404s, server errors, redirect loops, and robots.txt blocks in Google Search Console and fix them systematically." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-crawl-errors-google-search-console.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-crawl-errors-google-search-console" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Fix Crawl Errors in Google Search Console (Complete Guide)",
+    "description": "Crawl errors block Googlebot from indexing your pages, crater organic visibility, and signal poor site health. Learn how to diagnose 404s, server errors, redirect loops, and robots.txt blocks in Google Search Console and fix them systematically.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-crawl-errors-google-search-console.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-crawl-errors-google-search-console.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Fix Crawl Errors in Google Search Console (Complete Guide)"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Fix Crawl Errors in Google Search Console (Complete Guide)</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-crawl-errors-google-search-console.png" alt="How to Fix Crawl Errors in Google Search Console (Complete Guide)" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-fix-crawl-errors-in-google-search-console-complete-guide">How to Fix Crawl Errors in Google Search Console (Complete Guide)</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Crawl errors block Googlebot from indexing your pages, crater organic visibility, and signal poor site health. Learn how to diagnose 404s, server errors, redirect loops, and robots.txt blocks in Google Search Console and fix them systematically.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#where-to-find-crawl-errors-in-google-search-console" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Where to Find Crawl Errors in Google Search Console</a></li>
+<li><a href="#the-8-most-common-crawl-errors-and-how-to-fix-them" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">The 8 Most Common Crawl Errors (And How to Fix Them)</a></li>
+<li><a href="#how-to-prioritize-crawl-error-fixes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Prioritize Crawl Error Fixes</a></li>
+<li><a href="#validating-fixes-with-google-search-console" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Validating Fixes with Google Search Console</a></li>
+<li><a href="#advanced-bulk-fixing-crawl-errors-at-scale" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced: Bulk Fixing Crawl Errors at Scale</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Crawl errors</strong> are Googlebot&#39;s way of saying &quot;I tried to index your page, but your site broke the conversation.&quot; A <strong>404</strong> means the page doesn&#39;t exist. A <strong>5xx error</strong> means your server choked. A <strong>redirect loop</strong> means you sent Googlebot in circles until it gave up.</p>
+<p>Each crawl error wastes <strong>crawl budget</strong>, strands pages from the index, and signals to Google that your site health is deteriorating. Left unfixed, crawl errors compound, orphaning entire sections, fragmenting your PageRank, and tanking rankings for pages Google can&#39;t reliably access.</p>
+<p><strong>Google Search Console</strong> surfaces these errors in the <strong>Coverage</strong> and <strong>Page Indexing</strong> reports. This guide shows you how to diagnose every error type, prioritize fixes by impact, and validate that Google recognizes your remediation.</p>
+<h2 id="where-to-find-crawl-errors-in-google-search-console">Where to Find Crawl Errors in Google Search Console</h2>
+<p>Google retired the legacy <strong>Crawl Errors report</strong> in 2019. Errors now surface in three locations:</p>
+<h3 id="1-coverage-report-legacy-interface">1. Coverage Report (Legacy Interface)</h3>
+<p><strong>Path:</strong> Google Search Console → Coverage</p>
+<p><strong>Four tabs:</strong></p>
+<ul>
+<li><strong>Error:</strong> Pages Google tried to index but failed</li>
+<li><strong>Valid with warnings:</strong> Indexed but with issues</li>
+<li><strong>Valid:</strong> Successfully indexed</li>
+<li><strong>Excluded:</strong> Intentionally not indexed (canonical, noindex, etc.)</li>
+</ul>
+<p>Click <strong>Error</strong> tab. You&#39;ll see categories:</p>
+<ul>
+<li><strong>Server error (5xx)</strong></li>
+<li><strong>Redirect error</strong></li>
+<li><strong>Submitted URL not found (404)</strong></li>
+<li><strong>Submitted URL has crawl issue</strong></li>
+</ul>
+<p>Click each category to see affected URLs. Export: <strong>Export → Download → CSV</strong></p>
+<h3 id="2-page-indexing-report-new-interface">2. Page Indexing Report (New Interface)</h3>
+<p><strong>Path:</strong> Google Search Console → Pages → Why pages aren&#39;t indexed</p>
+<p><strong>Categories:</strong></p>
+<ul>
+<li><strong>Not found (404)</strong></li>
+<li><strong>Server error (5xx)</strong></li>
+<li><strong>Redirect error</strong></li>
+<li><strong>Blocked by robots.txt</strong></li>
+<li><strong>Crawled – currently not indexed</strong></li>
+</ul>
+<p>Click any category to expand the list of affected URLs.</p>
+<h3 id="3-url-inspection-tool-individual-page-analysis">3. URL Inspection Tool (Individual Page Analysis)</h3>
+<p><strong>Path:</strong> Google Search Console → URL Inspection</p>
+<p>Enter any URL. The tool shows:</p>
+<ul>
+<li><strong>Coverage status:</strong> Indexed, Not indexed, or Error</li>
+<li><strong>Crawl details:</strong> Last crawl date, user agent, HTTP status code</li>
+<li><strong>Indexing issues:</strong> Canonical conflicts, noindex tags, robots.txt blocks</li>
+</ul>
+<p>Use this for <strong>deep diagnosis</strong> of individual high-priority pages.</p>
+<h2 id="the-8-most-common-crawl-errors-and-how-to-fix-them">The 8 Most Common Crawl Errors (And How to Fix Them)</h2>
+<h3 id="error-1-submitted-url-not-found-404">Error #1: Submitted URL Not Found (404)</h3>
+<p><strong>What it means:</strong> You included a URL in your sitemap, but it returns a <strong>404 Not Found</strong> error.</p>
+<p><strong>Why it happens:</strong></p>
+<ul>
+<li>You deleted a page but forgot to remove it from the sitemap</li>
+<li>You migrated content and didn&#39;t set up redirects</li>
+<li>Your CMS generates sitemap URLs that don&#39;t match actual page URLs (parameter mismatches)</li>
+</ul>
+<p><strong>Impact:</strong> Wasted crawl budget. Google keeps trying to crawl dead links.</p>
+<p><strong>How to fix:</strong></p>
+<p><strong>Step 1:</strong> Export the list from GSC:</p>
+<ul>
+<li>Coverage → Error → Submitted URL not found (404) → Export</li>
+</ul>
+<p><strong>Step 2:</strong> For each URL, decide:</p>
+<p><strong>Option A (URL should exist):</strong> Fix the page or restore it from backup.</p>
+<p><strong>Option B (URL was intentionally deleted):</strong></p>
+<ol>
+<li>Remove from sitemap</li>
+<li>If the URL has <strong>backlinks</strong> (check Ahrefs/Semrush), 301 redirect to relevant alternative:<pre><code class="language-apache"># Apache .htaccess
+Redirect 301 /old-product https://yourdomain.com/new-product
+</code></pre>
+</li>
+</ol>
+<p><strong>Option C (URL is a duplicate):</strong> 301 redirect to canonical version.</p>
+<p><strong>Step 3:</strong> Clean your sitemap. If using WordPress + Yoast SEO:</p>
+<ol>
+<li><strong>SEO → General → Features → XML Sitemaps</strong> → Advanced settings</li>
+<li><strong>Post types</strong> → Disable sitemaps for post types you don&#39;t want indexed (e.g., &quot;Media&quot;)</li>
+</ol>
+<p>For custom sitemaps, filter out 404s:</p>
+<pre><code class="language-php">// PHP: Only include URLs that return 200
+$urls = get_all_urls();
+foreach ($urls as $url) {
+  $headers = get_headers($url);
+  if (strpos($headers[0], &#39;200&#39;) !== false) {
+    echo &#39;&lt;url&gt;&lt;loc&gt;&#39; . $url . &#39;&lt;/loc&gt;&lt;/url&gt;&#39;;
+  }
+}
+</code></pre>
+<p><strong>Step 4:</strong> Request re-indexing:</p>
+<ul>
+<li>GSC → URL Inspection → Test live URL → Request Indexing</li>
+</ul>
+<p>Wait 7-14 days for errors to clear.</p>
+<h3 id="error-2-server-error-5xx">Error #2: Server Error (5xx)</h3>
+<p><strong>What it means:</strong> Your server returned a <strong>500 Internal Server Error</strong>, <strong>502 Bad Gateway</strong>, or <strong>503 Service Unavailable</strong> when Googlebot tried to crawl.</p>
+<p><strong>Why it happens:</strong></p>
+<ul>
+<li>Server overload (high traffic, insufficient resources)</li>
+<li>Database connection failures</li>
+<li>Plugin conflicts (WordPress)</li>
+<li>CDN outages</li>
+<li>Coding errors (PHP fatal errors, broken scripts)</li>
+</ul>
+<p><strong>Impact:</strong> Severe. Google may deindex pages if 5xx errors persist for weeks.</p>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Step 1:</strong> Check error frequency:</p>
+<ul>
+<li>GSC → Coverage → Server error (5xx)</li>
+<li>Click into the error → <strong>See examples</strong></li>
+</ul>
+<p><strong>Step 2:</strong> Check your server error logs (not access logs):</p>
+<p><strong>Apache:</strong></p>
+<pre><code class="language-bash">tail -f /var/log/apache2/error.log
+</code></pre>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-bash">tail -f /var/log/nginx/error.log
+</code></pre>
+<p>Look for patterns:</p>
+<pre><code>[error] 12345#0: *67890 FastCGI sent in stderr: &quot;PHP message: PHP Fatal error: Allowed memory size exhausted&quot;
+</code></pre>
+<p><strong>Step 3:</strong> Reproduce the error:</p>
+<ol>
+<li>Visit the affected URL</li>
+<li>Open browser DevTools (<code>F12</code>) → Network tab</li>
+<li>Refresh page</li>
+<li>Check response status code (should be 200, not 5xx)</li>
+</ol>
+<p><strong>How to fix:</strong></p>
+<p><strong>Temporary overload:</strong></p>
+<ul>
+<li>Upgrade hosting plan (more CPU, RAM)</li>
+<li>Enable caching (WP Super Cache, W3 Total Cache)</li>
+<li>Use a CDN (Cloudflare, Cloudfront)</li>
+</ul>
+<p><strong>Database issues:</strong></p>
+<ul>
+<li>Optimize database tables: <code>mysqlcheck -o --all-databases</code></li>
+<li>Increase MySQL memory: Edit <code>/etc/mysql/my.cnf</code>, increase <code>innodb_buffer_pool_size</code></li>
+</ul>
+<p><strong>Plugin conflicts (WordPress):</strong></p>
+<ol>
+<li>Deactivate all plugins</li>
+<li>Test URL</li>
+<li>Reactivate plugins one-by-one until error returns</li>
+<li>Replace problematic plugin or contact developer</li>
+</ol>
+<p><strong>PHP errors:</strong>
+Check PHP error log:</p>
+<pre><code class="language-bash">tail -f /var/log/php-fpm/error.log
+</code></pre>
+<p>Fix the reported error (syntax, memory limit, missing function). If memory exhausted:</p>
+<pre><code class="language-php">// In wp-config.php
+define(&#39;WP_MEMORY_LIMIT&#39;, &#39;256M&#39;);
+</code></pre>
+<h3 id="error-3-redirect-error-redirect-loop-or-chain">Error #3: Redirect Error (Redirect Loop or Chain)</h3>
+<p><strong>What it means:</strong> Googlebot followed redirects but either hit a loop (A → B → A) or gave up after too many hops (A → B → C → D → E).</p>
+<p><strong>Why it happens:</strong></p>
+<ul>
+<li>Conflicting redirect rules in <code>.htaccess</code> or <code>nginx.conf</code></li>
+<li>Plugin redirect conflicts (WordPress: Redirection + Yoast both trying to redirect)</li>
+<li>HTTP → HTTPS redirect loops (misconfigured)</li>
+</ul>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Step 1:</strong> Test the URL with <strong>Redirect Checker</strong>:</p>
+<ul>
+<li>Use online tool: <code>https://httpstatus.io</code></li>
+<li>Or command line:<pre><code class="language-bash">curl -I -L https://yourdomain.com/page
+</code></pre>
+</li>
+</ul>
+<p>Output shows each redirect hop:</p>
+<pre><code>HTTP/1.1 301 Moved Permanently
+Location: https://yourdomain.com/page2
+
+HTTP/1.1 301 Moved Permanently
+Location: https://yourdomain.com/page3
+
+HTTP/1.1 200 OK
+</code></pre>
+<p><strong>If you see the same URL twice = loop.</strong></p>
+<p><strong>Step 2:</strong> Check redirect rules:</p>
+<p><strong>Apache (.htaccess):</strong></p>
+<pre><code class="language-bash">cat .htaccess | grep -i redirect
+</code></pre>
+<p>Look for conflicting rules:</p>
+<pre><code class="language-apache">Redirect 301 /page https://yourdomain.com/page2
+Redirect 301 /page2 https://yourdomain.com/page  # LOOP
+</code></pre>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-bash">grep -r &quot;rewrite&quot; /etc/nginx/sites-enabled/
+</code></pre>
+<p><strong>Step 3:</strong> Check plugin conflicts (WordPress):</p>
+<ol>
+<li><strong>Plugins → Redirection</strong> (if installed) → Check redirect list</li>
+<li><strong>Yoast SEO → Tools → File Editor</strong> → Check <code>.htaccess</code> for duplicates</li>
+<li>Deactivate <strong>Redirection</strong> plugin temporarily, test URL</li>
+</ol>
+<p><strong>How to fix:</strong></p>
+<p><strong>Remove conflicting redirects:</strong>
+Edit <code>.htaccess</code> or <code>nginx.conf</code>, delete duplicate redirect rules.</p>
+<p><strong>Consolidate redirect logic:</strong>
+Use ONE redirect method (plugin OR .htaccess, not both).</p>
+<p><strong>Fix HTTPS redirect loops:</strong>
+Ensure only ONE rule forces HTTPS:</p>
+<pre><code class="language-apache"># Apache (remove duplicates)
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</code></pre>
+<p><strong>Shorten redirect chains:</strong>
+If <code>/old-url</code> redirects to <code>/temp-url</code> which redirects to <code>/new-url</code>, update <code>/old-url</code> to redirect directly to <code>/new-url</code>.</p>
+<h3 id="error-4-blocked-by-robots-txt">Error #4: Blocked by robots.txt</h3>
+<p><strong>What it means:</strong> Your <code>robots.txt</code> file has a <code>Disallow</code> rule blocking Googlebot from crawling the URL.</p>
+<p><strong>Why it happens:</strong></p>
+<ul>
+<li>Accidental wildcard rules: <code>Disallow: /</code></li>
+<li>Plugin-generated robots.txt (security plugins, SEO plugins)</li>
+<li>Legacy rules from site migration</li>
+</ul>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Step 1:</strong> Check your robots.txt:</p>
+<pre><code>https://yourdomain.com/robots.txt
+</code></pre>
+<p>Example problematic rule:</p>
+<pre><code>User-agent: *
+Disallow: /products/
+</code></pre>
+<p>This blocks ALL bots from <code>/products/</code> directory.</p>
+<p><strong>Step 2:</strong> Use <strong>GSC robots.txt Tester:</strong></p>
+<ol>
+<li>GSC → Settings → Open report (under &quot;robots.txt Tester&quot; heading)</li>
+<li>Enter the blocked URL</li>
+<li>Click <strong>Test</strong></li>
+</ol>
+<p>If &quot;Blocked,&quot; the tester shows which line in robots.txt caused the block.</p>
+<p><strong>How to fix:</strong></p>
+<p><strong>Remove overly broad rules:</strong>
+If you meant to block only test pages:</p>
+<pre><code># Wrong
+Disallow: /
+
+# Correct
+Disallow: /test/
+</code></pre>
+<p><strong>Allow Googlebot explicitly:</strong></p>
+<pre><code>User-agent: Googlebot
+Allow: /products/
+
+User-agent: *
+Disallow: /products/
+</code></pre>
+<p>This allows Googlebot while blocking other bots.</p>
+<p><strong>WordPress fix (plugin-generated robots.txt):</strong></p>
+<ol>
+<li><strong>Yoast SEO → Tools → File Editor → robots.txt</strong></li>
+<li>Or <strong>Rank Math → General Settings → Edit robots.txt</strong></li>
+<li>Remove problematic <code>Disallow</code> lines</li>
+</ol>
+<p><strong>Verify fix:</strong>
+Re-test in GSC robots.txt Tester. If &quot;Allowed,&quot; request re-indexing via URL Inspection.</p>
+<h3 id="error-5-soft-404">Error #5: Soft 404</h3>
+<p><strong>What it means:</strong> Your page returns a <strong>200 OK</strong> status but shows &quot;Page not found&quot; or empty content. Google detects this and flags it as a soft 404.</p>
+<p><strong>Why it happens:</strong></p>
+<ul>
+<li>Custom 404 pages configured to return 200 instead of 404 status</li>
+<li>CMS misconfiguration (WordPress returns 200 for deleted posts instead of 404)</li>
+<li>JavaScript-rendered content fails, leaving blank page</li>
+</ul>
+<p><strong>How to diagnose:</strong></p>
+<p><strong>Step 1:</strong> Visit the flagged URL. If you see &quot;Page not found&quot; but browser DevTools shows <strong>200 OK</strong>, it&#39;s a soft 404.</p>
+<p><strong>Step 2:</strong> Check HTTP headers:</p>
+<pre><code class="language-bash">curl -I https://yourdomain.com/deleted-page
+</code></pre>
+<p>Output:</p>
+<pre><code>HTTP/1.1 200 OK
+</code></pre>
+<p>Should be:</p>
+<pre><code>HTTP/1.1 404 Not Found
+</code></pre>
+<p><strong>How to fix:</strong></p>
+<p><strong>WordPress:</strong> Ensure deleted posts return 404:</p>
+<pre><code class="language-php">// In functions.php
+add_action(&#39;template_redirect&#39;, function() {
+  if (is_404()) {
+    status_header(404);
+  }
+});
+</code></pre>
+<p><strong>Custom 404 page:</strong> Ensure it returns proper header:</p>
+<pre><code class="language-php">// In 404.php template
+header(&quot;HTTP/1.1 404 Not Found&quot;);
+</code></pre>
+<p><strong>JavaScript SPAs (React, Vue):</strong>
+Configure server to return 404 for missing routes:</p>
+<pre><code class="language-javascript">// Node.js/Express
+app.get(&#39;*&#39;, (req, res) =&gt; {
+  res.status(404).sendFile(__dirname + &#39;/public/404.html&#39;);
+});
+</code></pre>
+<h3 id="error-6-crawled-currently-not-indexed">Error #6: Crawled – Currently Not Indexed</h3>
+<p><strong>What it means:</strong> Googlebot successfully crawled the page, but decided not to index it.</p>
+<p><strong>Why it happens:</strong></p>
+<ul>
+<li><strong>Low quality:</strong> Thin content (&lt;300 words), duplicate content, or scraped content</li>
+<li><strong>Low demand:</strong> Google sees the page as low-value (few backlinks, low traffic potential)</li>
+<li><strong>Crawl budget prioritization:</strong> Large sites with 100,000+ pages; Google indexes high-value pages first</li>
+</ul>
+<p><strong>How to fix:</strong></p>
+<p><strong>Step 1:</strong> Audit content quality:</p>
+<ol>
+<li>Visit the URL</li>
+<li>Check word count (aim for 800+ words for blog posts, 500+ for product pages)</li>
+<li>Check for duplicate content (use <strong>Copyscape</strong> or <strong>Siteliner</strong>)</li>
+</ol>
+<p><strong>Step 2:</strong> Improve on-page SEO:</p>
+<ul>
+<li>Add <strong>internal links</strong> from high-authority pages (homepage, top blog posts)</li>
+<li>Add <strong>multimedia</strong> (images, videos, infographics)</li>
+<li>Add <strong>structured data</strong> (FAQ schema, HowTo schema, Product schema)</li>
+</ul>
+<p><strong>Step 3:</strong> Request indexing:</p>
+<ul>
+<li>GSC → URL Inspection → Request Indexing</li>
+</ul>
+<p><strong>Step 4 (if still not indexed after 30 days):</strong>
+Consider consolidating the page with a higher-priority page (redirect or canonical tag).</p>
+<h3 id="error-7-discovered-currently-not-indexed">Error #7: Discovered – Currently Not Indexed</h3>
+<p><strong>What it means:</strong> Google found the URL (via sitemap, external link, or internal link) but hasn&#39;t crawled it yet.</p>
+<p><strong>Why it happens:</strong></p>
+<ul>
+<li><strong>New site:</strong> Google hasn&#39;t allocated crawl budget yet</li>
+<li><strong>Low internal linking:</strong> Page is orphaned or buried deep in site architecture</li>
+<li><strong>Crawl queue backlog:</strong> Google prioritizes higher-value pages first</li>
+</ul>
+<p><strong>How to fix:</strong></p>
+<p><strong>Step 1:</strong> Increase internal links:
+Add 5-10 internal links to the page from high-authority pages (homepage, pillar content).</p>
+<p><strong>Step 2:</strong> Add to sitemap (if not already):
+Ensure URL appears in <code>sitemap.xml</code>.</p>
+<p><strong>Step 3:</strong> Request indexing:
+GSC → URL Inspection → Request Indexing</p>
+<p><strong>Step 4:</strong> Build external backlinks:
+If internal fixes don&#39;t work, get 2-3 external links (guest posts, partnerships, social shares).</p>
+<h3 id="error-8-alternate-page-with-proper-canonical-tag">Error #8: Alternate Page with Proper Canonical Tag</h3>
+<p><strong>What it means:</strong> The page is intentionally not indexed because it has a canonical tag pointing to a different URL.</p>
+<p><strong>Why it&#39;s flagged:</strong> Google wants you to know it&#39;s obeying your canonical directive.</p>
+<p><strong>Is this an error?</strong> No, it&#39;s informational. If the canonical is correct, ignore this.</p>
+<p><strong>How to fix (if canonical is wrong):</strong></p>
+<p><strong>Step 1:</strong> Check the canonical:</p>
+<pre><code class="language-bash">curl -s https://yourdomain.com/page | grep canonical
+</code></pre>
+<p>Output:</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://yourdomain.com/other-page&quot; /&gt;
+</code></pre>
+<p><strong>Step 2:</strong> If the page SHOULD be indexed (not a duplicate), update canonical to self-reference:</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://yourdomain.com/page&quot; /&gt;
+</code></pre>
+<p><strong>WordPress (Yoast):</strong></p>
+<ol>
+<li>Edit the page</li>
+<li>Scroll to <strong>Yoast SEO meta box → Advanced → Canonical URL</strong></li>
+<li>Leave blank (self-referencing) or enter the correct URL</li>
+</ol>
+<h2 id="how-to-prioritize-crawl-error-fixes">How to Prioritize Crawl Error Fixes</h2>
+<p>Not all crawl errors matter equally. Triage based on:</p>
+<h3 id="high-priority-fix-immediately">High Priority (Fix Immediately)</h3>
+<ol>
+<li><strong>Server errors (5xx)</strong> on high-traffic pages (homepage, product pages)</li>
+<li><strong>404s</strong> with external backlinks (check Ahrefs → Backlinks → Filter by 404)</li>
+<li><strong>Redirect loops</strong> affecting navigation or checkout flows</li>
+<li><strong>Robots.txt blocks</strong> on pages you WANT indexed</li>
+</ol>
+<h3 id="medium-priority-fix-this-week">Medium Priority (Fix This Week)</h3>
+<ol>
+<li><strong>Soft 404s</strong> on product/service pages</li>
+<li><strong>Crawled – not indexed</strong> for money pages (transactional intent keywords)</li>
+<li><strong>Redirect chains</strong> causing slow page loads</li>
+</ol>
+<h3 id="low-priority-batch-monthly">Low Priority (Batch Monthly)</h3>
+<ol>
+<li><strong>404s</strong> with zero backlinks and zero internal links (orphans)</li>
+<li><strong>Discovered – not indexed</strong> for low-traffic content (old blog posts)</li>
+<li><strong>Alternate page with proper canonical tag</strong> (informational, not an error)</li>
+</ol>
+<h2 id="validating-fixes-with-google-search-console">Validating Fixes with Google Search Console</h2>
+<p>After fixing errors:</p>
+<h3 id="step-1-validate-fix-in-gsc">Step 1: Validate Fix in GSC</h3>
+<ol>
+<li><strong>GSC → Coverage → Error</strong> (or Pages → Why pages aren&#39;t indexed)</li>
+<li>Click the error type you fixed</li>
+<li>Click <strong>Validate Fix</strong></li>
+</ol>
+<p>Google will re-crawl affected URLs over the next 7-28 days. Status changes from &quot;Pending&quot; → &quot;Passed&quot; (if fixed) or &quot;Failed&quot; (if still broken).</p>
+<h3 id="step-2-monitor-coverage-trends">Step 2: Monitor Coverage Trends</h3>
+<p><strong>GSC → Coverage → Overview</strong></p>
+<p>Watch the graph:</p>
+<ul>
+<li><strong>Error count</strong> should decline</li>
+<li><strong>Valid count</strong> should rise</li>
+</ul>
+<p>If errors persist after 30 days, re-audit for missed issues.</p>
+<h3 id="step-3-use-url-inspection-for-spot-checks">Step 3: Use URL Inspection for Spot-Checks</h3>
+<p>For high-priority pages:</p>
+<ol>
+<li><strong>GSC → URL Inspection</strong></li>
+<li>Enter URL</li>
+<li>Click <strong>Test live URL</strong></li>
+<li>If &quot;Page is indexable,&quot; request re-indexing</li>
+</ol>
+<h2 id="advanced-bulk-fixing-crawl-errors-at-scale">Advanced: Bulk Fixing Crawl Errors at Scale</h2>
+<p>For sites with 1,000+ crawl errors, manual fixes don&#39;t scale.</p>
+<h3 id="use-screaming-frog-to-map-issues">Use Screaming Frog to Map Issues</h3>
+<ol>
+<li>Crawl your site: <strong>Screaming Frog → Enter domain → Start</strong></li>
+<li>Export errors: <strong>Response Codes → Client Error (4xx) → Export</strong></li>
+<li>Cross-reference with GSC export (Coverage → Export)</li>
+</ol>
+<p><strong>Identify patterns:</strong></p>
+<ul>
+<li>All 404s in <code>/products/</code> directory? Check sitemap generation logic.</li>
+<li>All 5xx errors during peak hours? Server resource issue.</li>
+</ul>
+<h3 id="automate-redirects-wordpress">Automate Redirects (WordPress)</h3>
+<p>Use <strong>Redirection</strong> plugin with CSV import:</p>
+<ol>
+<li>Export GSC 404 list</li>
+<li>Add &quot;Redirect to&quot; column in Excel</li>
+<li>Import to <strong>Redirection → Import/Export → Import from CSV</strong></li>
+</ol>
+<h3 id="set-up-monitoring-alerts">Set Up Monitoring Alerts</h3>
+<p><strong>Google Search Console:</strong></p>
+<ol>
+<li><strong>Settings → Users and permissions → Add user</strong></li>
+<li>Enable <strong>Email notifications for coverage issues</strong></li>
+</ol>
+<p><strong>Third-party:</strong></p>
+<ul>
+<li><strong>Ahrefs Site Audit</strong> → Set up weekly crawls → Email alerts for 404/5xx spikes</li>
+<li><strong>Sitebulb</strong> → Schedule audits → Slack/email alerts</li>
+</ul>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>How long does it take Google to recognize fixed crawl errors?</strong></p>
+<p>7-14 days for small sites. 4-8 weeks for large sites (50,000+ pages) as Google re-crawls incrementally. Use &quot;Validate Fix&quot; in GSC to expedite.</p>
+<p><strong>Why do crawl errors reappear after I fix them?</strong></p>
+<p>Common causes:</p>
+<ul>
+<li>Cached sitemaps (regenerate sitemap, ping Google)</li>
+<li>CDN caching old responses (purge CDN cache)</li>
+<li>External sites still linking to old URLs (reach out for link updates or redirect)</li>
+</ul>
+<p><strong>Can crawl errors cause a ranking penalty?</strong></p>
+<p>No direct penalty. But they waste crawl budget, delay indexing of fresh content, and signal poor site quality, all of which harm rankings indirectly.</p>
+<p><strong>Should I fix all crawl errors or prioritize high-impact ones?</strong></p>
+<p>Prioritize. Fixing 10 high-impact errors (5xx on top pages, 404s with backlinks) yields more SEO gain than fixing 1,000 low-impact orphan 404s.</p>
+<p><strong>What if GSC shows errors for URLs that don&#39;t exist on my site?</strong></p>
+<p>These are likely:</p>
+<ul>
+<li>External sites linking to mistyped URLs (ignore or redirect to homepage)</li>
+<li>Old URLs from previous site version (redirect to relevant page)</li>
+<li>Malicious bot probes (ignore, don&#39;t waste time redirecting hacker test URLs)</li>
+</ul>
+<p><strong>Can I ignore &quot;Alternate page with proper canonical tag&quot; errors?</strong></p>
+<p>Yes. This isn&#39;t an error, it&#39;s informational. Google is confirming it&#39;s following your canonical directive.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<p>Crawl errors fragment your indexing, bleed crawl budget, and signal site instability to Google. Audit GSC weekly, prioritize fixes by traffic impact, and validate with URL Inspection. A clean crawl profile accelerates indexing, stabilizes rankings, and maximizes your organic visibility.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-indexing-issues-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Indexing Issues in Google Search Console (Complete Diagnostic Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Google Search Console shows pages excluded from indexing? Learn how to diagnose crawl errors, fix server issues, resolve canonical conflicts, and force Google to index your critical pages.</p>
+          </a>
+
+          <a href="/articles/fix-sitemap-errors-search-console.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Sitemap Errors in Google Search Console</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Diagnose and resolve sitemap errors in Google Search Console including parse errors, URL not found issues, and indexing blockers that prevent pages from ranking.</p>
+          </a>
+
+          <a href="/articles/fix-soft-404-errors.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Soft 404 Errors in Google Search Console</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Diagnose and resolve soft 404 errors that waste crawl budget and confuse search engines by serving proper HTTP status codes and fixing thin content patterns.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

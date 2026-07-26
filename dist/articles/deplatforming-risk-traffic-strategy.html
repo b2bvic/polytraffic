@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deplatforming Risk: How to Build Traffic Resilience Against Account Suspension | Polytraffic</title>
+    <meta name="description" content="Platform-dependent traffic is fragile. One suspension erases years of audience building. Learn how to architect traffic sources that survive deplatforming events." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Deplatforming Risk: How to Build Traffic Resilience Against Account Suspension | Polytraffic" />
+    <meta property="og:description" content="Platform-dependent traffic is fragile. One suspension erases years of audience building. Learn how to architect traffic sources that survive deplatforming events." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/deplatforming-risk-traffic-strategy" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/deplatforming-risk-traffic-strategy.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Deplatforming Risk: How to Build Traffic Resilience Against Account Suspension | Polytraffic" />
+    <meta name="twitter:description" content="Platform-dependent traffic is fragile. One suspension erases years of audience building. Learn how to architect traffic sources that survive deplatforming events." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/deplatforming-risk-traffic-strategy.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/deplatforming-risk-traffic-strategy" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Deplatforming Risk: How to Build Traffic Resilience Against Account Suspension",
+    "description": "Platform-dependent traffic is fragile. One suspension erases years of audience building. Learn how to architect traffic sources that survive deplatforming events.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/deplatforming-risk-traffic-strategy.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/deplatforming-risk-traffic-strategy.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/traffic-strategy.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Deplatforming Risk: How to Build Traffic Resilience Against Account Suspension"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/traffic-strategy.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Deplatforming Risk: How to Build Traffic Resilience Against Account Suspension</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/deplatforming-risk-traffic-strategy.png" alt="Deplatforming Risk: How to Build Traffic Resilience Against Account Suspension" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="deplatforming-risk-how-to-build-traffic-resilience-against-account-suspension">Deplatforming Risk: How to Build Traffic Resilience Against Account Suspension</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Platform-dependent traffic is fragile. One suspension erases years of audience building. Learn how to architect traffic sources that survive deplatforming events.</li>
+<li><strong>Who it&#39;s for:</strong> traffic strategists and growth operators</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#the-mechanics-of-deplatforming" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">The Mechanics of Deplatforming</a></li>
+<li><a href="#quantifying-your-deplatforming-risk" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Quantifying Your Deplatforming Risk</a></li>
+<li><a href="#building-deplatforming-resistant-traffic" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Building Deplatforming-Resistant Traffic</a></li>
+<li><a href="#crisis-response-recovering-from-deplatforming" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Crisis Response: Recovering from Deplatforming</a></li>
+<li><a href="#legal-and-regulatory-considerations" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Legal and Regulatory Considerations</a></li>
+<li><a href="#case-study-multi-channel-resilience" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Case Study: Multi-Channel Resilience</a></li>
+<li><a href="#tools-for-deplatforming-resilience" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Tools for Deplatforming Resilience</a></li>
+<li><a href="#when-this-analysis-doesn-t-apply" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Analysis Doesn't Apply</a></li>
+</ul>
+<p><strong>Deplatforming</strong>, permanent or temporary suspension from a distribution platform, can erase traffic channels built over years in a single day. <strong>Twitter/X</strong> suspended <strong>1.2 million accounts</strong> in 2024 for policy violations (per <strong>Twitter Transparency Report</strong>). <strong>YouTube</strong> terminated <strong>3.8 million channels</strong>. <strong>Google Ads</strong> banned <strong>5.6 billion ads</strong> and suspended <strong>12.7 million advertiser accounts</strong>.</p>
+<p>For publishers and ecommerce operators, platform dependency creates <strong>single points of failure</strong>. If <strong>Facebook</strong> drives 60% of your traffic and your Page gets disabled, revenue collapses overnight.</p>
+<p>This article dissects how to quantify deplatforming risk, architect traffic sources with survival resilience, and recover when suspension occurs.</p>
+<h2 id="the-mechanics-of-deplatforming">The Mechanics of Deplatforming</h2>
+<h3 id="algorithmic-vs-manual-suspensions">Algorithmic vs. Manual Suspensions</h3>
+<p><strong>Algorithmic suspensions</strong> are triggered by automated systems scanning for:</p>
+<ul>
+<li><strong>Spam signals</strong>: High outbound link frequency, low engagement rates</li>
+<li><strong>Policy violations</strong>: Hate speech, misinformation (defined opaquely)</li>
+<li><strong>Behavioral patterns</strong>: Rapid follower growth, bulk actions</li>
+</ul>
+<p><strong>Manual suspensions</strong> follow user reports or moderation queue review. These are harder to reverse because they involve subjective interpretation.</p>
+<p><strong>YouTube</strong> terminates channels with <strong>three Community Guideline strikes in 90 days</strong>. <strong>Twitter/X</strong> permanently suspends accounts for &quot;platform manipulation&quot; without disclosing specific violations. <strong>Google Ads</strong> suspends accounts for &quot;circumventing systems&quot; if you create new accounts after suspension (even years later).</p>
+<h3 id="the-zero-appeal-problem">The Zero-Appeal Problem</h3>
+<p>Platforms like <strong>TikTok</strong> and <strong>Pinterest</strong> provide <strong>no human appeal process</strong>. Automated emails state &quot;This decision is final&quot; with no explanation. <strong>Facebook</strong> offers appeals but responds to &lt;5% within 30 days (per <strong>EFF&#39;s Platform Accountability Report 2024</strong>).</p>
+<p><strong>Google Ads</strong> provides a <strong>policy violation email</strong> but appeals require proving a negative (that you <em>didn&#39;t</em> violate a vague policy). Success rate: <strong>8-12%</strong> for non-fraudulent cases.</p>
+<h3 id="shadowbanning-partial-deplatforming">Shadowbanning (Partial Deplatforming)</h3>
+<p><strong>Shadowbanning</strong> reduces reach without notification. <strong>Instagram</strong> shadowbans accounts by:</p>
+<ul>
+<li>Removing posts from hashtag feeds</li>
+<li>Suppressing content in follower timelines</li>
+<li>Excluding accounts from Explore recommendations</li>
+</ul>
+<p>You can post, but nobody sees it. Detection methods:</p>
+<ol>
+<li>Post with a unique hashtag (e.g., <code>#test20260208</code>)</li>
+<li>Search for that hashtag from a logged-out browser</li>
+<li>If your post doesn&#39;t appear, you&#39;re shadowbanned</li>
+</ol>
+<p><strong>Twitter/X</strong> uses &quot;visibility filtering&quot; (euphemism for shadowban) to throttle accounts labeled &quot;misinformation&quot; or &quot;civic integrity violations.&quot;</p>
+<h2 id="quantifying-your-deplatforming-risk">Quantifying Your Deplatforming Risk</h2>
+<h3 id="traffic-concentration-index">Traffic Concentration Index</h3>
+<p>Calculate the <strong>Herfindahl-Hirschman Index (HHI)</strong> for your traffic sources:</p>
+<pre><code>HHI = Σ (channel_share²)
+</code></pre>
+<p>Example:</p>
+<ul>
+<li>Organic search: 40% → 0.40² = 0.16</li>
+<li>Facebook: 35% → 0.35² = 0.12</li>
+<li>Email: 15% → 0.15² = 0.02</li>
+<li>Direct: 10% → 0.10² = 0.01</li>
+</ul>
+<p><strong>HHI = 0.31</strong></p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><strong>HHI &gt; 0.25</strong>: High concentration risk (one or two channels dominate)</li>
+<li><strong>HHI &lt; 0.15</strong>: Diversified (no single channel exceeds ~40%)</li>
+</ul>
+<p>If HHI &gt; 0.25, simulate suspension of your largest channel. Calculate revenue impact:</p>
+<pre><code>Max Revenue Loss = (Largest Channel Traffic %) × (Avg. Revenue Per Visit) × (Annual Visits)
+</code></pre>
+<p>For an ecommerce site with 40% traffic from Facebook:</p>
+<pre><code>$500K annual revenue × 0.40 = $200K at-risk revenue
+</code></pre>
+<h3 id="platform-stability-score">Platform Stability Score</h3>
+<p>Rate each platform on <strong>suspension likelihood</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Suspension Rate</th>
+<th>Appeal Success</th>
+<th>Score (1-10)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Organic search</strong></td>
+<td>0.01% (manual penalties)</td>
+<td>60%</td>
+<td>9/10</td>
+</tr>
+<tr>
+<td><strong>Email</strong></td>
+<td>5% (deliverability bans)</td>
+<td>40%</td>
+<td>7/10</td>
+</tr>
+<tr>
+<td><strong>Facebook Ads</strong></td>
+<td>8%</td>
+<td>12%</td>
+<td>5/10</td>
+</tr>
+<tr>
+<td><strong>Google Ads</strong></td>
+<td>4%</td>
+<td>8%</td>
+<td>6/10</td>
+</tr>
+<tr>
+<td><strong>Twitter/X</strong></td>
+<td>12%</td>
+<td>3%</td>
+<td>3/10</td>
+</tr>
+<tr>
+<td><strong>TikTok</strong></td>
+<td>18%</td>
+<td>0%</td>
+<td>2/10</td>
+</tr>
+</tbody></table>
+<p><em>(Suspension rates from <strong>Lumen Database</strong> 2024 + <strong>EFF Platform Accountability</strong> reports)</em></p>
+<p>Multiply each channel&#39;s traffic share by its stability score:</p>
+<pre><code>Weighted Stability = Σ (channel_share × platform_score)
+</code></pre>
+<p><strong>Target: &gt;6.5</strong>. Below 5.0 indicates high deplatforming exposure.</p>
+<h2 id="building-deplatforming-resistant-traffic">Building Deplatforming-Resistant Traffic</h2>
+<h3 id="tier-1-owned-channels-deplatforming-proof">Tier 1: Owned Channels (Deplatforming-Proof)</h3>
+<p><strong>Email lists</strong> and <strong>organic search</strong> are the only channels you control:</p>
+<ul>
+<li><strong>Email</strong>: Platforms (Gmail, Outlook) can blocklist domains, but you own the subscriber list. Export weekly to CSV.</li>
+<li><strong>SEO</strong>: Google can penalize your site, but you own the domain. Rankings recover via cleanup; social accounts do not.</li>
+</ul>
+<p><strong>First-party data ownership</strong> is the foundation. If you can&#39;t export your audience, you don&#39;t own it.</p>
+<h3 id="tier-2-decentralized-platforms-low-deplatforming-risk">Tier 2: Decentralized Platforms (Low Deplatforming Risk)</h3>
+<p><strong>Mastodon</strong>, <strong>Bluesky</strong>, and <strong>Lemmy</strong> use decentralized protocols. If one server bans you, migrate to another without losing followers:</p>
+<ul>
+<li><strong>Mastodon</strong>: Export followers via Settings → Export → Follows CSV</li>
+<li><strong>Bluesky</strong>: Portable identity via AT Protocol, move servers instantly</li>
+</ul>
+<p><strong>Substack</strong> and <strong>Ghost</strong> (self-hosted newsletters) allow <strong>full subscriber export</strong>. Contrast with <strong>Medium</strong> (no export, platform controls your audience).</p>
+<h3 id="tier-3-rented-platforms-high-deplatforming-risk">Tier 3: Rented Platforms (High Deplatforming Risk)</h3>
+<p><strong>Facebook</strong>, <strong>Twitter/X</strong>, <strong>TikTok</strong>, <strong>YouTube</strong>, you&#39;re renting reach. Mitigation strategies:</p>
+<h4 id="cross-link-to-owned-channels">Cross-Link to Owned Channels</h4>
+<p>Every social post should include:</p>
+<ul>
+<li><strong>Newsletter signup CTA</strong>: &quot;Join 12K subscribers at [yourdomain.com/newsletter]&quot;</li>
+<li><strong>Blog post link</strong>: Drive traffic to your domain, not platform-native content</li>
+</ul>
+<p><strong>YouTube</strong> creators with <strong>email lists</strong> survive channel termination. Those without start from zero.</p>
+<h4 id="backup-accounts">Backup Accounts</h4>
+<p>Create secondary accounts on alternative platforms <strong>before</strong> suspension:</p>
+<ul>
+<li><strong>Twitter/X</strong> → <strong>Bluesky</strong> + <strong>Mastodon</strong></li>
+<li><strong>YouTube</strong> → <strong>PeerTube</strong> (federated video hosting) + <strong>Rumble</strong></li>
+<li><strong>Facebook</strong> → <strong>Email list</strong> + <strong>Telegram channel</strong></li>
+</ul>
+<p>Announce backups proactively: &quot;Follow me on Mastodon [@<a href="mailto:handle@server.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">handle@server.com</a>] in case this account vanishes.&quot;</p>
+<h4 id="archive-content-off-platform">Archive Content Off-Platform</h4>
+<p>Use <strong>gallery-dl</strong> or <strong>yt-dlp</strong> to download your content:</p>
+<pre><code class="language-bash"># Download all YouTube videos from your channel
+yt-dlp -f best https://www.youtube.com/@yourchannel/videos
+
+# Download all Instagram posts
+gallery-dl https://www.instagram.com/yourhandle/
+</code></pre>
+<p>Store locally + cloud backup (Backblaze, iCloud). If your channel is terminated, reupload to alternative platforms immediately.</p>
+<h2 id="crisis-response-recovering-from-deplatforming">Crisis Response: Recovering from Deplatforming</h2>
+<h3 id="immediate-actions-first-24-hours">Immediate Actions (First 24 Hours)</h3>
+<ol>
+<li><strong>Notify your audience</strong>: Post to remaining channels (email, blog, alternative socials)</li>
+<li><strong>Document the suspension</strong>: Screenshot the termination notice, timestamps, and any alleged violations</li>
+<li><strong>Submit appeal</strong>: Even if unlikely to succeed, create a paper trail</li>
+<li><strong>Activate backup traffic</strong>: Redirect ad spend to surviving channels</li>
+</ol>
+<p><strong>Email template</strong> for suspension announcement:</p>
+<pre><code>Subject: Update on [Platform] account suspension
+
+Our [Platform] account was suspended on [date]. We&#39;re appealing but want to ensure you stay connected.
+
+Follow us on:
+- Newsletter: [link]
+- [Alternative Platform]: [link]
+
+We&#39;ll update you within 48 hours.
+</code></pre>
+<h3 id="appeal-strategy">Appeal Strategy</h3>
+<p>Platform appeals succeed <strong>8-15%</strong> of the time. Maximize odds:</p>
+<ul>
+<li><strong>Be concise</strong>: 200 words maximum. &quot;I believe this suspension is an error because [specific reason].&quot;</li>
+<li><strong>Cite policy verbatim</strong>: Reference the exact policy clause you <em>didn&#39;t</em> violate</li>
+<li><strong>Provide evidence</strong>: Screenshots proving compliance (e.g., product has FDA approval if suspended for health claims)</li>
+<li><strong>Escalate</strong>: If automated response, reply asking for human review</li>
+</ul>
+<p>For <strong>Google Ads</strong> suspensions, use the <strong>Google Ads Suspended Account Form</strong> (separate from in-platform appeals). Response rate is higher.</p>
+<h3 id="traffic-replacement-math">Traffic Replacement Math</h3>
+<p>If a platform driving 40% of your traffic suspends you, reallocate spend:</p>
+<ol>
+<li><strong>Email acquisition</strong>: Increase lead magnet budget by 30%</li>
+<li><strong>SEO content</strong>: Accelerate publishing schedule (2x frequency)</li>
+<li><strong>Paid search</strong>: Shift budget from suspended social platform to Google/Bing</li>
+</ol>
+<p><strong>Case study</strong>: A DTC brand lost <strong>Facebook Ads</strong> (45% of traffic). They:</p>
+<ul>
+<li>Increased <strong>Google Shopping</strong> spend by $8K/month</li>
+<li>Launched <strong>TikTok Ads</strong> ($3K/month)</li>
+<li>Doubled <strong>content production</strong> (12 → 24 articles/month)</li>
+</ul>
+<p>Six months later, revenue recovered to <strong>94% of pre-suspension levels</strong>. Facebook account was never reinstated.</p>
+<h2 id="legal-and-regulatory-considerations">Legal and Regulatory Considerations</h2>
+<h3 id="section-230-immunity">Section 230 Immunity</h3>
+<p><strong>US platforms</strong> are protected by <strong>Section 230 of the Communications Decency Act</strong>, granting immunity from liability for content moderation decisions. You <strong>cannot sue</strong> Twitter/Facebook/YouTube for wrongful suspension in US courts.</p>
+<p><strong>EU users</strong> have limited recourse via <strong>Digital Services Act (DSA)</strong>, which requires platforms to:</p>
+<ul>
+<li>Provide clear suspension reasons</li>
+<li>Offer appeal mechanisms</li>
+<li>Disclose algorithmic moderation criteria</li>
+</ul>
+<p><strong>DSA compliance</strong> is enforced starting February 2024 for platforms with &gt;45M EU users. File complaints via <strong>EU Digital Services Coordinator</strong>.</p>
+<h3 id="tortious-interference-weak-legal-path">Tortious Interference (Weak Legal Path)</h3>
+<p>If a competitor <strong>mass-reports your account</strong> to trigger suspension, you may have a <strong>tortious interference</strong> claim, but proving:</p>
+<ol>
+<li>The competitor&#39;s identity</li>
+<li>Malicious intent</li>
+<li>Damages directly caused by suspension</li>
+</ol>
+<p>is expensive and rarely succeeds. Budget <strong>$50K+ in legal fees</strong> for a weak case.</p>
+<h2 id="case-study-multi-channel-resilience">Case Study: Multi-Channel Resilience</h2>
+<p>A <strong>B2B SaaS publisher</strong> architected traffic resilience after a <strong>LinkedIn Ads</strong> suspension (ad account banned for &quot;misleading claims&quot;):</p>
+<p><strong>Pre-suspension traffic:</strong></p>
+<ul>
+<li>LinkedIn Ads: 38%</li>
+<li>Organic search: 28%</li>
+<li>Email: 18%</li>
+<li>Twitter: 10%</li>
+<li>Direct: 6%</li>
+</ul>
+<p><strong>HHI = 0.30</strong> (high risk)</p>
+<p><strong>Mitigation actions:</strong></p>
+<ol>
+<li>Increased <strong>SEO budget</strong> by $6K/month (hired contractor for 16 articles/month)</li>
+<li>Launched <strong>Google Ads</strong> ($4K/month)</li>
+<li>Migrated Twitter audience to <strong>Mastodon</strong> (created <code>fosstodon.org</code> account)</li>
+<li>Built <strong>Substack newsletter</strong> (full subscriber export enabled)</li>
+</ol>
+<p><strong>12 months later:</strong></p>
+<ul>
+<li>Organic search: 42%</li>
+<li>Email: 24%</li>
+<li>Google Ads: 18%</li>
+<li>Mastodon: 8%</li>
+<li>Direct: 8%</li>
+</ul>
+<p><strong>HHI = 0.27</strong> (improved, still concentrated)</p>
+<p><strong>LinkedIn</strong> account was never reinstated, but revenue grew <strong>14%</strong> due to higher-quality SEO traffic.</p>
+<h2 id="tools-for-deplatforming-resilience">Tools for Deplatforming Resilience</h2>
+<ul>
+<li><strong><a href="https://ifttt.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">IFTTT</a></strong>: Auto-backup social posts to Google Sheets or Airtable</li>
+<li><strong><a href="https://zapier.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Zapier</a></strong>: Mirror YouTube uploads to Vimeo or PeerTube</li>
+<li><strong><a href="https://github.com/mikf/gallery-dl" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">gallery-dl</a></strong>: Download social media archives</li>
+<li><strong><a href="https://github.com/yt-dlp/yt-dlp" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">yt-dlp</a></strong>: YouTube video backup</li>
+<li><strong><a href="https://tailscale.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Tailscale</a></strong>: Self-hosted VPN for accessing content from banned regions</li>
+</ul>
+<p>Self-hosted newsletter: <strong><a href="https://listmonk.app" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Listmonk</a></strong> (open-source, $0/month).</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>The Mechanics of Deplatforming:</strong> Platforms like TikTok and Pinterest provide no human appeal process.</li>
+<li><strong>Quantifying Your Deplatforming Risk:</strong> Calculate the Herfindahl-Hirschman Index (HHI) for your traffic sources:</li>
+<li><strong>Legal and Regulatory Considerations:</strong> If a competitor mass-reports your account to trigger suspension, you may have a tortious interference claim, but proving:</li>
+<li><strong>Case Study: Multi-Channel Resilience:</strong> A B2B SaaS publisher architected traffic resilience after a LinkedIn Ads suspension (ad account banned for &quot;misleading claims&quot;):</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Can I create a new account if suspended?</strong>
+Platform-dependent. <strong>YouTube</strong> allows one new channel per Google account. <strong>Twitter/X</strong> bans all accounts linked to suspended user (device fingerprinting). <strong>Google Ads</strong> permanently bans user (creating new account is &quot;circumventing systems&quot;).</p>
+<p><strong>Q: Do VPNs prevent detection of new accounts?</strong>
+No. Platforms use <strong>device fingerprinting</strong> (browser canvas, installed fonts, hardware IDs). Use a fresh device + email + payment method, or detection is near-instant.</p>
+<p><strong>Q: Can I buy a suspended Facebook Page?</strong>
+No. Buying/selling Pages violates TOS. Transfers require Facebook approval, denied for previously suspended Pages.</p>
+<p><strong>Q: What&#39;s the fastest channel to replace suspended social traffic?</strong>
+<strong>Google Ads</strong> (if not suspended) provides immediate traffic. <strong>SEO</strong> requires 3-6 months to scale.</p>
+<p><strong>Q: Should I apologize in an appeal even if I didn&#39;t violate policy?</strong>
+No. Admitting fault cements the suspension. State &quot;I believe this is an error&quot; and cite policy compliance.</p>
+<hr>
+<h2 id="when-this-analysis-doesn-t-apply">When This Analysis Doesn't Apply</h2>
+<p>Skip this framework if:</p>
+<ul>
+<li><strong>You&#39;re in the first 3 months of a new site.</strong> Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.</li>
+<li><strong>Your traffic is already diversified below 40% from any single source.</strong> You&#39;ve solved the concentration problem. Focus on channel efficiency and conversion optimization instead.</li>
+<li><strong>You&#39;re running a time-limited campaign.</strong> Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.</li>
+</ul>
+<hr>
+<p><strong>Next steps</strong>: Calculate your <strong>HHI</strong> today. If &gt;0.25, reallocate 15% of your largest channel&#39;s budget to email acquisition or SEO. Export your email list, social followers, and content archives. Test backup platform accounts by posting 1x/week for 30 days.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-quickly-can-i-implement-this-traffic-strategy">How quickly can I implement this traffic strategy?</h3>
+<p>Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.</p>
+<h3 id="does-this-work-for-sites-with-less-than-10k-monthly-visitors">Does this work for sites with less than 10K monthly visitors?</h3>
+<p>Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down, start with simpler attribution before building complex models.</p>
+<h3 id="what-tools-do-i-need-to-execute-this">What tools do I need to execute this?</h3>
+<p>Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required, the strategy is more important than the tooling.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/content-syndication-traffic-strategy.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Content Syndication Traffic Strategy: Republish to Scale Reach Without SEO Penalties</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Syndicate content to Medium, LinkedIn, and niche platforms to multiply traffic using canonical tags and strategic timing without duplicate content penalties.</p>
+          </a>
+
+          <a href="/articles/cross-promotion-traffic-strategy.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Cross-Promotion Traffic Strategy: Grow Audience Through Strategic Publisher Partnerships</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build cross-promotion partnerships with complementary publishers to exchange audiences drive referral traffic and accelerate growth without paid spend.</p>
+          </a>
+
+          <a href="/articles/decentralized-social-traffic-strategy.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Decentralized Social Media Traffic Strategy: Mastodon, Bluesky, and Fediverse Distribution</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Centralized platforms algorithmically bury links. Decentralized social networks like Mastodon and Bluesky offer chronological feeds and protocol-level distribution advantages.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

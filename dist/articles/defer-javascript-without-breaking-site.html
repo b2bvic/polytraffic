@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Defer JavaScript Without Breaking Your Site: Safe Implementation Guide | Polytraffic</title>
+    <meta name="description" content="Defer JavaScript to improve page load speed without breaking functionality. Identify critical scripts, test defer/async attributes, and fix dependency issues." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Defer JavaScript Without Breaking Your Site: Safe Implementation Guide | Polytraffic" />
+    <meta property="og:description" content="Defer JavaScript to improve page load speed without breaking functionality. Identify critical scripts, test defer/async attributes, and fix dependency issues." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/defer-javascript-without-breaking-site" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/defer-javascript-without-breaking-site.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Defer JavaScript Without Breaking Your Site: Safe Implementation Guide | Polytraffic" />
+    <meta name="twitter:description" content="Defer JavaScript to improve page load speed without breaking functionality. Identify critical scripts, test defer/async attributes, and fix dependency issues." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/defer-javascript-without-breaking-site.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/defer-javascript-without-breaking-site" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Defer JavaScript Without Breaking Your Site: Safe Implementation Guide",
+    "description": "Defer JavaScript to improve page load speed without breaking functionality. Identify critical scripts, test defer/async attributes, and fix dependency issues.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/defer-javascript-without-breaking-site.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/defer-javascript-without-breaking-site.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Defer JavaScript Without Breaking Your Site: Safe Implementation Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Defer JavaScript Without Breaking Your Site: Safe Implementation Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/defer-javascript-without-breaking-site.png" alt="Defer JavaScript Without Breaking Your Site: Safe Implementation Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="defer-javascript-without-breaking-your-site-safe-implementation-guide">Defer JavaScript Without Breaking Your Site: Safe Implementation Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Defer JavaScript to improve page load speed without breaking functionality. Identify critical scripts, test defer/async attributes, and fix dependency issues.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#defer-vs-async-choosing-the-right-attribute" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Defer vs. Async: Choosing the Right Attribute</a></li>
+<li><a href="#phase-1-audit-current-javascript-loading" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 1: Audit Current JavaScript Loading</a></li>
+<li><a href="#phase-2-safely-defer-independent-scripts" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 2: Safely Defer Independent Scripts</a></li>
+<li><a href="#phase-3-defer-scripts-with-dependencies-jquery-bootstrap" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 3: Defer Scripts with Dependencies (jQuery, Bootstrap)</a></li>
+<li><a href="#phase-4-handle-critical-above-the-fold-javascript" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 4: Handle Critical Above-the-Fold JavaScript</a></li>
+<li><a href="#phase-5-test-deferred-javascript" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 5: Test Deferred JavaScript</a></li>
+<li><a href="#phase-6-defer-wordpress-javascript" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 6: Defer WordPress JavaScript</a></li>
+<li><a href="#phase-7-fix-common-defer-breakage-patterns" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 7: Fix Common Defer Breakage Patterns</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Deferring JavaScript</strong> moves script execution to after HTML parsing, eliminating render-blocking delays that inflate <strong>Largest Contentful Paint (LCP)</strong> and <strong>First Input Delay (FID)</strong> in <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals</a>. Blindly adding <code>defer</code> or <code>async</code> attributes breaks sites dependent on precise script loading order, jQuery plugins loading before jQuery, form validators executing before forms render, analytics firing before tracking variables initialize. Safe JavaScript deferral requires auditing script dependencies, testing defer/async behavior per script, and refactoring inline scripts that assume synchronous execution. This guide identifies which scripts can defer safely, fixes common breakage patterns (undefined jQuery errors, missing DOM elements), and implements progressive enhancement strategies for critical above-the-fold functionality.</p>
+<h2 id="defer-vs-async-choosing-the-right-attribute">Defer vs. Async: Choosing the Right Attribute</h2>
+<p><strong>Three JavaScript loading behaviors:</strong></p>
+<h3 id="default-render-blocking">Default (Render-Blocking)</h3>
+<pre><code class="language-html">&lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Behavior:</strong></p>
+<ol>
+<li>Browser downloads <code>script.js</code></li>
+<li><strong>Pauses HTML parsing</strong> during download and execution</li>
+<li>Resumes parsing after script completes</li>
+</ol>
+<p><strong>Effect on performance:</strong> Blocks rendering until script loads (bad for LCP)</p>
+<h3 id="defer">Defer</h3>
+<pre><code class="language-html">&lt;script src=&quot;script.js&quot; defer&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Behavior:</strong></p>
+<ol>
+<li>Browser downloads <code>script.js</code> in parallel with HTML parsing</li>
+<li>Executes script <strong>after HTML parsing completes</strong> but <strong>before DOMContentLoaded event</strong></li>
+<li><strong>Preserves script order</strong> (script A with defer loads before script B with defer)</li>
+</ol>
+<p><strong>Use when:</strong> Scripts depend on DOM being ready and require specific execution order</p>
+<h3 id="async">Async</h3>
+<pre><code class="language-html">&lt;script src=&quot;script.js&quot; async&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Behavior:</strong></p>
+<ol>
+<li>Browser downloads <code>script.js</code> in parallel with HTML parsing</li>
+<li>Executes script <strong>immediately after download</strong>, pausing HTML parsing briefly</li>
+<li><strong>No guaranteed order</strong> (script A and B with async execute whenever they finish downloading)</li>
+</ol>
+<p><strong>Use when:</strong> Scripts are independent (analytics, ads, social widgets)</p>
+<h2 id="phase-1-audit-current-javascript-loading">Phase 1: Audit Current JavaScript Loading</h2>
+<p><strong>Identify all scripts</strong> and their dependencies before deferring.</p>
+<h3 id="list-all-javascript-files-with-chrome-devtools">List All JavaScript Files with Chrome DevTools</h3>
+<ol>
+<li>Open <strong>Chrome DevTools</strong> → Network tab</li>
+<li>Reload page</li>
+<li>Filter by &quot;JS&quot;</li>
+<li>Sort by &quot;Start time&quot;</li>
+</ol>
+<p><strong>Note scripts loading before First Contentful Paint</strong>, these are render-blocking.</p>
+<h3 id="identify-script-dependencies">Identify Script Dependencies</h3>
+<p><strong>Common dependency patterns:</strong></p>
+<p><strong>jQuery plugins require jQuery:</strong></p>
+<pre><code class="language-html">&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;jquery-plugin.js&quot;&gt;&lt;/script&gt; &lt;!-- Breaks if jQuery loads after this --&gt;
+</code></pre>
+<p><strong>Bootstrap JavaScript requires jQuery and Popper:</strong></p>
+<pre><code class="language-html">&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;popper.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bootstrap.js&quot;&gt;&lt;/script&gt; &lt;!-- Order matters --&gt;
+</code></pre>
+<p><strong>Analytics with custom tracking variables:</strong></p>
+<pre><code class="language-html">&lt;script&gt;
+  var userId = &#39;12345&#39;; // Inline script sets variable
+&lt;/script&gt;
+&lt;script src=&quot;analytics.js&quot;&gt;&lt;/script&gt; &lt;!-- Expects userId to exist --&gt;
+</code></pre>
+<h3 id="check-for-inline-scripts-dependent-on-external-scripts">Check for Inline Scripts Dependent on External Scripts</h3>
+<p><strong>Inline scripts</strong> execute immediately. If they reference external script variables/functions, deferring external scripts breaks inline scripts.</p>
+<p><strong>Problem pattern:</strong></p>
+<pre><code class="language-html">&lt;script src=&quot;library.js&quot; defer&gt;&lt;/script&gt;
+&lt;script&gt;
+  library.init(); // Error: library is not defined (inline script runs before deferred script)
+&lt;/script&gt;
+</code></pre>
+<h2 id="phase-2-safely-defer-independent-scripts">Phase 2: Safely Defer Independent Scripts</h2>
+<p><strong>Analytics, ads, and social widgets</strong> are independent, don&#39;t affect page rendering or functionality.</p>
+<h3 id="defer-google-analytics">Defer Google Analytics</h3>
+<p><strong>Original (render-blocking):</strong></p>
+<pre><code class="language-html">&lt;script src=&quot;https://www.googletagmanager.com/gtag/js?id=GA_ID&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag(&#39;js&#39;, new Date());
+  gtag(&#39;config&#39;, &#39;GA_ID&#39;);
+&lt;/script&gt;
+</code></pre>
+<p><strong>Deferred (non-blocking):</strong></p>
+<pre><code class="language-html">&lt;script defer src=&quot;https://www.googletagmanager.com/gtag/js?id=GA_ID&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag(&#39;js&#39;, new Date());
+  gtag(&#39;config&#39;, &#39;GA_ID&#39;);
+&lt;/script&gt;
+</code></pre>
+<p><strong>Alternative (async):</strong></p>
+<pre><code class="language-html">&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=GA_ID&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="defer-google-tag-manager">Defer Google Tag Manager</h3>
+<p><strong>Original:</strong></p>
+<pre><code class="language-html">&lt;script&gt;(function(w,d,s,l,i){...})(window,document,&#39;script&#39;,&#39;dataLayer&#39;,&#39;GTM-XXXX&#39;);&lt;/script&gt;
+</code></pre>
+<p><strong>Deferred:</strong></p>
+<pre><code class="language-html">&lt;script defer src=&quot;https://www.googletagmanager.com/gtm.js?id=GTM-XXXX&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Caution:</strong> If GTM fires critical events (form tracking, e-commerce), test thoroughly. Some tracking may miss early user interactions.</p>
+<h3 id="defer-social-media-widgets">Defer Social Media Widgets</h3>
+<p><strong>Facebook SDK, Twitter widgets, LinkedIn embeds</strong>, all independent.</p>
+<p><strong>Original:</strong></p>
+<pre><code class="language-html">&lt;script src=&quot;https://connect.facebook.net/en_US/sdk.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Deferred:</strong></p>
+<pre><code class="language-html">&lt;script async defer src=&quot;https://connect.facebook.net/en_US/sdk.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Use <code>async defer</code> together</strong>, async loads faster, defer ensures execution order if multiple social scripts exist.</p>
+<h3 id="defer-ads-google-adsense-display-networks">Defer Ads (Google AdSense, Display Networks)</h3>
+<p><strong>Original:</strong></p>
+<pre><code class="language-html">&lt;script src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Deferred:</strong></p>
+<pre><code class="language-html">&lt;script async src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Async preferred for ads</strong>, loads in background, displays when ready.</p>
+<h2 id="phase-3-defer-scripts-with-dependencies-jquery-bootstrap">Phase 3: Defer Scripts with Dependencies (jQuery, Bootstrap)</h2>
+<p><strong>Scripts with dependencies</strong> require careful deferral to preserve execution order.</p>
+<h3 id="defer-jquery-and-jquery-plugins">Defer jQuery and jQuery Plugins</h3>
+<p><strong>Problem:</strong> jQuery plugins execute before jQuery loads.</p>
+<p><strong>Original (works):</strong></p>
+<pre><code class="language-html">&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;jquery-plugin.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Incorrect deferral (breaks):</strong></p>
+<pre><code class="language-html">&lt;script defer src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script defer src=&quot;jquery-plugin.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Error:</strong> <code>$ is not defined</code> if plugin loads before jQuery (race condition with CDNs)</p>
+<p><strong>Correct deferral (preserves order):</strong></p>
+<pre><code class="language-html">&lt;script defer src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script defer src=&quot;jquery-plugin.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Defer guarantees execution order</strong>, but inline scripts still break:</p>
+<pre><code class="language-html">&lt;script defer src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  $(document).ready(function() { ... }); // Error: $ not defined (inline runs before deferred)
+&lt;/script&gt;
+</code></pre>
+<h3 id="fix-inline-scripts-dependent-on-deferred-libraries">Fix Inline Scripts Dependent on Deferred Libraries</h3>
+<p><strong>Solution 1: Move inline scripts to external deferred file</strong></p>
+<pre><code class="language-html">&lt;script defer src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script defer src=&quot;custom.js&quot;&gt;&lt;/script&gt; &lt;!-- Contains $(document).ready() code --&gt;
+</code></pre>
+<p><strong>Solution 2: Wrap inline scripts in DOMContentLoaded listener</strong></p>
+<pre><code class="language-html">&lt;script defer src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+    // jQuery is loaded by now (defer scripts execute before DOMContentLoaded)
+    $(document).ready(function() {
+      // Your code
+    });
+  });
+&lt;/script&gt;
+</code></pre>
+<p><strong>Solution 3: Use vanilla JavaScript instead of jQuery for critical inline code</strong></p>
+<pre><code class="language-html">&lt;script&gt;
+  // No jQuery dependency, executes immediately
+  document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+    document.getElementById(&#39;menu-toggle&#39;).addEventListener(&#39;click&#39;, function() {
+      document.getElementById(&#39;menu&#39;).classList.toggle(&#39;open&#39;);
+    });
+  });
+&lt;/script&gt;
+</code></pre>
+<h2 id="phase-4-handle-critical-above-the-fold-javascript">Phase 4: Handle Critical Above-the-Fold JavaScript</h2>
+<p><strong>Critical scripts</strong> affect above-the-fold rendering, mobile menu toggles, hero sliders, cookie consent banners.</p>
+<h3 id="option-1-inline-critical-javascript">Option 1: Inline Critical JavaScript</h3>
+<p><strong>Move small critical scripts inline</strong> (no external request):</p>
+<pre><code class="language-html">&lt;script&gt;
+  // 500 bytes of critical menu toggle code
+  document.getElementById(&#39;menu-toggle&#39;).addEventListener(&#39;click&#39;, function() {
+    document.body.classList.toggle(&#39;menu-open&#39;);
+  });
+&lt;/script&gt;
+</code></pre>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Executes immediately (no network delay)</li>
+<li>No render-blocking external request</li>
+</ul>
+<p><strong>Drawbacks:</strong></p>
+<ul>
+<li>Increases HTML size (bad if script is large)</li>
+<li>Can&#39;t be cached separately</li>
+</ul>
+<h3 id="option-2-use-async-for-critical-independent-scripts">Option 2: Use Async for Critical Independent Scripts</h3>
+<p><strong>Scripts that initialize immediately</strong> but don&#39;t block rendering:</p>
+<pre><code class="language-html">&lt;script async src=&quot;cookie-consent.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>Cookie banner appears when script loads (user won&#39;t notice slight delay).</p>
+<h3 id="option-3-preload-deferred-scripts">Option 3: Preload Deferred Scripts</h3>
+<p><strong>Preload</strong> downloads scripts early but still defers execution:</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;critical.js&quot; as=&quot;script&quot;&gt;
+&lt;script defer src=&quot;critical.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Starts download immediately (parallel with HTML parsing)</li>
+<li>Executes after HTML parsing (deferred)</li>
+</ul>
+<p><strong>Use for:</strong> Scripts needed early but not immediately (form validators, modal libraries)</p>
+<h2 id="phase-5-test-deferred-javascript">Phase 5: Test Deferred JavaScript</h2>
+<p><strong>Deferring scripts</strong> requires testing to catch breakage.</p>
+<h3 id="test-with-chrome-devtools-throttling">Test with Chrome DevTools Throttling</h3>
+<p><strong>Simulate slow networks</strong> where defer/async differences amplify:</p>
+<ol>
+<li>Chrome DevTools → Network → Throttling: Slow 3G</li>
+<li>Reload page</li>
+<li>Check for JavaScript errors in Console tab</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li><code>Uncaught ReferenceError: $ is not defined</code> (jQuery not loaded)</li>
+<li><code>Uncaught TypeError: Cannot read property &#39;init&#39; of undefined</code> (library not loaded)</li>
+</ul>
+<h3 id="test-user-interactions-immediately-after-page-load">Test User Interactions Immediately After Page Load</h3>
+<p><strong>Deferred scripts</strong> may not execute before user clicks.</p>
+<p><strong>Test scenarios:</strong></p>
+<ol>
+<li>Click menu toggle within 1 second of page load (does it work?)</li>
+<li>Submit form immediately (does validation run?)</li>
+<li>Click modal trigger (does modal open?)</li>
+</ol>
+<p><strong>If interactions break</strong>, inline critical JavaScript or use async instead of defer.</p>
+<h3 id="validate-with-pagespeed-insights">Validate with PageSpeed Insights</h3>
+<p><strong>PageSpeed Insights</strong> flags render-blocking scripts.</p>
+<p><strong>Before optimization:</strong></p>
+<pre><code>Eliminate render-blocking resources:
+- jquery.js (200ms)
+- bootstrap.js (150ms)
+</code></pre>
+<p><strong>After deferring:</strong></p>
+<pre><code>Passed audits:
+✓ No render-blocking resources
+</code></pre>
+<h2 id="phase-6-defer-wordpress-javascript">Phase 6: Defer WordPress JavaScript</h2>
+<p><strong>WordPress</strong> loads jQuery and core scripts by default (render-blocking).</p>
+<h3 id="defer-jquery-in-wordpress">Defer jQuery in WordPress</h3>
+<p><strong>Add to functions.php:</strong></p>
+<pre><code class="language-php">function defer_jquery($tag, $handle, $src) {
+  if (&#39;jquery-core&#39; === $handle || &#39;jquery&#39; === $handle) {
+    $tag = &#39;&lt;script defer src=&quot;&#39; . esc_url($src) . &#39;&quot;&gt;&lt;/script&gt;&#39;;
+  }
+  return $tag;
+}
+add_filter(&#39;script_loader_tag&#39;, &#39;defer_jquery&#39;, 10, 3);
+</code></pre>
+<p><strong>Caution:</strong> Many WordPress plugins assume jQuery loads synchronously. Test thoroughly.</p>
+<h3 id="defer-all-non-critical-wordpress-scripts">Defer All Non-Critical WordPress Scripts</h3>
+<pre><code class="language-php">function defer_all_scripts($tag, $handle, $src) {
+  // Don&#39;t defer critical scripts
+  $critical = [&#39;jquery-core&#39;, &#39;jquery&#39;, &#39;wp-block-library&#39;];
+  if (in_array($handle, $critical)) {
+    return $tag;
+  }
+
+  // Defer everything else
+  return &#39;&lt;script defer src=&quot;&#39; . esc_url($src) . &#39;&quot;&gt;&lt;/script&gt;&#39;;
+}
+add_filter(&#39;script_loader_tag&#39;, &#39;defer_all_scripts&#39;, 10, 3);
+</code></pre>
+<h3 id="use-wordpress-plugin-easiest-method">Use WordPress Plugin (Easiest Method)</h3>
+<p><strong>Autoptimize plugin:</strong></p>
+<ol>
+<li>Install → Settings → JavaScript Options</li>
+<li>Enable &quot;Optimize JavaScript Code&quot;</li>
+<li>Check &quot;Defer JavaScript&quot;</li>
+<li>Test site functionality</li>
+</ol>
+<p><strong>WP Rocket plugin:</strong></p>
+<ol>
+<li>Settings → File Optimization</li>
+<li>Enable &quot;Load JavaScript deferred&quot;</li>
+<li>Exclude critical scripts in &quot;JavaScript to exclude&quot; field</li>
+</ol>
+<h2 id="phase-7-fix-common-defer-breakage-patterns">Phase 7: Fix Common Defer Breakage Patterns</h2>
+<h3 id="problem-1-form-validation-not-working">Problem 1: Form Validation Not Working</h3>
+<p><strong>Cause:</strong> Validation script deferred, user submits before script loads.</p>
+<p><strong>Fix:</strong> Disable submit button until validation loads:</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;button type=&quot;submit&quot; id=&quot;submit-btn&quot; disabled&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script defer src=&quot;validation.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+    document.getElementById(&#39;submit-btn&#39;).disabled = false;
+  });
+&lt;/script&gt;
+</code></pre>
+<h3 id="problem-2-modal-popup-not-opening">Problem 2: Modal/Popup Not Opening</h3>
+<p><strong>Cause:</strong> Modal library deferred, user clicks trigger before library loads.</p>
+<p><strong>Fix:</strong> Queue modal open until library loads:</p>
+<pre><code class="language-javascript">let modalQueue = [];
+
+// Trigger (runs immediately)
+document.getElementById(&#39;modal-trigger&#39;).addEventListener(&#39;click&#39;, function() {
+  if (typeof Modal !== &#39;undefined&#39;) {
+    Modal.open(&#39;welcome&#39;);
+  } else {
+    modalQueue.push(&#39;welcome&#39;);
+  }
+});
+
+// Modal library (deferred)
+document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+  modalQueue.forEach(function(id) {
+    Modal.open(id);
+  });
+});
+</code></pre>
+<h3 id="problem-3-analytics-missing-early-pageviews">Problem 3: Analytics Missing Early Pageviews</h3>
+<p><strong>Cause:</strong> Analytics deferred/async, user handles before script loads.</p>
+<p><strong>Fix:</strong> Use beacon API for guaranteed tracking:</p>
+<pre><code class="language-javascript">window.addEventListener(&#39;beforeunload&#39;, function() {
+  if (typeof gtag === &#39;undefined&#39;) {
+    navigator.sendBeacon(&#39;/analytics&#39;, JSON.stringify({page: location.href}));
+  }
+});
+</code></pre>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Phase 2: Safely Defer Independent Scripts:</strong> Cookie banner appears when script loads (user won&#39;t notice slight delay).</li>
+<li><strong>Phase 3: Defer Scripts with Dependencies (jQuery, Bootstrap):</strong> Cookie banner appears when script loads (user won&#39;t notice slight delay).</li>
+<li><strong>Phase 4: Handle Critical Above-the-Fold JavaScript:</strong> Cookie banner appears when script loads (user won&#39;t notice slight delay).</li>
+<li><strong>Phase 5: Test Deferred JavaScript:</strong> // Defer everything else
+return &#39;<script defer src="' . escurl($src) . '"></script>&#39;;
+}
+addfilter(&#39;scriptloadertag&#39;, &#39;deferallscripts&#39;, 10, 3);</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="should-i-use-defer-or-async-for-google-analytics">Should I use defer or async for Google Analytics?</h3>
+<p>Use <strong>async</strong> for <strong>Google Analytics</strong>. Analytics doesn&#39;t affect page functionality and should load independently. <strong>Defer</strong> is unnecessary since GA doesn&#39;t need DOM access. Async loads faster and doesn&#39;t delay DOMContentLoaded event.</p>
+<h3 id="can-i-defer-jquery-if-my-wordpress-plugins-depend-on-it">Can I defer jQuery if my WordPress plugins depend on it?</h3>
+<p><strong>Test before deploying.</strong> Many WordPress plugins assume jQuery loads synchronously. Defer jQuery on staging site first, test all plugin functionality (forms, sliders, galleries). If plugins break, use <a href="https://wp-rocket.me/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">WP Rocket</a> plugin to defer scripts but exclude jQuery.</p>
+<h3 id="does-deferring-javascript-improve-core-web-vitals">Does deferring JavaScript improve Core Web Vitals?</h3>
+<p>Yes. <strong>Defer</strong> eliminates render-blocking JavaScript, improving <strong>LCP</strong> (Largest Contentful Paint) by allowing HTML to render faster. <strong>FID</strong> (First Input Delay) may improve slightly. Defer&#39;s primary benefit is reducing initial page load time. See <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals audit</a> for complete optimization.</p>
+<h3 id="what-happens-if-i-defer-inline-scripts">What happens if I defer inline scripts?</h3>
+<p><strong>Inline scripts</strong> (between <code>&lt;script&gt;</code> tags without <code>src</code> attribute) cannot use <code>defer</code> attribute, it&#39;s ignored. Inline scripts always execute immediately when encountered. To defer inline code, move it to external file with <code>defer</code>, or wrap in <code>DOMContentLoaded</code> listener.</p>
+<h3 id="should-i-defer-critical-css-framework-javascript-like-bootstrap">Should I defer critical CSS framework JavaScript like Bootstrap?</h3>
+<p>Only if <strong>Bootstrap JavaScript</strong> isn&#39;t used above the fold. If hero section uses Bootstrap carousel or mobile menu uses Bootstrap collapse, don&#39;t defer, inline critical Bootstrap code instead. If Bootstrap only affects below-the-fold content (modals, tabs lower on page), defer safely. Test with <a href="core-web-vitals-failing-mobile-only.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">mobile Core Web Vitals</a> checks.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-oversized-images-slowing-site.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Oversized Images Slowing Your Site: Image Optimization Guide for Speed</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compress and resize large images that hurt page speed and Core Web Vitals. Learn proven techniques for reducing file size without sacrificing visual quality.</p>
+          </a>
+
+          <a href="/articles/disavow-toxic-backlinks-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Disavow Toxic Backlinks Guide: Protect Your Site from Negative SEO</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Identify and disavow toxic backlinks harming your rankings. Audit link profiles, create disavow files, and submit to Google Search Console safely.</p>
+          </a>
+
+          <a href="/articles/fix-javascript-seo-crawling-issues.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix JavaScript SEO Crawling Issues (Complete Rendering Guide)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">JavaScript-heavy sites confuse search engine crawlers when content loads client-side. Learn how to diagnose rendering problems, implement server-side rendering, and ensure Google indexes your dynamic content.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

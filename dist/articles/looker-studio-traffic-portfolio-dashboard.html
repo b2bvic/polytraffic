@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Looker Studio Traffic Portfolio Dashboard | Polytraffic</title>
+    <meta name="description" content="How to build a unified traffic portfolio dashboard in Looker Studio that visualizes channel performance, diversification risk, and traffic health across all sources." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Looker Studio Traffic Portfolio Dashboard | Polytraffic" />
+    <meta property="og:description" content="How to build a unified traffic portfolio dashboard in Looker Studio that visualizes channel performance, diversification risk, and traffic health across all sources." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/looker-studio-traffic-portfolio-dashboard" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/looker-studio-traffic-portfolio-dashboard.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Looker Studio Traffic Portfolio Dashboard | Polytraffic" />
+    <meta name="twitter:description" content="How to build a unified traffic portfolio dashboard in Looker Studio that visualizes channel performance, diversification risk, and traffic health across all sources." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/looker-studio-traffic-portfolio-dashboard.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/looker-studio-traffic-portfolio-dashboard" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Looker Studio Traffic Portfolio Dashboard",
+    "description": "How to build a unified traffic portfolio dashboard in Looker Studio that visualizes channel performance, diversification risk, and traffic health across all sources.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/looker-studio-traffic-portfolio-dashboard.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/looker-studio-traffic-portfolio-dashboard.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/traffic-strategy.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Looker Studio Traffic Portfolio Dashboard"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/traffic-strategy.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Looker Studio Traffic Portfolio Dashboard</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/looker-studio-traffic-portfolio-dashboard.png" alt="Looker Studio Traffic Portfolio Dashboard" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="looker-studio-traffic-portfolio-dashboard">Looker Studio Traffic Portfolio Dashboard</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> How to build a unified traffic portfolio dashboard in Looker Studio that visualizes channel performance, diversification risk, and traffic health across all sources.</li>
+<li><strong>Who it&#39;s for:</strong> traffic strategists and growth operators</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#dashboard-architecture" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Dashboard Architecture</a></li>
+<li><a href="#data-source-setup" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Data Source Setup</a></li>
+<li><a href="#section-1-executive-summary" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Section 1: Executive Summary</a></li>
+<li><a href="#section-2-channel-performance-grid" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Section 2: Channel Performance Grid</a></li>
+<li><a href="#section-3-deep-dive-components" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Section 3: Deep Dive Components</a></li>
+<li><a href="#filters-and-date-range-controls" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Filters and Date Range Controls</a></li>
+<li><a href="#annotations-and-context" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Annotations and Context</a></li>
+<li><a href="#sharing-and-access-control" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Sharing and Access Control</a></li>
+<li><a href="#maintenance-and-iteration" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Maintenance and Iteration</a></li>
+<li><a href="#advanced-blending-multiple-data-sources" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced: Blending Multiple Data Sources</a></li>
+<li><a href="#when-this-analysis-doesn-t-apply" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Analysis Doesn't Apply</a></li>
+</ul>
+<p>Publishers managing multi-channel traffic need consolidated visibility: which channels drive volume, which deliver quality, where concentration risk lives, how trends evolve week-over-week. <strong>Google Looker Studio</strong> (formerly Data Studio) provides a free, flexible solution for building unified traffic dashboards that surface insights faster than handling through Google Analytics 4&#39;s interface.</p>
+<p>A well-designed <strong>traffic portfolio dashboard</strong> answers five questions at a glance:</p>
+<ol>
+<li>What&#39;s my total traffic volume and trend direction?</li>
+<li>How is traffic distributed across channels (diversification health)?</li>
+<li>Which channels perform best on quality metrics (engagement, conversion)?</li>
+<li>Where are emerging opportunities or risks (channels growing/declining)?</li>
+<li>How does current performance compare to goals and benchmarks?</li>
+</ol>
+<p>This guide walks through building a production-ready traffic dashboard that updates automatically as data flows into GA4.</p>
+<h2 id="dashboard-architecture">Dashboard Architecture</h2>
+<p>Effective traffic dashboards balance comprehensiveness with scannability. Too many metrics overwhelm; too few miss critical insights.</p>
+<p><strong>Recommended layout (single-page dashboard):</strong></p>
+<p><strong>Section 1: Executive Summary (top third)</strong></p>
+<ul>
+<li>Total sessions (current period vs. prior period)</li>
+<li>Traffic by channel group (pie chart showing distribution)</li>
+<li>Week-over-week trend (line chart, last 12 weeks)</li>
+<li>Channel diversification score (concentration risk metric)</li>
+</ul>
+<p><strong>Section 2: Channel Performance Grid (middle third)</strong></p>
+<ul>
+<li>Table showing each channel with: Sessions, Bounce Rate, Avg. Session Duration, Pages/Session, Conversion Rate</li>
+<li>Color-coded performance indicators (green/yellow/red based on benchmarks)</li>
+<li>Sparklines showing 4-week trend per channel</li>
+</ul>
+<p><strong>Section 3: Deep Dives (bottom third)</strong></p>
+<ul>
+<li>Top landing pages by channel</li>
+<li>Geographic distribution of traffic</li>
+<li>Device breakdown by channel</li>
+<li>Custom segments (new vs. returning, converters vs. non-converters)</li>
+</ul>
+<p>This structure supports two use cases: quick checks (scan Section 1 in 30 seconds) and deep analysis (drill into Sections 2-3 when anomalies appear).</p>
+<h2 id="data-source-setup">Data Source Setup</h2>
+<p>Looker Studio connects directly to <strong>Google Analytics 4</strong> properties. You&#39;ll need:</p>
+<ol>
+<li><strong>GA4 property ID</strong> with at least 30 days of data</li>
+<li><strong>Edit access</strong> to the GA4 property</li>
+<li><strong>Google account</strong> (free Looker Studio access)</li>
+</ol>
+<p><strong>Connection steps:</strong></p>
+<ol>
+<li>Go to <code>lookerstudio.google.com</code></li>
+<li>Create → Data Source → Google Analytics → Select GA4 property</li>
+<li>Grant permissions (read-only access to your analytics data)</li>
+<li>The data source will auto-populate with GA4 dimensions and metrics</li>
+</ol>
+<p><strong>Key dimensions to verify:</strong></p>
+<ul>
+<li><code>Session source / medium</code> (primary channel classifier)</li>
+<li><code>Session default channel group</code> (GA4&#39;s automated channel grouping)</li>
+<li><code>Landing page</code> (entry point URLs)</li>
+<li><code>Device category</code> (mobile, desktop, tablet)</li>
+<li><code>Country</code>, <code>City</code> (geographic segmentation)</li>
+</ul>
+<p><strong>Key metrics to verify:</strong></p>
+<ul>
+<li><code>Sessions</code> (total visit count)</li>
+<li><code>Engaged sessions</code> (sessions lasting &gt;10 seconds or with 2+ pageviews)</li>
+<li><code>Bounce rate</code> (inverse of engagement rate)</li>
+<li><code>Average engagement time</code> (time spent on site)</li>
+<li><code>Conversions</code> (if GA4 conversion events configured)</li>
+</ul>
+<p>Once connected, Looker Studio will refresh data automatically (every 12-24 hours for free version, real-time for enterprise).</p>
+<h2 id="section-1-executive-summary">Section 1: Executive Summary</h2>
+<p>This section provides at-a-glance traffic health and trend direction.</p>
+<h3 id="total-sessions-scorecard">Total Sessions Scorecard</h3>
+<p><strong>Visualization:</strong> Scorecard (large number display)
+<strong>Metric:</strong> Sessions
+<strong>Date range:</strong> Last 30 days
+<strong>Comparison:</strong> Previous 30 days (shows % change)</p>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>Metric: <code>Sessions</code></li>
+<li>Comparison calculation: Automatic (prior period)</li>
+<li>Style: Number font size 48pt, comparison font 24pt</li>
+<li>Conditional formatting: Green if &gt;5% increase, red if &gt;5% decrease</li>
+</ul>
+<p>This single number anchors the dashboard, stakeholders immediately see if traffic is up, down, or flat.</p>
+<h3 id="traffic-distribution-pie-chart">Traffic Distribution Pie Chart</h3>
+<p><strong>Visualization:</strong> Pie chart
+<strong>Dimension:</strong> Session default channel group
+<strong>Metric:</strong> Sessions
+<strong>Date range:</strong> Last 30 days</p>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>Breakdown dimension: <code>Session default channel group</code></li>
+<li>Metric: <code>Sessions</code></li>
+<li>Slice limit: 8-10 (combine long-tail channels into &quot;Other&quot;)</li>
+<li>Colors: Assign consistent colors per channel (Organic Search = green, Paid Search = blue, Social = purple, etc.)</li>
+</ul>
+<p><strong>Insight:</strong> Instantly reveals concentration risk. If one slice exceeds 50%, diversification is needed.</p>
+<h3 id="12-week-trend-line-chart">12-Week Trend Line Chart</h3>
+<p><strong>Visualization:</strong> Time series line chart
+<strong>Dimension:</strong> Week (auto-generated from date)
+<strong>Metric:</strong> Sessions
+<strong>Date range:</strong> Last 12 weeks</p>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>Dimension: <code>Week</code> (week starting Sunday or Monday based on preference)</li>
+<li>Metric: <code>Sessions</code></li>
+<li>Add dimension: <code>Session default channel group</code> (creates multi-line chart with one line per channel)</li>
+<li>Smoothing: Optional (reduces noise in small-traffic channels)</li>
+</ul>
+<p><strong>Insight:</strong> Identifies seasonal patterns, growth trends, and channel-specific spikes/drops. If Organic Search trends down while Paid Search trends up, you&#39;re shifting toward paid dependency.</p>
+<h3 id="diversification-score">Diversification Score</h3>
+<p>This is a <strong>calculated field</strong> measuring traffic concentration using the <strong>Herfindahl-Hirschman Index (HHI)</strong>.</p>
+<p><strong>HHI Formula:</strong>
+<code>HHI = Σ (Channel %²) × 10,000</code></p>
+<p>Where Channel % is each channel&#39;s share of total traffic.</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><strong>HHI &lt; 1,500:</strong> Highly diversified (healthy)</li>
+<li><strong>HHI 1,500-2,500:</strong> Moderate concentration (monitor)</li>
+<li><strong>HHI &gt; 2,500:</strong> High concentration (risk)</li>
+</ul>
+<p><strong>Looker Studio implementation:</strong></p>
+<ol>
+<li>Create calculated field: <code>Channel Share</code><ul>
+<li>Formula: <code>Sessions / SUM(Sessions)</code></li>
+</ul>
+</li>
+<li>Create calculated field: <code>Channel Share Squared</code><ul>
+<li>Formula: <code>POWER(Sessions / SUM(Sessions), 2)</code></li>
+</ul>
+</li>
+<li>Create scorecard showing <code>SUM(Channel Share Squared) * 10000</code></li>
+</ol>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Organic: 40% → 0.16</li>
+<li>Paid: 30% → 0.09</li>
+<li>Social: 15% → 0.0225</li>
+<li>Email: 10% → 0.01</li>
+<li>Referral: 5% → 0.0025</li>
+<li><strong>HHI:</strong> (0.16 + 0.09 + 0.0225 + 0.01 + 0.0025) × 10,000 = <strong>2,850</strong> (moderate-to-high concentration)</li>
+</ul>
+<p>Display this as a gauge chart with color zones (green &lt;1,500, yellow 1,500-2,500, red &gt;2,500).</p>
+<h2 id="section-2-channel-performance-grid">Section 2: Channel Performance Grid</h2>
+<p>This table shows how each channel performs across multiple quality dimensions, not volume.</p>
+<p><strong>Visualization:</strong> Table with heatmap styling
+<strong>Dimensions:</strong> Session default channel group
+<strong>Metrics:</strong> Sessions, Engagement Rate, Avg. Engagement Time, Pages/Session, Bounce Rate, Conversions, Conversion Rate</p>
+<p><strong>Configuration:</strong></p>
+<p><strong>Columns:</strong></p>
+<ol>
+<li><strong>Channel</strong> (dimension)</li>
+<li><strong>Sessions</strong> (metric), sort descending by default</li>
+<li><strong>Engagement Rate</strong> (metric), sessions with &gt;10s or 2+ pages / total sessions</li>
+<li><strong>Avg. Engagement Time</strong> (metric), formatted as MM:SS</li>
+<li><strong>Pages/Session</strong> (metric), decimal format (1.5, 2.3, etc.)</li>
+<li><strong>Bounce Rate</strong> (metric), inverse of engagement rate</li>
+<li><strong>Conversions</strong> (metric), if tracking conversion events</li>
+<li><strong>Conversion Rate</strong> (metric), conversions / sessions</li>
+</ol>
+<p><strong>Conditional formatting:</strong></p>
+<p>Apply heatmap coloring to each metric:</p>
+<ul>
+<li><strong>Green:</strong> Top 25% of performers</li>
+<li><strong>Yellow:</strong> 25-75%</li>
+<li><strong>Red:</strong> Bottom 25%</li>
+</ul>
+<p>Example rules:</p>
+<ul>
+<li>Engagement Rate: Green &gt;60%, Yellow 40-60%, Red &lt;40%</li>
+<li>Pages/Session: Green &gt;2.5, Yellow 1.5-2.5, Red &lt;1.5</li>
+<li>Bounce Rate: Green &lt;40%, Yellow 40-60%, Red &gt;60%</li>
+</ul>
+<p><strong>Sparkline column (optional advanced feature):</strong></p>
+<p>Add a calculated field showing 4-week trend per channel as a mini line chart within the table cell. This requires embedding a chart-in-table setup (use Looker Studio Community Visualizations like &quot;Sparkline&quot; by Supermetrics).</p>
+<p><strong>Insight:</strong> This grid reveals volume-quality tradeoffs. A channel might drive high sessions but low engagement, indicating traffic-quality issues. Conversely, low-volume channels with high conversion rates are underinvested opportunities.</p>
+<h2 id="section-3-deep-dive-components">Section 3: Deep Dive Components</h2>
+<p>These components support diagnostic investigation when anomalies surface.</p>
+<h3 id="top-landing-pages-by-channel">Top Landing Pages by Channel</h3>
+<p><strong>Visualization:</strong> Table
+<strong>Dimensions:</strong> Session default channel group (primary), Landing page (secondary)
+<strong>Metric:</strong> Sessions
+<strong>Date range:</strong> Last 30 days</p>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>Group by <code>Session default channel group</code> with drill-down to <code>Landing page</code></li>
+<li>Sort by Sessions descending</li>
+<li>Limit to top 10 landing pages per channel</li>
+</ul>
+<p><strong>Insight:</strong> Identifies which content drives traffic per channel. If Organic Search traffic concentrates on 2-3 pages, diversification is needed (single-page dependency risk).</p>
+<h3 id="geographic-distribution">Geographic Distribution</h3>
+<p><strong>Visualization:</strong> Geo map + table
+<strong>Dimension:</strong> Country (or City for more granularity)
+<strong>Metric:</strong> Sessions
+<strong>Date range:</strong> Last 30 days</p>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>Map type: Geo map (bubble size = sessions)</li>
+<li>Color scale: Gradient (light to dark based on session volume)</li>
+<li>Table below map showing top 10 countries with Sessions, Engagement Rate, Conversion Rate</li>
+</ul>
+<p><strong>Insight:</strong> Reveals unexpected geographic traffic sources (potential bot traffic or misaligned content). Helps prioritize localization or geo-specific campaigns.</p>
+<h3 id="device-breakdown-by-channel">Device Breakdown by Channel</h3>
+<p><strong>Visualization:</strong> Stacked bar chart
+<strong>Dimensions:</strong> Session default channel group (X-axis), Device category (stacking)
+<strong>Metric:</strong> Sessions
+<strong>Date range:</strong> Last 30 days</p>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>X-axis: <code>Session default channel group</code></li>
+<li>Stacking dimension: <code>Device category</code> (Mobile, Desktop, Tablet)</li>
+<li>Sort: By total sessions descending</li>
+</ul>
+<p><strong>Insight:</strong> Identifies mobile/desktop skew by channel. If Social traffic is 90% mobile but your site isn&#39;t mobile-optimized, you&#39;re losing conversions.</p>
+<h3 id="new-vs-returning-visitor-segmentation">New vs. Returning Visitor Segmentation</h3>
+<p><strong>Visualization:</strong> Comparison table
+<strong>Dimension:</strong> Session default channel group
+<strong>Metrics:</strong> New Users, Returning Users, % Returning
+<strong>Date range:</strong> Last 30 days</p>
+<p><strong>Configuration:</strong></p>
+<ul>
+<li>Calculate <code>% Returning</code> as calculated field: <code>Returning Users / (New Users + Returning Users)</code></li>
+<li>Sort by % Returning descending</li>
+</ul>
+<p><strong>Insight:</strong> Channels with high % returning (Email, Direct) indicate strong retention. Channels with low % returning (Paid Search, Display) are top-of-funnel acquisition sources.</p>
+<h2 id="filters-and-date-range-controls">Filters and Date Range Controls</h2>
+<p>Add interactive controls that let users adjust dashboard views without editing:</p>
+<p><strong>Date range selector:</strong> Default to &quot;Last 30 days&quot; with comparison to &quot;Previous 30 days.&quot; Allow users to toggle to custom ranges.</p>
+<p><strong>Channel filter:</strong> Dropdown or checkbox list letting users isolate specific channels. Useful for focused analysis (&quot;Show me only Paid channels&quot;).</p>
+<p><strong>Segment filter:</strong> Add GA4 audience segments (e.g., &quot;Converters,&quot; &quot;High-Value Users,&quot; &quot;Newsletter Subscribers&quot;) to filter the entire dashboard.</p>
+<p><strong>Device filter:</strong> Toggle between All Devices, Mobile Only, Desktop Only.</p>
+<p>Place these controls in a fixed header or sidebar for persistent access.</p>
+<h2 id="annotations-and-context">Annotations and Context</h2>
+<p>Add text boxes with context to guide interpretation:</p>
+<p><strong>Above Section 1:</strong> &quot;Traffic Overview — Last 30 Days. This dashboard updates daily at 6am ET. Data source: Google Analytics 4.&quot;</p>
+<p><strong>Above Section 2:</strong> &quot;Channel Performance Grid — Green = top quartile, Yellow = average, Red = needs attention. Sort by any column to identify outliers.&quot;</p>
+<p><strong>Above Section 3:</strong> &quot;Deep Dives — Use these views to diagnose anomalies identified in Sections 1-2. Apply filters to isolate specific segments.&quot;</p>
+<p>Annotations reduce ambiguity and help non-analyst stakeholders interpret data correctly.</p>
+<h2 id="sharing-and-access-control">Sharing and Access Control</h2>
+<p><strong>Sharing options:</strong></p>
+<p><strong>View-only link:</strong> Generate a shareable URL that allows viewing but not editing. Use this for clients, team members, or stakeholders.</p>
+<p><strong>Scheduled email delivery:</strong> Looker Studio can email the dashboard as a PDF on a recurring schedule (daily, weekly, monthly). Useful for stakeholders who don&#39;t log into dashboards regularly.</p>
+<p><strong>Embed in website/app:</strong> Generate an iframe embed code to display the dashboard within internal tools or client portals.</p>
+<p><strong>Access levels:</strong></p>
+<ul>
+<li><strong>Viewer:</strong> Can view and interact (change date ranges, apply filters) but not edit structure</li>
+<li><strong>Editor:</strong> Can modify dashboard layout, add/remove components, change data sources</li>
+</ul>
+<p>Limit Editor access to analysts; distribute Viewer access broadly.</p>
+<h2 id="maintenance-and-iteration">Maintenance and Iteration</h2>
+<p>Dashboards degrade over time as business priorities shift. Schedule quarterly reviews:</p>
+<p><strong>What to check:</strong></p>
+<ul>
+<li>Are the metrics still relevant? (e.g., if you&#39;ve launched new conversion goals, add them)</li>
+<li>Have channel names changed? (GA4 updates channel groupings; verify mapping is current)</li>
+<li>Are filters still useful? (remove unused filters, add new segments)</li>
+<li>Is the layout still scannable? (too many components reduce clarity)</li>
+</ul>
+<p><strong>Iteration process:</strong></p>
+<ol>
+<li>Collect feedback from dashboard users (what questions aren&#39;t answered?)</li>
+<li>Review dashboard usage analytics (Looker Studio tracks which components users interact with)</li>
+<li>Prototype changes in a duplicate dashboard (don&#39;t break production)</li>
+<li>Test with 2-3 users before rolling out updates</li>
+</ol>
+<p>Treat the dashboard as a product, not a one-time build.</p>
+<h2 id="advanced-blending-multiple-data-sources">Advanced: Blending Multiple Data Sources</h2>
+<p>Looker Studio supports <strong>data blending</strong>, combining GA4 with other sources (Google Search Console, Google Ads, third-party APIs) in a single dashboard.</p>
+<p><strong>Use cases:</strong></p>
+<p><strong>GA4 + Google Search Console:</strong> Overlay organic search traffic (GA4) with keyword rankings and impressions (GSC) to diagnose SEO performance.</p>
+<p><strong>GA4 + Google Ads:</strong> Compare paid ad spend (Ads) with resulting conversions (GA4) to calculate true ROAS.</p>
+<p><strong>GA4 + CRM data:</strong> Import lead/customer data from CRM (via CSV upload or API) to connect traffic sources with closed revenue.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Add secondary data source (Ads, GSC, or uploaded CSV)</li>
+<li>Create blended data source defining join key (e.g., Date + Source/Medium)</li>
+<li>Use blended data source in charts requiring cross-platform metrics</li>
+</ol>
+<p>Blending requires careful key matching, ensure dimensions align exactly (same date granularity, same naming conventions).</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Dashboard Architecture:</strong> Effective traffic dashboards balance comprehensiveness with scannability.</li>
+<li><strong>Data Source Setup:</strong> Looker Studio connects directly to Google Analytics 4 properties.</li>
+<li><strong>Section 1: Executive Summary:</strong> This section provides at-a-glance traffic health and trend direction.</li>
+<li><strong>Section 2: Channel Performance Grid:</strong> This table shows how each channel performs across multiple quality dimensions, not volume.</li>
+<li><strong>Section 3: Deep Dive Components:</strong> These components support diagnostic investigation when anomalies surface.</li>
+<li><strong>Filters and Date Range Controls:</strong> Add interactive controls that let users adjust dashboard views without editing:</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Is Looker Studio free?</strong>
+Yes, Looker Studio is free for individual users with Google accounts. Enterprise features (real-time data refresh, advanced blending) require Google Cloud billing, but most publishers use the free tier successfully.</p>
+<p><strong>How often does data update?</strong>
+Free tier: Every 12-24 hours. Pro accounts: Real-time or hourly refresh. For most traffic dashboards, daily refresh is sufficient, traffic decisions rarely hinge on intraday data.</p>
+<p><strong>Can I track custom metrics not in GA4?</strong>
+Yes, via calculated fields or data blending. Upload CSV with custom data (e.g., content production costs, email send counts) and blend with GA4 data by Date or other shared dimension.</p>
+<p><strong>What if I have multiple GA4 properties (different sites)?</strong>
+Create one data source per property, then build separate dashboard pages or use data blending to aggregate across properties. Multi-property dashboards require careful dimension alignment (e.g., standardize channel names across properties).</p>
+<p><strong>How do I handle bots/spam traffic in dashboards?</strong>
+Apply GA4 filters to exclude known spam domains, bot user agents, and referral spam. Create a filtered view in GA4, then connect Looker Studio to the filtered view rather than raw data. Document filter rules in dashboard annotations.</p>
+<hr>
+<h2 id="when-this-analysis-doesn-t-apply">When This Analysis Doesn't Apply</h2>
+<p>Skip this framework if:</p>
+<ul>
+<li><strong>You&#39;re in the first 3 months of a new site.</strong> Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.</li>
+<li><strong>Your traffic is already diversified below 40% from any single source.</strong> You&#39;ve solved the concentration problem. Focus on channel efficiency and conversion optimization instead.</li>
+<li><strong>You&#39;re running a time-limited campaign.</strong> Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-quickly-can-i-implement-this-traffic-strategy">How quickly can I implement this traffic strategy?</h3>
+<p>Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.</p>
+<h3 id="does-this-work-for-sites-with-less-than-10k-monthly-visitors">Does this work for sites with less than 10K monthly visitors?</h3>
+<p>Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down, start with simpler attribution before building complex models.</p>
+<h3 id="what-tools-do-i-need-to-execute-this">What tools do I need to execute this?</h3>
+<p>Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required, the strategy is more important than the tooling.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/monthly-traffic-economics-dashboard.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Monthly Traffic Economics Dashboard</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build a comprehensive monthly dashboard tracking traffic costs, revenue per session, channel profitability, and portfolio health for data-driven traffic investment decisions.</p>
+          </a>
+
+          <a href="/articles/competitor-traffic-analysis-template.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Competitor Traffic Analysis Template: Reverse Engineering Traffic Sources and Volume</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Complete framework for analyzing competitor traffic sources, estimating volumes, and identifying vulnerability patterns in their acquisition strategies.</p>
+          </a>
+
+          <a href="/articles/hedging-traffic-pairs-trading.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">traffic-strategy</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Traffic Hedging and Pairs Trading for Content Portfolio Risk Management</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Apply pairs trading concepts to content portfolios. Hedge traffic risk through correlated site strategies, counter-cyclical content types, and algorithmic diversification tactics.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

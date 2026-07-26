@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DNS Configuration for SEO: Optimize Records for Speed and Crawlability | Polytraffic</title>
+    <meta name="description" content="Configure DNS records to improve site speed and SEO. Set up A records, CNAME, TXT for verification, and optimize TTL for fast resolution and migrations." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="DNS Configuration for SEO: Optimize Records for Speed and Crawlability | Polytraffic" />
+    <meta property="og:description" content="Configure DNS records to improve site speed and SEO. Set up A records, CNAME, TXT for verification, and optimize TTL for fast resolution and migrations." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/dns-configuration-seo-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/dns-configuration-seo-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DNS Configuration for SEO: Optimize Records for Speed and Crawlability | Polytraffic" />
+    <meta name="twitter:description" content="Configure DNS records to improve site speed and SEO. Set up A records, CNAME, TXT for verification, and optimize TTL for fast resolution and migrations." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/dns-configuration-seo-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/dns-configuration-seo-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "DNS Configuration for SEO: Optimize Records for Speed and Crawlability",
+    "description": "Configure DNS records to improve site speed and SEO. Set up A records, CNAME, TXT for verification, and optimize TTL for fast resolution and migrations.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/dns-configuration-seo-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/dns-configuration-seo-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "DNS Configuration for SEO: Optimize Records for Speed and Crawlability"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">DNS Configuration for SEO: Optimize Records for Speed and Crawlability</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/dns-configuration-seo-guide.png" alt="DNS Configuration for SEO: Optimize Records for Speed and Crawlability" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="dns-configuration-for-seo-optimize-records-for-speed-and-crawlability">DNS Configuration for SEO: Optimize Records for Speed and Crawlability</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Configure DNS records to improve site speed and SEO. Set up A records, CNAME, TXT for verification, and optimize TTL for fast resolution and migrations.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-dns-configuration-affects-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why DNS Configuration Affects SEO</a></li>
+<li><a href="#phase-1-understand-essential-dns-record-types" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 1: Understand Essential DNS Record Types</a></li>
+<li><a href="#phase-2-configure-dns-for-www-vs-non-www" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 2: Configure DNS for www vs. Non-www</a></li>
+<li><a href="#phase-3-optimize-ttl-for-seo-and-migrations" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 3: Optimize TTL for SEO and Migrations</a></li>
+<li><a href="#phase-4-verify-google-search-console-with-dns-txt-record" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 4: Verify Google Search Console with DNS TXT Record</a></li>
+<li><a href="#phase-5-speed-up-dns-resolution" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 5: Speed Up DNS Resolution</a></li>
+<li><a href="#phase-6-configure-dns-for-subdomains" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 6: Configure DNS for Subdomains</a></li>
+<li><a href="#phase-7-set-up-email-dns-records-spf-dkim-dmarc" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Phase 7: Set Up Email DNS Records (SPF, DKIM, DMARC)</a></li>
+<li><a href="#common-dns-configuration-mistakes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common DNS Configuration Mistakes</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>DNS (Domain Name System)</strong> translates domain names into IP addresses, serving as the first network request before browsers or <strong>Googlebot</strong> can fetch your site, slow DNS resolution adds 100-500ms latency to every page load, directly inflating <strong>Time to First Byte (TTFB)</strong> and harming <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals</a>. Misconfigured DNS records, pointing www and non-www to different servers without redirects, setting excessively long <strong>TTL (Time To Live)</strong> values that delay <a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migrations</a>, or missing verification TXT records for <strong>Google Search Console</strong>, create indexing issues, duplicate content problems, and accessibility failures for users and crawlers. This guide configures essential DNS record types (A, AAAA, CNAME, TXT, MX), optimizes TTL for balance between caching and flexibility, implements DNS-level redirects, and selects fast authoritative nameservers to minimize resolution latency.</p>
+<h2 id="why-dns-configuration-affects-seo">Why DNS Configuration Affects SEO</h2>
+<p><strong>DNS resolution</strong> occurs before HTTP requests. Slow or misconfigured DNS creates multiple SEO impacts:</p>
+<p><strong>1. Increased TTFB:</strong>
+DNS lookup adds latency to initial connection. Slow DNS providers (&gt;100ms resolution) inflate TTFB, triggering <strong>Googlebot</strong> crawl throttling.</p>
+<p><strong>2. Accessibility:</strong>
+Incorrect A/AAAA records cause downtime. If DNS points to wrong IP, Googlebot gets 5xx errors, marking pages as temporarily unavailable.</p>
+<p><strong>3. Duplicate content:</strong>
+Separate DNS entries for <code>example.com</code> and <code>www.example.com</code> without proper redirects create two versions of site, splitting authority.</p>
+<p><strong>4. Migration delays:</strong>
+High TTL values (86400s = 24 hours) slow <a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migrations</a>, old DNS entries cached for days, directing traffic to old server.</p>
+<p><strong>5. Verification failures:</strong>
+Missing TXT records prevent <strong>Google Search Console</strong> and <strong>Bing Webmaster Tools</strong> verification, blocking access to indexing data.</p>
+<h2 id="phase-1-understand-essential-dns-record-types">Phase 1: Understand Essential DNS Record Types</h2>
+<p><strong>DNS records</strong> define how domain names resolve to servers and services.</p>
+<h3 id="a-record-address-record">A Record (Address Record)</h3>
+<p><strong>Maps domain to IPv4 address.</strong></p>
+<p><strong>Example:</strong></p>
+<pre><code>Type: A
+Name: example.com
+Value: 192.0.2.1
+TTL: 3600
+</code></pre>
+<p><strong>Meaning:</strong> <code>example.com</code> resolves to server at <code>192.0.2.1</code></p>
+<p><strong>SEO impact:</strong></p>
+<ul>
+<li>Primary record for site accessibility</li>
+<li>Must point to active server (not old/inactive IP)</li>
+<li>Low TTL (3600s = 1 hour) enables fast migrations</li>
+</ul>
+<h3 id="aaaa-record-ipv6-address">AAAA Record (IPv6 Address)</h3>
+<p><strong>Maps domain to IPv6 address.</strong></p>
+<p><strong>Example:</strong></p>
+<pre><code>Type: AAAA
+Name: example.com
+Value: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+TTL: 3600
+</code></pre>
+<p><strong>Why it matters:</strong></p>
+<ul>
+<li>Google crawls via IPv6 where available</li>
+<li>Faster resolution on IPv6 networks</li>
+<li>Future-proofing (IPv4 address exhaustion)</li>
+</ul>
+<p><strong>Most sites need both A and AAAA records.</strong></p>
+<h3 id="cname-record-canonical-name">CNAME Record (Canonical Name)</h3>
+<p><strong>Alias one domain to another.</strong></p>
+<p><strong>Example:</strong></p>
+<pre><code>Type: CNAME
+Name: www.example.com
+Value: example.com
+TTL: 3600
+</code></pre>
+<p><strong>Meaning:</strong> <code>www.example.com</code> is an alias for <code>example.com</code> (inherits A/AAAA records)</p>
+<p><strong>SEO impact:</strong></p>
+<ul>
+<li>Simplifies management (change one A record, CNAME follows)</li>
+<li><strong>Don&#39;t use CNAME for root domain</strong> (<code>example.com</code>). DNS spec prohibits it</li>
+</ul>
+<p><strong>Common mistake:</strong> Pointing <code>www</code> to one server and root to another (creates duplicate content).</p>
+<h3 id="txt-record-text-record">TXT Record (Text Record)</h3>
+<p><strong>Stores arbitrary text data, used for verification and security.</strong></p>
+<p><strong>Example (Google Search Console verification):</strong></p>
+<pre><code>Type: TXT
+Name: example.com
+Value: google-site-verification=abc123xyz456
+TTL: 3600
+</code></pre>
+<p><strong>Example (SPF for email):</strong></p>
+<pre><code>Type: TXT
+Name: example.com
+Value: v=spf1 include:_spf.google.com ~all
+TTL: 3600
+</code></pre>
+<p><strong>SEO impact:</strong></p>
+<ul>
+<li>Required for Search Console verification</li>
+<li>SPF/DMARC records prevent email spoofing (affects outreach campaigns)</li>
+</ul>
+<h3 id="mx-record-mail-exchange">MX Record (Mail Exchange)</h3>
+<p><strong>Defines mail servers for domain.</strong></p>
+<p><strong>Example:</strong></p>
+<pre><code>Type: MX
+Name: example.com
+Value: mail.example.com
+Priority: 10
+TTL: 3600
+</code></pre>
+<p><strong>SEO impact:</strong></p>
+<ul>
+<li>Indirect: Working email enables <strong>Google Search Console</strong> notifications, password resets</li>
+<li>Missing MX = can&#39;t receive verification emails</li>
+</ul>
+<h2 id="phase-2-configure-dns-for-www-vs-non-www">Phase 2: Configure DNS for www vs. Non-www</h2>
+<p><strong>Choose one canonical version</strong> (www or non-www) and redirect the other.</p>
+<h3 id="strategy-1-non-www-as-primary-recommended-for-new-sites">Strategy 1: Non-www as Primary (Recommended for New Sites)</h3>
+<p><strong>DNS configuration:</strong></p>
+<pre><code>Type: A
+Name: example.com
+Value: 192.0.2.1
+TTL: 3600
+
+Type: A
+Name: www.example.com
+Value: 192.0.2.1
+TTL: 3600
+</code></pre>
+<p><strong>Both resolve to same server.</strong> Implement 301 redirect at server level (see below).</p>
+<p><strong>Why non-www?</strong></p>
+<ul>
+<li>Shorter, cleaner URLs</li>
+<li>One fewer DNS lookup (www requires extra CNAME resolution)</li>
+</ul>
+<h3 id="strategy-2-www-as-primary-traditional">Strategy 2: www as Primary (Traditional)</h3>
+<p><strong>DNS configuration:</strong></p>
+<pre><code>Type: A
+Name: example.com
+Value: 192.0.2.1
+TTL: 3600
+
+Type: CNAME
+Name: www
+Value: example.com
+TTL: 3600
+</code></pre>
+<p><strong>Or use separate A record:</strong></p>
+<pre><code>Type: A
+Name: example.com
+Value: 192.0.2.1
+
+Type: A
+Name: www.example.com
+Value: 192.0.2.1
+</code></pre>
+<h3 id="implement-server-level-301-redirect">Implement Server-Level 301 Redirect</h3>
+<p><strong>DNS alone doesn&#39;t redirect.</strong> Configure server to redirect non-preferred version.</p>
+<p><strong>Apache (.htaccess). Non-www to www:</strong></p>
+<pre><code class="language-apache">RewriteEngine On
+RewriteCond %{HTTP_HOST} ^example\.com [NC]
+RewriteRule ^(.*)$ https://www.example.com/$1 [L,R=301]
+</code></pre>
+<p><strong>Apache, www to Non-www:</strong></p>
+<pre><code class="language-apache">RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.example\.com [NC]
+RewriteRule ^(.*)$ https://example.com/$1 [L,R=301]
+</code></pre>
+<p><strong>Nginx. Non-www to www:</strong></p>
+<pre><code class="language-nginx">server {
+  server_name example.com;
+  return 301 https://www.example.com$request_uri;
+}
+</code></pre>
+<p><strong>Verify redirect:</strong></p>
+<pre><code class="language-bash">curl -I http://example.com
+# Should return: HTTP/1.1 301 Moved Permanently
+# Location: https://www.example.com/
+</code></pre>
+<h2 id="phase-3-optimize-ttl-for-seo-and-migrations">Phase 3: Optimize TTL for SEO and Migrations</h2>
+<p><strong>TTL (Time To Live)</strong> defines how long DNS records are cached.</p>
+<h3 id="choosing-ttl-values">Choosing TTL Values</h3>
+<p><strong>High TTL (86400s = 24 hours):</strong></p>
+<ul>
+<li><strong>Pros:</strong> Fewer DNS lookups, reduces DNS server load</li>
+<li><strong>Cons:</strong> Changes take 24 hours to propagate (bad for migrations)</li>
+</ul>
+<p><strong>Low TTL (300s = 5 minutes):</strong></p>
+<ul>
+<li><strong>Pros:</strong> Changes propagate quickly (good for migrations, testing)</li>
+<li><strong>Cons:</strong> More frequent DNS lookups, slight latency increase</li>
+</ul>
+<p><strong>Balanced TTL (3600s = 1 hour):</strong></p>
+<ul>
+<li><strong>Recommended for most sites</strong></li>
+<li>Fast enough propagation for most changes</li>
+<li>Cached long enough to reduce lookup overhead</li>
+</ul>
+<h3 id="ttl-strategy-for-domain-migrations">TTL Strategy for Domain Migrations</h3>
+<p><strong>Before migration:</strong></p>
+<ol>
+<li>Lower TTL to 300s (5 minutes) 48 hours before migration</li>
+<li>Wait 48 hours (allows old high-TTL records to expire)</li>
+<li>Perform migration (update A records to new server IP)</li>
+<li>Changes propagate within 5 minutes</li>
+</ol>
+<p><strong>After migration:</strong></p>
+<ol>
+<li>Verify migration successful (all traffic hitting new server)</li>
+<li>Raise TTL back to 3600s (1 hour) after 24 hours</li>
+<li>Monitor for DNS propagation issues</li>
+</ol>
+<p>See <a href="domain-migration-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">domain migration guide</a> for complete migration process.</p>
+<h2 id="phase-4-verify-google-search-console-with-dns-txt-record">Phase 4: Verify Google Search Console with DNS TXT Record</h2>
+<p><strong>TXT record verification</strong> proves domain ownership without touching website files.</p>
+<h3 id="generate-verification-txt-record">Generate Verification TXT Record</h3>
+<ol>
+<li><strong>Google Search Console</strong> → Add property → Domain property</li>
+<li>Copy TXT record value (e.g., <code>google-site-verification=abc123xyz...</code>)</li>
+</ol>
+<h3 id="add-txt-record-to-dns">Add TXT Record to DNS</h3>
+<p><strong>Example (generic DNS provider):</strong></p>
+<pre><code>Type: TXT
+Name: example.com  (or @ for root)
+Value: google-site-verification=abc123xyz456
+TTL: 3600
+</code></pre>
+<p><strong>Wait 1-5 minutes for propagation.</strong></p>
+<h3 id="verify-txt-record-propagation">Verify TXT Record Propagation</h3>
+<p><strong>Check with dig:</strong></p>
+<pre><code class="language-bash">dig TXT example.com
+</code></pre>
+<p><strong>Expected output:</strong></p>
+<pre><code>example.com. 3600 IN TXT &quot;google-site-verification=abc123xyz456&quot;
+</code></pre>
+<p><strong>Or use online tool:</strong> <a href="https://toolbox.googleapps.com/apps/dig/" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">https://toolbox.googleapps.com/apps/dig/</a></p>
+<h3 id="complete-verification-in-search-console">Complete Verification in Search Console</h3>
+<ol>
+<li>Return to Search Console verification page</li>
+<li>Click &quot;Verify&quot;</li>
+<li>If successful: &quot;Ownership verified&quot;</li>
+</ol>
+<p><strong>TXT record can remain permanently</strong>, doesn&#39;t interfere with other DNS functions.</p>
+<h2 id="phase-5-speed-up-dns-resolution">Phase 5: Speed Up DNS Resolution</h2>
+<p><strong>Slow DNS lookups</strong> add latency to every first page load per visitor.</p>
+<h3 id="switch-to-fast-dns-provider">Switch to Fast DNS Provider</h3>
+<p><strong>DNS provider performance varies dramatically:</strong></p>
+<p><strong>Slow providers (&gt;100ms average):</strong></p>
+<ul>
+<li>Default registrar DNS (GoDaddy, Namecheap included DNS)</li>
+<li>Hosting company DNS (shared hosting providers)</li>
+</ul>
+<p><strong>Fast providers (&lt;20ms average):</strong></p>
+<ul>
+<li><strong>Cloudflare</strong> (1.1.1.1). Free, global Anycast network</li>
+<li><strong>Google Cloud DNS</strong>. $0.40 per million queries</li>
+<li><strong>Amazon Route 53</strong>. $0.50 per hosted zone + query charges</li>
+<li><strong>DNSimple</strong>. $5-50/month depending on zones</li>
+</ul>
+<h3 id="migrate-to-cloudflare-dns-free">Migrate to Cloudflare DNS (Free)</h3>
+<p><strong>Process:</strong></p>
+<ol>
+<li>Create Cloudflare account</li>
+<li>Add site → Cloudflare scans existing DNS records</li>
+<li>Review records (import usually accurate)</li>
+<li>Cloudflare provides new nameservers: <code>ns1.cloudflare.com</code>, <code>ns2.cloudflare.com</code></li>
+<li>Update nameservers at domain registrar</li>
+<li>Wait 24-48 hours for propagation</li>
+</ol>
+<p><strong>Benefits beyond speed:</strong></p>
+<ul>
+<li>Free SSL certificates</li>
+<li>DDoS protection</li>
+<li>CDN acceleration</li>
+<li>See <a href="edge-caching-vs-origin-caching.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">edge caching guide</a></li>
+</ul>
+<h3 id="measure-dns-resolution-speed">Measure DNS Resolution Speed</h3>
+<p><strong>Test with webpagetest.org:</strong></p>
+<ol>
+<li>Enter URL → Start Test</li>
+<li>Check &quot;DNS Lookup&quot; time in waterfall</li>
+</ol>
+<p><strong>Target:</strong> &lt;50ms for first lookup, &lt;5ms for subsequent (cached)</p>
+<p><strong>Test multiple locations</strong> (DNS resolution varies by geographic proximity to nameservers).</p>
+<h2 id="phase-6-configure-dns-for-subdomains">Phase 6: Configure DNS for Subdomains</h2>
+<p><strong>Subdomains</strong> (blog.example.com, shop.example.com) require separate DNS records.</p>
+<h3 id="subdomain-on-same-server">Subdomain on Same Server</h3>
+<pre><code>Type: A
+Name: blog.example.com
+Value: 192.0.2.1  (same IP as main domain)
+TTL: 3600
+</code></pre>
+<p><strong>Or use CNAME:</strong></p>
+<pre><code>Type: CNAME
+Name: blog
+Value: example.com
+TTL: 3600
+</code></pre>
+<h3 id="subdomain-on-different-server-separate-platform">Subdomain on Different Server (Separate Platform)</h3>
+<p><strong>Example:</strong> WordPress on <code>www.example.com</code>, Shopify store on <code>shop.example.com</code></p>
+<pre><code>Type: A
+Name: shop.example.com
+Value: 192.0.2.50  (Shopify server IP)
+TTL: 3600
+</code></pre>
+<p><strong>Or CNAME to platform:</strong></p>
+<pre><code>Type: CNAME
+Name: shop
+Value: shops.myshopify.com
+TTL: 3600
+</code></pre>
+<h3 id="subdomain-seo-considerations">Subdomain SEO Considerations</h3>
+<p><strong>Subdomains are treated as separate sites by Google</strong> (mostly).</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Separate Search Console property</li>
+<li>Isolate different content types (blog, docs, store)</li>
+</ul>
+<p><strong>Drawbacks:</strong></p>
+<ul>
+<li>Don&#39;t share authority with main domain (need separate backlinks)</li>
+<li>Split analytics tracking</li>
+</ul>
+<p><strong>Alternative:</strong> Use subdirectories (<code>example.com/blog</code>) instead of subdomains for SEO benefit.</p>
+<h2 id="phase-7-set-up-email-dns-records-spf-dkim-dmarc">Phase 7: Set Up Email DNS Records (SPF, DKIM, DMARC)</h2>
+<p><strong>Email authentication</strong> prevents spoofing, improves deliverability for outreach campaigns.</p>
+<h3 id="spf-record-sender-policy-framework">SPF Record (Sender Policy Framework)</h3>
+<p><strong>Defines which servers can send email from your domain.</strong></p>
+<p><strong>Example (Google Workspace):</strong></p>
+<pre><code>Type: TXT
+Name: example.com
+Value: v=spf1 include:_spf.google.com ~all
+TTL: 3600
+</code></pre>
+<p><strong>Without SPF:</strong> Emails to prospects may land in spam.</p>
+<h3 id="dkim-record-domainkeys-identified-mail">DKIM Record (DomainKeys Identified Mail)</h3>
+<p><strong>Cryptographic signature proving email authenticity.</strong></p>
+<p><strong>Example:</strong></p>
+<pre><code>Type: TXT
+Name: google._domainkey
+Value: v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBA...
+TTL: 3600
+</code></pre>
+<p><strong>Obtain from email provider</strong> (Google Workspace, Office 365, Mailgun).</p>
+<h3 id="dmarc-record-domain-based-message-authentication">DMARC Record (Domain-based Message Authentication)</h3>
+<p><strong>Tells receiving servers how to handle failed authentication.</strong></p>
+<p><strong>Example:</strong></p>
+<pre><code>Type: TXT
+Name: _dmarc
+Value: v=DMARC1; p=quarantine; rua=mailto:dmarc@example.com
+TTL: 3600
+</code></pre>
+<p><strong>Policies:</strong></p>
+<ul>
+<li><code>p=none</code> Monitor only (reports sent, no action taken)</li>
+<li><code>p=quarantine</code> Failed emails go to spam</li>
+<li><code>p=reject</code> Failed emails rejected entirely</li>
+</ul>
+<p><strong>Start with <code>p=none</code></strong>, analyze reports, escalate to <code>quarantine</code> or <code>reject</code> after verifying legitimate emails pass.</p>
+<h2 id="common-dns-configuration-mistakes">Common DNS Configuration Mistakes</h2>
+<h3 id="mistake-1-pointing-www-and-non-www-to-different-ips">Mistake 1: Pointing www and Non-www to Different IPs</h3>
+<p><strong>Creates duplicate content:</strong></p>
+<pre><code>example.com → 192.0.2.1
+www.example.com → 192.0.2.2
+</code></pre>
+<p><strong>Fix:</strong> Point both to same IP, implement 301 redirect at server level.</p>
+<h3 id="mistake-2-using-cname-for-root-domain">Mistake 2: Using CNAME for Root Domain</h3>
+<p><strong>DNS spec prohibits CNAME at root:</strong></p>
+<pre><code>Type: CNAME  ❌ INVALID
+Name: example.com
+Value: server.example.com
+</code></pre>
+<p><strong>Fix:</strong> Use A/AAAA records for root domain:</p>
+<pre><code>Type: A
+Name: example.com
+Value: 192.0.2.1
+</code></pre>
+<h3 id="mistake-3-high-ttl-during-site-changes">Mistake 3: High TTL During Site Changes</h3>
+<p><strong>86400s TTL (24 hours) delays DNS updates.</strong></p>
+<p><strong>Fix:</strong> Lower TTL to 300-600s before planned changes, raise after changes complete.</p>
+<h3 id="mistake-4-missing-aaaa-records">Mistake 4: Missing AAAA Records</h3>
+<p><strong>Sites without IPv6 support</strong> miss growing IPv6 traffic.</p>
+<p><strong>Fix:</strong> Add AAAA record pointing to IPv6 address (contact hosting provider if unsure).</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why DNS Configuration Affects SEO:</strong> Type: A
+Name: <a href="http://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">www.example.com</a>
+Value: 192.0.2.1
+TTL: 3600</li>
+<li><strong>Phase 1: Understand Essential DNS Record Types:</strong> Type: A
+Name: <a href="http://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">www.example.com</a>
+Value: 192.0.2.1
+TTL: 3600</li>
+<li><strong>Phase 2: Configure DNS for www vs. Non-www:</strong> Type: A
+Name: <a href="http://www.example.com" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">www.example.com</a>
+Value: 192.0.2.1
+TTL: 3600</li>
+<li><strong>Phase 3: Optimize TTL for SEO and Migrations:</strong> See domain migration guide for complete migration process.</li>
+<li><strong>Phase 5: Speed Up DNS Resolution:</strong> Frameworks only pay off when they run against your numbers.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="does-dns-affect-page-load-speed-significantly">Does DNS affect page load speed significantly?</h3>
+<p><strong>First page load:</strong> Yes. DNS lookup adds 20-100ms+ before any content downloads. <strong>Subsequent loads:</strong> Minimal impact (DNS cached). Optimize DNS for first-time visitors and Googlebot crawls. See <a href="core-web-vitals-audit-checklist.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals optimization</a> for comprehensive speed improvements.</p>
+<h3 id="should-i-use-www-or-non-www-for-seo">Should I use www or non-www for SEO?</h3>
+<p><strong>Doesn&#39;t matter for rankings.</strong> Choose one, stick with it, redirect the other. <strong>Non-www</strong> is slightly faster (one fewer DNS lookup for CNAME resolution). <strong>www</strong> is traditional, recognizable. Either works, consistency matters more than choice.</p>
+<h3 id="how-long-does-dns-propagation-take">How long does DNS propagation take?</h3>
+<p><strong>Typical:</strong> 5 minutes to 48 hours depending on TTL. <strong>Your TTL setting</strong> determines how long old records stay cached. <strong>Lower TTL before changes</strong> to speed propagation. <strong>Global propagation</strong> (all DNS servers worldwide) can take 48 hours even with low TTL due to recursive resolver caching.</p>
+<h3 id="can-i-use-cloudflare-dns-without-using-their-cdn">Can I use Cloudflare DNS without using their CDN?</h3>
+<p>Yes. <strong>Cloudflare</strong> offers <strong>DNS-only mode</strong> (gray-cloud icon in dashboard). DNS resolves through Cloudflare&#39;s fast network, but traffic goes directly to your origin server (no CDN, no caching). Provides speed benefits without architectural changes. See <a href="edge-caching-vs-origin-caching.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">edge caching comparison</a> for CDN decisions.</p>
+<h3 id="will-changing-dns-providers-affect-my-seo">Will changing DNS providers affect my SEO?</h3>
+<p><strong>No direct SEO impact</strong> if done correctly. Process: (1) Lower TTL 48hrs before, (2) Replicate all DNS records to new provider exactly, (3) Update nameservers at registrar, (4) Monitor for propagation. <strong>Incorrect migration</strong> (missing records, wrong IPs) causes downtime, which hurts SEO. Always test records on new provider before switching nameservers.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/edge-caching-vs-origin-caching.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Edge Caching vs Origin Caching: Speed Up Site Response Times for SEO</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compare edge caching (CDN) vs origin caching (Varnish, Redis) for improving TTFB. Choose the right caching strategy for Core Web Vitals optimization.</p>
+          </a>
+
+          <a href="/articles/fix-orphan-pages-google-cant-find.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Fix Orphan Pages Google Can't Find: Internal Linking and Crawlability Solutions</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Discover orphan pages that lack internal links, understand why Google can't crawl them, and implement systematic fixes to restore discoverability and rankings.</p>
+          </a>
+
+          <a href="/articles/fix-oversized-images-slowing-site.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Oversized Images Slowing Your Site: Image Optimization Guide for Speed</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Compress and resize large images that hurt page speed and Core Web Vitals. Learn proven techniques for reducing file size without sacrificing visual quality.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

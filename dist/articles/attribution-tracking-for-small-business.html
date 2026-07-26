@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools | Polytraffic</title>
+    <meta name="description" content="Build a functional multi-touch attribution system using Google Sheets, Airtable, and Google Tag Manager. Stop paying enterprise prices for attribution data your business actually needs." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools | Polytraffic" />
+    <meta property="og:description" content="Build a functional multi-touch attribution system using Google Sheets, Airtable, and Google Tag Manager. Stop paying enterprise prices for attribution data your business actually needs." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/attribution-tracking-for-small-business" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/attribution-tracking-for-small-business.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools | Polytraffic" />
+    <meta name="twitter:description" content="Build a functional multi-touch attribution system using Google Sheets, Airtable, and Google Tag Manager. Stop paying enterprise prices for attribution data your business actually needs." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/attribution-tracking-for-small-business.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/attribution-tracking-for-small-business" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools",
+    "description": "Build a functional multi-touch attribution system using Google Sheets, Airtable, and Google Tag Manager. Stop paying enterprise prices for attribution data your business actually needs.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/attribution-tracking-for-small-business.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/attribution-tracking-for-small-business.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tools",
+        "item": "https://polytraffic.com/tools.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/tools.html">Tools</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Tools</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/attribution-tracking-for-small-business.png" alt="DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="diy-attribution-track-multi-channel-traffic-impact-without-10k-month-analytics-tools">DIY Attribution: Track Multi-Channel Traffic Impact Without $10k/Month Analytics Tools</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Build a functional multi-touch attribution system using Google Sheets, Airtable, and Google Tag Manager. Stop paying enterprise prices for attribution data your business actually needs.</li>
+<li><strong>Who it&#39;s for:</strong> traffic strategists and growth operators</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#the-enterprise-attribution-gap-for-small-publishers" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">The Enterprise Attribution Gap for Small Publishers</a></li>
+<li><a href="#google-sheets-as-attribution-database" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Google Sheets as Attribution Database</a></li>
+<li><a href="#airtable-powered-attribution-for-non-technical-teams" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Airtable-Powered Attribution for Non-Technical Teams</a></li>
+<li><a href="#google-tag-manager-for-cross-domain-tracking" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Google Tag Manager for Cross-Domain Tracking</a></li>
+<li><a href="#implementation-roadmap" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Implementation Roadmap</a></li>
+<li><a href="#when-this-analysis-doesn-t-apply" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Analysis Doesn't Apply</a></li>
+</ul>
+<p>The attribution tool market has a pricing problem.</p>
+<p>Entry-level plans from <strong>Segment</strong> start at $120/month for limited features. <strong>Mixpanel</strong> charges $28/month per 10,000 monthly tracked users, scaling quickly into hundreds. <strong>Heap</strong> and <strong>Amplitude</strong> enterprise plans run $50,000+ annually. Even mid-tier solutions like <strong>Triple Whale</strong> and <strong>Northbeam</strong> sit at $300-500/month minimum.</p>
+<p>For publishers generating $10k-50k/month in revenue, these costs consume 3-5% of gross revenue before producing any ROI. The math doesn&#39;t work. So most small publishers default to <strong>Google Analytics 4&#39;s</strong> free tier and accept its attribution blindness.</p>
+<p>That blindness costs more than the tools would.</p>
+<p>Last-click attribution. GA4&#39;s default model, systematically misallocates credit. It tells you paid search drives 40% of conversions while email drives 5%. Multi-touch analysis of the same data reveals email drives 25% through assist conversions that last-click ignores.</p>
+<p>Budget decisions based on that bad data defund your highest-leverage channels while overfunding channels that merely capture conversions initiated elsewhere.</p>
+<p>The enterprise attribution vendors know this. Their pricing assumes you have no alternative. You do.</p>
+<hr>
+<h2 id="the-enterprise-attribution-gap-for-small-publishers">The Enterprise Attribution Gap for Small Publishers</h2>
+<p>Attribution complexity scales with business size. A direct-to-consumer brand running TV, podcast, influencer, paid social, paid search, and email needs sophisticated attribution. A content publisher running SEO, email, and one secondary channel does not.</p>
+<p>Enterprise tools solve enterprise problems. Small publishers pay enterprise prices for features they&#39;ll never use.</p>
+<h3 id="why-ga4-fails-at-multi-touch-attribution">Why GA4 Fails at Multi-Touch Attribution</h3>
+<p><strong>Google Analytics 4</strong> offers attribution modeling. It also makes that modeling functionally inaccessible for most users.</p>
+<p>GA4&#39;s model comparison tool exists under Advertising &gt; Attribution &gt; Model Comparison. Finding it requires handling Google&#39;s documentation labyrinth. Using it requires understanding dimension configurations, conversion events, and lookback windows that GA4 doesn&#39;t explain in-context.</p>
+<p>More problematic: GA4&#39;s multi-touch models require either Google Ads integration (giving credit to Google&#39;s ecosystem) or Analytics 360 upgrade ($150,000+/year). The free version provides first-click and last-click comparison. That&#39;s not multi-touch attribution. That&#39;s binary comparison between two inadequate models.</p>
+<p>GA4 also struggles with cross-device tracking after iOS 14.5&#39;s privacy changes. Users who discover your site on mobile email, then convert on desktop, appear as two separate users in GA4&#39;s default configuration. The email touchpoint gets zero credit. Direct gets full credit.</p>
+<p>For publishers, this creates a specific distortion: email and social media (discovery channels) appear worthless while direct and branded search (conversion channels) appear valuable. The reality is that discovery channels create the awareness that conversion channels capture.</p>
+<h3 id="the-50k-problem-segment-mixpanel-heap-pricing">The $50k+ Problem (Segment, Mixpanel, Heap Pricing)</h3>
+<p>Enterprise attribution tools solve the GA4 problem with event-based tracking, cross-device identity resolution, and sophisticated attribution modeling.</p>
+<p><strong>Segment</strong> ($120-25,000+/month) operates as a customer data platform that routes event data to analysis tools. It solves data infrastructure problems. It doesn&#39;t provide attribution modeling itself, you pay for Segment, then pay again for the analytics tool.</p>
+<p><strong>Mixpanel</strong> ($28-1,000+/month) offers conversion attribution through funnel analysis. Its pricing scales with tracked users. A publisher with 50,000 monthly users hits $300+/month before adding team seats or advanced features.</p>
+<p><strong>Heap</strong> ($300-50,000+/month) provides auto-capture event tracking that reduces implementation overhead. But auto-capture creates data bloat, tracking everything means paying for everything, whether useful or not.</p>
+<p><strong>Amplitude</strong> ($49-50,000+/month) delivers product analytics with attribution features. Its pricing model penalizes growth: more users means higher costs, which means attribution costs increase precisely when you need better data to optimize that growth.</p>
+<p>For a publisher generating $30,000/month, a $500/month attribution tool consumes 1.7% of gross revenue. That tool needs to generate $500/month in improved allocation decisions to break even. Few small publishers extract that value because they lack the traffic volume and conversion events to run statistically significant multi-variant tests.</p>
+<p>The enterprise tools assume scale that small publishers don&#39;t have.</p>
+<h3 id="what-you-need-vs-what-vendors-sell">What You Need vs What Vendors Sell</h3>
+<p>Small publisher attribution requirements differ from enterprise needs.</p>
+<p><strong>What enterprises need:</strong></p>
+<ul>
+<li>Real-time attribution across 10+ channels</li>
+<li>Identity resolution across devices and sessions</li>
+<li>Integrations with CRM, advertising platforms, and marketing automation</li>
+<li>Team collaboration features and role-based access</li>
+<li>Data warehousing and API access for custom analysis</li>
+</ul>
+<p><strong>What small publishers need:</strong></p>
+<ul>
+<li>Multi-touch credit distribution across 3-5 channels</li>
+<li>Session stitching for email + website conversions</li>
+<li>Monthly or weekly attribution reports (not real-time)</li>
+<li>Spreadsheet-compatible exports for manual analysis</li>
+<li>Total cost under $50/month including tool stack</li>
+</ul>
+<p>The gap between these requirements is massive. Enterprise tools sell capabilities small publishers don&#39;t need at prices small publishers can&#39;t justify.</p>
+<p>The solution isn&#39;t finding a cheaper enterprise tool. It&#39;s building a purpose-fit attribution system from components you already have access to.</p>
+<hr>
+<h2 id="google-sheets-as-attribution-database">Google Sheets as Attribution Database</h2>
+<p>Spreadsheets lack the sophistication of dedicated analytics platforms. For small publishers, that limitation becomes an advantage: you see exactly how attribution works because you build it yourself.</p>
+<p>A Google Sheets attribution system tracks touchpoints, stores conversion paths, and calculates credit distribution using formulas you control.</p>
+<h3 id="session-id-generation-via-utm-parameters">Session ID Generation via UTM Parameters</h3>
+<p>Attribution requires identifying which touchpoints led to conversions. <strong>UTM parameters</strong> (Urchin Tracking Module, the original Google Analytics precursor) provide that identification.</p>
+<p><strong>UTM taxonomy for attribution:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>utm_source</td>
+<td>Traffic source platform</td>
+<td>google, facebook, newsletter</td>
+</tr>
+<tr>
+<td>utm_medium</td>
+<td>Traffic type</td>
+<td>organic, cpc, email, social</td>
+</tr>
+<tr>
+<td>utm_campaign</td>
+<td>Specific initiative</td>
+<td>spring_sale, pillar_launch</td>
+</tr>
+<tr>
+<td>utm_content</td>
+<td>Content variant</td>
+<td>header_cta, sidebar_link</td>
+</tr>
+<tr>
+<td>utm_term</td>
+<td>Keyword (paid search)</td>
+<td>&quot;traffic attribution tools&quot;</td>
+</tr>
+</tbody></table>
+<p>Consistent UTM tagging across all external links creates trackable session origins.</p>
+<p><strong>Session ID construction:</strong></p>
+<p>Combine source + medium + timestamp into a unique session identifier:</p>
+<p><code>session_id = utm_source + &quot;-&quot; + utm_medium + &quot;-&quot; + timestamp</code></p>
+<p>Example: <code>newsletter-email-20260119T143022</code></p>
+<p>This session ID travels with the user through their browsing session. When they convert (email signup, purchase, form submission), the session ID logs alongside the conversion event.</p>
+<p><strong>Implementation without custom code:</strong></p>
+<p>Most form tools. <strong>Typeform</strong>, <strong>Google Forms</strong>, <strong>Tally</strong>, <strong>ConvertKit</strong> landing pages, support hidden field population from URL parameters. When a user arrives at your form page via <code>?utm_source=newsletter&amp;utm_medium=email</code>, the form captures those parameters in hidden fields and includes them in the submission data.</p>
+<p>Your conversion data now contains the last touchpoint that led to conversion. This is first-party data you control, not subject to browser privacy restrictions that block third-party tracking.</p>
+<h3 id="touchpoint-logging-with-zapier-webhooks">Touchpoint Logging with Zapier Webhooks</h3>
+<p>Single-touchpoint tracking (last-click) comes from form hidden fields. Multi-touch tracking requires logging every session before conversion.</p>
+<p><strong>Zapier</strong> (or <strong>Make</strong>, formerly Integromat) connects your website analytics to Google Sheets without custom development.</p>
+<p><strong>Basic touchpoint logging workflow:</strong></p>
+<ol>
+<li><strong>Trigger</strong>: New session on website (via Google Analytics 4 API or custom webhook)</li>
+<li><strong>Filter</strong>: Session has UTM parameters populated</li>
+<li><strong>Action</strong>: Add row to Google Sheets with session data</li>
+</ol>
+<p><strong>Google Sheets touchpoint schema:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Timestamp</td>
+<td>Datetime</td>
+<td>2026-01-19 14:30:22</td>
+</tr>
+<tr>
+<td>User_ID</td>
+<td>String</td>
+<td>visitor_abc123 (from first-party cookie)</td>
+</tr>
+<tr>
+<td>Session_ID</td>
+<td>String</td>
+<td>newsletter-email-20260119T143022</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>String</td>
+<td>newsletter</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>String</td>
+<td>email</td>
+</tr>
+<tr>
+<td>Campaign</td>
+<td>String</td>
+<td>january_update</td>
+</tr>
+<tr>
+<td>Landing_Page</td>
+<td>URL</td>
+<td>/blog/attribution-guide</td>
+</tr>
+</tbody></table>
+<p><strong>User identification without third-party cookies:</strong></p>
+<p>Set a first-party cookie with a random visitor ID on first site visit. This cookie persists across sessions on your domain. Include the visitor ID in all touchpoint logs.</p>
+<p>When the same visitor ID appears across multiple sessions, you have their multi-touch path:</p>
+<ul>
+<li>Session 1: Organic search on January 5</li>
+<li>Session 2: Email click on January 12</li>
+<li>Session 3: Direct visit on January 15 (conversion)</li>
+</ul>
+<p><strong>Google Tag Manager</strong> can set this first-party cookie without custom server-side code. The cookie creates the link between touchpoints that attribution models require.</p>
+<h3 id="custom-attribution-model-formulas-linear-time-decay-position-based">Custom Attribution Model Formulas (Linear, Time-Decay, Position-Based)</h3>
+<p>With touchpoint data in Google Sheets, attribution model calculations become spreadsheet formulas.</p>
+<p><strong>Linear attribution formula:</strong></p>
+<p>Linear model distributes credit equally across all touchpoints.</p>
+<pre><code>Credit per touchpoint = Conversion value / Number of touchpoints
+</code></pre>
+<p>For a $100 conversion with 4 touchpoints:</p>
+<ul>
+<li>Organic search: $25</li>
+<li>Email: $25</li>
+<li>Social: $25</li>
+<li>Direct: $25</li>
+</ul>
+<p><strong>Google Sheets implementation:</strong></p>
+<pre><code>=CONVERSION_VALUE/COUNTA(TOUCHPOINT_RANGE)
+</code></pre>
+<p><strong>Time-decay attribution formula:</strong></p>
+<p>Time-decay model weights touchpoints by recency. More recent touchpoints receive more credit.</p>
+<p>Half-life approach: Each touchpoint receives half the credit of the next-more-recent touchpoint.</p>
+<p>For a $100 conversion with 4 touchpoints (most recent to oldest):</p>
+<ul>
+<li>Direct (T-0): 53.33%</li>
+<li>Social (T-1): 26.67%</li>
+<li>Email (T-2): 13.33%</li>
+<li>Organic (T-3): 6.67%</li>
+</ul>
+<p><strong>Position-based attribution formula (40/40/20):</strong></p>
+<p>Position-based assigns 40% to first touch, 40% to last touch, and 20% distributed across middle touchpoints.</p>
+<p>For a $100 conversion with 4 touchpoints:</p>
+<ul>
+<li>Organic search (first): $40</li>
+<li>Email (middle): $10</li>
+<li>Social (middle): $10</li>
+<li>Direct (last): $40</li>
+</ul>
+<p><strong>Google Sheets implementation:</strong></p>
+<p>Create columns for each attribution model. When a conversion logs, run calculations across the visitor&#39;s touchpoint history and update channel-level totals.</p>
+<p>The spreadsheet becomes your attribution dashboard. Filter by date range, channel, or campaign. Create pivot tables showing channel contribution under each model. Compare how attribution model choice changes budget recommendations.</p>
+<hr>
+<h2 id="airtable-powered-attribution-for-non-technical-teams">Airtable-Powered Attribution for Non-Technical Teams</h2>
+<p>Google Sheets works. <strong>Airtable</strong> works better for teams without spreadsheet fluency.</p>
+<p>Airtable provides relational database structure (linking records across tables) with a visual interface that resembles spreadsheets. For attribution, this means touchpoints and conversions link automatically rather than through VLOOKUP formulas.</p>
+<h3 id="form-submission-tracking-with-hidden-utm-fields">Form Submission Tracking with Hidden UTM Fields</h3>
+<p><strong>Airtable Forms</strong> support hidden default values that capture URL parameters.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create Airtable form for lead capture or purchase</li>
+<li>Add hidden fields: Source, Medium, Campaign, Content, Term</li>
+<li>Configure each hidden field&#39;s default value to pull from URL parameters</li>
+<li>Form submissions automatically include touchpoint data</li>
+</ol>
+<p><strong>Example form URL:</strong></p>
+<pre><code>https://airtable.com/yourformid?prefill_Source=newsletter&amp;prefill_Medium=email&amp;prefill_Campaign=january_update
+</code></pre>
+<p>The prefill parameters populate hidden fields without user interaction. Every conversion records its final touchpoint.</p>
+<p>For multi-touch tracking, combine Airtable with website session tracking via <strong>Zapier</strong>. Each session creates an Airtable record linked to the visitor&#39;s unique ID. Conversions link to the same visitor ID, creating a complete touchpoint-to-conversion path.</p>
+<h3 id="automations-for-multi-touch-path-reconstruction">Automations for Multi-Touch Path Reconstruction</h3>
+<p>Airtable&#39;s native automations can calculate attribution without external tools.</p>
+<p><strong>Automation workflow:</strong></p>
+<ol>
+<li><strong>Trigger</strong>: New record in Conversions table</li>
+<li><strong>Find records</strong>: Query Touchpoints table for all records matching the conversion&#39;s Visitor_ID</li>
+<li><strong>Calculate</strong>: Run attribution formula across matched touchpoints</li>
+<li><strong>Update</strong>: Write attribution credits back to Channel_Totals table</li>
+</ol>
+<p>This automation runs on each conversion, maintaining real-time attribution totals without manual intervention.</p>
+<p><strong>Lookup formulas for path analysis:</strong></p>
+<p>Airtable&#39;s ROLLUP and LOOKUP functions create conversion path fields automatically.</p>
+<p>Example: A Conversions record shows &quot;Path: Organic &gt; Email &gt; Direct&quot; by rolling up linked Touchpoint records in timestamp order.</p>
+<p>Filter the Conversions table by path patterns to identify which sequences convert best. Maybe &quot;Organic &gt; Email&quot; converts 3x higher than &quot;Organic &gt; Direct&quot; that insight justifies increased email investment.</p>
+<h3 id="dashboard-views-for-channel-contribution-analysis">Dashboard Views for Channel Contribution Analysis</h3>
+<p>Airtable views replace traditional dashboard tools for small-scale attribution.</p>
+<p><strong>Recommended views:</strong></p>
+<table>
+<thead>
+<tr>
+<th>View Name</th>
+<th>View Type</th>
+<th>Configuration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Channel Performance</td>
+<td>Grid</td>
+<td>Group by Channel, show summed attribution credit</td>
+</tr>
+<tr>
+<td>Model Comparison</td>
+<td>Grid</td>
+<td>Show Linear, Time-Decay, Position columns side-by-side</td>
+</tr>
+<tr>
+<td>Weekly Trends</td>
+<td>Chart</td>
+<td>X-axis: Week, Y-axis: Attribution credit by channel</td>
+</tr>
+<tr>
+<td>Path Analysis</td>
+<td>Grid</td>
+<td>Filter by conversion paths, show conversion rate</td>
+</tr>
+</tbody></table>
+<p>Airtable&#39;s interface builder creates shareable dashboards without coding. Team members see attribution data without accessing raw tables.</p>
+<p>The limitation: Airtable&#39;s $20/seat/month pricing adds up with teams. For solo publishers, it&#39;s cost-effective. For five-person teams, Google Sheets plus a visualization tool costs less.</p>
+<hr>
+<h2 id="google-tag-manager-for-cross-domain-tracking">Google Tag Manager for Cross-Domain Tracking</h2>
+<p>Complex funnels span multiple domains: marketing site to checkout domain to thank-you page. <strong>Google Tag Manager</strong> handles cross-domain session stitching without custom development.</p>
+<h3 id="event-tracking-setup-page-views-form-fills-purchases">Event Tracking Setup (Page Views, Form Fills, Purchases)</h3>
+<p>GTM&#39;s event system captures conversion actions beyond page views.</p>
+<p><strong>Standard events for attribution:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Trigger</th>
+<th>Captured Data</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PageView</td>
+<td>All pages</td>
+<td>URL, referrer, UTM parameters, timestamp</td>
+</tr>
+<tr>
+<td>FormSubmit</td>
+<td>Form submission</td>
+<td>Form ID, field values, landing page</td>
+</tr>
+<tr>
+<td>Purchase</td>
+<td>Thank-you page load</td>
+<td>Order ID, value, product data</td>
+</tr>
+<tr>
+<td>EmailSignup</td>
+<td>Signup confirmation</td>
+<td>Email, source, campaign</td>
+</tr>
+</tbody></table>
+<p>Each event passes data to your analytics platform (GA4) and your attribution database (Google Sheets via webhook).</p>
+<p><strong>GTM tag configuration for Sheets logging:</strong></p>
+<p>Use GTM&#39;s &quot;Custom HTML&quot; tag type to fire a webhook on conversion events.</p>
+<pre><code class="language-html">&lt;script&gt;
+  fetch(&#39;https://hook.us1.make.com/your-webhook-id&#39;, {
+    method: &#39;POST&#39;,
+    headers: {&#39;Content-Type&#39;: &#39;application/json&#39;},
+    body: JSON.stringify({
+      event: &#39;{{Event}}&#39;,
+      timestamp: &#39;{{Timestamp}}&#39;,
+      source: &#39;{{UTM Source}}&#39;,
+      medium: &#39;{{UTM Medium}}&#39;,
+      campaign: &#39;{{UTM Campaign}}&#39;,
+      visitorId: &#39;{{Visitor ID Cookie}}&#39;
+    })
+  });
+&lt;/script&gt;
+</code></pre>
+<p>This fires on every tracked event, logging touchpoints to your attribution spreadsheet without third-party analytics tools.</p>
+<h3 id="custom-javascript-for-session-stitching">Custom JavaScript for Session Stitching</h3>
+<p>Cross-domain tracking fails when cookies don&#39;t persist across domains. GTM&#39;s cross-domain tracking settings handle same-company domains. For third-party checkout domains (Shopify, Gumroad, payment processors), you need URL parameter decoration.</p>
+<p><strong>Session stitching via URL parameters:</strong></p>
+<ol>
+<li>When user clicks checkout link, append visitor ID to URL</li>
+<li>Checkout domain reads visitor ID from URL</li>
+<li>Conversion logs include visitor ID from URL parameter</li>
+<li>Attribution database links checkout conversion to pre-checkout touchpoints</li>
+</ol>
+<p><strong>GTM implementation:</strong></p>
+<p>Create a &quot;Link Click&quot; trigger for checkout buttons. Use a &quot;Custom HTML&quot; tag to modify the link URL, appending the visitor ID as a query parameter before navigation.</p>
+<pre><code class="language-html">&lt;script&gt;
+  document.querySelectorAll(&#39;a[href*=&quot;checkout.yourstore.com&quot;]&#39;).forEach(function(link) {
+    var visitorId = {{Visitor ID Cookie}};
+    var separator = link.href.includes(&#39;?&#39;) ? &#39;&amp;&#39; : &#39;?&#39;;
+    link.href = link.href + separator + &#39;vid=&#39; + visitorId;
+  });
+&lt;/script&gt;
+</code></pre>
+<p>The checkout domain&#39;s thank-you page webhook includes the vid parameter, linking the purchase back to its pre-checkout touchpoints.</p>
+<h3 id="data-layer-configuration-for-multi-step-funnels">Data Layer Configuration for Multi-Step Funnels</h3>
+<p>Multi-step funnels (lead magnet &gt; email nurture &gt; sales page &gt; checkout &gt; upsell) require data layer tracking.</p>
+<p><strong>GTM data layer structure:</strong></p>
+<pre><code class="language-javascript">window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  &#39;event&#39;: &#39;funnelStep&#39;,
+  &#39;funnelName&#39;: &#39;traffic_portfolio_course&#39;,
+  &#39;stepNumber&#39;: 2,
+  &#39;stepName&#39;: &#39;email_optin&#39;,
+  &#39;visitorId&#39;: &#39;{{Visitor ID Cookie}}&#39;,
+  &#39;timestamp&#39;: new Date().toISOString()
+});
+</code></pre>
+<p>Push data layer events at each funnel step. GTM triggers fire on these events, logging progress to your attribution database.</p>
+<p><strong>Funnel analysis in Sheets:</strong></p>
+<p>Query your touchpoint database for all records matching a funnel name. Calculate completion rate by step. Identify where users drop off. Correlate entry touchpoints with completion rates.</p>
+<p>This reveals which traffic sources produce buyers versus which produce tire-kickers. Maybe organic search visitors complete the funnel at 3% while email visitors complete at 12%. That 4x difference changes your allocation strategy.</p>
+<hr>
+<h2 id="implementation-roadmap">Implementation Roadmap</h2>
+<p>Attribution system complexity should match business complexity. Start simple. Add sophistication when data demands it.</p>
+<p><strong>Week 1: UTM discipline</strong></p>
+<ul>
+<li>Audit existing links for UTM consistency</li>
+<li>Create UTM taxonomy documentation</li>
+<li>Set up hidden form fields for UTM capture</li>
+<li>Begin logging last-touch attribution</li>
+</ul>
+<p><strong>Week 2-3: Touchpoint tracking</strong></p>
+<ul>
+<li>Configure first-party visitor ID cookie</li>
+<li>Set up Zapier/Make webhook for session logging</li>
+<li>Create Google Sheets or Airtable database structure</li>
+<li>Test touchpoint capture across major pages</li>
+</ul>
+<p><strong>Week 4: Attribution calculation</strong></p>
+<ul>
+<li>Build attribution model formulas</li>
+<li>Create comparison views (linear vs time-decay vs position-based)</li>
+<li>Generate first multi-touch attribution report</li>
+<li>Compare against GA4 last-click data</li>
+</ul>
+<p><strong>Month 2+: Optimization</strong></p>
+<ul>
+<li>Refine UTM taxonomy based on analysis gaps</li>
+<li>Add cross-domain tracking if needed</li>
+<li>Automate weekly attribution reports</li>
+<li>Use attribution data for allocation decisions</li>
+</ul>
+<p>The system&#39;s value comes from the decisions it informs, not the data it collects. Track only what changes your budget allocation. Delete tracking that produces insights you never act on.</p>
+<hr>
+<h2 id="when-this-analysis-doesn-t-apply">When This Analysis Doesn't Apply</h2>
+<p>Skip this framework if:</p>
+<ul>
+<li><strong>You&#39;re in the first 3 months of a new site.</strong> Traffic diversification assumes you have at least one working channel. Establish your first reliable traffic source before optimizing the portfolio.</li>
+<li><strong>Your traffic is already diversified below 40% from any single source.</strong> You&#39;ve solved the concentration problem. Focus on channel efficiency and conversion optimization instead.</li>
+<li><strong>You&#39;re running a time-limited campaign.</strong> Short-term projects (product launches, events) benefit from channel concentration, not diversification. Spread resources after the sprint.</li>
+</ul>
+<hr>
+<p><strong>Related Resources:</strong></p>
+<ul>
+<li>Traffic Risk Assessment quiz. Measure portfolio vulnerability before and after attribution improvements</li>
+</ul>
+<hr>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>The Enterprise Attribution Gap for Small Publishers:</strong> Attribution complexity scales with business size.</li>
+<li><strong>Google Sheets as Attribution Database:</strong> Spreadsheets lack the sophistication of dedicated analytics platforms.</li>
+<li><strong>Google Tag Manager for Cross-Domain Tracking:</strong> Complex funnels span multiple domains: marketing site to checkout domain to thank-you page.</li>
+<li><strong>Implementation Roadmap:</strong> Attribution system complexity should match business complexity.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-quickly-can-i-implement-this-traffic-strategy">How quickly can I implement this traffic strategy?</h3>
+<p>Most frameworks in this article can be partially deployed within a week. Full implementation with measurement infrastructure typically takes 2-4 weeks. Start with the diagnostic steps before committing to major channel shifts.</p>
+<h3 id="does-this-work-for-sites-with-less-than-10k-monthly-visitors">Does this work for sites with less than 10K monthly visitors?</h3>
+<p>Yes. The principles apply at any traffic level. Smaller sites benefit more from channel diversification because single-source dependency is riskier with a smaller base. The measurement approach scales down, start with simpler attribution before building complex models.</p>
+<h3 id="what-tools-do-i-need-to-execute-this">What tools do I need to execute this?</h3>
+<p>Google Search Console and Google Analytics cover the baseline. For deeper analysis: Ahrefs or Semrush for competitive data, a spreadsheet for channel attribution tracking. No enterprise tools required, the strategy is more important than the tooling.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/multi-touch-attribution-small-business.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">tools</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Attribution Without Enterprise Tools: Multi-Touch Tracking for Publishers Under 10 People</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Learn how to build a multi-touch attribution system using Google Analytics 4, UTM parameters, Zapier, and spreadsheets. Track true channel contribution without $50k analytics software.</p>
+          </a>
+
+          <a href="/articles/traffic-analytics-stack.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">tools</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Traffic Analytics Stack: GA4, Plausible, Fathom, and UTM Systems for Multi-Channel Tracking</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Build a multi-channel analytics stack using GA4, Plausible, or Fathom with standardized UTM taxonomy. Track traffic across 10+ channels without attribution blind spots.</p>
+          </a>
+
+          <a href="/articles/traffic-forecasting-tools.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">tools</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Traffic Forecasting Tools: Predict Traffic Trends with SEMrush, Ahrefs, Google Trends, and Custom Models</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Forecast traffic trends across channels using SEMrush, Ahrefs, Google Trends, and spreadsheet-based models. Build predictive dashboards that inform allocation decisions.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

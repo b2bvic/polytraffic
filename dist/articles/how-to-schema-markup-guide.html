@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets | Polytraffic</title>
+    <meta name="description" content="Implement HowTo schema markup for featured snippet eligibility with this technical guide covering JSON-LD structure, validation, and ranking optimization." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets | Polytraffic" />
+    <meta property="og:description" content="Implement HowTo schema markup for featured snippet eligibility with this technical guide covering JSON-LD structure, validation, and ranking optimization." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/how-to-schema-markup-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/how-to-schema-markup-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets | Polytraffic" />
+    <meta name="twitter:description" content="Implement HowTo schema markup for featured snippet eligibility with this technical guide covering JSON-LD structure, validation, and ranking optimization." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/how-to-schema-markup-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/how-to-schema-markup-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets",
+    "description": "Implement HowTo schema markup for featured snippet eligibility with this technical guide covering JSON-LD structure, validation, and ranking optimization.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/how-to-schema-markup-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/how-to-schema-markup-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/how-to-schema-markup-guide.png" alt="How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-schema-markup-guide-step-by-step-implementation-for-featured-snippets">How-To Schema Markup Guide: Step-by-Step Implementation for Featured Snippets</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Implement HowTo schema markup for featured snippet eligibility with this technical guide covering JSON-LD structure, validation, and ranking optimization.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#howto-schema-structure-and-required-properties" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">HowTo Schema Structure and Required Properties</a></li>
+<li><a href="#json-ld-implementation-protocol" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">JSON-LD Implementation Protocol</a></li>
+<li><a href="#howtosection-for-complex-multi-phase-procedures" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">HowToSection for Complex Multi-Phase Procedures</a></li>
+<li><a href="#howtodirection-for-alternative-step-variations" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">HowToDirection for Alternative Step Variations</a></li>
+<li><a href="#howtotip-for-pro-tips-and-warnings" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">HowToTip for Pro Tips and Warnings</a></li>
+<li><a href="#validation-and-testing-protocol" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Validation and Testing Protocol</a></li>
+<li><a href="#multi-language-howto-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Multi-Language HowTo Implementation</a></li>
+<li><a href="#schema-maintenance-and-update-protocol" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Schema Maintenance and Update Protocol</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>HowTo schema markup</strong> structures procedural content for featured snippet extraction by explicitly defining steps, tools, duration, and supply requirements through JSON-LD implementation. <strong>Google</strong> prioritizes schema-enhanced content for &quot;how to&quot; query featured snippets and displays rich results including estimated time, tool lists, and visual step indicators. Proper implementation requires understanding schema.org specifications and testing through validation tools.</p>
+<h2 id="howto-schema-structure-and-required-properties">HowTo Schema Structure and Required Properties</h2>
+<p>HowTo schema defines procedural instructions through structured data properties <strong>Google</strong> parses to generate rich search results. Implementation uses JSON-LD format embedded in page <code>&lt;head&gt;</code> or <code>&lt;body&gt;</code> sections, providing machine-readable content structure alongside human-readable HTML.</p>
+<p>Required properties form the skeleton of valid HowTo markup: <code>@context</code> (schema.org URL), <code>@type</code> (HowTo), <code>name</code> (title of the how-to guide), and <code>step</code> (array of procedural steps). Missing any required property invalidates the schema, preventing rich result eligibility.</p>
+<p>Each step object requires <code>@type</code> (HowToStep), <code>name</code> (step title), and <code>text</code> (step instructions). Steps appear sequentially in the order defined within the step array, improper ordering creates confusing user experiences when <strong>Google</strong> displays steps out of logical sequence.</p>
+<p>Optional but valuable properties include: <code>totalTime</code> (ISO 8601 duration format), <code>estimatedCost</code> (monetary cost with currency), <code>tool</code> (equipment needed), <code>supply</code> (consumable materials), and <code>image</code> (visual demonstration). These properties enhance rich results with additional helpful information increasing click-through rates.</p>
+<p>The <code>totalTime</code> property uses ISO 8601 duration format: <code>PT1H30M</code> represents 1 hour 30 minutes, <code>PT45M</code> represents 45 minutes, <code>P1D</code> represents 1 day. <strong>Google</strong> displays this prominently in search results, helping users assess whether they have sufficient time before committing to instructions.</p>
+<p>Tools and supplies distinguish between reusable equipment (tools) and consumable materials (supplies). &quot;Wrench&quot; is a tool; &quot;motor oil&quot; is a supply. <strong>Google</strong> may display these as lists in rich results, helping users gather necessary items before starting procedures.</p>
+<p>Related: <a href="google-helpful-content-update-recovery.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">google-helpful-content-update-recovery.html</a> for ensuring content quality supports schema implementation.</p>
+<h2 id="json-ld-implementation-protocol">JSON-LD Implementation Protocol</h2>
+<p>JSON-LD (JavaScript Object Notation for Linked Data) provides the cleanest implementation method for structured data. Place JSON-LD within <code>&lt;script type=&quot;application/ld+json&quot;&gt;</code> tags in your page HTML, typically in the <code>&lt;head&gt;</code> section or immediately after <code>&lt;body&gt;</code> opens.</p>
+<p>Basic HowTo schema structure follows this pattern:</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;HowTo&quot;,
+  &quot;name&quot;: &quot;How to Change Car Oil&quot;,
+  &quot;totalTime&quot;: &quot;PT30M&quot;,
+  &quot;estimatedCost&quot;: {
+    &quot;@type&quot;: &quot;MonetaryAmount&quot;,
+    &quot;currency&quot;: &quot;USD&quot;,
+    &quot;value&quot;: &quot;35&quot;
+  },
+  &quot;tool&quot;: [
+    {
+      &quot;@type&quot;: &quot;HowToTool&quot;,
+      &quot;name&quot;: &quot;Wrench&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;HowToTool&quot;,
+      &quot;name&quot;: &quot;Oil filter wrench&quot;
+    }
+  ],
+  &quot;supply&quot;: [
+    {
+      &quot;@type&quot;: &quot;HowToSupply&quot;,
+      &quot;name&quot;: &quot;Motor oil&quot;,
+      &quot;estimatedCost&quot;: {
+        &quot;@type&quot;: &quot;MonetaryAmount&quot;,
+        &quot;currency&quot;: &quot;USD&quot;,
+        &quot;value&quot;: &quot;25&quot;
+      }
+    }
+  ],
+  &quot;step&quot;: [
+    {
+      &quot;@type&quot;: &quot;HowToStep&quot;,
+      &quot;name&quot;: &quot;Drain old oil&quot;,
+      &quot;text&quot;: &quot;Locate the oil drain plug underneath the engine and remove it using a wrench. Allow old oil to drain completely into a collection pan.&quot;,
+      &quot;url&quot;: &quot;https://example.com/change-oil#step1&quot;,
+      &quot;image&quot;: &quot;https://example.com/images/drain-oil.jpg&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;HowToStep&quot;,
+      &quot;name&quot;: &quot;Replace oil filter&quot;,
+      &quot;text&quot;: &quot;Remove the old oil filter using an oil filter wrench. Apply a thin layer of new oil to the rubber gasket of the new filter before installing.&quot;,
+      &quot;url&quot;: &quot;https://example.com/change-oil#step2&quot;,
+      &quot;image&quot;: &quot;https://example.com/images/oil-filter.jpg&quot;
+    }
+  ]
+}
+</code></pre>
+<p>Nest complex property types correctly. <code>estimatedCost</code> requires <code>@type: MonetaryAmount</code> with <code>currency</code> and <code>value</code> subproperties. Flat formatting (<code>&quot;estimatedCost&quot;: &quot;35&quot;</code>) without proper type structure fails validation.</p>
+<p>Include <code>url</code> property in step objects pointing to anchor links for each step on the page. This enables <strong>Google</strong> to deep-link directly to specific steps when users interact with rich results, improving user experience and engagement metrics.</p>
+<p>Add <code>image</code> properties to steps whenever visual demonstration aids comprehension. Use absolute URLs to full-resolution images (minimum 1200px width). <strong>Google</strong> may display these images in rich results, increasing visual appeal and click probability.</p>
+<p>Maintain text synchronization between HTML content and schema markup. The schema <code>text</code> property should match or closely approximate the actual step instructions visible on the page. Significant discrepancies between schema and visible content violate Google&#39;s guidelines and risk manual actions.</p>
+<p>Related: <a href="google-image-search-optimization.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">google-image-search-optimization.html</a> for optimizing step images.</p>
+<h2 id="howtosection-for-complex-multi-phase-procedures">HowToSection for Complex Multi-Phase Procedures</h2>
+<p>Long procedures benefit from HowToSection grouping to organize steps into logical phases. Sections provide hierarchical organization that <strong>Google</strong> uses to display collapsible step groups in rich results.</p>
+<p>Implement HowToSection by nesting step arrays within section objects. Each section requires <code>@type: HowToSection</code>, <code>name</code> (section title), and <code>itemListElement</code> (array of HowToSteps belonging to that section).</p>
+<p>Example multi-section structure:</p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;HowTo&quot;,
+  &quot;name&quot;: &quot;How to Build a Deck&quot;,
+  &quot;totalTime&quot;: &quot;P3D&quot;,
+  &quot;step&quot;: [
+    {
+      &quot;@type&quot;: &quot;HowToSection&quot;,
+      &quot;name&quot;: &quot;Planning Phase&quot;,
+      &quot;itemListElement&quot;: [
+        {
+          &quot;@type&quot;: &quot;HowToStep&quot;,
+          &quot;name&quot;: &quot;Measure deck area&quot;,
+          &quot;text&quot;: &quot;Measure the outdoor space where you plan to build the deck...&quot;
+        },
+        {
+          &quot;@type&quot;: &quot;HowToStep&quot;,
+          &quot;name&quot;: &quot;Obtain permits&quot;,
+          &quot;text&quot;: &quot;Visit your local building department to apply for construction permits...&quot;
+        }
+      ]
+    },
+    {
+      &quot;@type&quot;: &quot;HowToSection&quot;,
+      &quot;name&quot;: &quot;Construction Phase&quot;,
+      &quot;itemListElement&quot;: [
+        {
+          &quot;@type&quot;: &quot;HowToStep&quot;,
+          &quot;name&quot;: &quot;Pour foundation&quot;,
+          &quot;text&quot;: &quot;Dig post holes and pour concrete footings for deck support posts...&quot;
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<p>Sections prove particularly valuable for procedures exceeding 8-10 steps. Grouping maintains cognitive manageability, users process &quot;3 sections with 4 steps each&quot; more easily than &quot;12 sequential steps&quot; without organization.</p>
+<p>Don&#39;t mix HowToSection and HowToStep at the same nesting level. The <code>step</code> array should contain either all HowToSteps or all HowToSections, not a mixture. Mixing these types creates validation errors and prevents rich result eligibility.</p>
+<p>Use sections to organize procedural phases: preparation, execution, cleanup, or beginner/intermediate/advanced variations. This semantic grouping aids both user comprehension and <strong>Google&#39;s</strong> understanding of procedure complexity and time investment required.</p>
+<h2 id="howtodirection-for-alternative-step-variations">HowToDirection for Alternative Step Variations</h2>
+<p>Some procedures offer multiple valid approaches for individual steps. HowToDirection enables documenting alternative methods within single steps, allowing <strong>Google</strong> to present options to users.</p>
+<p>Implement HowToDirection by replacing step <code>text</code> property with <code>itemListElement</code> containing HowToDirection objects. Each direction represents an alternative approach with its own text and optional image.</p>
+<p>Example with alternatives:</p>
+<pre><code class="language-json">{
+  &quot;@type&quot;: &quot;HowToStep&quot;,
+  &quot;name&quot;: &quot;Secure the board&quot;,
+  &quot;itemListElement&quot;: [
+    {
+      &quot;@type&quot;: &quot;HowToDirection&quot;,
+      &quot;text&quot;: &quot;Option 1: Use deck screws driven with a power drill. This provides the strongest hold.&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;HowToDirection&quot;,
+      &quot;text&quot;: &quot;Option 2: Use galvanized nails hammered manually. This works if you lack power tools but takes longer.&quot;
+    }
+  ]
+}
+</code></pre>
+<p>HowToDirection works well for: tool alternatives (power drill vs manual screwdriver), technique variations (novice vs advanced approaches), or product substitutions (brand-name vs generic supplies).</p>
+<p>Avoid overusing directions, too many alternatives per step overwhelm users. Limit to 2-3 directions maximum per step. If procedures require extensive variation documentation, consider creating separate how-to guides for distinct approaches rather than cramming multiple methods into one schema.</p>
+<p>Test direction display in <strong>Rich Results Test</strong>. Not all rich result formats support direction display; <strong>Google</strong> may consolidate directions or select one primary direction for display. Write directions assuming users might see only one, even though you provided multiple.</p>
+<h2 id="howtotip-for-pro-tips-and-warnings">HowToTip for Pro Tips and Warnings</h2>
+<p>HowToTip properties add supplemental guidance enhancing step execution without constituting separate steps themselves. Tips, warnings, and notes appear alongside steps in rich results when <strong>Google</strong> determines they add value.</p>
+<p>Add tips within HowToStep objects using the <code>tip</code> property. Tips should provide helpful context, efficiency improvements, or common mistake avoidance:</p>
+<pre><code class="language-json">{
+  &quot;@type&quot;: &quot;HowToStep&quot;,
+  &quot;name&quot;: &quot;Apply wood stain&quot;,
+  &quot;text&quot;: &quot;Use a foam brush to apply stain evenly across the wood surface, working with the grain.&quot;,
+  &quot;tip&quot;: &quot;Test stain color on a scrap piece first—stain appears darker on dense wood and lighter on softwoods.&quot;
+}
+</code></pre>
+<p>Tips differ from directions, tips supplement the primary instruction while directions provide alternative execution methods. &quot;Test the stain first&quot; is a tip; &quot;Use foam brush or lint-free cloth&quot; is a direction variation.</p>
+<p>Use tips for: time-saving shortcuts, quality improvement techniques, safety warnings, troubleshooting common issues, or context about why specific steps matter. Effective tips answer questions users commonly have during execution without requiring separate step status.</p>
+<p>Keep tips concise, under 100 words typically. Lengthy tips should become separate steps or supporting content in the HTML article body. Schema properties optimize for structured display, not extensive explanatory content.</p>
+<p>Don&#39;t overload steps with multiple tips. One tip per step maintains clarity. Multiple pieces of supplemental guidance suggest the step itself needs decomposition into multiple more granular steps, each with focused single tips.</p>
+<p>Related: <a href="header-tag-hierarchy-fix.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">header-tag-hierarchy-fix.html</a> for structuring accompanying HTML content.</p>
+<h2 id="validation-and-testing-protocol">Validation and Testing Protocol</h2>
+<p>Validate HowTo schema before deployment using <strong>Google&#39;s Rich Results Test</strong>. Paste your page URL or JSON-LD code directly into the test tool. The tool identifies errors, warnings, and previews how rich results appear in search.</p>
+<p>Error resolution takes priority over warning resolution. Errors prevent rich result eligibility entirely, missing required properties, invalid property types, malformed JSON syntax. Address all errors before publication. Warnings indicate suboptimal implementation but don&#39;t block rich results.</p>
+<p>Common validation errors include: missing <code>@context</code>, incorrect <code>@type</code> values (misspellings like &quot;HowToSteps&quot; instead of &quot;HowToStep&quot;), invalid ISO 8601 duration formats, missing required step properties, and mismatched nesting (HowToSection containing HowToSection instead of HowToStep).</p>
+<p>Test on actual published pages, not code samples. Rich Results Test executes JavaScript and accesses external resources. Locally valid schema might fail when deployed if images return 404s, URLs contain typos, or JavaScript errors prevent schema rendering.</p>
+<p>Use <strong>Google Search Console</strong> URL Inspection tool to verify schema indexing. Enter page URL and check &quot;Enhancements&quot; section for HowTo status. Successfully detected schema shows statistics: number of steps, sections, images. Failed detection indicates validation issues or content quality concerns preventing rich result eligibility.</p>
+<p>Monitor actual rich result appearance in search results through targeted queries. Search for &quot;how to [your topic]&quot; and variations to see if your content appears with rich results. Rich result eligibility doesn&#39;t guarantee rich result display. <strong>Google</strong> selects content algorithmically based on relevance, quality, and query context.</p>
+<p>Track rich result performance in <strong>Google Search Console</strong> Performance report. Filter by Search Appearance &gt; HowTo rich results to isolate traffic from schema-enhanced listings. Compare CTR for rich result impressions versus standard result impressions to quantify schema impact on click-through rates.</p>
+<p>Related: <a href="google-search-console-seo-audit-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">google-search-console-seo-audit-guide.html</a> for ongoing schema performance monitoring.</p>
+<h2 id="multi-language-howto-implementation">Multi-Language HowTo Implementation</h2>
+<p>Sites serving multiple languages require language-specific schema implementation ensuring instructions appear correctly for users in different locales. Implement separate schema instances per language or use language-agnostic properties where appropriate.</p>
+<p>Create language-specific JSON-LD on translated pages using the appropriate language for all text properties: <code>name</code>, <code>text</code>, <code>tip</code> content. Don&#39;t mix languages. English step names with Spanish instructions create confusion and may prevent rich result display for either language.</p>
+<p>Implement hreflang annotations alongside language-specific HowTo schema. <strong>Google</strong> uses hreflang to understand language relationships between pages; combined with localized schema, this ensures correct schema-enhanced results appear for queries in each language.</p>
+<p>Adapt tools and supplies to regional availability when implementing international schema. A &quot;how to repair drywall&quot; guide for US audiences references supplies available at Home Depot; UK versions should reference B&amp;Q or Screwfix equivalents. This localization increases relevance and actionability for target audiences.</p>
+<p>Consider currency localization in <code>estimatedCost</code> properties. Use appropriate currency codes (USD, EUR, GBP, JPY) matching target audience locations. Convert cost estimates accurately, don&#39;t apply current exchange rates, account for regional pricing variations that might make supplies significantly more or less expensive in different markets.</p>
+<p>Test language-specific schema using Rich Results Test with appropriate language URL parameters or by setting browser language preferences. Verify that <strong>Google</strong> interprets schema in the intended language and displays rich results using localized formatting conventions.</p>
+<h2 id="schema-maintenance-and-update-protocol">Schema Maintenance and Update Protocol</h2>
+<p>HowTo schema requires ongoing maintenance as procedures evolve, tools change, or cost estimates fluctuate. Stale schema displaying outdated information damages trust and may result in <strong>Google</strong> removing rich result eligibility.</p>
+<p>Audit HowTo schema quarterly for accuracy. Review: cost estimates (adjust for inflation or product availability changes), time estimates (based on user feedback about actual completion times), tool requirements (updates when better alternatives emerge), and step instructions (corrections based on user comments or observed errors).</p>
+<p>Update schema simultaneously with HTML content changes. When revising article text, immediately update corresponding schema properties to maintain synchronization. Search engines penalize significant discrepancies between visible content and structured data as attempts to manipulate search results.</p>
+<p>Increment version numbers or dates when making substantial schema changes. While not required properties, adding internal version tracking helps identify when schema was last reviewed and ensures maintenance doesn&#39;t skip critical pages over time.</p>
+<p>Monitor rich result loss through Search Console. Sudden drops in HowTo rich result impressions indicate potential schema issues: validation failures after site updates, content quality concerns causing rich result removal, or competitor content outranking yours. Investigate immediately when rich result metrics decline unexpectedly.</p>
+<p>Implement automated schema validation in deployment pipelines. Run page URLs through Rich Results Test API during QA phases before production deployment. Catching schema breakage before publication prevents rich result loss and subsequent traffic drops.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>HowTo Schema Structure and Required Properties:</strong> HowTo schema defines procedural instructions through structured data properties Google parses to generate rich search results.</li>
+<li><strong>JSON-LD Implementation Protocol:</strong> JSON-LD (JavaScript Object Notation for Linked Data) provides the cleanest implementation method for structured data.</li>
+<li><strong>HowToSection for Complex Multi-Phase Procedures:</strong> Long procedures benefit from HowToSection grouping to organize steps into logical phases.</li>
+<li><strong>HowToDirection for Alternative Step Variations:</strong> Some procedures offer multiple valid approaches for individual steps.</li>
+<li><strong>HowToTip for Pro Tips and Warnings:</strong> HowToTip properties add supplemental guidance enhancing step execution without constituting separate steps themselves.</li>
+<li><strong>Validation and Testing Protocol:</strong> Validate HowTo schema before deployment using Google&#39;s Rich Results Test.</li>
+</ul>
+<h2 id="faq-howto-schema-markup">FAQ: HowTo Schema Markup</h2>
+<h3 id="does-adding-howto-schema-guarantee-featured-snippet-display">Does adding HowTo schema guarantee featured snippet display?</h3>
+<p>No, HowTo schema improves eligibility but doesn&#39;t guarantee featured snippets. <strong>Google</strong> selects featured snippet content based on content quality, relevance to specific queries, user engagement signals, and overall page authority. Schema provides structure helping Google understand content, but low-quality content with perfect schema loses to high-quality content with no schema. Focus on both excellent content and proper schema implementation.</p>
+<h3 id="can-i-use-howto-schema-on-recipe-content-or-should-i-use-recipe-schema">Can I use HowTo schema on recipe content or should I use Recipe schema?</h3>
+<p>Use Recipe schema for cooking instructions, it includes recipe-specific properties like nutrition information, cooking method, cuisine type, and yield that HowTo schema lacks. Recipe schema provides richer results tailored to food content. Reserve HowTo schema for non-food procedures: repairs, crafts, technical instructions, etc. Never mix both schemas on the same page for the same content.</p>
+<h3 id="should-every-procedural-article-on-my-site-use-howto-schema">Should every procedural article on my site use HowTo schema?</h3>
+<p>Implement HowTo schema on genuinely instructional content with clear step-by-step procedures. Not all articles claiming &quot;how to&quot; structure warrant schema, opinion pieces, general advice, or content lacking concrete procedural steps shouldn&#39;t use HowTo schema. Quality over quantity: 10 perfectly implemented schemas outperform 50 poorly fitted implementations that risk manual actions for misrepresentation.</p>
+<h3 id="how-many-steps-should-howto-procedures-contain-for-optimal-rich-result-performance">How many steps should HowTo procedures contain for optimal rich result performance?</h3>
+<p>No optimal number exists, but practical considerations apply. Procedures with fewer than 3 steps might not warrant schema, they&#39;re too simple to benefit from rich result structure. Procedures exceeding 20 steps risk user abandonment and might perform better split into multiple focused guides. Aim for 5-12 steps typically, using HowToSection grouping for procedures exceeding this range.</p>
+<h3 id="can-i-add-video-to-howto-schema-or-only-images">Can I add video to HowTo schema or only images?</h3>
+<p>HowTo schema supports image properties but not embedded video directly. For video-enhanced procedures, implement both HowTo schema (describing procedure structure) and VideoObject schema (describing video content) separately on the same page. Link video timestamps to corresponding HowTo steps using URL fragments. This dual implementation enables both HowTo rich results and video rich results potentially appearing for different queries.</p>
+<p>Related: <a href="identify-keyword-cannibalization-audit.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">identify-keyword-cannibalization-audit.html</a> for avoiding multiple pages competing for the same how-to query.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/image-schema-markup-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Image Schema Markup Guide: Complete Implementation for Rich Results</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master ImageObject schema for Google Images rich results. Product images, recipe photos, and article images with structured data for enhanced visibility.</p>
+          </a>
+
+          <a href="/articles/google-image-search-optimization.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Google Image Search Optimization: Technical Implementation Guide for Visual Discovery</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Optimize images for Google Image Search with technical strategies covering file naming, alt text, structured data, and visual search ranking factors.</p>
+          </a>
+
+          <a href="/articles/lazy-load-images-without-breaking-seo.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Lazy Load Images Without Breaking SEO: Complete Implementation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement lazy loading for images using native loading attribute, Intersection Observer, and noscript fallbacks. Optimize Core Web Vitals without harming indexation.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fix javascript bloat | Polytraffic</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="fix javascript bloat | Polytraffic" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/fix-javascript-bloat" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/fix-javascript-bloat.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="fix javascript bloat | Polytraffic" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/fix-javascript-bloat.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/fix-javascript-bloat" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "fix javascript bloat",
+    "description": "",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/fix-javascript-bloat.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-01-19",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/fix-javascript-bloat.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/resilience.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "fix javascript bloat"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/resilience.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">fix javascript bloat</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/fix-javascript-bloat.png" alt="fix javascript bloat" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <p>title:: How to Audit and Reduce JavaScript Bloat That Kills Page Speed
+description:: JavaScript bloat is the hidden page speed killer. Audit your JS bundles, remove unused code, defer execution, and reclaim seconds of load time. Step-by-step.
+focus_keyword:: fix JavaScript bloat
+category:: speed
+author:: Victor Valentine Romo
+date:: 2026.03.20</p>
+<h1 id="how-to-audit-and-reduce-javascript-bloat-that-kills-page-speed">How to Audit and Reduce JavaScript Bloat That Kills Page Speed</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> fix-javascript-bloat</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-javascript-hurts-more-than-images" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why JavaScript Hurts More Than Images</a></li>
+<li><a href="#the-total-cost-of-javascript" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">The Total Cost of JavaScript</a></li>
+<li><a href="#step-1-audit-your-javascript-10-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 1: Audit Your JavaScript (10 Minutes)</a></li>
+<li><a href="#step-2-identify-what-to-cut-10-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 2: Identify What to Cut (10 Minutes)</a></li>
+<li><a href="#step-3-eliminate-unnecessary-javascript-20-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 3: Eliminate Unnecessary JavaScript (20 Minutes)</a></li>
+<li><a href="#step-4-optimize-remaining-javascript-15-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 4: Optimize Remaining JavaScript (15 Minutes)</a></li>
+<li><a href="#step-5-monitor-ongoing-javascript-health-5-minutes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Step 5: Monitor Ongoing JavaScript Health (5 Minutes)</a></li>
+<li><a href="#javascript-bloat-cheat-sheet" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">JavaScript Bloat Cheat Sheet</a></li>
+<li><a href="#real-world-javascript-audit-results" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Real-World JavaScript Audit Results</a></li>
+<li><a href="#reclaim-your-main-thread" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Reclaim Your Main Thread</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>JavaScript bloat is the silent performance killer that tools like <strong>PageSpeed Insights</strong> only partially surface. While images get blamed for slow sites, JavaScript does something worse, it blocks the main thread, prevents user interaction, and delays every metric that matters for Core Web Vitals. A 500KB JavaScript bundle doesn&#39;t take time to download. It takes time to parse, compile, and execute, and during that entire process, the browser can&#39;t respond to clicks, taps, or scrolls.</p>
+<p>The fix is a three-phase process: audit what JavaScript exists, identify what&#39;s unnecessary, and eliminate or defer the rest. Most sites can cut 30-50% of their JavaScript payload in a single session.</p>
+<h2 id="why-javascript-hurts-more-than-images">Why JavaScript Hurts More Than Images</h2>
+<p>A 500KB image and a 500KB JavaScript file are not equivalent. The image downloads and renders. The JavaScript downloads, parses, compiles into bytecode, and then executes, each phase consuming main thread time.</p>
+<p><strong>Addy Osmani</strong> from <strong>Google Chrome</strong> team has documented that the processing cost of JavaScript is 2-5x the cost of an equivalent-sized image. A 200KB JS file can cost 1-2 seconds of main thread time on a mid-range mobile device.</p>
+<h3 id="impact-on-core-web-vitals">Impact on Core Web Vitals</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>How JS Bloat Hurts</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>INP</strong></td>
+<td>Long JS tasks block the main thread, preventing response to user interactions</td>
+</tr>
+<tr>
+<td><strong>LCP</strong></td>
+<td>Render-blocking JS delays initial content paint</td>
+</tr>
+<tr>
+<td><strong>FCP</strong></td>
+<td>JS parsing delays first render</td>
+</tr>
+<tr>
+<td><strong>Total Blocking Time</strong></td>
+<td>Direct measure of JS main thread occupation</td>
+</tr>
+</tbody></table>
+<p><strong>INP</strong> (Interaction to Next Paint) is the metric most affected by JavaScript bloat. Every millisecond the main thread spends executing JavaScript is a millisecond the browser can&#39;t respond to user input.</p>
+<h2 id="the-total-cost-of-javascript">The Total Cost of JavaScript</h2>
+<p>Understanding why JavaScript is the worst-offending asset type helps prioritize the fix:</p>
+<p><strong>Download cost:</strong> JavaScript bytes transfer over the network like any file. On slow 3G connections (still common globally), a 500KB bundle takes 5+ seconds to download.</p>
+<p><strong>Parse cost:</strong> After downloading, the browser must parse the JavaScript into an Abstract Syntax Tree (AST). This is CPU-intensive and happens on the main thread, blocking everything else.</p>
+<p><strong>Compile cost:</strong> Modern JavaScript engines compile hot code paths into optimized machine code. This consumes additional CPU cycles.</p>
+<p><strong>Execute cost:</strong> Finally, the code runs. Event listeners attach, DOM modifications occur, API calls fire. Each step consumes main thread time.</p>
+<p>A 500KB image downloads and displays. A 500KB JavaScript file downloads, parses, compiles, and executes, a chain of CPU operations that can take 2-5 seconds on a mid-range mobile device. This is why JavaScript bloat disproportionately affects mobile users and why INP failures correlate so strongly with JavaScript payload size.</p>
+<h2 id="step-1-audit-your-javascript-10-minutes">Step 1: Audit Your JavaScript (10 Minutes)</h2>
+<h3 id="chrome-devtools-coverage-report">Chrome DevTools Coverage Report</h3>
+<ol>
+<li>Open your site in <strong>Chrome</strong></li>
+<li>Press F12 → Ctrl+Shift+P → type &quot;Coverage&quot; → select &quot;Show Coverage&quot;</li>
+<li>Click the reload button in the Coverage panel</li>
+<li>Wait for the page to fully load</li>
+</ol>
+<p>The Coverage report shows every JavaScript file with:</p>
+<ul>
+<li><strong>Total bytes</strong>. Full file size</li>
+<li><strong>Unused bytes</strong>. Code downloaded but never executed</li>
+<li><strong>Unused percentage</strong>. The waste ratio</li>
+</ul>
+<p>Files with 60%+ unused code are immediate optimization targets.</p>
+<h3 id="chrome-devtools-performance-panel">Chrome DevTools Performance Panel</h3>
+<ol>
+<li>Open the <strong>Performance</strong> tab</li>
+<li>Click the reload button to record a page load</li>
+<li>Look at the <strong>Main</strong> thread flame chart</li>
+<li>Long yellow blocks are JavaScript execution</li>
+<li>Any task over 50ms (marked with a red triangle) is a &quot;long task&quot; that blocks INP</li>
+</ol>
+<h3 id="pagespeed-insights-diagnostics">PageSpeed Insights Diagnostics</h3>
+<p>Run your page through <strong>PageSpeed Insights</strong> and check these items:</p>
+<ul>
+<li><strong>&quot;Reduce unused JavaScript&quot;</strong>. Lists files with significant unused code</li>
+<li><strong>&quot;Minimize main-thread work&quot;</strong>. Shows total main thread JavaScript execution time</li>
+<li><strong>&quot;Reduce JavaScript execution time&quot;</strong>. Highlights the most expensive scripts</li>
+<li><strong>&quot;Avoid enormous network payloads&quot;</strong>. Flags total transfer size including JS</li>
+</ul>
+<h3 id="webpack-bundle-analyzer-for-developers">Webpack Bundle Analyzer (For Developers)</h3>
+<p>If your site uses <strong>Webpack</strong>, install the bundle analyzer to visualize exactly what&#39;s in each JS bundle:</p>
+<pre><code class="language-bash">npm install webpack-bundle-analyzer --save-dev
+</code></pre>
+<p>The treemap visualization reveals hidden dependencies, duplicate libraries, and unexpectedly large modules.</p>
+<h2 id="step-2-identify-what-to-cut-10-minutes">Step 2: Identify What to Cut (10 Minutes)</h2>
+<h3 id="category-1-completely-unused-scripts">Category 1: Completely Unused Scripts</h3>
+<p>Scripts that load on every page but only apply to specific pages:</p>
+<ul>
+<li><strong>WooCommerce</strong> scripts on non-shop pages</li>
+<li>Contact form scripts on pages without forms</li>
+<li>Slider/carousel scripts on pages without sliders</li>
+<li>Comment system scripts on pages with comments disabled</li>
+</ul>
+<p><strong>Fix:</strong> Conditionally load scripts only on pages that use them.</p>
+<h3 id="category-2-oversized-libraries">Category 2: Oversized Libraries</h3>
+<p>Modern JavaScript ecosystem inflates bundles with heavy dependencies:</p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Typical Size</th>
+<th>Lighter Alternative</th>
+<th>Size Reduction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>jQuery</td>
+<td>87KB (minified)</td>
+<td>Vanilla JS</td>
+<td>87KB saved</td>
+</tr>
+<tr>
+<td>Moment.js</td>
+<td>72KB</td>
+<td>Day.js (2KB) or date-fns</td>
+<td>70KB saved</td>
+</tr>
+<tr>
+<td>Lodash (full)</td>
+<td>72KB</td>
+<td>Lodash-es (tree-shakeable)</td>
+<td>50-65KB saved</td>
+</tr>
+<tr>
+<td>Bootstrap JS</td>
+<td>62KB</td>
+<td>Targeted utility classes</td>
+<td>40-60KB saved</td>
+</tr>
+</tbody></table>
+<h3 id="category-3-third-party-scripts">Category 3: Third-Party Scripts</h3>
+<p>Analytics, ad networks, chat widgets, heatmaps, A/B testing tools, each adds JavaScript that you don&#39;t control and can&#39;t optimize.</p>
+<p><strong>Audit approach:</strong> List every third-party script loaded on your site. For each one, ask:</p>
+<ol>
+<li>Is this actively providing business value?</li>
+<li>When was the last time someone looked at data from this tool?</li>
+<li>Can it be loaded conditionally (only on specific pages) or delayed?</li>
+</ol>
+<p>The median website loads 21 third-party scripts, according to <strong>HTTP Archive</strong> data. Many of these are zombie scripts, installed for a campaign that ended, a test that concluded, or a tool nobody uses anymore.</p>
+<h3 id="category-4-polyfills-for-modern-browsers">Category 4: Polyfills for Modern Browsers</h3>
+<p>If your site loads polyfills for features all modern browsers support natively (Promise, fetch, Array.from, IntersectionObserver), those bytes are wasted for 95%+ of your visitors.</p>
+<p>Check <strong>caniuse.com</strong> for the features your polyfills cover. If browser support exceeds 95%, remove the polyfill.</p>
+<h2 id="step-3-eliminate-unnecessary-javascript-20-minutes">Step 3: Eliminate Unnecessary JavaScript (20 Minutes)</h2>
+<h3 id="wordpress-per-page-script-management">WordPress: Per-Page Script Management</h3>
+<p><strong>Asset CleanUp (Free):</strong></p>
+<ol>
+<li>Install and activate</li>
+<li>Visit any page on your site while logged in</li>
+<li>A panel appears showing every CSS and JS file loaded on that page</li>
+<li>Unload scripts that aren&#39;t needed on specific pages</li>
+</ol>
+<p><strong>Example:</strong> Unload WooCommerce scripts on blog posts. Unload contact form scripts on product pages. Unload slider scripts on pages without sliders.</p>
+<p><strong>Perfmatters (Paid):</strong></p>
+<ol>
+<li>Same per-page script management with a cleaner interface</li>
+<li>Also provides local analytics (eliminates Google Analytics JS overhead)</li>
+<li>Script manager accessible from the WordPress admin bar</li>
+</ol>
+<h3 id="remove-jquery-if-possible">Remove jQuery If Possible</h3>
+<p>jQuery was essential in 2010. In 2026, native JavaScript handles everything jQuery does. If your theme and plugins don&#39;t depend on jQuery:</p>
+<ol>
+<li>Test by adding <code>wp_deregister_script(&#39;jquery&#39;)</code> to your functions.php</li>
+<li>If nothing breaks, jQuery was unnecessary dead weight</li>
+<li>If something breaks, identify which plugins depend on it and evaluate alternatives</li>
+</ol>
+<h3 id="replace-heavy-libraries">Replace Heavy Libraries</h3>
+<p>Instead of loading an entire library for one function:</p>
+<pre><code class="language-javascript">// BEFORE: Import all of Lodash for one function
+import _ from &#39;lodash&#39;;
+const sorted = _.sortBy(items, &#39;name&#39;);
+
+// AFTER: Import only what you need
+import sortBy from &#39;lodash-es/sortBy&#39;;
+const sorted = sortBy(items, &#39;name&#39;);
+</code></pre>
+<p>Tree-shaking (available in <strong>Webpack</strong>, <strong>Rollup</strong>, <strong>Vite</strong>) automatically removes unused exports when you use ES module imports.</p>
+<h3 id="delay-third-party-scripts">Delay Third-Party Scripts</h3>
+<p>Scripts that aren&#39;t needed until user interaction can be delayed:</p>
+<pre><code class="language-javascript">// Load chat widget only after user scrolls or clicks
+let chatLoaded = false;
+function loadChat() {
+  if (chatLoaded) return;
+  chatLoaded = true;
+  const script = document.createElement(&#39;script&#39;);
+  script.src = &#39;https://chat-widget.example.com/widget.js&#39;;
+  document.head.appendChild(script);
+}
+
+window.addEventListener(&#39;scroll&#39;, loadChat, { once: true });
+document.addEventListener(&#39;click&#39;, loadChat, { once: true });
+</code></pre>
+<p><strong>WP Rocket&#39;s &quot;Delay JavaScript execution&quot;</strong> feature does this automatically, it delays all non-critical scripts until user interaction.</p>
+<h2 id="step-4-optimize-remaining-javascript-15-minutes">Step 4: Optimize Remaining JavaScript (15 Minutes)</h2>
+<h3 id="code-splitting">Code Splitting</h3>
+<p>Instead of one monolithic bundle, split your JavaScript into page-specific chunks that load only when needed.</p>
+<p><strong>Webpack:</strong></p>
+<pre><code class="language-javascript">// Dynamic import — loads the module only when this code path executes
+const module = await import(&#39;./heavy-feature.js&#39;);
+module.init();
+</code></pre>
+<p><strong>Result:</strong> Users only download JavaScript for the features present on the current page, not every feature on the entire site.</p>
+<h3 id="minification-and-compression">Minification and Compression</h3>
+<p>Ensure all JavaScript is minified (whitespace and comments removed) and compressed (GZIP or Brotli).</p>
+<p><strong>Verify compression:</strong></p>
+<pre><code class="language-bash">curl -sI -H &quot;Accept-Encoding: gzip, br&quot; https://yoursite.com/js/bundle.js | grep content-encoding
+</code></pre>
+<p>You should see <code>content-encoding: br</code> (Brotli) or <code>content-encoding: gzip</code>. If neither appears, your server isn&#39;t compressing JavaScript files.</p>
+<h3 id="defer-and-async-revisited">Defer and Async (Revisited)</h3>
+<p>Any remaining JavaScript that isn&#39;t needed for initial render should be deferred:</p>
+<pre><code class="language-html">&lt;script src=&quot;non-critical.js&quot; defer&gt;&lt;/script&gt;
+</code></pre>
+<p>See <a href="/articles/fix-render-blocking-resources.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">fixing render-blocking resources</a> for the complete defer/async strategy.</p>
+<h2 id="step-5-monitor-ongoing-javascript-health-5-minutes">Step 5: Monitor Ongoing JavaScript Health (5 Minutes)</h2>
+<h3 id="set-a-javascript-budget">Set a JavaScript Budget</h3>
+<p>Establish a maximum JavaScript payload for your site and enforce it:</p>
+<table>
+<thead>
+<tr>
+<th>Site Type</th>
+<th>Max JS Payload (compressed)</th>
+<th>Max JS Payload (uncompressed)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Blog/content site</td>
+<td>100KB</td>
+<td>300KB</td>
+</tr>
+<tr>
+<td>E-commerce</td>
+<td>200KB</td>
+<td>600KB</td>
+</tr>
+<tr>
+<td>Web application</td>
+<td>300KB</td>
+<td>900KB</td>
+</tr>
+</tbody></table>
+<p><strong>Webpack performance hints:</strong></p>
+<pre><code class="language-javascript">// webpack.config.js
+module.exports = {
+  performance: {
+    maxAssetSize: 200000,     // 200KB per file
+    maxEntrypointSize: 300000, // 300KB total entry
+    hints: &#39;error&#39;            // Fail the build if exceeded
+  }
+};
+</code></pre>
+<h3 id="build-time-optimization">Build-Time Optimization</h3>
+<p>For sites using modern build tools, optimization should happen at build time, not after deployment:</p>
+<p><strong>Tree-shaking:</strong> Only works with ES module syntax (<code>import</code>/<code>export</code>). Ensure all your code and dependencies use ES modules. <strong>Webpack</strong>, <strong>Rollup</strong>, and <strong>Vite</strong> all support tree-shaking natively.</p>
+<p><strong>Dead code elimination:</strong> Build tools can identify and remove code paths that are never reached. Configure your bundler&#39;s production mode:</p>
+<pre><code class="language-javascript">// webpack.config.js
+module.exports = {
+  mode: &#39;production&#39;,  // Enables tree-shaking and dead code elimination
+  optimization: {
+    usedExports: true,  // Marks unused exports for removal
+    minimize: true       // Minifies output
+  }
+};
+</code></pre>
+<p><strong>Dependency analysis:</strong> Before adding any new npm package, check its size impact:</p>
+<ul>
+<li><strong>bundlephobia.com</strong>. Shows the download size and composition of any npm package</li>
+<li><strong>cost-of-modules</strong> npm package. Analyzes your project&#39;s dependencies and identifies heavy ones</li>
+</ul>
+<p>A single <code>npm install moment</code> adds 72KB to your bundle. Checking bundlephobia first might lead you to <code>dayjs</code> (2KB) instead. That 70KB difference compounds across every page load for every visitor.</p>
+<h3 id="monthly-audit-cadence">Monthly Audit Cadence</h3>
+<ol>
+<li>Run <strong>Chrome DevTools Coverage</strong> on your top 5 pages monthly</li>
+<li>Track total JS payload size over time, it should decrease or stay flat, not grow</li>
+<li>After installing any new plugin or tool, immediately check the JS impact using <strong>Asset CleanUp</strong> or DevTools Network tab</li>
+<li>Review third-party script inventory quarterly and remove zombie scripts</li>
+</ol>
+<h3 id="lighthouse-ci">Lighthouse CI</h3>
+<p>For development teams, <strong>Lighthouse CI</strong> can run automated performance audits on every code deployment, catching JavaScript regressions before they reach production.</p>
+<h2 id="javascript-bloat-cheat-sheet">JavaScript Bloat Cheat Sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Typical Bloat</th>
+<th>Fix</th>
+<th>Savings</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>jQuery (unused)</td>
+<td>87KB</td>
+<td>Remove if not needed</td>
+<td>87KB</td>
+</tr>
+<tr>
+<td>Full Lodash import</td>
+<td>72KB</td>
+<td>Use lodash-es with tree-shaking</td>
+<td>50-65KB</td>
+</tr>
+<tr>
+<td>WooCommerce on non-shop pages</td>
+<td>50-100KB</td>
+<td>Conditional loading</td>
+<td>50-100KB</td>
+</tr>
+<tr>
+<td>Dead analytics/tracking</td>
+<td>30-80KB per script</td>
+<td>Remove zombie scripts</td>
+<td>Variable</td>
+</tr>
+<tr>
+<td>Polyfills for modern browsers</td>
+<td>20-50KB</td>
+<td>Remove unnecessary polyfills</td>
+<td>20-50KB</td>
+</tr>
+<tr>
+<td>Contact form on all pages</td>
+<td>30-60KB</td>
+<td>Load only on contact page</td>
+<td>30-60KB</td>
+</tr>
+<tr>
+<td>Moment.js</td>
+<td>72KB</td>
+<td>Replace with Day.js</td>
+<td>70KB</td>
+</tr>
+</tbody></table>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why JavaScript Hurts More Than Images:</strong> A 500KB image and a 500KB JavaScript file are not equivalent.</li>
+<li><strong>The Total Cost of JavaScript:</strong> Understanding why JavaScript is the worst-offending asset type helps prioritize the fix:</li>
+<li><strong>Step 2: Identify What to Cut (10 Minutes):</strong> Scripts that load on every page but only apply to specific pages:</li>
+<li><strong>Step 4: Optimize Remaining JavaScript (15 Minutes):</strong> Instead of one monolithic bundle, split your JavaScript into page-specific chunks that load only when needed.</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<h3 id="how-do-i-know-if-javascript-is-causing-my-inp-problems">How do I know if JavaScript is causing my INP problems?</h3>
+<p>Open <strong>Chrome DevTools Performance</strong> tab and interact with your page (click buttons, scroll, type). Look at the flame chart for the <strong>Main</strong> thread, long yellow bars during your interaction indicate JavaScript blocking the response. Any task over 50ms is a &quot;long task&quot; contributing to poor INP.</p>
+<h3 id="will-removing-javascript-break-my-site">Will removing JavaScript break my site?</h3>
+<p>It can. Always test in a staging environment first. Start by removing scripts you&#39;ve confirmed are unused (via the Coverage report). Then move to conditional loading, don&#39;t remove scripts entirely, prevent them from loading on pages that don&#39;t need them.</p>
+<h3 id="is-tree-shaking-automatic">Is tree-shaking automatic?</h3>
+<p>Tree-shaking requires ES module syntax (<code>import</code>/<code>export</code>) and a bundler that supports it (<strong>Webpack 4+</strong>, <strong>Rollup</strong>, <strong>Vite</strong>, <strong>Parcel</strong>). If your code uses CommonJS (<code>require</code>/<code>module.exports</code>), tree-shaking won&#39;t work. Convert to ES modules for automatic dead code elimination.</p>
+<h3 id="how-much-javascript-is-too-much">How much JavaScript is too much?</h3>
+<p>For content-focused sites, anything over 200KB compressed is excessive. <strong>HTTP Archive</strong> data shows the median page loads over 500KB of JavaScript, but &quot;median&quot; doesn&#39;t mean &quot;good.&quot; The fastest sites in every category use significantly less JavaScript than average.</p>
+<h3 id="can-a-cdn-help-with-javascript-performance">Can a CDN help with JavaScript performance?</h3>
+<p>A CDN reduces download time by serving files from nearby edge servers. But JavaScript&#39;s performance cost is dominated by parsing and execution, not download time. A 500KB file downloads faster from a CDN but takes the same time to parse and execute. CDN + code reduction is the correct approach.</p>
+<h2 id="real-world-javascript-audit-results">Real-World JavaScript Audit Results</h2>
+<h3 id="case-wordpress-business-site-with-18-plugins">Case: WordPress Business Site With 18 Plugins</h3>
+<p><strong>Before audit:</strong></p>
+<ul>
+<li>Total JS payload: 847KB (compressed)</li>
+<li>Main thread blocking time: 3,200ms</li>
+<li>INP: 580ms (Poor)</li>
+<li>14 JavaScript files loaded on every page</li>
+</ul>
+<p><strong>Audit findings:</strong></p>
+<ul>
+<li>jQuery loaded but only used by 2 of 18 plugins</li>
+<li>Contact Form 7 scripts loading on all pages (form only on contact page)</li>
+<li>Google reCAPTCHA v3 loading sitewide (only needed on forms)</li>
+<li>Defunct chat widget script from a tool cancelled 6 months ago</li>
+<li>Slider plugin loading on pages without sliders</li>
+<li>Social sharing plugin adding 3 separate JS files</li>
+</ul>
+<p><strong>Actions taken:</strong></p>
+<ol>
+<li>Removed dead chat widget plugin, saved 78KB</li>
+<li>Conditional-loaded Contact Form 7 and reCAPTCHA on contact page only, saved 92KB on non-form pages</li>
+<li>Conditional-loaded slider JS on pages with sliders only, saved 65KB on blog posts</li>
+<li>Replaced social sharing plugin with static HTML share links, saved 114KB</li>
+<li>Deferred remaining scripts using WP Rocket, reduced blocking time by 1,800ms</li>
+</ol>
+<p><strong>After audit:</strong></p>
+<ul>
+<li>Total JS payload: 498KB (compressed). 41% reduction</li>
+<li>Main thread blocking time: 1,100ms</li>
+<li>INP: 165ms (Good)</li>
+<li>7 JavaScript files on typical page</li>
+</ul>
+<p>The site passed all Core Web Vitals within one week of lab data updates.</p>
+<h3 id="common-javascript-waste-by-plugin-category">Common JavaScript Waste by Plugin Category</h3>
+<table>
+<thead>
+<tr>
+<th>Plugin Category</th>
+<th>Typical JS Overhead</th>
+<th>Pages It&#39;s Needed On</th>
+<th>Waste Factor</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SEO plugins (Yoast, Rank Math)</td>
+<td>30-50KB</td>
+<td>Admin only</td>
+<td>High on frontend</td>
+</tr>
+<tr>
+<td>Form builders</td>
+<td>60-100KB</td>
+<td>Pages with forms</td>
+<td>Very high sitewide</td>
+</tr>
+<tr>
+<td>Slider/carousel</td>
+<td>40-80KB</td>
+<td>Pages with sliders</td>
+<td>Very high sitewide</td>
+</tr>
+<tr>
+<td>Chat widgets</td>
+<td>60-120KB</td>
+<td>All pages (arguably)</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Social sharing</td>
+<td>50-120KB</td>
+<td>Blog posts only</td>
+<td>High on non-blog pages</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>30-80KB</td>
+<td>All pages (necessary)</td>
+<td>Low (but defer it)</td>
+</tr>
+<tr>
+<td>reCAPTCHA</td>
+<td>40-60KB</td>
+<td>Pages with forms</td>
+<td>High on non-form pages</td>
+</tr>
+</tbody></table>
+<p>The pattern is clear: most plugins load their JavaScript on every page but are only used on a fraction of pages. Conditional loading is the highest-leverage JavaScript optimization for WordPress sites.</p>
+<h2 id="reclaim-your-main-thread">Reclaim Your Main Thread</h2>
+<p>Every kilobyte of JavaScript you eliminate returns main thread time to the browser, time it uses to respond to user interactions, render content, and deliver the snappy experience that keeps visitors on your site. The audit reveals the waste. The fixes are mechanical: remove unused code, conditionally load page-specific scripts, replace heavy libraries, defer everything non-critical.</p>
+<p>Run the <strong>Chrome DevTools Coverage</strong> report right now. Sort by unused bytes. Start cutting. Your <a href="/articles/fix-core-web-vitals.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals scores</a> will reflect the improvement within days in lab data and within 28 days in field data.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/fix-index-bloat.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">fix index bloat</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2"></p>
+          </a>
+
+          <a href="/articles/canonical-tag-implementation-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">canonical tag implementation guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2"></p>
+          </a>
+
+          <a href="/articles/fix-core-web-vitals.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">resilience</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">fix core web vitals</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2"></p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

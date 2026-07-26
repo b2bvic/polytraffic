@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>robots.txt vs meta robots vs X-Robots-Tag: When to Use Each | Polytraffic</title>
+    <meta name="description" content="Technical guide to robots.txt, meta robots tags, and X-Robots-Tag HTTP headers. Learn which method controls crawling vs indexing effectively." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="robots.txt vs meta robots vs X-Robots-Tag: When to Use Each | Polytraffic" />
+    <meta property="og:description" content="Technical guide to robots.txt, meta robots tags, and X-Robots-Tag HTTP headers. Learn which method controls crawling vs indexing effectively." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/robots-txt-vs-meta-robots-vs-x-robots-tag" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/robots-txt-vs-meta-robots-vs-x-robots-tag.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="robots.txt vs meta robots vs X-Robots-Tag: When to Use Each | Polytraffic" />
+    <meta name="twitter:description" content="Technical guide to robots.txt, meta robots tags, and X-Robots-Tag HTTP headers. Learn which method controls crawling vs indexing effectively." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/robots-txt-vs-meta-robots-vs-x-robots-tag.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/robots-txt-vs-meta-robots-vs-x-robots-tag" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "robots.txt vs meta robots vs X-Robots-Tag: When to Use Each",
+    "description": "Technical guide to robots.txt, meta robots tags, and X-Robots-Tag HTTP headers. Learn which method controls crawling vs indexing effectively.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/robots-txt-vs-meta-robots-vs-x-robots-tag.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/robots-txt-vs-meta-robots-vs-x-robots-tag.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Technical SEO.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "robots.txt vs meta robots vs X-Robots-Tag: When to Use Each"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Technical SEO.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">robots.txt vs meta robots vs X-Robots-Tag: When to Use Each</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/robots-txt-vs-meta-robots-vs-x-robots-tag.png" alt="robots.txt vs meta robots vs X-Robots-Tag: When to Use Each" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="robots-txt-vs-meta-robots-vs-x-robots-tag-when-to-use-each">robots.txt vs meta robots vs X-Robots-Tag: When to Use Each</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Technical guide to robots.txt, meta robots tags, and X-Robots-Tag HTTP headers. Learn which method controls crawling vs indexing effectively.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#core-functional-differences" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Functional Differences</a></li>
+<li><a href="#when-to-use-robots-txt" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When to Use robots.txt</a></li>
+<li><a href="#when-to-use-meta-robots-tags" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When to Use meta robots Tags</a></li>
+<li><a href="#when-to-use-x-robots-tag-http-headers" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When to Use X-Robots-Tag HTTP Headers</a></li>
+<li><a href="#interaction-between-methods-and-precedence" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Interaction Between Methods and Precedence</a></li>
+<li><a href="#comparing-indexing-control-effectiveness" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Comparing Indexing Control Effectiveness</a></li>
+<li><a href="#common-misconfigurations-and-fixes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Misconfigurations and Fixes</a></li>
+<li><a href="#testing-and-validation-tools" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Testing and Validation Tools</a></li>
+<li><a href="#strategic-implementation-patterns" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Strategic Implementation Patterns</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Search engines offer three distinct mechanisms for controlling crawler behavior: <strong>robots.txt</strong> blocks crawler access to URLs, <strong>meta robots</strong> tags embedded in HTML control indexing and link following, and <strong>X-Robots-Tag</strong> HTTP headers apply directives to any file type including non-HTML resources. Confusing these methods causes common SEO failures, blocking in robots.txt while expecting noindex directives to work, or using meta tags on PDFs that never execute HTML.</p>
+<p>Each method serves specific purposes with different technical requirements and SEO implications. <strong>robots.txt</strong> operates at the network level before content transfer, <strong>meta robots</strong> requires HTML parsing during rendering, and <strong>X-Robots-Tag</strong> functions at the HTTP protocol layer independent of content type. Understanding which method to deploy determines whether pages crawl but don&#39;t index, don&#39;t crawl at all, or pass authority while remaining hidden from search results.</p>
+<h2 id="core-functional-differences">Core Functional Differences</h2>
+<p><strong>robots.txt:</strong></p>
+<ul>
+<li><strong>Location:</strong> Root domain (example.com/robots.txt)</li>
+<li><strong>Scope:</strong> Site-wide or directory-level URL patterns</li>
+<li><strong>Action:</strong> Blocks crawler access (HTTP requests never occur)</li>
+<li><strong>Indexing control:</strong> None, blocked URLs may still index if external links exist</li>
+<li><strong>Visibility:</strong> Publicly accessible file anyone can view</li>
+<li><strong>Processing timing:</strong> Before any HTTP request to target URLs</li>
+</ul>
+<p><strong>meta robots:</strong></p>
+<ul>
+<li><strong>Location:</strong> HTML <code>&lt;head&gt;</code> section of individual pages</li>
+<li><strong>Scope:</strong> Per-page directives</li>
+<li><strong>Action:</strong> Controls indexing, link following, snippet display, caching</li>
+<li><strong>Crawling requirement:</strong> Must be crawled to see directives</li>
+<li><strong>Visibility:</strong> Requires viewing page source or crawling</li>
+<li><strong>Processing timing:</strong> During HTML parsing after content downloads</li>
+</ul>
+<p><strong>X-Robots-Tag:</strong></p>
+<ul>
+<li><strong>Location:</strong> HTTP response headers</li>
+<li><strong>Scope:</strong> Any file type (HTML, PDF, images, videos, XML)</li>
+<li><strong>Action:</strong> Same as meta robots (indexing, following, snippets)</li>
+<li><strong>Crawling requirement:</strong> Must be crawled to receive headers</li>
+<li><strong>Visibility:</strong> Requires inspecting HTTP responses</li>
+<li><strong>Processing timing:</strong> Immediately upon HTTP response, before content parsing</li>
+</ul>
+<p><strong>Key principle:</strong> Use robots.txt to prevent crawling. Use meta robots or X-Robots-Tag to prevent indexing while allowing crawls.</p>
+<h2 id="when-to-use-robots-txt">When to Use robots.txt</h2>
+<p><strong>Appropriate use cases:</strong></p>
+<p><strong>Large-scale crawl budget optimization:</strong> Blocking thousands of low-value URLs (faceted navigation, search results, session IDs) conserves crawl resources for important content.</p>
+<pre><code>User-agent: *
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /search?
+</code></pre>
+<p><strong>Admin and development areas:</strong> Prevent crawler access to backend dashboards, staging environments, and private directories.</p>
+<pre><code>Disallow: /wp-admin/
+Disallow: /admin/
+Disallow: /dashboard/
+</code></pre>
+<p><strong>Staging and development subdomains:</strong> Block entire staging sites from all crawlers.</p>
+<pre><code># staging.example.com/robots.txt
+User-agent: *
+Disallow: /
+</code></pre>
+<p><strong>Resource files with no SEO value:</strong> Block crawlers from downloading large files that consume bandwidth without contributing to rankings.</p>
+<pre><code>Disallow: /*.zip$
+Disallow: /*.exe$
+Disallow: /*.dmg$
+</code></pre>
+<p><strong>Temporary crawl throttling:</strong> During site migrations or high-traffic events, temporarily block non-essential sections to preserve server resources.</p>
+<p><strong>Inappropriate use cases:</strong></p>
+<p><strong>Preventing indexing:</strong> Blocking URLs in robots.txt does NOT prevent indexing. If external sites link to blocked URLs, Google may index them without crawling, showing &quot;A description for this result is not available&quot; in SERPs.</p>
+<p><strong>Hiding duplicate content:</strong> Don&#39;t use robots.txt to block duplicate pages. Crawlers can&#39;t see <a href="self-referencing-canonical-tags.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">canonical tags</a> on blocked URLs, so they can&#39;t consolidate signals properly.</p>
+<p><strong>Blocking individual pages:</strong> robots.txt excels at pattern-based blocking (directories, parameters, file types). For individual URLs, use meta robots noindex.</p>
+<p><strong>Security:</strong> robots.txt provides no security. Malicious actors ignore it. Use proper authentication (passwords, IP whitelisting, firewalls) for sensitive content.</p>
+<h2 id="when-to-use-meta-robots-tags">When to Use meta robots Tags</h2>
+<p><strong>Appropriate use cases:</strong></p>
+<p><strong>Preventing indexing while allowing crawls:</strong> Pages you want Googlebot to access (to discover links, process canonicals, pass PageRank) but exclude from search results.</p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>Tag and category archive pages (prevents duplicate content while allowing link discovery)</li>
+<li>Thank-you pages after form submissions</li>
+<li>Checkout and cart pages</li>
+<li>Login and registration pages</li>
+<li>Internal search result pages</li>
+</ul>
+<p><strong>Controlling snippet display:</strong> Prevent Google from showing meta descriptions or cached versions.</p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;nosnippet, noarchive&quot;&gt;
+</code></pre>
+<p><strong>Limiting snippet length:</strong></p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;max-snippet:50&quot;&gt;
+</code></pre>
+<p>Limits text snippets to 50 characters.</p>
+<p><strong>Preventing link following (sculpting):</strong> Block PageRank flow through specific pages.</p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+</code></pre>
+<p>Use sparingly, most internal links should pass authority.</p>
+<p><strong>Blocking image indexing:</strong></p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noimageindex&quot;&gt;
+</code></pre>
+<p>Prevents images on the page from appearing in Google Images search.</p>
+<p><strong>Delaying indexing during development:</strong> Apply noindex during site development, remove once content finalizes.</p>
+<p><strong>Syntax options:</strong></p>
+<pre><code class="language-html">&lt;!-- All crawlers --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+
+&lt;!-- Specific crawler --&gt;
+&lt;meta name=&quot;googlebot&quot; content=&quot;noindex, follow&quot;&gt;
+&lt;meta name=&quot;bingbot&quot; content=&quot;index, follow&quot;&gt;
+</code></pre>
+<p><strong>Multiple directives:</strong> Separate with commas within <code>content</code> attribute.</p>
+<p><strong>Inappropriate use cases:</strong></p>
+<p><strong>Blocking non-HTML files:</strong> Meta tags only work in HTML. Use X-Robots-Tag for PDFs, images, and other file types.</p>
+<p><strong>Site-wide blocks:</strong> Don&#39;t add noindex to every page via global templates. Use robots.txt for large-scale blocks.</p>
+<p><strong>Temporary blocks on crawl-heavy sites:</strong> If crawl rate is problematic, robots.txt prevents requests. Meta robots noindex still requires crawling to see directives.</p>
+<h2 id="when-to-use-x-robots-tag-http-headers">When to Use X-Robots-Tag HTTP Headers</h2>
+<p><strong>Appropriate use cases:</strong></p>
+<p><strong>PDFs and documents:</strong> Apply indexing directives to non-HTML files.</p>
+<p><strong>Apache .htaccess:</strong></p>
+<pre><code class="language-apache">&lt;FilesMatch &quot;\.pdf$&quot;&gt;
+  Header set X-Robots-Tag &quot;noindex, nofollow&quot;
+&lt;/FilesMatch&gt;
+</code></pre>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-nginx">location ~* \.pdf$ {
+  add_header X-Robots-Tag &quot;noindex, nofollow&quot;;
+}
+</code></pre>
+<p><strong>Images:</strong> Prevent specific images from indexing in Google Images.</p>
+<pre><code class="language-apache">&lt;FilesMatch &quot;\.(jpg|png|gif)$&quot;&gt;
+  Header set X-Robots-Tag &quot;noindex&quot;
+&lt;/FilesMatch&gt;
+</code></pre>
+<p><strong>API responses:</strong> Block JSON, XML, or other API endpoints from search results.</p>
+<pre><code class="language-nginx">location /api/ {
+  add_header X-Robots-Tag &quot;noindex, nofollow&quot;;
+}
+</code></pre>
+<p><strong>Dynamically generated content:</strong> Apply directives programmatically based on user authentication, content status, or other logic.</p>
+<p><strong>PHP example:</strong></p>
+<pre><code class="language-php">&lt;?php
+if (!user_is_logged_in()) {
+  header(&#39;X-Robots-Tag: noindex, nofollow&#39;);
+}
+?&gt;
+</code></pre>
+<p><strong>Large-scale directive application:</strong> Easier to apply headers via server config than editing thousands of HTML files.</p>
+<p><strong>Combining with meta robots:</strong> Use both for redundancy. X-Robots-Tag applies immediately; meta robots provides fallback if headers strip during proxy caching.</p>
+<p><strong>Syntax:</strong></p>
+<pre><code class="language-http">X-Robots-Tag: noindex
+X-Robots-Tag: nofollow
+X-Robots-Tag: noarchive
+X-Robots-Tag: nosnippet
+</code></pre>
+<p><strong>Multiple directives in single header:</strong></p>
+<pre><code class="language-http">X-Robots-Tag: noindex, nofollow, noarchive
+</code></pre>
+<p><strong>Targeting specific crawlers:</strong></p>
+<pre><code class="language-http">X-Robots-Tag: googlebot: noindex, nofollow
+X-Robots-Tag: bingbot: index, follow
+</code></pre>
+<p><strong>Inappropriate use cases:</strong></p>
+<p><strong>When HTML meta tags suffice:</strong> If you control HTML templates, meta robots tags are simpler to implement and debug than server-level headers.</p>
+<p><strong>Blocking crawls:</strong> X-Robots-Tag controls indexing, not crawling. Crawlers still request resources to receive headers. Use robots.txt to prevent requests entirely.</p>
+<h2 id="interaction-between-methods-and-precedence">Interaction Between Methods and Precedence</h2>
+<p><strong>Scenario 1: robots.txt blocks, meta robots noindex</strong></p>
+<pre><code># robots.txt
+Disallow: /private/
+</code></pre>
+<pre><code class="language-html">&lt;!-- /private/page.html --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;
+</code></pre>
+<p><strong>Result:</strong> Googlebot never accesses /private/page.html, so it never sees the noindex directive. If external links point to the URL, Google may index it based on link signals, showing &quot;A description for this result is not available.&quot;</p>
+<p><strong>Fix:</strong> Remove robots.txt block to allow crawling. Googlebot will crawl, see noindex, and exclude from index.</p>
+<p><strong>Scenario 2: meta robots noindex + X-Robots-Tag noindex</strong></p>
+<pre><code class="language-http">HTTP/1.1 200 OK
+X-Robots-Tag: noindex
+</code></pre>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<p><strong>Result:</strong> Both directives apply (redundant). Page doesn&#39;t index. No harm in duplication, but one suffices.</p>
+<p><strong>Scenario 3: meta robots noindex + canonical to different URL</strong></p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/main-page&quot;&gt;
+</code></pre>
+<p><strong>Result:</strong> Google respects noindex and ignores canonical. The page won&#39;t index, and signals don&#39;t transfer to the canonical target. Conflicting directives, choose one approach.</p>
+<p><strong>Fix:</strong> Remove noindex to allow canonical consolidation, or remove canonical if intent is to deindex.</p>
+<p><strong>Scenario 4: robots.txt allows + meta robots nofollow</strong></p>
+<pre><code>User-agent: *
+Disallow:
+</code></pre>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;index, nofollow&quot;&gt;
+</code></pre>
+<p><strong>Result:</strong> Page indexes but doesn&#39;t pass PageRank via outbound links. Googlebot discovers links for crawling but doesn&#39;t transfer authority.</p>
+<p><strong>Use case:</strong> Guest post pages, user-generated content sections where you want traffic but don&#39;t endorse linked sites.</p>
+<p><strong>Precedence rules:</strong></p>
+<ol>
+<li><strong>robots.txt blocks supersede everything:</strong> If robots.txt blocks a URL, meta robots and X-Robots-Tag never execute.</li>
+<li><strong>Most restrictive directive wins:</strong> If meta robots says <code>index</code> but X-Robots-Tag says <code>noindex</code>, Google applies noindex.</li>
+<li><strong>Specific crawler directives override wildcard:</strong> <code>&lt;meta name=&quot;googlebot&quot; content=&quot;noindex&quot;&gt;</code> overrides <code>&lt;meta name=&quot;robots&quot; content=&quot;index&quot;&gt;</code> for Googlebot.</li>
+</ol>
+<h2 id="comparing-indexing-control-effectiveness">Comparing Indexing Control Effectiveness</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>robots.txt</th>
+<th>meta robots</th>
+<th>X-Robots-Tag</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prevent indexing HTML page</td>
+<td>❌ Blocks crawl, may still index</td>
+<td>✅ Prevents indexing</td>
+<td>✅ Prevents indexing</td>
+<td>Use meta/X-Robots</td>
+</tr>
+<tr>
+<td>Prevent indexing PDF</td>
+<td>❌ Blocks crawl</td>
+<td>❌ PDFs don&#39;t parse HTML</td>
+<td>✅ Prevents indexing</td>
+<td>Use X-Robots-Tag</td>
+</tr>
+<tr>
+<td>Block low-value URLs at scale</td>
+<td>✅ Efficient for patterns</td>
+<td>❌ Requires editing each page</td>
+<td>⚠️ Possible via config</td>
+<td>Use robots.txt</td>
+</tr>
+<tr>
+<td>Pass PageRank while hiding page</td>
+<td>❌ Blocks crawl prevents flow</td>
+<td>✅ noindex, follow works</td>
+<td>✅ noindex, follow works</td>
+<td>Use meta/X-Robots</td>
+</tr>
+<tr>
+<td>Block staging environment</td>
+<td>✅ Prevents all access</td>
+<td>⚠️ Requires crawl to see</td>
+<td>⚠️ Requires crawl to see</td>
+<td>Use robots.txt</td>
+</tr>
+<tr>
+<td>Remove duplicate content</td>
+<td>❌ Breaks canonical signals</td>
+<td>✅ With canonical tag</td>
+<td>✅ With canonical tag</td>
+<td>Use meta/X-Robots + canonical</td>
+</tr>
+</tbody></table>
+<p><strong>Performance considerations:</strong></p>
+<p><strong>robots.txt:</strong> Crawlers fetch once, cache for 12-24 hours. Minimal per-request overhead.</p>
+<p><strong>meta robots:</strong> Requires parsing HTML <code>&lt;head&gt;</code>. Adds milliseconds per URL but negligible at scale.</p>
+<p><strong>X-Robots-Tag:</strong> No parsing required; headers process immediately. Slightly faster than meta robots for directive application.</p>
+<h2 id="common-misconfigurations-and-fixes">Common Misconfigurations and Fixes</h2>
+<p><strong>Misconfiguration 1: Blocking in robots.txt expecting noindex behavior</strong></p>
+<p><strong>Setup:</strong></p>
+<pre><code>Disallow: /old-content/
+</code></pre>
+<p><strong>Intent:</strong> Prevent old content from ranking.</p>
+<p><strong>Reality:</strong> Pages may still index based on external links. Rankings persist because Google can&#39;t access canonicals or noindex directives.</p>
+<p><strong>Fix:</strong></p>
+<p>Remove robots.txt block:</p>
+<pre><code>Allow: /old-content/
+</code></pre>
+<p>Add meta robots to pages:</p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<p><strong>Misconfiguration 2: noindex on canonical target</strong></p>
+<p><strong>Setup:</strong></p>
+<pre><code class="language-html">&lt;!-- Page A --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/page-b&quot;&gt;
+
+&lt;!-- Page B --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;
+</code></pre>
+<p><strong>Result:</strong> Page B noindex prevents consolidation. Page A doesn&#39;t transfer authority to a deindexed target.</p>
+<p><strong>Fix:</strong> Remove noindex from canonical targets. Only the duplicate (Page A) should canonicalize to indexable target (Page B).</p>
+<p><strong>Misconfiguration 3: Using meta robots in XML sitemaps</strong></p>
+<p><strong>Attempt:</strong></p>
+<pre><code class="language-xml">&lt;url&gt;
+  &lt;loc&gt;https://example.com/page&lt;/loc&gt;
+  &lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;/&gt;
+&lt;/url&gt;
+</code></pre>
+<p><strong>Reality:</strong> XML doesn&#39;t support meta tags. Directives ignored.</p>
+<p><strong>Fix:</strong> Apply X-Robots-Tag headers to URLs or use meta robots in HTML. Remove noindexed URLs from sitemaps entirely.</p>
+<p><strong>Misconfiguration 4: Applying nofollow site-wide</strong></p>
+<p><strong>Setup:</strong></p>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;nofollow&quot;&gt;
+</code></pre>
+<p>Added globally via template.</p>
+<p><strong>Impact:</strong> Blocks PageRank flow through all internal links. Site architecture collapses as important pages receive no authority.</p>
+<p><strong>Fix:</strong> Remove nofollow from global templates. Apply selectively to user-generated content, comment sections, or external link-heavy pages.</p>
+<p><strong>Misconfiguration 5: Blocking CSS/JS in robots.txt while relying on rendering</strong></p>
+<p><strong>Setup:</strong></p>
+<pre><code>Disallow: /assets/
+</code></pre>
+<p><strong>Impact:</strong> Googlebot can&#39;t render pages correctly, fails mobile-friendly tests, can&#39;t evaluate Core Web Vitals.</p>
+<p><strong>Fix:</strong></p>
+<pre><code>Allow: /assets/css/
+Allow: /assets/js/
+</code></pre>
+<p>Or allow all rendering resources while blocking admin areas only.</p>
+<h2 id="testing-and-validation-tools">Testing and Validation Tools</h2>
+<p><strong>robots.txt validation:</strong> Google Search Console → Settings → Crawler → robots.txt tester. Enter URLs to test if directives block them.</p>
+<p><strong>meta robots validation:</strong> View page source and search for <code>&lt;meta name=&quot;robots&quot;</code>. Use <a href="search-console-url-inspection-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Search Console URL Inspection</a> to see how Googlebot interprets directives.</p>
+<p><strong>X-Robots-Tag validation:</strong> Use curl to inspect HTTP headers:</p>
+<pre><code class="language-bash">curl -I https://example.com/document.pdf
+</code></pre>
+<p>Look for <code>X-Robots-Tag</code> in response headers.</p>
+<p><strong>Browser DevTools:</strong> Network tab → Select resource → Headers section shows X-Robots-Tag if present.</p>
+<p><strong>Screaming Frog SEO Spider:</strong> Crawl site with &quot;Respect robots.txt&quot; enabled. Export URLs with noindex directives from <strong>Directives</strong> tab.</p>
+<p><strong>SEO browser extensions:</strong></p>
+<ul>
+<li><strong>Detailed SEO Extension (Chrome):</strong> Displays meta robots and X-Robots-Tag values in toolbar</li>
+<li><strong>SEO Meta in 1 Click:</strong> Shows all meta tags including robots directives</li>
+</ul>
+<h2 id="strategic-implementation-patterns">Strategic Implementation Patterns</h2>
+<p><strong>Pattern 1: Crawl budget preservation on large e-commerce sites</strong></p>
+<p><strong>Goal:</strong> Block faceted navigation parameters while allowing canonical pages to pass authority.</p>
+<pre><code># robots.txt
+Disallow: /*?*color=
+Disallow: /*?*size=
+Disallow: /*?*brand=
+</code></pre>
+<pre><code class="language-html">&lt;!-- Product category pages --&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/category&quot;&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;
+</code></pre>
+<p>Filtered URLs don&#39;t crawl. Canonical pages index and rank.</p>
+<p><strong>Pattern 2: Blog with tag archives</strong></p>
+<p><strong>Goal:</strong> Allow tags for navigation but prevent thin content from indexing.</p>
+<pre><code class="language-html">&lt;!-- Tag archive pages --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+</code></pre>
+<p>robots.txt allows crawling (so Googlebot discovers linked posts). noindex prevents tag archives from competing with actual posts.</p>
+<p><strong>Pattern 3: PDF downloads with no search value</strong></p>
+<p><strong>Goal:</strong> Serve PDFs to users but exclude from search results.</p>
+<p><strong>Apache .htaccess:</strong></p>
+<pre><code class="language-apache">&lt;FilesMatch &quot;\.pdf$&quot;&gt;
+  Header set X-Robots-Tag &quot;noindex, nofollow&quot;
+&lt;/FilesMatch&gt;
+</code></pre>
+<p>PDFs download normally but don&#39;t appear in search results.</p>
+<p><strong>Pattern 4: Staging environment complete block</strong></p>
+<p><strong>Goal:</strong> Prevent any staging content from indexing.</p>
+<pre><code># staging.example.com/robots.txt
+User-agent: *
+Disallow: /
+</code></pre>
+<pre><code class="language-apache"># Apache: Add HTTP authentication
+AuthType Basic
+AuthName &quot;Staging&quot;
+AuthUserFile /path/.htpasswd
+Require valid-user
+</code></pre>
+<p>robots.txt blocks crawlers. Authentication prevents access even if robots.txt ignored.</p>
+<p><strong>Pattern 5: Migrating old site content</strong></p>
+<p><strong>Goal:</strong> 301 redirect old URLs to new equivalents while keeping remaining old pages crawlable but not indexed.</p>
+<pre><code class="language-html">&lt;!-- Unmigrated old pages --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;noindex, follow&quot;&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;https://newsite.com/relevant-page&quot;&gt;
+</code></pre>
+<p>Googlebot discovers redirects via crawling but doesn&#39;t index old unmigrated pages.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Can I use robots.txt to deindex pages?</strong></p>
+<p>No. robots.txt blocks crawling, not indexing. To deindex, use meta robots noindex or X-Robots-Tag while allowing crawls.</p>
+<p><strong>Which method is fastest to remove pages from Google&#39;s index?</strong></p>
+<p>meta robots noindex or X-Robots-Tag. Google recrawls, sees directives, and deindexes within days. Blocking in robots.txt may delay deindexing because Google can&#39;t recrawl to confirm removal.</p>
+<p><strong>Should I use both meta robots and X-Robots-Tag for redundancy?</strong></p>
+<p>Not necessary but harmless. If server config allows easy X-Robots-Tag implementation, it covers non-HTML files too, providing broader protection.</p>
+<p><strong>Do nofollow directives prevent Googlebot from crawling linked pages?</strong></p>
+<p>No. nofollow prevents PageRank transfer but doesn&#39;t block crawling. Googlebot may still discover and crawl nofollowed links.</p>
+<p><strong>Can I block Google Images but allow web search indexing?</strong></p>
+<p>Yes. Target Googlebot-Image specifically:</p>
+<pre><code class="language-html">&lt;meta name=&quot;googlebot-image&quot; content=&quot;noindex&quot;&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot;&gt;
+</code></pre>
+<p>Or:</p>
+<pre><code class="language-http">X-Robots-Tag: googlebot-image: noindex
+</code></pre>
+<p><strong>Why does my page still appear in search despite noindex?</strong></p>
+<p>Possible causes: (1) Google hasn&#39;t recrawled since adding noindex, (2) robots.txt blocks crawling so Google can&#39;t see noindex, (3) Cached version persists temporarily. Request reindexing via URL Inspection Tool and verify robots.txt allows crawls.</p>
+<p><strong>What happens if robots.txt conflicts with meta robots?</strong></p>
+<p>robots.txt supersedes. If robots.txt blocks a URL, crawlers never see meta robots directives on that page.</p>
+<p><strong>Can I use X-Robots-Tag on JavaScript-rendered content?</strong></p>
+<p>Yes. X-Robots-Tag applies at HTTP response level before rendering. Effective for single-page applications where adding meta tags during render is complex.</p>
+<p><strong>Should staging environments use robots.txt or meta robots noindex?</strong></p>
+<p>Both. robots.txt blocks most crawlers. HTTP authentication provides actual security. Meta robots noindex acts as final safeguard if staging URLs leak into search engines.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/noindex-vs-nofollow-when-to-use.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Noindex vs. Nofollow: When to Use Each Directive (With Examples)</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master robots meta directives with specific use cases. Learn when noindex, nofollow, and combinations prevent indexing issues and preserve crawl budget.</p>
+          </a>
+
+          <a href="/articles/robots-txt-seo-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">robots.txt SEO Guide: Control Crawler Access and Preserve Crawl Budget</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Master robots.txt syntax to block crawlers, manage crawl budget, and prevent indexing issues. Includes testing tools and common pitfalls.</p>
+          </a>
+
+          <a href="/articles/robots-txt-testing-debugging-tools.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Technical SEO</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">robots.txt Testing and Debugging Tools: Complete Validation Guide</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Validate robots.txt syntax, test crawler directives, and debug blocking issues with Google Search Console, command-line tools, and third-party validators.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

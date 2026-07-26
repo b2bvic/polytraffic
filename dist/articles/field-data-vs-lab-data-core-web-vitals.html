@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank? | Polytraffic</title>
+    <meta name="description" content="Decode field vs lab CWV data. Learn why PageSpeed Insights and Search Console disagree, which metrics Google uses for rankings, and how to fix both." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank? | Polytraffic" />
+    <meta property="og:description" content="Decode field vs lab CWV data. Learn why PageSpeed Insights and Search Console disagree, which metrics Google uses for rankings, and how to fix both." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/field-data-vs-lab-data-core-web-vitals" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/field-data-vs-lab-data-core-web-vitals.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank? | Polytraffic" />
+    <meta name="twitter:description" content="Decode field vs lab CWV data. Learn why PageSpeed Insights and Search Console disagree, which metrics Google uses for rankings, and how to fix both." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/field-data-vs-lab-data-core-web-vitals.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/field-data-vs-lab-data-core-web-vitals" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank?",
+    "description": "Decode field vs lab CWV data. Learn why PageSpeed Insights and Search Console disagree, which metrics Google uses for rankings, and how to fix both.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/field-data-vs-lab-data-core-web-vitals.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/field-data-vs-lab-data-core-web-vitals.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical-seo.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank?"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical-seo.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank?</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/field-data-vs-lab-data-core-web-vitals.png" alt="Field Data vs Lab Data Core Web Vitals: Which Metrics Actually Rank?" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="field-data-vs-lab-data-core-web-vitals-which-metrics-rank">Field Data vs Lab Data Core Web Vitals: Which Metrics Rank?</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Decode field vs lab CWV data. Learn why PageSpeed Insights and Search Console disagree, which metrics Google uses for rankings, and how to fix both.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#what-is-field-data-real-user-monitoring" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">What is Field Data (Real User Monitoring)?</a></li>
+<li><a href="#what-is-lab-data-synthetic-testing" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">What is Lab Data (Synthetic Testing)?</a></li>
+<li><a href="#key-differences-field-vs-lab-data" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Key Differences: Field vs Lab Data</a></li>
+<li><a href="#why-field-and-lab-data-diverge" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Field and Lab Data Diverge</a></li>
+<li><a href="#which-metrics-google-uses-for-rankings" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Which Metrics Google Uses for Rankings</a></li>
+<li><a href="#how-to-optimize-for-field-data-what-actually-matters" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Optimize for Field Data (What Matters)</a></li>
+<li><a href="#how-to-optimize-lab-data-for-diagnostics" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Optimize Lab Data (For Diagnostics)</a></li>
+<li><a href="#tracking-core-web-vitals-across-both-datasets" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Tracking Core Web Vitals Across Both Datasets</a></li>
+<li><a href="#core-web-vitals-optimization-checklist" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Core Web Vitals Optimization Checklist</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p><strong>Google PageSpeed Insights</strong> shows your site scoring 92/100 in lab testing but <strong>Google Search Console</strong> flags it as &quot;Poor&quot; for Core Web Vitals field data. This discrepancy confuses site owners who optimize for lab scores and see zero ranking improvements. The reason: <strong>Google</strong> uses field data (real user metrics from Chrome browsers) for rankings, not lab simulations.</p>
+<p>Teams can over-focus on <strong>Lighthouse</strong> scores while missing field-data bottlenecks. Compare lab diagnostics with the site&#39;s own 28-day field data before attributing a performance or ranking change to a specific cause.</p>
+<p>This guide explains the difference between field and lab data, which metrics <strong>Google</strong> prioritizes for rankings, why the two datasets diverge, and how to optimize both using <strong>Chrome User Experience Report (CrUX)</strong>, <strong>Google Search Console</strong>, and <strong>PageSpeed Insights</strong>.</p>
+<h2 id="what-is-field-data-real-user-monitoring">What is Field Data (Real User Monitoring)?</h2>
+<p><strong>Field data</strong> captures actual performance metrics from real users visiting your site via <strong>Chrome</strong> browsers. <strong>Google</strong> collects this data through the <strong>Chrome User Experience Report (CrUX)</strong>, an anonymized dataset of billions of page loads.</p>
+<p><strong>How CrUX collects field data:</strong></p>
+<ol>
+<li>User visits your site in <strong>Chrome</strong> browser</li>
+<li><strong>Chrome</strong> measures Core Web Vitals during the session:<ul>
+<li><strong>LCP (Largest Contentful Paint):</strong> When main content renders</li>
+<li><strong>INP (Interaction to Next Paint):</strong> Responsiveness to user interactions (replaced FID in March 2024)</li>
+<li><strong>CLS (Cumulative Layout Shift):</strong> Visual stability during load</li>
+</ul>
+</li>
+<li>Metrics aggregate at the URL level for 28-day rolling windows</li>
+<li><strong>Google</strong> surfaces aggregated data in <strong>PageSpeed Insights</strong> and <strong>Search Console</strong></li>
+</ol>
+<p><strong>Field data characteristics:</strong></p>
+<ul>
+<li><strong>Real devices:</strong> Varies by user hardware (flagship phones vs budget Android)</li>
+<li><strong>Real networks:</strong> 4G, 5G, WiFi, throttled connections</li>
+<li><strong>Real behaviors:</strong> Users on VPNs, ad blockers, slow third-party scripts</li>
+<li><strong>Geographic distribution:</strong> Global users, not your office WiFi</li>
+<li><strong>28-day aggregation:</strong> Data updates daily but reflects trailing 28 days</li>
+</ul>
+<p><strong>Where to access field data:</strong></p>
+<ul>
+<li><strong>Google Search Console</strong> → Core Web Vitals report</li>
+<li><strong>PageSpeed Insights</strong> → Field Data section (top half of report)</li>
+<li><strong>CrUX Dashboard</strong> → Public BigQuery dataset or Looker Studio dashboard</li>
+<li><strong>Chrome DevTools</strong> → Performance Insights → Real User Monitoring</li>
+</ul>
+<h2 id="what-is-lab-data-synthetic-testing">What is Lab Data (Synthetic Testing)?</h2>
+<p><strong>Lab data</strong> simulates page loads in controlled environments using tools like <strong>Lighthouse</strong> (powers <strong>PageSpeed Insights</strong> lab scores). These tests run on <strong>Google&#39;s</strong> servers with fixed network/device parameters.</p>
+<p><strong>How lab testing works:</strong></p>
+<ol>
+<li><strong>Lighthouse</strong> spins up a virtual device (Moto G4 equivalent)</li>
+<li>Throttles network to simulated 4G (1.6 Mbps down, 750 Kbps up)</li>
+<li>Loads your page and measures:<ul>
+<li><strong>First Contentful Paint (FCP):</strong> First text/image render</li>
+<li><strong>Largest Contentful Paint (LCP):</strong> Main content render</li>
+<li><strong>Total Blocking Time (TBT):</strong> Main thread blocking time (lab proxy for INP)</li>
+<li><strong>Cumulative Layout Shift (CLS):</strong> Layout stability</li>
+<li><strong>Speed Index:</strong> How quickly content visually populates</li>
+</ul>
+</li>
+<li>Generates 0-100 score based on weighted metrics</li>
+<li>Runs 5 times, takes median result</li>
+</ol>
+<p><strong>Lab data characteristics:</strong></p>
+<ul>
+<li><strong>Fixed environment:</strong> Same device, network, location every test</li>
+<li><strong>No third-party variability:</strong> Loads page fresh, no cookies/cache/extensions</li>
+<li><strong>Single snapshot:</strong> Captures one moment, not user distribution</li>
+<li><strong>No real user behavior:</strong> Doesn&#39;t account for scrolling, interactions, time on page</li>
+</ul>
+<p><strong>Where to access lab data:</strong></p>
+<ul>
+<li><strong>PageSpeed Insights</strong> → Lab Data section (bottom half of report)</li>
+<li><strong>Lighthouse</strong> in Chrome DevTools → Performance tab</li>
+<li><strong>WebPageTest</strong> → Synthetic testing with custom device/network configs</li>
+<li><strong>GTmetrix</strong> → Lab testing with Lighthouse integration</li>
+</ul>
+<h2 id="key-differences-field-vs-lab-data">Key Differences: Field vs Lab Data</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Field Data (CrUX)</th>
+<th>Lab Data (Lighthouse)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data source</strong></td>
+<td>Real Chrome users (28-day aggregate)</td>
+<td>Simulated load on Google servers</td>
+</tr>
+<tr>
+<td><strong>Device variety</strong></td>
+<td>All user devices (flagship to budget)</td>
+<td>Fixed device (Moto G4 equivalent)</td>
+</tr>
+<tr>
+<td><strong>Network variety</strong></td>
+<td>Real connections (4G, 5G, WiFi, etc.)</td>
+<td>Throttled 4G simulation (1.6 Mbps)</td>
+</tr>
+<tr>
+<td><strong>Geographic spread</strong></td>
+<td>Global user distribution</td>
+<td>Single server location</td>
+</tr>
+<tr>
+<td><strong>User state</strong></td>
+<td>Cookies, cache, extensions, logged-in</td>
+<td>Clean slate, no cookies</td>
+</tr>
+<tr>
+<td><strong>Measurement frequency</strong></td>
+<td>Continuous (28-day rolling)</td>
+<td>On-demand (single snapshot)</td>
+</tr>
+<tr>
+<td><strong>Google ranking impact</strong></td>
+<td>✅ <strong>Used for rankings</strong></td>
+<td>❌ Not used for rankings</td>
+</tr>
+<tr>
+<td><strong>Debugging utility</strong></td>
+<td>Limited (aggregate only)</td>
+<td>✅ <strong>Detailed diagnostics</strong></td>
+</tr>
+<tr>
+<td><strong>Minimum traffic requirement</strong></td>
+<td>~1,000 visits/month per URL</td>
+<td>None (works for any site)</td>
+</tr>
+</tbody></table>
+<p><strong>Critical takeaway:</strong> <strong>Google</strong> uses field data (CrUX) for Core Web Vitals ranking signals. Lab scores don&#39;t directly impact rankings but help diagnose issues.</p>
+<h2 id="why-field-and-lab-data-diverge">Why Field and Lab Data Diverge</h2>
+<p>Common scenarios where lab tests pass but field data fails:</p>
+<h3 id="scenario-1-third-party-script-bloat">Scenario 1: Third-Party Script Bloat</h3>
+<p><strong>Lab behavior:</strong> <strong>Lighthouse</strong> loads page in isolation. Third-party tags (analytics, ads, chat widgets) load but don&#39;t accumulate realistic overhead.</p>
+<p><strong>Field behavior:</strong> Real users have 5-15 third-party scripts. Each adds 50-300ms of main thread blocking. Budget Android devices choke on the cumulative JavaScript parsing.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Lab LCP: 1.8s</li>
+<li>Field LCP (p75): 4.2s</li>
+</ul>
+<p><strong>Why:</strong> <strong>Google Analytics</strong>, <strong>Facebook Pixel</strong>, <strong>Hotjar</strong>, and <strong>Intercom</strong> collectively block render for 2+ seconds on slow devices in field conditions.</p>
+<p><strong>Fix:</strong> Defer non-critical scripts, reduce third-party tag count, use <strong>Cloudflare Zaraz</strong> or <strong>Google Tag Manager</strong> server-side tagging.</p>
+<h3 id="scenario-2-geographic-cdn-coverage-gaps">Scenario 2: Geographic CDN Coverage Gaps</h3>
+<p><strong>Lab behavior:</strong> <strong>Lighthouse</strong> tests from Google data centers (typically US-based). Your CDN performs well from these locations.</p>
+<p><strong>Field behavior:</strong> 40% of your traffic comes from Southeast Asia where your CDN has poor coverage. Users experience 800ms+ TTFB due to origin fetches.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Lab LCP: 2.1s</li>
+<li>Field LCP (p75): 5.3s (APAC users)</li>
+</ul>
+<p><strong>Fix:</strong> Expand CDN coverage to underserved regions, use multi-CDN strategy (<strong>Cloudflare</strong> + <strong>Fastly</strong>), or cache aggressively at edge locations.</p>
+<h3 id="scenario-3-low-end-device-performance">Scenario 3: Low-End Device Performance</h3>
+<p><strong>Lab behavior:</strong> <strong>Lighthouse</strong> uses Moto G4 (2016 mid-tier device). Modern budget phones are faster.</p>
+<p><strong>Field behavior:</strong> 30% of your users browse on devices older/slower than Moto G4. JavaScript execution takes 3x longer on these devices.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Lab TBT: 180ms</li>
+<li>Field INP (p75): 520ms</li>
+</ul>
+<p><strong>Why:</strong> Hero carousel JavaScript blocks main thread for 400ms on low-end devices. Lab test doesn&#39;t capture this tail.</p>
+<p><strong>Fix:</strong> Reduce JavaScript payload, code-split, defer non-critical JS, test on actual budget devices.</p>
+<h3 id="scenario-4-real-user-behavior-patterns">Scenario 4: Real User Behavior Patterns</h3>
+<p><strong>Lab behavior:</strong> Loads homepage once, measures, exits.</p>
+<p><strong>Field behavior:</strong> Users go to product pages, filter results, open modals, each interaction measured for INP.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Lab TBT: 120ms</li>
+<li>Field INP (p75): 680ms</li>
+</ul>
+<p><strong>Why:</strong> Faceted filter JavaScript runs on user interaction, blocking main thread for 600ms. Lab test never triggers this interaction.</p>
+<p><strong>Fix:</strong> Optimize event handlers, debounce filter updates, use Web Workers for heavy computation.</p>
+<h3 id="scenario-5-cached-vs-uncached-loads">Scenario 5: Cached vs Uncached Loads</h3>
+<p><strong>Lab behavior:</strong> Tests uncached loads (first visit).</p>
+<p><strong>Field behavior:</strong> 60% of users are returning visitors with cached assets. But cache misses or stale resources cause performance variability.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Lab FCP: 1.2s</li>
+<li>Field FCP (p75): 2.8s</li>
+</ul>
+<p><strong>Why:</strong> Half of returning users hit cache, half experience cache misses due to short cache TTLs (1 hour). Aggregate skews toward slower loads.</p>
+<p><strong>Fix:</strong> Extend cache headers to 1 year for static assets, implement aggressive service worker caching.</p>
+<h2 id="which-metrics-google-uses-for-rankings">Which Metrics Google Uses for Rankings</h2>
+<p><strong>Google</strong> confirmed in the Page Experience Update (2021) that field data from <strong>CrUX</strong> determines Core Web Vitals ranking signals.</p>
+<p><strong>Ranking criteria (as of 2026):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Threshold (75th Percentile)</th>
+<th>Ranking Impact</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>LCP</strong></td>
+<td>&lt;2.5s = Good, 2.5-4.0s = Needs Improvement, &gt;4.0s = Poor</td>
+<td>✅ <strong>High impact</strong></td>
+</tr>
+<tr>
+<td><strong>INP</strong></td>
+<td>&lt;200ms = Good, 200-500ms = Needs Improvement, &gt;500ms = Poor</td>
+<td>✅ <strong>High impact</strong></td>
+</tr>
+<tr>
+<td><strong>CLS</strong></td>
+<td>&lt;0.1 = Good, 0.1-0.25 = Needs Improvement, &gt;0.25 = Poor</td>
+<td>✅ <strong>Moderate impact</strong></td>
+</tr>
+</tbody></table>
+<p><strong>Google</strong> uses the 75th percentile (p75) of field data for classification. If 75% of users experience LCP &lt;2.5s, your URL passes. If 25%+ experience LCP &gt;4s, you fail even if median is good.</p>
+<p><strong>Ranking impact scale:</strong></p>
+<p><strong>Major ranking factor (confirmed):</strong> Sites passing all 3 Core Web Vitals see 5-15% ranking boost on mobile search compared to failing sites with identical content/backlinks.</p>
+<p><strong>Tiebreaker (suspected):</strong> When two pages have equal topical relevance and authority, better Core Web Vitals scores break the tie.</p>
+<p><strong>Not a primary ranking factor:</strong> Core Web Vitals won&#39;t save low-quality content or overcome massive authority gaps. Content quality and E-E-A-T dominate.</p>
+<h2 id="how-to-optimize-for-field-data-what-matters">How to Optimize for Field Data (What Matters)</h2>
+<h3 id="step-1-audit-field-data-in-google-search-console">Step 1: Audit Field Data in Google Search Console</h3>
+<p><strong>Google Search Console</strong> → Core Web Vitals → Mobile/Desktop:</p>
+<p>Review:</p>
+<ul>
+<li><strong>Poor URLs:</strong> URLs failing thresholds (red)</li>
+<li><strong>Needs Improvement URLs:</strong> URLs in yellow zone</li>
+<li><strong>Good URLs:</strong> Passing all thresholds (green)</li>
+</ul>
+<p>Click &quot;Open Report&quot; on Poor URLs. <strong>Google</strong> groups URLs by common issue:</p>
+<ul>
+<li>&quot;LCP issue: longer than 2.5s&quot;</li>
+<li>&quot;CLS issue: more than 0.25&quot;</li>
+<li>&quot;INP issue: longer than 500ms&quot;</li>
+</ul>
+<p>Click an issue to see affected URL examples. <strong>Google</strong> samples representative URLs, not every failing page.</p>
+<h3 id="step-2-analyze-specific-urls-in-pagespeed-insights">Step 2: Analyze Specific URLs in PageSpeed Insights</h3>
+<p>Copy a failing URL from <strong>Search Console</strong>. Paste into <strong>PageSpeed Insights</strong> (pagespeed.web.dev).</p>
+<p><strong>Field Data section (top):</strong></p>
+<ul>
+<li><strong>Origin Summary:</strong> Site-wide field data (all pages aggregated)</li>
+<li><strong>URL-specific data:</strong> Individual URL field metrics (only if URL receives 1,000+ visits/month)</li>
+</ul>
+<p>Check p75 values for LCP, INP, CLS. These must pass thresholds.</p>
+<p><strong>If &quot;Field data unavailable&quot;:</strong> URL lacks sufficient Chrome user traffic. Optimize based on Origin Summary field data or use lab data as proxy.</p>
+<h3 id="step-3-identify-field-data-bottlenecks">Step 3: Identify Field Data Bottlenecks</h3>
+<p>Field data in <strong>PageSpeed Insights</strong> shows metrics but not causes. Use <strong>Chrome DevTools</strong> for diagnosis:</p>
+<ol>
+<li>Chrome → DevTools (F12) → Performance Insights tab</li>
+<li>Click &quot;Record&quot; → Reload page</li>
+<li>Stop recording after page loads</li>
+<li>Review timeline:<ul>
+<li><strong>LCP element:</strong> Highlighted in blue (largest visible element)</li>
+<li><strong>Long tasks:</strong> Red bars blocking main thread (causes high INP)</li>
+<li><strong>Layout shifts:</strong> Purple bars (causes high CLS)</li>
+</ul>
+</li>
+</ol>
+<p><strong>Common LCP bottlenecks:</strong></p>
+<ul>
+<li>Hero image loading slowly (no priority hints, large file size)</li>
+<li>Web fonts blocking render (FOIT - Flash of Invisible Text)</li>
+<li>Render-blocking CSS/JS in <code>&lt;head&gt;</code></li>
+<li>Slow server response time (TTFB &gt;600ms)</li>
+</ul>
+<p><strong>Common INP bottlenecks:</strong></p>
+<ul>
+<li>Heavy JavaScript execution on interaction (filter clicks, modals)</li>
+<li>Third-party scripts blocking main thread during page load</li>
+<li>Unoptimized event handlers (no debouncing)</li>
+<li>Large DOM size (&gt;1,500 nodes) slowing layout recalc</li>
+</ul>
+<p><strong>Common CLS bottlenecks:</strong></p>
+<ul>
+<li>Images/videos without width/height attributes</li>
+<li>Ads/embeds injecting without reserved space</li>
+<li>Web fonts loading late causing text reflow (FOUT - Flash of Unstyled Text)</li>
+<li>Dynamic content injected above fold (promos, banners)</li>
+</ul>
+<h3 id="step-4-fix-field-data-issues">Step 4: Fix Field Data Issues</h3>
+<p><strong>Fix LCP (Target: &lt;2.5s p75)</strong></p>
+<p><strong>Priority 1: Optimize LCP element delivery</strong></p>
+<p>If LCP is a hero image:</p>
+<pre><code class="language-html">&lt;img src=&quot;hero.jpg&quot;
+     alt=&quot;Hero image&quot;
+     width=&quot;1200&quot;
+     height=&quot;600&quot;
+     fetchpriority=&quot;high&quot;
+     decoding=&quot;async&quot;&gt;
+</code></pre>
+<p><code>fetchpriority=&quot;high&quot;</code> tells browser to prioritize this image over other resources.</p>
+<p>If LCP is text blocked by web fonts:</p>
+<pre><code class="language-css">@font-face {
+  font-family: &#39;CustomFont&#39;;
+  src: url(&#39;font.woff2&#39;) format(&#39;woff2&#39;);
+  font-display: swap; /* Shows fallback immediately, swaps when font loads */
+}
+</code></pre>
+<p><strong>Priority 2: Reduce server response time (TTFB)</strong></p>
+<p>Target: &lt;600ms TTFB</p>
+<ul>
+<li>Enable CDN (Cloudflare, Fastly)</li>
+<li>Implement server-side caching (Redis, Varnish)</li>
+<li>Optimize database queries (index bottlenecks)</li>
+<li>Use HTTP/3 (QUIC protocol reduces handshake time)</li>
+</ul>
+<p><strong>Priority 3: Eliminate render-blocking resources</strong></p>
+<p>Move non-critical CSS to <code>&lt;link rel=&quot;preload&quot;&gt;</code> or inline critical CSS:</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;style&gt;
+    /* Critical above-fold CSS inlined here */
+    .hero { background: #000; color: #fff; }
+  &lt;/style&gt;
+  &lt;link rel=&quot;preload&quot; href=&quot;styles.css&quot; as=&quot;style&quot; onload=&quot;this.onload=null;this.rel=&#39;stylesheet&#39;&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<p>Defer JavaScript:</p>
+<pre><code class="language-html">&lt;script src=&quot;app.js&quot; defer&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Fix INP (Target: &lt;200ms p75)</strong></p>
+<p><strong>Priority 1: Reduce JavaScript execution time</strong></p>
+<p>Audit main thread blocking in <strong>Chrome DevTools</strong> Performance tab:</p>
+<ol>
+<li>Record page load</li>
+<li>Identify long tasks (red bars &gt;50ms)</li>
+<li>Click task to see call stack (which script caused it)</li>
+</ol>
+<p>Common offenders:</p>
+<ul>
+<li>Third-party analytics</li>
+<li>A/B testing tools (Optimizely, VWO)</li>
+<li>Chat widgets (Intercom, Drift)</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Defer non-critical scripts: <code>&lt;script src=&quot;chat.js&quot; defer&gt;&lt;/script&gt;</code></li>
+<li>Load third-party scripts conditionally (only on pages where needed)</li>
+<li>Use <strong>Cloudflare Zaraz</strong> or <strong>Google Tag Manager</strong> Server-Side to offload to edge</li>
+</ul>
+<p><strong>Priority 2: Optimize event handlers</strong></p>
+<p>If filters/dropdowns cause INP spikes, debounce updates:</p>
+<pre><code class="language-javascript">let timeout;
+document.querySelector(&#39;#filter&#39;).addEventListener(&#39;input&#39;, function(e) {
+  clearTimeout(timeout);
+  timeout = setTimeout(() =&gt; {
+    // Apply filter logic here (runs 300ms after user stops typing)
+    applyFilters(e.target.value);
+  }, 300);
+});
+</code></pre>
+<p><strong>Priority 3: Code-split large JavaScript bundles</strong></p>
+<p>If app.js is 500KB+, split into smaller chunks:</p>
+<p><strong>Webpack config:</strong></p>
+<pre><code class="language-javascript">module.exports = {
+  optimization: {
+    splitChunks: {
+      chunks: &#39;all&#39;,
+    },
+  },
+};
+</code></pre>
+<p>Loads only code needed for current page, defers rest.</p>
+<p><strong>Fix CLS (Target: &lt;0.1 p75)</strong></p>
+<p><strong>Priority 1: Set dimensions on images/video</strong></p>
+<p>Every <code>&lt;img&gt;</code> and <code>&lt;video&gt;</code> needs <code>width</code> and <code>height</code> attributes:</p>
+<pre><code class="language-html">&lt;img src=&quot;product.jpg&quot; width=&quot;600&quot; height=&quot;400&quot; alt=&quot;Product&quot;&gt;
+</code></pre>
+<p>Browser reserves space during load, preventing layout shift when image loads.</p>
+<p><strong>Priority 2: Reserve space for ads/embeds</strong></p>
+<p>If ad slot loads dynamically:</p>
+<pre><code class="language-css">.ad-container {
+  min-height: 250px; /* Reserve space for 300x250 ad */
+  background: #f0f0f0; /* Placeholder while ad loads */
+}
+</code></pre>
+<p><strong>Priority 3: Preload web fonts</strong></p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;font.woff2&quot; as=&quot;font&quot; type=&quot;font/woff2&quot; crossorigin&gt;
+</code></pre>
+<p>Combined with <code>font-display: swap</code>, reduces FOUT and prevents text reflow.</p>
+<p><strong>Priority 4: Avoid injecting content above fold</strong></p>
+<p>If promo banners inject dynamically, place them below hero content or reserve space:</p>
+<pre><code class="language-css">.promo-banner {
+  height: 60px; /* Fixed height prevents shift */
+}
+</code></pre>
+<h3 id="step-5-monitor-field-data-changes-4-8-weeks">Step 5: Monitor Field Data Changes (4-8 Weeks)</h3>
+<p>Field data updates daily but reflects trailing 28 days. After optimizations:</p>
+<p><strong>Week 1-2:</strong> Lab scores improve immediately, field data unchanged
+<strong>Week 3-4:</strong> Field data starts reflecting optimizations (new user sessions accumulate)
+<strong>Week 5-8:</strong> Full field data refresh (28-day window fully turned over)</p>
+<p>Track progress in <strong>Google Search Console</strong> → Core Web Vitals. Green/yellow/red distribution should improve week-over-week.</p>
+<h2 id="how-to-optimize-lab-data-for-diagnostics">How to Optimize Lab Data (For Diagnostics)</h2>
+<p>Lab data doesn&#39;t impact rankings but reveals optimization opportunities.</p>
+<p><strong>Use lab data to:</strong></p>
+<ol>
+<li><strong>Test optimizations before deployment:</strong> Run <strong>Lighthouse</strong> before/after code changes</li>
+<li><strong>Diagnose issues on low-traffic pages:</strong> If URL lacks field data, lab testing is your proxy</li>
+<li><strong>Compare competitors:</strong> Run <strong>PageSpeed Insights</strong> on competitor URLs to benchmark</li>
+</ol>
+<p><strong>Improving lab scores:</strong></p>
+<p><strong>Target: 90+ Lighthouse Performance score</strong></p>
+<p><strong>Top diagnostics to fix:</strong></p>
+<ol>
+<li><strong>Reduce unused JavaScript:</strong> Remove dead code, code-split bundles</li>
+<li><strong>Serve images in next-gen formats:</strong> Convert JPG/PNG to WebP or AVIF</li>
+<li><strong>Properly size images:</strong> Don&#39;t serve 3000px images in 300px containers</li>
+<li><strong>Eliminate render-blocking resources:</strong> Inline critical CSS, defer JS</li>
+<li><strong>Reduce server response time:</strong> Optimize TTFB to &lt;600ms</li>
+<li><strong>Avoid enormous network payloads:</strong> Keep total page weight &lt;3MB</li>
+</ol>
+<p>Each diagnostic shows estimated time savings. Fix highest-impact items first.</p>
+<h2 id="tracking-core-web-vitals-across-both-datasets">Tracking Core Web Vitals Across Both Datasets</h2>
+<p>Set up continuous monitoring:</p>
+<h3 id="field-data-tracking">Field Data Tracking</h3>
+<p><strong>Google Search Console (free):</strong></p>
+<ul>
+<li>Core Web Vitals report updates daily</li>
+<li>Tracks URL-level pass/fail status</li>
+<li>Limited to past 90 days of data</li>
+</ul>
+<p><strong>CrUX Dashboard (free):</strong></p>
+<ul>
+<li>Create custom Looker Studio dashboard from CrUX BigQuery dataset</li>
+<li>Track 6-month historical trends</li>
+<li>Segment by device, connection type, geography</li>
+</ul>
+<p>Setup: datastudio.google.com/datasources/create → Select Chrome UX Report → Add your origin</p>
+<p><strong>Web-vitals.js Library (free, self-hosted):</strong></p>
+<p>Capture real user metrics in <strong>Google Analytics</strong>:</p>
+<pre><code class="language-javascript">import {onLCP, onINP, onCLS} from &#39;web-vitals&#39;;
+
+function sendToAnalytics(metric) {
+  gtag(&#39;event&#39;, metric.name, {
+    value: Math.round(metric.value),
+    metric_id: metric.id,
+    metric_delta: metric.delta,
+  });
+}
+
+onLCP(sendToAnalytics);
+onINP(sendToAnalytics);
+onCLS(sendToAnalytics);
+</code></pre>
+<p>Sends CWV metrics to <strong>Google Analytics</strong> 4. Create custom reports to track p75 values per page.</p>
+<h3 id="lab-data-tracking">Lab Data Tracking</h3>
+<p><strong>PageSpeed Insights API (free):</strong></p>
+<p>Automate lab testing:</p>
+<pre><code class="language-bash">curl &quot;https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=https://yoursite.com&amp;category=performance&quot;
+</code></pre>
+<p>Parse JSON response for Lighthouse scores. Run weekly via cron job, log to spreadsheet.</p>
+<p><strong>Lighthouse CI (free, self-hosted):</strong></p>
+<p>Run <strong>Lighthouse</strong> in CI/CD pipeline:</p>
+<pre><code class="language-bash">npm install -g @lhci/cli
+lhci autorun
+</code></pre>
+<p>Fails builds if performance score drops below threshold.</p>
+<p><strong>WebPageTest (free tier available):</strong></p>
+<p>Schedule recurring tests: webpagetest.org/testlog</p>
+<p>Tracks Lighthouse scores over time. Free tier allows 200 tests/month.</p>
+<h2 id="core-web-vitals-optimization-checklist">Core Web Vitals Optimization Checklist</h2>
+<p><strong>Field Data (Ranking Impact)</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Audit failing URLs in <strong>Google Search Console</strong> Core Web Vitals report</li>
+<li><input disabled="" type="checkbox"> Check p75 field metrics in <strong>PageSpeed Insights</strong> for priority URLs</li>
+<li><input disabled="" type="checkbox"> Fix LCP by optimizing hero images, reducing TTFB, eliminating render blockers</li>
+<li><input disabled="" type="checkbox"> Fix INP by deferring third-party scripts, debouncing event handlers, code-splitting</li>
+<li><input disabled="" type="checkbox"> Fix CLS by setting image dimensions, reserving ad space, preloading fonts</li>
+<li><input disabled="" type="checkbox"> Monitor field data weekly in <strong>Search Console</strong> (expect 4-8 weeks for full improvement)</li>
+</ul>
+<p><strong>Lab Data (Diagnostic Tool)</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Run <strong>Lighthouse</strong> on 10 priority pages, note scores &lt;90</li>
+<li><input disabled="" type="checkbox"> Fix top diagnostics: unused JS, render-blocking resources, image optimization</li>
+<li>[] Test on real devices (budget Android phone, not MacBook Pro)</li>
+<li><input disabled="" type="checkbox"> Compare lab scores before/after optimizations to confirm improvements</li>
+</ul>
+<p><strong>Continuous Monitoring</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Set up <strong>CrUX Dashboard</strong> for historical field data tracking</li>
+<li><input disabled="" type="checkbox"> Implement web-vitals.js to capture RUM data in <strong>Google Analytics</strong></li>
+<li><input disabled="" type="checkbox"> Schedule weekly <strong>PageSpeed Insights</strong> API tests for key pages</li>
+<li><input disabled="" type="checkbox"> Configure alerts in <strong>Search Console</strong> for Core Web Vitals regressions</li>
+</ul>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Key Differences: Field vs Lab Data:</strong> Common scenarios where lab tests pass but field data fails:</li>
+<li><strong>Why Field and Lab Data Diverge:</strong> Common scenarios where lab tests pass but field data fails:</li>
+<li><strong>Which Metrics Google Uses for Rankings:</strong> Review:</li>
+</ul>
+<ul>
+<li>Poor URLs: URLs failing thresholds (red)</li>
+<li>Needs Improvement URLs: URLs in yellow zone</li>
+<li>Good URLs: Passing all thresholds (green)</li>
+</ul>
+<ul>
+<li><strong>How to Optimize for Field Data (What Matters):</strong> Review:</li>
+</ul>
+<ul>
+<li>Poor URLs: URLs failing thresholds (red)</li>
+<li>Needs Improvement URLs: URLs in yellow zone</li>
+<li>Good URLs: Passing all thresholds (green)</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Why does my site pass Lighthouse but fail Google Search Console?</strong></p>
+<p><strong>Lighthouse</strong> tests in a controlled lab environment. <strong>Search Console</strong> shows real user performance from Chrome browsers on varied devices/networks/geolocations. Field data captures real-world bottlenecks lab tests miss (slow devices, poor networks, third-party script overhead).</p>
+<p><strong>How much traffic do I need for field data?</strong></p>
+<p><strong>Google</strong> requires ~1,000 Chrome user visits per URL per month for URL-level field data. Below that threshold, <strong>PageSpeed Insights</strong> only shows origin-level data (site-wide aggregate).</p>
+<p><strong>Can I improve field data without improving lab data?</strong></p>
+<p>Rare but possible. If your site has good infrastructure but lots of returning users with cache hits, field LCP may be excellent (cached resources) while lab LCP is mediocre (uncached test). Usually both improve together.</p>
+<p><strong>Do lab optimizations eventually improve field data?</strong></p>
+<p>Yes, but with delay. Lab improvements deploy immediately but field data aggregates over 28 days. Expect 4-8 weeks before field metrics fully reflect optimizations.</p>
+<p><strong>Should I prioritize field or lab data?</strong></p>
+<p>Field data for rankings, lab data for diagnosis. Fix field issues first (they impact real users and rankings), then chase lab scores for perfectionism.</p>
+<p><strong>What if my URL has no field data?</strong></p>
+<p>Optimize based on origin-level field data (site-wide metrics) or use lab data as proxy. Once traffic increases, URL-level field data appears.</p>
+<p><strong>Do desktop and mobile field data both impact rankings?</strong></p>
+<p><strong>Google</strong> prioritizes mobile field data for mobile search rankings (mobile-first indexing). Desktop field data matters for desktop search. Optimize mobile first.</p>
+<p><strong>Can third-party tools show field data besides CrUX?</strong></p>
+<p><strong>CrUX</strong> is the only source <strong>Google</strong> uses for rankings. Tools like <strong>SpeedCurve</strong> and <strong>Cloudflare Web Analytics</strong> offer RUM (Real User Monitoring) for internal tracking but don&#39;t influence <strong>Google</strong> rankings.</p>
+<p><strong>How often does CrUX data update?</strong></p>
+<p>Daily, but each day reflects a trailing 28-day window. Big swings in traffic (Black Friday, viral post) take 28 days to fully enter or exit the dataset.</p>
+<p><strong>What&#39;s a good benchmark for field data metrics?</strong></p>
+<p><strong>Elite targets:</strong> LCP &lt;1.8s, INP &lt;100ms, CLS &lt;0.05 (p75). Achievable for static content sites. <strong>Good targets:</strong> LCP &lt;2.5s, INP &lt;200ms, CLS &lt;0.1 (p75). Realistic for most sites. Anything above these thresholds hurts rankings.</p>
+<p>Stop chasing lab scores. Audit field data in <strong>Google Search Console</strong>, fix real user bottlenecks (slow TTFB, heavy JS, layout shifts), and monitor 28-day improvements. Field data is the only Core Web Vitals metric <strong>Google</strong> uses for rankings.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-long-does-this-fix-take-to-implement">How long does this fix take to implement?</h3>
+<p>Most fixes in this article can be implemented in under an hour. Some require a staging environment for testing before deploying to production. The article flags which changes are safe to deploy immediately versus which need QA review first.</p>
+<h3 id="will-this-fix-work-on-wordpress-shopify-and-custom-sites">Will this fix work on WordPress, Shopify, and custom sites?</h3>
+<p>The underlying SEO principles are platform-agnostic. Implementation details differ. WordPress uses plugins and theme files, Shopify uses Liquid templates, custom sites use direct code changes. The article focuses on the what and why; platform-specific how-to links are provided where available.</p>
+<h3 id="how-do-i-verify-the-fix-worked">How do I verify the fix worked?</h3>
+<p>Each fix includes a verification step. For most technical SEO changes: check Google Search Console coverage report 48-72 hours after deployment, validate with a live URL inspection, and monitor the affected pages in your crawl tool. Ranking impact typically surfaces within 1-4 weeks depending on crawl frequency.</p>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/core-web-vitals-failing-mobile-only.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Core Web Vitals Failing on Mobile Only: Diagnosis and Fixes</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Fix Core Web Vitals failures that only appear on mobile. Diagnose LCP, FID, CLS issues unique to mobile devices with network throttling tests.</p>
+          </a>
+
+          <a href="/articles/core-algorithm-update-recovery.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Core Algorithm Update Recovery: Diagnose and Fix Traffic Loss</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Systematic framework to diagnose core update penalties, identify impacted pages, fix quality issues, and recover rankings within 60-90 days.</p>
+          </a>
+
+          <a href="/articles/fix-ad-layout-shift-cls.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical-seo</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Fix Ad Layout Shift CLS: Stop Ad Injections from Killing Core Web Vitals</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Fix Cumulative Layout Shift caused by ads. Reserve ad space, async loading, GPT lazy load, AdSense optimization for 0.1 CLS threshold.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

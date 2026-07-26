@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Block Bad Bots Without Hurting Googlebot | Polytraffic</title>
+    <meta name="description" content="Bad bots waste server resources and crawl budget. Block them with robots.txt and server rules without accidentally blocking Googlebot or legitimate crawlers." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="How to Block Bad Bots Without Hurting Googlebot | Polytraffic" />
+    <meta property="og:description" content="Bad bots waste server resources and crawl budget. Block them with robots.txt and server rules without accidentally blocking Googlebot or legitimate crawlers." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/block-bad-bots-without-hurting-googlebot" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/block-bad-bots-without-hurting-googlebot.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Block Bad Bots Without Hurting Googlebot | Polytraffic" />
+    <meta name="twitter:description" content="Bad bots waste server resources and crawl budget. Block them with robots.txt and server rules without accidentally blocking Googlebot or legitimate crawlers." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/block-bad-bots-without-hurting-googlebot.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/block-bad-bots-without-hurting-googlebot" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Block Bad Bots Without Hurting Googlebot",
+    "description": "Bad bots waste server resources and crawl budget. Block them with robots.txt and server rules without accidentally blocking Googlebot or legitimate crawlers.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/block-bad-bots-without-hurting-googlebot.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/block-bad-bots-without-hurting-googlebot.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/technical.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Block Bad Bots Without Hurting Googlebot"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/technical.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">How to Block Bad Bots Without Hurting Googlebot</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/block-bad-bots-without-hurting-googlebot.png" alt="How to Block Bad Bots Without Hurting Googlebot" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="how-to-block-bad-bots-without-hurting-googlebot">How to Block Bad Bots Without Hurting Googlebot</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Bad bots waste server resources and crawl budget. Block them with robots.txt and server rules without accidentally blocking Googlebot or legitimate crawlers.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#what-bad-bots-do" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">What Bad Bots Do</a></li>
+<li><a href="#how-to-identify-bad-bots" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Identify Bad Bots</a></li>
+<li><a href="#how-to-block-bad-bots-with-robots-txt" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Block Bad Bots with robots.txt</a></li>
+<li><a href="#how-to-block-bad-bots-with-htaccess-apache" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Block Bad Bots with .htaccess (Apache)</a></li>
+<li><a href="#how-to-block-bad-bots-with-nginx" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Block Bad Bots with Nginx</a></li>
+<li><a href="#how-to-verify-you-didn-t-block-googlebot" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">How to Verify You Didn't Block Googlebot</a></li>
+<li><a href="#advanced-bot-blocking-with-cloudflare" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Advanced Bot Blocking with Cloudflare</a></li>
+<li><a href="#should-you-block-seo-tool-bots-ahrefs-semrush" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Should You Block SEO Tool Bots (Ahrefs, Semrush)?</a></li>
+<li><a href="#next-steps" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Next Steps</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Bad bots, scrapers, spam bots, vulnerability scanners, consume server resources, waste crawl budget, and skew analytics. They make hundreds of requests per minute, slowing down your site for real users and legitimate crawlers like <strong>Googlebot</strong>. Blocking them frees resources and protects your site from scraping, brute-force attacks, and DDoS attempts.</p>
+<p>But aggressive bot blocking can backfire. Block the wrong user agent and you accidentally ban <strong>Googlebot</strong>, <strong>Bingbot</strong>, or other search engine crawlers, killing your organic traffic. This guide shows how to identify and block bad bots while preserving access for legitimate crawlers.</p>
+<h2 id="what-bad-bots-do">What Bad Bots Do</h2>
+<h3 id="1-content-scraping">1. Content Scraping</h3>
+<p>Bots copy your content to republish on scraper sites, diluting your SEO value and potentially outranking you with your own content.</p>
+<h3 id="2-vulnerability-scanning">2. Vulnerability Scanning</h3>
+<p>Automated security scanners probe your site for exploits, trying SQL injection, XSS attacks, and brute-force login attempts.</p>
+<h3 id="3-spam-bot-activity">3. Spam Bot Activity</h3>
+<p>Comment spam bots, form spam bots, and fake account registration bots flood your site with junk submissions.</p>
+<h3 id="4-resource-hogging">4. Resource Hogging</h3>
+<p>High-frequency bots make thousands of requests per hour, consuming bandwidth and server CPU. This slows down your site for real users.</p>
+<h3 id="5-analytics-pollution">5. Analytics Pollution</h3>
+<p>Bot traffic inflates pageview counts and skews user behavior metrics, making analytics data unreliable.</p>
+<h2 id="how-to-identify-bad-bots">How to Identify Bad Bots</h2>
+<h3 id="step-1-check-server-logs">Step 1: Check Server Logs</h3>
+<p>Review server access logs to identify suspicious user agents.</p>
+<p><strong>Apache:</strong></p>
+<pre><code class="language-bash">tail -1000 /var/log/apache2/access.log | grep -v &quot;Googlebot&quot; | grep -v &quot;Bingbot&quot; | awk &#39;{print $14}&#39; | sort | uniq -c | sort -rn | head -20
+</code></pre>
+<p>This shows the top 20 user agents excluding Googlebot and Bingbot.</p>
+<p><strong>Nginx:</strong></p>
+<pre><code class="language-bash">tail -1000 /var/log/nginx/access.log | grep -v &quot;Googlebot&quot; | grep -v &quot;Bingbot&quot; | awk &#39;{print $12}&#39; | sort | uniq -c | sort -rn | head -20
+</code></pre>
+<p>Look for unfamiliar or generic user agents (e.g., <code>Mozilla/5.0</code>, <code>Python-requests</code>, <code>curl</code>).</p>
+<h3 id="step-2-monitor-request-volume">Step 2: Monitor Request Volume</h3>
+<p>Bad bots make far more requests than humans. Check request frequency:</p>
+<pre><code class="language-bash">awk &#39;{print $1}&#39; /var/log/apache2/access.log | sort | uniq -c | sort -rn | head -10
+</code></pre>
+<p>This shows the top 10 IP addresses by request count. If one IP has 1,000+ requests in a short period, it&#39;s likely a bot.</p>
+<h3 id="step-3-analyze-user-agent-strings">Step 3: Analyze User Agent Strings</h3>
+<p>Common bad bot user agents:</p>
+<ul>
+<li><code>Ahrefs Bot</code> (SEO tool bot, blocks are controversial; it helps your site get discovered via Ahrefs)</li>
+<li><code>SemrushBot</code> (SEO tool bot)</li>
+<li><code>MJ12bot</code> (Majestic bot)</li>
+<li><code>DotBot</code> (scraper bot)</li>
+<li><code>PetalBot</code> (Aspiegel bot)</li>
+<li><code>Bytespider</code> (TikTok bot, aggressive crawler)</li>
+<li><code>AhrefsBot</code></li>
+<li><code>SeznamBot</code></li>
+<li><code>YandexBot</code> (Russian search engine, block if you don&#39;t target Russia)</li>
+</ul>
+<p><strong>Legitimate bots you should NOT block:</strong></p>
+<ul>
+<li><code>Googlebot</code> (Google)</li>
+<li><code>Bingbot</code> (Microsoft Bing)</li>
+<li><code>Slurp</code> (Yahoo)</li>
+<li><code>DuckDuckBot</code> (DuckDuckGo)</li>
+<li><code>facebookexternalhit</code> (Facebook link previews)</li>
+<li><code>LinkedInBot</code> (LinkedIn link previews)</li>
+</ul>
+<h3 id="step-4-check-for-scraping-patterns">Step 4: Check for Scraping Patterns</h3>
+<p>Scraper bots often:</p>
+<ul>
+<li>Request pages in alphabetical order</li>
+<li>Request every page in your sitemap</li>
+<li>Ignore robots.txt rules</li>
+<li>Use generic user agents (<code>Python-requests</code>, <code>curl</code>, <code>Wget</code>)</li>
+</ul>
+<h2 id="how-to-block-bad-bots-with-robots-txt">How to Block Bad Bots with robots.txt</h2>
+<p>The <code>robots.txt</code> file tells bots which pages they can and can&#39;t crawl. <strong>Well-behaved bots</strong> obey robots.txt. <strong>Malicious bots</strong> ignore it.</p>
+<h3 id="block-specific-bots">Block Specific Bots</h3>
+<pre><code>User-agent: BadBot
+Disallow: /
+
+User-agent: ScraperBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+</code></pre>
+<p>Replace <code>BadBot</code> and <code>ScraperBot</code> with actual user agent names from your logs.</p>
+<h3 id="block-all-bots-except-legitimate-crawlers">Block All Bots Except Legitimate Crawlers</h3>
+<pre><code>User-agent: *
+Disallow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+</code></pre>
+<p>This blocks everything by default, then explicitly allows <strong>Googlebot</strong>, <strong>Bingbot</strong>, and <strong>DuckDuckBot</strong>.</p>
+<p><strong>Warning:</strong> This is aggressive. Only use if you&#39;re facing a severe bot attack. Blocking all bots by default may exclude beneficial crawlers you haven&#39;t identified.</p>
+<h3 id="limitations-of-robots-txt">Limitations of robots.txt</h3>
+<ul>
+<li><strong>robots.txt is a request, not enforcement</strong>. Malicious bots ignore it</li>
+<li><strong>Publicly visible</strong>. Anyone can view your robots.txt, revealing which pages you&#39;re trying to hide</li>
+<li><strong>No IP-based blocking</strong>, robots.txt can&#39;t block specific IP addresses</li>
+</ul>
+<p>For enforcement, use server-level blocks (see below).</p>
+<h2 id="how-to-block-bad-bots-with-htaccess-apache">How to Block Bad Bots with .htaccess (Apache)</h2>
+<p><code>.htaccess</code> enforces bot blocks at the server level. Unlike robots.txt, bots can&#39;t ignore these rules.</p>
+<h3 id="block-specific-user-agents">Block Specific User Agents</h3>
+<pre><code class="language-apache"># Block bad bots by user agent
+SetEnvIfNoCase User-Agent &quot;BadBot&quot; bad_bot
+SetEnvIfNoCase User-Agent &quot;ScraperBot&quot; bad_bot
+SetEnvIfNoCase User-Agent &quot;AhrefsBot&quot; bad_bot
+
+Order Allow,Deny
+Allow from all
+Deny from env=bad_bot
+</code></pre>
+<h3 id="block-user-agents-with-regex">Block User Agents with Regex</h3>
+<pre><code class="language-apache">SetEnvIfNoCase User-Agent &quot;(bot|crawler|spider|scraper)&quot; bad_bot
+Order Allow,Deny
+Allow from all
+Deny from env=bad_bot
+</code></pre>
+<p><strong>Warning:</strong> This blocks any user agent containing &quot;bot,&quot; &quot;crawler,&quot; &quot;spider,&quot; or &quot;scraper&quot; including <strong>Googlebot</strong>. Don&#39;t use unless you whitelist legitimate bots first.</p>
+<h3 id="whitelist-googlebot-then-block-everything-else">Whitelist Googlebot, Then Block Everything Else</h3>
+<pre><code class="language-apache"># Allow Googlebot
+SetEnvIfNoCase User-Agent &quot;Googlebot&quot; good_bot
+
+# Allow Bingbot
+SetEnvIfNoCase User-Agent &quot;Bingbot&quot; good_bot
+
+# Block everything else
+SetEnvIfNoCase User-Agent &quot;.*&quot; bad_bot
+
+Order Allow,Deny
+Allow from env=good_bot
+Deny from env=bad_bot
+</code></pre>
+<h3 id="block-by-ip-address">Block by IP Address</h3>
+<p>If a bad bot uses a specific IP range:</p>
+<pre><code class="language-apache">Order Allow,Deny
+Allow from all
+Deny from 123.456.78.90
+Deny from 98.765.43.21
+</code></pre>
+<p>To block an IP range:</p>
+<pre><code class="language-apache">Deny from 123.456.78.0/24
+</code></pre>
+<h2 id="how-to-block-bad-bots-with-nginx">How to Block Bad Bots with Nginx</h2>
+<h3 id="block-user-agents-in-nginx-conf">Block User Agents in nginx.conf</h3>
+<pre><code class="language-nginx"># Block bad bots
+if ($http_user_agent ~* (BadBot|ScraperBot|AhrefsBot) ) {
+    return 403;
+}
+</code></pre>
+<h3 id="block-multiple-user-agents">Block Multiple User Agents</h3>
+<pre><code class="language-nginx">map $http_user_agent $bad_bot {
+    default 0;
+    ~*BadBot 1;
+    ~*ScraperBot 1;
+    ~*AhrefsBot 1;
+    ~*PetalBot 1;
+}
+
+server {
+    if ($bad_bot) {
+        return 403;
+    }
+}
+</code></pre>
+<h3 id="block-by-ip-address">Block by IP Address</h3>
+<pre><code class="language-nginx">deny 123.456.78.90;
+deny 98.765.43.21;
+allow all;
+</code></pre>
+<h2 id="how-to-verify-you-didn-t-block-googlebot">How to Verify You Didn't Block Googlebot</h2>
+<h3 id="test-with-google-search-console">Test with Google Search Console</h3>
+<p><strong>Google Search Console &gt; URL Inspection:</strong></p>
+<ol>
+<li>Enter a URL from your site</li>
+<li>Click <strong>Test Live URL</strong></li>
+<li>If Google can access the page, <strong>Googlebot</strong> isn&#39;t blocked</li>
+</ol>
+<h3 id="check-robots-txt-with-google-s-tester">Check robots.txt with Google's Tester</h3>
+<p><strong>Google Search Console &gt; Legacy tools and reports &gt; robots.txt Tester:</strong></p>
+<ol>
+<li>Enter your site</li>
+<li>Test a URL</li>
+<li>Verify <strong>Googlebot</strong> can access it</li>
+</ol>
+<h3 id="use-curl-to-simulate-googlebot">Use curl to Simulate Googlebot</h3>
+<pre><code class="language-bash">curl -A &quot;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&quot; https://yoursite.com
+</code></pre>
+<p>If you get a 200 response, <strong>Googlebot</strong> can access the page. If you get 403, you blocked it.</p>
+<h2 id="advanced-bot-blocking-with-cloudflare">Advanced Bot Blocking with Cloudflare</h2>
+<p><strong>Cloudflare</strong> provides bot protection at the DNS/CDN level, blocking bots before they reach your server.</p>
+<h3 id="enable-bot-fight-mode-free-plans">Enable Bot Fight Mode (Free Plans)</h3>
+<ol>
+<li><strong>Cloudflare Dashboard &gt; Security &gt; Bots</strong></li>
+<li>Enable <strong>Bot Fight Mode</strong></li>
+<li>Cloudflare automatically blocks known bad bots</li>
+</ol>
+<h3 id="use-firewall-rules-paid-plans">Use Firewall Rules (Paid Plans)</h3>
+<p><strong>Security &gt; WAF &gt; Firewall Rules:</strong></p>
+<p>Create custom rules to block specific user agents or IP ranges:</p>
+<p><strong>Block AhrefsBot:</strong></p>
+<pre><code>(http.user_agent contains &quot;AhrefsBot&quot;) → Block
+</code></pre>
+<p><strong>Block traffic from specific countries:</strong></p>
+<pre><code>(ip.geoip.country in {&quot;RU&quot; &quot;CN&quot;}) → Block
+</code></pre>
+<p><strong>Challenge bots (CAPTCHA instead of block):</strong></p>
+<pre><code>(cf.bot_management.score &lt; 30) → Challenge
+</code></pre>
+<h2 id="should-you-block-seo-tool-bots-ahrefs-semrush">Should You Block SEO Tool Bots (Ahrefs, Semrush)?</h2>
+<p><strong>Controversial decision.</strong> Arguments for both sides:</p>
+<h3 id="reasons-to-allow-seo-tool-bots">Reasons to Allow SEO Tool Bots</h3>
+<ul>
+<li><strong>They help others discover your site</strong>. Ahrefs and Semrush help SEOs find your content via their tools</li>
+<li><strong>Backlink discovery</strong>. Ahrefs indexes backlinks to your site, which helps you monitor your link profile</li>
+<li><strong>Competitive analysis</strong>. Blocking them doesn&#39;t prevent competitors from analyzing your site (they can scrape directly)</li>
+</ul>
+<h3 id="reasons-to-block-seo-tool-bots">Reasons to Block SEO Tool Bots</h3>
+<ul>
+<li><strong>Resource consumption</strong>. These bots are aggressive crawlers, hitting your site hard</li>
+<li><strong>Competitive intelligence</strong>. You may not want competitors analyzing your site structure or content strategy</li>
+<li><strong>Crawl budget waste</strong>. On large sites, SEO tool bots consume crawl budget better spent on <strong>Googlebot</strong></li>
+</ul>
+<p><strong>Recommendation:</strong> Allow them unless server load is a problem. If they&#39;re causing resource issues, rate-limit them via Cloudflare or robots.txt (use <code>Crawl-delay: 10</code> to slow them down).</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>What Bad Bots Do:</strong> Bots copy your content to republish on scraper sites, diluting your SEO value and potentially outranking you with your own content.</li>
+<li><strong>How to Identify Bad Bots:</strong> Review server access logs to identify suspicious user agents.</li>
+<li><strong>How to Block Bad Bots with robots.txt:</strong> The robots.txt file tells bots which pages they can and can&#39;t crawl.</li>
+<li><strong>How to Block Bad Bots with .htaccess (Apache):</strong> .htaccess enforces bot blocks at the server level.</li>
+<li><strong>How to Block Bad Bots with Nginx:</strong> server {
+  if ($badbot) {
+  return 403;
+  }
+}</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="how-do-i-know-if-i-accidentally-blocked-googlebot">How do I know if I accidentally blocked Googlebot?</h3>
+<p>Test with <strong>Google Search Console &gt; URL Inspection &gt; Test Live URL</strong>. If Google can&#39;t access the page, check your robots.txt and server rules for accidental blocks.</p>
+<h3 id="can-i-block-bots-by-country">Can I block bots by country?</h3>
+<p>Yes, using Cloudflare or server-level geo-blocking. Block by country code in Cloudflare Firewall Rules or use GeoIP modules in Apache/Nginx.</p>
+<h3 id="what-s-the-difference-between-blocking-in-robots-txt-vs-htaccess">What's the difference between blocking in robots.txt vs .htaccess?</h3>
+<p><strong>robots.txt</strong> is a polite request that bots can ignore. <strong>.htaccess</strong> enforces the block at the server level, bots cannot bypass it.</p>
+<h3 id="should-i-block-bots-that-ignore-robots-txt">Should I block bots that ignore robots.txt?</h3>
+<p>Yes. If a bot ignores robots.txt, it&#39;s malicious or misconfigured. Block it via .htaccess or Nginx config.</p>
+<h3 id="will-blocking-bots-improve-my-site-speed">Will blocking bots improve my site speed?</h3>
+<p>Yes, if bots are consuming significant server resources. Blocking high-frequency bots reduces server load and can improve response times for real users.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>Review your server logs to identify high-frequency bots. Block malicious or unwanted bots via robots.txt and .htaccess. Test with <strong>Google Search Console</strong> to verify you didn&#39;t block <strong>Googlebot</strong>. Monitor server load after implementing blocks to confirm resource usage decreases. For related guidance, see <a href="/articles/robots-txt-seo-guide.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Robots.txt SEO Guide</a>, <a href="/articles/googlebot-crawl-rate-monitor-control.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Googlebot Crawl Rate: Monitor and Control</a>, and <a href="/articles/fix-crawl-budget-waste.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Fix Crawl Budget Waste</a>.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/301-vs-302-redirects-seo.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">301 vs 302 Redirects for SEO: When to Use Each</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">301 redirects pass link equity. 302 redirects don't signal permanence. Choose wrong and you leak rankings. This guide shows when to use each redirect type.</p>
+          </a>
+
+          <a href="/articles/article-schema-markup-blog-news.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Article Schema Markup for Blog Posts and News</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Article schema tells Google your content type, author, publish date, and publisher. Implement it correctly and unlock rich results in search and Discover.</p>
+          </a>
+
+          <a href="/articles/audit-cleanup-old-redirects.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">technical</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">How to Audit and Clean Up Old Redirects</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Old redirects accumulate into chains, loops, and dead ends. Audit your redirect map, flatten chains, remove obsolete redirects, and recover wasted link equity.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

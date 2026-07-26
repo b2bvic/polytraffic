@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Images: Complete srcset and sizes Attribute Guide | Polytraffic</title>
+    <meta name="description" content="Master responsive images with srcset and sizes attributes. Reduce bandwidth, improve Core Web Vitals, and serve optimal images per viewport." />
+    <meta name="author" content="Victor Valentine Romo" />
+    <meta property="og:title" content="Responsive Images: Complete srcset and sizes Attribute Guide | Polytraffic" />
+    <meta property="og:description" content="Master responsive images with srcset and sizes attributes. Reduce bandwidth, improve Core Web Vitals, and serve optimal images per viewport." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://polytraffic.com/articles/responsive-images-srcset-sizes-guide" />
+    <meta property="og:site_name" content="Polytraffic" />
+    <meta property="og:image" content="https://polytraffic.com/images/articles/responsive-images-srcset-sizes-guide.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="675" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Responsive Images: Complete srcset and sizes Attribute Guide | Polytraffic" />
+    <meta name="twitter:description" content="Master responsive images with srcset and sizes attributes. Reduce bandwidth, improve Core Web Vitals, and serve optimal images per viewport." />
+    <meta name="twitter:image" content="https://polytraffic.com/images/articles/responsive-images-srcset-sizes-guide.png" />
+    <link rel="canonical" href="https://polytraffic.com/articles/responsive-images-srcset-sizes-guide" />
+    <link rel="me" href="https://scalewithsearch.com" />
+    <link rel="me" href="https://victorvalentineromo.com" />
+    <link rel="me" href="https://aifirstsearch.com" />
+    <link rel="me" href="https://browserprompt.com" />
+    <link rel="me" href="https://creatinepedia.com" />
+    <link rel="me" href="https://polytraffic.com" />
+    <link rel="me" href="https://organicarbitrage.com" />
+    <link rel="me" href="https://aipaypercrawl.com" />
+    <link rel="stylesheet" href="/base.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              900: '#ffffff',
+              800: '#fbfaf7',
+              700: '#f4f2ec',
+              600: '#d8d3c4',
+            },
+            violet: {
+              500: '#b3430e',
+              400: '#8f3104',
+            },
+            cyan: {
+              500: '#0e7490',
+            },
+            cta: {
+              500: '#c2410c',
+              400: '#9a3412',
+            },
+            slate: {
+              100: '#0e0f12',
+              400: '#3f4654',
+              500: '#6b7280',
+            }
+          },
+          borderRadius: {
+            'md': '2px', 'lg': '2px', 'xl': '2px', '2xl': '2px', 'full': '2px',
+          },
+          fontFamily: {
+            display: ['"Archivo"', 'system-ui', 'sans-serif'],
+            body: ['"Source Serif 4"', 'Georgia', 'serif'],
+            mono: ['"IBM Plex Mono"', 'Consolas', 'monospace'],
+          },
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Responsive Images: Complete srcset and sizes Attribute Guide",
+    "description": "Master responsive images with srcset and sizes attributes. Reduce bandwidth, improve Core Web Vitals, and serve optimal images per viewport.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://polytraffic.com/images/articles/responsive-images-srcset-sizes-guide.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Victor Valentine Romo",
+      "url": "https://victorvalentineromo.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Polytraffic",
+      "url": "https://polytraffic.com"
+    },
+    "datePublished": "2026-03-20",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://polytraffic.com/articles/responsive-images-srcset-sizes-guide.html"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://polytraffic.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resilience",
+        "item": "https://polytraffic.com/Performance.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Responsive Images: Complete srcset and sizes Attribute Guide"
+      }
+    ]
+  }
+]
+    </script>
+
+  <script type="application/ld+json">{"@type":"Person","@id":"https://victorvalentineromo.com/#person","name":"Victor Valentine Romo","url":"https://victorvalentineromo.com","jobTitle":"Knowledge Systems Architect","sameAs":["https://linkedin.com/in/b2bvic","https://twitter.com/b2bvic","https://github.com/b2bvic"]}</script>
+  <script type="application/ld+json">{"@type":"Organization","@id":"https://scalewithsearch.com/#org","name":"Scale With Search","url":"https://scalewithsearch.com","founder":{"@id":"https://victorvalentineromo.com/#person"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://polytraffic.com/#website","name":"Polytraffic","url":"https://polytraffic.com","description":"Multi-channel traffic intelligence and diversification strategy.","publisher":{"@id":"https://scalewithsearch.com/#org"},"creator":{"@id":"https://victorvalentineromo.com/#person"},"inLanguage":"en-US"}</script>
+  <link rel="author" href="https://victorvalentineromo.com">
+  <link rel="me" href="https://linkedin.com/in/b2bvic">
+  <link rel="me" href="https://twitter.com/b2bvic">
+  <link rel="me" href="https://github.com/b2bvic">
+
+</head>
+<body class="bg-navy-900 font-body antialiased">
+
+
+  <nav class="bg-navy-800 border-b border-navy-600 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-lg bg-violet-500 flex items-center justify-center">
+            <span class="font-display font-bold text-white text-sm tracking-tight">PT</span>
+          </div>
+          <span class="font-display font-semibold text-slate-100 text-lg tracking-tight group-hover:text-violet-400 transition-colors">Polytraffic</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+
+          <!-- Channels dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Channels
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/channels/seo.html">SEO</a>
+              <a href="/channels/paid-search.html">Paid Search</a>
+              <a href="/channels/social.html">Social</a>
+              <a href="/channels/email.html">Email</a>
+              <a href="/channels/referral.html">Referral</a>
+              <a href="/channels/direct.html">Direct</a>
+            </div>
+          </div>
+
+          <!-- Economics dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Economics
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/economics/cpv-analysis.html">CPV Analysis</a>
+              <a href="/economics/attribution-models.html">Attribution Models</a>
+              <a href="/economics/roi-frameworks.html">ROI Frameworks</a>
+            </div>
+          </div>
+
+          <!-- Resilience (direct link) -->
+          <a href="/resilience.html" class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors">
+            Resilience
+          </a>
+
+          <!-- Tools dropdown -->
+          <div class="pt-meganav-item relative">
+            <button class="px-3 py-2 text-sm font-medium text-slate-400 hover:text-violet-400 transition-colors flex items-center gap-1">
+              Tools
+              <svg class="w-3.5 h-3.5 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="pt-meganav-dropdown">
+              <a href="/tools/calculators.html">Calculators</a>
+              <a href="/tools/frameworks.html">Frameworks</a>
+              <a href="/tools/templates.html">Templates</a>
+            </div>
+          </div>
+
+          <!-- Scale With Search -->
+          <a href="https://scalewithsearch.com" class="px-3 py-2 text-sm font-medium text-violet-400 hover:text-violet-300 transition-colors" target="_blank" rel="noopener">
+            Scale With Search &rarr;
+          </a>
+
+          <!-- CTA -->
+          <a href="/setup.html" class="ml-4 px-5 py-2 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+            Get This Built For You
+          </a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="pt-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Nav -->
+      <div id="pt-mobile-menu" class="md:hidden hidden border-t border-navy-600 pb-4">
+        <div class="pt-3 space-y-1">
+          <p class="px-3 py-1 text-xs font-semibold text-slate-500 uppercase tracking-wider">Channels</p>
+          <a href="/channels/seo.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">SEO</a>
+          <a href="/channels/paid-search.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Paid Search</a>
+          <a href="/channels/social.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Social</a>
+          <a href="/channels/email.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Email</a>
+          <a href="/channels/referral.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Referral</a>
+          <a href="/channels/direct.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Direct</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Economics</p>
+          <a href="/economics/cpv-analysis.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">CPV Analysis</a>
+          <a href="/economics/attribution-models.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Attribution Models</a>
+          <a href="/economics/roi-frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">ROI Frameworks</a>
+
+          <a href="/resilience.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400 font-medium">Resilience</a>
+
+          <p class="px-3 py-1 pt-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Tools</p>
+          <a href="/tools/calculators.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Calculators</a>
+          <a href="/tools/frameworks.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Frameworks</a>
+          <a href="/tools/templates.html" class="block px-3 py-2 text-sm text-slate-400 hover:text-violet-400">Templates</a>
+
+          <div class="pt-3 px-3">
+            <a href="/setup.html" class="block text-center px-5 py-2.5 bg-cta-500 hover:bg-cta-400 text-white text-sm font-semibold rounded-lg transition-colors">
+              Get This Built For You
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Article -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+      <nav class="pt-breadcrumbs mb-6" aria-label="Breadcrumb"><a href="/">Home</a> <span class="pt-chevron">&rsaquo;</span> <a href="/Performance.html">Resilience</a> <span class="pt-chevron">&rsaquo;</span> <span class="text-slate-400">Responsive Images: Complete srcset and sizes Attribute Guide</span></nav>
+
+      <!-- Category label -->
+      <span class="inline-block text-xs font-mono font-medium text-violet-500 uppercase tracking-wider mb-4">Resilience</span>
+
+      <!-- Hero image -->
+      <div class="rounded-xl overflow-hidden mb-8">
+        <img src="/images/articles/responsive-images-srcset-sizes-guide.png" alt="Responsive Images: Complete srcset and sizes Attribute Guide" width="1200" height="675" loading="eager" class="w-full h-auto" />
+      </div>
+
+      <article class="pt-prose">
+        <h1 id="responsive-images-complete-srcset-and-sizes-attribute-guide">Responsive Images: Complete srcset and sizes Attribute Guide</h1>
+<blockquote>
+<p><strong>Quick Summary</strong></p>
+<ul>
+<li><strong>What this covers:</strong> Master responsive images with srcset and sizes attributes. Reduce bandwidth, improve Core Web Vitals, and serve optimal images per viewport.</li>
+<li><strong>Who it&#39;s for:</strong> site owners and SEO practitioners</li>
+<li><strong>Key takeaway:</strong> Read the first section for the core framework, then use the specific tactics that match your situation.</li>
+</ul>
+</blockquote>
+<ul>
+<li><a href="#why-responsive-images-matter-for-seo" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Why Responsive Images Matter for SEO</a></li>
+<li><a href="#srcset-syntax-resolution-and-width-descriptors" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">srcset Syntax: Resolution and Width Descriptors</a></li>
+<li><a href="#sizes-attribute-declaring-image-layout-dimensions" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">sizes Attribute: Declaring Image Layout Dimensions</a></li>
+<li><a href="#combining-srcset-and-sizes-for-art-direction" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Combining srcset and sizes for Art Direction</a></li>
+<li><a href="#modern-image-formats-webp-and-avif-in-srcset" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Modern Image Formats: WebP and AVIF in srcset</a></li>
+<li><a href="#lazy-loading-with-loading-lazy" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Lazy Loading with loading="lazy"</a></li>
+<li><a href="#preventing-layout-shifts-with-width-and-height" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Preventing Layout Shifts with Width and Height</a></li>
+<li><a href="#automating-responsive-image-generation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Automating Responsive Image Generation</a></li>
+<li><a href="#testing-responsive-image-implementation" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Testing Responsive Image Implementation</a></li>
+<li><a href="#common-pitfalls-and-fixes" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Common Pitfalls and Fixes</a></li>
+<li><a href="#responsive-images-in-css-background-image" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Responsive Images in CSS (background-image)</a></li>
+<li><a href="#when-this-fix-isn-t-your-priority" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">When This Fix Isn't Your Priority</a></li>
+</ul>
+<p>Serving desktop-resolution images to mobile devices wastes bandwidth, inflates page weight, and degrades Core Web Vitals scores. A 1920×1080 hero image appropriate for 27-inch monitors downloads entirely on 375px smartphone screens, consuming cellular data and delaying Largest Contentful Paint (LCP). <strong>Responsive images</strong> solve this by instructing browsers to request image variants sized appropriately for viewport dimensions and display density.</p>
+<p>The <code>srcset</code> and <code>sizes</code> attributes provide declarative syntax for specifying multiple image sources and selection criteria. Browsers choose optimal variants based on screen width, pixel density, and bandwidth conditions, automatically, without JavaScript. Properly implemented responsive images reduce median page weight by 35-50% on mobile while maintaining visual quality.</p>
+<h2 id="why-responsive-images-matter-for-seo">Why Responsive Images Matter for SEO</h2>
+<p><strong>Core Web Vitals impact:</strong> LCP measures when the largest visible element renders. Hero images, featured graphics, and product photos frequently constitute the LCP element. Oversized images delay LCP, failing the 2.5-second threshold and incurring ranking penalties.</p>
+<p><strong>Mobile-first indexing:</strong> Google&#39;s crawler primarily evaluates mobile performance. Sites serving desktop images to mobile experience slower LCP, higher bounce rates, and lower rankings. Responsive images ensure mobile users download appropriately sized assets.</p>
+<p><strong>Bandwidth efficiency:</strong> Mobile users on metered connections abandon pages that consume excessive data. Responsive images reduce transfer sizes by 60-80% on small viewports, improving engagement metrics that correlate with rankings.</p>
+<p><strong>Lazy loading synergy:</strong> Combining responsive images with <a href="intersection-observer-lazy-loading.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">native lazy loading</a> further optimizes performance, browsers defer loading and request appropriately sized images only when elements near the viewport.</p>
+<p><strong>Real-world measurement:</strong> PageSpeed Insights flags &quot;Properly size images&quot; when images exceed display dimensions by 4KB+. The audit quantifies potential savings. Sites with savings exceeding 200KB typically see measurable LCP improvements after implementing responsive images.</p>
+<h2 id="srcset-syntax-resolution-and-width-descriptors">srcset Syntax: Resolution and Width Descriptors</h2>
+<p>The <code>srcset</code> attribute lists image sources with associated descriptors. Browsers use descriptors to select the optimal variant.</p>
+<p><strong>Resolution descriptors (<code>x</code>):</strong> Specify pixel density multipliers for high-DPI displays (Retina, 4K).</p>
+<pre><code class="language-html">&lt;img
+  src=&quot;image-1x.jpg&quot;
+  srcset=&quot;image-1x.jpg 1x, image-2x.jpg 2x, image-3x.jpg 3x&quot;
+  alt=&quot;Logo&quot;&gt;
+</code></pre>
+<p>Browsers with 1x pixel density (96 DPI) request <code>image-1x.jpg</code>. Retina displays (2x, 192 DPI) request <code>image-2x.jpg</code>. High-resolution monitors (3x, 288 DPI) request <code>image-3x.jpg</code>.</p>
+<p><strong>Use case:</strong> Fixed-size images like logos, icons, and UI elements that don&#39;t scale with viewport.</p>
+<p><strong>Width descriptors (<code>w</code>):</strong> Specify intrinsic image widths in pixels. Browsers combine this with the <code>sizes</code> attribute to calculate optimal source.</p>
+<pre><code class="language-html">&lt;img
+  srcset=&quot;small.jpg 480w, medium.jpg 1024w, large.jpg 1920w&quot;
+  sizes=&quot;100vw&quot;
+  src=&quot;medium.jpg&quot;
+  alt=&quot;Hero image&quot;&gt;
+</code></pre>
+<p>The <code>480w</code> descriptor means <code>small.jpg</code> is 480 pixels wide. Browsers calculate which source provides sufficient resolution without unnecessary data transfer.</p>
+<p><strong>Formula:</strong> Browser selects the smallest source where <code>image-width / viewport-width &gt;= pixel-density</code>.</p>
+<p>For a 375px viewport at 2x density:</p>
+<ul>
+<li>Effective resolution needed: 375 × 2 = 750px</li>
+<li>Browser selects <code>medium.jpg</code> (1024w) because 1024 &gt; 750 and it&#39;s smaller than <code>large.jpg</code></li>
+</ul>
+<p><strong>Best practice:</strong> Provide sources at 480w, 768w, 1024w, 1366w, 1920w, and 2560w to cover mobile, tablet, laptop, desktop, and 4K displays.</p>
+<h2 id="sizes-attribute-declaring-image-layout-dimensions">sizes Attribute: Declaring Image Layout Dimensions</h2>
+<p>The <code>sizes</code> attribute tells browsers what portion of the viewport the image occupies at various breakpoints. Without <code>sizes</code>, browsers assume <code>100vw</code> (full viewport width).</p>
+<p><strong>Syntax:</strong> Media queries paired with length values.</p>
+<pre><code class="language-html">&lt;img
+  srcset=&quot;small.jpg 480w, medium.jpg 1024w, large.jpg 1920w&quot;
+  sizes=&quot;(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33.3vw&quot;
+  src=&quot;medium.jpg&quot;
+  alt=&quot;Product image&quot;&gt;
+</code></pre>
+<p><strong>Translation:</strong></p>
+<ul>
+<li>Viewports ≤768px: Image fills 100% viewport width → select source ≥ viewport width × pixel density</li>
+<li>Viewports 769-1024px: Image occupies 50% viewport → select source ≥ (viewport × 0.5) × pixel density</li>
+<li>Viewports &gt;1024px: Image occupies 33.3% viewport → select source ≥ (viewport × 0.333) × pixel density</li>
+</ul>
+<p><strong>Example calculation for 1200px viewport at 2x density:</strong></p>
+<ul>
+<li>Sizes evaluates to 33.3vw → 1200 × 0.333 = 400px</li>
+<li>Effective resolution: 400 × 2 = 800px</li>
+<li>Browser selects <code>medium.jpg</code> (1024w) because it&#39;s the smallest source ≥800px</li>
+</ul>
+<p><strong>Absolute units:</strong> You can specify fixed sizes if layout is predictable:</p>
+<pre><code class="language-html">sizes=&quot;(max-width: 768px) 100vw, 800px&quot;
+</code></pre>
+<p>On viewports &gt;768px, the image displays at exactly 800px width regardless of viewport size.</p>
+<p><strong>Multiple conditions:</strong> Order matters, browsers evaluate conditions left to right, using the first match:</p>
+<pre><code class="language-html">sizes=&quot;(max-width: 480px) 100vw,
+       (max-width: 768px) 50vw,
+       (max-width: 1024px) 33.3vw,
+       25vw&quot;
+</code></pre>
+<p>The final value (<code>25vw</code>) acts as the default if no conditions match.</p>
+<p><strong>Common mistake:</strong> Setting <code>sizes</code> that don&#39;t match actual CSS layout. If CSS renders the image at 50vw but <code>sizes</code> declares 100vw, the browser requests unnecessarily large sources.</p>
+<h2 id="combining-srcset-and-sizes-for-art-direction">Combining srcset and sizes for Art Direction</h2>
+<p><strong>Art direction</strong> means serving different image crops or compositions for different viewports, not resizing, but reframing content.</p>
+<p>Use the <code>&lt;picture&gt;</code> element with <code>&lt;source&gt;</code> tags specifying different <code>srcset</code> per media query:</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source
+    media=&quot;(max-width: 768px)&quot;
+    srcset=&quot;portrait-small.jpg 480w, portrait-medium.jpg 768w&quot;
+    sizes=&quot;100vw&quot;&gt;
+  &lt;source
+    media=&quot;(max-width: 1024px)&quot;
+    srcset=&quot;landscape-medium.jpg 1024w, landscape-large.jpg 1366w&quot;
+    sizes=&quot;100vw&quot;&gt;
+  &lt;img
+    srcset=&quot;landscape-large.jpg 1366w, landscape-xlarge.jpg 1920w&quot;
+    sizes=&quot;100vw&quot;
+    src=&quot;landscape-large.jpg&quot;
+    alt=&quot;Hero banner&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>Viewports ≤768px: Browser uses <code>portrait-small.jpg</code> or <code>portrait-medium.jpg</code></li>
+<li>Viewports 769-1024px: Browser uses <code>landscape-medium.jpg</code> or <code>landscape-large.jpg</code></li>
+<li>Viewports &gt;1024px: Browser uses <code>landscape-large.jpg</code> or <code>landscape-xlarge.jpg</code></li>
+</ul>
+<p>The <code>&lt;img&gt;</code> element acts as fallback for browsers that don&#39;t support <code>&lt;picture&gt;</code>.</p>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Mobile: Portrait-oriented crop focusing on subject&#39;s face</li>
+<li>Desktop: Wide landscape showing environmental context</li>
+<li>Different aspect ratios per device (16:9 on desktop, 4:3 on mobile)</li>
+</ul>
+<p><strong>SEO consideration:</strong> Use identical <code>alt</code> text across sources. Google indexes the <code>&lt;img&gt;</code> element&#39;s attributes, which apply regardless of which source loads.</p>
+<h2 id="modern-image-formats-webp-and-avif-in-srcset">Modern Image Formats: WebP and AVIF in srcset</h2>
+<p><strong>WebP</strong> provides 25-35% smaller file sizes than JPEG at equivalent quality. <strong>AVIF</strong> offers 40-50% savings but has lower browser support (89% vs. 97% as of 2026).</p>
+<p>Serve modern formats with fallbacks using <code>&lt;picture&gt;</code>:</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source
+    type=&quot;image/avif&quot;
+    srcset=&quot;image-small.avif 480w, image-medium.avif 1024w, image-large.avif 1920w&quot;
+    sizes=&quot;100vw&quot;&gt;
+  &lt;source
+    type=&quot;image/webp&quot;
+    srcset=&quot;image-small.webp 480w, image-medium.webp 1024w, image-large.webp 1920w&quot;
+    sizes=&quot;100vw&quot;&gt;
+  &lt;img
+    srcset=&quot;image-small.jpg 480w, image-medium.jpg 1024w, image-large.jpg 1920w&quot;
+    sizes=&quot;100vw&quot;
+    src=&quot;image-medium.jpg&quot;
+    alt=&quot;Product showcase&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<p>Browsers evaluate sources top-to-bottom, selecting the first supported format. Browsers supporting AVIF download <code>.avif</code> files. Browsers lacking AVIF support but supporting WebP download <code>.webp</code>. Legacy browsers fall back to JPEG.</p>
+<p><strong>Savings example:</strong> A 1920×1080 hero image:</p>
+<ul>
+<li>JPEG (quality 80): 340KB</li>
+<li>WebP (equivalent quality): 220KB (35% savings)</li>
+<li>AVIF (equivalent quality): 180KB (47% savings)</li>
+</ul>
+<p><strong>Generation tools:</strong></p>
+<ul>
+<li><strong>ImageMagick:</strong> <code>convert input.jpg -quality 80 output.webp</code></li>
+<li><strong>cwebp CLI:</strong> <code>cwebp -q 80 input.jpg -o output.webp</code></li>
+<li><strong>Squoosh CLI:</strong> <code>squoosh-cli --webp &#39;{quality: 80}&#39; input.jpg</code></li>
+<li><strong>Sharp (Node.js):</strong> <code>sharp(&#39;input.jpg&#39;).webp({quality: 80}).toFile(&#39;output.webp&#39;)</code></li>
+</ul>
+<p><strong>CDN automation:</strong> Cloudflare, Imgix, and Cloudinary automatically convert images to WebP/AVIF based on client support via <code>Accept</code> header negotiation.</p>
+<h2 id="lazy-loading-with-loading-lazy">Lazy Loading with loading="lazy"</h2>
+<p>Native lazy loading defers image requests until elements approach the viewport, reducing initial page weight and improving LCP by prioritizing above-the-fold content.</p>
+<pre><code class="language-html">&lt;img
+  srcset=&quot;small.jpg 480w, medium.jpg 1024w, large.jpg 1920w&quot;
+  sizes=&quot;(max-width: 768px) 100vw, 50vw&quot;
+  src=&quot;medium.jpg&quot;
+  alt=&quot;Below-the-fold image&quot;
+  loading=&quot;lazy&quot;
+  width=&quot;1024&quot;
+  height=&quot;768&quot;&gt;
+</code></pre>
+<p><strong>Browser behavior:</strong></p>
+<ul>
+<li>Images marked <code>loading=&quot;lazy&quot;</code> don&#39;t load until they&#39;re ~1200px from entering the viewport (threshold varies by browser and connection speed)</li>
+<li>Browsers request appropriately sized sources based on viewport dimensions and pixel density</li>
+<li>Native lazy loading has 93%+ browser support as of 2026</li>
+</ul>
+<p><strong>Critical content exception:</strong> <strong>Never lazy-load LCP elements</strong>. The LCP image (typically hero banners, featured graphics) must load immediately. Lazy-loading LCP elements delays rendering and harms performance.</p>
+<pre><code class="language-html">&lt;!-- Hero image: NO lazy loading --&gt;
+&lt;img
+  srcset=&quot;hero-small.jpg 480w, hero-medium.jpg 1024w, hero-large.jpg 1920w&quot;
+  sizes=&quot;100vw&quot;
+  src=&quot;hero-medium.jpg&quot;
+  alt=&quot;Featured product&quot;
+  fetchpriority=&quot;high&quot;
+  width=&quot;1920&quot;
+  height=&quot;1080&quot;&gt;
+
+&lt;!-- Below-fold image: YES lazy loading --&gt;
+&lt;img
+  srcset=&quot;gallery-small.jpg 480w, gallery-medium.jpg 1024w&quot;
+  sizes=&quot;(max-width: 768px) 100vw, 50vw&quot;
+  src=&quot;gallery-medium.jpg&quot;
+  alt=&quot;Gallery image&quot;
+  loading=&quot;lazy&quot;
+  width=&quot;1024&quot;
+  height=&quot;768&quot;&gt;
+</code></pre>
+<p>The <code>fetchpriority=&quot;high&quot;</code> attribute signals browsers to prioritize the LCP image, further optimizing load times.</p>
+<h2 id="preventing-layout-shifts-with-width-and-height">Preventing Layout Shifts with Width and Height</h2>
+<p>Images without explicit dimensions cause Cumulative Layout Shift (CLS) when they load, browsers allocate zero height initially, then reflow the layout once image dimensions arrive.</p>
+<p><strong>Always specify width and height attributes:</strong></p>
+<pre><code class="language-html">&lt;img
+  srcset=&quot;small.jpg 480w, medium.jpg 1024w, large.jpg 1920w&quot;
+  sizes=&quot;100vw&quot;
+  src=&quot;medium.jpg&quot;
+  alt=&quot;Hero image&quot;
+  width=&quot;1920&quot;
+  height=&quot;1080&quot;&gt;
+</code></pre>
+<p>Modern browsers calculate aspect ratio from attributes and <a href="reserve-space-for-dynamic-content.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">reserve space</a> before the image loads, preventing CLS.</p>
+<p><strong>CSS maintains responsiveness:</strong></p>
+<pre><code class="language-css">img {
+  max-width: 100%;
+  height: auto;
+}
+</code></pre>
+<p>The image scales to container width while maintaining aspect ratio derived from <code>width</code> and <code>height</code> attributes.</p>
+<p><strong>Aspect ratio property:</strong> For decorative containers or background images, use CSS <code>aspect-ratio</code>:</p>
+<pre><code class="language-css">.hero-container {
+  aspect-ratio: 16 / 9;
+  background-image: url(&#39;hero.jpg&#39;);
+  background-size: cover;
+}
+</code></pre>
+<p>This reserves a 16:9 box before the background image loads.</p>
+<h2 id="automating-responsive-image-generation">Automating Responsive Image Generation</h2>
+<p>Manually creating 5-6 variants per image doesn&#39;t scale. Automate generation via:</p>
+<p><strong>Build tools:</strong></p>
+<p><strong>Webpack (responsive-loader plugin):</strong></p>
+<pre><code class="language-javascript">module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png)$/i,
+        use: {
+          loader: &#39;responsive-loader&#39;,
+          options: {
+            adapter: require(&#39;responsive-loader/sharp&#39;),
+            sizes: [480, 768, 1024, 1366, 1920],
+            format: &#39;webp&#39;,
+          },
+        },
+      },
+    ],
+  },
+};
+</code></pre>
+<p>Import images in code:</p>
+<pre><code class="language-javascript">import heroImage from &#39;./hero.jpg&#39;;
+
+// heroImage contains srcset string with all variants
+&lt;img srcSet={heroImage.srcSet} src={heroImage.src} alt=&quot;Hero&quot; /&gt;
+</code></pre>
+<p><strong>Eleventy (eleventy-img plugin):</strong></p>
+<pre><code class="language-javascript">const Image = require(&#39;@11ty/eleventy-img&#39;);
+
+async function imageShortcode(src, alt, sizes) {
+  let metadata = await Image(src, {
+    widths: [480, 768, 1024, 1920],
+    formats: [&#39;avif&#39;, &#39;webp&#39;, &#39;jpeg&#39;],
+    outputDir: &#39;./dist/img/&#39;,
+  });
+
+  let imageAttributes = { alt, sizes, loading: &#39;lazy&#39;, decoding: &#39;async&#39; };
+  return Image.generateHTML(metadata, imageAttributes);
+}
+</code></pre>
+<p>Use in templates:</p>
+<pre><code class="language-html">{% image &quot;hero.jpg&quot;, &quot;Hero banner&quot;, &quot;100vw&quot; %}
+</code></pre>
+<p><strong>CDNs:</strong></p>
+<p><strong>Cloudinary URL parameters:</strong></p>
+<pre><code class="language-html">&lt;img
+  srcset=&quot;
+    https://res.cloudinary.com/demo/image/upload/w_480,f_auto/sample.jpg 480w,
+    https://res.cloudinary.com/demo/image/upload/w_1024,f_auto/sample.jpg 1024w,
+    https://res.cloudinary.com/demo/image/upload/w_1920,f_auto/sample.jpg 1920w&quot;
+  sizes=&quot;100vw&quot;
+  src=&quot;https://res.cloudinary.com/demo/image/upload/w_1024,f_auto/sample.jpg&quot;
+  alt=&quot;Sample image&quot;&gt;
+</code></pre>
+<p>The <code>w_</code> parameter resizes dynamically. <code>f_auto</code> selects optimal format (AVIF, WebP, JPEG) based on client support.</p>
+<p><strong>Imgix:</strong></p>
+<pre><code class="language-html">&lt;img
+  srcset=&quot;
+    https://demo.imgix.net/sample.jpg?w=480&amp;auto=format 480w,
+    https://demo.imgix.net/sample.jpg?w=1024&amp;auto=format 1024w,
+    https://demo.imgix.net/sample.jpg?w=1920&amp;auto=format 1920w&quot;
+  sizes=&quot;100vw&quot;
+  src=&quot;https://demo.imgix.net/sample.jpg?w=1024&amp;auto=format&quot;
+  alt=&quot;Sample image&quot;&gt;
+</code></pre>
+<p><strong>WordPress:</strong> Jetpack and ShortPixel automatically generate responsive variants and insert <code>srcset</code> attributes.</p>
+<h2 id="testing-responsive-image-implementation">Testing Responsive Image Implementation</h2>
+<p><strong>DevTools Network Panel:</strong></p>
+<ol>
+<li>Open Chrome DevTools → Network tab</li>
+<li>Filter by Img</li>
+<li>Throttle network to Fast 3G</li>
+<li>Resize viewport from 375px (mobile) to 1920px (desktop)</li>
+<li>Refresh page for each viewport size</li>
+<li>Verify correct image variant loads per viewport</li>
+</ol>
+<p><strong>Expected behavior:</strong> At 375px viewport, the 480w image loads. At 1920px viewport, the 1920w image loads. If the same large image loads on mobile, <code>srcset</code> or <code>sizes</code> is misconfigured.</p>
+<p><strong>Lighthouse audit:</strong></p>
+<p>Run Lighthouse via DevTools or PageSpeed Insights. The &quot;Properly size images&quot; audit reports oversized images:</p>
+<ul>
+<li><strong>Potential savings &gt;10KB:</strong> High priority, images significantly exceed display dimensions</li>
+<li><strong>Actual transfer size vs. ideal size:</strong> Shows how much bandwidth waste occurs</li>
+</ul>
+<p>Fix by adding smaller variants to <code>srcset</code>.</p>
+<p><strong>Real User Monitoring (RUM):</strong></p>
+<p>Track LCP impact via web-vitals library:</p>
+<pre><code class="language-javascript">import {getLCP} from &#39;web-vitals&#39;;
+
+getLCP(metric =&gt; {
+  console.log(&#39;LCP:&#39;, metric.value);
+  console.log(&#39;LCP Element:&#39;, metric.entries[0].element);
+});
+</code></pre>
+<p>Correlate LCP improvements with responsive image deployment. Expect 20-40% LCP reduction for image-heavy pages.</p>
+<p><strong>Manual srcset validation:</strong></p>
+<p>Use browser console to check selected source:</p>
+<pre><code class="language-javascript">document.querySelector(&#39;img&#39;).currentSrc
+</code></pre>
+<p>This reveals which <code>srcset</code> source the browser chose. Compare against viewport width and pixel density to verify correct selection.</p>
+<h2 id="common-pitfalls-and-fixes">Common Pitfalls and Fixes</h2>
+<p><strong>Pitfall: sizes doesn&#39;t match CSS layout</strong></p>
+<p>If CSS renders an image at 50vw but <code>sizes=&quot;100vw&quot;</code>, the browser requests sources double the necessary width.</p>
+<p><strong>Fix:</strong> Audit actual rendered sizes via DevTools Elements panel → Computed styles. Match <code>sizes</code> attribute to real display width.</p>
+<p><strong>Pitfall: Missing width/height attributes</strong></p>
+<p>Images with <code>srcset</code> but no dimensions cause CLS when variants load with different aspect ratios.</p>
+<p><strong>Fix:</strong> Always include <code>width</code> and <code>height</code> matching the largest <code>srcset</code> variant&#39;s dimensions. Browsers calculate ratio and scale accordingly.</p>
+<p><strong>Pitfall: Lazy-loading LCP images</strong></p>
+<p>Marking the hero image <code>loading=&quot;lazy&quot;</code> delays LCP, harming Core Web Vitals.</p>
+<p><strong>Fix:</strong> Only lazy-load below-the-fold images. Use <code>fetchpriority=&quot;high&quot;</code> on LCP images.</p>
+<p><strong>Pitfall: Incorrect descriptor syntax</strong></p>
+<p>Using commas incorrectly or mixing <code>w</code> and <code>x</code> descriptors breaks parsing.</p>
+<p><strong>Incorrect:</strong></p>
+<pre><code class="language-html">srcset=&quot;small.jpg, 480w medium.jpg, 1024w&quot;
+</code></pre>
+<p><strong>Correct:</strong></p>
+<pre><code class="language-html">srcset=&quot;small.jpg 480w, medium.jpg 1024w&quot;
+</code></pre>
+<p><strong>Pitfall: Serving AVIF/WebP without fallback</strong></p>
+<p>Browsers lacking support display broken images if fallback <code>&lt;img&gt;</code> missing.</p>
+<p><strong>Fix:</strong> Always include JPEG/PNG fallback in <code>&lt;img&gt;</code> element within <code>&lt;picture&gt;</code>.</p>
+<p><strong>Pitfall: Oversized intrinsic image dimensions</strong></p>
+<p>Uploading 4000×3000 source images when max display size is 1920px wastes processing and bandwidth.</p>
+<p><strong>Fix:</strong> Resize master images to 2560px (covers 4K displays) before generating responsive variants.</p>
+<h2 id="responsive-images-in-css-background-image">Responsive Images in CSS (background-image)</h2>
+<p>CSS background images don&#39;t support <code>srcset</code>, but you can use media queries or <code>image-set()</code>:</p>
+<p><strong>Media queries:</strong></p>
+<pre><code class="language-css">.hero {
+  background-image: url(&#39;hero-small.jpg&#39;);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    background-image: url(&#39;hero-medium.jpg&#39;);
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero {
+    background-image: url(&#39;hero-large.jpg&#39;);
+  }
+}
+</code></pre>
+<p><strong>image-set() function (88% browser support):</strong></p>
+<pre><code class="language-css">.hero {
+  background-image: image-set(
+    url(&#39;hero-small.webp&#39;) type(&#39;image/webp&#39;) 1x,
+    url(&#39;hero-medium.webp&#39;) type(&#39;image/webp&#39;) 2x,
+    url(&#39;hero-small.jpg&#39;) 1x,
+    url(&#39;hero-medium.jpg&#39;) 2x
+  );
+}
+</code></pre>
+<p>Browsers select the first supported format and appropriate resolution.</p>
+<p><strong>Recommendation:</strong> Use <code>&lt;img&gt;</code> with <code>srcset</code> for content images. Reserve CSS backgrounds for decorative elements where alt text isn&#39;t required.</p>
+<p><strong>Take Action: Map Your Traffic Portfolio</strong></p>
+<p>Frameworks only pay off when they run against your numbers. The <a href="/setup.html" class="text-violet-500 hover:text-violet-400 border-b border-violet-500/30 hover:border-violet-400 transition-colors">Find setup</a> maps every channel you operate, what each costs, what each converts, and where the portfolio is concentrated, so decisions like the ones above start from your data instead of hypotheticals.</p>
+<h2 id="key-recap">Key Recap</h2>
+<ul>
+<li><strong>Why Responsive Images Matter for SEO:</strong> The srcset attribute lists image sources with associated descriptors.</li>
+<li><strong>srcset Syntax: Resolution and Width Descriptors:</strong> The srcset attribute lists image sources with associated descriptors.</li>
+<li><strong>sizes Attribute: Declaring Image Layout Dimensions:</strong> The sizes attribute tells browsers what portion of the viewport the image occupies at various breakpoints.</li>
+<li><strong>Combining srcset and sizes for Art Direction:</strong> Use the <picture> element with <source> tags specifying different srcset per media query:</li>
+<li><strong>Modern Image Formats: WebP and AVIF in srcset:</strong> Serve modern formats with fallbacks using <picture>:</li>
+<li><strong>Lazy Loading with loading=&quot;lazy&quot;:</strong> Native lazy loading defers image requests until elements approach the viewport, reducing initial page weight and improving LCP by prioritizing above-the-fold content.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Do I need different srcset sources for WebP and JPEG?</strong></p>
+<p>Yes, if using <code>&lt;picture&gt;</code> to serve multiple formats. Each <code>&lt;source&gt;</code> element needs its own <code>srcset</code>:</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source type=&quot;image/webp&quot; srcset=&quot;image-480.webp 480w, image-1024.webp 1024w&quot;&gt;
+  &lt;img srcset=&quot;image-480.jpg 480w, image-1024.jpg 1024w&quot; src=&quot;image-1024.jpg&quot; alt=&quot;Image&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<p><strong>Can I use srcset with SVG images?</strong></p>
+<p>SVGs scale infinitely without quality loss, so responsive variants aren&#39;t necessary. Use a single SVG file:</p>
+<pre><code class="language-html">&lt;img src=&quot;logo.svg&quot; alt=&quot;Logo&quot; width=&quot;200&quot; height=&quot;50&quot;&gt;
+</code></pre>
+<p>If the SVG is large (complex illustrations), consider rasterizing to PNG/WebP for smaller viewports.</p>
+<p><strong>How many srcset variants should I create?</strong></p>
+<p>Minimum 3 (small, medium, large). Ideal is 5-6 covering:</p>
+<ul>
+<li>480w (mobile portrait)</li>
+<li>768w (mobile landscape, small tablet)</li>
+<li>1024w (tablet, small laptop)</li>
+<li>1366w (laptop)</li>
+<li>1920w (desktop, Full HD)</li>
+<li>2560w (4K displays)</li>
+</ul>
+<p>Diminishing returns beyond 6 variants, file size savings decrease while complexity increases.</p>
+<p><strong>Does srcset work with lazy loading?</strong></p>
+<p>Yes. Combine <code>srcset</code>, <code>sizes</code>, and <code>loading=&quot;lazy&quot;</code>:</p>
+<pre><code class="language-html">&lt;img
+  srcset=&quot;small.jpg 480w, medium.jpg 1024w&quot;
+  sizes=&quot;100vw&quot;
+  src=&quot;medium.jpg&quot;
+  alt=&quot;Image&quot;
+  loading=&quot;lazy&quot;
+  width=&quot;1024&quot;
+  height=&quot;768&quot;&gt;
+</code></pre>
+<p>When the image approaches the viewport, the browser requests the appropriate <code>srcset</code> variant based on viewport size and pixel density.</p>
+<p><strong>Why does my browser still download large images on mobile?</strong></p>
+<p>Likely causes:</p>
+<ol>
+<li><strong>sizes attribute missing or incorrect:</strong> Browser defaults to <code>100vw</code>, selecting larger sources than necessary</li>
+<li><strong>Preloading overrides srcset:</strong> <code>&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;large.jpg&quot;&gt;</code> downloads the specified image regardless of <code>srcset</code></li>
+<li><strong>Cache headers:</strong> Browser cached large image from previous desktop visit</li>
+</ol>
+<p>Fix by verifying <code>sizes</code> matches CSS layout and avoiding image preloads when using <code>srcset</code>.</p>
+<p><strong>Should I include the original high-res image in srcset?</strong></p>
+<p>Only if you expect users on 4K/5K displays. For most sites, 1920w or 2560w is sufficient. Including 4000w+ variants wastes server storage and processing without meaningful quality improvement.</p>
+<p><strong>How do I handle retina displays with srcset?</strong></p>
+<p>Width descriptors (<code>w</code>) automatically account for pixel density. A 375px viewport at 2x density needs 750px effective resolution, browsers select <code>srcset</code> sources accordingly. You don&#39;t need separate 1x/2x/3x sources when using width descriptors.</p>
+<p><strong>Can I mix resolution (x) and width (w) descriptors?</strong></p>
+<p>No. Use one descriptor type per <code>srcset</code>. Width descriptors (<code>w</code>) with <code>sizes</code> handle responsive layout. Resolution descriptors (<code>x</code>) suit fixed-size images like logos. Mixing them is invalid syntax.</p>
+<hr>
+<h2 id="when-this-fix-isn-t-your-priority">When This Fix Isn't Your Priority</h2>
+<p>Skip this for now if:</p>
+<ul>
+<li><strong>Your site has fundamental crawling/indexing issues.</strong> Fixing a meta description is pointless if Google can&#39;t reach the page. Resolve access, robots.txt, and crawl errors before optimizing on-page elements.</li>
+<li><strong>You&#39;re mid-migration.</strong> During platform or domain migrations, freeze non-critical changes. The migration itself introduces enough variables, layer optimizations after the new environment stabilizes.</li>
+<li><strong>The page gets zero impressions in Search Console.</strong> If Google shows no data for the page, the issue is likely discoverability or indexation, not on-page optimization. Investigate why the page isn&#39;t indexed first.</li>
+</ul>
+
+      </article>
+
+
+      <!-- CTA -->
+      <div class="pt-cta-box mt-12">
+        <div class="flex flex-col items-start gap-4">
+          <h3 class="font-display font-bold text-xl text-slate-100">This is one piece of the system.</h3>
+          <p class="text-slate-400 text-sm max-w-lg">Built by Victor Romo (<a href="https://x.com/b2bvic" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">@b2bvic</a>) &mdash; I build AI memory systems for businesses.</p>
+          <div class="flex flex-wrap gap-3 mt-2">
+            <a href="https://scalewithsearch.com" class="px-8 py-3 bg-cta-500 hover:bg-cta-400 text-white font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              See The Full System
+            </a>
+            <a href="https://github.com/b2bvic/scale-with-search" class="px-8 py-3 border border-navy-600 hover:border-violet-500 text-slate-300 hover:text-violet-400 font-semibold rounded-lg transition-colors text-sm" target="_blank" rel="noopener">
+              View Repo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <section class="mt-16 pt-10 border-t border-navy-600">
+        <h3 class="font-display font-semibold text-xl text-slate-100 mb-6">Related Analysis</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+
+          <a href="/articles/wordpress-speed-optimization-guide.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">WordPress Speed Optimization Guide: Complete Performance Fixes</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Accelerate WordPress load times using caching strategies, image optimization, database cleanup, and CDN implementation that improve Core Web Vitals and rankings.</p>
+          </a>
+
+          <a href="/articles/server-side-caching-explained.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Server-Side Caching Explained: Speed Up Your Site for Users and Crawlers</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Implement server-side caching to reduce TTFB, improve Core Web Vitals, and optimize crawl budget. Technical guide covering Redis, Varnish, and CDN strategies.</p>
+          </a>
+
+          <a href="/articles/shopify-speed-optimization-fixes.html" class="pt-card block group">
+            <span class="text-xs font-mono text-violet-500 uppercase tracking-wider">Performance</span>
+            <h4 class="mt-2 font-display font-semibold text-slate-100 group-hover:text-violet-400 transition-colors leading-snug">Shopify Speed Optimization Fixes That Actually Move the Needle</h4>
+            <p class="mt-2 text-sm text-slate-500 line-clamp-2">Technical performance fixes for Shopify stores that reduce load time, improve Core Web Vitals, and boost search rankings without breaking functionality.</p>
+          </a>
+        </div>
+      </section>
+
+      <!-- Back nav -->
+      <div class="mt-12 pt-8 border-t border-navy-600">
+        <a href="/articles.html" class="text-violet-500 hover:text-violet-400 font-medium text-sm transition-colors">&larr; All Articles</a>
+      </div>
+
+    </main>
+
+
+  <footer class="bg-navy-800 border-t border-navy-600 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <!-- Col 1: About -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-violet-500 flex items-center justify-center">
+              <span class="font-display font-bold text-white text-xs tracking-tight">PT</span>
+            </div>
+            <span class="font-display font-semibold text-slate-100 tracking-tight">Polytraffic</span>
+          </div>
+          <p class="text-sm text-slate-500 leading-relaxed">
+            Multi-channel traffic intelligence for publishers. Frameworks for diversifying, valuing, and defending traffic portfolios against platform volatility.
+          </p>
+          <p class="mt-4 text-xs text-slate-500">
+            A <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400">Scale With Search</a> property.
+          </p>
+        </div>
+
+        <!-- Col 2: Traffic Channels -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Traffic Channels</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/channels/seo.html" class="text-slate-500 hover:text-violet-400 transition-colors">SEO</a></li>
+            <li><a href="/channels/paid-search.html" class="text-slate-500 hover:text-violet-400 transition-colors">Paid Search</a></li>
+            <li><a href="/channels/social.html" class="text-slate-500 hover:text-violet-400 transition-colors">Social</a></li>
+            <li><a href="/channels/email.html" class="text-slate-500 hover:text-violet-400 transition-colors">Email</a></li>
+            <li><a href="/channels/referral.html" class="text-slate-500 hover:text-violet-400 transition-colors">Referral</a></li>
+            <li><a href="/channels/direct.html" class="text-slate-500 hover:text-violet-400 transition-colors">Direct</a></li>
+            <li><a href="/resilience.html" class="text-slate-500 hover:text-violet-400 transition-colors">Algorithm Resilience</a></li>
+            <li><a href="/articles.html" class="text-slate-500 hover:text-violet-400 transition-colors">All Articles</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Frameworks & Tools -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">Frameworks &amp; Tools</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/economics/cpv-analysis.html" class="text-slate-500 hover:text-violet-400 transition-colors">CPV Analysis</a></li>
+            <li><a href="/economics/attribution-models.html" class="text-slate-500 hover:text-violet-400 transition-colors">Attribution Models</a></li>
+            <li><a href="/economics/roi-frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">ROI Frameworks</a></li>
+            <li><a href="/tools/calculators.html" class="text-slate-500 hover:text-violet-400 transition-colors">Calculators</a></li>
+            <li><a href="/tools/frameworks.html" class="text-slate-500 hover:text-violet-400 transition-colors">Frameworks</a></li>
+            <li><a href="/tools/templates.html" class="text-slate-500 hover:text-violet-400 transition-colors">Templates</a></li>
+            <li><a href="/setup.html" class="text-cta-500 hover:text-cta-400 transition-colors font-medium">Have It Built For You</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Entity Network -->
+        <div>
+          <h4 class="font-display font-semibold text-slate-100 text-sm mb-4 uppercase tracking-wider">From Scale With Search</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://scalewithsearch.com" class="text-violet-400 hover:text-violet-300 font-semibold transition-colors" target="_blank" rel="noopener">scalewithsearch.com</a></li>
+            <li><a href="https://seoforexecutives.substack.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Newsletter</a></li>
+            <li><a href="https://github.com/b2bvic/scale-with-search" class="text-slate-400 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">GitHub &mdash; Open Source</a></li>
+          <li><a href="https://scalewithsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">scalewithsearch</a></li>
+          <li><a href="https://victorvalentineromo.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">victorvalentineromo</a></li>
+          <li><a href="https://aifirstsearch.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aifirstsearch</a></li>
+          <li><a href="https://browserprompt.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">browserprompt</a></li>
+          <li><a href="https://creatinepedia.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">creatinepedia</a></li>
+          <li><a href="https://organicarbitrage.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">organicarbitrage</a></li>
+          <li><a href="https://aipaypercrawl.com" class="text-slate-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">aipaypercrawl</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-8 border-t border-navy-600 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>&copy; 2026 Polytraffic. Part of the <a href="https://scalewithsearch.com" class="text-violet-500 hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a> network.</p>
+        <div class="flex gap-6">
+          <a href="https://scalewithsearch.com" class="hover:text-violet-400 transition-colors" target="_blank" rel="noopener">Scale With Search</a>
+          <a href="https://github.com/b2bvic/scale-with-search" class="hover:text-slate-400 transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="/privacy.html" class="hover:text-slate-400 transition-colors">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-400 transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('pt-mobile-toggle');
+      var menu = document.getElementById('pt-mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
